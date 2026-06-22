@@ -1,0 +1,59 @@
+# =============================================================================
+# Protein AI Platform — Backend Dockerfile (multi-stage)
+# =============================================================================
+# Stage 1: Build — install system build dependencies and pip packages into a
+#           portable virtualenv so the runtime image stays slim.
+# Stage 2: Runtime — copy virtualenv + app code, expose port, run uvicorn.
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Stage 1 — Builder
+# ---------------------------------------------------------------------------
+FROM python:3.12-slim AS builder
+
+WORKDIR /app
+
+# System packages required to compile Python dependencies (e.g. asyncpg)
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create an isolated virtualenv
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Install Python dependencies into the virtualenv
+COPY backend/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# ---------------------------------------------------------------------------
+# Stage 2 — Runtime
+# ---------------------------------------------------------------------------
+FROM python:3.12-slim AS runtime
+
+WORKDIR /app
+
+# Runtime system libraries (libpq for asyncpg, curl for healthchecks)
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libpq-dev \
+        curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy virtualenv from builder
+COPY --from=builder /opt/venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Copy application code
+COPY backend/ .
+
+# Create a non-root user for security
+RUN groupadd -r appuser && useradd -r -g appuser appuser \
+    && chown -R appuser:appuser /app
+USER appuser
+
+EXPOSE 8000
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

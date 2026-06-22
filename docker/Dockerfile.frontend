@@ -1,0 +1,37 @@
+# =============================================================================
+# Protein AI Platform — Frontend Dockerfile (multi-stage)
+# =============================================================================
+# Stage 1: Build — install Node deps (leveraging Docker layer caching for
+#           package*.json) and produce a production build of the React SPA.
+# Stage 2: Runtime — serve the static bundle with Nginx.
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Stage 1 — Node builder
+# ---------------------------------------------------------------------------
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Separate copy of package manifests for optimal layer caching
+COPY frontend/package.json frontend/package-lock.json ./
+RUN npm ci
+
+# Copy remaining source files and build
+COPY frontend/ .
+RUN npm run build
+
+# ---------------------------------------------------------------------------
+# Stage 2 — Nginx runtime
+# ---------------------------------------------------------------------------
+FROM nginx:alpine
+
+# Copy the production build from the builder stage
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Copy the frontend-specific Nginx configuration
+COPY docker/nginx-frontend.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 3000
+
+CMD ["nginx", "-g", "daemon off;"]
