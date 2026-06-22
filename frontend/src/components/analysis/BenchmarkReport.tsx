@@ -1,4 +1,5 @@
-import { CheckCircle2, XCircle, AlertTriangle, Info, FlaskConical, Thermometer, Dna, Box, Zap } from 'lucide-react'
+import { CheckCircle2, XCircle, AlertTriangle, Info, FlaskConical, Thermometer, Dna, Box, Zap, Download, Printer } from 'lucide-react'
+import { downloadReport, printReport } from '@/lib/report'
 
 interface BenchmarkData {
   query_info: { length: number; sequence_preview: string }
@@ -87,6 +88,14 @@ export function BenchmarkReport({ data }: { data: BenchmarkData }) {
           <p className="text-xs text-muted-foreground">
             {query_info.length} residues · {family.ec || 'EC unknown'} · {family.mechanism || 'Mechanism unknown'}
           </p>
+        </div>
+        <div className="flex items-center gap-1 shrink-0">
+          <button onClick={() => downloadReport('benchmark', data)} className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground" title="Download HTML report">
+            <Download className="w-3.5 h-3.5" />
+          </button>
+          <button onClick={() => printReport('benchmark', data)} className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground" title="Print report">
+            <Printer className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
 

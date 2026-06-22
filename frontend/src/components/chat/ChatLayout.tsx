@@ -12,8 +12,9 @@ import { useChatStore } from '@/stores/chat'
 import { useAuthStore } from '@/stores/auth'
 import { useUIStore } from '@/stores/ui'
 import { useTheme } from '@/hooks/useTheme'
-import { Menu, PanelRightClose, PanelRight, User, LogOut, Sun, Moon, Home } from 'lucide-react'
+import { Menu, PanelRightClose, PanelRight, User, LogOut, Sun, Moon, Home, FileText } from 'lucide-react'
 import type { AgentState } from '@/stores/chat'
+import { collectResults, downloadConversationReport } from '@/lib/conversation-report'
 
 const STAGE_LABELS: Record<AgentState['stage'], string> = {
   router: 'Routing',
@@ -277,6 +278,29 @@ export function ChatLayout() {
 
           {/* Language switch */}
           <LanguageSwitch />
+
+          {/* Export Conversation Report */}
+          <button
+            onClick={() => {
+              const store = useChatStore.getState()
+              const msgs = store.messages
+              const results = msgs.flatMap((m) => {
+                if (m.role === 'assistant' && m.toolCalls?.length) {
+                  return collectResults(m.content, m.toolCalls)
+                }
+                return []
+              })
+              if (results.length === 0) return
+              const lastAssistant = [...msgs].reverse().find((m) => m.role === 'assistant')
+              const title = store.conversations.find((c) => c.id === store.currentId)?.title || 'Analysis Report'
+              downloadConversationReport(title, results, lastAssistant?.content)
+            }}
+            className="p-2 rounded-md hover:bg-secondary text-muted-foreground"
+            aria-label="Export report"
+            title={t('home.downloadReport') || 'Download full report'}
+          >
+            <FileText className="w-4 h-4" />
+          </button>
 
           {/* User Menu */}
           {user && (

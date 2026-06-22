@@ -1,4 +1,5 @@
-import { ShieldAlert, ShieldCheck, ShieldX, TrendingUp, Target } from 'lucide-react'
+import { ShieldAlert, ShieldCheck, ShieldX, TrendingUp, Target, Download, Printer } from 'lucide-react'
+import { downloadReport, printReport } from '@/lib/report'
 
 interface DimensionScores {
   surface_exposure?: number
@@ -101,6 +102,14 @@ export function MutationScoreCard({ data }: { data: MutationScoreData }) {
           <p className="text-xs text-muted-foreground">
             {GOAL_LABELS[engineering_goal] || engineering_goal} · {summary.total_positions} positions scanned
           </p>
+        </div>
+        <div className="flex items-center gap-1 shrink-0">
+          <button onClick={() => downloadReport('mutation_score', data)} className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground" title="Download HTML report">
+            <Download className="w-3.5 h-3.5" />
+          </button>
+          <button onClick={() => printReport('mutation_score', data)} className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground" title="Print report">
+            <Printer className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
 

@@ -1,4 +1,5 @@
-import { Activity, Zap, TrendingUp, TrendingDown, Minus, ShieldCheck, ShieldAlert, Circle } from 'lucide-react'
+import { Activity, Zap, TrendingUp, TrendingDown, Minus, ShieldCheck, ShieldAlert, Circle, Download, Printer } from 'lucide-react'
+import { downloadReport, printReport } from '@/lib/report'
 
 interface SimulationParams {
   sequence_length: number
@@ -143,9 +144,19 @@ export function MDResultView({ data }: { data: MDResultData }) {
   return (
     <div className="space-y-4 text-sm">
       {/* Header */}
-      <div className="flex items-center gap-2 mb-1">
-        <Activity className="w-4 h-4 text-primary" />
-        <h3 className="font-semibold">MD Simulation Results</h3>
+      <div className="flex items-center gap-2 mb-1 justify-between">
+        <div className="flex items-center gap-2">
+          <Activity className="w-4 h-4 text-primary" />
+          <h3 className="font-semibold">MD Simulation Results</h3>
+        </div>
+        <div className="flex items-center gap-1 shrink-0">
+          <button onClick={() => downloadReport('md', data)} className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground" title="Download HTML report">
+            <Download className="w-3.5 h-3.5" />
+          </button>
+          <button onClick={() => printReport('md', data)} className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground" title="Print report">
+            <Printer className="w-3.5 h-3.5" />
+          </button>
+        </div>
       </div>
       <p className="text-xs text-muted-foreground">
         {engine} · {ensemble} · {p.simulation_time_ns}ns · {p.temperature_k}K · {p.force_field}/{p.water_model}

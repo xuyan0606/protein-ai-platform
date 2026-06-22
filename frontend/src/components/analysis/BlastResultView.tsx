@@ -1,4 +1,5 @@
-import { Search, ExternalLink } from 'lucide-react'
+import { Search, ExternalLink, Download, Printer } from 'lucide-react'
+import { downloadReport, printReport } from '@/lib/report'
 
 interface Hsp {
   query_from?: number
@@ -65,9 +66,19 @@ export function BlastResultView({ data }: { data: BlastResult }) {
   return (
     <div className="space-y-4 text-sm">
       {/* Header */}
-      <div className="flex items-center gap-2 mb-1">
-        <Search className="w-4 h-4 text-primary" />
-        <h3 className="font-semibold">BLAST Results</h3>
+      <div className="flex items-center gap-2 mb-1 justify-between">
+        <div className="flex items-center gap-2">
+          <Search className="w-4 h-4 text-primary" />
+          <h3 className="font-semibold">BLAST Results</h3>
+        </div>
+        <div className="flex items-center gap-1 shrink-0">
+          <button onClick={() => downloadReport('blast', data)} className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground" title="Download HTML report">
+            <Download className="w-3.5 h-3.5" />
+          </button>
+          <button onClick={() => printReport('blast', data)} className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground" title="Print report">
+            <Printer className="w-3.5 h-3.5" />
+          </button>
+        </div>
       </div>
       <p className="text-xs text-muted-foreground">
         {program} against {database} · {query_length} aa query · {results_count} hits
