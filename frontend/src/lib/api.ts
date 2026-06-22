@@ -66,6 +66,37 @@ export const api = {
       body: JSON.stringify({ refresh_token }),
     }),
 
+  // Projects
+  getProjects: () => request<any[]>('/projects'),
+
+  createProject: (name: string, description?: string) =>
+    request<any>('/projects', { method: 'POST', body: JSON.stringify({ name, description }) }),
+
+  getProject: (id: string) => request<any>(`/projects/${id}`),
+
+  updateProject: (id: string, data: { name?: string; description?: string }) =>
+    request<any>(`/projects/${id}`, { method: 'PATCH', body: JSON.stringify(data) }),
+
+  deleteProject: (id: string) =>
+    request<void>(`/projects/${id}`, { method: 'DELETE' }),
+
+  addSequence: (projectId: string, name: string, sequence: string, notes?: string) =>
+    request<any>(`/projects/${projectId}/sequences`, {
+      method: 'POST',
+      body: JSON.stringify({ name, sequence, notes }),
+    }),
+
+  removeSequence: (projectId: string, seqId: string) =>
+    request<void>(`/projects/${projectId}/sequences/${seqId}`, { method: 'DELETE' }),
+
+  batchRun: (projectId: string, tool: string, params?: Record<string, unknown>) =>
+    request<any>(`/projects/${projectId}/batch-run`, {
+      method: 'POST',
+      body: JSON.stringify({ tool, params: params || {} }),
+    }),
+
+  getBatchJobs: (projectId: string) => request<any[]>(`/projects/${projectId}/batch-jobs`),
+
   // Files
   getFiles: () => request<any[]>('/files'),
 

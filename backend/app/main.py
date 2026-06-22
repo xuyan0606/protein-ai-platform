@@ -8,7 +8,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import chat, conversations, files, auth, tools
+from app.api import chat, conversations, files, auth, tools, projects
 from app.core.config import settings
 from app.core.metrics import MetricsMiddleware, metrics_response
 
@@ -59,6 +59,7 @@ app.include_router(chat.router, prefix="/api/chat", tags=["Chat"])
 app.include_router(conversations.router, prefix="/api/conversations", tags=["Conversations"])
 app.include_router(files.router, prefix="/api/files", tags=["Files"])
 app.include_router(tools.router, prefix="/api/tools", tags=["Tools"])
+app.include_router(projects.router, prefix="/api/projects", tags=["Projects"])
 
 
 @app.get("/api/health")

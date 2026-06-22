@@ -12,7 +12,7 @@ import { useChatStore } from '@/stores/chat'
 import { useAuthStore } from '@/stores/auth'
 import { useUIStore } from '@/stores/ui'
 import { useTheme } from '@/hooks/useTheme'
-import { Menu, PanelRightClose, PanelRight, User, LogOut, Sun, Moon, Home, FileText } from 'lucide-react'
+import { Menu, PanelRightClose, PanelRight, User, LogOut, Sun, Moon, Home, FileText, FolderKanban } from 'lucide-react'
 import type { AgentState } from '@/stores/chat'
 import { collectResults, downloadConversationReport } from '@/lib/conversation-report'
 
@@ -257,6 +257,14 @@ export function ChatLayout() {
             title="Home"
           >
             <Home className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => navigate('/projects')}
+            className="p-2 rounded-md hover:bg-secondary text-muted-foreground"
+            aria-label="Projects"
+            title="Projects"
+          >
+            <FolderKanban className="w-4 h-4" />
           </button>
           <span className="font-semibold text-xs sm:text-sm truncate">
             {t('app.title')}
