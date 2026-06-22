@@ -1,3 +1,5 @@
 export { BenchmarkReport, isBenchmarkResult } from './BenchmarkReport'
 export { MutationScoreCard, isMutationScoreResult } from './MutationScoreCard'
 export { BlastResultView, isBlastResult } from './BlastResultView'
+export { MDResultView, isMDResult } from './MDResultView'
+export { BatchCompare, isBatchCompareResult, extractBatchCompare } from './BatchCompare'

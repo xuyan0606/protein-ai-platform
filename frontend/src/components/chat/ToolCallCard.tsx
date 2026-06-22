@@ -5,6 +5,7 @@ import { ProteinViewer } from '@/components/viewer/ProteinViewer'
 import { BenchmarkReport, isBenchmarkResult } from '@/components/analysis/BenchmarkReport'
 import { MutationScoreCard, isMutationScoreResult } from '@/components/analysis/MutationScoreCard'
 import { BlastResultView, isBlastResult } from '@/components/analysis/BlastResultView'
+import { MDResultView, isMDResult } from '@/components/analysis/MDResultView'
 
 interface Props {
   toolCall: ToolCall
@@ -33,7 +34,7 @@ function tryParseResult(preview: string | undefined): unknown | null {
   }
 }
 
-const ANALYSIS_TOOLS = ['protein_benchmark', 'mutation_priority_score', 'blast_search']
+const ANALYSIS_TOOLS = ['protein_benchmark', 'mutation_priority_score', 'blast_search', 'gromacs_md']
 
 export function ToolCallCard({ toolCall }: Props) {
   const [expanded, setExpanded] = useState(false)
@@ -64,6 +65,9 @@ export function ToolCallCard({ toolCall }: Props) {
     }
     if (toolCall.name === 'blast_search' && isBlastResult(analysisResult)) {
       return <BlastResultView data={analysisResult} />
+    }
+    if (toolCall.name === 'gromacs_md' && isMDResult(analysisResult)) {
+      return <MDResultView data={analysisResult} />
     }
     return null
   }, [analysisResult, toolCall.name])
