@@ -26,11 +26,11 @@ const STAGE_LABELS: Record<AgentState['stage'], string> = {
 }
 
 const STAGE_COLORS: Record<AgentState['stage'], string> = {
-  router: 'text-blue-400',
-  research: 'text-purple-400',
-  plan: 'text-amber-400',
-  execute: 'text-emerald-400',
-  synthesize: 'text-rose-400',
+  router: 'text-blue-600 font-semibold',
+  research: 'text-purple-600 font-semibold',
+  plan: 'text-amber-600 font-semibold',
+  execute: 'text-emerald-600 font-semibold',
+  synthesize: 'text-rose-600 font-semibold',
   done: 'text-muted-foreground',
 }
 

@@ -165,7 +165,7 @@ export function ToolPanel() {
               key={cat}
               onClick={() => { setActiveCat(cat); setSelectedTool(null) }}
               className={`flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium transition-colors ${
-                activeCat === cat ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground hover:text-foreground'
+                activeCat === cat ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground hover:bg-secondary/70'
               }`}
             >
               <Icon className="w-2.5 h-2.5" />
