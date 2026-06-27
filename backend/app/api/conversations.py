@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sqlalchemy import func, select, delete
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
@@ -51,11 +51,11 @@ class ConversationDetail(BaseModel):
 
 
 class CreateConversationRequest(BaseModel):
-    title: str = "New Conversation"
+    title: str = Field(default="New Conversation", max_length=200, min_length=1)
 
 
 class UpdateConversationRequest(BaseModel):
-    title: str
+    title: str = Field(max_length=200, min_length=1)
 
 
 # ---------------------------------------------------------------------------
