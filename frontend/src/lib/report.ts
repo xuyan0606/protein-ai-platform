@@ -98,16 +98,27 @@ function renderMutationScore(data: any): string {
   html += h('div', { class: 'metric-card' }, h('div', { class: 'metric-label' }, 'Never Mutate') + h('div', { class: 'metric-value', style: 'color:#dc2626' }, `${data.summary?.never_mutate_count || 0}`))
   html += '</div>'
 
-  // Tier 1 table
-  if (data.tier_1_candidates?.length) {
-    html += h('h2', {}, 'Tier 1 — High Priority Candidates')
-    html += '<table><thead><tr><th>Position</th><th>WT</th><th>Score</th><th>Recommended</th></tr></thead><tbody>'
-    data.tier_1_candidates.forEach((c: any) => {
-      const muts = Array.isArray(c.recommended_mutations) ? c.recommended_mutations.join(', ') : c.recommended_mutations
-      html += `<tr><td class="code">${c.wild_type}${c.position}</td><td>${c.wild_type}</td><td><strong>${f(c.composite_priority)}</strong></td><td class="code">${muts}</td></tr>`
-    })
-    html += '</tbody></table>'
+  if (data.summary?.never_mutate_positions?.length) {
+    html += h('p', { class: 'muted' }, `Never mutate positions: ${data.summary.never_mutate_positions.join(', ')}`)
   }
+
+  function renderTierTable(candidates: any[], tier: number, title: string) {
+    if (!candidates?.length) return ''
+    let h2 = `<h2>${title}</h2>`
+    h2 += '<table><thead><tr><th>Position</th><th>Type</th><th>Score</th><th>Logic</th><th>Recommended</th></tr></thead><tbody>'
+    candidates.forEach((c: any) => {
+      const muts = Array.isArray(c.recommended_mutations)
+        ? c.recommended_mutations.map((m: any) => typeof m === 'string' ? m : m.mutation).join(', ')
+        : String(c.recommended_mutations || '')
+      const typeTag = c.mutation_type ? `<span class="badge ${tier === 1 ? 'badge-green' : 'badge-amber'}">${c.mutation_type}</span>` : '—'
+      h2 += `<tr><td class="code">${c.wild_type}${c.position}</td><td>${typeTag}</td><td><strong>${f(c.composite_priority)}</strong></td><td class="muted" style="max-width:300px">${c.logic || ''}</td><td class="code">${muts}</td></tr>`
+    })
+    h2 += '</tbody></table>'
+    return h2
+  }
+
+  html += renderTierTable(data.tier_1_candidates, 1, 'Tier 1 — Priority Candidates')
+  html += renderTierTable(data.tier_2_candidates, 2, 'Tier 2 — Optional Candidates')
 
   return html
 }

@@ -1,0 +1,7 @@
+# ML / Protein Language Models (CPU inference)
+# Install torch separately from CPU wheel index before running pip install -r requirements-ml.txt:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch>=2.5.0
+fair-esm>=2.0.0
+transformers>=4.48.0
+rdkit>=2024.03.0

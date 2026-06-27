@@ -93,8 +93,54 @@ services:
       start_period: 30s
     restart: unless-stopped
 
+  # ===========================================================================
+  # Outline — team knowledge base (dev mode, backend runs on host)
+  # ===========================================================================
+  outline:
+    image: outlinewiki/outline:latest
+    ports:
+      - "3002:3001"
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/outline
+      PGSSLMODE: disable
+      REDIS_URL: redis://redis:6379/1
+      AWS_ACCESS_KEY_ID: ${MINIO_ROOT_USER:-minioadmin}
+      AWS_SECRET_ACCESS_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      AWS_REGION: us-east-1
+      AWS_S3_UPLOAD_BUCKET_NAME: outline-uploads
+      AWS_S3_UPLOAD_BUCKET_URL: http://minio:9000
+      AWS_S3_FORCE_PATH_STYLE: "true"
+      AWS_S3_ACL: private
+      OIDC_CLIENT_ID: protein-ai
+      OIDC_CLIENT_SECRET: ${OIDC_CLIENT_SECRET:-oidc-secret-change-me-in-production}
+      OIDC_AUTH_URI: http://localhost:8000/api/oidc/authorize
+      OIDC_TOKEN_URI: http://host.docker.internal:8000/api/oidc/token
+      OIDC_USERINFO_URI: http://host.docker.internal:8000/api/oidc/userinfo
+      OIDC_LOGOUT_URI: http://localhost:8000/api/oidc/logout
+      OIDC_DISPLAY_NAME: Protein AI
+      OIDC_SCOPES: openid profile email
+      SECRET_KEY: ${OUTLINE_SECRET_KEY:-a6a12c802c24de793c39eca2ac24060e0290637104d03cd53c66030a0454e0c8}
+      UTILS_SECRET: ${OUTLINE_UTILS_SECRET:-0fe2b485c0363633fc82c70d73b238fa7f134de46da36fe13f9a8d25ce7e96e3}
+      URL: http://localhost:8000
+      PORT: 3001
+      FORCE_HTTPS: "false"
+      FILE_STORAGE: s3
+      RATE_LIMITER_ENABLED: "false"
+    volumes:
+      - outline_data_dev:/var/lib/outline/data
+      - ./outline-passport-patched.js:/opt/outline/build/server/utils/passport.js
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
 volumes:
   pgdata_dev:
   redis_data_dev:
   minio_data_dev:
   chroma_data_dev:
+  outline_data_dev:

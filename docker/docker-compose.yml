@@ -20,11 +20,23 @@ services:
       - "443:443"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
     networks:
       - app_network
     depends_on:
       - frontend
       - backend
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/nginx-health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     restart: unless-stopped
 
   # =========================================================================
@@ -38,10 +50,18 @@ services:
       - "3000"
     networks:
       - app_network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     restart: unless-stopped
-    # Dev-mode: mount source folder for hot-reload (comment out for prod)
-    # volumes:
-    #   - ../frontend/src:/app/src:ro
 
   # =========================================================================
   # Backend — FastAPI application server
@@ -61,8 +81,12 @@ services:
       POSTGRES_HOST: postgres
       REDIS_HOST: redis
       MINIO_ENDPOINT: minio:9000
+      ML_MODEL_CACHE_DIR: /app/.model_cache
+      USE_SQLITE: "false"
       # Allow Docker-host browser origins
-      CORS_ORIGINS: '["http://localhost:80","http://localhost:3000","http://localhost:5173"]'
+      CORS_ORIGINS: '["https://8.139.255.194","https://proteinai.kevibotech.com"]'
+    volumes:
+      - model_cache:/app/.model_cache
     depends_on:
       postgres:
         condition: service_healthy
@@ -70,10 +94,18 @@ services:
         condition: service_healthy
       minio:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     restart: unless-stopped
-    # Dev-mode: mount app code for auto-reload (comment out for prod)
-    # volumes:
-    #   - ../backend/app:/app/app:ro
 
   # =========================================================================
   # Worker — Celery task runner (GPU / long-running protein computations)
@@ -95,6 +127,17 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.services.scheduler", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     restart: unless-stopped
     # GPU access (uncomment if needed):
     # deploy:
@@ -114,8 +157,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       POSTGRES_DB: ${POSTGRES_DB:-protein_ai}
-    ports:
-      - "5432:5432"
+    # No public port — only accessible within app_network
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
@@ -126,6 +168,11 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     restart: unless-stopped
 
   # =========================================================================
@@ -133,8 +180,7 @@ services:
   # =========================================================================
   redis:
     image: redis:7-alpine
-    ports:
-      - "6379:6379"
+    # No public port — only accessible within app_network
     volumes:
       - redis_data:/data
     command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
@@ -146,6 +192,11 @@ services:
       timeout: 5s
       retries: 5
       start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     restart: unless-stopped
 
   # =========================================================================
@@ -157,9 +208,7 @@ services:
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
-    ports:
-      - "9000:9000"   # S3 API
-      - "9001:9001"   # Web console
+    # No public ports — S3 API and console only accessible within app_network
     volumes:
       - minio_data:/data
     networks:
@@ -170,15 +219,78 @@ services:
       timeout: 5s
       retries: 3
       start_period: 20s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     restart: unless-stopped
+
+  # =========================================================================
+  # Outline — team knowledge base (OIDC auth via our backend)
+  # =========================================================================
+  outline:
+    image: outlinewiki/outline:latest
+    expose:
+      - "3001"
+    environment:
+      # Database (shared PostgreSQL, separate database)
+      DATABASE_URL: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/outline
+      PGSSLMODE: disable
+      DATABASE_URL_TEST: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/outline_test
+      # Redis (shared, DB 1 for Outline)
+      REDIS_URL: redis://redis:6379/1
+      # S3 storage (shared MinIO)
+      AWS_ACCESS_KEY_ID: ${MINIO_ROOT_USER:-minioadmin}
+      AWS_SECRET_ACCESS_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      AWS_REGION: us-east-1
+      AWS_S3_UPLOAD_BUCKET_NAME: outline-uploads
+      AWS_S3_UPLOAD_BUCKET_URL: http://minio:9000
+      AWS_S3_FORCE_PATH_STYLE: "true"
+      AWS_S3_ACL: private
+      # OIDC authentication (HTTPS in production)
+      OIDC_CLIENT_ID: protein-ai
+      OIDC_CLIENT_SECRET: ${OIDC_CLIENT_SECRET:-72133a323ffc0ae1ff449fcabec9368a44dd6bddc59eaca21c9afefcb7a6aee9}
+      OIDC_AUTH_URI: https://8.139.255.194/api/oidc/authorize
+      OIDC_TOKEN_URI: http://backend:8000/api/oidc/token
+      OIDC_USERINFO_URI: http://backend:8000/api/oidc/userinfo
+      OIDC_LOGOUT_URI: https://8.139.255.194/api/oidc/logout
+      OIDC_DISPLAY_NAME: Protein AI
+      OIDC_SCOPES: openid profile email
+      # Application
+      SECRET_KEY: ${OUTLINE_SECRET_KEY:-dea6e90a6667d16e5f62183bfebe74b74bd67b548826d64667a83dd16d13e31b}
+      UTILS_SECRET: ${OUTLINE_UTILS_SECRET:-ef9ab5004c76cb85665254b57c0305089638f14816698eac237dcbd401e2091c}
+      URL: https://8.139.255.194/wiki
+      PORT: 3001
+      FORCE_HTTPS: "false"
+      NODE_ENV: production
+      FILE_STORAGE: s3
+      RATE_LIMITER_ENABLED: "false"
+    volumes:
+      - outline_data:/var/lib/outline/data
+    networks:
+      - app_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+    # Outline needs a separate 'outline' database — created by init_outline.sh
+    # Run migrations on first start:
+    #   docker compose exec outline yarn db:migrate
 
   # =========================================================================
   # ChromaDB — vector database (embeddings for semantic search / RAG)
   # =========================================================================
   chromadb:
     image: chromadb/chroma:latest
-    ports:
-      - "8001:8000"
+    # No public port — only accessible within app_network
     volumes:
       - chroma_data:/chroma/chroma
     environment:
@@ -192,6 +304,11 @@ services:
       timeout: 5s
       retries: 3
       start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     restart: unless-stopped
 
 # ===========================================================================
@@ -202,6 +319,8 @@ volumes:
   redis_data:
   minio_data:
   chroma_data:
+  model_cache:
+  outline_data:
 
 # ===========================================================================
 # Networks

@@ -3,5 +3,46 @@ from app.models.user import User
 from app.models.conversation import Conversation, Message
 from app.models.tool_call import ToolCallRecord
 from app.models.project import Project, ProjectSequence, BatchJob
+from app.models.domain import (
+    Taxonomy,
+    EnzymeRecord,
+    ECNumber,
+    EnzymeECLink,
+    PfamDomain,
+    DomainArchitecture,
+    PDBStructure,
+    AlphaFoldStructure,
+    KineticParameter,
+    StabilityRecord,
+    SubstrateCompound,
+    ReactionEquation,
+    DirectedEvolutionEntry,
+    DatabaseCrossRef,
+    KVStore,
+)
 
-__all__ = ["Base", "User", "Conversation", "Message", "ToolCallRecord", "Project", "ProjectSequence", "BatchJob"]
+__all__ = [
+    "Base",
+    "User",
+    "Conversation",
+    "Message",
+    "ToolCallRecord",
+    "Project",
+    "ProjectSequence",
+    "BatchJob",
+    "Taxonomy",
+    "EnzymeRecord",
+    "ECNumber",
+    "EnzymeECLink",
+    "PfamDomain",
+    "DomainArchitecture",
+    "PDBStructure",
+    "AlphaFoldStructure",
+    "KineticParameter",
+    "StabilityRecord",
+    "SubstrateCompound",
+    "ReactionEquation",
+    "DirectedEvolutionEntry",
+    "DatabaseCrossRef",
+    "KVStore",
+]

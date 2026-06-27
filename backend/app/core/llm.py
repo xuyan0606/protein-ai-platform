@@ -49,6 +49,7 @@ class Provider(str, Enum):
     DEEPSEEK = "deepseek"
     KUAPAO = "kuaPao"
     MINIMAX = "miniMax"
+    DASHSCOPE = "dashscope"
 
 
 # ---------------------------------------------------------------------------
@@ -149,6 +150,7 @@ def _get_api_key(provider: str) -> str | None:
         "deepseek": settings.DEEPSEEK_API_KEY,
         "kuaPao": settings.KUAPAO_API_KEY,
         "miniMax": settings.MINIMAX_API_KEY,
+        "dashscope": settings.DASHSCOPE_API_KEY,
     }
     return mapping.get(provider)
 
@@ -158,6 +160,7 @@ def _get_api_base(provider: str) -> str | None:
     mapping = {
         "kuaPao": settings.KUAPAO_BASE_URL,
         "miniMax": settings.MINIMAX_BASE_URL,
+        "dashscope": settings.DASHSCOPE_BASE_URL,
     }
     return mapping.get(provider) or None
 
@@ -168,7 +171,7 @@ def _model_string(provider: str, model: str) -> str:
     Custom OpenAI-compatible relays (kuaPao, miniMax) use 'openai/' prefix
     so LiteLLM uses the OpenAI chat-completion protocol.
     """
-    if provider in ("kuaPao", "miniMax"):
+    if provider in ("kuaPao", "miniMax", "dashscope"):
         return f"openai/{model}"
     return f"{provider}/{model}"
 
@@ -243,6 +246,8 @@ async def chat_completion(
         if stream:
             kwargs["stream"] = True
 
+        kwargs["timeout"] = settings.LLM_REQUEST_TIMEOUT
+
         for attempt in range(1, settings.LLM_MAX_RETRIES + 1):
             try:
                 if stream:
@@ -251,6 +256,19 @@ async def chat_completion(
                     return await acompletion(**kwargs)
             except Exception as exc:
                 last_error = exc
+                err_str = str(exc).lower()
+                # Permanent errors — skip retries, go straight to fallback
+                is_permanent = any(kw in err_str for kw in (
+                    "arrearage", "overdue", "insufficient_balance",
+                    "invalid_api_key", "invalid authentication",
+                    "access denied", "account", "billing",
+                ))
+                if is_permanent:
+                    logger.warning(
+                        "LLM provider %s/%s permanently unavailable: %s",
+                        prov, mod, exc,
+                    )
+                    break  # skip remaining retries, go to next provider
                 logger.warning(
                     "LLM attempt %d/%d for %s/%s failed: %s",
                     attempt, settings.LLM_MAX_RETRIES, prov, mod, exc,
@@ -320,6 +338,18 @@ def chat_completion_sync(
                 return completion(**kwargs)
             except Exception as exc:
                 last_error = exc
+                err_str = str(exc).lower()
+                is_permanent = any(kw in err_str for kw in (
+                    "arrearage", "overdue", "insufficient_balance",
+                    "invalid_api_key", "invalid authentication",
+                    "access denied", "account", "billing",
+                ))
+                if is_permanent:
+                    logger.warning(
+                        "LLM sync provider %s/%s permanently unavailable: %s",
+                        prov, mod, exc,
+                    )
+                    break
                 logger.warning(
                     "LLM sync attempt %d/%d for %s/%s failed: %s",
                     attempt, settings.LLM_MAX_RETRIES, prov, mod, exc,
@@ -426,6 +456,14 @@ MODEL_REGISTRY: list[ModelInfo] = [
         model=settings.MINIMAX_MODEL,
         description="MiniMax M2.7 via relay",
         available=bool(settings.MINIMAX_API_KEY),
+    ),
+    ModelInfo(
+        id="dashscope",
+        name="阿里云千问 (Qwen)",
+        provider="dashscope",
+        model=settings.DASHSCOPE_MODEL,
+        description="阿里云百炼 DashScope — qwen3.7-max 旗舰模型",
+        available=bool(settings.DASHSCOPE_API_KEY),
     ),
 ]
 

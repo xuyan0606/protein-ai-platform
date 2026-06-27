@@ -41,7 +41,7 @@ export interface ChatMessage {
   role: 'user' | 'assistant' | 'system'
   content: string
   toolCalls?: ToolCall[]
-  files?: { name: string; size: number; type: string }[]
+  files?: { name: string; size: number; type: string; objectName?: string; downloadUrl?: string; analysisData?: unknown }[]
   thinking?: string[]
   createdAt: number
 }
@@ -102,6 +102,15 @@ function genId() {
 const CURRENT_ID_KEY = 'currentConversationId'
 
 let _syncing = false
+
+function parseToolCalls(raw: unknown): ToolCall[] {
+  if (!raw) return []
+  if (Array.isArray(raw)) return raw as ToolCall[]
+  if (typeof raw === 'string') {
+    try { return JSON.parse(raw) as ToolCall[] } catch { return [] }
+  }
+  return []
+}
 
 export const useChatStore = create<ChatState>((set, get) => ({
   conversations: [],
@@ -259,7 +268,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
             id: m.id || genId(),
             role: m.role,
             content: m.content || '',
-            toolCalls: m.tool_calls || m.toolCalls || [],
+            toolCalls: parseToolCalls(m.tool_calls || m.toolCalls),
             files: m.files || [],
             thinking: m.thinking || [],
             createdAt: m.created_at ? new Date(m.created_at).getTime() : Date.now(),
@@ -283,7 +292,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
         id: m.id || genId(),
         role: m.role,
         content: m.content || '',
-        toolCalls: m.tool_calls || m.toolCalls || [],
+        toolCalls: parseToolCalls(m.tool_calls || m.toolCalls),
         files: m.files || [],
         thinking: m.thinking || [],
         createdAt: m.created_at ? new Date(m.created_at).getTime() : Date.now(),

@@ -389,55 +389,106 @@ def mutation_priority_score(
         else:
             tier = 3
 
-        # ---- Recommended mutations ----
+        # ---- Recommended mutations (no fake predictions) ----
         recommended_mutations = []
-        if composite >= 4.0:  # Only suggest for viable candidates
+        mutation_type = None
+        if composite >= 4.0:
             if is_ph_lowering and aa in ("K", "R"):
+                mutation_type = "表面电荷翻转"
                 for mt in ["E", "D", "Q"]:
-                    ddg_scr, ddg_why = _score_mutation_ddg(aa, mt)
                     recommended_mutations.append({
                         "mutation": f"{aa}{pos}{mt}",
-                        "purpose": "pH lowering (add negative charge)",
-                        "expected_impact": f"ΔΔG~{ddg_why.split('~')[1].split(' ')[0] if '~' in ddg_why else 'N/A'}",
+                        "type": mutation_type,
+                        "purpose": f"将表面正电荷({aa})替换为负电荷或极性残基，降低局部pKa，适应酸性环境",
                     })
             elif is_ph_lowering and aa == "H" and dist_score <= 5.0:
+                mutation_type = "活性中心电荷中和"
                 for mt in ["N", "F", "Q"]:
                     recommended_mutations.append({
                         "mutation": f"{aa}{pos}{mt}",
-                        "purpose": "eliminate pH-sensitive His switch",
-                        "expected_impact": "reduces pH-dependent activity variation",
+                        "type": mutation_type,
+                        "purpose": "消除活性中心附近的pH敏感His开关，减少pH依赖的活性波动",
                     })
             elif is_thermo and aa == "G" and asa_score >= 5.0:
+                mutation_type = "增加loop刚性"
                 recommended_mutations.append({
                     "mutation": f"{aa}{pos}P",
-                    "purpose": "thermostability (reduce backbone entropy)",
-                    "expected_impact": "ΔTm +2-8°C",
+                    "type": mutation_type,
+                    "purpose": "Gly→Pro减少主链构象熵，提高loop区刚性，增强热稳定性",
                 })
             elif is_ph_raising and aa in ("D", "E"):
+                mutation_type = "表面电荷翻转"
                 for mt in ["K", "R", "H"]:
                     recommended_mutations.append({
                         "mutation": f"{aa}{pos}{mt}",
-                        "purpose": "pH raising (add positive charge)",
-                        "expected_impact": "shifts local pKa upward",
+                        "type": mutation_type,
+                        "purpose": f"将表面负电荷({aa})替换为正电荷残基，提升局部pKa，适应碱性环境",
                     })
-            # General candidates: surface K/R→E for pH, G→P for thermo
+            # Fallback for general candidates
             if not recommended_mutations:
                 if aa in ("K", "R") and asa_score >= 7.0:
+                    mutation_type = "表面电荷优化"
                     recommended_mutations.append({
                         "mutation": f"{aa}{pos}E",
-                        "purpose": "general pH lowering candidate",
-                        "expected_impact": "ΔpKa_local ~-1 unit",
+                        "type": mutation_type,
+                        "purpose": "表面K/R→E，优化电荷分布，可调节pH适应性",
                     })
                 if aa == "G" and asa_score >= 5.0:
+                    mutation_type = mutation_type or "loop稳定性"
                     recommended_mutations.append({
                         "mutation": f"{aa}{pos}P",
-                        "purpose": "thermostability candidate",
-                        "expected_impact": "ΔTm +2-5°C",
+                        "type": mutation_type,
+                        "purpose": "Gly→Pro减少loop柔性，提升整体结构稳定性",
                     })
 
         # ---- Categories ----
         categories = _identify_category(aa, pos, active_positions)
         target_type = _detect_engineering_target_type(aa, pos, n, asa_score)
+
+        # ---- Build Chinese engineering logic ----
+        logic_parts = []
+
+        if asa_score >= 7.0:
+            logic_parts.append("位于蛋白表面，高度溶剂可及")
+        elif asa_score >= 5.0:
+            logic_parts.append("部分暴露于溶剂")
+        else:
+            logic_parts.append("位于蛋白内部，参与疏水核心")
+
+        if active_positions:
+            min_dist = min(abs(pos - ap) for ap in active_positions)
+            ang = min_dist * 3.8
+            if ang > 20:
+                logic_parts.append(f"远离活性中心(~{ang:.0f}Å)，突变不影响催化功能")
+            elif ang > 10:
+                logic_parts.append(f"与活性中心距离适中(~{ang:.0f}Å)")
+            else:
+                logic_parts.append(f"靠近活性中心(~{ang:.0f}Å)，需谨慎设计突变")
+        else:
+            logic_parts.append("未标注活性中心位置")
+
+        if cons_score >= 7.0:
+            logic_parts.append("序列保守性低，可突变空间大")
+        elif cons_score >= 4.0:
+            logic_parts.append("保守性中等")
+        else:
+            logic_parts.append("序列高度保守，突变风险较高")
+
+        if func_score >= 7.0:
+            logic_parts.append("位于非功能核心区域")
+        elif func_score >= 4.0:
+            logic_parts.append("可能参与结构维持")
+        else:
+            logic_parts.append("位于功能关键区域，需谨慎评估")
+
+        if is_ph_lowering and aa in ("K", "R") and asa_score >= 7.0:
+            logic_parts.append("表面正电荷残基是pH降低改造的优先靶点")
+        elif is_thermo and aa == "G" and asa_score >= 5.0:
+            logic_parts.append("Gly→Pro可减少主链构象熵，是热稳定性改造的经典策略")
+        elif is_ph_raising and aa in ("D", "E") and asa_score >= 7.0:
+            logic_parts.append("表面负电荷残基是pH升高改造的优先靶点")
+
+        logic = "；".join(logic_parts)
 
         results.append({
             "position": pos,
@@ -453,12 +504,8 @@ def mutation_priority_score(
             "categories": categories,
             "target_type": target_type,
             "recommended_mutations": recommended_mutations,
-            "rationale": {
-                "surface_exposure": asa_why,
-                "active_site_distance": dist_why,
-                "conservation": cons_why,
-                "functional": func_why,
-            },
+            "mutation_type": mutation_type,
+            "logic": logic,
         })
 
     # Sort by composite score descending (best candidates first)
@@ -489,8 +536,10 @@ def mutation_priority_score(
                 "position": r["position"],
                 "wild_type": r["wild_type"],
                 "composite_priority": r["composite_priority"],
+                "tier": 1,
+                "mutation_type": r["mutation_type"],
+                "logic": r["logic"],
                 "recommended_mutations": r["recommended_mutations"],
-                "target_type": r["target_type"],
             }
             for r in tier1
         ],
@@ -499,6 +548,9 @@ def mutation_priority_score(
                 "position": r["position"],
                 "wild_type": r["wild_type"],
                 "composite_priority": r["composite_priority"],
+                "tier": 2,
+                "mutation_type": r["mutation_type"],
+                "logic": r["logic"],
                 "recommended_mutations": r["recommended_mutations"],
             }
             for r in tier2
@@ -519,7 +571,8 @@ ToolRegistry.register(
         "active site, evolutionary conservation, functional relevance, and "
         "predicted ΔΔG. Weights: ASA(0.20), Distance(0.25), Conservation(0.25), "
         "ΔΔG(0.15), Functional(0.15). Returns Tier 1 (>7.0) and Tier 2 (5.0-7.0) "
-        "candidates with specific recommended mutations ranked by expected impact. "
+        "candidates with mutation positions, Chinese engineering logic, specific "
+        "recommended mutations, and priority scores. "
         "Use for pH engineering, thermostability, or general mutation design."
     ),
     parameters={

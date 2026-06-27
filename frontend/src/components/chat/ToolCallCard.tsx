@@ -6,6 +6,9 @@ import { BenchmarkReport, isBenchmarkResult } from '@/components/analysis/Benchm
 import { MutationScoreCard, isMutationScoreResult } from '@/components/analysis/MutationScoreCard'
 import { BlastResultView, isBlastResult } from '@/components/analysis/BlastResultView'
 import { MDResultView, isMDResult } from '@/components/analysis/MDResultView'
+import { ESM2ResultCard, isESM2Result } from '@/components/analysis/ESM2ResultCard'
+import { ECPredictionCard, isECPredictionResult } from '@/components/analysis/ECPredictionCard'
+import { CatalyticParamsCard, isCatalyticParamsResult } from '@/components/analysis/CatalyticParamsCard'
 
 interface Props {
   toolCall: ToolCall
@@ -14,27 +17,45 @@ interface Props {
 const FOLDING_TOOLS = ['esmfold_folding', 'alphafold_folding', 'alphafold2_folding', 'rosettafold_folding']
 
 function extractPdbData(resultPreview: string): string | null {
-  // Try to find PDB content in the result preview
   if (resultPreview.includes('ATOM') || resultPreview.includes('HEADER')) return resultPreview
-  // Try parsing as JSON and looking for pdb/pdb_content/pdb_data fields
   try {
-    const obj = JSON.parse(resultPreview.replace(/'/g, '"'))
+    const obj = JSON.parse(resultPreview)
     const pdb = obj.pdb || obj.pdb_content || obj.pdb_data || obj.structure
     if (typeof pdb === 'string' && (pdb.includes('ATOM') || pdb.includes('HEADER'))) return pdb
-  } catch { /* not JSON */ }
+  } catch { /* not JSON, try Python repr */ }
+  try {
+    const json = resultPreview
+      .replace(/'/g, '"')
+      .replace(/\bNone\b/g, 'null')
+      .replace(/\bTrue\b/g, 'true')
+      .replace(/\bFalse\b/g, 'false')
+    const obj = JSON.parse(json)
+    const pdb = obj.pdb || obj.pdb_content || obj.pdb_data || obj.structure
+    if (typeof pdb === 'string' && (pdb.includes('ATOM') || pdb.includes('HEADER'))) return pdb
+  } catch { /* not parseable */ }
   return null
 }
 
 function tryParseResult(preview: string | undefined): unknown | null {
   if (!preview) return null
+  // New format: proper JSON from json.dumps
   try {
-    return JSON.parse(preview.replace(/'/g, '"'))
+    return JSON.parse(preview)
+  } catch { /* fall through to Python repr parser */ }
+  // Old format: Python repr → convert to valid JSON
+  try {
+    const json = preview
+      .replace(/'/g, '"')
+      .replace(/\bNone\b/g, 'null')
+      .replace(/\bTrue\b/g, 'true')
+      .replace(/\bFalse\b/g, 'false')
+    return JSON.parse(json)
   } catch {
     return null
   }
 }
 
-const ANALYSIS_TOOLS = ['protein_benchmark', 'mutation_priority_score', 'blast_search', 'gromacs_md']
+const ANALYSIS_TOOLS = ['protein_benchmark', 'mutation_priority_score', 'blast_search', 'gromacs_md', 'esm2_predict', 'protssn_score', 'enzyme_function', 'kcat_predict']
 
 export function ToolCallCard({ toolCall }: Props) {
   const [expanded, setExpanded] = useState(false)
@@ -68,6 +89,15 @@ export function ToolCallCard({ toolCall }: Props) {
     }
     if (toolCall.name === 'gromacs_md' && isMDResult(analysisResult)) {
       return <MDResultView data={analysisResult} />
+    }
+    if ((toolCall.name === 'esm2_predict' || toolCall.name === 'protssn_score') && isESM2Result(analysisResult)) {
+      return <ESM2ResultCard data={analysisResult} />
+    }
+    if (toolCall.name === 'enzyme_function' && isECPredictionResult(analysisResult)) {
+      return <ECPredictionCard data={analysisResult} />
+    }
+    if (toolCall.name === 'kcat_predict' && isCatalyticParamsResult(analysisResult)) {
+      return <CatalyticParamsCard data={analysisResult} />
     }
     return null
   }, [analysisResult, toolCall.name])

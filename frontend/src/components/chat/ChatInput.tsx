@@ -3,7 +3,17 @@ import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useChatStore } from '@/stores/chat'
 import { useChatStream } from '@/hooks/useChatStream'
-import { ArrowUp, Paperclip, X, ChevronDown, Sparkles, Zap, Cpu } from 'lucide-react'
+import { ArrowUp, Paperclip, X, ChevronDown, Sparkles, Zap, Cpu, Loader2, CheckCircle, AlertCircle } from 'lucide-react'
+
+interface AttachedFile {
+  file: File
+  status: 'pending' | 'uploading' | 'done' | 'error'
+  progress: number
+  error?: string
+  objectName?: string
+  downloadUrl?: string
+  analysisData?: unknown
+}
 
 const MODEL_ICONS: Record<string, typeof Sparkles> = {
   deepseek: Zap,
@@ -21,7 +31,9 @@ export function ChatInput() {
   const { t } = useTranslation()
   const location = useLocation()
   const [input, setInput] = useState('')
-  const [files, setFiles] = useState<File[]>([])
+  const [files, setFiles] = useState<AttachedFile[]>([])
+  const filesRef = useRef<AttachedFile[]>([])
+  filesRef.current = files
   const [modelOpen, setModelOpen] = useState(false)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -60,7 +72,7 @@ export function ChatInput() {
     }
     if (state?.uploadFile) {
       initialSent.current = true
-      setFiles([state.uploadFile])
+      setFiles([{ file: state.uploadFile, status: 'pending', progress: 0 }])
       window.history.replaceState({}, '', '/chat/agent')
     }
   }, [location.state]) // eslint-disable-line react-hooks/exhaustive-deps
@@ -70,18 +82,116 @@ export function ChatInput() {
   const Icon = MODEL_ICONS[selectedModel] || Sparkles
   const colorClass = MODEL_COLORS[selectedModel] || MODEL_COLORS.deepseek
 
-  const handleSend = () => {
+  const analyzePdb = async (objectName: string): Promise<unknown> => {
+    const token = localStorage.getItem('token')
+    const resp = await fetch('/api/pdb/analyze-by-name', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+      body: JSON.stringify({ object_name: objectName }),
+    })
+    if (!resp.ok) return null
+    return resp.json()
+  }
+
+  // Helper: update both state and ref atomically
+  const updateFiles = (updater: (prev: AttachedFile[]) => AttachedFile[]) => {
+    setFiles((prev) => {
+      const next = updater(prev)
+      filesRef.current = next
+      return next
+    })
+  }
+
+  const uploadSingleFile = async (attached: AttachedFile, idx: number): Promise<{ objectName: string; downloadUrl: string }> => {
+    const token = localStorage.getItem('token')
+    const formData = new FormData()
+    formData.append('file', attached.file)
+
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest()
+      xhr.open('POST', '/api/files/upload')
+      if (token) xhr.setRequestHeader('Authorization', `Bearer ${token}`)
+
+      xhr.upload.onprogress = (e) => {
+        if (e.lengthComputable) {
+          updateFiles((prev) =>
+            prev.map((f, j) => (j === idx ? { ...f, progress: Math.round((e.loaded / e.total) * 100), status: 'uploading' } : f))
+          )
+        }
+      }
+
+      xhr.onload = () => {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          const data = JSON.parse(xhr.responseText)
+          const objectName = data.object_name || data.id
+          const downloadUrl = data.download_url
+          updateFiles((prev) =>
+            prev.map((f, j) =>
+              j === idx ? { ...f, status: 'done', progress: 100, objectName, downloadUrl } : f
+            )
+          )
+          resolve({ objectName, downloadUrl })
+        } else {
+          const err = JSON.parse(xhr.responseText || '{}')
+          updateFiles((prev) =>
+            prev.map((f, j) => (j === idx ? { ...f, status: 'error', error: err.detail || 'Upload failed' } : f))
+          )
+          reject(new Error(err.detail || 'Upload failed'))
+        }
+      }
+
+      xhr.onerror = () => {
+        updateFiles((prev) =>
+          prev.map((f, j) => (j === idx ? { ...f, status: 'error', error: 'Network error' } : f))
+        )
+        reject(new Error('Network error'))
+      }
+
+      xhr.send(formData)
+    })
+  }
+
+  const handleSend = async () => {
     const trimmed = input.trim()
-    if (!trimmed && files.length === 0) return
+    const currentFiles = filesRef.current
+    if (!trimmed && currentFiles.length === 0) return
     if (streaming) return
+
+    // Upload pending files and collect results
+    interface FileResult { name: string; size: number; type: string; objectName?: string; downloadUrl?: string; analysisData?: unknown }
+    const fileResults: FileResult[] = currentFiles.map((f) => ({
+      name: f.file.name,
+      size: f.file.size,
+      type: f.file.type,
+      objectName: f.objectName,
+      downloadUrl: f.downloadUrl,
+      analysisData: f.analysisData,
+    }))
+
+    const pending = currentFiles.filter((f) => f.status === 'pending')
+    for (let i = 0; i < currentFiles.length; i++) {
+      if (currentFiles[i].status === 'pending') {
+        const result = await uploadSingleFile(currentFiles[i], i)
+        fileResults[i].objectName = result.objectName
+        fileResults[i].downloadUrl = result.downloadUrl
+        // Auto-analyze PDB files after upload
+        const ext = currentFiles[i].file.name.split('.').pop()?.toLowerCase()
+        if ((ext === 'pdb' || ext === 'ent' || ext === 'cif') && result.objectName) {
+          fileResults[i].analysisData = await analyzePdb(result.objectName)
+        }
+      }
+    }
 
     addMessage({
       role: 'user',
       content: trimmed || t('chat.analyzingFiles'),
-      files: files.map((f) => ({ name: f.name, size: f.size, type: f.type })),
+      files: fileResults,
     })
     setInput('')
-    setFiles([])
+    updateFiles(() => [])
     if (textareaRef.current) textareaRef.current.style.height = 'auto'
     sendMessage(trimmed || t('chat.analyzingFiles'), useChatStore.getState().currentId ?? undefined)
   }
@@ -91,7 +201,14 @@ export function ChatInput() {
   }
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) setFiles((prev) => [...prev, ...Array.from(e.target.files!)])
+    if (e.target.files) {
+      const newFiles: AttachedFile[] = Array.from(e.target.files).map((f) => ({
+        file: f,
+        status: 'pending' as const,
+        progress: 0,
+      }))
+      updateFiles((prev) => [...prev, ...newFiles])
+    }
   }
 
   return (
@@ -102,9 +219,20 @@ export function ChatInput() {
           <div className="flex flex-wrap gap-2 mb-2">
             {files.map((file, i) => (
               <div key={i} className="flex items-center gap-2 px-3 py-1.5 bg-secondary rounded-lg text-xs">
-                <Paperclip className="w-3 h-3 text-muted-foreground" />
-                <span className="max-w-[120px] truncate">{file.name}</span>
-                <button onClick={() => setFiles((p) => p.filter((_, j) => j !== i))} className="text-muted-foreground hover:text-foreground">
+                {file.status === 'uploading' ? (
+                  <Loader2 className="w-3 h-3 animate-spin text-muted-foreground" />
+                ) : file.status === 'done' ? (
+                  <CheckCircle className="w-3 h-3 text-green-500" />
+                ) : file.status === 'error' ? (
+                  <AlertCircle className="w-3 h-3 text-red-500" />
+                ) : (
+                  <Paperclip className="w-3 h-3 text-muted-foreground" />
+                )}
+                <span className="max-w-[120px] truncate">{file.file.name}</span>
+                {file.status === 'uploading' && (
+                  <span className="text-[10px] text-muted-foreground">{file.progress}%</span>
+                )}
+                <button onClick={() => updateFiles((p) => p.filter((_, j) => j !== i))} className="text-muted-foreground hover:text-foreground">
                   <X className="w-3 h-3" />
                 </button>
               </div>

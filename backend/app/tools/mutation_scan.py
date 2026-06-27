@@ -189,6 +189,7 @@ def mutation_scan(
     sequence: str,
     positions: list[int] | None = None,
     scan_type: str = "saturation",
+    use_esm: bool = False,
 ) -> dict:
     """Scan single-point mutations with real substitution analysis.
 
@@ -199,6 +200,8 @@ def mutation_scan(
         scan_type: "saturation" (all 19 mutants per position),
                    "alanine" (only Ala mutations — scanning),
                    "specific" (positions must be provided).
+        use_esm: If True, adds ESM-2 zero-shot log-odds scores to each
+                 mutation (requires model load, ~5-10s per position on CPU).
 
     Returns:
         Dict with sequence_length, scan_type, positions_scanned, and a list
@@ -288,12 +291,47 @@ def mutation_scan(
             "total_mutants": len(muts),
         })
 
+    # --- Optional ESM-2 zero-shot scoring ---
+    esm_scored = False
+    if use_esm:
+        try:
+            from app.ml.embeddings import score_mutations_esm
+            # Gather all unique mutation tuples (pos, wt, mt)
+            all_muts: list[tuple[int, str, str]] = []
+            for r in results:
+                for m in r["mutations"]:
+                    all_muts.append((r["position"], r["wild_type"], m["mutant"]))
+            esm_scores = score_mutations_esm(seq, all_muts)
+            for r in results:
+                for m in r["mutations"]:
+                    key = (r["position"], r["wild_type"], m["mutant"])
+                    if key in esm_scores:
+                        m["esm_score"] = round(esm_scores[key], 3)
+            # Re-sort by ESM score (stabilising = negative score → first)
+            for r in results:
+                r["mutations"].sort(key=lambda m: m.get("esm_score", m["ddg_kcal_mol"]))
+                r["top_stabilizing"] = [
+                    m for m in r["mutations"] if m.get("esm_score", 0) < -1.0
+                ][:5] or r["top_stabilizing"]
+                r["top_destabilizing"] = [
+                    m for m in r["mutations"] if m.get("esm_score", 0) > 1.0
+                ][-5:][::-1] or r["top_destabilizing"]
+            esm_scored = True
+        except Exception:
+            pass  # Non-critical — keep BLOSUM-based results
+
     return {
         "sequence_length": n,
         "scan_type": scan_type,
         "positions_scanned": len(results),
         "sequence_preview": seq[:60] + ("..." if n > 60 else ""),
         "results": results,
+        "is_real_inference": esm_scored,
+        "scoring_method": (
+            "ESM-2 zero-shot + BLOSUM62 + Grantham + FoldX-style ddG"
+            if esm_scored else
+            "BLOSUM62 + Grantham + FoldX-style ddG (add use_esm=true for ML scoring)"
+        ),
     }
 
 
@@ -335,12 +373,21 @@ ToolRegistry.register(
                 ),
                 "default": "saturation",
             },
+            "use_esm": {
+                "type": "boolean",
+                "description": (
+                    "Use ESM-2 zero-shot log-odds scores (requires model load, "
+                    "~5-10s per position on CPU). Adds esm_score field to each "
+                    "mutation and re-ranks results."
+                ),
+                "default": False,
+            },
         },
         "required": ["sequence"],
     },
     handler=mutation_scan,
     category="engineering",
-    timeout_seconds=120,
+    timeout_seconds=600,
     errors=[
         {
             "reason": "invalid_input",

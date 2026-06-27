@@ -4,6 +4,9 @@ import { AuthPage } from '@/pages/AuthPage'
 import { HomePage } from '@/pages/HomePage'
 import { ProjectListPage } from '@/pages/ProjectListPage'
 import { ProjectDetailPage } from '@/pages/ProjectDetailPage'
+import { PDBUploadPage } from '@/pages/PDBUploadPage'
+import { WikiPage } from '@/pages/WikiPage'
+import DataBrowser from '@/pages/DataBrowser'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 
@@ -35,6 +38,23 @@ function App() {
         element={
           <ProtectedRoute>
             <ProjectDetailPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route path="/data" element={<DataBrowser />} />
+      <Route
+        path="/wiki"
+        element={
+          <ProtectedRoute>
+            <WikiPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/pdb"
+        element={
+          <ProtectedRoute>
+            <PDBUploadPage />
           </ProtectedRoute>
         }
       />

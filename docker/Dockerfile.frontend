@@ -15,7 +15,7 @@ WORKDIR /app
 
 # Separate copy of package manifests for optimal layer caching
 COPY frontend/package.json frontend/package-lock.json ./
-RUN npm ci
+RUN npm config set registry https://registry.npmmirror.com && npm ci
 
 # Copy remaining source files and build
 COPY frontend/ .

@@ -499,7 +499,7 @@ ToolRegistry.register(
     },
     handler=proteinmpnn_design,
     is_async=True,
-    category="engineering",
+    category="design",
     timeout_seconds=120,
     annotations={
         "gpu_required": False,

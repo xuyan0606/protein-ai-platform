@@ -22,6 +22,20 @@ from app.core.agent_roles import (
     ROUTER_SYSTEM_PROMPT,
 )
 
+# Tools that require a protein sequence — skip if no sequence available
+_SEQUENCE_REQUIRED_TOOLS = frozenset({
+    "alphafold_folding", "esmfold_folding", "predict_properties",
+    "mutation_scan", "mutation_priority_score", "protein_benchmark",
+    "enzyme_function", "kcat_predict", "protssn_score", "blast_search",
+    "gromacs_md",
+})
+
+# Tools that require a PDB structure — skip if no PDB available
+_PDB_REQUIRED_TOOLS = frozenset({
+    "proteinmpnn_design",
+    "esm_if1_design",
+})
+
 
 @dataclass
 class PlanStep:
@@ -150,6 +164,9 @@ class AgentOrchestrator:
         self._snapshot.stage = "execute"
         yield self._emit_state()
 
+        # Per-step timeout cap — prevents slow external APIs from blocking the pipeline
+        PER_STEP_TIMEOUT = 120  # seconds
+
         tool_messages = []
         for i, step in enumerate(plan):
             self._snapshot.current_step = i + 1
@@ -159,14 +176,27 @@ class AgentOrchestrator:
 
             start = time.time()
             try:
-                result = await ToolRegistry.execute(step.tool_name, step.params)
+                result = await asyncio.wait_for(
+                    ToolRegistry.execute(step.tool_name, step.params),
+                    timeout=PER_STEP_TIMEOUT,
+                )
                 step.status = "completed"
                 step.result = result
                 step.duration = round(time.time() - start, 2)
                 self._snapshot.plan[i]["status"] = "completed"
                 self._snapshot.step_results.append({
                     "step": i + 1, "tool": step.tool_name,
-                    "status": "completed", "result_preview": str(result)[:500],
+                    "status": "completed", "result_preview": self._compact_result(step.tool_name, result)[:2000],
+                    "duration": step.duration,
+                })
+            except asyncio.TimeoutError:
+                step.status = "failed"
+                step.error = f"Step timed out after {PER_STEP_TIMEOUT}s"
+                step.duration = round(time.time() - start, 2)
+                self._snapshot.plan[i]["status"] = "failed"
+                self._snapshot.step_results.append({
+                    "step": i + 1, "tool": step.tool_name,
+                    "status": "failed", "error": step.error,
                     "duration": step.duration,
                 })
             except Exception as e:
@@ -193,10 +223,12 @@ class AgentOrchestrator:
 
             yield self._emit_state()
 
+            # Build compact result for LLM/report: extract key fields from large results
+            result_payload = self._compact_result(step.tool_name, step.result) if step.result else step.error
             tool_messages.append({
                 "role": "tool",
                 "tool_name": step.tool_name,
-                "result": str(step.result)[:1000] if step.result else step.error,
+                "result": result_payload,
                 "status": step.status,
             })
 
@@ -212,7 +244,34 @@ class AgentOrchestrator:
 
         # If SC finds gaps and requests supplementary execution
         if review_result.get("needs_supplement"):
+            has_sequence = bool(self._extract_sequence(user_message))
+            has_pdb = any(
+                "pdb" in str(r.get("result", "")).lower() and "ATOM" in str(r.get("result", ""))
+                for r in tool_messages
+            )
+
             for extra in review_result.get("supplementary_steps", []):
+                tool_name = extra["tool_name"]
+
+                # Skip tools that need a sequence when none is available
+                if not has_sequence and tool_name in _SEQUENCE_REQUIRED_TOOLS:
+                    tool_messages.append({
+                        "role": "tool",
+                        "tool_name": tool_name,
+                        "result": f"Skipped: no protein sequence available. Provide a sequence to use {tool_name}.",
+                        "status": "skipped",
+                    })
+                    continue
+
+                # Skip tools that need a PDB structure when none is available
+                if not has_pdb and tool_name in _PDB_REQUIRED_TOOLS:
+                    tool_messages.append({
+                        "role": "tool",
+                        "tool_name": tool_name,
+                        "result": f"Skipped: no PDB structure available. Upload a PDB file or run structure prediction first.",
+                        "status": "skipped",
+                    })
+                    continue
                 extra_step = PlanStep(
                     id=len(plan) + 1,
                     tool_name=extra["tool_name"],
@@ -229,9 +288,26 @@ class AgentOrchestrator:
                 self._snapshot.current_step = extra_step.id
                 yield self._emit_state()
 
+                # Validate params: check required parameters exist for the tool
+                tool_def = ToolRegistry.get_tool(extra_step.tool_name)
+                if tool_def and tool_def.parameters:
+                    required = tool_def.parameters.get("required", [])
+                    missing = [p for p in required if p not in extra_step.params or not extra_step.params[p]]
+                    if missing:
+                        tool_messages.append({
+                            "role": "tool",
+                            "tool_name": extra_step.tool_name,
+                            "result": f"Skipped: missing required parameters: {missing}",
+                            "status": "skipped",
+                        })
+                        continue
+
                 start = time.time()
                 try:
-                    result = await ToolRegistry.execute(extra_step.tool_name, extra_step.params)
+                    result = await asyncio.wait_for(
+                        ToolRegistry.execute(extra_step.tool_name, extra_step.params),
+                        timeout=PER_STEP_TIMEOUT,
+                    )
                     extra_step.status = "completed"
                     extra_step.result = result
                     extra_step.duration = round(time.time() - start, 2)
@@ -239,14 +315,26 @@ class AgentOrchestrator:
                     self._snapshot.plan[idx]["status"] = "completed"
                     self._snapshot.step_results.append({
                         "step": extra_step.id, "tool": extra_step.tool_name,
-                        "status": "completed", "result_preview": str(result)[:500],
+                        "status": "completed", "result_preview": self._compact_result(extra_step.tool_name, result)[:2000],
                         "duration": extra_step.duration,
                     })
                     tool_messages.append({
                         "role": "tool",
                         "tool_name": extra_step.tool_name,
-                        "result": str(result)[:1000],
+                        "result": self._compact_result(extra_step.tool_name, result),
                         "status": "completed",
+                    })
+                except asyncio.TimeoutError:
+                    extra_step.status = "failed"
+                    extra_step.error = f"Step timed out after {PER_STEP_TIMEOUT}s"
+                    extra_step.duration = round(time.time() - start, 2)
+                    idx = extra_step.id - 1
+                    self._snapshot.plan[idx]["status"] = "failed"
+                    tool_messages.append({
+                        "role": "tool",
+                        "tool_name": extra_step.tool_name,
+                        "result": extra_step.error,
+                        "status": "failed",
                     })
                 except Exception as e:
                     extra_step.status = "failed"
@@ -312,6 +400,10 @@ class AgentOrchestrator:
         if any(kw in lower for kw in ["结构", "structure", "fold", "pdb", "预测结构"]):
             return "research"
         if any(kw in lower for kw in ["性质", "property", "properties", "理化", "predict", "预测", "analyze", "分析"]):
+            return "analyze"
+        if any(kw in lower for kw in ["ec", "酶功能", "enzyme function", "classify", "分类", "ec number"]):
+            return "research"
+        if any(kw in lower for kw in ["kcat", "km", "turnover", "动力学", "kinetics", "催化效率", "催化速率"]):
             return "analyze"
         if any(kw in lower for kw in ["搜索", "search", "blast", "查找", "find"]):
             return "research"
@@ -392,12 +484,10 @@ class AgentOrchestrator:
             {"role": "user", "content": f"Create a step-by-step tool execution plan for: {message}"},
         ]
 
-        try:
-            resp = await self._call_llm(messages, tools=self.tools_schema, provider=provider, model=model, max_tokens=1200)
-            return self._parse_plan(resp, message)
-        except Exception:
-            # Fallback: generate steps from tool schema
-            return self._generate_fallback_plan(message)
+        # Use deterministic fallback plan — LLM-generated plans are unreliable for now
+        # (wrong parameter names, missing essential steps). The fallback covers all
+        # common enzyme engineering tasks with correct tool params.
+        return self._generate_fallback_plan(message)
 
     def _parse_plan(self, response: Any, task: str) -> list[PlanStep]:
         """Parse CB's response into structured PlanSteps."""
@@ -463,83 +553,225 @@ class AgentOrchestrator:
         ])
 
         # Detect specific engineering goal for mutation_priority_score
-        is_ph_lowering = any(kw in lower for kw in ["降低", "lower", "酸化", "耐酸", "酸性", "酸稳定"])
-        is_ph_raising = any(kw in lower for kw in ["提高", "raise", "碱化", "耐碱", "碱性", "碱稳定"])
-        is_thermo = any(kw in lower for kw in ["耐热", "热稳定", "thermostability", "tm", "温度", "heat"])
-        if is_ph_lowering:
+        # Check thermo FIRST — "提高热稳定性" should match thermo, not ph_raising
+        is_thermo = any(kw in lower for kw in ["耐热", "热稳定", "thermostability", "tm", "温度", "heat", "热稳定性"])
+        is_ph_lowering = any(kw in lower for kw in ["降低最适ph", "降低ph", "酸化", "耐酸", "酸性", "酸稳定", "lower ph", "ph lowering"])
+        is_ph_raising = any(kw in lower for kw in ["提高最适ph", "提高ph", "碱化", "耐碱", "碱性", "碱稳定", "raise ph", "ph raising"])
+        if is_thermo:
+            eng_goal = "thermostability"
+        elif is_ph_lowering:
             eng_goal = "ph_lowering"
         elif is_ph_raising:
             eng_goal = "ph_raising"
-        elif is_thermo:
-            eng_goal = "thermostability"
         else:
             eng_goal = "general"
+
+        # Detect binder / de novo protein design intent
+        is_binder_design = any(kw in lower for kw in [
+            "binder", "bind", "de novo", "backbone", "scaffold",
+            "design a", "design binder", "结合蛋白", "蛋白设计",
+            "从头设计", "骨架设计", "设计蛋白",
+        ])
 
         has_sequence = len(seq) >= 10
         step_id = 0
 
-        if has_sequence:
-            # 1. BLAST search — identify family, conserved residues, mechanism
-            if "blast_search" in tool_names:
+        # --- Binder Design Pipeline (with sequence) ---
+        if has_sequence and is_binder_design:
+            # 1. Inverse folding — redesign sequence for the given backbone
+            if "proteinmpnn_design" in tool_names:
                 step_id += 1
-                steps.append(PlanStep(step_id, "blast_search",
-                    "Identify enzyme family, conserved catalytic residues, and homologs via BLAST",
-                    {"sequence": seq, "database": "swissprot", "max_results": 10}))
+                steps.append(PlanStep(step_id, "proteinmpnn_design",
+                    "Inverse folding: design novel sequences that stably fold into the target backbone",
+                    {"pdb_structure": "", "temperature": 0.1, "num_sequences": 3}))
 
-            # 2. Protein benchmark — deep family analysis with built-in expert knowledge
-            if "protein_benchmark" in tool_names and is_enzyme_eng:
+            # 2. Solubility optimization
+            if "soluble_mpnn_design" in tool_names:
                 step_id += 1
-                steps.append(PlanStep(step_id, "protein_benchmark",
-                    "Deep enzyme family characterization: motif search, catalytic residue prediction, domain architecture, conservation analysis, engineering targets",
-                    {"query_sequence": seq}))
+                steps.append(PlanStep(step_id, "soluble_mpnn_design",
+                    "Optimize designed sequences for solubility and expression",
+                    {"sequence": seq}))
 
-            # 3. Structure prediction — essential for surface/site analysis
+            # 3. Structure validation — verify designed sequences fold correctly
             if "esmfold_folding" in tool_names:
                 step_id += 1
                 steps.append(PlanStep(step_id, "esmfold_folding",
-                    "Predict 3D protein structure for surface electrostatic and active site analysis",
+                    "Validate folding of designed sequences — high pLDDT confirms stable backbone",
                     {"sequence": seq}))
 
-            # 4. Physicochemical properties — baseline metrics
+            # 4. Physicochemical baseline
+            if "predict_properties" in tool_names:
+                step_id += 1
+                steps.append(PlanStep(step_id, "predict_properties",
+                    "Compute MW, pI, stability, GRAVY for designed sequences",
+                    {"sequence": seq}))
+
+            return steps
+
+        if has_sequence:
+            # FAST LOCAL TOOLS FIRST — produce results immediately without external API dependency
+
+            # 1. Physicochemical properties — baseline metrics (instant)
             if "predict_properties" in tool_names:
                 step_id += 1
                 steps.append(PlanStep(step_id, "predict_properties",
                     "Compute molecular weight, isoelectric point, stability index, GRAVY, and secondary structure propensity",
                     {"sequence": seq}))
 
-            # 5. Mutation scan — systematic residue-level engineering targets
+            # 2. Protein benchmark — deep family analysis with built-in expert knowledge (instant)
+            if "protein_benchmark" in tool_names and is_enzyme_eng:
+                step_id += 1
+                steps.append(PlanStep(step_id, "protein_benchmark",
+                    "Deep enzyme family characterization: motif search, catalytic residue prediction, domain architecture, conservation analysis, engineering targets",
+                    {"query_sequence": seq}))
+
+            # 3. Enzyme function prediction — EC number classification (instant, local motifs)
+            if is_enzyme_eng and "enzyme_function" in tool_names:
+                step_id += 1
+                steps.append(PlanStep(step_id, "enzyme_function",
+                    "Predict EC number and enzyme class from sequence using curated motifs and ESM-2 embeddings",
+                    {"sequence": seq}))
+
+            # 4. Mutation scan — systematic residue-level engineering targets (instant)
             if "mutation_scan" in tool_names:
                 step_id += 1
                 steps.append(PlanStep(step_id, "mutation_scan",
                     "Systematically scan surface and active-site proximal residues for engineering candidates",
                     {"sequence": seq}))
 
-            # 6. Multi-dimensional mutation priority scoring (core expert tool)
+            # 5. Multi-dimensional mutation priority scoring (core expert tool, instant)
             if is_enzyme_eng and "mutation_priority_score" in tool_names:
                 step_id += 1
                 steps.append(PlanStep(step_id, "mutation_priority_score",
                     f"Score every residue on 5 dimensions for {eng_goal} engineering — Tier 1/2 candidates with specific mutations",
                     {"sequence": seq, "engineering_goal": eng_goal}))
 
-            # 7. For enzyme engineering tasks, add MD simulation for stability validation
+            # 6. Enzyme kinetics prediction — Kcat estimation (instant, local statistics)
+            if is_enzyme_eng and "kcat_predict" in tool_names:
+                step_id += 1
+                steps.append(PlanStep(step_id, "kcat_predict",
+                    "Predict enzyme turnover number (Kcat) and catalytic efficiency",
+                    {"protein_sequence": seq}))
+
+            # 7. Structure prediction — 3D model for visualization (may be slow on CPU)
+            if "esmfold_folding" in tool_names:
+                step_id += 1
+                steps.append(PlanStep(step_id, "esmfold_folding",
+                    "Predict 3D protein structure for visualization and structural analysis",
+                    {"sequence": seq}))
+
+            # 8. ML-enhanced mutation scoring — ProtSSN sequence+structure fusion
+            if is_enzyme_eng and "protssn_score" in tool_names:
+                step_id += 1
+                steps.append(PlanStep(step_id, "protssn_score",
+                    "ML-enhanced mutation scoring with sequence-structure fusion for higher accuracy",
+                    {"sequence": seq, "mutations": []}))
+
+            # 9. BLAST search — LAST because it depends on external NCBI API (slow/unreliable)
+            if "blast_search" in tool_names:
+                step_id += 1
+                steps.append(PlanStep(step_id, "blast_search",
+                    "Identify enzyme family homologs and conserved residues via BLAST (external NCBI)",
+                    {"sequence": seq, "database": "swissprot", "max_results": 5}))
+
+            # 10. MD simulation — optional, compute-intensive
             if is_enzyme_eng and "gromacs_md" in tool_names:
                 step_id += 1
                 steps.append(PlanStep(step_id, "gromacs_md",
                     "Run molecular dynamics simulation to assess structural stability and identify flexible regions",
                     {"sequence": seq, "simulation_time_ns": 10.0}))
 
-        # If no sequence, fall back to basic search/analysis
+        # If no sequence, try to extract a protein name and search for it
         if not steps:
-            if "predict_properties" in tool_names:
-                step_id += 1
-                steps.append(PlanStep(step_id, "predict_properties",
-                    "Analyze protein properties", {}))
+            search_query = self._extract_protein_name(task)
+
+            # --- Binder Design Pipeline (no sequence) ---
+            if is_binder_design:
+                # 1. Search for target protein sequence
+                if "sequence_search" in tool_names:
+                    step_id += 1
+                    steps.append(PlanStep(step_id, "sequence_search",
+                        f"Search for target protein: {search_query}",
+                        {"query": search_query, "database": "uniprot", "max_results": 5}))
+
+                # 2. RFdiffusion — generate binder backbone scaffolds
+                if "rfdiffusion_design" in tool_names:
+                    step_id += 1
+                    steps.append(PlanStep(step_id, "rfdiffusion_design",
+                        f"Generate de novo binder backbone scaffolds targeting {search_query}",
+                        {"target_name": search_query, "length": 100, "num_designs": 3}))
+
+                # 3. Chroma — joint structure-sequence generation
+                if "chroma_design" in tool_names:
+                    step_id += 1
+                    steps.append(PlanStep(step_id, "chroma_design",
+                        "Joint structure-sequence generation for binder design",
+                        {"target_name": search_query, "num_designs": 3}))
+
+                # 4. ProteinMPNN — inverse folding on generated backbones
+                if "proteinmpnn_design" in tool_names:
+                    step_id += 1
+                    steps.append(PlanStep(step_id, "proteinmpnn_design",
+                        "Inverse folding: design sequences for generated binder backbones",
+                        {"pdb_structure": "", "temperature": 0.1, "num_sequences": 3}))
+
+                # 5. ESMFold — validate folding of designed sequences
+                if "esmfold_folding" in tool_names:
+                    step_id += 1
+                    steps.append(PlanStep(step_id, "esmfold_folding",
+                        "Validate designed binder sequences fold into intended backbone",
+                        {"sequence": ""}))
+
+                return steps
+
+            # Generic fallback: search for protein sequence
             if "sequence_search" in tool_names:
                 step_id += 1
                 steps.append(PlanStep(step_id, "sequence_search",
-                    "Search for relevant sequences", {"query": task[:200]}))
+                    f"Search for protein/gene: {search_query}",
+                    {"query": search_query, "database": "uniprot", "max_results": 5}))
 
         return steps
+
+    @staticmethod
+    def _extract_protein_name(task: str) -> str:
+        """Extract a likely protein/gene name from a natural language query.
+
+        Handles patterns like:
+        - "Design a binder for PD-L1" → "PD-L1"
+        - "Analyze the structure of EGFR" → "EGFR"
+        - "What is the sequence of human p53" → "p53"
+        """
+        # Common prefixes that introduce a protein name
+        prefixes = [
+            r'(?:design|bind|binder|for|target|against|of|on|about|analy[sz]e|study|investigate|'
+            r'engineer|mutate|optimize|improve|enhance|modify|evolve|screen)\s+'
+            r'(?:a\s+|an\s+|the\s+)?'
+            r'(?:protein\s+|enzyme\s+|binder\s+)?'
+            r'(?:for\s+|of\s+|to\s+|against\s+)?'
+        ]
+        # Protein/gene name pattern: uppercase letters, numbers, hyphens (2-15 chars)
+        protein_pattern = r'([A-Z][A-Z0-9]+(?:[-/][A-Z0-9]+)*)'
+
+        # Try to find protein names after prefix patterns
+        for prefix in prefixes:
+            match = re.search(prefix + protein_pattern, task, re.IGNORECASE)
+            if match:
+                name = match.group(len(match.groups())).strip()
+                if len(name) >= 2:
+                    return name
+
+        # Fallback: find any uppercase identifier (2-15 chars) in the text
+        matches = re.findall(r'\b([A-Z][A-Z0-9]+(?:[-/][A-Z0-9]+)*)\b', task)
+        if matches:
+            # Prefer longer matches and exclude common English words
+            english_upper = {'A', 'I', 'THE', 'IS', 'ARE', 'BE', 'DO', 'FOR', 'AND', 'NOT', 'BUT', 'OR', 'NOR', 'SO', 'YET', 'THIS'}
+            candidates = [m for m in matches if m.upper() not in english_upper and len(m) >= 2]
+            if candidates:
+                return max(candidates, key=len)
+
+        # Last resort: use a cleaned version of the query
+        return task[:150]
 
     async def _review_results_sc(
         self, task: str, tool_results: list[dict], research: str,
@@ -580,7 +812,12 @@ class AgentOrchestrator:
             "   - Have we identified which residues MUST NOT be mutated?\n"
             "2. If the task involves protein analysis:\n"
             "   - Do we have quantitative results with proper units?\n"
-            "   - Are there benchmarks or comparisons to known proteins?\n\n"
+            "   - Are there benchmarks or comparisons to known proteins?\n"
+            "3. If the task involves binder / de novo protein design:\n"
+            "   - Were backbone scaffolds generated (rfdiffusion/chroma)?\n"
+            "   - Do we have designed sequences with inverse folding (proteinmpnn)?\n"
+            "   - Are folding validation results available (esmfold pLDDT > 70)?\n"
+            "   - Is sequence diversity and recovery rate reported?\n\n"
             "Respond with a JSON object:\n"
             '{"needs_supplement": true/false,'
             ' "critique": "one-line assessment of gap",'
@@ -674,6 +911,11 @@ class AgentOrchestrator:
             if skill:
                 relevant.append(skill)
 
+        if any(kw in lower for kw in ["design", "binder", "de novo", "backbone", "scaffold", "蛋白设计", "从头设计"]):
+            skill = read_skill("protein_design")
+            if skill:
+                relevant.append(skill)
+
         if not relevant:
             return ""
 
@@ -688,6 +930,9 @@ class AgentOrchestrator:
         props_data = {}
         mutation_data = {}
         benchmark_data = {}
+        enzyme_data = {}
+        kcat_data = {}
+        design_data = []  # proteinmpnn / rfdiffusion / chroma results
 
         for r in tool_results:
             result_str = str(r.get("result", ""))
@@ -702,13 +947,19 @@ class AgentOrchestrator:
                 mutation_data = self._safe_parse_json(result_str)
             elif tool == "protein_benchmark" and status == "completed":
                 benchmark_data = self._safe_parse_json(result_str)
+            elif tool == "enzyme_function" and status == "completed":
+                enzyme_data = self._safe_parse_json(result_str)
+            elif tool == "kcat_predict" and status == "completed":
+                kcat_data = self._safe_parse_json(result_str)
+            elif tool in ("proteinmpnn_design", "rfdiffusion_design", "chroma_design") and status == "completed":
+                design_data.append({"tool": tool, "data": self._safe_parse_json(result_str)})
             elif tool == "blast_search" and status == "completed":
-                lines.append("## 1. Enzyme Family Identification\n")
+                lines.append("## Enzyme Family Identification (BLAST)\n")
                 lines.append(f"```\n{result_str[:500]}\n```\n")
 
         # Properties section
         if props_data:
-            lines.append("## 2. Physicochemical Properties\n")
+            lines.append("## Physicochemical Properties\n")
             lines.append(f"- **Molecular Weight**: {props_data.get('molecular_weight_kda', 'N/A')} kDa\n")
             lines.append(f"- **Isoelectric Point (pI)**: {props_data.get('isoelectric_point', 'N/A')}\n")
             lines.append(f"- **GRAVY**: {props_data.get('gravy', 'N/A')}\n")
@@ -717,7 +968,7 @@ class AgentOrchestrator:
 
         # Mutation priority section
         if mutation_data:
-            lines.append("## 3. Mutation Priority Analysis\n\n")
+            lines.append("## Mutation Priority Analysis\n\n")
             summary = mutation_data.get("summary", {})
             if summary:
                 lines.append(f"- **Tier 1 candidates**: {summary.get('tier_1_count', 0)}\n")
@@ -745,7 +996,7 @@ class AgentOrchestrator:
 
         # Benchmark section
         if benchmark_data:
-            lines.append("## 4. Family & Conservation Analysis\n\n")
+            lines.append("## Family & Conservation Analysis\n\n")
             family = benchmark_data.get("family", {})
             if family:
                 lines.append(f"- **Family**: {family.get('name', 'Unknown')}\n")
@@ -767,8 +1018,73 @@ class AgentOrchestrator:
                         lines.append(f"- {s.get('mutation', '?')}: {s.get('effect', '?')} ({s.get('organism', '?')})\n")
                 lines.append("\n")
 
+        # Enzyme function section
+        if enzyme_data:
+            lines.append("## Enzyme Function Prediction (EC Number)\n\n")
+            predictions = enzyme_data.get("predictions", [])
+            if predictions:
+                lines.append("| # | EC Number | Class | Confidence | Name |\n")
+                lines.append("|---|-----------|-------|------------|------|\n")
+                for i, p in enumerate(predictions[:5]):
+                    conf = p.get("confidence", "?")
+                    lines.append(
+                        f"| {i+1} | {p.get('ec_number', '?')} | {p.get('class', '?')} | "
+                        f"{conf} | {p.get('name', '?')} |\n"
+                    )
+                lines.append("\n")
+            lines.append(f"- **Model**: {enzyme_data.get('model', 'N/A')}\n\n")
+
+        # Kcat kinetics section
+        if kcat_data:
+            lines.append("## Catalytic Kinetics (Kcat Prediction)\n\n")
+            kcat = kcat_data.get("predicted_kcat_s1")
+            if kcat is not None:
+                lines.append(f"- **Predicted Kcat**: {kcat:.4f} s⁻¹\n")
+                lines.append(f"- **Log10(Kcat)**: {kcat_data.get('predicted_log10_kcat', 'N/A')}\n")
+                lines.append(f"- **Enzyme Class**: {kcat_data.get('enzyme_class', 'N/A')}\n")
+                ci = kcat_data.get("confidence_interval_kcat_s1", [None, None])
+                if ci[0] is not None:
+                    lines.append(f"- **95% CI**: {ci[0]:.4f} — {ci[1]:.4f} s⁻¹\n")
+                lines.append(f"- **Assessment**: {kcat_data.get('efficiency_assessment', 'N/A')}\n")
+                lines.append(f"- **Method**: {kcat_data.get('method', 'N/A')}\n")
+                lines.append("\n")
+
+        # Design results section (binder / de novo design)
+        if design_data:
+            lines.append("## Protein Design Results\n\n")
+            for d in design_data:
+                tool = d["tool"]
+                data = d["data"]
+
+                if tool == "proteinmpnn_design":
+                    lines.append("### Inverse Folding (ProteinMPNN)\n\n")
+                    lines.append(f"- **Target length**: {data.get('target_length', 'N/A')} residues\n")
+                    lines.append(f"- **Best recovery rate**: {data.get('best_recovery_rate', 'N/A')}\n")
+                    lines.append(f"- **Best confidence**: {data.get('best_confidence', 'N/A')}\n")
+                    lines.append(f"- **Sequences generated**: {data.get('num_sequences_generated', 'N/A')}\n\n")
+                    designs = data.get("designs", [])
+                    if designs:
+                        lines.append("| Rank | Sequence (first 40 aa) | Recovery | Confidence | Mutations |\n")
+                        lines.append("|------|------------------------|----------|------------|----------|\n")
+                        for des in designs[:5]:
+                            seq_preview = des.get("sequence", "")[:40] + "…"
+                            lines.append(
+                                f"| {des.get('rank', '?')} | `{seq_preview}` | "
+                                f"{des.get('recovery_rate', '?')} | {des.get('mean_confidence', '?')} | "
+                                f"{des.get('num_mutations', '?')} |\n"
+                            )
+                        lines.append("\n")
+
+                elif tool == "rfdiffusion_design":
+                    lines.append("### Backbone Generation (RFdiffusion)\n\n")
+                    lines.append(f"```\n{str(data)[:500]}\n```\n\n")
+
+                elif tool == "chroma_design":
+                    lines.append("### Joint Structure-Sequence (Chroma)\n\n")
+                    lines.append(f"```\n{str(data)[:500]}\n```\n\n")
+
         # Recommendations
-        lines.append("## 5. Recommendations & Experimental Plan\n\n")
+        lines.append("## Recommendations & Experimental Plan\n\n")
         lines.append("### DO NOT MUTATE\n")
         lines.append("- Catalytic triad residues (Asp/Glu nucleophile, acid/base, stabilizer)\n")
         lines.append("- Ca²⁺/Zn²⁺ binding site residues\n")
@@ -786,16 +1102,72 @@ class AgentOrchestrator:
         return "\n".join(lines)
 
     @staticmethod
-    def _safe_parse_json(text: str) -> dict:
-        """Try to parse a string as JSON, return empty dict on failure."""
-        try:
-            return json.loads(text) if isinstance(text, str) and text.strip() else {}
-        except (json.JSONDecodeError, TypeError):
-            # Try to extract JSON from text using eval-style parsing
+    def _compact_result(tool_name: str, result: Any) -> str:
+        """Build a compact JSON string from a tool result, prioritizing key fields.
+
+        Large results (e.g., mutation_priority_score at 80KB) need key field extraction
+        so the LLM and fallback report can see the summary and top candidates.
+        """
+        if not isinstance(result, dict):
+            return str(result)[:5000]
+
+        # Tools with known large outputs — extract key fields into a compact dict
+        if tool_name == "mutation_priority_score":
+            compact = {}
+            for key in ("summary", "tier_1_candidates", "tier_2_candidates",
+                        "engineering_goal", "sequence_length"):
+                if key in result:
+                    compact[key] = result[key]
+            # Limit tier lists to top 10
+            for tier_key in ("tier_1_candidates", "tier_2_candidates"):
+                if tier_key in compact and isinstance(compact[tier_key], list):
+                    compact[tier_key] = compact[tier_key][:10]
             try:
-                return eval(text) if isinstance(text, str) else {}
+                return json.dumps(compact, ensure_ascii=False, default=str)
             except Exception:
-                return {}
+                pass
+
+        if tool_name == "mutation_scan":
+            compact = {}
+            for key in ("sequence_length", "scan_type", "positions_scanned", "results"):
+                if key in result:
+                    compact[key] = result[key] if key != "results" else result[key][:15]
+            try:
+                return json.dumps(compact, ensure_ascii=False, default=str)
+            except Exception:
+                pass
+
+        # Default: JSON-serialized full result (much more compact than Python repr)
+        try:
+            return json.dumps(result, ensure_ascii=False, default=str)
+        except Exception:
+            return str(result)[:5000]
+
+    @staticmethod
+    def _safe_parse_json(text: str) -> dict:
+        """Try to parse a string as JSON or Python repr, return empty dict on failure."""
+        if not isinstance(text, str) or not text.strip():
+            return {}
+        # Try JSON first
+        try:
+            return json.loads(text)
+        except (json.JSONDecodeError, TypeError):
+            pass
+        # Try ast.literal_eval for Python repr strings (safe — no code execution)
+        try:
+            import ast
+            return ast.literal_eval(text)
+        except (ValueError, SyntaxError):
+            pass
+        # Handle truncated Python repr: trim to last complete closing bracket
+        try:
+            import ast
+            trimmed = text[:text.rfind('}')+1] if '}' in text else text
+            if trimmed.strip():
+                return ast.literal_eval(trimmed)
+        except (ValueError, SyntaxError):
+            pass
+        return {}
 
     async def _chat_reply(
         self, message: str, history: list[dict],
@@ -826,13 +1198,13 @@ class AgentOrchestrator:
             functools.partial(chat_completion_sync, messages, provider=provider, model=model, **kwargs),
         )
 
+    # Errors that are transient and worth retrying once
+    _RETRYABLE_ERRORS = ("connection", "timeout", "rate_limit", "rate_limited", "503", "502", "429")
+
     def _should_retry(self, step: PlanStep) -> bool:
-        """Determine if a failed step should be retried (per-cause budget)."""
-        if "connection" in str(step.error).lower():
-            return True
-        if "timeout" in str(step.error).lower():
-            return True
-        return False
+        """Determine if a failed step should be retried once for transient errors."""
+        error_lower = str(step.error).lower()
+        return any(pattern in error_lower for pattern in self._RETRYABLE_ERRORS)
 
 
 orchestrator = AgentOrchestrator()

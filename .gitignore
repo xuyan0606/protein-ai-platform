@@ -34,6 +34,25 @@ Thumbs.db
 # Docker volumes
 docker/volumes/
 
+# OIDC keys
+oidc_private_key.pem
+oidc_public_key.pem
+
 # Logs
 *.log
 logs/
+
+# Production secrets (NEVER commit real keys)
+backend/.env.production
+docker/.env
+docker/ssl/*.key
+docker/ssl/*.crt
+
+# Temporary test files
+frontend/test-*.ts
+frontend/test-*.mjs
+frontend/e2e-*.mjs
+frontend/test-results/
+
+# Generated reports
+report.html

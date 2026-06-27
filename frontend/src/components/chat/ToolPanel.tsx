@@ -44,7 +44,6 @@ export function ToolPanel() {
 
   useEffect(() => {
     api.getTools().then((data) => {
-      // Backend returns {tools: [...], categories: {...}}
       const list: ToolSchema[] = data.tools || []
       setTools(list)
       setCategories(data.categories || {})

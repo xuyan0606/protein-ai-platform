@@ -5,6 +5,7 @@ import { useAuthStore } from '@/stores/auth'
 import {
   Dna, Beaker, Zap, ArrowRight, Sparkles, Upload, FileText,
   Microscope, Thermometer, GitCompare, Scissors, ChevronRight,
+  BookOpen,
 } from 'lucide-react'
 import { useRef } from 'react'
 
@@ -55,6 +56,7 @@ const TOOL_CATEGORIES = [
   { name: 'engineering', label: 'Engineering', icon: Thermometer, desc: 'Mutation & optimization' },
   { name: 'docking', label: 'Docking', icon: Scissors, desc: 'Molecular docking tools' },
   { name: 'analysis', label: 'Analysis', icon: Sparkles, desc: 'Data analysis & scoring' },
+  { name: 'wiki', label: 'Knowledge Base', icon: BookOpen, desc: 'Team wiki & documentation', href: '/wiki' },
 ]
 
 export function HomePage() {
@@ -175,7 +177,7 @@ export function HomePage() {
               <div
                 key={cat.name}
                 className="p-3.5 rounded-xl bg-card border border-border hover:border-ring/50 transition-colors cursor-pointer"
-                onClick={() => navigate('/chat/agent')}
+                onClick={() => cat.href ? navigate(cat.href) : navigate('/chat/agent')}
               >
                 <div className="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center mb-2.5">
                   <Icon className="w-4 h-4 text-muted-foreground" />

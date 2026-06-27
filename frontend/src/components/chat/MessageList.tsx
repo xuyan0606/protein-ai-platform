@@ -15,7 +15,7 @@ export function MessageList() {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
-  const suggestions: string[] = t('chat.suggestions', { returnObjects: true })
+  const suggestions: string[] = (t('chat.suggestions', { returnObjects: true }) as unknown) as string[]
 
   const handleSuggestionClick = (suggestion: string) => {
     if (streaming) return

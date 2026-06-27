@@ -175,7 +175,7 @@ async def _run_blast(
 
     blast_db = _DATABASE_MAP.get(database, database)
 
-    async with httpx.AsyncClient(timeout=httpx.Timeout(120.0)) as client:
+    async with httpx.AsyncClient(timeout=httpx.Timeout(300.0)) as client:
         # --- Submit ---
         submit_params: dict[str, str] = {
             "CMD": "Put",
@@ -220,7 +220,7 @@ async def _run_blast(
     for attempt in range(1, _MAX_POLL_ATTEMPTS + 1):
         await asyncio.sleep(delay)
 
-        async with httpx.AsyncClient(timeout=httpx.Timeout(120.0)) as client:
+        async with httpx.AsyncClient(timeout=httpx.Timeout(300.0)) as client:
             poll_params = {
                 "CMD": "Get",
                 "RID": rid,

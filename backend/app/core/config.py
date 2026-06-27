@@ -54,6 +54,7 @@ class Settings(BaseSettings):
     LLM_FALLBACK_MODEL: str = "deepseek-chat"
     LLM_MAX_TOKENS: int = 8192
     LLM_TEMPERATURE: float = 0.7
+    LLM_REQUEST_TIMEOUT: int = 120  # seconds per LLM request
 
     # Anthropic
     ANTHROPIC_API_KEY: str = ""
@@ -70,6 +71,11 @@ class Settings(BaseSettings):
     MINIMAX_API_KEY: str = ""
     MINIMAX_BASE_URL: str = ""
     MINIMAX_MODEL: str = "MiniMax-M2.7"
+
+    # DashScope / Qwen (阿里云百炼 OpenAI-compatible)
+    DASHSCOPE_API_KEY: str = ""
+    DASHSCOPE_BASE_URL: str = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    DASHSCOPE_MODEL: str = "qwen-plus"
 
     # Rate limiting
     RATE_LIMIT_REQUESTS: int = 60

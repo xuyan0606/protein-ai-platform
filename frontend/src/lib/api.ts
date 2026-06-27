@@ -16,6 +16,8 @@ async function request<T>(
     const err = await res.json().catch(() => ({ detail: res.statusText }))
     throw new Error(err.detail || 'Request failed')
   }
+  // 204 No Content — nothing to parse
+  if (res.status === 204) return undefined as T
   return res.json()
 }
 
@@ -48,7 +50,7 @@ export const api = {
   getModels: () => request<Array<{ id: string; name: string; provider: string; model: string; description: string; available: boolean }>>('/chat/models'),
 
   // Tools
-  getTools: () => request<any[]>('/tools'),
+  getTools: () => request<{ tools: any[]; categories: Record<string, string[]> }>('/tools'),
 
   callTool: (name: string, params: Record<string, unknown>) =>
     request<any>(`/tools/${name}/call`, {
@@ -110,4 +112,38 @@ export const api = {
       body: formData,
     })
   },
+
+  // ========== Data Browser ==========
+  getDataStats: () => request<any>('/data/stats'),
+
+  searchData: (q: string, category?: string, limit = 20) => {
+    const params = new URLSearchParams({ q, limit: String(limit) })
+    if (category) params.set('category', category)
+    return request<any>(`/data/search?${params}`)
+  },
+
+  getProtein: (uniprotId: string) => request<any>(`/data/protein/${uniprotId}`),
+
+  getProteinKinetics: (uniprotId: string, paramType?: string) => {
+    const params = paramType ? `?param_type=${paramType}` : ''
+    return request<any>(`/data/protein/${uniprotId}/kinetics${params}`)
+  },
+
+  getProteinStability: (uniprotId: string) =>
+    request<any>(`/data/protein/${uniprotId}/stability`),
+
+  getProteinStructures: (uniprotId: string) =>
+    request<any>(`/data/protein/${uniprotId}/structures`),
+
+  getProteinEvolution: (uniprotId: string) =>
+    request<any>(`/data/protein/${uniprotId}/evolution`),
+
+  getECNumber: (ec: string) => request<any>(`/data/ec/${ec}`),
+
+  searchSubstrate: (query: string) => request<any>(`/data/substrate/${query}`),
+
+  getReaction: (rheaId: number) => request<any>(`/data/reaction/${rheaId}`),
+
+  triggerIngestion: (source: string, force = false) =>
+    request<any>(`/data/ingest/${source}?force=${force}`, { method: 'POST' }),
 }

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Response, status
 from pydantic import BaseModel, EmailStr, field_validator
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -72,7 +72,7 @@ class UserProfile(BaseModel):
 # ---------------------------------------------------------------------------
 
 @router.post("/login", response_model=TokenResponse)
-async def login(req: LoginRequest, db: AsyncSession = Depends(get_session)):
+async def login(req: LoginRequest, response: Response, db: AsyncSession = Depends(get_session)):
     """Authenticate with email/password and return JWT tokens."""
     result = await db.execute(select(User).where(User.email == req.email))
     user = result.scalar_one_or_none()
@@ -85,6 +85,17 @@ async def login(req: LoginRequest, db: AsyncSession = Depends(get_session)):
 
     access_token = create_access_token(subject=user.id)
     refresh_token = create_refresh_token(subject=user.id)
+
+    # Set pa_token cookie for OIDC SSO bridge (Outline integration)
+    response.set_cookie(
+        key="pa_token",
+        value=access_token,
+        httponly=True,
+        secure=False,  # set True when using HTTPS
+        samesite="lax",
+        max_age=1800,  # 30 minutes, matches access token expiry
+        path="/",
+    )
 
     return TokenResponse(
         access_token=access_token,

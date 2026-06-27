@@ -295,16 +295,14 @@ async def list_batch_jobs(
 
 async def _run_tool(tool_name: str, sequence: str, extra_params: dict) -> dict:
     from app.tools.registry import ToolRegistry
-    registry = ToolRegistry.get_registry()
-    tool = registry.get(tool_name)
+
+    tool = ToolRegistry.get_tool(tool_name)
     if not tool:
         raise ValueError(f"Unknown tool: {tool_name}")
 
     # Build params from tool schema
     params = dict(extra_params)
-    schema = tool.parameters
-    required = schema.get("required", [])
-    properties = schema.get("properties", {})
+    properties = tool.parameters.get("properties", {})
 
     # Auto-fill sequence param
     for key, prop in properties.items():

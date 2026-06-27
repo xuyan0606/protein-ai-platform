@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import type { ChatMessage } from '@/stores/chat'
 import { MarkdownView } from '@/components/chat/MarkdownView'
 import { ToolCallCard } from '@/components/chat/ToolCallCard'
+import { PDBAnalysisCard, isPDBAnalysisResult } from '@/components/analysis/PDBAnalysisCard'
 import { Dna, User } from 'lucide-react'
 
 interface Props {
@@ -18,6 +19,8 @@ export function MessageBubble({ message }: Props) {
     : isSystem
       ? t('common.system')
       : t('common.proteinAI')
+
+  const pdbAnalysis = message.files?.find((f) => isPDBAnalysisResult(f.analysisData))?.analysisData
 
   return (
     <div className={`flex gap-3 ${isUser ? 'flex-row-reverse' : ''}`}>
@@ -66,6 +69,11 @@ export function MessageBubble({ message }: Props) {
               {message.toolCalls.map((tc) => (
                 <ToolCallCard key={tc.id} toolCall={tc} />
               ))}
+            </div>
+          )}
+          {pdbAnalysis && isUser && (
+            <div className="mb-3">
+              <PDBAnalysisCard data={pdbAnalysis} />
             </div>
           )}
           {message.content ? (

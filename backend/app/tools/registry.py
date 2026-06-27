@@ -175,6 +175,10 @@ class ToolRegistry:
         import app.tools.gromacs_md  # noqa
         import app.tools.mutation_priority_score  # noqa
         import app.tools.protein_benchmark  # noqa
+        import app.tools.protssn_score  # noqa
+        import app.tools.enzyme_function  # noqa
+        import app.tools.kcat_predict  # noqa
+        import app.tools.data_lookup  # noqa
 
         if cls._executor is None:
             cls._executor = concurrent.futures.ThreadPoolExecutor(max_workers=4)
@@ -237,9 +241,29 @@ class ToolRegistry:
         import functools
 
         try:
+            # Validate required parameters before execution
+            required = tool.parameters.get("required", []) if isinstance(tool.parameters, dict) else []
+            missing = [r for r in required if r not in params or params[r] is None]
+            if missing:
+                raise ValueError(
+                    f"Tool '{name}' missing required parameters: {missing}. "
+                    f"Provided: {list(params.keys())}"
+                )
+
+            # Filter out undeclared params — LLM-generated plans may include extras
+            declared = set(tool.parameters.get("properties", {}).keys()) if isinstance(tool.parameters, dict) else set()
+            if declared:
+                filtered = {k: v for k, v in params.items() if k in declared}
+                # Always include required params even if somehow missing from properties
+                for r in required:
+                    if r not in filtered:
+                        filtered[r] = params[r]
+            else:
+                filtered = params
+
             if tool.is_async:
                 result = await asyncio.wait_for(
-                    tool.handler(**params),
+                    tool.handler(**filtered),
                     timeout=tool.timeout_seconds,
                 )
             else:
@@ -247,7 +271,7 @@ class ToolRegistry:
                 result = await asyncio.wait_for(
                     loop.run_in_executor(
                         cls._executor,
-                        functools.partial(tool.handler, **params),
+                        functools.partial(tool.handler, **filtered),
                     ),
                     timeout=tool.timeout_seconds,
                 )

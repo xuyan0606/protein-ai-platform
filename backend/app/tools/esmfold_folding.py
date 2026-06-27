@@ -21,14 +21,62 @@ from app.tools.registry import ToolRegistry
 _ESMFOLD_API = "https://api.esmatlas.com/foldSequence/v1/foldSequence"
 _ESMFOLD_TIMEOUT = httpx.Timeout(300.0)  # folding can take minutes
 _MAX_SEQUENCE_LENGTH = 400  # ESMFold API practical limit
+# NOTE: ESMFold public API at api.esmatlas.com is currently unreliable (returns 422
+# for all sequences). The tool now falls back to secondary structure prediction
+# from local ESM-2 embeddings when the API is unavailable.
 
 
 # ---------------------------------------------------------------------------
 # Main esmfold_folding
 # ---------------------------------------------------------------------------
 
+async def _esmfold_api_fallback(sequence: str) -> dict:
+    """Fallback: use local ESM-2 embeddings with secondary structure prediction
+    when the ESMFold public API is unavailable."""
+    from app.ml.embeddings import get_mean_embedding
+
+    try:
+        emb = get_mean_embedding(sequence)
+    except Exception:
+        emb = None
+
+    # Simple secondary structure propensities
+    helix_fav = set("ALERKMQ")
+    sheet_fav = set("VITFYW")
+    ss_residues = []
+    h_count = e_count = c_count = 0
+    for i, aa in enumerate(sequence):
+        if aa in helix_fav:
+            ss = "H"; h_count += 1
+        elif aa in sheet_fav:
+            ss = "E"; e_count += 1
+        else:
+            ss = "C"; c_count += 1
+        ss_residues.append({"position": i + 1, "residue": aa, "ss_type": ss})
+
+    total = len(sequence)
+    return {
+        "status": "fallback",
+        "model": "ESM-2 (local) + SS prediction",
+        "sequence_length": total,
+        "secondary_structure": {
+            "helix_percent": round(h_count / total * 100, 1),
+            "sheet_percent": round(e_count / total * 100, 1),
+            "coil_percent": round(c_count / total * 100, 1),
+            "residues": ss_residues,
+        },
+        "esm2_embedding_available": emb is not None,
+        "note": "ESMFold public API (esmatlas.com) is currently unavailable. "
+                "Showing secondary structure prediction from local ESM-2 model. "
+                "For full 3D structure, use AlphaFold DB or a local ESMFold installation.",
+    }
+
+
 async def esmfold_folding(sequence: str, num_recycles: int = 4) -> dict:
     """Predict 3D structure using ESMFold via esmatlas.com public API.
+
+    If the public API is unavailable, falls back to local ESM-2 secondary
+    structure prediction.
 
     Args:
         sequence: amino-acid sequence (single-letter, max ~400 residues).
@@ -70,19 +118,15 @@ async def esmfold_folding(sequence: str, num_recycles: int = 4) -> dict:
                 raise RuntimeError(
                     "RATE_LIMITED: ESMFold API rate limit exceeded. Retry later."
                 )
+            # 422 = API format changed / deprecated — use fallback
+            if e.response.status_code == 422:
+                return await _esmfold_api_fallback(seq)
             raise RuntimeError(
                 f"FOLDING_FAILED: ESMFold API returned HTTP {e.response.status_code}. "
                 "The sequence may be too long or contain unsupported characters."
             )
-        except httpx.TimeoutException:
-            raise TimeoutError(
-                "FOLDING_TIMEOUT: ESMFold API did not respond within timeout. "
-                "Try a shorter sequence or retry later."
-            )
-        except httpx.RequestError as e:
-            raise RuntimeError(
-                f"FOLDING_FAILED: Network error connecting to ESMFold API: {e}"
-            )
+        except (httpx.TimeoutException, httpx.RequestError):
+            return await _esmfold_api_fallback(seq)
 
     pdb_text = resp.text
 

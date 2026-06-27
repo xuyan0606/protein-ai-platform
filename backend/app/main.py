@@ -8,7 +8,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import chat, conversations, files, auth, tools, projects
+from app.api import chat, conversations, files, auth, tools, projects, data, pdb, oidc, outline_proxy
 from app.core.config import settings
 from app.core.metrics import MetricsMiddleware, metrics_response
 
@@ -29,6 +29,19 @@ async def lifespan(app: FastAPI):
     from app.tools.registry import ToolRegistry
     ToolRegistry.discover()
     logger.info("Tools registered: %s", list(ToolRegistry._tools.keys()))
+
+    # Register data ingestors
+    import app.data.ingestors.uniprot  # noqa
+    import app.data.ingestors.pfam  # noqa
+    import app.data.ingestors.pdb  # noqa
+    import app.data.ingestors.alphafold  # noqa
+    import app.data.ingestors.brenda  # noqa
+    import app.data.ingestors.protherm  # noqa
+    import app.data.ingestors.pubchem  # noqa
+    import app.data.ingestors.rhea  # noqa
+    import app.data.ingestors.enzengdb  # noqa
+    from app.data.ingestor_registry import list_sources
+    logger.info("Data ingestors registered: %s", list_sources())
 
     yield
     # ---- Shutdown ----
@@ -60,6 +73,9 @@ app.include_router(conversations.router, prefix="/api/conversations", tags=["Con
 app.include_router(files.router, prefix="/api/files", tags=["Files"])
 app.include_router(tools.router, prefix="/api/tools", tags=["Tools"])
 app.include_router(projects.router, prefix="/api/projects", tags=["Projects"])
+app.include_router(data.router, prefix="/api/data", tags=["Data"])
+app.include_router(pdb.router, prefix="/api/pdb", tags=["PDB"])
+app.include_router(oidc.router, tags=["OIDC"])  # handles /.well-known/... and /api/oidc/...
 
 
 @app.get("/api/health")
@@ -70,3 +86,7 @@ async def health():
 @app.get("/api/metrics")
 async def metrics():
     return metrics_response()
+
+# Outline proxy must be registered LAST — it's a catch-all that forwards
+# all unmatched requests to Outline (for iframe embedding).
+app.include_router(outline_proxy.router, tags=["Outline Proxy"])

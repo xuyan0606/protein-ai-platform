@@ -95,6 +95,26 @@ The goal is to give the user specific, actionable residue-level recommendations,
 not generic advice. Think like a computational protein engineer who needs to
 deliver experimental candidates, not just a literature summary.
 
+CRITICAL — Binder Design Protocol:
+When the task involves binder design, de novo protein design, scaffold generation,
+or any task targeting a specific protein for binding (e.g., "design a binder for PD-L1"):
+
+Without a sequence (target-only design):
+1. sequence_search — Find the target protein sequence and structure
+2. rfdiffusion_design — Generate de novo binder backbone scaffolds (length=100, num_designs=3)
+3. chroma_design — Joint structure-sequence generation for diversity
+4. proteinmpnn_design — Inverse folding to optimize sequences for generated backbones
+5. esmfold_folding — Validate designed sequences fold into intended backbone (pLDDT > 70)
+
+With a sequence (redesign / optimization):
+1. proteinmpnn_design — Inverse folding on the provided structure (num_sequences=3, temp=0.1)
+2. soluble_mpnn_design — Solubility and expression optimization
+3. esmfold_folding — Validate folding confidence of redesigned sequences
+4. predict_properties — Compare physicochemical profiles of original vs designed
+
+Key metrics to report: pLDDT confidence, recovery rate, sequence diversity,
+solubility score, and structural RMSD from target backbone.
+
 Respond with the JSON plan.
 """
 
