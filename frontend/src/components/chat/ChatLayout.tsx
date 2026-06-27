@@ -12,7 +12,7 @@ import { useChatStore } from '@/stores/chat'
 import { useAuthStore } from '@/stores/auth'
 import { useUIStore } from '@/stores/ui'
 import { useTheme } from '@/hooks/useTheme'
-import { Menu, PanelRightClose, PanelRight, User, LogOut, Sun, Moon, Home, FileText, FolderKanban, Database, Dna, BookOpen } from 'lucide-react'
+import { Menu, PanelRightClose, PanelRight, User, LogOut, Sun, Moon, Home, FileText, FolderKanban } from 'lucide-react'
 import type { AgentState } from '@/stores/chat'
 import { collectResults, downloadConversationReport } from '@/lib/conversation-report'
 
@@ -265,30 +265,6 @@ export function ChatLayout() {
             title="Projects"
           >
             <FolderKanban className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => navigate('/data')}
-            className="p-2 rounded-md hover:bg-secondary text-muted-foreground"
-            aria-label="Data Browser"
-            title="Data Browser"
-          >
-            <Database className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => navigate('/pdb')}
-            className="p-2 rounded-md hover:bg-secondary text-muted-foreground"
-            aria-label="PDB Analysis"
-            title="PDB Structure Analysis"
-          >
-            <Dna className="w-4 h-4" />
-          </button>
-          <button
-            onClick={() => navigate('/wiki')}
-            className="p-2 rounded-md hover:bg-secondary text-muted-foreground"
-            aria-label="Knowledge Base"
-            title="Wiki / Knowledge Base"
-          >
-            <BookOpen className="w-4 h-4" />
           </button>
           <span className="font-semibold text-xs sm:text-sm truncate">
             {t('app.title')}
