@@ -11,7 +11,7 @@ class ToolCallRequest(BaseModel):
 
 
 @router.get("")
-async def list_tools(current_user: dict = Depends(get_current_user)):
+async def list_tools():
     """List all available tools with their schemas and category groupings."""
     tools = []
     for t in ToolRegistry._tools.values():
@@ -29,7 +29,7 @@ async def list_tools(current_user: dict = Depends(get_current_user)):
 
 
 @router.get("/{name}")
-async def get_tool(name: str, current_user: dict = Depends(get_current_user)):
+async def get_tool(name: str):
     """Get a specific tool's schema."""
     tool = ToolRegistry.get_tool(name)
     if not tool:
