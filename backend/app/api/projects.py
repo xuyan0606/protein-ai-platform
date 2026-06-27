@@ -48,8 +48,8 @@ class BatchOut(BaseModel):
 
 
 class ProjectCreate(BaseModel):
-    name: str
-    description: str | None = None
+    name: str = Field(min_length=1, max_length=200, description="Project name")
+    description: str | None = Field(None, max_length=5000)
 
 
 class ProjectUpdate(BaseModel):

@@ -1,6 +1,7 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from app.tools.registry import ToolRegistry
+from app.core.security import get_current_user
 
 router = APIRouter()
 
@@ -10,7 +11,7 @@ class ToolCallRequest(BaseModel):
 
 
 @router.get("")
-async def list_tools():
+async def list_tools(current_user: dict = Depends(get_current_user)):
     """List all available tools with their schemas and category groupings."""
     tools = []
     for t in ToolRegistry._tools.values():
@@ -28,7 +29,7 @@ async def list_tools():
 
 
 @router.get("/{name}")
-async def get_tool(name: str):
+async def get_tool(name: str, current_user: dict = Depends(get_current_user)):
     """Get a specific tool's schema."""
     tool = ToolRegistry.get_tool(name)
     if not tool:
@@ -43,7 +44,7 @@ async def get_tool(name: str):
 
 
 @router.post("/{name}/call")
-async def call_tool(name: str, req: ToolCallRequest):
+async def call_tool(name: str, req: ToolCallRequest, current_user: dict = Depends(get_current_user)):
     """Directly call a tool by name."""
     try:
         result = await ToolRegistry.execute(name, req.params)
