@@ -81,11 +81,19 @@ class TestDockerfiles:
             "Worker Dockerfile should copy model cache to runtime"
         )
 
-    def test_backend_dockerfile_has_rdkit_libs(self):
+    def test_backend_dockerfile_no_rdkit(self):
+        """Backend uses core-only deps (no torch/ML). RDKit libs go in worker."""
         df = PROJECT_ROOT / "docker" / "Dockerfile.backend"
         content = df.read_text()
+        # Backend should NOT have RDKit system libs — ML runs on worker
         for lib in ["libxrender1", "libxext6", "libsm6"]:
-            assert lib in content, f"Backend Dockerfile missing RDKit lib: {lib}"
+            assert lib not in content, (
+                f"Backend Dockerfile should NOT have {lib} — RDKit runs on worker only"
+            )
+        # Should use requirements-prod.txt (core only, no torch)
+        assert "requirements-prod.txt" in content, (
+            "Backend Dockerfile must use requirements-prod.txt (core only)"
+        )
 
 
 class TestDockerCompose:
@@ -170,6 +178,46 @@ class TestNginxConfig:
     def test_ssl_cert_paths(self, nginx_content):
         assert "/etc/nginx/ssl/server.crt" in nginx_content
         assert "/etc/nginx/ssl/server.key" in nginx_content
+
+
+class TestGetCurrentUserDependency:
+    """Regression: get_current_user returns dict, not User model."""
+
+    def test_get_current_user_returns_dict(self):
+        """get_current_user return type must be dict.
+
+        Regression test for bug where projects.py used `user: User` type
+        annotation which failed with AttributeError because get_current_user
+        returns a dict, not a User model.
+        """
+        from app.core.security import get_current_user
+        import inspect
+
+        sig = inspect.signature(get_current_user)
+        return_annotation = sig.return_annotation
+        # from __future__ import annotations makes this a string
+        annotation_str = str(return_annotation).lower()
+        assert "dict" in annotation_str, (
+            f"get_current_user must return dict, not {return_annotation}"
+        )
+        assert "user" not in annotation_str, (
+            f"get_current_user must NOT return User model, got: {return_annotation}"
+        )
+
+    def test_no_user_model_import_in_projects_api(self):
+        """projects.py must NOT import User model — user is dict, not ORM."""
+        projects_path = Path(__file__).resolve().parent.parent / "app" / "api" / "projects.py"
+        content = projects_path.read_text()
+        assert "from app.models.user import User" not in content, (
+            "projects.py should not import User model — user is a dict from get_current_user"
+        )
+        assert "user: User" not in content, (
+            "projects.py should annotate user as dict, not User"
+        )
+        # Must use dict access pattern
+        assert 'user["id"]' in content, (
+            "projects.py must use user[\"id\"] (dict access), not user.id"
+        )
 
 
 class TestSecuritySecrets:

@@ -12,7 +12,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.database import get_session
 from app.core.security import get_current_user
 from app.models.project import Project, ProjectSequence, BatchJob
-from app.models.user import User
 
 router = APIRouter(tags=["projects"])
 
@@ -89,9 +88,9 @@ class ProjectListOut(BaseModel):
 @router.get("", response_model=list[ProjectListOut])
 async def list_projects(
     session: AsyncSession = Depends(get_session),
-    user: User = Depends(get_current_user),
+    user: dict = Depends(get_current_user),
 ):
-    stmt = select(Project).where(Project.user_id == user.id).order_by(Project.updated_at.desc())
+    stmt = select(Project).where(Project.user_id == user["id"]).order_by(Project.updated_at.desc())
     result = await session.execute(stmt)
     projects = result.scalars().all()
     return [
@@ -111,9 +110,9 @@ async def list_projects(
 async def create_project(
     body: ProjectCreate,
     session: AsyncSession = Depends(get_session),
-    user: User = Depends(get_current_user),
+    user: dict = Depends(get_current_user),
 ):
-    project = Project(name=body.name, description=body.description, user_id=user.id)
+    project = Project(name=body.name, description=body.description, user_id=user["id"])
     session.add(project)
     await session.flush()
     await session.refresh(project)
@@ -124,9 +123,9 @@ async def create_project(
 async def get_project(
     project_id: str,
     session: AsyncSession = Depends(get_session),
-    user: User = Depends(get_current_user),
+    user: dict = Depends(get_current_user),
 ):
-    stmt = select(Project).where(Project.id == project_id, Project.user_id == user.id)
+    stmt = select(Project).where(Project.id == project_id, Project.user_id == user["id"])
     result = await session.execute(stmt)
     project = result.scalar_one_or_none()
     if not project:
@@ -139,9 +138,9 @@ async def update_project(
     project_id: str,
     body: ProjectUpdate,
     session: AsyncSession = Depends(get_session),
-    user: User = Depends(get_current_user),
+    user: dict = Depends(get_current_user),
 ):
-    stmt = select(Project).where(Project.id == project_id, Project.user_id == user.id)
+    stmt = select(Project).where(Project.id == project_id, Project.user_id == user["id"])
     result = await session.execute(stmt)
     project = result.scalar_one_or_none()
     if not project:
@@ -159,9 +158,9 @@ async def update_project(
 async def delete_project(
     project_id: str,
     session: AsyncSession = Depends(get_session),
-    user: User = Depends(get_current_user),
+    user: dict = Depends(get_current_user),
 ):
-    stmt = select(Project).where(Project.id == project_id, Project.user_id == user.id)
+    stmt = select(Project).where(Project.id == project_id, Project.user_id == user["id"])
     result = await session.execute(stmt)
     project = result.scalar_one_or_none()
     if not project:
@@ -178,10 +177,10 @@ async def add_sequence(
     project_id: str,
     body: SeqCreate,
     session: AsyncSession = Depends(get_session),
-    user: User = Depends(get_current_user),
+    user: dict = Depends(get_current_user),
 ):
     proj = await session.get(Project, project_id)
-    if not proj or proj.user_id != user.id:
+    if not proj or proj.user_id != user["id"]:
         raise HTTPException(404, "Project not found")
     seq = ProjectSequence(project_id=project_id, name=body.name, sequence=body.sequence.upper(), notes=body.notes)
     session.add(seq)
@@ -195,10 +194,10 @@ async def remove_sequence(
     project_id: str,
     seq_id: str,
     session: AsyncSession = Depends(get_session),
-    user: User = Depends(get_current_user),
+    user: dict = Depends(get_current_user),
 ):
     proj = await session.get(Project, project_id)
-    if not proj or proj.user_id != user.id:
+    if not proj or proj.user_id != user["id"]:
         raise HTTPException(404, "Project not found")
     seq = await session.get(ProjectSequence, seq_id)
     if not seq or seq.project_id != project_id:
@@ -227,10 +226,10 @@ async def batch_run(
     project_id: str,
     body: BatchRunRequest,
     session: AsyncSession = Depends(get_session),
-    user: User = Depends(get_current_user),
+    user: dict = Depends(get_current_user),
 ):
     proj = await session.get(Project, project_id)
-    if not proj or proj.user_id != user.id:
+    if not proj or proj.user_id != user["id"]:
         raise HTTPException(404, "Project not found")
 
     if not proj.sequences:
@@ -282,7 +281,7 @@ async def batch_run(
 async def list_batch_jobs(
     project_id: str,
     session: AsyncSession = Depends(get_session),
-    user: User = Depends(get_current_user),
+    user: dict = Depends(get_current_user),
 ):
     stmt = select(BatchJob).where(BatchJob.project_id == project_id).order_by(BatchJob.created_at.desc())
     result = await session.execute(stmt)
