@@ -28,14 +28,30 @@ OIDC_JWKS = {"keys": [OIDC_JWK]}
 # ---------------------------------------------------------------------------
 OIDC_CLIENT_SECRET = os.getenv("OIDC_CLIENT_SECRET", "oidc-secret-change-me-in-production")
 
+def _build_redirect_uris() -> list[str]:
+    """Build redirect URIs from env or use defaults for dev."""
+    uris_env = os.getenv("OIDC_REDIRECT_URIS", "")
+    if uris_env:
+        return [u.strip() for u in uris_env.split(",") if u.strip()]
+    # Defaults: localhost dev + production domain/IP
+    uris = [
+        "http://localhost:8000/auth/oidc.callback",
+        "http://localhost:3002/auth/oidc.callback",
+    ]
+    prod_url = os.getenv("OIDC_ISSUER", "")
+    if prod_url and "localhost" not in prod_url:
+        uris.append(f"{prod_url}/auth/oidc.callback")
+        # Outline callback on production
+        outline_url = os.getenv("OUTLINE_PUBLIC_URL", "")
+        if outline_url:
+            uris.append(f"{outline_url}/auth/oidc.callback")
+    return uris
+
 OIDC_CLIENTS: dict[str, dict] = {
     "protein-ai": {
         "client_id": "protein-ai",
         "client_secret": OIDC_CLIENT_SECRET,
-        "redirect_uris": [
-            "http://localhost:8000/auth/oidc.callback",
-            "http://localhost:3002/auth/oidc.callback",
-        ],
+        "redirect_uris": _build_redirect_uris(),
         "response_types": ["code"],
         "grant_types": ["authorization_code", "refresh_token"],
         "token_endpoint_auth_method": "client_secret_post",

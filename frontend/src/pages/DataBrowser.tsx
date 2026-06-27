@@ -15,6 +15,7 @@ export default function DataBrowser() {
   const [stats, setStats] = useState<any>(null)
   const [selectedProtein, setSelectedProtein] = useState<any>(null)
   const [proteinDetail, setProteinDetail] = useState<any>(null)
+  const [proteinError, setProteinError] = useState(false)
   const [detailTab, setDetailTab] = useState('overview')
 
   useEffect(() => { api.getDataStats().then(setStats).catch(() => {}) }, [])
@@ -34,6 +35,7 @@ export default function DataBrowser() {
   const selectProtein = async (uniprotId: string) => {
     setSelectedProtein({ uniprot_id: uniprotId })
     setProteinDetail(null)
+    setProteinError(false)
     setDetailTab('overview')
     try {
       const [detail, kinetics, stability, structures, evolution] = await Promise.all([
@@ -44,7 +46,9 @@ export default function DataBrowser() {
         api.getProteinEvolution(uniprotId),
       ])
       setProteinDetail({ ...detail, kinetics, stability, structures, evolution })
-    } catch {}
+    } catch {
+      setProteinError(true)
+    }
   }
 
   return (
@@ -214,10 +218,11 @@ export default function DataBrowser() {
               <div className="w-[520px] flex-shrink-0">
                 <ProteinDetail
                   detail={proteinDetail}
+                  error={proteinError}
                   selected={selectedProtein}
                   detailTab={detailTab}
                   setDetailTab={setDetailTab}
-                  onClose={() => { setSelectedProtein(null); setProteinDetail(null) }}
+                  onClose={() => { setSelectedProtein(null); setProteinDetail(null); setProteinError(false) }}
                 />
               </div>
             )}
@@ -262,7 +267,7 @@ function ResultRow({ children, onClick }: any) {
   )
 }
 
-function ProteinDetail({ detail, selected, detailTab, setDetailTab, onClose }: any) {
+function ProteinDetail({ detail, error, selected, detailTab, setDetailTab, onClose }: any) {
   if (!detail) {
     return (
       <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 sticky top-6">
@@ -270,7 +275,14 @@ function ProteinDetail({ detail, selected, detailTab, setDetailTab, onClose }: a
           <span className="font-mono text-blue-600 font-medium">{selected.uniprot_id}</span>
           <button onClick={onClose} className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"><X className="w-4 h-4" /></button>
         </div>
-        <div className="flex items-center justify-center py-8"><Loader2 className="w-5 h-5 animate-spin text-gray-400" /></div>
+        {error ? (
+          <div className="text-center py-8">
+            <X className="w-5 h-5 mx-auto mb-2 text-red-400" />
+            <div className="text-sm text-red-500">加载失败，请检查网络连接</div>
+          </div>
+        ) : (
+          <div className="flex items-center justify-center py-8"><Loader2 className="w-5 h-5 animate-spin text-gray-400" /></div>
+        )}
       </div>
     )
   }

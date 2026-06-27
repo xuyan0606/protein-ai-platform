@@ -23,8 +23,11 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
-OUTLINE_URL = "http://localhost:3002"
-OUTLINE_WS_URL = "ws://localhost:3002"
+import os
+
+OUTLINE_URL = os.getenv("OUTLINE_URL", "http://localhost:3002")
+# Derive WS URL from HTTP URL (swap scheme)
+OUTLINE_WS_URL = os.getenv("OUTLINE_WS_URL", OUTLINE_URL.replace("http", "ws", 1))
 
 # Headers to strip from Outline's response (they block iframe embedding)
 STRIP_HEADERS = {"x-frame-options", "content-security-policy"}
@@ -132,7 +135,7 @@ async def _proxy_websocket(client_ws: WebSocket) -> None:
 
     await client_ws.accept()
 
-    outline_ws_url = f"ws://localhost:3002/realtime/"
+    outline_ws_url = f"{OUTLINE_WS_URL}/realtime/"
     if client_ws.url.query:
         outline_ws_url += f"?{client_ws.url.query}"
 

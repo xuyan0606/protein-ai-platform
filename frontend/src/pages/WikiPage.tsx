@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, ExternalLink, RefreshCw } from 'lucide-react'
 
-const OUTLINE_URL = 'http://localhost:8000/'
+const OUTLINE_URL = (import.meta.env.VITE_OUTLINE_URL || import.meta.env.VITE_API_URL || '') + '/'
 const LOAD_DELAY = 2000 // Cover final render after OIDC redirect chain settles
 
 export function WikiPage() {
@@ -10,7 +10,7 @@ export function WikiPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const iframeRef = useRef<HTMLIFrameElement>(null)
-  const loadTimer = useRef<ReturnType<typeof setTimeout>>()
+  const loadTimer = useRef<ReturnType<typeof setTimeout>>(undefined)
 
   const handleLoad = () => {
     // The iframe fires onLoad for each redirect during OIDC flow.

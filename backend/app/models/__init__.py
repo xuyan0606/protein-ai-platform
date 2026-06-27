@@ -20,6 +20,7 @@ from app.models.domain import (
     DatabaseCrossRef,
     KVStore,
 )
+from app.models.literature import Paper, EnzymeLiteratureLink
 
 __all__ = [
     "Base",
@@ -45,4 +46,6 @@ __all__ = [
     "DirectedEvolutionEntry",
     "DatabaseCrossRef",
     "KVStore",
+    "Paper",
+    "EnzymeLiteratureLink",
 ]

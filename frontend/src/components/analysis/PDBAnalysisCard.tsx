@@ -10,7 +10,7 @@ interface ChainData {
   residue_range: [number, number] | null
 }
 
-interface PDBAnalysisData {
+export interface PDBAnalysisData {
   header?: { title?: string }
   chains: ChainData[]
   resolution?: number | null

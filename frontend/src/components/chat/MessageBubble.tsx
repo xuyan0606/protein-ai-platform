@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import type { ChatMessage } from '@/stores/chat'
 import { MarkdownView } from '@/components/chat/MarkdownView'
 import { ToolCallCard } from '@/components/chat/ToolCallCard'
-import { PDBAnalysisCard, isPDBAnalysisResult } from '@/components/analysis/PDBAnalysisCard'
+import { PDBAnalysisCard, isPDBAnalysisResult, type PDBAnalysisData } from '@/components/analysis/PDBAnalysisCard'
 import { Dna, User } from 'lucide-react'
 
 interface Props {
@@ -20,7 +20,7 @@ export function MessageBubble({ message }: Props) {
       ? t('common.system')
       : t('common.proteinAI')
 
-  const pdbAnalysis = message.files?.find((f) => isPDBAnalysisResult(f.analysisData))?.analysisData
+  const pdbAnalysis: PDBAnalysisData | undefined = message.files?.find((f) => isPDBAnalysisResult(f.analysisData))?.analysisData as PDBAnalysisData | undefined
 
   return (
     <div className={`flex gap-3 ${isUser ? 'flex-row-reverse' : ''}`}>

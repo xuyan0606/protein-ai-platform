@@ -62,6 +62,7 @@ async def upload_file(
 
     return {
         "id": stored["object_name"],
+        "object_name": stored["object_name"],
         "name": file.filename,
         "size": stored["size"],
         "content_type": file.content_type,

@@ -10,8 +10,11 @@ from typing import TypedDict, Annotated, Any, AsyncGenerator
 import asyncio
 import functools
 import json
+import logging
 import re
 import time
+
+logger = logging.getLogger(__name__)
 
 from app.core.llm import chat_completion, chat_completion_sync
 from app.tools.registry import ToolRegistry
@@ -21,6 +24,13 @@ from app.core.agent_roles import (
     MLS_SYSTEM_PROMPT, SC_SYSTEM_PROMPT,
     ROUTER_SYSTEM_PROMPT,
 )
+from app.services.literature_client import LiteratureClient, Paper as LitPaper
+from app.services.literature_store import LiteratureStore
+
+# Lazy import for experience store (avoids circular import at module load)
+def _get_experience_store():
+    from app.memory.experience_store import get_experience_store, ExperienceRecord
+    return get_experience_store(), ExperienceRecord
 
 # Tools that require a protein sequence — skip if no sequence available
 _SEQUENCE_REQUIRED_TOOLS = frozenset({
@@ -219,7 +229,7 @@ class AgentOrchestrator:
                         step.result = result
                         self._snapshot.plan[i]["status"] = "completed"
                     except Exception:
-                        pass
+                        logger.exception("Retry failed for tool %s", step.tool_name)
 
             yield self._emit_state()
 
@@ -232,18 +242,30 @@ class AgentOrchestrator:
                 "status": step.status,
             })
 
-        # --- Stage 4.5: SC REVIEW ---
-        # Cross-validation: SC critically examines results, identifies gaps,
-        # and may trigger supplementary tool execution before final synthesis.
-        self._snapshot.stage = "review"
-        yield self._emit_state()
+        # --- Stage 4.5: SC REVIEW (multi-round iterative refinement) ---
+        # MLEvolve-inspired: SC reviews results, may trigger supplementary tools,
+        # records experience after each round. Up to MAX_REVIEW_ROUNDS iterations.
+        MAX_REVIEW_ROUNDS = 3
+        execution_start = time.time()
 
-        review_result = await self._review_results_sc(
-            user_message, tool_messages, self._snapshot.research_notes, provider, model
-        )
+        for review_round in range(1, MAX_REVIEW_ROUNDS + 1):
+            self._snapshot.stage = "review"
+            yield self._emit_state()
 
-        # If SC finds gaps and requests supplementary execution
-        if review_result.get("needs_supplement"):
+            review_result = await self._review_results_sc(
+                user_message, tool_messages, self._snapshot.research_notes, provider, model
+            )
+
+            # If SC is satisfied, break out of the loop
+            if not review_result.get("needs_supplement"):
+                break
+
+            # If this is the last round, don't execute more supplements
+            if review_round >= MAX_REVIEW_ROUNDS:
+                logger.info("Max review rounds (%d) reached", MAX_REVIEW_ROUNDS)
+                break
+
+            # SC found gaps — execute supplementary tools
             has_sequence = bool(self._extract_sequence(user_message))
             has_pdb = any(
                 "pdb" in str(r.get("result", "")).lower() and "ATOM" in str(r.get("result", ""))
@@ -350,6 +372,13 @@ class AgentOrchestrator:
 
             yield self._emit_state()
 
+        # Record experience after execution (before synthesis)
+        total_duration = time.time() - execution_start
+        await self._record_experience(
+            user_message, route, plan, tool_messages,
+            self._snapshot.research_notes, total_duration, round_number=review_round,
+        )
+
         # --- Stage 5: SYNTHESIZE (SC) ---
         self._snapshot.stage = "synthesize"
         yield self._emit_state()
@@ -365,6 +394,69 @@ class AgentOrchestrator:
             yield json.dumps({"type": "text", "content": f"{word} "}, ensure_ascii=False)
 
         yield json.dumps({"type": "done"})
+
+    async def _record_experience(
+        self, user_message: str, task_type: str, plan: list, tool_messages: list[dict],
+        research_notes: str, total_duration: float, round_number: int = 1,
+    ) -> None:
+        """Record this execution as an experience for future reference."""
+        try:
+            store, ExperienceRecord = _get_experience_store()
+            sequence = self._extract_sequence(user_message) or ""
+            protein_name = self._extract_protein_name(user_message)
+
+            # Determine task type from route
+            pipeline = [step.tool_name for step in plan]
+            completed = sum(1 for m in tool_messages if m["status"] == "completed")
+            total = len(tool_messages) if tool_messages else 1
+
+            record = ExperienceRecord(
+                task_type=task_type,
+                protein_family=protein_name or "unknown",
+                sequence_hash=ExperienceRecord.hash_sequence(sequence),
+                pipeline=pipeline,
+                pipeline_hash=ExperienceRecord.hash_pipeline(pipeline),
+                step_results={m["tool_name"]: m["status"] for m in tool_messages},
+                success_rate=completed / total,
+                total_duration=total_duration,
+                user_message_short=user_message[:100],
+                research_notes_short=research_notes[:200],
+                round_number=round_number,
+            )
+            await store.record(record)
+        except Exception:
+            logger.debug("Failed to record experience")
+
+    async def _get_experience_hints(self, user_message: str, task_type: str) -> str:
+        """Query past experiences for planning hints."""
+        try:
+            store, _ = _get_experience_store()
+            protein_name = self._extract_protein_name(user_message)
+            sequence = self._extract_sequence(user_message) or ""
+
+            experiences = await store.search_similar(
+                task_type=task_type,
+                protein_family=protein_name or "",
+                sequence=sequence,
+                top_k=3,
+            )
+            if not experiences:
+                return ""
+
+            lines = ["Past execution experiences for similar tasks:"]
+            for exp in experiences:
+                status = "✓" if exp.success_rate >= 0.8 else "⚠"
+                lines.append(
+                    f"- {status} Pipeline [{', '.join(exp.pipeline[:5])}...] "
+                    f"({exp.success_rate:.0%} success, {exp.total_duration:.0f}s)"
+                )
+            best = await store.get_best_pipeline(task_type, protein_name or "")
+            if best:
+                lines.append(f"Recommended pipeline: {' → '.join(best)}")
+            return "\n".join(lines)
+        except Exception:
+            logger.debug("Experience query failed")
+            return ""
 
     def _emit_state(self) -> str:
         """Emit full state snapshot as JSON (sse-starlette handles SSE framing)."""
@@ -434,23 +526,127 @@ class AgentOrchestrator:
             if route in ("design", "research", "analyze", "general"):
                 return route
         except Exception:
-            pass
+            logger.exception("Router LLM call failed")
         return "general"
+
+    async def _get_knowledge_context(self, message: str) -> str:
+        """Gather knowledge graph + literature + vector search context for a task.
+
+        Queries three sources in parallel:
+        1. Enzyme Knowledge Graph — structured data from 15 domain tables
+        2. Literature Client — PubMed/Europe PMC paper search
+        3. ESM-2 Vector Search — similar enzymes by sequence embedding
+
+        Returns a combined context string for injection into PI/SC prompts.
+        Gracefully degrades if any source is unavailable.
+        """
+        protein_name = self._extract_protein_name(message)
+        sequence = self._extract_sequence(message)
+        sections = []
+
+        # 1. Knowledge graph query (sync, run in executor)
+        if protein_name:
+            kg_context = await self._query_knowledge_graph(protein_name)
+            if kg_context:
+                sections.append(f"--- ENZYME KNOWLEDGE GRAPH ---\n{kg_context}")
+
+        # 2. Literature search
+        if protein_name:
+            lit_context = await self._search_literature(protein_name)
+            if lit_context:
+                sections.append(f"--- RELATED LITERATURE ---\n{lit_context}")
+
+        # 3. ESM-2 vector search for similar enzymes
+        if sequence and len(sequence) >= 20:
+            similar_context = await self._search_similar_enzymes(sequence)
+            if similar_context:
+                sections.append(f"--- SIMILAR ENZYMES (ESM-2 embedding) ---\n{similar_context}")
+
+        return "\n\n".join(sections) if sections else ""
+
+    async def _query_knowledge_graph(self, protein_name: str) -> str:
+        """Query enzyme knowledge graph in a thread executor."""
+        def _sync_query():
+            try:
+                from app.core.database import _engine
+                from sqlalchemy import create_engine
+                from sqlalchemy.orm import Session as SyncSession
+                from app.services.knowledge_graph import EnzymeKnowledgeGraph
+
+                # Create sync engine from async URL
+                sync_url = str(_engine.url).replace("+asyncpg", "+psycopg2").replace("+aiosqlite", "+sqlite")
+                sync_engine = create_engine(sync_url, echo=False)
+                with SyncSession(sync_engine) as session:
+                    kg = EnzymeKnowledgeGraph(session)
+                    # Try exact match first, then fuzzy
+                    enzyme = kg.query_by_name(protein_name)
+                    if enzyme:
+                        context = kg.query_enzyme_context(enzyme.uniprot_id)
+                        return kg.to_natural_language(context)
+                    # Try EC number search
+                    if protein_name.startswith("EC"):
+                        results = kg.query_by_ec(protein_name)
+                        if results:
+                            return kg.to_natural_language(results[0])
+                return ""
+            except Exception:
+                logger.debug("Knowledge graph query unavailable: %s", protein_name)
+                return ""
+
+        loop = asyncio.get_running_loop()
+        return await loop.run_in_executor(None, _sync_query)
+
+    async def _search_literature(self, protein_name: str) -> str:
+        """Search PubMed/Europe PMC for relevant papers."""
+        try:
+            client = LiteratureClient()
+            papers = await client.search_by_protein(protein_name, max_results=3)
+            if papers:
+                return LiteratureClient.format_citations(papers)
+        except Exception:
+            logger.debug("Literature search failed for: %s", protein_name)
+        return ""
+
+    async def _search_similar_enzymes(self, sequence: str) -> str:
+        """Search for similar enzymes using ESM-2 vector embeddings."""
+        try:
+            from app.ml.vector_search import EnzymeVectorSearch
+            vsearch = EnzymeVectorSearch()
+            results = vsearch.search_by_sequence(sequence, top_k=3)
+            if results:
+                lines = ["Similar enzymes found by ESM-2 embedding similarity:"]
+                for r in results:
+                    uniprot_id = r.get("uniprot_id", "unknown")
+                    distance = r.get("distance", 1.0)
+                    similarity = round(1.0 - distance, 3)
+                    lines.append(f"- {uniprot_id} (cosine similarity: {similarity})")
+                return "\n".join(lines)
+        except Exception:
+            logger.debug("ESM-2 vector search unavailable")
+        return ""
 
     async def _research_pi(
         self, message: str, history: list[dict], context: str,
         provider: str | None = None, model: str | None = None,
     ) -> str:
         """PI: Research phase — gather background, clarify requirements."""
+        # Gather knowledge graph + literature + vector search context
+        knowledge_context = await self._get_knowledge_context(message)
+
+        user_content = f"Task: {message}\nProtein context: {context}"
+        if knowledge_context:
+            user_content += f"\n\n{knowledge_context}"
+
         messages = [
             {"role": "system", "content": PI_SYSTEM_PROMPT},
             *history[-6:],  # Last 3 turns for context
-            {"role": "user", "content": f"Task: {message}\nProtein context: {context}"},
+            {"role": "user", "content": user_content},
         ]
         try:
             resp = await self._call_llm(messages, provider=provider, model=model, max_tokens=600)
             return resp.choices[0].message.content or ""
         except Exception:
+            logger.exception("PI research LLM call failed")
             return ""
 
     async def _plan_cb(
@@ -483,6 +679,17 @@ class AgentOrchestrator:
             *history[-4:],
             {"role": "user", "content": f"Create a step-by-step tool execution plan for: {message}"},
         ]
+
+        # Query past experiences for planning hints (MLEvolve retrospective memory)
+        # Infer task type from message keywords (same logic as router)
+        lower = message.lower()
+        if any(kw in lower for kw in ["design", "binder", "de novo", "backbone", "scaffold"]):
+            task_type_hint = "design"
+        elif any(kw in lower for kw in ["mutat", "stability", "engineer", "optim", "enhanc"]):
+            task_type_hint = "analyze"
+        else:
+            task_type_hint = "research"
+        await self._get_experience_hints(message, task_type_hint)
 
         # Use deterministic fallback plan — LLM-generated plans are unreliable for now
         # (wrong parameter names, missing essential steps). The fallback covers all
@@ -840,7 +1047,7 @@ class AgentOrchestrator:
             if json_match:
                 return json.loads(json_match.group())
         except Exception:
-            pass
+            logger.exception("SC review JSON parse failed")
 
         return {"needs_supplement": False, "supplementary_steps": [], "critique": ""}
 
@@ -857,8 +1064,15 @@ class AgentOrchestrator:
         # Inject relevant domain skill content for deeper synthesis
         domain_context = self._load_relevant_skills(task)
 
+        # Inject knowledge graph + literature context for synthesis
+        knowledge_context = await self._get_knowledge_context(task)
+
+        system_content = SC_SYSTEM_PROMPT + domain_context
+        if knowledge_context:
+            system_content += f"\n\n{knowledge_context}"
+
         messages = [
-            {"role": "system", "content": SC_SYSTEM_PROMPT + domain_context},
+            {"role": "system", "content": system_content},
             *history[-4:],
             {"role": "user", "content": (
                 f"Task: {task}\n\n"
@@ -867,7 +1081,9 @@ class AgentOrchestrator:
                 "Synthesize a comprehensive scientific report with SPECIFIC residue-level "
                 "recommendations. Include: enzyme family classification, catalytic residue "
                 "identification, proposed mutations with positions and rationales, tiered "
-                "priority ranking, experimental validation plan. NEVER give generic advice."
+                "priority ranking, experimental validation plan. "
+                "Cite relevant literature (PMIDs) from the knowledge context when available. "
+                "NEVER give generic advice."
             )},
         ]
         try:
@@ -876,7 +1092,7 @@ class AgentOrchestrator:
             if content and content.strip():
                 return content.strip()
         except Exception as e:
-            pass
+            logger.exception("SC synthesize LLM call failed")
 
         # Fallback: build a structured report from tool results
         return self._build_fallback_report(task, tool_results)
@@ -1125,7 +1341,7 @@ class AgentOrchestrator:
             try:
                 return json.dumps(compact, ensure_ascii=False, default=str)
             except Exception:
-                pass
+                logger.debug("Compact JSON failed for mutation_priority_score, falling through")
 
         if tool_name == "mutation_scan":
             compact = {}
@@ -1135,12 +1351,13 @@ class AgentOrchestrator:
             try:
                 return json.dumps(compact, ensure_ascii=False, default=str)
             except Exception:
-                pass
+                logger.debug("Compact JSON failed for mutation_scan, falling through")
 
         # Default: JSON-serialized full result (much more compact than Python repr)
         try:
             return json.dumps(result, ensure_ascii=False, default=str)
         except Exception:
+            logger.debug("JSON serialization failed, truncating raw result")
             return str(result)[:5000]
 
     @staticmethod
@@ -1188,6 +1405,7 @@ class AgentOrchestrator:
             )
             return resp.choices[0].message.content or "Hello! How can I help with your protein research today?"
         except Exception:
+            logger.exception("Chat reply LLM call failed")
             return "Hello! I'm a protein engineering AI assistant. How can I help you today?"
 
     async def _call_llm(self, messages: list[dict], provider: str | None = None, model: str | None = None, **kwargs) -> Any:
