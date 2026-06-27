@@ -1,9 +1,12 @@
 # =============================================================================
 # Protein AI Platform — Backend Dockerfile (multi-stage)
 # =============================================================================
-# Stage 1: Build — install system build dependencies and pip packages into a
+# Stage 1: Build — install core Python dependencies (no torch/ML) into a
 #           portable virtualenv so the runtime image stays slim.
 # Stage 2: Runtime — copy virtualenv + app code, expose port, run uvicorn.
+#
+# ML-heavy tools (ESM-2, ProteinMPNN, RDKit) run on the Celery worker,
+# which has its own Dockerfile with torch + model pre-cache.
 # =============================================================================
 
 # ---------------------------------------------------------------------------
@@ -18,21 +21,16 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         build-essential \
         libpq-dev \
-        libxrender1 \
-        libxext6 \
-        libsm6 \
     && rm -rf /var/lib/apt/lists/*
 
 # Create an isolated virtualenv
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-# Install Python dependencies into the virtualenv
-# Use Alibaba Cloud PyPI mirror for faster installs in China
-COPY backend/requirements.txt backend/requirements-core.txt backend/requirements-ml.txt ./
+# Install core dependencies only (no torch/ML — those go in Dockerfile.worker)
+COPY backend/requirements-prod.txt backend/requirements-core.txt ./
 RUN pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/ \
-    && pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu \
-    && pip install --no-cache-dir -r requirements.txt
+    && pip install --no-cache-dir -r requirements-prod.txt
 
 # ---------------------------------------------------------------------------
 # Stage 2 — Runtime
@@ -41,13 +39,10 @@ FROM python:3.12-slim AS runtime
 
 WORKDIR /app
 
-# Runtime system libraries (libpq for asyncpg, curl for healthchecks, RDKit libs)
+# Runtime system libraries (libpq for asyncpg, curl for healthchecks)
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         libpq-dev \
-        libxrender1 \
-        libxext6 \
-        libsm6 \
         curl \
     && rm -rf /var/lib/apt/lists/*
 
