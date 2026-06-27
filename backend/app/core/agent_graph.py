@@ -742,24 +742,24 @@ class AgentOrchestrator:
         - "Analyze the structure of EGFR" → "EGFR"
         - "What is the sequence of human p53" → "p53"
         """
-        # Common prefixes that introduce a protein name
-        prefixes = [
-            r'(?:design|bind|binder|for|target|against|of|on|about|analy[sz]e|study|investigate|'
-            r'engineer|mutate|optimize|improve|enhance|modify|evolve|screen)\s+'
+        # Common prefixes that introduce a protein name (case-insensitive)
+        prefix_str = (
+            r'(?i:design|bind(?:er)?|for|target(?:ing)?|against|of|on|about|analy[sz]e|study|'
+            r'investigate|engineer|mutate|optimize|improve|enhance|modify|evolve|screen)\s+'
             r'(?:a\s+|an\s+|the\s+)?'
+            r'(?:(?:high|low)[\s-]*(?:affinity|specificity)\s+)?'
             r'(?:protein\s+|enzyme\s+|binder\s+)?'
-            r'(?:for\s+|of\s+|to\s+|against\s+)?'
-        ]
-        # Protein/gene name pattern: uppercase letters, numbers, hyphens (2-15 chars)
+            r'(?:for\s+|of\s+|to\s+|against\s+|targeting\s+)?'
+        )
+        # Protein/gene name pattern: UPPERCASE letters, numbers, hyphens (case-sensitive)
         protein_pattern = r'([A-Z][A-Z0-9]+(?:[-/][A-Z0-9]+)*)'
 
         # Try to find protein names after prefix patterns
-        for prefix in prefixes:
-            match = re.search(prefix + protein_pattern, task, re.IGNORECASE)
-            if match:
-                name = match.group(len(match.groups())).strip()
-                if len(name) >= 2:
-                    return name
+        match = re.search(prefix_str + protein_pattern, task)
+        if match:
+            name = match.group(1).strip()
+            if len(name) >= 2:
+                return name
 
         # Fallback: find any uppercase identifier (2-15 chars) in the text
         matches = re.findall(r'\b([A-Z][A-Z0-9]+(?:[-/][A-Z0-9]+)*)\b', task)
