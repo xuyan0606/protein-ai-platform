@@ -12,7 +12,7 @@ import { useChatStore } from '@/stores/chat'
 import { useAuthStore } from '@/stores/auth'
 import { useUIStore } from '@/stores/ui'
 import { useTheme } from '@/hooks/useTheme'
-import { Menu, PanelRightClose, PanelRight, User, LogOut, Sun, Moon, Home, FileText, FolderKanban } from 'lucide-react'
+import { Menu, PanelRightClose, PanelRight, User, LogOut, Sun, Moon, Home, FileText, FolderKanban, Database, Dna, BookOpen } from 'lucide-react'
 import type { AgentState } from '@/stores/chat'
 import { collectResults, downloadConversationReport } from '@/lib/conversation-report'
 
@@ -265,6 +265,30 @@ export function ChatLayout() {
             title="Projects"
           >
             <FolderKanban className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => navigate('/data')}
+            className="hidden sm:flex items-center gap-1 px-1.5 py-1 rounded-md hover:bg-secondary text-muted-foreground text-xs transition-colors"
+            aria-label="Data"
+          >
+            <Database className="w-3.5 h-3.5" />
+            <span className="hidden lg:inline">Data</span>
+          </button>
+          <button
+            onClick={() => navigate('/pdb')}
+            className="hidden sm:flex items-center gap-1 px-1.5 py-1 rounded-md hover:bg-secondary text-muted-foreground text-xs transition-colors"
+            aria-label="PDB"
+          >
+            <Dna className="w-3.5 h-3.5" />
+            <span className="hidden lg:inline">PDB</span>
+          </button>
+          <button
+            onClick={() => navigate('/wiki')}
+            className="hidden sm:flex items-center gap-1 px-1.5 py-1 rounded-md hover:bg-secondary text-muted-foreground text-xs transition-colors"
+            aria-label="Wiki"
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span className="hidden lg:inline">Wiki</span>
           </button>
           <span className="font-semibold text-xs sm:text-sm truncate">
             {t('app.title')}
