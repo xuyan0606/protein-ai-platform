@@ -17,6 +17,11 @@ import logging
 from dataclasses import dataclass, field
 from typing import Any
 
+from app.core.agent_schemas import (
+    SourceResult, EnzymeReference,
+    format_section_header,
+)
+
 logger = logging.getLogger(__name__)
 
 
@@ -37,10 +42,43 @@ class DataAgentResult:
         """Format results as LLM-injectable text."""
         sections = []
         if self.kg_context:
-            sections.append(f"--- ENZYME KNOWLEDGE GRAPH ---\n{self.kg_context}")
+            sections.append(f"{format_section_header('ENZYME KNOWLEDGE GRAPH', 'knowledge_graph')}\n{self.kg_context}")
         if self.similar_enzymes:
-            sections.append(f"--- SIMILAR ENZYMES (ESM-2 embedding) ---\n{self.similar_enzymes}")
+            sections.append(f"{format_section_header('SIMILAR ENZYMES', 'esm2_embedding')}\n{self.similar_enzymes}")
         return "\n\n".join(sections)
+
+    def to_source_results(self) -> list[SourceResult]:
+        """Convert to standardized SourceResult envelopes."""
+        results = []
+        if self.kg_context:
+            refs = []
+            for item in self.similar_data:
+                refs.append(EnzymeReference(
+                    uniprot_id=item.get("uniprot_id", ""),
+                    similarity=round(1.0 - item.get("distance", 1.0), 3),
+                ))
+            results.append(SourceResult(
+                source="knowledge_graph",
+                status="success",
+                context_text=self.kg_context,
+                enzyme_refs=refs,
+                raw_data=self.kg_data,
+            ))
+        if self.similar_enzymes:
+            refs = [
+                EnzymeReference(
+                    uniprot_id=r.get("uniprot_id", ""),
+                    similarity=round(1.0 - r.get("distance", 1.0), 3),
+                )
+                for r in self.similar_data
+            ]
+            results.append(SourceResult(
+                source="esm2_vector",
+                status="success",
+                context_text=self.similar_enzymes,
+                enzyme_refs=refs,
+            ))
+        return results
 
 
 class DataAgent:

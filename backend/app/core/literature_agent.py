@@ -18,6 +18,11 @@ import logging
 from dataclasses import dataclass, field
 from typing import Any
 
+from app.core.agent_schemas import (
+    SourceResult, Citation, PipelineExperience,
+    format_section_header,
+)
+
 logger = logging.getLogger(__name__)
 
 
@@ -38,10 +43,51 @@ class LiteratureAgentResult:
         """Format results as LLM-injectable text."""
         sections = []
         if self.literature_context:
-            sections.append(f"--- RELATED LITERATURE ---\n{self.literature_context}")
+            sections.append(f"{format_section_header('RELATED LITERATURE', 'pubmed/europe_pmc')}\n{self.literature_context}")
         if self.experience_context:
-            sections.append(f"--- PAST EXPERIENCES ---\n{self.experience_context}")
+            sections.append(f"{format_section_header('PAST EXPERIENCES', 'mlevolve_memory')}\n{self.experience_context}")
         return "\n\n".join(sections)
+
+    def to_source_results(self) -> list[SourceResult]:
+        """Convert to standardized SourceResult envelopes."""
+        results = []
+        if self.literature_context:
+            citations = [
+                Citation(
+                    pmid=p.get("pmid", ""),
+                    title=p.get("title", ""),
+                    authors=p.get("authors", []),
+                    journal=p.get("journal", ""),
+                    year=p.get("year"),
+                    doi=p.get("doi"),
+                )
+                for p in self.papers
+            ]
+            results.append(SourceResult(
+                source="pubmed",
+                status="success",
+                context_text=self.literature_context,
+                citations=citations,
+            ))
+        if self.experience_context:
+            exps = [
+                PipelineExperience(
+                    task_type=e.get("task_type", ""),
+                    protein_family=e.get("protein_family", ""),
+                    pipeline=e.get("pipeline", []),
+                    success_rate=e.get("success_rate", 0.0),
+                    total_duration=e.get("total_duration", 0.0),
+                    round_number=e.get("round_number", 1),
+                )
+                for e in self.experiences
+            ]
+            results.append(SourceResult(
+                source="experience",
+                status="success",
+                context_text=self.experience_context,
+                experiences=exps,
+            ))
+        return results
 
 
 class LiteratureAgent:
