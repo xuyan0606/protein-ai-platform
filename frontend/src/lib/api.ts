@@ -146,4 +146,33 @@ export const api = {
 
   triggerIngestion: (source: string, force = false) =>
     request<any>(`/data/ingest/${source}?force=${force}`, { method: 'POST' }),
+
+  // Publish — Wiki + knowledge base
+  publishReport: (projectId: string, data: {
+    title: string; content: string; conversation_id?: number; tags?: string[]
+  }) => request<{
+    file_id: string; filename: string; outline_doc_id: string | null; wiki_url: string | null
+  }>(`/projects/${projectId}/publish`, { method: 'POST', body: JSON.stringify(data) }),
+
+  generateReport: (projectId: string, conversationId: number) =>
+    request<{ title: string; content: string; conversation_id: number }>(
+      `/projects/${projectId}/generate-report`,
+      { method: 'POST', body: JSON.stringify({ conversation_id: conversationId }) }
+    ),
+
+  getProjectFiles: (projectId: string, fileType?: string) => {
+    const params = fileType ? `?file_type=${fileType}` : ''
+    return request<any[]>(`/projects/${projectId}/files${params}`)
+  },
+
+  deleteProjectFile: (projectId: string, fileId: string) =>
+    request<{ ok: boolean }>(`/projects/${projectId}/files/${fileId}`, { method: 'DELETE' }),
+
+  bindConversationToProject: (conversationId: number, projectId: string | null) =>
+    request<{ ok: boolean }>(`/conversations/${conversationId}/project`, {
+      method: 'PATCH', body: JSON.stringify({ project_id: projectId })
+    }),
+
+  getProjectConversations: (projectId: string) =>
+    request<any[]>(`/projects/${projectId}/conversations`),
 }

@@ -3,13 +3,15 @@ import type { ChatMessage } from '@/stores/chat'
 import { MarkdownView } from '@/components/chat/MarkdownView'
 import { ToolCallCard } from '@/components/chat/ToolCallCard'
 import { PDBAnalysisCard, isPDBAnalysisResult, type PDBAnalysisData } from '@/components/analysis/PDBAnalysisCard'
+import { PublishToolbar } from '@/components/chat/PublishToolbar'
 import { Dna, User } from 'lucide-react'
 
 interface Props {
   message: ChatMessage
+  projectId?: string | null
 }
 
-export function MessageBubble({ message }: Props) {
+export function MessageBubble({ message, projectId }: Props) {
   const { t } = useTranslation()
   const isUser = message.role === 'user'
   const isSystem = message.role === 'system'
@@ -82,6 +84,14 @@ export function MessageBubble({ message }: Props) {
             <span className="text-muted-foreground italic text-xs">Thinking...</span>
           ) : null}
         </div>
+
+        {/* Publish toolbar — only on assistant messages with content */}
+        {!isUser && !isSystem && message.content && (
+          <PublishToolbar
+            content={message.content}
+            projectId={projectId}
+          />
+        )}
       </div>
     </div>
   )

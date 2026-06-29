@@ -5,7 +5,7 @@ from __future__ import annotations
 import uuid
 from datetime import datetime
 
-from sqlalchemy import String, Text, Integer, Float, ForeignKey, DateTime, JSON
+from sqlalchemy import String, Text, Integer, Float, Boolean, ForeignKey, DateTime, JSON
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.models.base import Base
@@ -22,6 +22,9 @@ class Project(Base):
     name: Mapped[str] = mapped_column(String(200), nullable=False)
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
     user_id: Mapped[int] = mapped_column(Integer, nullable=False)
+    outline_collection_id: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    outline_root_doc_id: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    wiki_auto_publish: Mapped[bool] = mapped_column(Boolean, default=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
@@ -30,6 +33,12 @@ class Project(Base):
     )
     batch_jobs: Mapped[list[BatchJob]] = relationship(
         "BatchJob", back_populates="project", cascade="all, delete-orphan", lazy="selectin"
+    )
+    files: Mapped[list["ProjectFile"]] = relationship(
+        "ProjectFile", back_populates="project", cascade="all, delete-orphan", lazy="selectin"
+    )
+    conversations: Mapped[list["Conversation"]] = relationship(
+        "Conversation", back_populates="project", lazy="selectin"
     )
 
 
@@ -58,3 +67,26 @@ class BatchJob(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
 
     project: Mapped[Project] = relationship("Project", back_populates="batch_jobs")
+
+
+class ProjectFile(Base):
+    """File metadata for project knowledge base (MinIO-backed, .md reports + attachments)."""
+    __tablename__ = "project_files"
+
+    id: Mapped[str] = mapped_column(String(16), primary_key=True, default=_uuid)
+    project_id: Mapped[str] = mapped_column(
+        String(16), ForeignKey("projects.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    filename: Mapped[str] = mapped_column(String(500), nullable=False)  # display name
+    object_name: Mapped[str] = mapped_column(String(500), nullable=False)  # MinIO path
+    file_type: Mapped[str] = mapped_column(String(20), nullable=False)  # md, pdb, csv, fasta, json
+    file_size: Mapped[int] = mapped_column(Integer, default=0)
+    content_hash: Mapped[str | None] = mapped_column(String(64), nullable=True)  # SHA-256
+    source: Mapped[str] = mapped_column(String(30), default="agent")  # agent, upload, batch, manual
+    conversation_id: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    outline_doc_id: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    tags: Mapped[str | None] = mapped_column(Text, nullable=True)  # JSON array
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    project: Mapped[Project] = relationship("Project", back_populates="files")

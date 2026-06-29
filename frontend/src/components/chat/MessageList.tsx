@@ -1,11 +1,14 @@
 import { useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useSearchParams } from 'react-router-dom'
 import { useChatStore, type ChatMessage } from '@/stores/chat'
 import { useChatStream } from '@/hooks/useChatStream'
 import { MessageBubble } from '@/components/chat/MessageBubble'
 import { Dna } from 'lucide-react'
 
 export function MessageList() {
+  const [searchParams] = useSearchParams()
+  const projectId = searchParams.get('projectId')
   const { t } = useTranslation()
   const { messages, streaming } = useChatStore()
   const { sendMessage } = useChatStream()
@@ -58,7 +61,7 @@ export function MessageList() {
     <div className="flex-1 overflow-y-auto px-4 py-6">
       <div className="max-w-3xl mx-auto space-y-6">
         {messages.map((msg: ChatMessage) => (
-          <MessageBubble key={msg.id} message={msg} />
+          <MessageBubble key={msg.id} message={msg} projectId={projectId} />
         ))}
         {streaming && (
           <div className="flex items-center gap-2 text-muted-foreground text-sm pl-2">

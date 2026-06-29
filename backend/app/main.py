@@ -8,7 +8,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import chat, conversations, files, auth, tools, projects, data, pdb, oidc, outline_proxy
+from app.api import chat, conversations, files, auth, tools, projects, data, pdb, oidc, outline_proxy, publish
 from app.core.config import settings
 from app.core.metrics import MetricsMiddleware, metrics_response
 
@@ -73,6 +73,8 @@ app.include_router(conversations.router, prefix="/api/conversations", tags=["Con
 app.include_router(files.router, prefix="/api/files", tags=["Files"])
 app.include_router(tools.router, prefix="/api/tools", tags=["Tools"])
 app.include_router(projects.router, prefix="/api/projects", tags=["Projects"])
+app.include_router(publish.router, prefix="/api/projects", tags=["Publish"])
+app.include_router(publish.conv_router, prefix="/api", tags=["Publish"])
 app.include_router(data.router, prefix="/api/data", tags=["Data"])
 app.include_router(pdb.router, prefix="/api/pdb", tags=["PDB"])
 app.include_router(oidc.router, tags=["OIDC"])  # handles /.well-known/... and /api/oidc/...
