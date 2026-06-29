@@ -113,7 +113,7 @@ class CoordinatorAgent:
         cache_key = self._build_cache_key(protein_name, sequence, ec_number, task_type)
         cached = self._cache_get(cache_key)
         if cached is not None:
-            logger.info("Coordinator cache hit for key=%s (age=%.0fs)", cache_key, time.time() - cached.timestamp)
+            logger.info("Coordinator cache hit for key=%s", cache_key)
             return cached
 
         # Run both agents in parallel with timeout
