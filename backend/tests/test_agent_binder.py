@@ -240,3 +240,82 @@ class TestBinderSkillsAndReport:
             "Non-design report should not have design section"
         )
         assert "Physicochemical Properties" in report
+
+
+class TestSanitizeMessages:
+    """Test _sanitize_messages for Dashscope/Qwen API compatibility.
+
+    Dashscope requires 'content' to be a string — tool_calls, None, list,
+    and dict content types all cause 'Unexpected item type in content' errors.
+    """
+
+    def setup_method(self):
+        from app.core.agent_graph import AgentOrchestrator
+        self.orch = AgentOrchestrator()
+
+    def test_none_content_becomes_empty_string(self):
+        messages = [
+            {"role": "assistant", "content": None, "tool_calls": [{"id": "tc_1"}]},
+            {"role": "user", "content": "hello"},
+        ]
+        result = self.orch._sanitize_messages(messages)
+        # Assistant with None content → dropped (pure tool_calls message)
+        assert len(result) == 1
+        assert result[0]["content"] == "hello"
+
+    def test_list_content_extracted_to_string(self):
+        messages = [
+            {"role": "user", "content": [
+                {"type": "text", "text": "Describe this protein"},
+                {"type": "image_url", "image_url": {"url": "data:image/png;base64,..."}},
+            ]},
+        ]
+        result = self.orch._sanitize_messages(messages)
+        assert len(result) == 1
+        assert isinstance(result[0]["content"], str)
+        assert "Describe this protein" in result[0]["content"]
+
+    def test_dict_content_coerced_to_string(self):
+        messages = [
+            {"role": "user", "content": {"query": "protein analysis"}},
+        ]
+        result = self.orch._sanitize_messages(messages)
+        assert isinstance(result[0]["content"], str)
+
+    def test_normal_messages_unchanged(self):
+        messages = [
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": "Analyze this sequence: MVLSPAD"},
+            {"role": "assistant", "content": "Here is the analysis."},
+        ]
+        result = self.orch._sanitize_messages(messages)
+        assert len(result) == 3
+        assert result[0]["content"] == "You are a helpful assistant."
+        assert result[2]["content"] == "Here is the analysis."
+
+    def test_tool_message_preserves_tool_call_id(self):
+        messages = [
+            {"role": "tool", "content": "result data", "tool_call_id": "call_abc123"},
+        ]
+        result = self.orch._sanitize_messages(messages)
+        assert result[0]["tool_call_id"] == "call_abc123"
+        assert result[0]["content"] == "result data"
+
+    def test_empty_assistant_dropped(self):
+        messages = [
+            {"role": "system", "content": "System prompt"},
+            {"role": "assistant", "content": "   "},  # whitespace only
+            {"role": "user", "content": "Next question"},
+        ]
+        result = self.orch._sanitize_messages(messages)
+        assert len(result) == 2
+        assert all(r["role"] != "assistant" for r in result)
+
+    def test_no_tool_calls_field_in_output(self):
+        """tool_calls field should never leak into sanitized messages."""
+        messages = [
+            {"role": "assistant", "content": "I'll use a tool", "tool_calls": []},
+        ]
+        result = self.orch._sanitize_messages(messages)
+        for msg in result:
+            assert "tool_calls" not in msg

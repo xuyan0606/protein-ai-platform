@@ -1340,8 +1340,49 @@ class AgentOrchestrator:
             logger.exception("Chat reply LLM call failed")
             return "Hello! I'm a protein engineering AI assistant. How can I help you today?"
 
+    @staticmethod
+    def _sanitize_messages(messages: list[dict]) -> list[dict]:
+        """Sanitize messages for API compatibility.
+
+        Dashscope/Qwen and some other providers require 'content' to be a string.
+        This strips tool_calls fields and coerces non-string content to str.
+        """
+        sanitized = []
+        for msg in messages:
+            role = msg.get("role", "user")
+            content = msg.get("content", "")
+
+            # Coerce non-string content (list, dict, None) to string
+            if content is None:
+                content = ""
+            elif isinstance(content, list):
+                # Multi-modal content list → extract text parts
+                text_parts = []
+                for item in content:
+                    if isinstance(item, dict):
+                        text_parts.append(item.get("text", ""))
+                    elif isinstance(item, str):
+                        text_parts.append(item)
+                content = "\n".join(text_parts)
+            elif not isinstance(content, str):
+                content = str(content)
+
+            clean: dict = {"role": role, "content": content}
+
+            # Preserve tool_call_id for tool response messages
+            if role == "tool" and "tool_call_id" in msg:
+                clean["tool_call_id"] = msg["tool_call_id"]
+
+            # Drop assistant messages with no content (pure tool_calls)
+            if role == "assistant" and not content.strip():
+                continue
+
+            sanitized.append(clean)
+        return sanitized
+
     async def _call_llm(self, messages: list[dict], provider: str | None = None, model: str | None = None, **kwargs) -> Any:
         """Run a sync chat_completion call in a thread pool to avoid blocking the event loop."""
+        messages = self._sanitize_messages(messages)
         loop = asyncio.get_running_loop()
         return await loop.run_in_executor(
             None,

@@ -140,6 +140,49 @@ def count_message_tokens(messages: list[dict], model: str | None = None) -> int:
 
 
 # ---------------------------------------------------------------------------
+# Message sanitization — required for Dashscope/Qwen and some other providers
+# ---------------------------------------------------------------------------
+
+def _sanitize_messages(messages: list[dict]) -> list[dict]:
+    """Ensure all message content fields are strings.
+
+    Dashscope (Qwen) rejects non-string content with:
+      'Unexpected item type in content'
+    This also strips tool_calls fields that some providers don't accept.
+    """
+    sanitized = []
+    for msg in messages:
+        role = msg.get("role", "user")
+        content = msg.get("content", "")
+
+        if content is None:
+            content = ""
+        elif isinstance(content, list):
+            # Multi-modal content list → extract text parts
+            parts = []
+            for item in content:
+                if isinstance(item, dict):
+                    parts.append(item.get("text", ""))
+                elif isinstance(item, str):
+                    parts.append(item)
+            content = "\n".join(parts)
+        elif not isinstance(content, str):
+            content = str(content)
+
+        clean: dict = {"role": role, "content": content}
+
+        if role == "tool" and "tool_call_id" in msg:
+            clean["tool_call_id"] = msg["tool_call_id"]
+
+        # Drop empty assistant messages (pure tool_calls with no text)
+        if role == "assistant" and not content.strip():
+            continue
+
+        sanitized.append(clean)
+    return sanitized
+
+
+# ---------------------------------------------------------------------------
 # Provider API key mapping
 # ---------------------------------------------------------------------------
 
@@ -218,6 +261,9 @@ async def chat_completion(
     # Resolve provider/model: runtime override > settings default
     use_provider = provider or settings.LLM_PROVIDER
     use_model = model or settings.LLM_MODEL
+
+    # Sanitize messages for API compatibility (Dashscope/Qwen requires string content)
+    messages = _sanitize_messages(messages)
 
     providers: list[tuple[str, str]] = [
         (use_provider, use_model),
@@ -307,6 +353,9 @@ def chat_completion_sync(
 
     use_provider = provider or settings.LLM_PROVIDER
     use_model = model or settings.LLM_MODEL
+
+    # Sanitize messages for API compatibility (Dashscope/Qwen requires string content)
+    messages = _sanitize_messages(messages)
 
     providers: list[tuple[str, str]] = [
         (use_provider, use_model),

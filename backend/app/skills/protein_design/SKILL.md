@@ -47,12 +47,29 @@ For property optimization:
 - Use `mutation_scan` to identify beneficial mutations
 - Use `predict_properties` to validate designs
 
-### Step 4: Validate Designs
+### Step 4: Validate Designs (Multi-Tool Cross-Validation)
 1. `esmfold_folding`: Predict structures and assess foldability (pLDDT > 70)
-2. Check for:
+2. **Cross-validate with a second structure predictor** (AlphaFold2 or OmegaFold)
+   to catch single-model blind spots. Require consensus: both tools agree on fold (RMSD < 1.0Å)
+3. Check for:
    - Aggregation-prone regions
    - Stability metrics
    - Expression feasibility
+   - **Local environment changes near functional residues** (hydration, rigidity, electrostatics)
+
+### Step 5: Functional Integrity Assessment (Redesign Tasks)
+When redesigning an existing protein (e.g., ProteinMPNN inverse folding with locked residues):
+- **Trade-off analysis**: compare original vs. designed on BOTH physicochemical properties
+  (expression, solubility, Tm) AND functional activity (kcat, binding affinity, etc.)
+- **Non-active-site risk**: mutations outside the functional site can still impair activity via:
+  - Hydration shell disruption (altered water dynamics near functional surface)
+  - Backbone rigidity/flexibility propagation to the active site
+  - Long-range allosteric coupling from distal residues
+- **Protective strategy**: preserve not only known functional residues but also their
+  surrounding hydration shell and local backbone geometry (±5Å radius)
+- Reference case: ProteinMPNN AFPIII redesign (BioRxiv 2026) — 100% expression success
+  and +7°C Tm improvement, but thermal hysteresis activity dropped to 30-40% of WT
+  despite all ice-binding site residues being locked
 
 ## Expected Outputs
 | Step | Tool | Output |
@@ -60,11 +77,13 @@ For property optimization:
 | 1 | `sequence_search` | Target structure/properties |
 | 2 | `predict_properties` | Baseline properties |
 | 3 | Design tools | Candidate sequences |
-| 4 | `esmfold_folding` | Predicted structures |
-| 5 | Validation | pLDDT, stability scores |
+| 4 | `esmfold_folding` + cross-validation | Predicted structures + consensus |
+| 5 | Functional integrity check | Trade-off table + risk assessment |
+| 6 | Validation | pLDDT, stability scores, activity estimate |
 
 ## Decision Tree
 - Binder design with known target structure → use structure-based design
 - Sequence optimization without structure → sequence-based approaches
-- De novo design from scratch → AI generative models
+- De novo design from scratch → AI generative models (consider iTHR for ice-binding proteins)
 - Improve existing protein → mutation scanning + iterative optimization
+- Redesign scaffold while preserving function → ProteinMPNN with locked residues + cross-validation

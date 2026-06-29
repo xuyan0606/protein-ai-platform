@@ -220,9 +220,9 @@ class LiteratureAgent:
         Returns (formatted_context, raw_experience_dicts).
         """
         try:
-            from app.memory.experience_store import get_experience_store
+            from app.memory.experience_store import ensure_seeded_experiences
 
-            store = get_experience_store()
+            store = await ensure_seeded_experiences()
             experiences = await store.search_similar(
                 task_type=task_type,
                 protein_family=protein_family,

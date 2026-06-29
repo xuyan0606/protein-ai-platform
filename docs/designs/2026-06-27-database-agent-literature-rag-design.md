@@ -13,6 +13,11 @@
 | **AI-Native Biofoundry** | [ScienceCast 2026](https://sciencecast.org/casts/vylso64jadmc) | 自然语言控制全自动DBTL循环 | 非专家也能编排完整DBTL |
 | **Horizyn-1** | [PNAS 2025](https://www.pnas.org/doi/10.1073/pnas.2520070123) | 双编码器对比学习（CLIP范式）关联反应↔酶序列 | 反应-酶语义匹配 |
 | **Baker Lab AI酶** | [Baker Lab 2025](https://www.bakerlab.org/2025/02/13/ai-enzymes-with-complex-active-sites/) | AI生成复杂活性位点的全新酶 | de novo酶设计前沿 |
+| **ProteinMPNN AFPIII重设计** | [BioRxiv 2026.06](https://www.biorxiv.org/content/10.64898/2026.06.21.733612v1) | ProteinMPNN锁定IBS重设计AFPIII，100%表达成功但TH活性降至30-40% | **非活性位点远程效应**（水合动力学/骨架构型）；多工具交叉验证范式 |
+| **iTHR抗冰蛋白从头设计** | [PNAS 2025](https://www.pnas.org/doi/10.1073/pnas.2514871122) | Baker Lab设计无螺旋重复蛋白（iTHR），抗冰再结晶活性对突变鲁棒 | 比ProteinMPNN重设计更适合AFP场景 |
+| **ProteinMPNN水合层优化** | [KPU Wu Lab 2026](https://kpwulab.com/2026/02/06/publication-ai-tool-proteinmpnn-boosts-protein-stability-by-enhancing-hydration-shell/) | ProteinMPNN通过优化水合壳提升蛋白稳定性 | 水合层是序列设计的关键机制 |
+| **ProteinDJ模块化管线** | [Protein Science 2026](https://onlinelibrary.wiley.com/doi/full/10.1002/pro.70464) | ProteinMPNN+AF2的高性能模块化设计管线 | 标准化设计管线架构 |
+| **Zero-shot设计预测评估** | [bioRxiv 2025](https://www.biorxiv.org/content/10.1101/2025.07.29.667290.full) | 评估AF/ESMFold/ProteinMPNN零样本预测实验成功率的能力 | 单一预测工具辨别能力有限，需多工具共识 |
 
 ### 蛋白质RAG + 知识图谱（2025-2026）
 

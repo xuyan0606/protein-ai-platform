@@ -151,6 +151,82 @@ class ExperienceStore:
             return f"\n--- DOMAIN KNOWLEDGE ({skill_name}) ---\n{skill[:500]}"
         return ""
 
+    async def seed_curated_experiences(self) -> None:
+        """Seed cold-start curated experiences from literature benchmarks.
+
+        These are not real executions but literature-derived reference points
+        that inform pipeline planning with known success/failure patterns.
+        """
+        curated = [
+            # ProteinMPNN AFPIII redesign (BioRxiv 2026.06)
+            ExperienceRecord(
+                task_type="design",
+                protein_family="antifreeze_protein",
+                sequence_hash="",
+                pipeline=[
+                    "proteinmpnn_design", "esmfold_folding",
+                    "alphafold_validation", "predict_properties",
+                ],
+                pipeline_hash=ExperienceRecord.hash_pipeline([
+                    "proteinmpnn_design", "esmfold_folding",
+                    "alphafold_validation", "predict_properties",
+                ]),
+                step_results={
+                    "proteinmpnn_design": "completed",
+                    "esmfold_folding": "completed",
+                    "alphafold_validation": "completed",
+                    "predict_properties": "completed",
+                },
+                success_rate=1.0,  # 100% expression success
+                total_duration=0.0,
+                user_message_short="[LITERATURE] ProteinMPNN AFPIII redesign: 100% expression, +7°C Tm, but TH activity 30-40% WT",
+                research_notes_short=(
+                    "ProteinMPNN redesign of fish AFPIII with locked IBS residues. "
+                    "5/5 variants expressed (3→40 mg/L). Tm +7°C (MPNN5). "
+                    "WARNING: non-IBS mutations reduced thermal hysteresis to 30-40% "
+                    "despite all IBS residues preserved. Hydration shell and backbone "
+                    "rigidity changes likely responsible. Multi-tool cross-validation "
+                    "(OmegaFold + AlphaFold2) recommended."
+                ),
+                round_number=1,
+                timestamp=time.time() - 86400,  # 1 day ago (always available)
+            ),
+            # BindCraft pipeline benchmark (Nature 2024)
+            ExperienceRecord(
+                task_type="design",
+                protein_family="binder",
+                sequence_hash="",
+                pipeline=[
+                    "rfdiffusion_design", "proteinmpnn_design",
+                    "esmfold_folding", "predict_properties",
+                ],
+                pipeline_hash=ExperienceRecord.hash_pipeline([
+                    "rfdiffusion_design", "proteinmpnn_design",
+                    "esmfold_folding", "predict_properties",
+                ]),
+                step_results={
+                    "rfdiffusion_design": "completed",
+                    "proteinmpnn_design": "completed",
+                    "esmfold_folding": "completed",
+                    "predict_properties": "completed",
+                },
+                success_rate=0.65,  # 60-70% experimental success
+                total_duration=0.0,
+                user_message_short="[LITERATURE] BindCraft: RFdiffusion+ProteinMPNN binder design, 60-70% exp success",
+                research_notes_short=(
+                    "RFdiffusion for backbone + ProteinMPNN for sequence design. "
+                    "60-70% experimental success rate for nanobody/binder targets. "
+                    "~15 designs typically tested per target."
+                ),
+                round_number=1,
+                timestamp=time.time() - 86400,
+            ),
+        ]
+
+        for exp in curated:
+            await self.record(exp)
+        logger.info("Seeded %d curated literature experiences", len(curated))
+
     def get_stats(self) -> dict[str, Any]:
         """Get store statistics."""
         records = list(self._records.values())
@@ -181,6 +257,7 @@ class ExperienceStore:
 
 # Global singleton
 _experience_store: ExperienceStore | None = None
+_seeded: bool = False
 
 
 def get_experience_store() -> ExperienceStore:
@@ -189,3 +266,13 @@ def get_experience_store() -> ExperienceStore:
     if _experience_store is None:
         _experience_store = ExperienceStore()
     return _experience_store
+
+
+async def ensure_seeded_experiences() -> ExperienceStore:
+    """Get the experience store, seeding curated data on first call."""
+    global _seeded
+    store = get_experience_store()
+    if not _seeded:
+        _seeded = True
+        await store.seed_curated_experiences()
+    return store

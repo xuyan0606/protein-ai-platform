@@ -42,6 +42,11 @@ In your response:
 - List the key unknowns that need computational investigation
 - Specify what types of proteins, targets, or systems are involved
 - Note any constraints (e.g., affinity requirements, stability needs, expression system)
+- For protein redesign tasks, identify functional residues that MUST be preserved AND flag
+  the risk that non-active-site mutations may still impair activity (hydration dynamics,
+  backbone rigidity, allosteric coupling — as demonstrated in the ProteinMPNN AFPIII study)
+- Assess the trade-off space: what physicochemical properties are targeted for improvement
+  (expression, solubility, thermostability) vs. what functional metrics must be maintained
 - Reference relevant knowledge graph data and literature when available
 - Keep it concise — this feeds into the planning phase
 
@@ -116,12 +121,27 @@ Without a sequence (target-only design):
 
 With a sequence (redesign / optimization):
 1. proteinmpnn_design — Inverse folding on the provided structure (num_sequences=3, temp=0.1)
+   IMPORTANT: Lock known functional residues (catalytic sites, binding sites, ice-binding
+   surfaces) to prevent their mutation. Only redesign scaffold/surface residues.
 2. soluble_mpnn_design — Solubility and expression optimization
-3. esmfold_folding — Validate folding confidence of redesigned sequences
-4. predict_properties — Compare physicochemical profiles of original vs designed
+3. esmfold_folding — Validate folding confidence of redesigned sequences (pLDDT > 70)
+4. Cross-validate with a SECOND structure predictor when possible (AlphaFold2 or OmegaFold)
+   to catch single-model blind spots. Require consensus: both tools agree on fold (RMSD < 1.0Å).
+5. predict_properties — Compare physicochemical profiles of original vs designed
+
+CRITICAL — Non-Active-Site Remote Effects (from ProteinMPNN AFPIII redesign study, 2026):
+When redesigning a protein while preserving functional residues, be aware that mutations
+in non-functional regions can STILL impair activity through:
+- Hydration shell disruption: altered water dynamics near the functional surface
+- Backbone rigidity changes: subtle flexibility shifts propagating to the active site
+- Long-range conformational coupling: distal residue changes affecting function via allostery
+Example: ProteinMPNN redesign of fish AFPIII (antifreeze protein) preserved all ice-binding
+site residues but non-IBS mutations reduced thermal hysteresis activity to 30-40% of WT,
+despite improved expression (13× yield) and thermal stability (+7°C Tm).
 
 Key metrics to report: pLDDT confidence, recovery rate, sequence diversity,
-solubility score, and structural RMSD from target backbone.
+solubility score, structural RMSD from target backbone, AND predicted impact on
+functional residues' local environment (hydration, rigidity, electrostatics).
 
 Respond with the JSON plan.
 """
@@ -166,11 +186,28 @@ When the task involves enzyme/protein engineering:
 - Provide SPECIFIC residue numbers and proposed mutations (e.g., "K245→E" not "surface lysines")
 - Rank candidates by expected impact (High/Medium/Low priority)
 - Explain the mechanistic rationale for each proposed mutation
-- Identify which residues MUST NOT be mutated (catalytic residues, structural core)
+- Identify which residues MUST NOT be mutated (catalytic residues, structural core,
+  binding interfaces, ice-binding surfaces, and functional cofactor sites)
 - If structure data is available, reference specific structural features
 - Suggest an experimental validation plan (6-10 mutants, key assays)
 - NEVER give only generic advice like "consider surface charge engineering" —
   always name specific residues and mutations where data supports it
+
+CRITICAL — Physicochemical vs. Functional Trade-off Warning (Protein Redesign):
+When reporting ProteinMPNN or other AI-based protein redesign results, ALWAYS include:
+1. **Trade-off Analysis Table**: compare original vs. designed on BOTH physicochemical
+   properties (expression, solubility, Tm) AND functional activity (kcat, binding affinity,
+   thermal hysteresis, etc.)
+2. **Non-Active-Site Risk Assessment**: explicitly state that mutations outside the active/
+   binding site can still impair function through:
+   - Hydration shell disruption (altered water dynamics near functional surface)
+   - Backbone rigidity/flexibility propagation to the active site
+   - Long-range allosteric coupling from distal residues
+3. **Confidence Calibration**: if only computational validation is available (no wet-lab),
+   clearly state that AI-predicted improvements may not fully translate — cite the ProteinMPNN
+   AFPIII case where 100% expression success co-existed with 60-70% activity loss.
+4. **Protective Design Strategy**: recommend preserving not only known functional residues
+   but also their surrounding hydration shell and local backbone geometry (±5Å radius).
 
 When knowledge graph data and literature references are provided in the system prompt:
 - Integrate enzyme knowledge graph data (EC numbers, kinetics, structures, domains) into your analysis
