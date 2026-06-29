@@ -89,6 +89,19 @@ class AgentOrchestrator:
         """Lazy-load skills — SkillRegistry is populated after import."""
         return get_skills_metadata()
 
+    def get_snapshot_data(self) -> dict | None:
+        """Return current snapshot data for report generation (used by auto-publish)."""
+        if self._snapshot is None:
+            return None
+        s = self._snapshot
+        return {
+            "stage": s.stage,
+            "research_notes": s.research_notes,
+            "plan": s.plan,
+            "step_results": s.step_results,
+            "final_report": s.final_report,
+        }
+
     def _build_context(self, history: list[dict]) -> str:
         """Build protein context from conversation history."""
         context_parts = []

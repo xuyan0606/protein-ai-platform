@@ -53,6 +53,12 @@ export interface Conversation {
   createdAt: number
 }
 
+interface PublishedFile {
+  file_id: string
+  filename: string
+  wiki_url: string | null
+}
+
 interface ChatState {
   conversations: Conversation[]
   currentId: string | null
@@ -63,6 +69,9 @@ interface ChatState {
 
   // Agent state (full snapshot from server)
   agentState: AgentState | null
+
+  // Last auto-published file info (from wiki auto-publish)
+  lastPublishedFile: PublishedFile | null
 
   // Model selection
   selectedModel: string  // model id (e.g. "deepseek", "kuaPao", "miniMax")
@@ -120,6 +129,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
   sidebarOpen: true,
   detailOpen: true,
   agentState: null,
+  lastPublishedFile: null,
   selectedModel: (localStorage.getItem('selectedModel') as string) || 'deepseek',
   availableModels: [],
 

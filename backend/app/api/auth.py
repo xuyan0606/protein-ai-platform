@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import os
+
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 from pydantic import BaseModel, EmailStr, Field, field_validator
 from sqlalchemy import select
@@ -16,9 +18,13 @@ from app.core.security import (
     hash_password,
     verify_password,
 )
+from app.core.rate_limiter import rate_limit
 from app.models.user import User
 
 router = APIRouter()
+
+# Determine if HTTPS is in use (for secure cookie flag)
+_USES_HTTPS = os.getenv("USE_HTTPS", "false").lower() in ("true", "1", "yes")
 
 
 # ---------------------------------------------------------------------------
@@ -65,8 +71,16 @@ class UserProfile(BaseModel):
 # ---------------------------------------------------------------------------
 
 @router.post("/login", response_model=TokenResponse)
-async def login(req: LoginRequest, response: Response, db: AsyncSession = Depends(get_session)):
-    """Authenticate with email/password and return JWT tokens."""
+async def login(
+    req: LoginRequest,
+    response: Response,
+    db: AsyncSession = Depends(get_session),
+    _rl=Depends(rate_limit("login", max_requests=10, window=60)),
+):
+    """Authenticate with email/password and return JWT tokens.
+
+    Rate limited: 10 attempts per minute per IP.
+    """
     result = await db.execute(select(User).where(User.email == req.email))
     user = result.scalar_one_or_none()
 
@@ -84,7 +98,7 @@ async def login(req: LoginRequest, response: Response, db: AsyncSession = Depend
         key="pa_token",
         value=access_token,
         httponly=True,
-        secure=False,  # set True when using HTTPS
+        secure=_USES_HTTPS,
         samesite="lax",
         max_age=1800,  # 30 minutes, matches access token expiry
         path="/",
@@ -98,8 +112,15 @@ async def login(req: LoginRequest, response: Response, db: AsyncSession = Depend
 
 
 @router.post("/register", response_model=TokenResponse, status_code=status.HTTP_201_CREATED)
-async def register(req: RegisterRequest, db: AsyncSession = Depends(get_session)):
-    """Create a new user account and return JWT tokens."""
+async def register(
+    req: RegisterRequest,
+    db: AsyncSession = Depends(get_session),
+    _rl=Depends(rate_limit("register", max_requests=5, window=60)),
+):
+    """Create a new user account and return JWT tokens.
+
+    Rate limited: 5 registrations per minute per IP.
+    """
     # Check if email already exists
     result = await db.execute(select(User).where(User.email == req.email))
     if result.scalar_one_or_none() is not None:
@@ -127,17 +148,32 @@ async def register(req: RegisterRequest, db: AsyncSession = Depends(get_session)
 
 
 @router.post("/refresh", response_model=TokenResponse)
-async def refresh(req: RefreshRequest, db: AsyncSession = Depends(get_session)):
-    """Exchange a refresh token for a new access + refresh token pair."""
+async def refresh(
+    req: RefreshRequest,
+    db: AsyncSession = Depends(get_session),
+    _rl=Depends(rate_limit("refresh", max_requests=10, window=60)),
+):
+    """Exchange a refresh token for a new access + refresh token pair.
+
+    Rate limited: 10 refreshes per minute per IP.
+    """
+    from jose import JWTError
     try:
         payload = decode_refresh_token(req.refresh_token)
-    except Exception:
+    except JWTError:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid or expired refresh token",
         )
 
-    user_id = int(payload["sub"])
+    try:
+        user_id = int(payload["sub"])
+    except (KeyError, ValueError, TypeError):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Malformed refresh token",
+        )
+
     result = await db.execute(select(User).where(User.id == user_id))
     user = result.scalar_one_or_none()
     if user is None:

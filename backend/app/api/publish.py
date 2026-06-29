@@ -11,6 +11,7 @@ Endpoints:
 
 from __future__ import annotations
 
+import logging
 from datetime import datetime
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -18,6 +19,8 @@ from fastapi.responses import Response
 from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
+
+logger = logging.getLogger(__name__)
 
 from app.core.database import get_session
 from app.core.security import get_current_user
@@ -287,6 +290,96 @@ async def bind_conversation_to_project(
     await session.commit()
     return {"ok": True, "project_id": conv.project_id}
 
+
+# ---------------------------------------------------------------------------
+# Wiki tree (Outline proxy)
+# ---------------------------------------------------------------------------
+
+@router.get("/{project_id}/wiki/tree")
+async def get_wiki_tree(
+    project_id: str,
+    session: AsyncSession = Depends(get_session),
+    user: dict = Depends(get_current_user),
+):
+    """Get the Outline document tree for a project's wiki collection."""
+    project = await session.get(Project, project_id)
+    if not project or project.user_id != user["id"]:
+        raise HTTPException(404, "Project not found")
+
+    if not project.outline_collection_id:
+        return {"collection_id": None, "documents": []}
+
+    try:
+        from app.services.outline_client import get_outline_client
+        client = get_outline_client()
+        docs = await client.list_documents(project.outline_collection_id, limit=200)
+
+        # Build a flat list with parent references for the frontend to tree-ify
+        tree = []
+        for doc in docs:
+            tree.append({
+                "id": doc.get("id"),
+                "title": doc.get("title", "Untitled"),
+                "parent_id": doc.get("parentDocumentId"),
+                "url_id": doc.get("urlId"),
+                "updated_at": doc.get("updatedAt"),
+                "emoji": doc.get("emoji"),
+            })
+
+        return {
+            "collection_id": project.outline_collection_id,
+            "root_doc_id": project.outline_root_doc_id,
+            "documents": tree,
+        }
+    except Exception as e:
+        logger.warning("Outline wiki tree failed for project %s: %s", project_id, e)
+        return {"collection_id": project.outline_collection_id, "documents": [], "error": str(e)}
+
+
+@router.get("/{project_id}/wiki/pages/{doc_id}")
+async def get_wiki_page(
+    project_id: str,
+    doc_id: str,
+    session: AsyncSession = Depends(get_session),
+    user: dict = Depends(get_current_user),
+):
+    """Get a single Outline document's content (Markdown text)."""
+    project = await session.get(Project, project_id)
+    if not project or project.user_id != user["id"]:
+        raise HTTPException(404, "Project not found")
+
+    if not project.outline_collection_id:
+        raise HTTPException(400, "Project has no wiki collection")
+
+    try:
+        import httpx
+        from app.services.outline_client import OUTLINE_API_URL, OUTLINE_API_TOKEN
+
+        async with httpx.AsyncClient(timeout=httpx.Timeout(30.0)) as client:
+            resp = await client.post(
+                f"{OUTLINE_API_URL}/documents.info",
+                headers={
+                    "Authorization": f"Bearer {OUTLINE_API_TOKEN}",
+                    "Content-Type": "application/json",
+                },
+                json={"id": doc_id},
+            )
+            resp.raise_for_status()
+            data = resp.json().get("data", {})
+            return {
+                "id": data.get("id"),
+                "title": data.get("title"),
+                "text": data.get("text", ""),
+                "updated_at": data.get("updatedAt"),
+                "url_id": data.get("urlId"),
+            }
+    except Exception as e:
+        raise HTTPException(502, f"Outline API error: {e}")
+
+
+# ---------------------------------------------------------------------------
+# Conversation listing
+# ---------------------------------------------------------------------------
 
 @router.get("/{project_id}/conversations")
 async def list_project_conversations(

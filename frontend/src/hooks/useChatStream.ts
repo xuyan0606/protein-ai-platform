@@ -5,7 +5,7 @@ export function useChatStream() {
   const { addMessage, updateLastAssistant, addToolCall, updateToolCall, setStreaming, setAgentState } =
     useChatStore()
 
-  const sendMessage = async (content: string, conversationId?: string) => {
+  const sendMessage = async (content: string, conversationId?: string, projectId?: string) => {
     setStreaming(true)
 
     // Add placeholder assistant message
@@ -38,6 +38,7 @@ export function useChatStream() {
         body: JSON.stringify({
           message: content,
           conversation_id: conversationId || null,
+          project_id: projectId || null,
           history,
           model: selectedModel,
         }),
@@ -85,6 +86,15 @@ export function useChatStream() {
                 )
               }
 
+              // Handle published event — report auto-published to wiki
+              if (data.type === 'published') {
+                useChatStore.setState({ lastPublishedFile: {
+                  file_id: data.file_id,
+                  filename: data.filename,
+                  wiki_url: data.wiki_url,
+                }})
+              }
+
               handleSSEEvent(data)
             } catch {
               // Partial chunk or incomplete JSON — append as raw text
@@ -121,7 +131,7 @@ export function useChatStream() {
 }
 
 interface SSEEvent {
-  type: 'text' | 'tool_call' | 'tool_update' | 'thinking' | 'state' | 'done' | 'error' | 'title'
+  type: 'text' | 'tool_call' | 'tool_update' | 'thinking' | 'state' | 'done' | 'error' | 'title' | 'published'
   content?: string
   stage?: string
   plan?: Array<{
@@ -146,6 +156,10 @@ interface SSEEvent {
   tool_update?: { id: string; status: string; duration?: number; error?: string }
   thinking?: string
   conversation_id?: string
+  // Published event fields
+  file_id?: string
+  filename?: string
+  wiki_url?: string
 }
 
 function handleSSEEvent(data: SSEEvent) {

@@ -25,6 +25,7 @@ router = APIRouter()
 class ChatRequest(BaseModel):
     message: str
     conversation_id: int | None = None
+    project_id: str | None = None  # bind conversation to project for auto-publish
     history: list[dict] = []
     model: str | None = None  # model id from the registry (e.g. "deepseek", "kuaPao")
 
@@ -58,8 +59,13 @@ async def stream_chat(
         conversation = Conversation(
             user_id=current_user["id"],
             title=req.message[:80] if len(req.message) > 80 else req.message,
+            project_id=req.project_id,
         )
         db.add(conversation)
+        await db.flush()
+    elif req.project_id and not conversation.project_id:
+        # Bind existing conversation to project
+        conversation.project_id = req.project_id
         await db.flush()
 
     # Save user message
@@ -142,6 +148,20 @@ async def stream_chat(
                         "conversation_id": conv_id,
                         "title": conversation.title,
                     }),
+                }
+
+            # Auto-publish to Wiki if conversation belongs to a project with wiki_auto_publish
+            publish_result = await _auto_publish_wiki(
+                orchestrator, conversation, req.message, full_response,
+            )
+            if publish_result:
+                yield {
+                    "event": "message",
+                    "data": json.dumps({
+                        "type": "published",
+                        "conversation_id": conv_id,
+                        **publish_result,
+                    }, ensure_ascii=False),
                 }
 
         except Exception as e:
@@ -228,3 +248,72 @@ async def _auto_title(conversation: Conversation, user_message: str, db: AsyncSe
             logger.info("Auto-titled conversation %d: %s", conversation.id, title)
     except Exception:
         pass  # Non-critical — keep the default title
+
+
+async def _auto_publish_wiki(
+    orchestrator,
+    conversation: Conversation,
+    user_message: str,
+    full_response: list[str],
+) -> dict | None:
+    """Auto-publish agent report to project Wiki if conditions are met.
+
+    Conditions:
+    - Conversation must have a project_id
+    - Project must have wiki_auto_publish = True
+    - Agent must have produced a final_report (not general chat or empty plan)
+
+    Returns publish result dict or None if skipped/failed.
+    """
+    if not conversation.project_id:
+        return None
+
+    from app.core.database import _async_session_factory
+    from app.models.project import Project
+
+    try:
+        async with _async_session_factory() as pub_db:
+            project = await pub_db.get(Project, conversation.project_id)
+            if not project or not project.wiki_auto_publish:
+                return None
+
+            # Get snapshot data from orchestrator
+            snapshot = orchestrator.get_snapshot_data()
+            if not snapshot or not snapshot.get("final_report"):
+                return None
+
+            # Generate markdown report
+            from app.services.report_generator import ReportGenerator
+            generator = ReportGenerator()
+            report_content = generator.generate_conversation_report(
+                project_name=project.name,
+                conversation_title=conversation.title or "分析报告",
+                user_message=user_message,
+                research_notes=snapshot.get("research_notes", ""),
+                plan=snapshot.get("plan", []),
+                tool_results=snapshot.get("step_results", []),
+                final_report=snapshot["final_report"],
+            )
+
+            # Publish via publish_service
+            from app.services.publish_service import publish_report
+            result = await publish_report(
+                pub_db,
+                project_id=project.id,
+                title=conversation.title or "分析报告",
+                content=report_content,
+                conversation_id=conversation.id,
+                source="agent",
+            )
+
+            logger.info(
+                "Auto-published wiki for conv=%d project=%s: file=%s",
+                conversation.id, project.id, result.get("file_id"),
+            )
+            return result
+
+    except Exception as e:
+        logger.warning(
+            "Auto-publish failed for conv=%d: %s", conversation.id, e,
+        )
+        return None

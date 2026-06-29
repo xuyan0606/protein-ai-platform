@@ -175,4 +175,30 @@ export const api = {
 
   getProjectConversations: (projectId: string) =>
     request<any[]>(`/projects/${projectId}/conversations`),
+
+  // Wiki tree + pages
+  getWikiTree: (projectId: string) =>
+    request<{ collection_id: string | null; root_doc_id: string | null; documents: Array<{
+      id: string; title: string; parent_id: string | null; url_id: string | null;
+      updated_at: string | null; emoji: string | null
+    }> }>(`/projects/${projectId}/wiki/tree`),
+
+  getWikiPage: (projectId: string, docId: string) =>
+    request<{ id: string; title: string; text: string; updated_at: string | null; url_id: string | null }>(
+      `/projects/${projectId}/wiki/pages/${docId}`
+    ),
+
+  downloadProjectFile: (projectId: string, fileId: string) => {
+    const token = localStorage.getItem('token')
+    return fetch(`${BASE}/projects/${projectId}/files/${fileId}/download`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    })
+  },
+
+  getFileContent: (projectId: string, fileId: string) => {
+    const token = localStorage.getItem('token')
+    return fetch(`${BASE}/projects/${projectId}/files/${fileId}/content`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    }).then(r => r.text())
+  },
 }
