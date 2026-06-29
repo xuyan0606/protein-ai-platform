@@ -24,8 +24,7 @@ from app.core.agent_roles import (
     MLS_SYSTEM_PROMPT, SC_SYSTEM_PROMPT,
     ROUTER_SYSTEM_PROMPT,
 )
-from app.services.literature_client import LiteratureClient, Paper as LitPaper
-from app.services.literature_store import LiteratureStore
+from app.core.coordinator_agent import CoordinatorAgent
 
 # Lazy import for experience store (avoids circular import at module load)
 def _get_experience_store():
@@ -78,6 +77,7 @@ class AgentOrchestrator:
 
     def __init__(self):
         self._snapshot: ChatSnapshot | None = None
+        self._coordinator = CoordinatorAgent()
 
     @property
     def tools_schema(self) -> list[dict]:
@@ -139,7 +139,7 @@ class AgentOrchestrator:
         yield self._emit_state()
         yield json.dumps({"type": "text", "content": "\n\n"}, ensure_ascii=False)
         if route in ("research", "design", "analyze"):
-            research = await self._research_pi(user_message, history, protein_context, provider, model)
+            research = await self._research_pi(user_message, history, protein_context, provider, model, task_type=route)
             self._snapshot.research_notes = research
             yield self._emit_state()
         else:
@@ -529,109 +529,28 @@ class AgentOrchestrator:
             logger.exception("Router LLM call failed")
         return "general"
 
-    async def _get_knowledge_context(self, message: str) -> str:
-        """Gather knowledge graph + literature + vector search context for a task.
+    async def _get_knowledge_context(self, message: str, task_type: str = "research") -> str:
+        """Gather knowledge context via Coordinator (parallel Data + Literature agents).
 
-        Queries three sources in parallel:
-        1. Enzyme Knowledge Graph — structured data from 15 domain tables
-        2. Literature Client — PubMed/Europe PMC paper search
-        3. ESM-2 Vector Search — similar enzymes by sequence embedding
+        Replaces the old inline sequential queries. The Coordinator runs:
+        1. DataAgent — enzyme knowledge graph + ESM-2 vector search
+        2. LiteratureAgent — PubMed/Europe PMC + ChromaDB RAG + experience memory
+        Both agents run in parallel with a shared timeout.
 
         Returns a combined context string for injection into PI/SC prompts.
         Gracefully degrades if any source is unavailable.
         """
-        protein_name = self._extract_protein_name(message)
-        sequence = self._extract_sequence(message)
-        sections = []
-
-        # 1. Knowledge graph query (sync, run in executor)
-        if protein_name:
-            kg_context = await self._query_knowledge_graph(protein_name)
-            if kg_context:
-                sections.append(f"--- ENZYME KNOWLEDGE GRAPH ---\n{kg_context}")
-
-        # 2. Literature search
-        if protein_name:
-            lit_context = await self._search_literature(protein_name)
-            if lit_context:
-                sections.append(f"--- RELATED LITERATURE ---\n{lit_context}")
-
-        # 3. ESM-2 vector search for similar enzymes
-        if sequence and len(sequence) >= 20:
-            similar_context = await self._search_similar_enzymes(sequence)
-            if similar_context:
-                sections.append(f"--- SIMILAR ENZYMES (ESM-2 embedding) ---\n{similar_context}")
-
-        return "\n\n".join(sections) if sections else ""
-
-    async def _query_knowledge_graph(self, protein_name: str) -> str:
-        """Query enzyme knowledge graph in a thread executor."""
-        def _sync_query():
-            try:
-                from app.core.database import _engine
-                from sqlalchemy import create_engine
-                from sqlalchemy.orm import Session as SyncSession
-                from app.services.knowledge_graph import EnzymeKnowledgeGraph
-
-                # Create sync engine from async URL
-                sync_url = str(_engine.url).replace("+asyncpg", "+psycopg2").replace("+aiosqlite", "+sqlite")
-                sync_engine = create_engine(sync_url, echo=False)
-                with SyncSession(sync_engine) as session:
-                    kg = EnzymeKnowledgeGraph(session)
-                    # Try exact match first, then fuzzy
-                    enzyme = kg.query_by_name(protein_name)
-                    if enzyme:
-                        context = kg.query_enzyme_context(enzyme.uniprot_id)
-                        return kg.to_natural_language(context)
-                    # Try EC number search
-                    if protein_name.startswith("EC"):
-                        results = kg.query_by_ec(protein_name)
-                        if results:
-                            return kg.to_natural_language(results[0])
-                return ""
-            except Exception:
-                logger.debug("Knowledge graph query unavailable: %s", protein_name)
-                return ""
-
-        loop = asyncio.get_running_loop()
-        return await loop.run_in_executor(None, _sync_query)
-
-    async def _search_literature(self, protein_name: str) -> str:
-        """Search PubMed/Europe PMC for relevant papers."""
-        try:
-            client = LiteratureClient()
-            papers = await client.search_by_protein(protein_name, max_results=3)
-            if papers:
-                return LiteratureClient.format_citations(papers)
-        except Exception:
-            logger.debug("Literature search failed for: %s", protein_name)
-        return ""
-
-    async def _search_similar_enzymes(self, sequence: str) -> str:
-        """Search for similar enzymes using ESM-2 vector embeddings."""
-        try:
-            from app.ml.vector_search import EnzymeVectorSearch
-            vsearch = EnzymeVectorSearch()
-            results = vsearch.search_by_sequence(sequence, top_k=3)
-            if results:
-                lines = ["Similar enzymes found by ESM-2 embedding similarity:"]
-                for r in results:
-                    uniprot_id = r.get("uniprot_id", "unknown")
-                    distance = r.get("distance", 1.0)
-                    similarity = round(1.0 - distance, 3)
-                    lines.append(f"- {uniprot_id} (cosine similarity: {similarity})")
-                return "\n".join(lines)
-        except Exception:
-            logger.debug("ESM-2 vector search unavailable")
-        return ""
+        result = await self._coordinator.gather(message, task_type=task_type)
+        return result.context
 
     async def _research_pi(
         self, message: str, history: list[dict], context: str,
         provider: str | None = None, model: str | None = None,
+        task_type: str = "research",
     ) -> str:
         """PI: Research phase — gather background, clarify requirements."""
-        # Gather knowledge graph + literature + vector search context
-        knowledge_context = await self._get_knowledge_context(message)
+        # Gather knowledge graph + literature + vector search context (via Coordinator)
+        knowledge_context = await self._get_knowledge_context(message, task_type=task_type)
 
         user_content = f"Task: {message}\nProtein context: {context}"
         if knowledge_context:
