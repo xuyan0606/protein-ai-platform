@@ -35,6 +35,7 @@ def _build_redirect_uris() -> list[str]:
         return [u.strip() for u in uris_env.split(",") if u.strip()]
     # Defaults: localhost dev + production domain/IP
     uris = [
+        f"{os.getenv('FRONTEND_URL', 'http://localhost:4200')}/wiki/auth/oidc.callback",
         "http://localhost:8000/auth/oidc.callback",
         "http://localhost:3002/auth/oidc.callback",
     ]

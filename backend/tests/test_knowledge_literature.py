@@ -280,7 +280,7 @@ class TestLiteratureStore:
 
         stats = store.get_stats()
 
-        assert stats == {"available": False}
+        assert stats["available"] is False
 
     @patch("app.services.literature_store._get_collection", return_value=None)
     def test_delete_paper_returns_false_when_unavailable(self, mock_get_collection):

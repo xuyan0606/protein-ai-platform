@@ -5,7 +5,7 @@ export function useChatStream() {
   const { addMessage, updateLastAssistant, addToolCall, updateToolCall, setStreaming, setAgentState } =
     useChatStore()
 
-  const sendMessage = async (content: string, conversationId?: string, projectId?: string) => {
+  const sendMessage = async (content: string, conversationId?: string, projectId?: string, files?: Array<{name?: string; objectName?: string; downloadUrl?: string; analysisData?: unknown}>) => {
     setStreaming(true)
 
     // Add placeholder assistant message
@@ -36,7 +36,16 @@ export function useChatStream() {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          message: content,
+          message: files && files.length > 0
+            ? content + '\n\n[Attached files:\n' + files.map(f => {
+                const parts = []
+                if (f.name) parts.push('name: ' + f.name)
+                if (f.objectName) parts.push('object_name: ' + f.objectName)
+                if (f.downloadUrl) parts.push('download_url: ' + f.downloadUrl)
+                if (f.analysisData) parts.push('analysis: ' + JSON.stringify(f.analysisData))
+                return '- ' + parts.join(', ')
+              }).join('\n') + ']'
+            : content,
           conversation_id: conversationId || null,
           project_id: projectId || null,
           history,

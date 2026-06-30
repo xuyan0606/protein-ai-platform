@@ -9,6 +9,7 @@ from dataclasses import dataclass, field
 from typing import TypedDict, Annotated, Any, AsyncGenerator
 import asyncio
 import functools
+import hashlib
 import json
 import logging
 import re
@@ -74,6 +75,28 @@ class ChatSnapshot:
 
 class AgentOrchestrator:
     """Multi-role agent orchestrator with Plan-Execute-Synthesize pattern."""
+
+    # Tool result cache: (tool_name, params_hash) → result  (max 256 entries)
+    _tool_cache: dict[str, Any] = {}
+    _TOOL_CACHE_MAX = 256
+
+    @classmethod
+    def _cache_key(cls, tool_name: str, params: dict) -> str:
+        raw = json.dumps(params, sort_keys=True, default=str)
+        h = hashlib.md5(raw.encode()).hexdigest()[:12]
+        return f"{tool_name}:{h}"
+
+    @classmethod
+    def _cache_get(cls, key: str) -> Any | None:
+        return cls._tool_cache.get(key)
+
+    @classmethod
+    def _cache_put(cls, key: str, result: Any) -> None:
+        if len(cls._tool_cache) >= cls._TOOL_CACHE_MAX:
+            # Evict oldest entry
+            oldest = next(iter(cls._tool_cache))
+            del cls._tool_cache[oldest]
+        cls._tool_cache[key] = result
 
     def __init__(self):
         self._snapshot: ChatSnapshot | None = None
@@ -148,20 +171,32 @@ class AgentOrchestrator:
             yield json.dumps({"type": "done"})
             return
 
-        # --- Stage 2: RESEARCH (PI) ---
+        # --- Stage 2+3: RESEARCH (PI) + PLAN (CB) — parallel ---
         yield self._emit_state()
         yield json.dumps({"type": "text", "content": "\n\n"}, ensure_ascii=False)
         if route in ("research", "design", "analyze"):
-            research = await self._research_pi(user_message, history, protein_context, provider, model, task_type=route)
+            # Run research+plan concurrently — knowledge gathering is fire-and-forget
+            # with a short timeout so it doesn't block the pipeline
+            async def _fast_research():
+                try:
+                    return await asyncio.wait_for(
+                        self._research_pi(user_message, history, protein_context, provider, model, task_type=route),
+                        timeout=15,  # cap research at 15s
+                    )
+                except asyncio.TimeoutError:
+                    logger.info("Research PI timed out after 15s, proceeding without")
+                    return ""
+
+            research_task = asyncio.create_task(_fast_research())
+            plan_task = asyncio.create_task(
+                self._plan_cb(user_message, "", history, provider, model)
+            )
+            research, plan = await asyncio.gather(research_task, plan_task)
             self._snapshot.research_notes = research
             yield self._emit_state()
         else:
             self._snapshot.research_notes = ""
-
-        # --- Stage 3: PLAN (CB) ---
-        self._snapshot.stage = "plan"
-        yield self._emit_state()
-        plan = await self._plan_cb(user_message, self._snapshot.research_notes, history, provider, model)
+            plan = await self._plan_cb(user_message, "", history, provider, model)
         self._snapshot.plan = [{
             "id": s.id, "tool_name": s.tool_name,
             "description": s.description, "params": s.params,
@@ -183,70 +218,89 @@ class AgentOrchestrator:
             yield json.dumps({"type": "done"})
             return
 
-        # --- Stage 4: EXECUTE (MLS) ---
+        # --- Stage 4: EXECUTE (MLS) — parallel where possible ---
         self._snapshot.stage = "execute"
         yield self._emit_state()
 
         # Per-step timeout cap — prevents slow external APIs from blocking the pipeline
-        PER_STEP_TIMEOUT = 120  # seconds
+        PER_STEP_TIMEOUT = 300  # seconds (enzyme_function needs ~2min, esmfold up to 5min)
 
-        tool_messages = []
+        # --- Parallel execution: run all independent steps concurrently ---
+        # Mark all steps as running
         for i, step in enumerate(plan):
-            self._snapshot.current_step = i + 1
             step.status = "running"
             self._snapshot.plan[i]["status"] = "running"
-            yield self._emit_state()
+        yield self._emit_state()
 
-            start = time.time()
-            try:
-                result = await asyncio.wait_for(
-                    ToolRegistry.execute(step.tool_name, step.params),
-                    timeout=PER_STEP_TIMEOUT,
-                )
+        # Semaphore: max 2 tools concurrently (safe with 8GB VM memory)
+        _tool_semaphore = asyncio.Semaphore(2)
+
+        async def _run_step(i: int, step: PlanStep) -> tuple[int, PlanStep]:
+            """Execute a single tool step with caching and timeout."""
+            cache_key = self._cache_key(step.tool_name, step.params)
+            cached = self._cache_get(cache_key)
+            if cached is not None:
                 step.status = "completed"
-                step.result = result
-                step.duration = round(time.time() - start, 2)
-                self._snapshot.plan[i]["status"] = "completed"
-                self._snapshot.step_results.append({
-                    "step": i + 1, "tool": step.tool_name,
-                    "status": "completed", "result_preview": self._compact_result(step.tool_name, result)[:2000],
-                    "duration": step.duration,
-                })
-            except asyncio.TimeoutError:
-                step.status = "failed"
-                step.error = f"Step timed out after {PER_STEP_TIMEOUT}s"
-                step.duration = round(time.time() - start, 2)
-                self._snapshot.plan[i]["status"] = "failed"
-                self._snapshot.step_results.append({
-                    "step": i + 1, "tool": step.tool_name,
-                    "status": "failed", "error": step.error,
-                    "duration": step.duration,
-                })
-            except Exception as e:
-                step.status = "failed"
-                step.error = str(e)
-                step.duration = round(time.time() - start, 2)
-                self._snapshot.plan[i]["status"] = "failed"
-                self._snapshot.step_results.append({
-                    "step": i + 1, "tool": step.tool_name,
-                    "status": "failed", "error": str(e),
-                    "duration": step.duration,
-                })
-                if self._should_retry(step):
-                    yield self._emit_state()
-                    step.status = "running"
-                    self._snapshot.plan[i]["status"] = "running"
-                    try:
-                        result = await ToolRegistry.execute(step.tool_name, step.params)
-                        step.status = "completed"
-                        step.result = result
-                        self._snapshot.plan[i]["status"] = "completed"
-                    except Exception:
-                        logger.exception("Retry failed for tool %s", step.tool_name)
+                step.result = cached
+                step.duration = 0.0
+                logger.info("Tool cache hit: %s", step.tool_name)
+                return i, step
 
-            yield self._emit_state()
+            async with _tool_semaphore:
+                start = time.time()
+                try:
+                    result = await asyncio.wait_for(
+                        ToolRegistry.execute(step.tool_name, step.params),
+                        timeout=PER_STEP_TIMEOUT,
+                    )
+                    step.status = "completed"
+                    step.result = result
+                    step.duration = round(time.time() - start, 2)
+                    self._cache_put(cache_key, result)
+                except asyncio.TimeoutError:
+                    step.status = "failed"
+                    step.error = f"Step timed out after {PER_STEP_TIMEOUT}s"
+                    step.duration = round(time.time() - start, 2)
+                except Exception as e:
+                    step.status = "failed"
+                    step.error = str(e)
+                    step.duration = round(time.time() - start, 2)
+                    # Retry once on transient errors
+                    if self._should_retry(step):
+                        try:
+                            result = await asyncio.wait_for(
+                                ToolRegistry.execute(step.tool_name, step.params),
+                                timeout=PER_STEP_TIMEOUT,
+                            )
+                            step.status = "completed"
+                            step.result = result
+                            step.error = None
+                            self._cache_put(cache_key, result)
+                        except Exception:
+                            logger.exception("Retry failed for tool %s", step.tool_name)
+            return i, step
 
-            # Build compact result for LLM/report: extract key fields from large results
+        # Run all steps in parallel
+        results = await asyncio.gather(
+            *[_run_step(i, step) for i, step in enumerate(plan)],
+            return_exceptions=True,
+        )
+
+        # Collect results in order and build tool_messages
+        tool_messages = []
+        for res in results:
+            if isinstance(res, Exception):
+                logger.error("Parallel step exception: %s", res)
+                continue
+            i, step = res
+            self._snapshot.plan[i]["status"] = step.status
+            self._snapshot.current_step = i + 1
+            self._snapshot.step_results.append({
+                "step": i + 1, "tool": step.tool_name,
+                "status": step.status,
+                "result_preview": (self._compact_result(step.tool_name, step.result)[:2000] if step.result else step.error),
+                "duration": step.duration,
+            })
             result_payload = self._compact_result(step.tool_name, step.result) if step.result else step.error
             tool_messages.append({
                 "role": "tool",
@@ -255,10 +309,19 @@ class AgentOrchestrator:
                 "status": step.status,
             })
 
+        yield self._emit_state()
+
         # --- Stage 4.5: SC REVIEW (multi-round iterative refinement) ---
         # MLEvolve-inspired: SC reviews results, may trigger supplementary tools,
         # records experience after each round. Up to MAX_REVIEW_ROUNDS iterations.
-        MAX_REVIEW_ROUNDS = 3
+        # Smart review: skip for simple queries (≤3 tools), limit to 1 for moderate, 2 for complex
+        num_tools = len(plan)
+        if num_tools <= 3:
+            MAX_REVIEW_ROUNDS = 0  # skip review entirely
+        elif num_tools <= 6:
+            MAX_REVIEW_ROUNDS = 1
+        else:
+            MAX_REVIEW_ROUNDS = 2
         execution_start = time.time()
 
         for review_round in range(1, MAX_REVIEW_ROUNDS + 1):

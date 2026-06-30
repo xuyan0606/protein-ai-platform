@@ -52,29 +52,82 @@ export function ChatInput() {
     return () => document.removeEventListener('mousedown', handleClick)
   }, [])
 
-  // Handle initial prompt from Home page navigation
+  // Handle initial prompt from Home page / PDB page navigation
   useEffect(() => {
     if (initialSent.current) return
     const state = location.state as { initialPrompt?: string; uploadFile?: File } | null
-    if (state?.initialPrompt) {
-      initialSent.current = true
-      setInput(state.initialPrompt)
-      const timer = setTimeout(() => {
-        addMessage({
-          role: 'user',
-          content: state.initialPrompt!,
-        })
-        setInput('')
-        sendMessage(state.initialPrompt!, useChatStore.getState().currentId ?? undefined)
+    if (!state?.initialPrompt && !state?.uploadFile) return
+
+    initialSent.current = true
+
+    const processInitialState = async () => {
+      // Case: file + prompt (from PDB page "Deep Analysis in Chat")
+      if (state.uploadFile) {
+        const attachedFile: AttachedFile = { file: state.uploadFile, status: 'pending', progress: 0 }
+        setFiles([attachedFile])
+
+        try {
+          // Upload the file first
+          const { objectName, downloadUrl } = await uploadSingleFile(attachedFile, 0)
+
+          // Auto-analyze PDB files
+          const ext = state.uploadFile.name.split('.').pop()?.toLowerCase()
+          let analysisData: unknown = null
+          if ((ext === 'pdb' || ext === 'ent' || ext === 'cif') && objectName) {
+            analysisData = await analyzePdb(objectName)
+          }
+
+          const fileResult = {
+            name: state.uploadFile.name,
+            size: state.uploadFile.size,
+            type: state.uploadFile.type,
+            objectName,
+            downloadUrl,
+            analysisData,
+          }
+
+          const promptText = state.initialPrompt || t('chat.analyzingFiles')
+
+          addMessage({
+            role: 'user',
+            content: promptText,
+            files: [fileResult],
+          })
+          setInput('')
+          updateFiles(() => [])
+          sendMessage(promptText, useChatStore.getState().currentId ?? undefined, undefined, [fileResult])
+        } catch {
+          // Upload failed — fall back to text-only
+          const promptText = state.initialPrompt || t('chat.analyzingFiles')
+          addMessage({
+            role: 'user',
+            content: promptText,
+          })
+          setInput('')
+          updateFiles(() => [])
+          sendMessage(promptText, useChatStore.getState().currentId ?? undefined)
+        }
         window.history.replaceState({}, '', '/chat/agent')
-      }, 300)
-      return () => clearTimeout(timer)
+        return
+      }
+
+      // Case: text prompt only (from Home page)
+      if (state.initialPrompt) {
+        setInput(state.initialPrompt)
+        const timer = setTimeout(() => {
+          addMessage({
+            role: 'user',
+            content: state.initialPrompt!,
+          })
+          setInput('')
+          sendMessage(state.initialPrompt!, useChatStore.getState().currentId ?? undefined)
+          window.history.replaceState({}, '', '/chat/agent')
+        }, 300)
+        return () => clearTimeout(timer)
+      }
     }
-    if (state?.uploadFile) {
-      initialSent.current = true
-      setFiles([{ file: state.uploadFile, status: 'pending', progress: 0 }])
-      window.history.replaceState({}, '', '/chat/agent')
-    }
+
+    processInitialState()
   }, [location.state]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const currentModel = availableModels.find((m) => m.id === selectedModel)
@@ -193,7 +246,7 @@ export function ChatInput() {
     setInput('')
     updateFiles(() => [])
     if (textareaRef.current) textareaRef.current.style.height = 'auto'
-    sendMessage(trimmed || t('chat.analyzingFiles'), useChatStore.getState().currentId ?? undefined)
+    sendMessage(trimmed || t('chat.analyzingFiles'), useChatStore.getState().currentId ?? undefined, undefined, fileResults)
   }
 
   const handleKeyDown = (e: KeyboardEvent) => {

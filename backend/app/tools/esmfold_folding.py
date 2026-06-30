@@ -119,13 +119,16 @@ async def esmfold_folding(sequence: str, num_recycles: int = 4) -> dict:
                     "RATE_LIMITED: ESMFold API rate limit exceeded. Retry later."
                 )
             # 422 = API format changed / deprecated — use fallback
-            if e.response.status_code == 422:
+            # 413 = Payload Too Large (sequence too long for API) — use fallback
+            # 5xx = server error — use fallback
+            if e.response.status_code in (422, 413) or e.response.status_code >= 500:
                 return await _esmfold_api_fallback(seq)
             raise RuntimeError(
                 f"FOLDING_FAILED: ESMFold API returned HTTP {e.response.status_code}. "
                 "The sequence may be too long or contain unsupported characters."
             )
-        except (httpx.TimeoutException, httpx.RequestError):
+        except (httpx.TimeoutException, httpx.RequestError, httpx.HTTPError):
+            # Catch all httpx errors including edge-case 413 from proxies
             return await _esmfold_api_fallback(seq)
 
     pdb_text = resp.text

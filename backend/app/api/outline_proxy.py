@@ -12,6 +12,7 @@ issues that occur with sub-path deployment.
 from __future__ import annotations
 
 import logging
+import os
 import re
 
 import httpx
@@ -37,7 +38,7 @@ SKIP_FORWARD_HEADERS = {"host", "origin", "referer"}
 
 # Headers to add to the proxied request
 ADD_FORWARD_HEADERS = {
-    "x-forwarded-host": "localhost:8000",
+    "x-forwarded-host": os.getenv("FRONTEND_URL", "http://localhost:4200").replace("http://", "").replace("https://", ""),
 }
 
 # Node.js may combine multiple Set-Cookie headers into one comma-separated value.

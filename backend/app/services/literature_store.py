@@ -2,6 +2,14 @@
 
 Activates the protein_literature collection (previously defined but unused in vectordb.py).
 Provides semantic search over paper abstracts for RAG injection into agent responses.
+
+Supports pluggable embedding models via app.services.embedding_models:
+  - "specter2" (default): allenai/specter2-base, scientific-paper-specialised
+  - "biobert":            dmis-lab/biobert-v1.1, biomedical-domain BERT
+  - None:                 ChromaDB built-in default embedding (legacy)
+
+Each embedding model uses its own ChromaDB collection so indexed vectors
+remain consistent across searches.
 """
 
 from __future__ import annotations
@@ -13,10 +21,23 @@ from typing import Any
 from chromadb import HttpClient, Collection
 from chromadb.config import Settings as ChromaSettings
 
+from app.services.embedding_models import (
+    DEFAULT_EMBEDDING_MODEL,
+    get_embedding_function,
+    list_embedding_models,
+)
+
 logger = logging.getLogger(__name__)
 
-# Use same ChromaDB connection as vectordb.py
-_COLLECTION_NAME = "protein_literature"
+# Base collection name; model suffix is appended when a biomedical model is used.
+_BASE_COLLECTION_NAME = "protein_literature"
+
+
+def _collection_name_for(embedding_model: str | None) -> str:
+    """Return the ChromaDB collection name for the given embedding model."""
+    if not embedding_model:
+        return _BASE_COLLECTION_NAME
+    return f"{_BASE_COLLECTION_NAME}_{embedding_model.lower().strip()}"
 
 
 def _get_client() -> HttpClient | None:
@@ -34,36 +55,70 @@ def _get_client() -> HttpClient | None:
         return None
 
 
-def _get_collection() -> Collection | None:
-    """Get or create the protein_literature collection."""
+def _get_collection(
+    embedding_model: str | None = DEFAULT_EMBEDDING_MODEL,
+) -> Collection | None:
+    """Get or create a protein_literature collection for the given embedding model.
+
+    When ``embedding_model`` is set, the collection is created with the
+    corresponding HuggingFace-backed EmbeddingFunction. When it is None,
+    the collection uses ChromaDB's built-in default embedding (legacy behaviour).
+    """
     client = _get_client()
     if client is None:
         return None
+
+    name = _collection_name_for(embedding_model)
+    kwargs: dict[str, Any] = {
+        "name": name,
+        "metadata": {
+            "hnsw:space": "cosine",
+            "description": f"Protein AI — {name}",
+            "embedding_model": embedding_model or "default",
+        },
+    }
+
+    if embedding_model:
+        try:
+            kwargs["embedding_function"] = get_embedding_function(embedding_model)
+        except Exception as e:
+            logger.warning(
+                "Failed to load embedding model '%s' (%s); using default embedding",
+                embedding_model,
+                e,
+            )
+
     try:
-        return client.get_or_create_collection(
-            name=_COLLECTION_NAME,
-            metadata={
-                "hnsw:space": "cosine",
-                "description": "Protein AI — protein_literature",
-            },
-        )
+        return client.get_or_create_collection(**kwargs)
     except Exception as e:
-        logger.warning("Failed to get/create ChromaDB collection '%s': %s", _COLLECTION_NAME, e)
+        logger.warning("Failed to get/create ChromaDB collection '%s': %s", name, e)
         return None
 
 
 class LiteratureStore:
-    """ChromaDB-based literature index for protein science papers."""
+    """ChromaDB-based literature index for protein science papers.
 
-    def __init__(self):
+    Args:
+        embedding_model: embedding backend to use. One of "specter2" (default),
+            "biobert", or None for ChromaDB's built-in default. Each model
+            maps to a separate collection so embeddings remain consistent.
+    """
+
+    def __init__(self, embedding_model: str | None = DEFAULT_EMBEDDING_MODEL):
+        self.embedding_model = embedding_model
+        self.collection_name = _collection_name_for(embedding_model)
         try:
-            self.collection = _get_collection()
+            self.collection = _get_collection(embedding_model)
         except Exception:
             logger.warning("ChromaDB not available, literature store disabled")
             self.collection = None
 
     def is_available(self) -> bool:
         return self.collection is not None
+
+    # ------------------------------------------------------------------
+    # Indexing
+    # ------------------------------------------------------------------
 
     def index_papers(self, papers: list[dict]) -> int:
         """Index paper abstracts into ChromaDB.
@@ -102,6 +157,7 @@ class LiteratureStore:
                 "year": paper.get("year", 0) or 0,
                 "doi": (paper.get("doi") or "")[:200],
                 "mesh_terms": json.dumps(paper.get("mesh_terms", []))[:500],
+                "embedding_model": (self.embedding_model or "default")[:50],
             })
 
         if ids:
@@ -111,11 +167,20 @@ class LiteratureStore:
                     documents=documents,
                     metadatas=metadatas,
                 )
-                logger.info("Indexed %d papers to ChromaDB %s", len(ids), _COLLECTION_NAME)
+                logger.info(
+                    "Indexed %d papers to ChromaDB %s (model=%s)",
+                    len(ids),
+                    self.collection_name,
+                    self.embedding_model or "default",
+                )
                 return len(ids)
             except Exception:
                 logger.exception("Failed to index papers to ChromaDB")
         return 0
+
+    # ------------------------------------------------------------------
+    # Search
+    # ------------------------------------------------------------------
 
     def search(
         self,
@@ -125,6 +190,9 @@ class LiteratureStore:
         protein_name: str | None = None,
     ) -> list[dict]:
         """Semantic search over indexed paper abstracts.
+
+        The query is embedded with the same model used to index the collection,
+        ensuring vector-space compatibility.
 
         Args:
             query: search query (protein name, EC number, keyword)
@@ -151,13 +219,27 @@ class LiteratureStore:
         elif len(conditions) > 1:
             where_filter = {"$and": conditions}
 
+        # Compute query embedding explicitly so the same model is used
+        # regardless of how the collection was created.
+        query_kwargs: dict[str, Any] = {
+            "n_results": top_k,
+            "where": where_filter if where_filter else None,
+            "include": ["documents", "metadatas", "distances"],
+        }
+        if self.embedding_model:
+            try:
+                embed_fn = get_embedding_function(self.embedding_model)
+                query_kwargs["query_embeddings"] = embed_fn([query])
+            except Exception as e:
+                logger.warning(
+                    "Embedding for query failed (%s); falling back to query_texts", e
+                )
+                query_kwargs["query_texts"] = [query]
+        else:
+            query_kwargs["query_texts"] = [query]
+
         try:
-            results = self.collection.query(
-                query_texts=[query],
-                n_results=top_k,
-                where=where_filter if where_filter else None,
-                include=["documents", "metadatas", "distances"],
-            )
+            results = self.collection.query(**query_kwargs)
 
             papers = []
             if results and results["ids"] and results["ids"][0]:
@@ -176,6 +258,7 @@ class LiteratureStore:
                         "mesh_terms": json.loads(metadata.get("mesh_terms", "[]")) if isinstance(metadata.get("mesh_terms"), str) else [],
                         "abstract_snippet": document[:300] if document else "",
                         "similarity": round(1.0 - distance, 4),  # cosine distance → similarity
+                        "embedding_model": self.embedding_model or "default",
                     })
 
             return papers
@@ -184,7 +267,10 @@ class LiteratureStore:
             return []
 
     def search_by_enzyme(
-        self, protein_name: str, ec_number: str | None = None, top_k: int = 5
+        self,
+        protein_name: str,
+        ec_number: str | None = None,
+        top_k: int = 5,
     ) -> list[dict]:
         """Search literature specifically for an enzyme."""
         query_parts = [protein_name]
@@ -198,19 +284,24 @@ class LiteratureStore:
             protein_name=protein_name,
         )
 
+    # ------------------------------------------------------------------
+    # Stats / admin
+    # ------------------------------------------------------------------
+
     def get_stats(self) -> dict:
         """Get collection statistics."""
         if not self.collection:
-            return {"available": False}
+            return {"available": False, "embedding_model": self.embedding_model or "default"}
         try:
             count = self.collection.count()
             return {
                 "available": True,
-                "collection": _COLLECTION_NAME,
+                "collection": self.collection_name,
                 "papers_indexed": count,
+                "embedding_model": self.embedding_model or "default",
             }
         except Exception:
-            return {"available": False}
+            return {"available": False, "embedding_model": self.embedding_model or "default"}
 
     def delete_paper(self, pmid: str) -> bool:
         """Remove a paper from the index."""
@@ -221,3 +312,17 @@ class LiteratureStore:
             return True
         except Exception:
             return False
+
+
+# ---------------------------------------------------------------------------
+# Convenience helpers
+# ---------------------------------------------------------------------------
+
+def get_all_stats() -> dict[str, dict]:
+    """Return stats for every supported embedding model (plus default)."""
+    stats: dict[str, dict] = {}
+    for model in [None] + list_embedding_models():
+        store = LiteratureStore(embedding_model=model)
+        key = model or "default"
+        stats[key] = store.get_stats()
+    return stats

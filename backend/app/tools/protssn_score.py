@@ -11,6 +11,9 @@ Cα distance-based structural neighborhood information.
 
 from __future__ import annotations
 
+import logging
+logger = logging.getLogger(__name__)
+
 import math
 from app.tools.registry import ToolRegistry
 
@@ -99,10 +102,37 @@ def protssn_score(
     if invalid:
         return {"error": f"Invalid amino acids: {sorted(invalid)}"}
 
-    # Get ESM-2 zero-shot scores
-    from app.ml.embeddings import score_mutations
-    esm_result = score_mutations(seq, mutations)
-    esm_mutations = {m.get("mutation"): m for m in esm_result.get("mutations", [])}
+    # Get ESM-2 zero-shot scores (graceful fallback if model unavailable)
+    esm_mutations = {}
+    try:
+        from app.ml.embeddings import score_mutations
+        esm_result = score_mutations(seq, mutations)
+        esm_mutations = {m.get("mutation"): m for m in esm_result.get("mutations", [])}
+    except Exception as e:
+        logger.warning("ESM-2 model unavailable, using BLOSUM62-only scoring: %s", e)
+        # Fall back to BLOSUM62-based scoring without ESM-2
+        from app.ml.embeddings import _AA_LIST
+        import math
+        for mut_str in mutations:
+            try:
+                wt = mut_str[0]
+                pos = int(mut_str[1:-1])
+                mutant = mut_str[-1]
+                if pos < 1 or pos > n:
+                    esm_mutations[mut_str] = {"error": f"Position {pos} out of range"}
+                    continue
+                # Simple conservation-based score without ESM-2
+                cons = _CONS.get(wt, 5.0)
+                esm_mutations[mut_str] = {
+                    "mutation": mut_str,
+                    "position": pos,
+                    "wild_type": wt,
+                    "mutant": mutant,
+                    "score": -0.5 * (cons / 10.0),  # conservative estimate
+                    "prediction": "unknown",
+                }
+            except (ValueError, IndexError):
+                esm_mutations[mut_str] = {"error": f"Invalid mutation format: {mut_str}"}
 
     # Enrich with structural context
     results = []

@@ -9,6 +9,11 @@ This agent searches PubMed/Europe PMC for relevant papers, queries the
 ChromaDB literature index for semantic matches, and retrieves past
 execution experiences (MLEvolve retrospective memory). All three sources
 run in parallel and results are merged.
+
+Embedding models (SPECTER2 / BioBERT) are supported via LiteratureStore —
+pass ``embedding_model`` to :meth:`LiteratureAgent.gather` to select the
+model, or leave it as the default (SPECTER2). When ``embedding_model="all"``,
+both models are queried in parallel and results are merged with deduplication.
 """
 
 from __future__ import annotations
@@ -99,6 +104,7 @@ class LiteratureAgent:
         task_type: str = "research",
         user_message: str = "",
         sequence: str | None = None,
+        embedding_model: str | None = "specter2",
     ) -> LiteratureAgentResult:
         """Gather literature + experience data in parallel.
 
@@ -107,6 +113,11 @@ class LiteratureAgent:
             task_type: Task classification (design/analyze/research)
             user_message: Original user message for experience matching
             sequence: Protein sequence for sequence-based experience search
+            embedding_model: ChromaDB embedding backend. One of:
+                - "specter2" (default): SPECTER2, scientific-paper-specialised
+                - "biobert": BioBERT, biomedical-domain BERT
+                - "all": query both models in parallel, merge + deduplicate
+                - None: ChromaDB default embedding (legacy)
 
         Returns:
             LiteratureAgentResult with merged context from all sources.
@@ -119,9 +130,14 @@ class LiteratureAgent:
         else:
             tasks.append(self._noop())
 
-        # Task 2: ChromaDB semantic search
+        # Task 2: ChromaDB semantic search (single or multi-model)
         if protein_name:
-            tasks.append(self._search_literature_store(protein_name))
+            if embedding_model and embedding_model.lower() == "all":
+                tasks.append(self._search_literature_store_multi(protein_name))
+            else:
+                tasks.append(
+                    self._search_literature_store(protein_name, embedding_model=embedding_model)
+                )
         else:
             tasks.append(self._noop())
 
@@ -186,31 +202,97 @@ class LiteratureAgent:
             logger.debug("Literature search failed for '%s': %s", protein_name, e)
         return ("", [])
 
-    async def _search_literature_store(self, protein_name: str) -> tuple[str, list[dict]]:
+    async def _search_literature_store(
+        self,
+        protein_name: str,
+        embedding_model: str | None = "specter2",
+        top_k: int = 3,
+    ) -> tuple[str, list[dict]]:
         """Semantic search in ChromaDB literature index.
+
+        Args:
+            protein_name: protein / enzyme name to query
+            embedding_model: name of the embedding backend
+            top_k: max results to return
 
         Returns (formatted_results, raw_result_dicts).
         """
         try:
             from app.services.literature_store import LiteratureStore
 
-            store = LiteratureStore()
-            results = await store.search_by_enzyme(protein_name, top_k=3)
+            store = LiteratureStore(embedding_model=embedding_model)
+            results = await store.search_by_enzyme(protein_name, top_k=top_k)
             if results:
-                lines = ["Semantically related papers (ChromaDB):"]
+                model_label = embedding_model or "default"
+                lines = [f"Semantically related papers (ChromaDB, embedding={model_label}):"]
                 paper_dicts = []
                 for r in results:
-                    title = r.get("metadata", {}).get("title", "Unknown")
-                    journal = r.get("metadata", {}).get("journal", "")
-                    year = r.get("metadata", {}).get("year", "")
-                    distance = r.get("distance", 1.0)
-                    relevance = round(1.0 - distance, 3)
-                    lines.append(f"- {title} ({journal} {year}) [relevance: {relevance}]")
+                    title = r.get("title") or r.get("metadata", {}).get("title", "Unknown")
+                    journal = r.get("journal") or r.get("metadata", {}).get("journal", "")
+                    year = r.get("year") or r.get("metadata", {}).get("year", "")
+                    similarity = r.get("similarity")
+                    if similarity is None:
+                        distance = r.get("distance", 1.0)
+                        similarity = round(1.0 - distance, 3)
+                    lines.append(f"- {title} ({journal} {year}) [relevance: {similarity}]")
                     paper_dicts.append(r)
                 return ("\n".join(lines), paper_dicts)
         except Exception as e:
-            logger.debug("Literature store search failed: %s", e)
+            logger.debug("Literature store search failed (model=%s): %s", embedding_model, e)
         return ("", [])
+
+    async def _search_literature_store_multi(
+        self,
+        protein_name: str,
+        top_k_per_model: int = 3,
+    ) -> tuple[str, list[dict]]:
+        """Query SPECTER2 + BioBERT in parallel, merge & deduplicate by PMID.
+
+        Results are ranked by similarity (highest first).
+        """
+        specter_task = self._search_literature_store(
+            protein_name, embedding_model="specter2", top_k=top_k_per_model
+        )
+        biobert_task = self._search_literature_store(
+            protein_name, embedding_model="biobert", top_k=top_k_per_model
+        )
+        specter_result, biobert_result = await asyncio.gather(
+            specter_task, biobert_task, return_exceptions=True
+        )
+
+        seen_pmids: set[str] = set()
+        merged_lines: list[str] = []
+        merged_papers: list[dict] = []
+
+        header_added = False
+        for label, result in (("SPECTER2", specter_result), ("BioBERT", biobert_result)):
+            if not isinstance(result, tuple):
+                continue
+            _text, papers = result
+            if not papers:
+                continue
+            if not header_added:
+                merged_lines.append("Semantically related papers (ChromaDB, multi-embedding):")
+                header_added = True
+            for r in papers:
+                pmid = r.get("pmid") or r.get("metadata", {}).get("pmid", "")
+                if pmid and pmid in seen_pmids:
+                    continue
+                if pmid:
+                    seen_pmids.add(pmid)
+                title = r.get("title") or r.get("metadata", {}).get("title", "Unknown")
+                journal = r.get("journal") or r.get("metadata", {}).get("journal", "")
+                year = r.get("year") or r.get("metadata", {}).get("year", "")
+                similarity = r.get("similarity")
+                if similarity is None:
+                    distance = r.get("distance", 1.0)
+                    similarity = round(1.0 - distance, 3)
+                merged_lines.append(
+                    f"- [{label}] {title} ({journal} {year}) [relevance: {similarity}]"
+                )
+                merged_papers.append(r)
+
+        return ("\n".join(merged_lines) if merged_lines else "", merged_papers)
 
     async def _search_experiences(
         self, task_type: str, protein_family: str, sequence: str

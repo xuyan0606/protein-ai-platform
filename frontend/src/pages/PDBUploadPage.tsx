@@ -44,7 +44,7 @@ export function PDBUploadPage() {
 
     try {
       // Upload
-      const uploadResult = await new Promise<{ object_name: string; download_url: string }>((resolve, reject) => {
+      const uploadResult = await new Promise<{ id: string; object_name?: string; download_url: string }>((resolve, reject) => {
         const xhr = new XMLHttpRequest()
         xhr.open('POST', '/api/files/upload')
         if (token) xhr.setRequestHeader('Authorization', `Bearer ${token}`)
@@ -73,13 +73,13 @@ export function PDBUploadPage() {
           'Content-Type': 'application/json',
           ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
-        body: JSON.stringify({ object_name: uploadResult.object_name }),
+        body: JSON.stringify({ object_name: uploadResult.id || uploadResult.object_name }),
       })
 
       if (!resp.ok) throw new Error('Analysis failed')
 
       const data = await resp.json()
-      setAnalysis({ ...data, object_name: uploadResult.object_name, download_url: uploadResult.download_url, file_name: f.name, file_size: f.size })
+      setAnalysis({ ...data, object_name: uploadResult.id || uploadResult.object_name, download_url: uploadResult.download_url, file_name: f.name, file_size: f.size })
 
       // Fetch PDB content for 3D viewer
       try {

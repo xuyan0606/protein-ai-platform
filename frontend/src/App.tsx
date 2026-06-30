@@ -7,7 +7,6 @@ import { ProjectDetailPage } from '@/pages/ProjectDetailPage'
 import { PDBUploadPage } from '@/pages/PDBUploadPage'
 import { WikiPage } from '@/pages/WikiPage'
 import DataBrowser from '@/pages/DataBrowser'
-import FermentExportPage from '@/pages/FermentExportPage'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 
@@ -59,7 +58,6 @@ function App() {
           </ProtectedRoute>
         }
       />
-      <Route path="/ferment-export" element={<FermentExportPage />} />
       <Route path="/" element={<Navigate to="/home" replace />} />
       <Route path="*" element={<Navigate to="/home" replace />} />
     </Routes>

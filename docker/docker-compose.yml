@@ -27,7 +27,7 @@ services:
       - frontend
       - backend
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/nginx-health"]
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1/nginx-health"]
       interval: 15s
       timeout: 5s
       retries: 3
@@ -46,12 +46,12 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile.frontend
-    expose:
-      - "3000"
+    ports:
+      - "4200:3000"
     networks:
       - app_network
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/"]
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3000/"]
       interval: 15s
       timeout: 5s
       retries: 3
@@ -78,13 +78,18 @@ services:
       - .env
     environment:
       # Infrastructure hostnames (override localhost defaults)
+      HOME: /app
       POSTGRES_HOST: postgres
       REDIS_HOST: redis
       MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
       ML_MODEL_CACHE_DIR: /app/.model_cache
       USE_SQLITE: "false"
       # Allow Docker-host browser origins
-      CORS_ORIGINS: '["https://8.139.255.194","https://proteinai.kevibotech.com"]'
+      CORS_ORIGINS: '["http://localhost:4200","https://8.139.255.194","https://proteinai.kevibotech.com"]'
+      OIDC_ISSUER: http://localhost:4200
+      FRONTEND_URL: http://localhost:4200
     volumes:
       - model_cache:/app/.model_cache
     depends_on:
@@ -95,7 +100,7 @@ services:
       minio:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8000/api/health"]
       interval: 15s
       timeout: 5s
       retries: 3
@@ -111,9 +116,8 @@ services:
   # Worker — Celery task runner (GPU / long-running protein computations)
   # =========================================================================
   worker:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile.worker
+    image: docker-backend:latest
+    command: ["celery", "-A", "app.services.scheduler", "worker", "--loglevel=info", "--concurrency=4"]
     networks:
       - app_network
     env_file:
@@ -122,6 +126,8 @@ services:
       POSTGRES_HOST: postgres
       REDIS_HOST: redis
       MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
     depends_on:
       postgres:
         condition: service_healthy
@@ -214,7 +220,7 @@ services:
     networks:
       - app_network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:9000/minio/health/live"]
       interval: 15s
       timeout: 5s
       retries: 3
@@ -251,16 +257,16 @@ services:
       # OIDC authentication (HTTPS in production)
       OIDC_CLIENT_ID: protein-ai
       OIDC_CLIENT_SECRET: ${OIDC_CLIENT_SECRET:-72133a323ffc0ae1ff449fcabec9368a44dd6bddc59eaca21c9afefcb7a6aee9}
-      OIDC_AUTH_URI: https://8.139.255.194/api/oidc/authorize
+      OIDC_AUTH_URI: http://localhost:4200/api/oidc/authorize
       OIDC_TOKEN_URI: http://backend:8000/api/oidc/token
       OIDC_USERINFO_URI: http://backend:8000/api/oidc/userinfo
-      OIDC_LOGOUT_URI: https://8.139.255.194/api/oidc/logout
+      OIDC_LOGOUT_URI: http://localhost:4200/api/oidc/logout
       OIDC_DISPLAY_NAME: Protein AI
       OIDC_SCOPES: openid profile email
       # Application
       SECRET_KEY: ${OUTLINE_SECRET_KEY:-dea6e90a6667d16e5f62183bfebe74b74bd67b548826d64667a83dd16d13e31b}
       UTILS_SECRET: ${OUTLINE_UTILS_SECRET:-ef9ab5004c76cb85665254b57c0305089638f14816698eac237dcbd401e2091c}
-      URL: https://8.139.255.194/wiki
+      URL: http://localhost:4200
       PORT: 3001
       FORCE_HTTPS: "false"
       NODE_ENV: production
@@ -299,7 +305,7 @@ services:
     networks:
       - app_network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v2/heartbeat"]
+      test: ["CMD-SHELL", "grep -q ':1F40 ' /proc/net/tcp"]
       interval: 15s
       timeout: 5s
       retries: 3
@@ -316,6 +322,8 @@ services:
 # ===========================================================================
 volumes:
   pgdata:
+    external: true
+    name: backend_pgdata
   redis_data:
   minio_data:
   chroma_data:
