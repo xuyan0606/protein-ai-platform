@@ -1,0 +1,33 @@
+{
+  "artifact_kind": "unlabeled_sequence_pretraining_quality_report",
+  "batch_count": 26,
+  "total_sequence_count": 12830,
+  "total_steps": 11552,
+  "train_loss": {
+    "min": 2.473698,
+    "max": 3.137986,
+    "mean": 2.879421769230769,
+    "stddev": 0.1409106479907658
+  },
+  "validation_loss": {
+    "min": 2.835397,
+    "max": 3.090413,
+    "mean": 2.9074856923076924,
+    "stddev": 0.043291998370430115
+  },
+  "lowest_validation_loss_batch": "0001",
+  "lowest_validation_loss": 2.835397,
+  "index_validation": {
+    "success": true,
+    "record_count": 12830,
+    "duplicate_embedding_records": 0,
+    "failures": 0
+  },
+  "collision_audit": {
+    "collision_group_count": 0,
+    "collision_record_count": 0
+  },
+  "interpretation": "Unlabeled masked-amino-acid pretraining and representation integrity only; no supervised or biological performance claim.",
+  "safe_for_supervised_training": false,
+  "safe_for_model_claim": false
+}

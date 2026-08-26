@@ -1,0 +1,223 @@
+{
+  "artifact_kind": "unlabeled_pretraining_checkpoint_selection_manifest",
+  "selection_rule": "lowest fixed validation loss among completed_pretraining_only batches; tie-break by batch id",
+  "selected_batch": "0001",
+  "selected_validation_loss": 2.835397,
+  "selected_checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0001.checkpoint.pt",
+  "selected_checkpoint_sha256": "2cea7273951a0b987f88b4ccac56b7510b0bcf76cf41c5c27c8d40445c43a9eb",
+  "candidate_count": 26,
+  "integrity_pass": true,
+  "candidates": [
+    {
+      "batch": "0000",
+      "validation_loss": 2.92775,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0000.checkpoint.pt",
+      "checkpoint_sha256": "e0a890ecde749fc96a129c9ff2f1a5144df4413468981aeb6cc233c7c9ce6229",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0001",
+      "validation_loss": 2.835397,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0001.checkpoint.pt",
+      "checkpoint_sha256": "2cea7273951a0b987f88b4ccac56b7510b0bcf76cf41c5c27c8d40445c43a9eb",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0002",
+      "validation_loss": 2.884548,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0002.checkpoint.pt",
+      "checkpoint_sha256": "1e503f2c674a647b28a452d15f6edfdfa793eb7c2f0d2ef46ce4f642c47c8734",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0003",
+      "validation_loss": 2.907469,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0003.checkpoint.pt",
+      "checkpoint_sha256": "96de14e33cac4992498d535907eba147e460d66ab2970a450700242c3a9cf6fd",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0004",
+      "validation_loss": 2.901612,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0004.checkpoint.pt",
+      "checkpoint_sha256": "738e96096dd10e760a0cc605c16e440f9025efc692997c54ebe255f6b06ef7a1",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0005",
+      "validation_loss": 2.897164,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0005.checkpoint.pt",
+      "checkpoint_sha256": "80d4fb7f4e2fe4eebdb76b26cd1d4b729f947981b5a0c265bc3d0b668d9333f8",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0006",
+      "validation_loss": 2.920709,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0006.checkpoint.pt",
+      "checkpoint_sha256": "fd2d33d77992bd58d79044c7653bf43bc06cd234c6ad1b347c5238a0d0420830",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0007",
+      "validation_loss": 2.894157,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0007.checkpoint.pt",
+      "checkpoint_sha256": "061c805ff93bc8b1fbbd03a65cc70a5657f32feb18a1fcb9b3c00b10ab2e25b8",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0008",
+      "validation_loss": 2.893528,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0008.checkpoint.pt",
+      "checkpoint_sha256": "44d107b4a9fdd40c186985c8209cf81c6fe4f30ba362b6b34f82003516c417b8",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0009",
+      "validation_loss": 2.875763,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0009.checkpoint.pt",
+      "checkpoint_sha256": "35fb64e76489603a98e07ff376c3749b28e1dda3f4ff8eedc66a5deeabdce12f",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0010",
+      "validation_loss": 2.905257,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0010.checkpoint.pt",
+      "checkpoint_sha256": "e199a9e8612e6b60addcc1694074e21c82bd71b98848aa60c4a81aeea16b7c55",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0011",
+      "validation_loss": 2.939267,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0011.checkpoint.pt",
+      "checkpoint_sha256": "3826fdb477848e9f82f558a1a4f4641d071a88d9edb87e4ca415ffc56c995b89",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0012",
+      "validation_loss": 2.939346,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0012.checkpoint.pt",
+      "checkpoint_sha256": "a7fce166cc3f847a1f25b548d65cb9edbbd99eb469eb1eda131b6785bc8089e6",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0013",
+      "validation_loss": 2.925227,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0013.checkpoint.pt",
+      "checkpoint_sha256": "d98a2b0c785d414e6e075d0446097d5dbee641e382980d4964b0d3c914ec7005",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0014",
+      "validation_loss": 2.883446,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0014.checkpoint.pt",
+      "checkpoint_sha256": "cc832a7efdf67417127b65060d37222f1643c43112cd7b7d256dd52001d24584",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0015",
+      "validation_loss": 2.913426,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0015.checkpoint.pt",
+      "checkpoint_sha256": "3567c587dd048d6ad4bd8fc934a993f605431ddf69be3a9d93214bc9da858d00",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0016",
+      "validation_loss": 2.888194,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0016.checkpoint.pt",
+      "checkpoint_sha256": "0dafc9403861dd10028998ab96b2216b2dfcee8c583e205fea67b0adceb19fec",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0017",
+      "validation_loss": 2.899122,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0017.checkpoint.pt",
+      "checkpoint_sha256": "f10ec04374e66894824c87823744fcdbd9a93862629853a051d8ccd0d34abc99",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0018",
+      "validation_loss": 2.8798,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0018.checkpoint.pt",
+      "checkpoint_sha256": "1b434350447bee63033c882d92f57a9a7f106f914ea60bebbe0eb5fdc29ac571",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0019",
+      "validation_loss": 2.885911,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0019.checkpoint.pt",
+      "checkpoint_sha256": "01f1ca6eac490d6cbc9da45e3d0d4545551a23830e2721b38215cea05a27e897",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0020",
+      "validation_loss": 2.894709,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0020.checkpoint.pt",
+      "checkpoint_sha256": "d150c3f574fbc80a03be80e4cf49042cd741b9007e02dc2973b2dc4a28c5620d",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0021",
+      "validation_loss": 2.915532,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0021.checkpoint.pt",
+      "checkpoint_sha256": "572d964157836373fd96bc3d51223d263841b495de0bdcac4934a0a2526f060f",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0022",
+      "validation_loss": 2.933659,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0022.checkpoint.pt",
+      "checkpoint_sha256": "0082ad363c20b11a87334db83b0d37a19d69731f44c0fb55b45232196b8ee958",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0023",
+      "validation_loss": 2.864963,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0023.checkpoint.pt",
+      "checkpoint_sha256": "01d4b7f45ccca8f6ae02b3351b9573e040f1577217787306b351aa8caf017ecf",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0024",
+      "validation_loss": 2.898259,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0024.checkpoint.pt",
+      "checkpoint_sha256": "1c8df5f7c3c6c804b8c8cc0eacfa6e3cfc452222f3954f1e7c1feaf2a8f30785",
+      "exists": true,
+      "summary_sha256_matches": true
+    },
+    {
+      "batch": "0025",
+      "validation_loss": 3.090413,
+      "checkpoint": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0025.checkpoint.pt",
+      "checkpoint_sha256": "679a2f771ddd57f6c9752005ce60933d3d602d8d495832a653de4f5c1a65a4e2",
+      "exists": true,
+      "summary_sha256_matches": true
+    }
+  ],
+  "safe_for_supervised_training": false,
+  "safe_for_model_claim": false,
+  "release_status": "pretraining_only_not_for_production"
+}
