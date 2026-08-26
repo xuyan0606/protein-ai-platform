@@ -27,6 +27,11 @@ class ContinuousPretrainingTests(unittest.TestCase):
     def test_hidden_dimension_cli_parser_accepts_integer(self):
         self.assertEqual(MODULE.parse_hidden_dim("64"), 64)
 
+    def test_context_kernel_size_must_be_positive_odd(self):
+        self.assertEqual(MODULE.parse_kernel_size("5"), 5)
+        with self.assertRaises(ValueError):
+            MODULE.parse_kernel_size("4")
+
     def test_grouped_split_has_no_source_overlap(self):
         records = [("group_a", "AAAA"), ("group_a", "AAAC"), ("group_b", "CCCC"), ("group_c", "DDDD")]
         train, validation = MODULE.split_grouped_records(records, validation_fraction=0.25, seed=7)

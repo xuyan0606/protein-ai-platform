@@ -43,6 +43,10 @@ class SequenceSplitTests(unittest.TestCase):
         vector = model.encode(torch.tensor([1, 2, 3], dtype=torch.long))
         self.assertEqual(tuple(vector.shape), (64,))
 
+    def test_encoder_respects_context_kernel_size(self):
+        model = MODULE.build_encoder(22, kernel_size=5)
+        self.assertEqual(model.context.kernel_size, (5,))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -22,16 +22,19 @@ DEFAULT_OUT = AI_ROOT / "reports" / "sequence_mlm_pretraining_run.json"
 AMINO_ACIDS = set("ACDEFGHIKLMNPQRSTVWY")
 
 
-def build_encoder(vocab_size: int, hidden_dim: int = 32):
+def build_encoder(vocab_size: int, hidden_dim: int = 32, kernel_size: int = 3):
     import torch
     import torch.nn as nn
+
+    if kernel_size <= 0 or kernel_size % 2 == 0:
+        raise ValueError("kernel_size must be a positive odd integer")
 
     class SequenceEncoder(nn.Module):
         def __init__(self):
             super().__init__()
             self.embedding = nn.Embedding(vocab_size, hidden_dim)
             self.position = nn.Embedding(512, hidden_dim)
-            self.context = nn.Conv1d(hidden_dim, hidden_dim, kernel_size=3, padding=1)
+            self.context = nn.Conv1d(hidden_dim, hidden_dim, kernel_size=kernel_size, padding=kernel_size // 2)
             self.output = nn.Linear(hidden_dim, vocab_size)
 
         def forward(self, ids):
@@ -97,6 +100,7 @@ def main() -> int:
     parser.add_argument("--mask-probability", type=float, default=0.15)
     parser.add_argument("--validation-fraction", type=float, default=0.1)
     parser.add_argument("--hidden-dim", type=int, default=32)
+    parser.add_argument("--kernel-size", type=int, default=3)
     args = parser.parse_args()
 
     report = {
@@ -114,6 +118,7 @@ def main() -> int:
             "mask_probability": args.mask_probability,
             "validation_fraction": args.validation_fraction,
             "hidden_dim": args.hidden_dim,
+            "kernel_size": args.kernel_size,
         },
     }
 
@@ -147,7 +152,7 @@ def main() -> int:
                 torch.manual_seed(args.seed)
                 vocab = sorted(AMINO_ACIDS) + ["<mask>", "<pad>"]
                 token_to_id = {token: index for index, token in enumerate(vocab)}
-                model = build_encoder(len(vocab), hidden_dim=args.hidden_dim)
+                model = build_encoder(len(vocab), hidden_dim=args.hidden_dim, kernel_size=args.kernel_size)
                 optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3)
                 loss_fn = nn.CrossEntropyLoss()
                 losses: list[float] = []

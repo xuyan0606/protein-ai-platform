@@ -1,0 +1,15 @@
+{
+  "artifact_kind": "unlabeled_pretraining_kernel_sweep_decision",
+  "decision": "retain_continuous_full_v6_kernel_3",
+  "selection_rule": "mean MLM loss must improve without masked-token accuracy regression",
+  "incumbent": {"kernel_size": 3, "mean_loss": 2.901576710766391, "masked_token_accuracy": 0.09821721615509116},
+  "rejected_candidate": {
+    "kernel_size": 5,
+    "mean_loss": 2.899330785156261,
+    "masked_token_accuracy": 0.09705738751830892,
+    "decision": "rejected_accuracy_regression_despite_loss_improvement"
+  },
+  "safe_for_supervised_training": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

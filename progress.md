@@ -11687,6 +11687,8 @@
 - v6 全量 index 12,830 条、duplicates=0、collisions=0；8 项 manifest 切换 v6 并通过验证，发布门继续关闭。
 - 参数化 encoder hidden dimension，并让训练、评测、embedding 导出和索引构建从 checkpoint 自动读取维度；旧 checkpoint 缺字段时兼容回退到 32。
 - 64 维候选（3 epochs、5e-4）评测 loss `2.905831`、accuracy `9.5497%`，两项均劣于 32 维 v6，故拒绝晋级且不构建候选索引。
+- 参数化 context convolution kernel size，并让训练/评测/索引/embedding 从 checkpoint 自动读取，旧 checkpoint 默认 kernel=3。
+- kernel=5 候选 loss 改善至 `2.899331`，但 accuracy 回退至 `9.7057%`；按预设“不允许 accuracy 回退”规则拒绝晋级，当前 v6/kernel=3 不变。
 
 ## 2026-08-26 外部门控继续收紧
 

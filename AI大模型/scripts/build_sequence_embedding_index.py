@@ -28,7 +28,8 @@ def main() -> int:
     vocab = checkpoint["vocab"]
     token_to_id = {token: index for index, token in enumerate(vocab)}
     hidden_dim = int(checkpoint.get("config", {}).get("hidden_dim", 32))
-    model = build_encoder(len(vocab), hidden_dim=hidden_dim)
+    kernel_size = int(checkpoint.get("config", {}).get("kernel_size", 3))
+    model = build_encoder(len(vocab), hidden_dim=hidden_dim, kernel_size=kernel_size)
     model.load_state_dict(checkpoint["state_dict"])
     model.eval()
     files = sorted(args.input_dir.glob("*.fasta"))

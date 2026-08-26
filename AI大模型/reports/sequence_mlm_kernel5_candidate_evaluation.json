@@ -1,0 +1,45 @@
+{
+  "artifact_kind": "unlabeled_sequence_mlm_evaluation",
+  "status": "completed_evaluation_only",
+  "input_sha256": "19fdb1bb614ec4a9ed2397a49f2eb4e2eee197b0c835dde5c6618eaa7efc516e",
+  "checkpoint_sha256": "f118558ab8a4c26554435e28100402dbcbc3cc19879c87a34e9e553ae9998dea",
+  "hidden_dim": 32,
+  "kernel_size": 5,
+  "split_strategy": "source_group_holdout",
+  "validation_sequence_count": 1334,
+  "validation_source_count": 15,
+  "source_overlap_count": 0,
+  "repeats": 5,
+  "losses": [
+    2.8997303664701213,
+    2.9016040299676473,
+    2.897569811205286,
+    2.898443235242488,
+    2.8993064828957613
+  ],
+  "mean_loss": 2.899330785156261,
+  "perplexity": 18.161987030313824,
+  "masked_token_accuracy": 0.09705738751830892,
+  "masked_token_count": 420206,
+  "random_initialization_baseline": {
+    "losses": [
+      3.1617850342053764,
+      3.163710779729047,
+      3.162426632480034,
+      3.1622806237685146,
+      3.1622203003459286
+    ],
+    "mean_loss": 3.1624846741057806,
+    "perplexity": 23.629233996507434,
+    "masked_token_accuracy": 0.05586516102455376,
+    "masked_token_count": 420206
+  },
+  "training_delta": {
+    "loss_reduction": 0.26315388894951974,
+    "accuracy_gain": 0.04119222649375516
+  },
+  "uniform_amino_acid_baseline_loss": 2.995732273553991,
+  "safe_for_supervised_training": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

@@ -17,6 +17,7 @@ Local-only pretraining asset. This is not a release model card or a biological-p
 - A 5-epoch candidate regressed to loss 2.903791 and accuracy 9.6519%, so it was rejected; epoch count remains 3
 - Learning-rate sweep selected 5e-4 over 3e-4, 1e-3, and 2e-3 using lowest paired MLM loss with no accuracy regression; gains over v4 remain small
 - A 64-dimensional candidate regressed to loss 2.905831 and accuracy 9.5497%; hidden dimension remains 32
+- A kernel-5 candidate improved loss to 2.899331 but regressed accuracy to 9.7057%; it was rejected under the no-accuracy-regression rule and kernel size remains 3
 - Embedding dimension: 32
 - Checkpoint integrity: 26/26 SHA-256 verified
 
