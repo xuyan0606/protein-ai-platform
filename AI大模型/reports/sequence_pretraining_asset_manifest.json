@@ -1,55 +1,55 @@
 {
   "artifact_kind": "local_unlabeled_pretraining_asset_manifest",
-  "created_at": "2026-08-26T06:48:16.745297+00:00",
+  "created_at": "2026-08-26T06:57:33.518190+00:00",
   "asset_count": 8,
   "assets": [
     {
       "path": "reports/sequence_pretraining_continuous_selection.json",
       "exists": true,
       "size": 765,
-      "sha256": "3bc6578c4dfb3713f649ec9eaf05d679cf05bed568b7a3f6f4f9a5167a11d547"
+      "sha256": "bab350dc47981c1432ad0d3f28b28638be80acc0ce46f2cdc6caabaa9d33bb2e"
     },
     {
-      "path": "reports/sequence_mlm_continuous_full_v4.json",
+      "path": "reports/sequence_mlm_continuous_full_v6.json",
       "exists": true,
-      "size": 1418,
-      "sha256": "ad313bcc48ff3919371551e25e471eefd7cd004e1399bd9f686f50697ee6ae57"
+      "size": 1447,
+      "sha256": "b8915314e28232f07240a4b356eec50a06d0bb4a4e957740a948fe75b826a2e1"
     },
     {
-      "path": "reports/sequence_mlm_continuous_full_v4.checkpoint.pt",
+      "path": "reports/sequence_mlm_continuous_full_v6.checkpoint.pt",
       "exists": true,
-      "size": 86741,
-      "sha256": "a5f7d2b8e0e9cb5d21a21030250f07c8c329369fd7d2ce5ad972338022f19bb0"
+      "size": 86805,
+      "sha256": "6d65832282fe847c283b76f4f070e43a98976865e0097b5e4b4334e1f8e16847"
     },
     {
-      "path": "reports/sequence_embedding_index_continuous_v4_validation.json",
+      "path": "reports/sequence_embedding_index_continuous_v6_validation.json",
       "exists": true,
       "size": 514,
-      "sha256": "0458e0beddb51402a31e83f8274a21d6cad65a79eb408f2dcea6a02ae6c13268"
+      "sha256": "f1c63c21c900ab3012af1e4f3c897f14e15c08cdc207bedb924ab95dc2d61dcb"
     },
     {
-      "path": "reports/sequence_embedding_continuous_v4_collision_report.json",
+      "path": "reports/sequence_embedding_continuous_v6_collision_report.json",
       "exists": true,
       "size": 411,
-      "sha256": "310290c84318d75068d29f47becc76dc440fe62e834a52d417d95d66163c1d9e"
+      "sha256": "2c27a6b466aae1879a1d3abbf4499a98a7d6750f49cb8f349ac4fae37a3bc891"
     },
     {
-      "path": "reports/sequence_mlm_continuous_full_v4_evaluation.json",
+      "path": "reports/sequence_mlm_continuous_full_v6_evaluation.json",
       "exists": true,
-      "size": 1339,
-      "sha256": "a4f81140ea7986e5662f06e5eaa561a4552568aae62fc6b9481fec822556410d"
+      "size": 1343,
+      "sha256": "44e89652df30545b5c22c5cb51839193ce2bb218970c54ccead0aa887d1f34c8"
     },
     {
       "path": "model_cards/sequence-pretraining.status.md",
       "exists": true,
-      "size": 2184,
-      "sha256": "13a45d5c351294c32532508734757f5140bd8b0110a9ea24d8c3103592824287"
+      "size": 2352,
+      "sha256": "a081c99c3213e05a1027b28c845f7c615a9b9b0c9f589a9e52c7e63ed543ec6c"
     },
     {
       "path": "reports/sequence_pretraining_release_gate.json",
       "exists": true,
       "size": 595,
-      "sha256": "3c9f7d356628738ca08cade37d3372fc4041cafcb4814f37b537c0043c84804d"
+      "sha256": "47557bc5ac631bfb38c6343f7e9a9575b6e3f0105f66efa1d46bdfe51e24c8ad"
     }
   ],
   "local_only": true,

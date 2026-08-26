@@ -11682,6 +11682,9 @@
 - 执行 3-epoch v4 candidate 并与 v3 使用相同验证来源和 5 组 masks 并排评测：v4 mean loss `2.902550`、accuracy `9.8025%`，较 v3 loss 改善 `0.003066`、accuracy 改善 `0.1367` 个百分点，5/5 repeats loss 均改善。
 - v4 已晋级当前基准；全量 index 12,830 条、duplicates=0、collisions=0，8 项 manifest 校验通过，测试保持 `24 passed`，发布门继续关闭。
 - 完成 5-epoch v5 candidate 扫描：mean loss `2.903791`、accuracy `9.6519%`，两项均劣于 3-epoch v4，故按预设规则拒绝晋级。生成 `sequence_mlm_epoch_sweep_decision.json` 固化负结果，当前 manifest 和 v4 基准不变。
+- 将学习率变为显式、受校验且写入 checkpoint 的参数；首次 CLI 扫描因字符串类型校验失败，未启动训练，新增 CLI 回归测试后修复。
+- 并行完成 3-epoch 学习率扫描：3e-4 loss `2.901980`/accuracy `9.8434%`，5e-4 loss `2.901577`/accuracy `9.8217%`，2e-3 两项回退。按“最低 MLM loss 且 accuracy 不回退”选择 5e-4，晋级 `continuous_full_v6`。
+- v6 全量 index 12,830 条、duplicates=0、collisions=0；8 项 manifest 切换 v6 并通过验证，发布门继续关闭。
 
 ## 2026-08-26 外部门控继续收紧
 

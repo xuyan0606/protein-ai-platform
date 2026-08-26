@@ -7,14 +7,15 @@ Local-only pretraining asset. This is not a release model card or a biological-p
 - Task: masked amino-acid self-supervised pretraining
 - Unlabeled unique sequences: 12,830
 - Completed batches: 26
-- Current embedding baseline: continuous_full_v4 (3 epochs across all 12,830 sequences)
+- Current embedding baseline: continuous_full_v6 (3 epochs, learning rate 5e-4, across all 12,830 sequences)
 - Validation objective: masked-token input and masked-position cross-entropy (v2 corrected)
 - Validation split: source-group holdout with zero train/validation source overlap (v3 corrected)
-- Independent MLM evaluation: 5 mask repeats, mean loss 2.902550, perplexity 18.2206, masked-token accuracy 9.8025%
+- Independent MLM evaluation: 5 mask repeats, mean loss 2.901577, perplexity 18.2028, masked-token accuracy 9.8217%
 - Uniform amino-acid reference: loss 2.995732 and expected accuracy 5%; this is a reconstruction baseline, not a biological benchmark
-- Random-initialization control on the same masks: loss 3.177272, accuracy 5.3821%; trained-minus-random loss reduction 0.274722 and accuracy gain 4.4204 percentage points
+- Random-initialization control on the same masks: loss 3.177272, accuracy 5.3821%; trained-minus-random loss reduction 0.275695 and accuracy gain 4.4396 percentage points
 - Compared with v3, v4 improves mean loss by 0.003066 and accuracy by 0.1367 percentage points; the gain is consistent across 5/5 mask repeats but remains small
-- A 5-epoch candidate regressed to loss 2.903791 and accuracy 9.6519%, so it was rejected and v4 remains current
+- A 5-epoch candidate regressed to loss 2.903791 and accuracy 9.6519%, so it was rejected; epoch count remains 3
+- Learning-rate sweep selected 5e-4 over 3e-4, 1e-3, and 2e-3 using lowest paired MLM loss with no accuracy regression; gains over v4 remain small
 - Embedding dimension: 32
 - Checkpoint integrity: 26/26 SHA-256 verified
 

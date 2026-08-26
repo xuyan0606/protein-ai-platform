@@ -11,6 +11,14 @@ SPEC.loader.exec_module(MODULE)
 
 
 class ContinuousPretrainingTests(unittest.TestCase):
+    def test_learning_rate_must_be_positive(self):
+        self.assertEqual(MODULE.validate_learning_rate(0.001), 0.001)
+        with self.assertRaises(ValueError):
+            MODULE.validate_learning_rate(0.0)
+
+    def test_learning_rate_cli_parser_accepts_decimal(self):
+        self.assertEqual(MODULE.parse_learning_rate("0.0003"), 0.0003)
+
     def test_grouped_split_has_no_source_overlap(self):
         records = [("group_a", "AAAA"), ("group_a", "AAAC"), ("group_b", "CCCC"), ("group_c", "DDDD")]
         train, validation = MODULE.split_grouped_records(records, validation_fraction=0.25, seed=7)

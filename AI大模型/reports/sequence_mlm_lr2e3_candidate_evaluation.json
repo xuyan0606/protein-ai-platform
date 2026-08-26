@@ -1,0 +1,43 @@
+{
+  "artifact_kind": "unlabeled_sequence_mlm_evaluation",
+  "status": "completed_evaluation_only",
+  "input_sha256": "19fdb1bb614ec4a9ed2397a49f2eb4e2eee197b0c835dde5c6618eaa7efc516e",
+  "checkpoint_sha256": "bd6ce24d3b969dd68d646c01a74446f3df9a14ff7bb111d0ff537de40b2fc980",
+  "split_strategy": "source_group_holdout",
+  "validation_sequence_count": 1334,
+  "validation_source_count": 15,
+  "source_overlap_count": 0,
+  "repeats": 5,
+  "losses": [
+    2.905874054461348,
+    2.9069814342209974,
+    2.903181284997643,
+    2.9036316917748546,
+    2.9034875376395157
+  ],
+  "mean_loss": 2.904631200618872,
+  "perplexity": 18.258508683656547,
+  "masked_token_accuracy": 0.09752308377512432,
+  "masked_token_count": 420206,
+  "random_initialization_baseline": {
+    "losses": [
+      3.1758962143404617,
+      3.1783078933343987,
+      3.176654794560208,
+      3.1765304666229537,
+      3.178969849747061
+    ],
+    "mean_loss": 3.1772718437210163,
+    "perplexity": 23.981239657078337,
+    "masked_token_accuracy": 0.053821210329836534,
+    "masked_token_count": 420206
+  },
+  "training_delta": {
+    "loss_reduction": 0.2726406431021444,
+    "accuracy_gain": 0.04370187344528779
+  },
+  "uniform_amino_acid_baseline_loss": 2.995732273553991,
+  "safe_for_supervised_training": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

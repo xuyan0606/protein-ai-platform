@@ -1,0 +1,15 @@
+{
+  "artifact_kind": "unlabeled_pretraining_learning_rate_sweep_decision",
+  "decision": "promote_lr_5e_4_as_continuous_full_v6",
+  "epochs": 3,
+  "selection_rule": "minimize paired MLM mean loss while requiring masked-token accuracy improvement over v4",
+  "incumbent_v4": {"learning_rate": 0.001, "mean_loss": 2.902550164389617, "masked_token_accuracy": 0.09802516393318633},
+  "candidates": [
+    {"learning_rate": 0.0003, "mean_loss": 2.9019803069660104, "masked_token_accuracy": 0.09843389089859439, "decision": "pareto_candidate_not_selected"},
+    {"learning_rate": 0.0005, "mean_loss": 2.901576710766391, "masked_token_accuracy": 0.09821721615509116, "decision": "selected_lowest_loss_with_accuracy_gain"},
+    {"learning_rate": 0.002, "mean_loss": 2.904631200618872, "masked_token_accuracy": 0.09752308377512432, "decision": "rejected_both_metrics_regressed"}
+  ],
+  "safe_for_supervised_training": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}
