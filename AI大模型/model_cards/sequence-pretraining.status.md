@@ -7,7 +7,7 @@ Local-only pretraining asset. This is not a release model card or a biological-p
 - Task: masked amino-acid self-supervised pretraining
 - Unlabeled unique sequences: 12,830
 - Completed batches: 26
-- Current embedding baseline: batch-0001
+- Current embedding baseline: continuous_full (single checkpoint across all 12,830 sequences)
 - Embedding dimension: 32
 - Checkpoint integrity: 26/26 SHA-256 verified
 
