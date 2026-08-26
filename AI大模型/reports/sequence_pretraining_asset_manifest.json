@@ -1,49 +1,49 @@
 {
   "artifact_kind": "local_unlabeled_pretraining_asset_manifest",
-  "created_at": "2026-08-26T06:13:52.552224+00:00",
+  "created_at": "2026-08-26T06:20:07.690411+00:00",
   "asset_count": 7,
   "assets": [
     {
       "path": "reports/sequence_pretraining_continuous_selection.json",
       "exists": true,
       "size": 765,
-      "sha256": "bd2ae95b9e2b9104232164824b68bf64762476de3abacc51c5f835a758e7f9be"
+      "sha256": "c38eb26c9b393121d7044b830051a8c82b95b8af3d1dfd34da985789ad5ef630"
     },
     {
-      "path": "reports/sequence_mlm_continuous_full_v2.json",
+      "path": "reports/sequence_mlm_continuous_full_v3.json",
       "exists": true,
-      "size": 1283,
-      "sha256": "f49b8a9ce377b9898d464955201d83b64d56d33f280ee5d3a1c22a6e6707adfc"
+      "size": 1418,
+      "sha256": "2b155caff73fad342176335569118ba2628feaef751032e198c2bb54ae4b1073"
     },
     {
-      "path": "reports/sequence_mlm_continuous_full_v2.checkpoint.pt",
+      "path": "reports/sequence_mlm_continuous_full_v3.checkpoint.pt",
       "exists": true,
       "size": 86741,
-      "sha256": "b9045f5c7cdb51c46cec59b6516bd5f879c77148340be1670775c65a54b9bc9f"
+      "sha256": "9f3e2d82ab53a6e61310e90121390fdec9948424ba199fffbbb017fe3335e53b"
     },
     {
-      "path": "reports/sequence_embedding_index_continuous_v2_validation.json",
+      "path": "reports/sequence_embedding_index_continuous_v3_validation.json",
       "exists": true,
       "size": 514,
-      "sha256": "5ccf97c3f5815e7edba4daa6f1eac896b7292f4d13b783b8291c307f867cccfd"
+      "sha256": "96de95967065106125b2f2dd5824f9c83c007fc0170e09db158b1b1f2fd43d14"
     },
     {
-      "path": "reports/sequence_embedding_continuous_v2_collision_report.json",
+      "path": "reports/sequence_embedding_continuous_v3_collision_report.json",
       "exists": true,
       "size": 411,
-      "sha256": "8d10e200b467aaab54d74370e1836e57338d855b4c43aab3f61d41f698ac44ca"
+      "sha256": "6e992d90eb93d69b4b98fa9d5ccd598f47e7576c73f56d5465b376cbb2f33fbc"
     },
     {
       "path": "model_cards/sequence-pretraining.status.md",
       "exists": true,
-      "size": 1399,
-      "sha256": "31908f3a9e3addd0936015b26a4e6153497af5d620e6ea9f10a734df8df8a2f5"
+      "size": 1497,
+      "sha256": "09f3eec6a3526b84e00313a22c10acf38d153b5a89b663abe1b56c24088556c0"
     },
     {
       "path": "reports/sequence_pretraining_release_gate.json",
       "exists": true,
       "size": 595,
-      "sha256": "408b07552b6c164471d061a6985f268c30bcc464f909c9ad54007ebf7c043804"
+      "sha256": "a6f0c78d7a89d1a4a207e5def91873869a2db271a1cd665dd4e7e3e8cc913f63"
     }
   ],
   "local_only": true,

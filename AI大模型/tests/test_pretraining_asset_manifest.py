@@ -27,7 +27,8 @@ class PretrainingAssetManifestTests(unittest.TestCase):
         manifest_path = Path(__file__).parents[1] / "reports" / "sequence_pretraining_asset_manifest.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         paths = [Path(asset["path"]).name for asset in manifest["assets"]]
-        self.assertIn("sequence_mlm_continuous_full_v2.checkpoint.pt", paths)
+        self.assertIn("sequence_mlm_continuous_full_v3.checkpoint.pt", paths)
+        self.assertNotIn("sequence_mlm_continuous_full_v2.checkpoint.pt", paths)
         self.assertNotIn("sequence_mlm_continuous_full.checkpoint.pt", paths)
         self.assertFalse(any(name.startswith("sequence_mlm_batch_") and name.endswith(".checkpoint.pt") for name in paths))
 

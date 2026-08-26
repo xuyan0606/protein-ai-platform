@@ -1,4 +1,5 @@
 import importlib.util
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -10,6 +11,18 @@ SPEC.loader.exec_module(MODULE)
 
 
 class ContinuousPretrainingTests(unittest.TestCase):
+    def test_grouped_split_has_no_source_overlap(self):
+        records = [("group_a", "AAAA"), ("group_a", "AAAC"), ("group_b", "CCCC"), ("group_c", "DDDD")]
+        train, validation = MODULE.split_grouped_records(records, validation_fraction=0.25, seed=7)
+        self.assertFalse({group for group, _ in train} & {group for group, _ in validation})
+        self.assertEqual(sorted(train + validation), sorted(records))
+
+    def test_fasta_records_preserve_source_group(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "input.fasta"
+            path.write_text(">a|source=one.aln.fasta|source_index=0\nAAAA\n>b|source=one.aln.fasta|source_index=1\nAAAC\n", encoding="utf-8")
+            self.assertEqual(MODULE.load_fasta_records(path), [("one.aln.fasta", "AAAA"), ("one.aln.fasta", "AAAC")])
+
     def test_masked_inputs_replace_selected_tokens(self):
         import torch
         ids = torch.tensor([1, 2, 3], dtype=torch.long)

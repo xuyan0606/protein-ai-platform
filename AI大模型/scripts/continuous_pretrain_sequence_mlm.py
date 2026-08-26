@@ -9,7 +9,7 @@ import random
 from datetime import datetime, timezone
 from pathlib import Path
 
-from pretrain_sequence_mlm import AMINO_ACIDS, build_encoder, load_fasta, sha256, split_sequences
+from pretrain_sequence_mlm import AMINO_ACIDS, build_encoder, sha256
 
 
 def build_epoch_plan(count: int, seed: int) -> list[int]:
@@ -22,6 +22,54 @@ def apply_mask(ids, mask_id, mask_positions):
     masked = ids.clone()
     masked[mask_positions] = mask_id
     return masked, mask_positions
+
+
+def load_fasta_records(path: Path) -> list[tuple[str, str]]:
+    records = []
+    header = ""
+    current = []
+
+    def append_record() -> None:
+        sequence = "".join(current).upper().replace("-", "")
+        if sequence and set(sequence) <= AMINO_ACIDS:
+            source = next((part.split("=", 1)[1] for part in header.split("|") if part.startswith("source=")), header)
+            records.append((source, sequence))
+
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+        if line.startswith(">"):
+            if header:
+                append_record()
+            header = line[1:]
+            current = []
+        else:
+            current.append(line)
+    if header:
+        append_record()
+    return records
+
+
+def split_grouped_records(records: list[tuple[str, str]], validation_fraction: float, seed: int):
+    if not 0.0 <= validation_fraction < 1.0:
+        raise ValueError("validation_fraction must be in [0, 1)")
+    groups = {}
+    for group, sequence in records:
+        groups.setdefault(group, []).append((group, sequence))
+    group_names = list(groups)
+    random.Random(seed).shuffle(group_names)
+    target = int(len(records) * validation_fraction)
+    validation_groups = set()
+    validation_count = 0
+    for group in group_names[:-1]:
+        if validation_count >= target:
+            break
+        validation_groups.add(group)
+        validation_count += len(groups[group])
+    train = [record for record in records if record[0] not in validation_groups]
+    validation = [record for record in records if record[0] in validation_groups]
+    return train, validation
 
 
 def main() -> int:
@@ -37,12 +85,17 @@ def main() -> int:
     if not args.input.exists():
         report.update(status="blocked_missing_input", reason="fasta_input_not_found")
     else:
-        sequences = load_fasta(args.input, 10**9)
+        records = load_fasta_records(args.input)
+        sequences = [sequence for _, sequence in records]
         report.update(input_sha256=sha256(args.input), sequence_count=len(sequences))
         if not sequences:
             report.update(status="blocked_no_valid_sequences", reason="fasta_has_no_valid_protein_sequences")
         else:
-            train, validation = split_sequences(sequences, args.validation_fraction, args.seed)
+            train_records, validation_records = split_grouped_records(records, args.validation_fraction, args.seed)
+            train = [sequence for _, sequence in train_records]
+            validation = [sequence for _, sequence in validation_records]
+            train_sources = {source for source, _ in train_records}
+            validation_sources = {source for source, _ in validation_records}
             import torch
             import torch.nn as nn
             random.seed(args.seed); torch.manual_seed(args.seed)
@@ -69,7 +122,7 @@ def main() -> int:
                         validation_losses.append(float(loss_fn(model(masked)[mask], ids[mask])))
             checkpoint = args.output.parent / f"{args.output.stem}.checkpoint.pt"; args.output.parent.mkdir(parents=True, exist_ok=True)
             torch.save({"state_dict": model.state_dict(), "vocab": vocab, "config": {"epochs": args.epochs, "seed": args.seed, "mask_probability": args.mask_probability, "validation_fraction": args.validation_fraction}, "sequence_count": len(sequences)}, checkpoint)
-            report.update(status="completed_pretraining_only", train_sequence_count=len(train), validation_sequence_count=len(validation), epochs=args.epochs, steps=len(losses), final_loss=round(losses[-1], 6) if losses else None, validation_loss=round(sum(validation_losses)/len(validation_losses), 6) if validation_losses else None, checkpoint_path=str(checkpoint.resolve()))
+            report.update(status="completed_pretraining_only", split_strategy="source_group_holdout", train_sequence_count=len(train), validation_sequence_count=len(validation), train_source_count=len(train_sources), validation_source_count=len(validation_sources), source_overlap_count=len(train_sources & validation_sources), epochs=args.epochs, steps=len(losses), final_loss=round(losses[-1], 6) if losses else None, validation_loss=round(sum(validation_losses)/len(validation_losses), 6) if validation_losses else None, checkpoint_path=str(checkpoint.resolve()))
     args.output.parent.mkdir(parents=True, exist_ok=True); args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2, default=str) + "\n", encoding="utf-8")
     print(json.dumps({k: report.get(k) for k in ("status", "sequence_count", "steps", "validation_loss", "checkpoint_path")}, ensure_ascii=False))
     return 0 if report.get("status") == "completed_pretraining_only" else 1
