@@ -18,6 +18,12 @@ def build_epoch_plan(count: int, seed: int) -> list[int]:
     return plan
 
 
+def apply_mask(ids, mask_id, mask_positions):
+    masked = ids.clone()
+    masked[mask_positions] = mask_id
+    return masked, mask_positions
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run continuous unlabeled masked amino acid pretraining")
     parser.add_argument("--input", type=Path, required=True)
@@ -48,7 +54,7 @@ def main() -> int:
                 ids = torch.tensor([token_to_id[x] for x in sequence], dtype=torch.long)
                 mask = torch.rand(len(ids)) < args.mask_probability
                 if not bool(mask.any()): mask[0] = True
-                masked = ids.clone(); masked[mask] = token_to_id["<mask>"]
+                masked, mask = apply_mask(ids, token_to_id["<mask>"], mask)
                 loss = loss_fn(model(masked)[mask], ids[mask]); optimizer.zero_grad(); loss.backward(); optimizer.step(); return float(loss.detach())
             for epoch in range(args.epochs):
                 for index in build_epoch_plan(len(train), args.seed + epoch):
@@ -59,7 +65,8 @@ def main() -> int:
                     if len(sequence) >= 2:
                         ids = torch.tensor([token_to_id[x] for x in sequence], dtype=torch.long); mask = torch.rand(len(ids)) < args.mask_probability
                         if not bool(mask.any()): mask[0] = True
-                        validation_losses.append(float(loss_fn(model(ids)[mask], ids[mask])))
+                        masked, mask = apply_mask(ids, token_to_id["<mask>"], mask)
+                        validation_losses.append(float(loss_fn(model(masked)[mask], ids[mask])))
             checkpoint = args.output.parent / f"{args.output.stem}.checkpoint.pt"; args.output.parent.mkdir(parents=True, exist_ok=True)
             torch.save({"state_dict": model.state_dict(), "vocab": vocab, "config": {"epochs": args.epochs, "seed": args.seed, "mask_probability": args.mask_probability, "validation_fraction": args.validation_fraction}, "sequence_count": len(sequences)}, checkpoint)
             report.update(status="completed_pretraining_only", train_sequence_count=len(train), validation_sequence_count=len(validation), epochs=args.epochs, steps=len(losses), final_loss=round(losses[-1], 6) if losses else None, validation_loss=round(sum(validation_losses)/len(validation_losses), 6) if validation_losses else None, checkpoint_path=str(checkpoint.resolve()))

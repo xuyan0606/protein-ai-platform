@@ -1,0 +1,26 @@
+{
+  "created_at": "2026-08-26T06:11:30.938474+00:00",
+  "artifact_kind": "continuous_unlabeled_pretraining_only",
+  "safe_for_supervised_training": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/derived/msa_sequences_deduplicated.fasta",
+  "config": {
+    "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/derived/msa_sequences_deduplicated.fasta",
+    "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_continuous_full_v2.json",
+    "epochs": 1,
+    "seed": 20260826,
+    "mask_probability": 0.15,
+    "validation_fraction": 0.1
+  },
+  "input_sha256": "19fdb1bb614ec4a9ed2397a49f2eb4e2eee197b0c835dde5c6618eaa7efc516e",
+  "sequence_count": 12830,
+  "status": "completed_pretraining_only",
+  "train_sequence_count": 11547,
+  "validation_sequence_count": 1283,
+  "epochs": 1,
+  "steps": 11547,
+  "final_loss": 2.982907,
+  "validation_loss": 2.911054,
+  "checkpoint_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_continuous_full_v2.checkpoint.pt"
+}

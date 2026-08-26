@@ -11673,6 +11673,8 @@
 - 隔离分支已合并回 `feature/4track-upgrade-20260627`（merge `c8c1b22`）并清理 worktree；合并后 AI 大模型测试 `16 passed`、全量脚本编译通过，独立审计确认 `release_ready=false`。
 - 修复合并后发现的 manifest 路径问题：此前 7 项资产记录了已删除隔离 worktree 的绝对路径；已重写为当前主仓库路径并重算哈希。现在 7/7 资产存在，manifest 验证 `missing=0`、`hash_mismatch=0`、`release_ready=false`，测试仍为 `16 passed`。
 - 根治绝对路径复发：manifest、连续选择清单和发布门现在写入相对 `AI大模型/` 的可移植路径，同时兼容验证旧绝对路径。将 7 项资产复制到全新临时根目录后复验通过（missing=0、hash mismatch=0）；测试增至 `18 passed`，全量脚本编译通过。
+- 训练可信度审计发现 v1 连续训练在验证阶段未遮盖输入 token，validation loss 口径存在输入泄漏；已提取共用 `apply_mask` 并通过红绿单测修复。
+- 保留 v1 历史证据，重新完成 `continuous_full_v2`：12,830 条序列、11,547 steps、修正后 validation loss `2.911054`。v2 全量 index 为 12,830 条、duplicates=0、collisions=0；当前 manifest 已切换到 v2，测试增至 `19 passed`。
 
 ## 2026-08-26 外部门控继续收紧
 

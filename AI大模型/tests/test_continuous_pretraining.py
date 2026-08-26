@@ -10,6 +10,13 @@ SPEC.loader.exec_module(MODULE)
 
 
 class ContinuousPretrainingTests(unittest.TestCase):
+    def test_masked_inputs_replace_selected_tokens(self):
+        import torch
+        ids = torch.tensor([1, 2, 3], dtype=torch.long)
+        masked, mask = MODULE.apply_mask(ids, mask_id=9, mask_positions=torch.tensor([True, False, True]))
+        self.assertEqual(mask.tolist(), [True, False, True])
+        self.assertEqual(masked.tolist(), [9, 2, 9])
+
     def test_batch_plan_covers_all_sequences_once(self):
         plan = MODULE.build_epoch_plan(10, seed=7)
         self.assertEqual(sorted(plan), list(range(10)))

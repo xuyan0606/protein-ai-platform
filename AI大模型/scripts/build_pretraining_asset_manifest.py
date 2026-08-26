@@ -81,7 +81,7 @@ def build_continuous_selection(report_path: Path, superseded: str, root: Optiona
     return {
         "artifact_kind": "continuous_unlabeled_pretraining_selection",
         "selection_rule": "continuous_full_dataset_coverage",
-        "selected_batch": "continuous_full",
+        "selected_batch": report_path.stem.removeprefix("sequence_mlm_"),
         "sequence_count": int(report["sequence_count"]),
         "training_report": portable_path(report_path, root),
         "training_report_sha256": file_sha256(report_path),
