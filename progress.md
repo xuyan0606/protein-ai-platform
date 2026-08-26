@@ -11672,6 +11672,7 @@
 - 预训练资产 manifest 已从旧 batch-0001 基准切换到 `continuous_full`：绑定连续选择清单、连续训练报告、连续 checkpoint、连续索引校验、连续碰撞审计、模型卡和发布隔离报告共 7 项资产；旧 `sequence_mlm_batch_*.checkpoint.pt` 不再出现在当前 manifest。
 - 隔离分支已合并回 `feature/4track-upgrade-20260627`（merge `c8c1b22`）并清理 worktree；合并后 AI 大模型测试 `16 passed`、全量脚本编译通过，独立审计确认 `release_ready=false`。
 - 修复合并后发现的 manifest 路径问题：此前 7 项资产记录了已删除隔离 worktree 的绝对路径；已重写为当前主仓库路径并重算哈希。现在 7/7 资产存在，manifest 验证 `missing=0`、`hash_mismatch=0`、`release_ready=false`，测试仍为 `16 passed`。
+- 根治绝对路径复发：manifest、连续选择清单和发布门现在写入相对 `AI大模型/` 的可移植路径，同时兼容验证旧绝对路径。将 7 项资产复制到全新临时根目录后复验通过（missing=0、hash mismatch=0）；测试增至 `18 passed`，全量脚本编译通过。
 
 ## 2026-08-26 外部门控继续收紧
 

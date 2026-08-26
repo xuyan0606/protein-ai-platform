@@ -13,6 +13,16 @@ SPEC.loader.exec_module(MODULE)
 
 
 class PretrainingAssetManifestTests(unittest.TestCase):
+    def test_manifest_paths_are_relative_to_portable_root(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            asset = root / "reports" / "asset.json"
+            asset.parent.mkdir()
+            asset.write_text("portable", encoding="utf-8")
+            manifest = MODULE.build_manifest([asset], root=root)
+            self.assertEqual(manifest["assets"][0]["path"], "reports/asset.json")
+            self.assertTrue(MODULE.verify_manifest(manifest, root=root)["success"])
+
     def test_current_manifest_uses_continuous_checkpoint_only(self):
         manifest_path = Path(__file__).parents[1] / "reports" / "sequence_pretraining_asset_manifest.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))

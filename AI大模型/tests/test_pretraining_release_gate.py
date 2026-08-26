@@ -11,6 +11,11 @@ SPEC.loader.exec_module(MODULE)
 
 
 class PretrainingReleaseGateTests(unittest.TestCase):
+    def test_selection_reference_is_relative_to_ai_root(self):
+        root = Path(__file__).parents[1]
+        selection = root / "reports" / "selection.json"
+        self.assertEqual(MODULE.portable_reference(selection, root), "reports/selection.json")
+
     def test_complete_pretraining_asset_remains_blocked_for_release(self):
         decision = MODULE.evaluate_gate({
             "integrity_pass": True,

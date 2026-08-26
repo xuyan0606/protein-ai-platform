@@ -9,6 +9,10 @@ from pathlib import Path
 from typing import Any
 
 
+def portable_reference(path: Path, root: Path) -> str:
+    return path.resolve().relative_to(root.resolve()).as_posix()
+
+
 def evaluate_gate(selection: dict[str, Any]) -> dict[str, Any]:
     failures = []
     if selection.get("integrity_pass") is not True:
@@ -38,7 +42,7 @@ def main() -> int:
     report = evaluate_gate(selection)
     report.update({
         "artifact_kind": "pretraining_release_isolation_gate",
-        "selection_manifest": str(args.selection.resolve()),
+        "selection_manifest": portable_reference(args.selection, Path(__file__).resolve().parents[1]),
         "selected_batch": selection.get("selected_batch"),
         "selected_checkpoint_sha256": selection.get("selected_checkpoint_sha256"),
         "safe_for_model_claim": False,

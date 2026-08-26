@@ -6651,6 +6651,7 @@
 - 连续 checkpoint 的 index 完整性与碰撞审计通过，但仍是单 epoch、无标签、小型 32 维 encoder；不能据此推导监督任务或生产质量。
 - 当前交接资产已不再引用旧 batch-0001 checkpoint；`continuous_full` 的 checkpoint SHA-256 为 `b9045f5c7cdb51c46cec59b6516bd5f879c77148340be1670775c65a54b9bc9f`，发布隔离门保持 `blocked_pretraining_only`。
 - 交接复核发现绝对路径不可跨 worktree 复用，已将连续选择清单、发布门和资产 manifest 全部重建到主仓库路径；当前验证器可在主工作区独立读取全部 7 项资产。
+- 仅重写为主仓库绝对路径仍会在迁移/worktree 场景复发；最终方案改为 manifest-root 相对路径，并通过异目录复制验证证明资产包可搬迁且内容哈希保持有效。
 
 ## 2026-08-26 待建清单状态审计
 
