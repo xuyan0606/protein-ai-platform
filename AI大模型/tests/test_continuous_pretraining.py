@@ -32,6 +32,10 @@ class ContinuousPretrainingTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             MODULE.parse_kernel_size("4")
 
+    def test_residual_cli_parser_accepts_boolean(self):
+        self.assertTrue(MODULE.parse_residual("true"))
+        self.assertFalse(MODULE.parse_residual("false"))
+
     def test_grouped_split_has_no_source_overlap(self):
         records = [("group_a", "AAAA"), ("group_a", "AAAC"), ("group_b", "CCCC"), ("group_c", "DDDD")]
         train, validation = MODULE.split_grouped_records(records, validation_fraction=0.25, seed=7)

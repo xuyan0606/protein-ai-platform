@@ -6663,6 +6663,7 @@
 - 学习率扫描显示 5e-4 在当前主目标 loss 上优于 1e-3，3e-4 的 accuracy 略高但 loss 略差；选择规则以 MLM loss 为主、accuracy 不回退为门槛，避免事后挑指标。v6 相对 v4 的提升仍很小。
 - 单纯把 hidden dimension 从 32 增至 64 在当前数据量、卷积结构和训练预算下反而回退；容量不是当前唯一瓶颈，暂不继续盲目扩大到 128。
 - kernel=5 提升交叉熵但降低 top-1 token accuracy，形成 Pareto 冲突；既定门槛要求两项一致改善，因此不因单一 loss 指标事后改规则。
+- residual/GELU 也形成相反 Pareto：accuracy 增益伴随 loss 回退；继续沿用主目标 loss 优先、accuracy 不回退的选择纪律。
 
 ## 2026-08-26 待建清单状态审计
 

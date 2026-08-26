@@ -11689,6 +11689,8 @@
 - 64 维候选（3 epochs、5e-4）评测 loss `2.905831`、accuracy `9.5497%`，两项均劣于 32 维 v6，故拒绝晋级且不构建候选索引。
 - 参数化 context convolution kernel size，并让训练/评测/索引/embedding 从 checkpoint 自动读取，旧 checkpoint 默认 kernel=3。
 - kernel=5 候选 loss 改善至 `2.899331`，但 accuracy 回退至 `9.7057%`；按预设“不允许 accuracy 回退”规则拒绝晋级，当前 v6/kernel=3 不变。
+- 参数化 residual+GELU context 模式，训练/评测/索引从 checkpoint 自动读取，旧 v6 默认 residual=false。
+- residual candidate accuracy 提升至 `9.8599%`，但 loss 回退至 `2.902013`；按主目标 loss 规则拒绝晋级，当前 v6 保持不变。
 
 ## 2026-08-26 外部门控继续收紧
 

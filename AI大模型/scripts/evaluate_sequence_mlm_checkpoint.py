@@ -12,7 +12,7 @@ import torch
 import torch.nn as nn
 
 from continuous_pretrain_sequence_mlm import apply_mask, load_fasta_records, split_grouped_records
-from pretrain_sequence_mlm import AMINO_ACIDS, build_encoder, sha256
+from pretrain_sequence_mlm import AMINO_ACIDS, build_encoder, checkpoint_model_config, sha256
 
 
 def build_mask(length: int, probability: float, generator: torch.Generator) -> torch.Tensor:
@@ -65,16 +65,15 @@ def main() -> int:
         raise SystemExit("input and checkpoint are required")
     checkpoint = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
     vocab = checkpoint["vocab"]; token_to_id = {token: i for i, token in enumerate(vocab)}
-    hidden_dim = int(checkpoint.get("config", {}).get("hidden_dim", 32))
-    kernel_size = int(checkpoint.get("config", {}).get("kernel_size", 3))
-    model = build_encoder(len(vocab), hidden_dim=hidden_dim, kernel_size=kernel_size); model.load_state_dict(checkpoint["state_dict"]); model.eval()
+    hidden_dim, kernel_size, residual = checkpoint_model_config(checkpoint)
+    model = build_encoder(len(vocab), hidden_dim=hidden_dim, kernel_size=kernel_size, residual=residual); model.load_state_dict(checkpoint["state_dict"]); model.eval()
     records = load_fasta_records(args.input)
     _, validation_records = split_grouped_records(records, args.validation_fraction, args.seed)
     trained = evaluate_model(model, validation_records, token_to_id, args.repeats, args.seed, args.mask_probability)
     torch.manual_seed(args.seed)
-    random_model = build_encoder(len(vocab), hidden_dim=hidden_dim, kernel_size=kernel_size).eval()
+    random_model = build_encoder(len(vocab), hidden_dim=hidden_dim, kernel_size=kernel_size, residual=residual).eval()
     random_baseline = evaluate_model(random_model, validation_records, token_to_id, args.repeats, args.seed, args.mask_probability)
-    report = {"artifact_kind":"unlabeled_sequence_mlm_evaluation","status":"completed_evaluation_only","input_sha256":sha256(args.input),"checkpoint_sha256":sha256(args.checkpoint),"hidden_dim":hidden_dim,"kernel_size":kernel_size,"split_strategy":"source_group_holdout","validation_sequence_count":len(validation_records),"validation_source_count":len({s for s,_ in validation_records}),"source_overlap_count":0,"repeats":args.repeats,**trained,"random_initialization_baseline":random_baseline,"training_delta":{"loss_reduction":random_baseline["mean_loss"]-trained["mean_loss"],"accuracy_gain":trained["masked_token_accuracy"]-random_baseline["masked_token_accuracy"]},"uniform_amino_acid_baseline_loss":uniform_amino_acid_loss(),"safe_for_supervised_training":False,"safe_for_model_claim":False,"release_ready":False}
+    report = {"artifact_kind":"unlabeled_sequence_mlm_evaluation","status":"completed_evaluation_only","input_sha256":sha256(args.input),"checkpoint_sha256":sha256(args.checkpoint),"hidden_dim":hidden_dim,"kernel_size":kernel_size,"residual":residual,"split_strategy":"source_group_holdout","validation_sequence_count":len(validation_records),"validation_source_count":len({s for s,_ in validation_records}),"source_overlap_count":0,"repeats":args.repeats,**trained,"random_initialization_baseline":random_baseline,"training_delta":{"loss_reduction":random_baseline["mean_loss"]-trained["mean_loss"],"accuracy_gain":trained["masked_token_accuracy"]-random_baseline["masked_token_accuracy"]},"uniform_amino_acid_baseline_loss":uniform_amino_acid_loss(),"safe_for_supervised_training":False,"safe_for_model_claim":False,"release_ready":False}
     args.output.parent.mkdir(parents=True, exist_ok=True); args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     print(json.dumps({"status":report["status"],"validation_sequences":report["validation_sequence_count"],"mean_loss":round(report["mean_loss"],6),"perplexity":round(report["perplexity"],6),"masked_token_accuracy":round(report["masked_token_accuracy"],6),"random_baseline_loss":round(random_baseline["mean_loss"],6),"random_baseline_accuracy":round(random_baseline["masked_token_accuracy"],6)}))
     return 0

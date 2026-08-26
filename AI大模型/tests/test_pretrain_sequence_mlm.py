@@ -47,6 +47,35 @@ class SequenceSplitTests(unittest.TestCase):
         model = MODULE.build_encoder(22, kernel_size=5)
         self.assertEqual(model.context.kernel_size, (5,))
 
+    def test_encoder_residual_mode_is_explicit(self):
+        model = MODULE.build_encoder(22, residual=True)
+        self.assertTrue(model.residual)
+
+    def test_residual_context_is_gelu_of_hidden_plus_convolution(self):
+        import torch
+
+        residual_model = MODULE.build_encoder(4, hidden_dim=2, kernel_size=3, residual=True).eval()
+        legacy_model = MODULE.build_encoder(4, hidden_dim=2, kernel_size=3, residual=False).eval()
+        with torch.no_grad():
+            residual_model.embedding.weight.fill_(0.5)
+            residual_model.position.weight.fill_(0.25)
+            residual_model.context.weight.fill_(0.2)
+            residual_model.context.bias.fill_(0.1)
+            legacy_model.load_state_dict(residual_model.state_dict())
+
+            ids = torch.tensor([0, 1, 2], dtype=torch.long)
+            positions = torch.arange(len(ids))
+            hidden = residual_model.embedding(ids) + residual_model.position(positions)
+            context = residual_model.context(hidden.transpose(0, 1).unsqueeze(0)).squeeze(0).transpose(0, 1)
+            expected_residual = torch.nn.functional.gelu(hidden + context)
+
+            actual_residual = residual_model.contextualize(ids)
+            actual_legacy = legacy_model.contextualize(ids)
+
+        self.assertTrue(torch.allclose(actual_residual, expected_residual))
+        self.assertTrue(torch.allclose(actual_legacy, context))
+        self.assertFalse(torch.allclose(actual_residual, actual_legacy))
+
 
 if __name__ == "__main__":
     unittest.main()

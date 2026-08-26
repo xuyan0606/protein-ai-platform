@@ -22,7 +22,16 @@ DEFAULT_OUT = AI_ROOT / "reports" / "sequence_mlm_pretraining_run.json"
 AMINO_ACIDS = set("ACDEFGHIKLMNPQRSTVWY")
 
 
-def build_encoder(vocab_size: int, hidden_dim: int = 32, kernel_size: int = 3):
+def checkpoint_model_config(checkpoint):
+    config = checkpoint.get("config", {})
+    return (
+        int(config.get("hidden_dim", 32)),
+        int(config.get("kernel_size", 3)),
+        bool(config.get("residual", False)),
+    )
+
+
+def build_encoder(vocab_size: int, hidden_dim: int = 32, kernel_size: int = 3, residual: bool = False):
     import torch
     import torch.nn as nn
 
@@ -36,18 +45,20 @@ def build_encoder(vocab_size: int, hidden_dim: int = 32, kernel_size: int = 3):
             self.position = nn.Embedding(512, hidden_dim)
             self.context = nn.Conv1d(hidden_dim, hidden_dim, kernel_size=kernel_size, padding=kernel_size // 2)
             self.output = nn.Linear(hidden_dim, vocab_size)
+            self.activation = nn.GELU()
+            self.residual = residual
+
+        def contextualize(self, ids):
+            positions = torch.arange(ids.shape[0], device=ids.device).clamp(max=511)
+            hidden = self.embedding(ids) + self.position(positions)
+            context = self.context(hidden.transpose(0, 1).unsqueeze(0)).squeeze(0).transpose(0, 1)
+            return self.activation(hidden + context) if self.residual else context
 
         def forward(self, ids):
-            positions = torch.arange(ids.shape[0], device=ids.device).clamp(max=511)
-            hidden = self.embedding(ids) + self.position(positions)
-            hidden = self.context(hidden.transpose(0, 1).unsqueeze(0)).squeeze(0).transpose(0, 1)
-            return self.output(hidden)
+            return self.output(self.contextualize(ids))
 
         def encode(self, ids):
-            positions = torch.arange(ids.shape[0], device=ids.device).clamp(max=511)
-            hidden = self.embedding(ids) + self.position(positions)
-            hidden = self.context(hidden.transpose(0, 1).unsqueeze(0)).squeeze(0).transpose(0, 1)
-            return hidden.mean(dim=0)
+            return self.contextualize(ids).mean(dim=0)
 
     return SequenceEncoder()
 
@@ -101,6 +112,7 @@ def main() -> int:
     parser.add_argument("--validation-fraction", type=float, default=0.1)
     parser.add_argument("--hidden-dim", type=int, default=32)
     parser.add_argument("--kernel-size", type=int, default=3)
+    parser.add_argument("--residual", action="store_true")
     args = parser.parse_args()
 
     report = {
@@ -119,6 +131,7 @@ def main() -> int:
             "validation_fraction": args.validation_fraction,
             "hidden_dim": args.hidden_dim,
             "kernel_size": args.kernel_size,
+            "residual": args.residual,
         },
     }
 
@@ -152,7 +165,7 @@ def main() -> int:
                 torch.manual_seed(args.seed)
                 vocab = sorted(AMINO_ACIDS) + ["<mask>", "<pad>"]
                 token_to_id = {token: index for index, token in enumerate(vocab)}
-                model = build_encoder(len(vocab), hidden_dim=args.hidden_dim, kernel_size=args.kernel_size)
+                model = build_encoder(len(vocab), hidden_dim=args.hidden_dim, kernel_size=args.kernel_size, residual=args.residual)
                 optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3)
                 loss_fn = nn.CrossEntropyLoss()
                 losses: list[float] = []

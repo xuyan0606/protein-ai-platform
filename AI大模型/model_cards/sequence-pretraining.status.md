@@ -18,6 +18,7 @@ Local-only pretraining asset. This is not a release model card or a biological-p
 - Learning-rate sweep selected 5e-4 over 3e-4, 1e-3, and 2e-3 using lowest paired MLM loss with no accuracy regression; gains over v4 remain small
 - A 64-dimensional candidate regressed to loss 2.905831 and accuracy 9.5497%; hidden dimension remains 32
 - A kernel-5 candidate improved loss to 2.899331 but regressed accuracy to 9.7057%; it was rejected under the no-accuracy-regression rule and kernel size remains 3
+- A residual/GELU candidate improved accuracy to 9.8599% but regressed loss to 2.902013; it was rejected under the primary-loss rule and residual remains false
 - Embedding dimension: 32
 - Checkpoint integrity: 26/26 SHA-256 verified
 

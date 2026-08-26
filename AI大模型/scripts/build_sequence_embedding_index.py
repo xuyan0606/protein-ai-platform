@@ -11,7 +11,7 @@ from pathlib import Path
 
 import torch
 
-from pretrain_sequence_mlm import build_encoder, load_fasta, sha256
+from pretrain_sequence_mlm import build_encoder, checkpoint_model_config, load_fasta, sha256
 
 
 def main() -> int:
@@ -27,9 +27,8 @@ def main() -> int:
     checkpoint = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
     vocab = checkpoint["vocab"]
     token_to_id = {token: index for index, token in enumerate(vocab)}
-    hidden_dim = int(checkpoint.get("config", {}).get("hidden_dim", 32))
-    kernel_size = int(checkpoint.get("config", {}).get("kernel_size", 3))
-    model = build_encoder(len(vocab), hidden_dim=hidden_dim, kernel_size=kernel_size)
+    hidden_dim, kernel_size, residual = checkpoint_model_config(checkpoint)
+    model = build_encoder(len(vocab), hidden_dim=hidden_dim, kernel_size=kernel_size, residual=residual)
     model.load_state_dict(checkpoint["state_dict"])
     model.eval()
     files = sorted(args.input_dir.glob("*.fasta"))
