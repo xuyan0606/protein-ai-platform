@@ -7,12 +7,13 @@ Local-only pretraining asset. This is not a release model card or a biological-p
 - Task: masked amino-acid self-supervised pretraining
 - Unlabeled unique sequences: 12,830
 - Completed batches: 26
-- Current embedding baseline: continuous_full_v3 (single checkpoint across all 12,830 sequences)
+- Current embedding baseline: continuous_full_v4 (3 epochs across all 12,830 sequences)
 - Validation objective: masked-token input and masked-position cross-entropy (v2 corrected)
 - Validation split: source-group holdout with zero train/validation source overlap (v3 corrected)
-- Independent MLM evaluation: 5 mask repeats, mean loss 2.905616, perplexity 18.2765, masked-token accuracy 9.6658%
+- Independent MLM evaluation: 5 mask repeats, mean loss 2.902550, perplexity 18.2206, masked-token accuracy 9.8025%
 - Uniform amino-acid reference: loss 2.995732 and expected accuracy 5%; this is a reconstruction baseline, not a biological benchmark
-- Random-initialization control on the same masks: loss 3.177272, accuracy 5.3821%; trained-minus-random loss reduction 0.271656 and accuracy gain 4.2837 percentage points
+- Random-initialization control on the same masks: loss 3.177272, accuracy 5.3821%; trained-minus-random loss reduction 0.274722 and accuracy gain 4.4204 percentage points
+- Compared with v3, v4 improves mean loss by 0.003066 and accuracy by 0.1367 percentage points; the gain is consistent across 5/5 mask repeats but remains small
 - Embedding dimension: 32
 - Checkpoint integrity: 26/26 SHA-256 verified
 

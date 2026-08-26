@@ -11679,6 +11679,8 @@
 - 完成 `continuous_full_v3`：训练 11,496 条/143 来源，验证 1,334 条/15 来源，source overlap=0，validation loss `2.907089`。v3 全量 index 12,830 条、duplicates=0、collisions=0；manifest 已切换 v3，测试增至 `21 passed`。
 - 新增独立 MLM 评测：固定来源隔离验证集、5 次独立 mask，mean loss `2.905616`、perplexity `18.2765`、masked-token accuracy `9.6658%`；相对均匀氨基酸 loss `2.995732`/accuracy `5%` 有限改善。评测报告已纳入 8 项资产 manifest，测试增至 `23 passed`。
 - 增加同架构随机初始化对照：random loss `3.177272`、accuracy `5.3821%`；训练模型 loss 减少 `0.271656`、accuracy 提升 `4.2837` 个百分点。该对照只说明训练过程产生了可测重建增益，不是下游能力证明。
+- 执行 3-epoch v4 candidate 并与 v3 使用相同验证来源和 5 组 masks 并排评测：v4 mean loss `2.902550`、accuracy `9.8025%`，较 v3 loss 改善 `0.003066`、accuracy 改善 `0.1367` 个百分点，5/5 repeats loss 均改善。
+- v4 已晋级当前基准；全量 index 12,830 条、duplicates=0、collisions=0，8 项 manifest 校验通过，测试保持 `24 passed`，发布门继续关闭。
 
 ## 2026-08-26 外部门控继续收紧
 
