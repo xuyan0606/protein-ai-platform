@@ -66,12 +66,41 @@ def verify_manifest(manifest: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def build_continuous_selection(report_path: Path, superseded: str) -> dict[str, Any]:
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    checkpoint = Path(str(report.get("checkpoint_path", "")))
+    if report.get("status") != "completed_pretraining_only" or int(report.get("sequence_count", 0)) != 12830 or not checkpoint.is_file():
+        raise ValueError("continuous pretraining report is incomplete")
+    return {
+        "artifact_kind": "continuous_unlabeled_pretraining_selection",
+        "selection_rule": "continuous_full_dataset_coverage",
+        "selected_batch": "continuous_full",
+        "sequence_count": int(report["sequence_count"]),
+        "training_report": str(report_path.resolve()),
+        "training_report_sha256": file_sha256(report_path),
+        "selected_checkpoint": str(checkpoint.resolve()),
+        "selected_checkpoint_sha256": file_sha256(checkpoint),
+        "integrity_pass": True,
+        "supersedes": superseded,
+        "release_status": "pretraining_only_not_for_production",
+        "safe_for_supervised_training": False,
+        "safe_for_model_claim": False,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build a local pretraining asset manifest")
     parser.add_argument("--asset", type=Path, action="append", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--validation-output", type=Path, required=True)
+    parser.add_argument("--continuous-report", type=Path)
+    parser.add_argument("--selection-output", type=Path)
     args = parser.parse_args()
+    if args.continuous_report and args.selection_output:
+        selection = build_continuous_selection(args.continuous_report, "sequence_pretraining_checkpoint_selection.json")
+        args.selection_output.parent.mkdir(parents=True, exist_ok=True)
+        args.selection_output.write_text(json.dumps(selection, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        args.asset = [args.selection_output if p.name == "sequence_pretraining_checkpoint_selection.json" else p for p in args.asset]
     manifest = build_manifest(args.asset)
     validation = verify_manifest(manifest)
     args.output.parent.mkdir(parents=True, exist_ok=True)

@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,6 +13,13 @@ SPEC.loader.exec_module(MODULE)
 
 
 class PretrainingAssetManifestTests(unittest.TestCase):
+    def test_current_manifest_uses_continuous_checkpoint_only(self):
+        manifest_path = Path(__file__).parents[1] / "reports" / "sequence_pretraining_asset_manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        paths = [Path(asset["path"]).name for asset in manifest["assets"]]
+        self.assertIn("sequence_mlm_continuous_full.checkpoint.pt", paths)
+        self.assertFalse(any(name.startswith("sequence_mlm_batch_") and name.endswith(".checkpoint.pt") for name in paths))
+
     def test_manifest_verifies_and_detects_tampering(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "asset.json"
