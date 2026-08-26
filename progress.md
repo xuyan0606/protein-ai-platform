@@ -11681,6 +11681,7 @@
 - 增加同架构随机初始化对照：random loss `3.177272`、accuracy `5.3821%`；训练模型 loss 减少 `0.271656`、accuracy 提升 `4.2837` 个百分点。该对照只说明训练过程产生了可测重建增益，不是下游能力证明。
 - 执行 3-epoch v4 candidate 并与 v3 使用相同验证来源和 5 组 masks 并排评测：v4 mean loss `2.902550`、accuracy `9.8025%`，较 v3 loss 改善 `0.003066`、accuracy 改善 `0.1367` 个百分点，5/5 repeats loss 均改善。
 - v4 已晋级当前基准；全量 index 12,830 条、duplicates=0、collisions=0，8 项 manifest 校验通过，测试保持 `24 passed`，发布门继续关闭。
+- 完成 5-epoch v5 candidate 扫描：mean loss `2.903791`、accuracy `9.6519%`，两项均劣于 3-epoch v4，故按预设规则拒绝晋级。生成 `sequence_mlm_epoch_sweep_decision.json` 固化负结果，当前 manifest 和 v4 基准不变。
 
 ## 2026-08-26 外部门控继续收紧
 

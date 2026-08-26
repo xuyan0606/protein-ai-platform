@@ -14,6 +14,7 @@ Local-only pretraining asset. This is not a release model card or a biological-p
 - Uniform amino-acid reference: loss 2.995732 and expected accuracy 5%; this is a reconstruction baseline, not a biological benchmark
 - Random-initialization control on the same masks: loss 3.177272, accuracy 5.3821%; trained-minus-random loss reduction 0.274722 and accuracy gain 4.4204 percentage points
 - Compared with v3, v4 improves mean loss by 0.003066 and accuracy by 0.1367 percentage points; the gain is consistent across 5/5 mask repeats but remains small
+- A 5-epoch candidate regressed to loss 2.903791 and accuracy 9.6519%, so it was rejected and v4 remains current
 - Embedding dimension: 32
 - Checkpoint integrity: 26/26 SHA-256 verified
 

@@ -1,0 +1,26 @@
+{
+  "artifact_kind": "unlabeled_pretraining_epoch_sweep_decision",
+  "decision": "retain_continuous_full_v4",
+  "promotion_rule": "candidate mean_loss and masked_token_accuracy must both improve on identical source holdout and mask repeats",
+  "incumbent": {
+    "name": "continuous_full_v4",
+    "epochs": 3,
+    "checkpoint_sha256": "a5f7d2b8e0e9cb5d21a21030250f07c8c329369fd7d2ce5ad972338022f19bb0",
+    "mean_loss": 2.902550164389617,
+    "masked_token_accuracy": 0.09802516393318633
+  },
+  "rejected_candidate": {
+    "name": "continuous_full_v5_candidate",
+    "epochs": 5,
+    "checkpoint_sha256": "9b43bd00bd540faf46590f0eda6241d5cd6023ed09a56f3ebfc8c3b405da0042",
+    "mean_loss": 2.903791480464731,
+    "masked_token_accuracy": 0.0965187752171591,
+    "rejection_reasons": [
+      "mean_loss_regressed_by_0.001241316075114",
+      "masked_token_accuracy_regressed_by_0.001506388716027"
+    ]
+  },
+  "safe_for_supervised_training": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}
