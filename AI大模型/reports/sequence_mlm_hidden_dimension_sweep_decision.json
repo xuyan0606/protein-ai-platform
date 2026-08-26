@@ -1,0 +1,15 @@
+{
+  "artifact_kind": "unlabeled_pretraining_hidden_dimension_sweep_decision",
+  "decision": "retain_continuous_full_v6_hidden_dim_32",
+  "shared_config": {"epochs": 3, "learning_rate": 0.0005, "seed": 20260826},
+  "incumbent": {"hidden_dim": 32, "mean_loss": 2.901576710766391, "masked_token_accuracy": 0.09821721615509116},
+  "rejected_candidate": {
+    "hidden_dim": 64,
+    "mean_loss": 2.9058305331708865,
+    "masked_token_accuracy": 0.09549705771259018,
+    "decision": "rejected_both_metrics_regressed"
+  },
+  "safe_for_supervised_training": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

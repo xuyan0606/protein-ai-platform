@@ -11685,6 +11685,8 @@
 - 将学习率变为显式、受校验且写入 checkpoint 的参数；首次 CLI 扫描因字符串类型校验失败，未启动训练，新增 CLI 回归测试后修复。
 - 并行完成 3-epoch 学习率扫描：3e-4 loss `2.901980`/accuracy `9.8434%`，5e-4 loss `2.901577`/accuracy `9.8217%`，2e-3 两项回退。按“最低 MLM loss 且 accuracy 不回退”选择 5e-4，晋级 `continuous_full_v6`。
 - v6 全量 index 12,830 条、duplicates=0、collisions=0；8 项 manifest 切换 v6 并通过验证，发布门继续关闭。
+- 参数化 encoder hidden dimension，并让训练、评测、embedding 导出和索引构建从 checkpoint 自动读取维度；旧 checkpoint 缺字段时兼容回退到 32。
+- 64 维候选（3 epochs、5e-4）评测 loss `2.905831`、accuracy `9.5497%`，两项均劣于 32 维 v6，故拒绝晋级且不构建候选索引。
 
 ## 2026-08-26 外部门控继续收紧
 

@@ -37,6 +37,12 @@ class SequenceSplitTests(unittest.TestCase):
             reordered = model.encode(torch.tensor([3, 2, 1], dtype=torch.long))
         self.assertFalse(torch.allclose(first, reordered))
 
+    def test_encoder_respects_hidden_dimension(self):
+        import torch
+        model = MODULE.build_encoder(22, hidden_dim=64)
+        vector = model.encode(torch.tensor([1, 2, 3], dtype=torch.long))
+        self.assertEqual(tuple(vector.shape), (64,))
+
 
 if __name__ == "__main__":
     unittest.main()

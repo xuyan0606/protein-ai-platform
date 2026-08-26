@@ -19,6 +19,14 @@ class ContinuousPretrainingTests(unittest.TestCase):
     def test_learning_rate_cli_parser_accepts_decimal(self):
         self.assertEqual(MODULE.parse_learning_rate("0.0003"), 0.0003)
 
+    def test_hidden_dimension_must_be_positive(self):
+        self.assertEqual(MODULE.validate_hidden_dim(64), 64)
+        with self.assertRaises(ValueError):
+            MODULE.validate_hidden_dim(0)
+
+    def test_hidden_dimension_cli_parser_accepts_integer(self):
+        self.assertEqual(MODULE.parse_hidden_dim("64"), 64)
+
     def test_grouped_split_has_no_source_overlap(self):
         records = [("group_a", "AAAA"), ("group_a", "AAAC"), ("group_b", "CCCC"), ("group_c", "DDDD")]
         train, validation = MODULE.split_grouped_records(records, validation_fraction=0.25, seed=7)

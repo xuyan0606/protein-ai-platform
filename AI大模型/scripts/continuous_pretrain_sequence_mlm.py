@@ -28,6 +28,16 @@ def parse_learning_rate(value: str) -> float:
     return validate_learning_rate(float(value))
 
 
+def validate_hidden_dim(value: int) -> int:
+    if value <= 0:
+        raise ValueError("hidden_dim must be positive")
+    return value
+
+
+def parse_hidden_dim(value: str) -> int:
+    return validate_hidden_dim(int(value))
+
+
 def apply_mask(ids, mask_id, mask_positions):
     masked = ids.clone()
     masked[mask_positions] = mask_id
@@ -91,6 +101,7 @@ def main() -> int:
     parser.add_argument("--mask-probability", type=float, default=0.15)
     parser.add_argument("--validation-fraction", type=float, default=0.1)
     parser.add_argument("--learning-rate", type=parse_learning_rate, default=1e-3)
+    parser.add_argument("--hidden-dim", type=parse_hidden_dim, default=32)
     args = parser.parse_args()
     report = {"created_at": datetime.now(timezone.utc).isoformat(), "artifact_kind": "continuous_unlabeled_pretraining_only", "safe_for_supervised_training": False, "safe_for_model_claim": False, "release_ready": False, "input": str(args.input.resolve()), "config": vars(args) | {"input": str(args.input.resolve()), "output": str(args.output.resolve())}}
     if not args.input.exists():
@@ -112,7 +123,7 @@ def main() -> int:
             random.seed(args.seed); torch.manual_seed(args.seed)
             vocab = sorted(AMINO_ACIDS) + ["<mask>", "<pad>"]
             token_to_id = {t: i for i, t in enumerate(vocab)}
-            model = build_encoder(len(vocab)); optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate); loss_fn = nn.CrossEntropyLoss()
+            model = build_encoder(len(vocab), hidden_dim=args.hidden_dim); optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate); loss_fn = nn.CrossEntropyLoss()
             losses = []
             def step(sequence: str) -> float:
                 ids = torch.tensor([token_to_id[x] for x in sequence], dtype=torch.long)
@@ -132,7 +143,7 @@ def main() -> int:
                         masked, mask = apply_mask(ids, token_to_id["<mask>"], mask)
                         validation_losses.append(float(loss_fn(model(masked)[mask], ids[mask])))
             checkpoint = args.output.parent / f"{args.output.stem}.checkpoint.pt"; args.output.parent.mkdir(parents=True, exist_ok=True)
-            torch.save({"state_dict": model.state_dict(), "vocab": vocab, "config": {"epochs": args.epochs, "seed": args.seed, "mask_probability": args.mask_probability, "validation_fraction": args.validation_fraction, "learning_rate": args.learning_rate}, "sequence_count": len(sequences)}, checkpoint)
+            torch.save({"state_dict": model.state_dict(), "vocab": vocab, "config": {"epochs": args.epochs, "seed": args.seed, "mask_probability": args.mask_probability, "validation_fraction": args.validation_fraction, "learning_rate": args.learning_rate, "hidden_dim": args.hidden_dim}, "sequence_count": len(sequences)}, checkpoint)
             report.update(status="completed_pretraining_only", split_strategy="source_group_holdout", train_sequence_count=len(train), validation_sequence_count=len(validation), train_source_count=len(train_sources), validation_source_count=len(validation_sources), source_overlap_count=len(train_sources & validation_sources), epochs=args.epochs, steps=len(losses), final_loss=round(losses[-1], 6) if losses else None, validation_loss=round(sum(validation_losses)/len(validation_losses), 6) if validation_losses else None, checkpoint_path=str(checkpoint.resolve()))
     args.output.parent.mkdir(parents=True, exist_ok=True); args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2, default=str) + "\n", encoding="utf-8")
     print(json.dumps({k: report.get(k) for k in ("status", "sequence_count", "steps", "validation_loss", "checkpoint_path")}, ensure_ascii=False))

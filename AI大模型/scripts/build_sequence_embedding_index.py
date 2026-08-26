@@ -27,7 +27,8 @@ def main() -> int:
     checkpoint = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
     vocab = checkpoint["vocab"]
     token_to_id = {token: index for index, token in enumerate(vocab)}
-    model = build_encoder(len(vocab))
+    hidden_dim = int(checkpoint.get("config", {}).get("hidden_dim", 32))
+    model = build_encoder(len(vocab), hidden_dim=hidden_dim)
     model.load_state_dict(checkpoint["state_dict"])
     model.eval()
     files = sorted(args.input_dir.glob("*.fasta"))
@@ -54,7 +55,7 @@ def main() -> int:
         "file_count": len(files),
         "checkpoint": str(args.checkpoint.resolve()),
         "checkpoint_sha256": hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
-        "embedding_dimension": 32,
+        "embedding_dimension": hidden_dim,
         "record_count": len(records),
         "records": records,
     }

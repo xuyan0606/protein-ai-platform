@@ -16,6 +16,7 @@ Local-only pretraining asset. This is not a release model card or a biological-p
 - Compared with v3, v4 improves mean loss by 0.003066 and accuracy by 0.1367 percentage points; the gain is consistent across 5/5 mask repeats but remains small
 - A 5-epoch candidate regressed to loss 2.903791 and accuracy 9.6519%, so it was rejected; epoch count remains 3
 - Learning-rate sweep selected 5e-4 over 3e-4, 1e-3, and 2e-3 using lowest paired MLM loss with no accuracy regression; gains over v4 remain small
+- A 64-dimensional candidate regressed to loss 2.905831 and accuracy 9.5497%; hidden dimension remains 32
 - Embedding dimension: 32
 - Checkpoint integrity: 26/26 SHA-256 verified
 

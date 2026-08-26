@@ -22,17 +22,17 @@ DEFAULT_OUT = AI_ROOT / "reports" / "sequence_mlm_pretraining_run.json"
 AMINO_ACIDS = set("ACDEFGHIKLMNPQRSTVWY")
 
 
-def build_encoder(vocab_size: int):
+def build_encoder(vocab_size: int, hidden_dim: int = 32):
     import torch
     import torch.nn as nn
 
     class SequenceEncoder(nn.Module):
         def __init__(self):
             super().__init__()
-            self.embedding = nn.Embedding(vocab_size, 32)
-            self.position = nn.Embedding(512, 32)
-            self.context = nn.Conv1d(32, 32, kernel_size=3, padding=1)
-            self.output = nn.Linear(32, vocab_size)
+            self.embedding = nn.Embedding(vocab_size, hidden_dim)
+            self.position = nn.Embedding(512, hidden_dim)
+            self.context = nn.Conv1d(hidden_dim, hidden_dim, kernel_size=3, padding=1)
+            self.output = nn.Linear(hidden_dim, vocab_size)
 
         def forward(self, ids):
             positions = torch.arange(ids.shape[0], device=ids.device).clamp(max=511)
@@ -96,6 +96,7 @@ def main() -> int:
     parser.add_argument("--epochs", type=int, default=1)
     parser.add_argument("--mask-probability", type=float, default=0.15)
     parser.add_argument("--validation-fraction", type=float, default=0.1)
+    parser.add_argument("--hidden-dim", type=int, default=32)
     args = parser.parse_args()
 
     report = {
@@ -112,6 +113,7 @@ def main() -> int:
             "epochs": args.epochs,
             "mask_probability": args.mask_probability,
             "validation_fraction": args.validation_fraction,
+            "hidden_dim": args.hidden_dim,
         },
     }
 
@@ -145,7 +147,7 @@ def main() -> int:
                 torch.manual_seed(args.seed)
                 vocab = sorted(AMINO_ACIDS) + ["<mask>", "<pad>"]
                 token_to_id = {token: index for index, token in enumerate(vocab)}
-                model = build_encoder(len(vocab))
+                model = build_encoder(len(vocab), hidden_dim=args.hidden_dim)
                 optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3)
                 loss_fn = nn.CrossEntropyLoss()
                 losses: list[float] = []
