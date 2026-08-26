@@ -1,0 +1,26 @@
+{
+  "artifact_kind": "unlabeled_sequence_mlm_evaluation",
+  "status": "completed_evaluation_only",
+  "input_sha256": "19fdb1bb614ec4a9ed2397a49f2eb4e2eee197b0c835dde5c6618eaa7efc516e",
+  "checkpoint_sha256": "9f3e2d82ab53a6e61310e90121390fdec9948424ba199fffbbb017fe3335e53b",
+  "split_strategy": "source_group_holdout",
+  "validation_sequence_count": 1334,
+  "validation_source_count": 15,
+  "source_overlap_count": 0,
+  "repeats": 5,
+  "masked_token_count": 420206,
+  "losses": [
+    2.907106658253333,
+    2.9071276752972333,
+    2.9045146766865613,
+    2.9047986151198977,
+    2.904532879948855
+  ],
+  "mean_loss": 2.905616101061176,
+  "perplexity": 18.276500355483293,
+  "masked_token_accuracy": 0.09665780369608823,
+  "uniform_amino_acid_baseline_loss": 2.995732273553991,
+  "safe_for_supervised_training": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

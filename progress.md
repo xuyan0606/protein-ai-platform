@@ -11677,6 +11677,7 @@
 - 保留 v1 历史证据，重新完成 `continuous_full_v2`：12,830 条序列、11,547 steps、修正后 validation loss `2.911054`。v2 全量 index 为 12,830 条、duplicates=0、collisions=0；当前 manifest 已切换到 v2，测试增至 `19 passed`。
 - 验证集泄漏审计发现随机逐序列切分的 151 个验证来源全部也在训练集（来源泄漏率 100%）。新增按 FASTA `source=` 整组 holdout，保证同一 MSA 来源不跨集合。
 - 完成 `continuous_full_v3`：训练 11,496 条/143 来源，验证 1,334 条/15 来源，source overlap=0，validation loss `2.907089`。v3 全量 index 12,830 条、duplicates=0、collisions=0；manifest 已切换 v3，测试增至 `21 passed`。
+- 新增独立 MLM 评测：固定来源隔离验证集、5 次独立 mask，mean loss `2.905616`、perplexity `18.2765`、masked-token accuracy `9.6658%`；相对均匀氨基酸 loss `2.995732`/accuracy `5%` 有限改善。评测报告已纳入 8 项资产 manifest，测试增至 `23 passed`。
 
 ## 2026-08-26 外部门控继续收紧
 
