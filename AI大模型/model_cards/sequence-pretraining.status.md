@@ -12,6 +12,7 @@ Local-only pretraining asset. This is not a release model card or a biological-p
 - Validation split: source-group holdout with zero train/validation source overlap (v3 corrected)
 - Independent MLM evaluation: 5 mask repeats, mean loss 2.905616, perplexity 18.2765, masked-token accuracy 9.6658%
 - Uniform amino-acid reference: loss 2.995732 and expected accuracy 5%; this is a reconstruction baseline, not a biological benchmark
+- Random-initialization control on the same masks: loss 3.177272, accuracy 5.3821%; trained-minus-random loss reduction 0.271656 and accuracy gain 4.2837 percentage points
 - Embedding dimension: 32
 - Checkpoint integrity: 26/26 SHA-256 verified
 
