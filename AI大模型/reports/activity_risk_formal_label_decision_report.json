@@ -1,0 +1,25 @@
+{
+  "activity_risk_label_rows_created": 6,
+  "authorization_matched_rows": 6,
+  "authorization_rows": 8,
+  "created_at": "2026-09-03T07:32:22.493455+00:00",
+  "formal_decision_rows": 6,
+  "label_counts": {
+    "low_activity_risk": 3,
+    "watch_activity_risk": 3
+  },
+  "local_only": true,
+  "output": "datasets/feedback/activity_risk_label_replicate_decisions.jsonl",
+  "policy": "Activity-risk formal labels are created only from KWB numeric feedback with matching reviewed activity_risk authorization; replicates and model/release gates remain blocked.",
+  "ready_for_training_import_rows": 6,
+  "release_ready": false,
+  "replicate_decision_counts": {
+    "single_measurement_not_replicate": 6
+  },
+  "replicate_rows_counted_for_training": 0,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": true,
+  "skipped_rows": [],
+  "source_numeric_activity_rows": 6,
+  "training_import_written_rows": 6
+}

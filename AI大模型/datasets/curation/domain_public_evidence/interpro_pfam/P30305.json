@@ -1,0 +1,73 @@
+{
+  "accession": "P30305",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00581",
+        "name": "Rhodanese-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001763",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p30305",
+          "protein_length": 580,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 434,
+                  "end": 529,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00581",
+              "score": 9.8e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF06617",
+        "name": "M-phase inducer phosphatase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000751",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p30305",
+          "protein_length": 580,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 113,
+                  "end": 383,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF06617",
+              "score": 9.7e-106
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

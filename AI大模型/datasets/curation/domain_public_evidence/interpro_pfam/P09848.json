@@ -1,0 +1,75 @@
+{
+  "accession": "P09848",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00232",
+        "name": "Glycosyl hydrolase family 1",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001360",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p09848",
+          "protein_length": 1927,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 82,
+                  "end": 207,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00232",
+              "score": 9.1e-13
+            },
+            {
+              "fragments": [
+                {
+                  "start": 379,
+                  "end": 847,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00232",
+              "score": 0
+            },
+            {
+              "fragments": [
+                {
+                  "start": 900,
+                  "end": 1364,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00232",
+              "score": 0
+            },
+            {
+              "fragments": [
+                {
+                  "start": 1375,
+                  "end": 1840,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00232",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

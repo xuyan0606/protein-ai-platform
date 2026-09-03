@@ -1,0 +1,51 @@
+{
+  "accession": "Q9NZ20",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF05826",
+        "name": "Phospholipase A2",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR016090",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nz20",
+          "protein_length": 509,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 152,
+                  "end": 247,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05826",
+              "score": 1.9e-34
+            },
+            {
+              "fragments": [
+                {
+                  "start": 366,
+                  "end": 427,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05826",
+              "score": 0.23
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

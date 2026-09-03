@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "mode": "local_release_consistency_semantic_policy_regression",
+  "success": true,
+  "isolated_fixture": true,
+  "control_valid": true,
+  "case_count": 10,
+  "passed_case_count": 10,
+  "failed_case_count": 0,
+  "real_inputs_mutated": false,
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case_id": "contract_version_drift",
+      "expected_check": "contract_version_exact",
+      "tamper_rejected": true,
+      "observed_checks": [
+        "contract_version_exact",
+        "observed_policy_payload_sha256_exact",
+        "shared_contract_test_vector_sha256_exact"
+      ]
+    },
+    {
+      "case_id": "expanded_release_exclusion",
+      "expected_check": "release_exclusion_fields_exact",
+      "tamper_rejected": true,
+      "observed_checks": [
+        "release_exclusion_fields_exact",
+        "observed_policy_payload_sha256_exact",
+        "shared_contract_test_vector_sha256_exact"
+      ]
+    },
+    {
+      "case_id": "removed_release_exclusion",
+      "expected_check": "release_exclusion_fields_exact",
+      "tamper_rejected": true,
+      "observed_checks": [
+        "release_exclusion_fields_exact",
+        "observed_policy_payload_sha256_exact",
+        "shared_contract_test_vector_sha256_exact"
+      ]
+    },
+    {
+      "case_id": "expanded_data_lake_semantic_exclusion",
+      "expected_check": "data_lake_semantic_excluded_paths_exact",
+      "tamper_rejected": true,
+      "observed_checks": [
+        "data_lake_semantic_excluded_paths_exact",
+        "observed_policy_payload_sha256_exact",
+        "shared_contract_test_vector_sha256_exact"
+      ]
+    },
+    {
+      "case_id": "removed_data_lake_semantic_exclusion",
+      "expected_check": "data_lake_semantic_excluded_paths_exact",
+      "tamper_rejected": true,
+      "observed_checks": [
+        "data_lake_semantic_excluded_paths_exact",
+        "observed_policy_payload_sha256_exact",
+        "shared_contract_test_vector_sha256_exact"
+      ]
+    },
+    {
+      "case_id": "release_summary_normalization_field_drift",
+      "expected_check": "release_summary_normalized_fields_exact",
+      "tamper_rejected": true,
+      "observed_checks": [
+        "release_summary_normalized_fields_exact",
+        "observed_policy_payload_sha256_exact",
+        "shared_contract_test_vector_sha256_exact"
+      ]
+    },
+    {
+      "case_id": "live_normalization_field_drift",
+      "expected_check": "live_normalized_fields_exact",
+      "tamper_rejected": true,
+      "observed_checks": [
+        "live_normalized_fields_exact",
+        "observed_policy_payload_sha256_exact",
+        "shared_contract_test_vector_builds",
+        "shared_contract_test_vector_sha256_exact"
+      ]
+    },
+    {
+      "case_id": "live_projection_field_drift",
+      "expected_check": "live_projection_fields_exact",
+      "tamper_rejected": true,
+      "observed_checks": [
+        "live_projection_fields_exact",
+        "observed_policy_payload_sha256_exact",
+        "shared_contract_test_vector_sha256_exact"
+      ]
+    },
+    {
+      "case_id": "policy_projection_field_drift",
+      "expected_check": "contract_policy_projection_fields_exact",
+      "tamper_rejected": true,
+      "observed_checks": [
+        "contract_policy_projection_fields_exact",
+        "observed_policy_payload_sha256_exact",
+        "shared_contract_test_vector_builds",
+        "shared_contract_test_vector_sha256_exact"
+      ]
+    },
+    {
+      "case_id": "canonicalization_drift",
+      "expected_check": "shared_contract_test_vector_sha256_exact",
+      "tamper_rejected": true,
+      "observed_checks": [
+        "shared_contract_test_vector_sha256_exact"
+      ]
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

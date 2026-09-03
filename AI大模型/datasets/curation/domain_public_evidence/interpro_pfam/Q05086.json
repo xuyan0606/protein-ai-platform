@@ -1,0 +1,73 @@
+{
+  "accession": "Q05086",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00632",
+        "name": "HECT-domain (ubiquitin-transferase)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000569",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q05086",
+          "protein_length": 875,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 576,
+                  "end": 874,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00632",
+              "score": 3.1e-100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16558",
+        "name": "Amino-terminal Zinc-binding domain of ubiquitin ligase E3A",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR032353",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q05086",
+          "protein_length": 875,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 29,
+                  "end": 83,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16558",
+              "score": 5.5e-16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

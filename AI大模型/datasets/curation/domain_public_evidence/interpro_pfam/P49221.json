@@ -1,0 +1,107 @@
+{
+  "accession": "P49221",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00868",
+        "name": "Transglutaminase family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001102",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49221",
+          "protein_length": 684,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 12,
+                  "end": 122,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00868",
+              "score": 8.7e-26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00927",
+        "name": "Transglutaminase family, C-terminal ig like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR008958",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49221",
+          "protein_length": 684,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 587,
+                  "end": 684,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00927",
+              "score": 6.1e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01841",
+        "name": "Transglutaminase-like superfamily",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002931",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49221",
+          "protein_length": 684,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 253,
+                  "end": 351,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01841",
+              "score": 2.6e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

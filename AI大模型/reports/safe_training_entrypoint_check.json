@@ -1,0 +1,20 @@
+{
+  "strict_table": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curated/enzyme_mutation_supervised_repaired_verified.jsonl",
+  "rows": 0,
+  "claim_eligible_rows": 0,
+  "synthetic_or_unreceipted_rows": 0,
+  "groups": 0,
+  "label_distribution": {},
+  "status_counts": {},
+  "failures": [],
+  "warnings": [
+    "below_model_claim_row_threshold",
+    "strict_table_empty_training_pipeline_blocked",
+    "below_claim_eligible_real_label_threshold"
+  ],
+  "no_leakage_guard_passed": true,
+  "training_pipeline_unlocked": false,
+  "safe_for_training_pipeline": false,
+  "safe_for_model_claim": false,
+  "policy": "strict table must contain only verified supervised labels; training/model claims require enough rows and non-synthetic claim-eligible label provenance. Empty strict tables are leakage-safe but training-blocked."
+}

@@ -1,0 +1,107 @@
+{
+  "accession": "Q9NQC1",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF10513",
+        "name": "Enhancer of polycomb-like",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR019542",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nqc1",
+          "protein_length": 790,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 31,
+                  "end": 175,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10513",
+              "score": 0.0097
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13831",
+        "name": "PHD-finger",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR019787",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nqc1",
+          "protein_length": 790,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 214,
+                  "end": 247,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13831",
+              "score": 2.2e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13832",
+        "name": "PHD-zinc-finger like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nqc1",
+          "protein_length": 790,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 253,
+                  "end": 364,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13832",
+              "score": 1.1e-27
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "created_at": "2026-09-03T07:34:03.239974+00:00",
+  "local_only": true,
+  "model": "KWB-EnzymeDesigner",
+  "version": "2.2.0-advanced-scaffold",
+  "status": "scaffold_only_fail_closed",
+  "architecture_layers": [
+    "sequence PLM embedding slot",
+    "MSA/conservation feature slot",
+    "structure-neighborhood GNN slot",
+    "ddG backend feature slot",
+    "wet-lab feedback calibration slot",
+    "five-head multi-task prediction",
+    "Pareto ranking and uncertainty calibration"
+  ],
+  "heads": [
+    "mutation_rank",
+    "stability",
+    "activity_safety",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "advanced_capability_targets": {
+    "plm_backends": [
+      "ESM2/ESM C",
+      "SaProt"
+    ],
+    "structure_backends": [
+      "structure GNN",
+      "SaProt structure-aware tokenization"
+    ],
+    "ddg_backends": [
+      "ThermoMPNN",
+      "Rosetta/PyRosetta",
+      "FoldX"
+    ],
+    "ranking": [
+      "Pareto front",
+      "pairwise/listwise ranking later when labels are ready"
+    ],
+    "uncertainty": [
+      "missing modality flags",
+      "OOD flags",
+      "future calibration on wet-lab feedback"
+    ]
+  },
+  "demo_output": "reports/advanced_model_demo.json",
+  "demo_candidate_count": 2,
+  "demo_status": "scaffold_only_fail_closed",
+  "ready_modalities": [
+    "ligand_or_substrate_context",
+    "sequence_plm_embedding",
+    "structure_gnn",
+    "wet_lab_feedback"
+  ],
+  "missing_modalities": [
+    "ddg_backend",
+    "msa_conservation"
+  ],
+  "safe_for_model_claim": false,
+  "blocked_until": [
+    "reviewed numbering decisions raise strict rows to threshold",
+    "MSA/conservation runtime or trusted cache is ready",
+    "real experiment feedback is imported and validated",
+    "ddG backend or approved stability baseline produces auditable artifacts",
+    "benchmark and claim readiness pass"
+  ],
+  "policy": "This report upgrades code architecture only. It does not introduce trained neural weights, external dependency execution, fabricated MSA, or model-quality claims."
+}

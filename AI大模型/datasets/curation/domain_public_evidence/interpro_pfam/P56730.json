@@ -1,0 +1,143 @@
+{
+  "accession": "P56730",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00051",
+        "name": "Kringle domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000001",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p56730",
+          "protein_length": 875,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 100,
+                  "end": 165,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00051",
+              "score": 1.8e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00089",
+        "name": "Trypsin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001254",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p56730",
+          "protein_length": 875,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 631,
+                  "end": 869,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00089",
+              "score": 1.6e-59
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00530",
+        "name": "Scavenger receptor cysteine-rich domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001190",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p56730",
+          "protein_length": 875,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 174,
+                  "end": 270,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00530",
+              "score": 3.4e-20
+            },
+            {
+              "fragments": [
+                {
+                  "start": 284,
+                  "end": 380,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00530",
+              "score": 5.8e-30
+            },
+            {
+              "fragments": [
+                {
+                  "start": 391,
+                  "end": 485,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00530",
+              "score": 7e-28
+            },
+            {
+              "fragments": [
+                {
+                  "start": 504,
+                  "end": 599,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00530",
+              "score": 2.2e-29
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

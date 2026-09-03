@@ -1,0 +1,39 @@
+{
+  "accession": "P83111",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00144",
+        "name": "Beta-lactamase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001466",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p83111",
+          "protein_length": 547,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 117,
+                  "end": 524,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00144",
+              "score": 1.5e-46
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

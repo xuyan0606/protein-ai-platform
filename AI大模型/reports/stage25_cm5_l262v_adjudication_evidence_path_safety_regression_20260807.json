@@ -1,0 +1,42 @@
+{
+  "apply_executed": false,
+  "case_rows": 3,
+  "cases": [
+    {
+      "case_id": "duplicate_review_id_rejected",
+      "observed_return_code": 1,
+      "passed": true,
+      "review_id_unique_failure_present": true
+    },
+    {
+      "case_id": "unsafe_relative_path_rejected",
+      "observed_return_code": 1,
+      "passed": true,
+      "safe_relative_path_failure_present": true
+    },
+    {
+      "case_id": "missing_artifact_rejected",
+      "observed_return_code": 1,
+      "passed": true,
+      "present_failure_present": true
+    }
+  ],
+  "discrepancy_resolved": false,
+  "duplicate_review_id_rejected_rows": 1,
+  "external_sqlite_mutated": false,
+  "failed_rows": 0,
+  "formal_decision_rows_written": 0,
+  "missing_artifact_rejected_rows": 1,
+  "mode": "stage25_cm5_l262v_adjudication_evidence_path_safety_regression",
+  "passed_rows": 3,
+  "policy": "Temporary isolated path-safety regression only. No real review, receipt, decision, or evidence input is modified and CM5 L262V is not adjudicated.",
+  "real_decision_input_mutated": false,
+  "real_receipt_input_mutated": false,
+  "real_review_input_mutated": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "schema_version": 1,
+  "stage": 25,
+  "success": true,
+  "unsafe_relative_path_rejected_rows": 1
+}

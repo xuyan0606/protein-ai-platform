@@ -1,0 +1,107 @@
+{
+  "accession": "Q12797",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF05118",
+        "name": "Aspartyl/Asparaginyl beta-hydroxylase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007803",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q12797",
+          "protein_length": 758,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 591,
+                  "end": 745,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05118",
+              "score": 3.5e-53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05279",
+        "name": "Aspartyl beta-hydroxylase N-terminal region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR007943",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q12797",
+          "protein_length": 758,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 43,
+                  "end": 108,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05279",
+              "score": 6.4e-40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13432",
+        "name": "Tetratricopeptide repeat",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q12797",
+          "protein_length": 758,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 345,
+                  "end": 385,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13432",
+              "score": 0.05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "P04179",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00081",
+        "name": "Iron/manganese superoxide dismutases, alpha-hairpin domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019831",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p04179",
+          "protein_length": 222,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 25,
+                  "end": 106,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00081",
+              "score": 1.7e-30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02777",
+        "name": "Iron/manganese superoxide dismutases, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019832",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p04179",
+          "protein_length": 222,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 113,
+                  "end": 216,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02777",
+              "score": 8.1e-37
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "local_only": true,
+  "ready": false,
+  "delivery_class": "platform_delivery_workflow_supported_but_not_ready",
+  "checks": {
+    "data_license_clearance": false,
+    "tool_license_clearance": false,
+    "self_attested_component_authorization_recorded": true,
+    "verified_component_customer_delivery_scope": false,
+    "ip_fto_review": false,
+    "biosecurity_approval": false,
+    "model_data_provenance": true,
+    "human_delivery_approval": false,
+    "allowed_claims_review": false,
+    "benchmark_scorecards": false
+  },
+  "blockers": [
+    "data_license_clearance",
+    "tool_license_clearance",
+    "verified_component_customer_delivery_scope",
+    "ip_fto_review",
+    "biosecurity_approval",
+    "human_delivery_approval",
+    "allowed_claims_review",
+    "benchmark_scorecards"
+  ],
+  "ip_fto_summary": {
+    "packet_rows": 3,
+    "decision_rows": 0,
+    "valid_rows": 0,
+    "approved_for_customer_delivery_rows": 0,
+    "ready_for_customer_delivery": false
+  },
+  "license_scope_summary": {
+    "authorization_status_counts": {
+      "self_attested": 3,
+      "pending_verification": 0,
+      "verified": 0
+    },
+    "capability_authorization_counts": {
+      "commercial_evaluation": {
+        "allowed": 3,
+        "denied": 0,
+        "pending": 0
+      },
+      "training_import": {
+        "allowed": 3,
+        "denied": 0,
+        "pending": 0
+      },
+      "customer_delivery": {
+        "allowed": 3,
+        "denied": 0,
+        "pending": 0
+      },
+      "service_hosting": {
+        "allowed": 3,
+        "denied": 0,
+        "pending": 0
+      },
+      "publication": {
+        "allowed": 3,
+        "denied": 0,
+        "pending": 0
+      }
+    },
+    "self_attested_commercial_evaluation_rows": 3,
+    "verified_customer_delivery_rows": 0,
+    "ready_for_customer_delivery": false
+  },
+  "human_review_prepared_summary": {
+    "launch_rows": 7,
+    "ready_for_human_review_rows": 7,
+    "total_packet_rows": 564,
+    "closeout_rows": 5,
+    "awaiting_human_decision_rows": 5,
+    "total_formal_decision_rows": 7,
+    "completion_ready_rows": 0,
+    "policy": "Prepared human-review packets help route review work but do not satisfy delivery gates."
+  },
+  "allowed_claims": [
+    "internal local readiness pipeline exists",
+    "current outputs are design/review artifacts only",
+    "platform can run customer-delivery workflow after verified component scope, IP/FTO, biosecurity, benchmark, provenance and human delivery gates pass"
+  ],
+  "forbidden_claims": [
+    "customer-ready sequence package",
+    "approved_for_ordering",
+    "IP/FTO cleared",
+    "biosecurity screened",
+    "validated wet-lab performance guarantee"
+  ],
+  "policy": "Customer-facing sequence packages are not platform-forbidden by default, but require verified component/customer-delivery authorization plus IP/FTO, biosecurity, provenance, benchmark, and human approval gates."
+}

@@ -16,16 +16,26 @@ from typing import Any
 import httpx
 
 from app.core.config import settings
+from app.services.evidence_source_status import evidence_source_status
+from app.services.ncbi_api import (
+    NCBIRateLimitError,
+    ncbi_evidence_details,
+    ncbi_request_params,
+    rate_limit_from_response,
+)
+from app.services.tool_cache import get_cached_result, set_cached_result
 from app.tools.registry import ToolRegistry
 
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
-_BLAST_SUBMIT_URL = "https://blast.ncbi.nlm.nih.gov/Blast.cgi"
-_POLL_INITIAL = 3.0
-_POLL_MAX = 60.0
+_BLAST_SUBMIT_URL = settings.BLAST_API_URL or "https://blast.ncbi.nlm.nih.gov/Blast.cgi"
+_POLL_INITIAL = max(1.0, float(settings.BLAST_POLL_INTERVAL or 5.0))
+_POLL_MAX = max(_POLL_INITIAL, 30.0)
 _POLL_BACKOFF = 1.5
-_MAX_POLL_ATTEMPTS = 30
+_MAX_POLL_ATTEMPTS = max(1, int(settings.BLAST_MAX_POLL_ATTEMPTS or 60))
+_POLL_BUDGET_SECONDS = max(_POLL_INITIAL, float(settings.BLAST_POLL_BUDGET_SECONDS or 45.0))
+_BLAST_HTTP_READ_TIMEOUT_SECONDS = max(10.0, float(settings.BLAST_HTTP_READ_TIMEOUT_SECONDS or 60.0))
 
 # Valid program / database combos
 _VALID_PROGRAMS = {"blastp", "blastx", "tblastn", "blastn"}
@@ -161,6 +171,25 @@ def _parse_blast_xml_full(xml: str, max_hits: int) -> list[dict[str, Any]]:
     return hits
 
 
+def _build_poll_schedule(rtoe: int) -> list[float]:
+    """Build a bounded poll schedule that stays within the tool timeout budget."""
+    delay = max(_POLL_INITIAL, min(float(rtoe), _POLL_MAX))
+    total = 0.0
+    schedule: list[float] = []
+
+    for _ in range(_MAX_POLL_ATTEMPTS):
+        if total + delay > _POLL_BUDGET_SECONDS:
+            break
+        schedule.append(delay)
+        total += delay
+        delay = min(delay * _POLL_BACKOFF, _POLL_MAX)
+
+    if not schedule:
+        schedule.append(min(max(_POLL_INITIAL, 1.0), _POLL_BUDGET_SECONDS))
+
+    return schedule
+
+
 # ---------------------------------------------------------------------------
 # BLAST runner
 # ---------------------------------------------------------------------------
@@ -175,9 +204,9 @@ async def _run_blast(
 
     blast_db = _DATABASE_MAP.get(database, database)
 
-    async with httpx.AsyncClient(timeout=httpx.Timeout(300.0)) as client:
+    async with httpx.AsyncClient(timeout=httpx.Timeout(connect=10.0, read=_BLAST_HTTP_READ_TIMEOUT_SECONDS, write=10.0, pool=10.0)) as client:
         # --- Submit ---
-        submit_params: dict[str, str] = {
+        submit_params = ncbi_request_params("blast", {
             "CMD": "Put",
             "PROGRAM": program,
             "DATABASE": blast_db,
@@ -186,20 +215,26 @@ async def _run_blast(
             "HITLIST_SIZE": str(max_results),
             "ALIGNMENTS": str(max_results),
             "DESCRIPTIONS": str(max_results),
-        }
-        if settings.NCBI_API_KEY:
-            submit_params["NCBI_API_KEY"] = settings.NCBI_API_KEY
+        })
 
         submit_resp = await client.post(_BLAST_SUBMIT_URL, data=submit_params)
+        rate_limit_error = rate_limit_from_response(
+            submit_resp,
+            source="ncbi_blast",
+            message="NCBI BLAST submission returned HTTP 429",
+        )
+        if rate_limit_error:
+            raise rate_limit_error
         submit_resp.raise_for_status()
         body = submit_resp.text
 
         # Check for rate limit / errors
         if "Message ID#24" in body or "too many" in body.lower():
-            retry_after = submit_resp.headers.get("Retry-After", "30")
-            raise RuntimeError(
-                f"RATE_LIMITED: NCBI BLAST rate limit exceeded. "
-                f"Retry-After: {retry_after}s. Set NCBI_API_KEY for higher quotas."
+            raise NCBIRateLimitError(
+                source="ncbi_blast",
+                retry_after=submit_resp.headers.get("Retry-After"),
+                status_code=submit_resp.status_code,
+                message="NCBI BLAST rate-limit response",
             )
 
         # Extract RID
@@ -216,18 +251,30 @@ async def _run_blast(
         rtoe = int(rtoe_match.group(1)) if rtoe_match else 30
 
     # --- Poll ---
-    delay = _POLL_INITIAL
-    for attempt in range(1, _MAX_POLL_ATTEMPTS + 1):
+    schedule = _build_poll_schedule(rtoe)
+    for attempt, delay in enumerate(schedule, start=1):
         await asyncio.sleep(delay)
 
-        async with httpx.AsyncClient(timeout=httpx.Timeout(300.0)) as client:
-            poll_params = {
+        async with httpx.AsyncClient(timeout=httpx.Timeout(connect=10.0, read=_BLAST_HTTP_READ_TIMEOUT_SECONDS, write=10.0, pool=10.0)) as client:
+            poll_params = ncbi_request_params("blast", {
                 "CMD": "Get",
                 "RID": rid,
                 "FORMAT_TYPE": "XML",
-            }
+            })
             poll_resp = await client.get(_BLAST_SUBMIT_URL, params=poll_params)
+            rate_limit_error = rate_limit_from_response(
+                poll_resp,
+                source="ncbi_blast",
+                message="NCBI BLAST polling returned HTTP 429",
+            )
+            if rate_limit_error:
+                raise rate_limit_error
             text = poll_resp.text
+
+        # NCBI can return full BLAST XML directly without the QBlast
+        # Status=READY marker. Treat visible Hit blocks as completed evidence.
+        if "<Hit>" in text:
+            return _parse_blast_xml_full(text, max_results)
 
         # Check for completion
         if "Status=READY" in text:
@@ -240,14 +287,48 @@ async def _run_blast(
             error_msg = _tag_text(text, "error") or "Unknown BLAST error"
             raise RuntimeError(f"BLAST_FAILED: job RID={rid} failed: {error_msg}")
 
-        # Exponential backoff
-        delay = min(delay * _POLL_BACKOFF, _POLL_MAX)
-
+    budget_seconds = round(sum(schedule), 1)
     raise TimeoutError(
-        f"BLAST_TIMEOUT: Job RID={rid} exceeded {_MAX_POLL_ATTEMPTS} polling "
-        f"attempts (~{_MAX_POLL_ATTEMPTS * _POLL_MAX}s). Query may be too complex "
+        f"BLAST_TIMEOUT: Job RID={rid} exceeded {len(schedule)} polling "
+        f"attempts (~{budget_seconds}s sleep budget). Query may be too complex "
         "or NCBI servers overloaded. Retry with a shorter sequence."
     )
+
+
+def _result_payload(
+    *,
+    seq: str,
+    program: str,
+    database: str,
+    hits: list[dict[str, Any]],
+    status: str = "completed",
+    warning: str | None = None,
+    error_code: str | None = None,
+    evidence_source: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    payload = {
+        "query_length": len(seq),
+        "program": program,
+        "database": database,
+        "results_count": len(hits),
+        "query_preview": seq[:80] + ("..." if len(seq) > 80 else ""),
+        "results": hits,
+        "status": status,
+        "cache": {"hit": False, "stale": False},
+        "evidence_source": evidence_source or evidence_source_status(
+            source="NCBI BLAST",
+            status="blocked",
+            mode="not_executed",
+            live_query_executed=False,
+            endpoint=_BLAST_SUBMIT_URL,
+            reason="BLAST evidence source status was not provided by caller.",
+        ),
+    }
+    if warning:
+        payload["warning"] = warning
+    if error_code:
+        payload["error_code"] = error_code
+    return payload
 
 
 # ===================================================================
@@ -291,21 +372,134 @@ async def blast_search(
             "SEQUENCE_TOO_SHORT: BLAST requires at least 5 residues for meaningful results"
         )
 
-    hits = await _run_blast(
-        sequence=seq,
-        program=program,
-        database=database,
-        max_results=max_results,
-    )
-
-    return {
-        "query_length": len(seq),
+    cache_params = {
+        "sequence": seq,
         "program": program,
         "database": database,
-        "results_count": len(hits),
-        "query_preview": seq[:80] + ("..." if len(seq) > 80 else ""),
-        "results": hits,
+        "max_results": max_results,
     }
+    cached = await get_cached_result("blast_search", cache_params)
+    if cached is not None:
+        previous_source = cached.get("evidence_source") if isinstance(cached.get("evidence_source"), dict) else None
+        cached["evidence_source"] = evidence_source_status(
+            source="NCBI BLAST",
+            status="degraded",
+            mode="cache_hit",
+            live_query_executed=False,
+            endpoint=_BLAST_SUBMIT_URL,
+            reason="Returned cached BLAST result; no live NCBI query executed in this request.",
+            details=ncbi_evidence_details(
+                "blast",
+                extra={"previous_evidence_source": previous_source} if previous_source else None,
+            ),
+        )
+        return cached
+
+    try:
+        hits = await _run_blast(
+            sequence=seq,
+            program=program,
+            database=database,
+            max_results=max_results,
+        )
+        payload = _result_payload(
+            seq=seq,
+            program=program,
+            database=database,
+            hits=hits,
+            evidence_source=evidence_source_status(
+                source="NCBI BLAST",
+                status="live",
+                mode="ncbi_blast_rest",
+                live_query_executed=True,
+                endpoint=_BLAST_SUBMIT_URL,
+                details=ncbi_evidence_details(
+                    "blast",
+                    extra={"program": program, "database": database, "max_results": max_results},
+                ),
+            ),
+        )
+        await set_cached_result("blast_search", cache_params, payload)
+        return payload
+    except (TimeoutError, httpx.HTTPError, RuntimeError) as exc:
+        stale = await get_cached_result("blast_search", cache_params, allow_stale=True)
+        if stale is not None:
+            stale["status"] = "stale_cache"
+            stale["warning"] = f"BLAST live query unavailable; returned cached result. Cause: {exc}"
+            stale.setdefault("cache", {})
+            stale["cache"]["stale"] = True
+            previous_source = stale.get("evidence_source") if isinstance(stale.get("evidence_source"), dict) else None
+            stale["evidence_source"] = evidence_source_status(
+                source="NCBI BLAST",
+                status="degraded",
+                mode="stale_cache_after_live_failure",
+                live_query_executed=False,
+                endpoint=_BLAST_SUBMIT_URL,
+                reason="RATE_LIMITED" if isinstance(exc, NCBIRateLimitError) else (
+                    f"Live NCBI BLAST query failed; returned stale cache. Cause: {exc}"
+                ),
+                details=ncbi_evidence_details(
+                    "blast",
+                    extra={"previous_evidence_source": previous_source} if previous_source else None,
+                    retry_after_by_source=(
+                        {exc.source: exc.retry_after}
+                        if isinstance(exc, NCBIRateLimitError) and exc.retry_after
+                        else None
+                    ),
+                    error=exc.as_details() if isinstance(exc, NCBIRateLimitError) else None,
+                ),
+            )
+            return stale
+
+        code = (
+            "RATE_LIMITED"
+            if isinstance(exc, NCBIRateLimitError)
+            else "BLAST_TIMEOUT"
+            if isinstance(exc, TimeoutError)
+            else "BLAST_DEGRADED"
+        )
+        degraded = _result_payload(
+            seq=seq,
+            program=program,
+            database=database,
+            hits=[],
+            status="degraded",
+            warning=(
+                "NCBI BLAST did not complete within the runtime budget. "
+                "Try `swissprot`, a shorter sequence, or retry later."
+                if isinstance(exc, TimeoutError)
+                else f"NCBI BLAST rate limited: {exc}"
+                if isinstance(exc, NCBIRateLimitError)
+                else f"NCBI BLAST request failed: {exc}"
+            ),
+            error_code=code,
+            evidence_source=evidence_source_status(
+                source="NCBI BLAST",
+                status="degraded",
+                mode="live_query_failed",
+                live_query_executed=False,
+                endpoint=_BLAST_SUBMIT_URL,
+                reason="RATE_LIMITED" if isinstance(exc, NCBIRateLimitError) else str(exc),
+                details=ncbi_evidence_details(
+                    "blast",
+                    extra={"attempted_live_query": True, "program": program, "database": database},
+                    retry_after_by_source=(
+                        {exc.source: exc.retry_after}
+                        if isinstance(exc, NCBIRateLimitError) and exc.retry_after
+                        else None
+                    ),
+                    error=exc.as_details() if isinstance(exc, NCBIRateLimitError) else None,
+                ),
+            ),
+        )
+        await set_cached_result(
+            "blast_search",
+            cache_params,
+            degraded,
+            ttl_seconds=120,
+            stale_ttl_seconds=300,
+        )
+        return degraded
 
 
 # ===================================================================

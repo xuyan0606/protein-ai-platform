@@ -1,0 +1,73 @@
+{
+  "accession": "Q9UNP9",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00076",
+        "name": "RNA recognition motif",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000504",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9unp9",
+          "protein_length": 301,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 8,
+                  "end": 78,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00076",
+              "score": 1.9e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00160",
+        "name": "Cyclophilin type peptidyl-prolyl cis-trans isomerase/CLD",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002130",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9unp9",
+          "protein_length": 301,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 143,
+                  "end": 298,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00160",
+              "score": 1.4e-43
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

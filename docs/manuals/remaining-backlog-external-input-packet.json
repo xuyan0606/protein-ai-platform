@@ -1,0 +1,236 @@
+{
+  "created_at": "2026-09-01T10:00:29.407139+00:00",
+  "destructive_actions": "not_executed",
+  "item_count": 7,
+  "items": [
+    {
+      "bucket": "external_dependency",
+      "detail": "PUBLIC_BASE_URL already points at an HTTPS domain; run full production config and browser gates after certificate deployment",
+      "id": 1,
+      "missing_requirements": [],
+      "name": "formal_domain_https",
+      "next_actions": [
+        "Run python3 scripts/check_production_config.py --mode production --require-production-safe --env-file docker/.env.aliyun.app.",
+        "Run FRONTEND_BASE_URL=<https-domain> python3 scripts/run_nightly_live_gates.py --json."
+      ],
+      "priority": "P0",
+      "required_input_fields": [
+        "formal_domain",
+        "dns_record_owner",
+        "tls_certificate_source",
+        "PUBLIC_BASE_URL",
+        "FRONTEND_URL",
+        "OIDC_ISSUER"
+      ],
+      "source": "docker/.env.aliyun.app",
+      "status": "planned",
+      "validation_commands": [
+        "make production-config-gate",
+        "make nightly-live-gates FRONTEND_BASE_URL=https://<domain>"
+      ]
+    },
+    {
+      "bucket": "external_dependency",
+      "detail": "GROMACS topology live gate is not available on this host: GROMACS_NOT_INSTALLED",
+      "id": 2,
+      "missing_requirements": [
+        "NVIDIA/GROMACS runtime",
+        "real WT/mutant PDB inputs",
+        "long-running MD worker capacity"
+      ],
+      "name": "gpu_gromacs_md_live",
+      "next_actions": [
+        "Provision the Aliyun GPU/GROMACS node, then run make backend-md-topology-live-gate.",
+        "After topology validation, submit real WT/mutant replicate batches and summarize ranking reports."
+      ],
+      "priority": "P0",
+      "required_input_fields": [
+        "gpu_node_or_runner",
+        "gromacs_runtime_version",
+        "wt_pdb_input",
+        "mutant_pdb_input",
+        "md_worker_capacity_window"
+      ],
+      "source": "backend/scripts/smoke_md_topology.py",
+      "status": "external_required",
+      "validation_commands": [
+        "make backend-md-topology-live-gate"
+      ]
+    },
+    {
+      "bucket": "external_dependency",
+      "detail": "MD black-box long-task gate is available but not armed; no live MD task was submitted",
+      "id": 3,
+      "missing_requirements": [
+        "MD_BLACKBOX_TASK_ID for resume or ALLOW_MD_BLACKBOX_SUBMIT=true for new submission",
+        "MD_BLACKBOX_PASSWORD/LIVE_AI_PASSWORD"
+      ],
+      "name": "md_blackbox_live_e2e",
+      "next_actions": [
+        "Prefer resume mode first: set MD_BLACKBOX_TASK_ID plus live account credentials for an existing completed/running task.",
+        "For a fresh long-task proof, set ALLOW_MD_BLACKBOX_SUBMIT=true and run during a validation window."
+      ],
+      "priority": "P0",
+      "required_input_fields": [
+        "MD_BLACKBOX_TASK_ID_or_ALLOW_MD_BLACKBOX_SUBMIT",
+        "MD_BLACKBOX_EMAIL_or_LIVE_AI_EMAIL",
+        "credential_secret_reference",
+        "validation_window"
+      ],
+      "source": "backend/scripts/verify_md_blackbox.py --base-url https://proteinai.example.com",
+      "status": "external_required",
+      "validation_commands": [
+        "make backend-md-blackbox MD_BLACKBOX_ARGS='--task-id <id> --email <email>'"
+      ]
+    },
+    {
+      "bucket": "external_dependency",
+      "detail": "ligand preprocessing/docking/topology runtime is not complete on this host",
+      "id": 4,
+      "missing_requirements": [
+        "conformer_generation",
+        "pdbqt_preparation",
+        "vina_docking",
+        "ligand_topology",
+        "gromacs_md"
+      ],
+      "name": "ligand_runtime_live",
+      "next_actions": [
+        "Install or build the ligand worker runtime with OpenBabel or RDKit, AutoDock Vina, ACPYPE/AmberTools, and GROMACS.",
+        "Then run make backend-ligand-toolchain-live-gate.",
+        "Or build protein-ai-ligand-worker:aliyun and rerun the read-only readiness check."
+      ],
+      "priority": "P1",
+      "required_input_fields": [
+        "ligand_worker_image_or_host",
+        "OpenBabel_or_RDKit_available",
+        "AutoDock_Vina_available",
+        "ACPYPE_or_AmberTools_available",
+        "GROMACS_available"
+      ],
+      "source": "permission denied while trying to connect to the docker API at unix:///Users/keweibo/.docker/run/docker.sock",
+      "status": "external_required",
+      "validation_commands": [
+        "make backend-ligand-toolchain-live-gate"
+      ]
+    },
+    {
+      "bucket": "external_dependency",
+      "detail": "OSS/MinIO E2E gate is available, but endpoint credentials or live bucket permission are not present in this shell",
+      "id": 5,
+      "missing_requirements": [
+        "MINIO_ACCESS_KEY/MINIO_SECRET_KEY or ALIYUN_OSS_ACCESS_KEY_ID/ALIYUN_OSS_ACCESS_KEY_SECRET",
+        "live bucket permission"
+      ],
+      "name": "oss_minio_live_e2e",
+      "next_actions": [
+        "Set live OSS/MinIO endpoint and credentials in the deployment environment.",
+        "Run python3 scripts/smoke_oss_minio_contract.py --json --require-live or acceptance matrix --include-oss-e2e."
+      ],
+      "priority": "P0",
+      "required_input_fields": [
+        "storage_endpoint",
+        "bucket_name",
+        "access_key_secret_reference",
+        "write_read_delete_permission_scope"
+      ],
+      "source": "scripts/smoke_oss_minio_contract.py",
+      "status": "external_required",
+      "validation_commands": [
+        "python3 scripts/smoke_oss_minio_contract.py --json --require-live"
+      ]
+    },
+    {
+      "bucket": "external_dependency",
+      "detail": "admin screenshots still require an authenticated admin session",
+      "id": 6,
+      "missing_requirements": [
+        "SCREENSHOT_EMAIL",
+        "SCREENSHOT_PASSWORD"
+      ],
+      "name": "admin_authenticated_screenshots",
+      "next_actions": [
+        "Provide admin screenshot credentials through SCREENSHOT_EMAIL/SCREENSHOT_PASSWORD.",
+        "Rerun make manual-screenshots FRONTEND_BASE_URL=http://127.0.0.1:4203 and verify /admin final_url."
+      ],
+      "priority": "P1",
+      "required_input_fields": [
+        "SCREENSHOT_EMAIL_secret_reference",
+        "SCREENSHOT_PASSWORD_secret_reference",
+        "FRONTEND_BASE_URL"
+      ],
+      "source": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/docs/manuals/screenshots/manifest.json",
+      "status": "external_required",
+      "validation_commands": [
+        "make manual-screenshots FRONTEND_BASE_URL=<url>"
+      ]
+    },
+    {
+      "bucket": "external_dependency",
+      "detail": "real rollback, offsite backup, and external storage restore drills need an approved maintenance window",
+      "id": 7,
+      "missing_requirements": [
+        "MAINTENANCE_WINDOW_ID",
+        "ALLOW_PRODUCTION_DRILL=true",
+        "REMOTE_BACKUP_TARGET or OFFSITE_BACKUP_TARGET",
+        "EXTERNAL_STORAGE_RESTORE_TARGET"
+      ],
+      "name": "maintenance_window_drills",
+      "next_actions": [
+        "Schedule a maintenance window and set MAINTENANCE_WINDOW_ID plus ALLOW_PRODUCTION_DRILL=true.",
+        "Provide offsite backup and external storage restore targets before running live drills."
+      ],
+      "priority": "P1",
+      "required_input_fields": [
+        "MAINTENANCE_WINDOW_ID",
+        "ALLOW_PRODUCTION_DRILL_approval",
+        "REMOTE_BACKUP_TARGET_or_OFFSITE_BACKUP_TARGET",
+        "EXTERNAL_STORAGE_RESTORE_TARGET"
+      ],
+      "source": null,
+      "status": "external_required",
+      "validation_commands": [
+        "make rollback-plan-json",
+        "make restore-drill BACKUP_FILE=<backup>"
+      ]
+    }
+  ],
+  "mode": "read_only_external_input_packet",
+  "network_io": "not_executed",
+  "priority_summary": {
+    "P0": {
+      "item_count": 4,
+      "items": [
+        "formal_domain_https",
+        "gpu_gromacs_md_live",
+        "md_blackbox_live_e2e",
+        "oss_minio_live_e2e"
+      ],
+      "required_input_field_count": 19
+    },
+    "P1": {
+      "item_count": 3,
+      "items": [
+        "ligand_runtime_live",
+        "admin_authenticated_screenshots",
+        "maintenance_window_drills"
+      ],
+      "required_input_field_count": 12
+    }
+  },
+  "summary": {
+    "bucket_counts": {
+      "external_dependency": 7,
+      "local_capable": 2
+    },
+    "counts": {
+      "external_required": 6,
+      "planned": 1,
+      "ready": 2
+    },
+    "destructive_actions": "not_executed",
+    "network_io": "not_executed",
+    "status": "external_required",
+    "total": 9
+  }
+}

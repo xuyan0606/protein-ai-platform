@@ -1,0 +1,85 @@
+{
+  "priority": "P0",
+  "priority_rows": 213,
+  "already_decided_rows": 4,
+  "available_rows": 209,
+  "batch_size": 25,
+  "batches": [
+    {
+      "batch_id": "p0_batch_001",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/batches/p0_batch_001.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/batches/p0_batch_001.md",
+      "uniprot_counts": {
+        "P19835": 6,
+        "O14744": 4,
+        "O15297": 3,
+        "O43143": 4,
+        "O43323": 5,
+        "O43897": 3
+      }
+    },
+    {
+      "batch_id": "p0_batch_002",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/batches/p0_batch_002.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/batches/p0_batch_002.md",
+      "uniprot_counts": {
+        "O60729": 3,
+        "O76039": 4,
+        "O76075": 4,
+        "O95361": 5,
+        "O95571": 4,
+        "P03951": 3,
+        "P06865": 2
+      }
+    },
+    {
+      "batch_id": "p0_batch_003",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/batches/p0_batch_003.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/batches/p0_batch_003.md",
+      "uniprot_counts": {
+        "P06865": 1,
+        "P08922": 3,
+        "P09769": 5,
+        "P09874": 5,
+        "P14550": 4,
+        "P15104": 4,
+        "P15374": 3
+      }
+    },
+    {
+      "batch_id": "p0_batch_004",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/batches/p0_batch_004.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/batches/p0_batch_004.md",
+      "uniprot_counts": {
+        "P15428": 4,
+        "P16455": 5,
+        "P16615": 3,
+        "P17643": 5,
+        "P20132": 4,
+        "P21127": 2,
+        "P21589": 2
+      }
+    },
+    {
+      "batch_id": "p0_batch_005",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/batches/p0_batch_005.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/batches/p0_batch_005.md",
+      "uniprot_counts": {
+        "P23458": 5,
+        "A2RUC4": 3,
+        "O00329": 4,
+        "O00444": 4,
+        "O00487": 4,
+        "O00506": 3,
+        "O00762": 2
+      }
+    }
+  ],
+  "covered_rows": 125,
+  "policy": "curation batches exclude already-decided records and are work packages only; they do not modify labels"
+}

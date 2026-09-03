@@ -1,0 +1,107 @@
+{
+  "accession": "O43426",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02383",
+        "name": "SacI homology domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002013",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43426",
+          "protein_length": 1573,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 60,
+                  "end": 340,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02383",
+              "score": 8.2e-67
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08952",
+        "name": "Domain of unknown function (DUF1866)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015047",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43426",
+          "protein_length": 1573,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 867,
+                  "end": 1006,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08952",
+              "score": 8.2e-57
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22669",
+        "name": "Endonuclease/Exonuclease/phosphatase family 2",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000300",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43426",
+          "protein_length": 1573,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 539,
+                  "end": 864,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22669",
+              "score": 1.6e-81
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

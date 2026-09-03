@@ -1,0 +1,107 @@
+{
+  "accession": "P61011",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00448",
+        "name": "SRP54-type protein, GTPase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000897",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p61011",
+          "protein_length": 504,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 102,
+                  "end": 296,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00448",
+              "score": 1.9e-74
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02881",
+        "name": "SRP54-type protein, helical bundle domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013822",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p61011",
+          "protein_length": 504,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 6,
+                  "end": 83,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02881",
+              "score": 1.2e-14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02978",
+        "name": "Signal peptide binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004125",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p61011",
+          "protein_length": 504,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 311,
+                  "end": 446,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF02978",
+              "score": 5.2e-35
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kwb-enzyme-analysis-constraint-policy.schema.json",
+  "title": "KWB enzyme analysis constraint policy",
+  "type": "object",
+  "required": [
+    "policy_id",
+    "version",
+    "local_only",
+    "pipeline_order",
+    "tool_call_display",
+    "database_fusion_policy",
+    "mutation_site_rules",
+    "ddg_thresholds",
+    "human_review_gates",
+    "experiment_workflow"
+  ],
+  "properties": {
+    "policy_id": {"type": "string"},
+    "version": {"type": "string"},
+    "local_only": {"type": "boolean", "const": true},
+    "pipeline_order": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "tool_call_display": {
+      "type": "object",
+      "required": ["required_fields", "user_confirmation_required_before_execution"],
+      "properties": {
+        "required_fields": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "user_confirmation_required_before_execution": {"type": "boolean"}
+      }
+    },
+    "database_fusion_policy": {
+      "type": "object",
+      "required": ["source_tiers", "forbidden_merges"],
+      "properties": {
+        "source_tiers": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "forbidden_merges": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "mutation_site_rules": {
+      "type": "object",
+      "required": ["tier_1", "tier_2", "tier_3", "no_go"],
+      "properties": {
+        "tier_1": {"type": "string"},
+        "tier_2": {"type": "string"},
+        "tier_3": {"type": "string"},
+        "no_go": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "ddg_thresholds": {
+      "type": "object",
+      "required": ["units", "stabilizing", "neutral", "watch", "no_go", "sign_convention"],
+      "properties": {
+        "units": {"type": "string"},
+        "stabilizing": {"type": "string"},
+        "neutral": {"type": "string"},
+        "watch": {"type": "string"},
+        "no_go": {"type": "string"},
+        "sign_convention": {"type": "string"}
+      }
+    },
+    "human_review_gates": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "experiment_workflow": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}

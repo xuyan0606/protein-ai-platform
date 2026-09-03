@@ -1,0 +1,73 @@
+{
+  "accession": "O95427",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01663",
+        "name": "Type I phosphodiesterase / nucleotide pyrophosphatase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002591",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95427",
+          "protein_length": 931,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 46,
+                  "end": 268,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01663",
+              "score": 3e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04987",
+        "name": "Phosphatidylinositolglycan class N (PIG-N)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR017852",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95427",
+          "protein_length": 931,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 430,
+                  "end": 884,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04987",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

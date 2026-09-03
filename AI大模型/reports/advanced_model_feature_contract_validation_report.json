@@ -1,0 +1,52 @@
+{
+  "created_at": "2026-09-03T07:32:03.682532+00:00",
+  "local_only": true,
+  "success": true,
+  "feature_contract": {
+    "feature_refs": 210,
+    "ready_feature_refs": 210,
+    "model_input_only_feature_refs": 210,
+    "training_label_source_feature_refs": 0,
+    "non_model_consumable_feature_refs": 0,
+    "family_counts": {
+      "msa_conservation": 158,
+      "pyrosetta_ddg_reu_input": 11,
+      "structure_graph": 34,
+      "structure_site": 7
+    },
+    "ready_family_counts": {
+      "msa_conservation": 158,
+      "pyrosetta_ddg_reu_input": 11,
+      "structure_graph": 34,
+      "structure_site": 7
+    }
+  },
+  "advanced_model_scaffold": {
+    "status": "scaffold_only_fail_closed",
+    "candidate_rows": 1,
+    "observed_heads": [
+      "activity_safety",
+      "assay_success",
+      "mutation_rank",
+      "stability",
+      "substrate_fit"
+    ],
+    "missing_modalities": [
+      "ddg_backend",
+      "ligand_or_substrate_context",
+      "msa_conservation",
+      "structure_gnn",
+      "wet_lab_feedback"
+    ],
+    "requires_wet_lab_validation": true
+  },
+  "negative_protection_checks": {
+    "training_label_source_true_ready_refs_fail_validation": true,
+    "model_consumable_false_ready_refs_fail_validation": true
+  },
+  "failures": [],
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Advanced model feature contract validation proves feature refs are model-input-only. Any training-label source or non-consumable feature counted as ready fails validation."
+}

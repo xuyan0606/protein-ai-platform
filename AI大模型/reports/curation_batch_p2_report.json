@@ -1,0 +1,32 @@
+{
+  "priority": "P2",
+  "priority_rows": 13,
+  "already_decided_rows": 0,
+  "available_rows": 13,
+  "batch_size": 25,
+  "batches": [
+    {
+      "batch_id": "p2_batch_001",
+      "rows": 13,
+      "jsonl": "科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/batches/p2/p2_batch_001.jsonl",
+      "markdown": "科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/batches/p2/p2_batch_001.md",
+      "uniprot_counts": {
+        "A1L3X0": 1,
+        "O00746": 1,
+        "O60235": 1,
+        "O95260": 1,
+        "O95497": 1,
+        "P04406": 1,
+        "P10153": 1,
+        "P11766": 1,
+        "P15170": 1,
+        "P17540": 1,
+        "P18669": 1,
+        "P21860": 1,
+        "P23468": 1
+      }
+    }
+  ],
+  "covered_rows": 13,
+  "policy": "curation batches exclude already-decided records and are work packages only; they do not modify labels"
+}

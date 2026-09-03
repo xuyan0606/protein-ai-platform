@@ -1,0 +1,23 @@
+{
+  "backend": "pyrosetta",
+  "ddg_units": "REU",
+  "negative_ddg_is_stabilizing": true,
+  "protocol": "minimal_scorefxn_single_mutation_smoke",
+  "rows": [
+    {
+      "chain_id": "A",
+      "ddg_reu": -1.884713732593724,
+      "manual_review_required": true,
+      "mutant": "A",
+      "mutant_score_reu": 47.775395418161466,
+      "mutation": "T10A",
+      "pdb_position": 10,
+      "pose_index": 34,
+      "structure_id": "10MH",
+      "training_label": false,
+      "wild_score_reu": 49.66010915075519,
+      "wild_type": "T"
+    }
+  ],
+  "runtime_smoke_only_not_training_label": true
+}

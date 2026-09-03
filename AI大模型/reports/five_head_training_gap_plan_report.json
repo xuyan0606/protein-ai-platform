@@ -1,0 +1,242 @@
+{
+  "created_at": "2026-09-03T07:32:22.399777+00:00",
+  "local_only": true,
+  "status": "blocked",
+  "total_heads": 5,
+  "ready_heads": 0,
+  "minimum_rows_per_head": 100,
+  "threshold_report": "reports/five_head_training_threshold_report.json",
+  "threshold_source_counts": {
+    "activity_risk_formal_label_decision_rows": 6,
+    "activity_risk_training_import_label_rows": 6,
+    "fireprot_reviewed_import_rows": 0,
+    "numeric_feedback_rows": 6,
+    "plate_training_eligible_rows": 0,
+    "strict_supervised_rows": 0
+  },
+  "threshold_ready_heads": [],
+  "candidate_heads": [],
+  "blocked_heads": [
+    "mutation_rank",
+    "stability",
+    "activity_risk",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "claim_matrix_blocked_claims": 10,
+  "head_gap_actions": [
+    {
+      "head": "mutation_rank",
+      "priority": "P0",
+      "current_training_rows": 0,
+      "minimum_rows": 100,
+      "missing_to_minimum": 100,
+      "candidate_rows_observed": 0,
+      "ready_candidate_rows": 0,
+      "primary_source": "reviewed numbering + claim-eligible real supervised labels",
+      "review_queue": "reports/numbering_review_operator_queue.json",
+      "blocking_gate": "MQ-U001 reviewed numbering and real label provenance",
+      "next_action": "Resolve semantic conflicts, then approve only real-source reviewed numbering decisions.",
+      "notes": "Ranking labels must come from claim-eligible real supervised rows, not synthetic ProThermDB fixtures.",
+      "training_unlocked": false,
+      "safe_for_model_claim": false,
+      "policy": "Gap plan only; not a training row, approval, reviewed decision, or model-quality claim.",
+      "minimum_replicates": 3,
+      "minimum_groups": 10,
+      "observed_sample_count": 0,
+      "observed_replicate_count": 0,
+      "observed_group_count": 0,
+      "head_status": "blocked",
+      "thresholds_met": false
+    },
+    {
+      "head": "stability",
+      "priority": "P0",
+      "current_training_rows": 0,
+      "minimum_rows": 100,
+      "missing_to_minimum": 100,
+      "candidate_rows_observed": 0,
+      "ready_candidate_rows": 0,
+      "primary_source": "FireProt reviewed import candidates + KWB wet-lab stability metrics",
+      "review_queue": "datasets/curation/fireprot_dedup_review_decisions.jsonl; datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+      "blocking_gate": "FireProt license/dedup/import receipt + wet-lab authorization",
+      "next_action": "Approve license scope, dedup policy, reviewed import receipt, and metric-level wet-lab authorizations.",
+      "notes": "ThermoMPNN proxy ddG is usable as a feature/baseline, not as a substitute for reviewed stability labels.",
+      "training_unlocked": false,
+      "safe_for_model_claim": false,
+      "policy": "Gap plan only; not a training row, approval, reviewed decision, or model-quality claim.",
+      "minimum_replicates": 3,
+      "minimum_groups": 10,
+      "observed_sample_count": 0,
+      "observed_replicate_count": 0,
+      "observed_group_count": 0,
+      "head_status": "blocked",
+      "thresholds_met": false
+    },
+    {
+      "head": "activity_risk",
+      "priority": "P0",
+      "current_training_rows": 6,
+      "minimum_rows": 100,
+      "missing_to_minimum": 94,
+      "candidate_rows_observed": 6,
+      "ready_candidate_rows": 0,
+      "primary_source": "KWB wet-lab activity metrics",
+      "review_queue": "datasets/feedback/wet_lab_mutant_library_feedback_authorization_worklist.jsonl",
+      "blocking_gate": "metric-level human authorization and feedback preflight",
+      "next_action": "Authorize or reject each activity metric row, then rerun wet-lab preflight and apply-plan validators.",
+      "notes": "Activity labels should preserve condition context such as pH, control, batch, unit, and QC class.",
+      "training_unlocked": false,
+      "safe_for_model_claim": false,
+      "policy": "Gap plan only; not a training row, approval, reviewed decision, or model-quality claim.",
+      "minimum_replicates": 3,
+      "minimum_groups": 10,
+      "observed_sample_count": 6,
+      "observed_replicate_count": 0,
+      "observed_group_count": 2,
+      "head_status": "label_rows_below_threshold",
+      "thresholds_met": false
+    },
+    {
+      "head": "substrate_fit",
+      "priority": "P1",
+      "current_training_rows": 0,
+      "minimum_rows": 100,
+      "missing_to_minimum": 100,
+      "candidate_rows_observed": 0,
+      "ready_candidate_rows": 0,
+      "primary_source": "substrate-specific assay labels or substrate annotations",
+      "review_queue": "not yet built",
+      "blocking_gate": "no substrate-fit label source approved",
+      "next_action": "Create a substrate label schema and extract substrate/assay-specific wet-lab rows only after source review.",
+      "notes": "Do not infer substrate fit from generic activity without substrate identity and assay conditions.",
+      "training_unlocked": false,
+      "safe_for_model_claim": false,
+      "policy": "Gap plan only; not a training row, approval, reviewed decision, or model-quality claim.",
+      "minimum_replicates": 3,
+      "minimum_groups": 10,
+      "observed_sample_count": 0,
+      "observed_replicate_count": 0,
+      "observed_group_count": 0,
+      "head_status": "blocked",
+      "thresholds_met": false
+    },
+    {
+      "head": "assay_success",
+      "priority": "P0",
+      "current_training_rows": 0,
+      "minimum_rows": 100,
+      "missing_to_minimum": 100,
+      "candidate_rows_observed": 0,
+      "ready_candidate_rows": 0,
+      "primary_source": "plate/well-level assay execution feedback",
+      "review_queue": "datasets/feedback/experiment_feedback_plate_intake_backlog.jsonl",
+      "blocking_gate": "plate intake QC and human extraction",
+      "next_action": "Convert reviewed plate/well rows into schema-valid feedback with success/failure/QC labels.",
+      "notes": "Assay success must include failed and low-quality experiments, not only successful designs.",
+      "training_unlocked": false,
+      "safe_for_model_claim": false,
+      "policy": "Gap plan only; not a training row, approval, reviewed decision, or model-quality claim.",
+      "minimum_replicates": 3,
+      "minimum_groups": 10,
+      "observed_sample_count": 0,
+      "observed_replicate_count": 0,
+      "observed_group_count": 0,
+      "head_status": "blocked",
+      "thresholds_met": false
+    }
+  ],
+  "candidate_signals": {
+    "wet_lab_candidate_rows": 445,
+    "wet_lab_numeric_candidate_rows": 6,
+    "wet_lab_numeric_activity_rows": 6,
+    "wet_lab_numeric_stability_rows": 0,
+    "wet_lab_ready_for_feedback_intake_rows": 0,
+    "wet_lab_authorization_worklist_rows": 12,
+    "wet_lab_authorized_rows": 8,
+    "wet_lab_metric_class_counts": [
+      {
+        "value": "acid_activity",
+        "rows": 3
+      },
+      {
+        "value": "neutral_activity",
+        "rows": 3
+      },
+      {
+        "value": "thermal_stability",
+        "rows": 3
+      },
+      {
+        "value": "acid_retention",
+        "rows": 3
+      }
+    ],
+    "wet_lab_variant_counts": [
+      {
+        "value": "D105N",
+        "rows": 4
+      },
+      {
+        "value": "E331Q",
+        "rows": 4
+      },
+      {
+        "value": "S265T",
+        "rows": 4
+      }
+    ],
+    "fireprot_mapping_candidate_rows": 5067,
+    "fireprot_reviewed_import_candidate_rows": 0,
+    "fireprot_label_method_counts": [
+      {
+        "value": "GdnHCl",
+        "rows": 1626
+      },
+      {
+        "value": "Thermal",
+        "rows": 1379
+      },
+      {
+        "value": "Urea",
+        "rows": 1228
+      },
+      {
+        "value": "plate-based chemical denaturation assay",
+        "rows": 645
+      },
+      {
+        "value": "Equilibrium Urea Denaturation",
+        "rows": 78
+      },
+      {
+        "value": "circular dichroism spectroscopy; equilibrium unfolding monitored by CD and fluorescence spectroscopy",
+        "rows": 48
+      },
+      {
+        "value": "GSSG, GSH",
+        "rows": 28
+      },
+      {
+        "value": "CD, urea denaturation",
+        "rows": 25
+      }
+    ],
+    "license_ready_for_training": false,
+    "plate_feedback_blocked_rows": 110,
+    "plate_feedback_ready_for_intake_rows": 0,
+    "feature_rows_excluded_from_labels": 210
+  },
+  "next_execution_order": [
+    "P0 resolve numbering semantic conflicts and keep generated/fixture rows rejected unless real receipts exist",
+    "P0 authorize/reject 12 KWB wet-lab metric rows for activity/stability heads",
+    "P0 finish FireProt license/dedup/reviewed import receipt before stability import",
+    "P0 build plate/well success/failure intake rows for assay_success",
+    "P1 define substrate_fit label schema only after substrate identity is explicit",
+    "rerun python3 scripts/run_safe_training_pipeline.py before any training run"
+  ],
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "This plan quantifies head-specific gaps only. It never approves data, imports labels, trains models, or relaxes model-claim gates."
+}

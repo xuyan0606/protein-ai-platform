@@ -1,0 +1,73 @@
+{
+  "accession": "Q5VTE6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03372",
+        "name": "Endonuclease/Exonuclease/phosphatase family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR005135",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5vte6",
+          "protein_length": 544,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 170,
+                  "end": 486,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03372",
+              "score": 5.8e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19339",
+        "name": "Protein angel homolog 2 N-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR045816",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5vte6",
+          "protein_length": 544,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 23,
+                  "end": 129,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF19339",
+              "score": 8.7e-51
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

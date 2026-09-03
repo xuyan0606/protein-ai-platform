@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB Model Tool Event",
+  "type": "object",
+  "required": ["event_id", "session_id", "tool_name", "status", "created_at"],
+  "properties": {
+    "event_id": { "type": "string" },
+    "session_id": { "type": "string" },
+    "conversation_id": { "type": ["integer", "string", "null"] },
+    "project_id": { "type": ["string", "null"] },
+    "user_id": { "type": ["integer", "string"] },
+    "model_name": { "type": "string" },
+    "model_version": { "type": "string" },
+    "tool_name": { "type": "string" },
+    "tool_params": { "type": "object" },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "input_parsing",
+        "structure_gate",
+        "residue_numbering",
+        "evidence_retrieval",
+        "feature_enrichment",
+        "multi_head_scoring",
+        "candidate_ranking",
+        "experiment_planning"
+      ]
+    },
+    "stage_title": { "type": "string" },
+    "progress_percent": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "status": {
+      "type": "string",
+      "enum": ["planned", "running", "completed", "failed", "blocked", "cancelled"]
+    },
+    "evidence_counts": {
+      "type": "object",
+      "properties": {
+        "kwb_private_records": { "type": "integer" },
+        "public_database_records": { "type": "integer" },
+        "structure_records": { "type": "integer" },
+        "tool_results": { "type": "integer" }
+      },
+      "additionalProperties": false
+    },
+    "display_metrics": {
+      "type": "object",
+      "properties": {
+        "candidate_count": { "type": "integer" },
+        "go_count": { "type": "integer" },
+        "watch_count": { "type": "integer" },
+        "no_go_count": { "type": "integer" },
+        "structure_gate_passed": { "type": "boolean" },
+        "numbering_verified": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "result_ref": { "type": ["string", "null"] },
+    "error_code": { "type": ["string", "null"] },
+    "quality_flags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "completed_at": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "additionalProperties": false
+}

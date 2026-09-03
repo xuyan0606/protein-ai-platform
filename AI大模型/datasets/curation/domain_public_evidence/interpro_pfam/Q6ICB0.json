@@ -1,0 +1,39 @@
+{
+  "accession": "Q6ICB0",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF05903",
+        "name": "PPPDE putative peptidase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR008580",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6icb0",
+          "protein_length": 168,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 8,
+                  "end": 146,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05903",
+              "score": 3e-44
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "accession": "O95479",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00479",
+        "name": "Glucose-6-phosphate dehydrogenase, NAD binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022674",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95479",
+          "protein_length": 791,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 29,
+                  "end": 211,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00479",
+              "score": 8.8e-33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01182",
+        "name": "Glucosamine-6-phosphate isomerases/6-phosphogluconolactonase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006148",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95479",
+          "protein_length": 791,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 560,
+                  "end": 782,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01182",
+              "score": 8.9e-64
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02781",
+        "name": "Glucose-6-phosphate dehydrogenase, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022675",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95479",
+          "protein_length": 791,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 217,
+                  "end": 507,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02781",
+              "score": 1.8e-52
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

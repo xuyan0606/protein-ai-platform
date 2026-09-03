@@ -1,0 +1,39 @@
+{
+  "apply_executed": false,
+  "approved_for_physical_ddg_runtime": false,
+  "artifact_count": 5,
+  "created_at": "2026-08-12T00:48:33.588380+00:00",
+  "ddg_value_technical_only": true,
+  "energetic_interpretation_approved": false,
+  "export_safe_released": false,
+  "external_sqlite_mutated": false,
+  "failures": [],
+  "formal_decision_rows_written": 0,
+  "formal_runtime_receipt_written": false,
+  "local_only": true,
+  "parameterization_dependency_warning_detected": true,
+  "parameterization_review_completed": false,
+  "parameterization_warning_command_count": 2,
+  "parameterization_warning_commands": [
+    "RepairPDB",
+    "BuildModel"
+  ],
+  "parsed_rows": 1,
+  "physical_ddg_comparable": false,
+  "policy": "Technical smoke validation only. Parameterization dependency and unrecognized-molecule diagnostics prohibit energetic interpretation, physical-ddG comparison, benchmark intake, training import, model claim, customer delivery, or release.",
+  "release_ready": false,
+  "safe_for_benchmark_intake": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "success": true,
+  "technical_smoke_only": true,
+  "technical_smoke_passed": true,
+  "unrecognized_atom_rows": 110,
+  "unrecognized_molecule_diagnostic_present": true,
+  "unrecognized_molecule_diagnostic_sha256": "844eb97d8e3f565c43f0b62430fb45cb1792b7345a02bd2f23ce1337e6f45892",
+  "unrecognized_molecule_names": [
+    "5CM",
+    "5NC",
+    "SAH"
+  ]
+}

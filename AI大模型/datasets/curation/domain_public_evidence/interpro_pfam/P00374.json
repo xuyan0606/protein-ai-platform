@@ -1,0 +1,39 @@
+{
+  "accession": "P00374",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00186",
+        "name": "Dihydrofolate reductase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001796",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p00374",
+          "protein_length": 187,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 5,
+                  "end": 185,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00186",
+              "score": 7.4e-28
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

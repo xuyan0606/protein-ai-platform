@@ -1,0 +1,296 @@
+[
+  {
+    "taxonomy": {
+      "ncbi_taxid": 1390,
+      "scientific_name": "Bacillus amyloliquefaciens",
+      "common_name": "Bacillus velezensis",
+      "kingdom": "Bacteria",
+      "phylum": "Bacillota",
+      "class_name": "Bacilli",
+      "order_name": "Bacillales",
+      "family": "Bacillaceae",
+      "genus": "Bacillus",
+      "species": "Bacillus amyloliquefaciens"
+    },
+    "enzyme": {
+      "uniprot_id": "P00692",
+      "entry_name": "AMY_BACAM",
+      "sequence": "MIQKRKRTVSFRLVLMCTLLFVSLPITKTSAVNGTLMQYFEWYTPNDGQHWKRLQNDAEHLSDIGITAVWIPPAYKGLSQSDNGYGPYDLYDLGEFQQKGTVRTKYGTKSELQDAIGSLHSRNVQVYGDVVLNHKAGADATEDVTAVEVNPANRNQETSEEYQIKAWTDFRFPGRGNTYSDFKWHWYHFDGADWDESRKISRIFKFRGEGKAWDWEVSSENGNYDYLMYADVDYDHPDVVAETKKWGIWYANELSLDGFRIDAAKHIKFSFLRDWVQAVRQATGKEMFTVAEYWQNNAGKLENYLNKTSFNQSVFDVPLHFNLQAASSQGGGYDMRRLLDGTVVSRHPEKAVTFVENHDTQPGQSLESTVQTWFKPLAYAFILTRESGYPQVFYGDMYGTKGTSPKEIPSLKDNIEPILKARKEYAYGPQHDYIDHPDVIGWTREGDSSAAKSGLAALITDGPGGSKRMYAGLKNAGETWYDITGNRSDTVKIGSDGWGEFHVNDGSVSIYVQK",
+      "protein_name": "Alpha-amylase",
+      "gene_name": null,
+      "description": "Alpha-amylase",
+      "function_annotation": null,
+      "catalytic_activity": "Endohydrolysis of (1->4)-alpha-D-glucosidic linkages in polysaccharides containing three or more (1->4)-alpha-linked D-glucose units.",
+      "source_db": "uniprot",
+      "source_version": "2026-07-18",
+      "is_reviewed": false
+    },
+    "ec_numbers": [
+      {
+        "ec_number": "3.2.1.1",
+        "name": "",
+        "category": "",
+        "level1": "3",
+        "level2": "3.2",
+        "level3": "3.2.1",
+        "is_primary": true
+      }
+    ],
+    "pfam_domains": [
+      {
+        "pfam_id": "PF00128",
+        "name": "Alpha amylase, catalytic domain",
+        "description": "Glycosyl hydrolase family 13, catalytic domain",
+        "start_pos": 34,
+        "end_pos": 422,
+        "evalue": null
+      },
+      {
+        "pfam_id": "PF09154",
+        "name": "Alpha-amylase C-terminal",
+        "description": "Alpha-amylase C-terminal, prokaryotic",
+        "start_pos": 468,
+        "end_pos": 511,
+        "evalue": null
+      }
+    ]
+  },
+  {
+    "taxonomy": {
+      "ncbi_taxid": 1422,
+      "scientific_name": "Geobacillus stearothermophilus",
+      "common_name": "Bacillus stearothermophilus",
+      "kingdom": "Bacteria",
+      "phylum": "Bacillota",
+      "class_name": "Bacilli",
+      "order_name": "Bacillales",
+      "family": "Anoxybacillaceae",
+      "genus": "Geobacillus",
+      "species": "Geobacillus stearothermophilus"
+    },
+    "enzyme": {
+      "uniprot_id": "P19531",
+      "entry_name": "AMYM_GEOSE",
+      "sequence": "MKKKTLSLFVGLMLLIGLLFSGSLPYNPNAAEASSSASVKGDVIYQIIIDRFYDGDTTNNNPAKSYGLYDPTKSKWKMYWGGDLEGVRQKLPYLKQLGVTTIWLSPVLDNLDTLAGTDNTGYHGYWTRDFKQIEEHFGNWTTFDTLVNDAHQNGIKVIVDFVPNHSTPFKANDSTFAEGGALYNNGTYMGNYFDDATKGYFHHNGDISNWDDRYEAQWKNFTDPAGFSLADLSQENGTIAQYLTDAAVQLVAHGADGLRIDAVKHFNSGFSKSLADKLYQKKDIFLVGEWYGDDPGTANHLEKVRYANNSGVNVLDFDLNTVIRNVFGTFTQTMYDLNNMVNQTGNEYKYKENLITFIDNHDMSRFLSVNSNKANLHQALAFILTSRGTPSIYYGTEQYMAGGNDPYNRGMMPAFDTTTTAFKEVSTLAGLRRNNAAIQYGTTTQRWINNDVYIYERKFFNDVVLVAINRNTQSSYSISGLQTALPNGSYADYLSGLLGGNGISVSNGSVASFTLAPGAVSVWQYSTSASAPQIGSVAPNMGIPGNVVTIDGKGFGTTQGTVTFGGVTATVKSWTSNRIEVYVPNMAAGLTDVKVTAGGVSSNLYSYNILSGTQTSVVFTVKSAPPTNLGDKIYLTGNIPELGNWSTDTSGAVNNAQGPLLAPNYPDWFYVFSVPAGKTIQFKFFIKRADGTIQWENGSNHVATTPTGATGNITVTWQN",
+      "protein_name": "Maltogenic alpha-amylase",
+      "gene_name": "amyM",
+      "description": "Maltogenic alpha-amylase",
+      "function_annotation": "Converts starch into maltose",
+      "catalytic_activity": "hydrolysis of (1->4)-alpha-D-glucosidic linkages in polysaccharides so as to remove successive alpha-maltose residues from the non-reducing ends of the chains.",
+      "source_db": "uniprot",
+      "source_version": "2026-07-18",
+      "is_reviewed": false
+    },
+    "ec_numbers": [
+      {
+        "ec_number": "3.2.1.133",
+        "name": "",
+        "category": "",
+        "level1": "3",
+        "level2": "3.2",
+        "level3": "3.2.1",
+        "is_primary": true
+      }
+    ],
+    "pfam_domains": [
+      {
+        "pfam_id": "PF00686",
+        "name": "Starch binding domain",
+        "description": "Carbohydrate binding module family 20",
+        "start_pos": 609,
+        "end_pos": 719,
+        "evalue": null
+      },
+      {
+        "pfam_id": "PF01833",
+        "name": "IPT/TIG domain",
+        "description": "IPT domain",
+        "start_pos": 532,
+        "end_pos": 606,
+        "evalue": null
+      },
+      {
+        "pfam_id": "PF00128",
+        "name": "Alpha amylase, catalytic domain",
+        "description": "Glycosyl hydrolase family 13, catalytic domain",
+        "start_pos": 46,
+        "end_pos": 432,
+        "evalue": null
+      },
+      {
+        "pfam_id": "PF02806",
+        "name": "Alpha amylase, C-terminal all-beta domain",
+        "description": "Alpha-amylase/branching enzyme, C-terminal all beta",
+        "start_pos": 447,
+        "end_pos": 525,
+        "evalue": null
+      }
+    ]
+  },
+  {
+    "taxonomy": {
+      "ncbi_taxid": 224308,
+      "scientific_name": "Bacillus subtilis (strain 168)",
+      "common_name": null,
+      "kingdom": "Bacteria",
+      "phylum": "Bacillota",
+      "class_name": "Bacilli",
+      "order_name": "Bacillales",
+      "family": "Bacillaceae",
+      "genus": "Bacillus",
+      "species": "Bacillus subtilis (strain 168)"
+    },
+    "enzyme": {
+      "uniprot_id": "P00691",
+      "entry_name": "AMY_BACSU",
+      "sequence": "MFAKRFKTSLLPLFAGFLLLFHLVLAGPAAASAETANKSNELTAPSIKSGTILHAWNWSFNTLKHNMKDIHDAGYTAIQTSPINQVKEGNQGDKSMSNWYWLYQPTSYQIGNRYLGTEQEFKEMCAAAEEYGIKVIVDAVINHTTSDYAAISNEVKSIPNWTHGNTQIKNWSDRWDVTQNSLLGLYDWNTQNTQVQSYLKRFLDRALNDGADGFRFDAAKHIELPDDGSYGSQFWPNITNTSAEFQYGEILQDSASRDAAYANYMDVTASNYGHSIRSALKNRNLGVSNISHYASDVSADKLVTWVESHDTYANDDEESTWMSDDDIRLGWAVIASRSGSTPLFFSRPEGGGNGVRFPGKSQIGDRGSALFEDQAITAVNRFHNVMAGQPEELSNPNGNNQIFMNQRGSHGVVLANAGSSSVSINTATKLPDGRYDNKAGAGSFQVNDGKLTGTINARSVAVLYPDDIAKAPHVFLENYKTGVTHSFNDQLTITLRADANTTKAVYQINNGPETAFKDGDQFTIGKGDPFGKTYTIMLKGTNSDGVTRTEKYSFVKRDPASAKTIGYQNPNHWSQVNAYIYKHDGSRVIELTGSWPGKPMTKNADGIYTLTLPADTDTTNAKVIFNNGSAQVPGQNQPGFDYVLNGLYNDSGLSGSLPH",
+      "protein_name": "Alpha-amylase",
+      "gene_name": "amyE",
+      "description": "Alpha-amylase",
+      "function_annotation": null,
+      "catalytic_activity": "Endohydrolysis of (1->4)-alpha-D-glucosidic linkages in polysaccharides containing three or more (1->4)-alpha-linked D-glucose units.",
+      "source_db": "uniprot",
+      "source_version": "2026-07-18",
+      "is_reviewed": false
+    },
+    "ec_numbers": [
+      {
+        "ec_number": "3.2.1.1",
+        "name": "",
+        "category": "",
+        "level1": "3",
+        "level2": "3.2",
+        "level3": "3.2.1",
+        "is_primary": true
+      }
+    ],
+    "pfam_domains": [
+      {
+        "pfam_id": "PF00128",
+        "name": "Alpha amylase, catalytic domain",
+        "description": "Glycosyl hydrolase family 13, catalytic domain",
+        "start_pos": 50,
+        "end_pos": 383,
+        "evalue": null
+      },
+      {
+        "pfam_id": "PF02806",
+        "name": "Alpha amylase, C-terminal all-beta domain",
+        "description": "Alpha-amylase/branching enzyme, C-terminal all beta",
+        "start_pos": 396,
+        "end_pos": 465,
+        "evalue": null
+      },
+      {
+        "pfam_id": "PF16738",
+        "name": "Starch-binding module 26",
+        "description": "Starch-binding module 26",
+        "start_pos": 565,
+        "end_pos": 637,
+        "evalue": null
+      }
+    ]
+  },
+  {
+    "taxonomy": {
+      "ncbi_taxid": 1402,
+      "scientific_name": "Bacillus licheniformis",
+      "common_name": null,
+      "kingdom": "Bacteria",
+      "phylum": "Bacillota",
+      "class_name": "Bacilli",
+      "order_name": "Bacillales",
+      "family": "Bacillaceae",
+      "genus": "Bacillus",
+      "species": "Bacillus licheniformis"
+    },
+    "enzyme": {
+      "uniprot_id": "P06278",
+      "entry_name": "AMY_BACLI",
+      "sequence": "MKQQKRLYARLLTLLFALIFLLPHSAAAAANLNGTLMQYFEWYMPNDGQHWKRLQNDSAYLAEHGITAVWIPPAYKGTSQADVGYGAYDLYDLGEFHQKGTVRTKYGTKGELQSAIKSLHSRDINVYGDVVINHKGGADATEDVTAVEVDPADRNRVISGEHRIKAWTHFHFPGRGSTYSDFKWHWYHFDGTDWDESRKLNRIYKFQGKAWDWEVSNENGNYDYLMYADIDYDHPDVAAEIKRWGTWYANELQLDGFRLDAVKHIKFSFLRDWVNHVREKTGKEMFTVAEYWQNDLGALENYLNKTNFNHSVFDVPLHYQFHAASTQGGGYDMRKLLNSTVVSKHPLKAVTFVDNHDTQPGQSLESTVQTWFKPLAYAFILTRESGYPQVFYGDMYGTKGDSQREIPALKHKIEPILKARKQYAYGAQHDYFDHHDIVGWTREGDSSVANSGLAALITDGPGGAKRMYVGRQNAGETWHDITGNRSEPVVINSEGWGEFHVNGGSVSIYVQR",
+      "protein_name": "Alpha-amylase",
+      "gene_name": "amyS",
+      "description": "Alpha-amylase",
+      "function_annotation": null,
+      "catalytic_activity": "Endohydrolysis of (1->4)-alpha-D-glucosidic linkages in polysaccharides containing three or more (1->4)-alpha-linked D-glucose units.",
+      "source_db": "uniprot",
+      "source_version": "2026-07-18",
+      "is_reviewed": false
+    },
+    "ec_numbers": [
+      {
+        "ec_number": "3.2.1.1",
+        "name": "",
+        "category": "",
+        "level1": "3",
+        "level2": "3.2",
+        "level3": "3.2.1",
+        "is_primary": true
+      }
+    ],
+    "pfam_domains": [
+      {
+        "pfam_id": "PF00128",
+        "name": "Alpha amylase, catalytic domain",
+        "description": "Glycosyl hydrolase family 13, catalytic domain",
+        "start_pos": 34,
+        "end_pos": 420,
+        "evalue": null
+      },
+      {
+        "pfam_id": "PF09154",
+        "name": "Alpha-amylase C-terminal",
+        "description": "Alpha-amylase C-terminal, prokaryotic",
+        "start_pos": 465,
+        "end_pos": 509,
+        "evalue": null
+      }
+    ]
+  },
+  {
+    "taxonomy": {
+      "ncbi_taxid": 1402,
+      "scientific_name": "Bacillus licheniformis",
+      "common_name": null,
+      "kingdom": "Bacteria",
+      "phylum": "Bacillota",
+      "class_name": "Bacilli",
+      "order_name": "Bacillales",
+      "family": "Bacillaceae",
+      "genus": "Bacillus",
+      "species": "Bacillus licheniformis"
+    },
+    "enzyme": {
+      "uniprot_id": "I3P686",
+      "entry_name": "I3P686_BACLI",
+      "sequence": "ASLNGTLMQYFEWYMPNDGQHWKRLQNDSAYLAEHGITAVWIPPAYKGTSQDDVGYGAYDLYDLGEFHQKGTVRTKYGTKGELQSAINSLHSRDINVYGDVVINHKGGADATEYVTAVEVDPADRNRVTSGEQRIKAWTHFQFPGRGSTYSDFKWYWYHFDGTDWDESRKLNRIYKFQGKAWDWEVSNENGNYDYLMYADIDYDHPDVTAEIKRWGTWYANELQLDGFRLDAVKHIKFSFLRDWVNHVREKTGKEMFTVAEYWQNDLGALENYLNKTNFNHSVFDVPLHYQFHAASTQGGGYDMRKLLNGTVVSKHPVKAVTFVDNHDTQPGQSLESTVQTWFKPLAYAFILTREAGYPQIFYGDMYGTKGASQREIPALKHKIEPILKARKQYAYGAQHDYFDHHNIVGWTREGDSSVANSGLAALITDGPGGTKRMYVGRQNAGETWHDITGNRSDSVVINAEGWGEFHVNGGSVSIYVQR",
+      "protein_name": "Amylase",
+      "gene_name": "amy",
+      "description": "Amylase",
+      "function_annotation": null,
+      "catalytic_activity": null,
+      "source_db": "uniprot",
+      "source_version": "2026-07-18",
+      "is_reviewed": false
+    },
+    "ec_numbers": [],
+    "pfam_domains": [
+      {
+        "pfam_id": "PF00128",
+        "name": "Alpha amylase, catalytic domain",
+        "description": "Glycosyl hydrolase family 13, catalytic domain",
+        "start_pos": 5,
+        "end_pos": 391,
+        "evalue": null
+      },
+      {
+        "pfam_id": "PF09154",
+        "name": "Alpha-amylase C-terminal",
+        "description": "Alpha-amylase C-terminal, prokaryotic",
+        "start_pos": 436,
+        "end_pos": 480,
+        "evalue": null
+      }
+    ]
+  }
+]

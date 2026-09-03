@@ -1,0 +1,107 @@
+{
+  "accession": "P11586",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00763",
+        "name": "Tetrahydrofolate dehydrogenase/cyclohydrolase, catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR020630",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p11586",
+          "protein_length": 935,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 7,
+                  "end": 125,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00763",
+              "score": 4.7e-33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01268",
+        "name": "Formate--tetrahydrofolate ligase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000559",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p11586",
+          "protein_length": 935,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 318,
+                  "end": 935,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01268",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02882",
+        "name": "Tetrahydrofolate dehydrogenase/cyclohydrolase, NAD(P)-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR020631",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p11586",
+          "protein_length": 935,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 146,
+                  "end": 293,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02882",
+              "score": 3.2e-56
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

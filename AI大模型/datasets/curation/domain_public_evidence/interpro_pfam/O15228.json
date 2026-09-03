@@ -1,0 +1,73 @@
+{
+  "accession": "O15228",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01553",
+        "name": "Acyltransferase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002123",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15228",
+          "protein_length": 680,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 143,
+                  "end": 283,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01553",
+              "score": 2.8e-24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19277",
+        "name": "Glycerol-3-phosphate acyltransferase C-terminal region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR045520",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15228",
+          "protein_length": 680,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 293,
+                  "end": 643,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF19277",
+              "score": 3.1e-71
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

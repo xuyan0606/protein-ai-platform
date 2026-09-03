@@ -1,0 +1,107 @@
+{
+  "accession": "P23921",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00317",
+        "name": "Ribonucleotide reductase, all-alpha domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013509",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p23921",
+          "protein_length": 792,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 142,
+                  "end": 212,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00317",
+              "score": 3.9e-20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02867",
+        "name": "Ribonucleotide reductase, barrel domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000788",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p23921",
+          "protein_length": 792,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 216,
+                  "end": 738,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02867",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03477",
+        "name": "ATP cone domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR005144",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p23921",
+          "protein_length": 792,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1,
+                  "end": 89,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF03477",
+              "score": 8.7e-13
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

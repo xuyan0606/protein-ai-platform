@@ -1,0 +1,92 @@
+{
+  "candidate_identities": [
+    "corn_whole_flour",
+    "starch_slurry"
+  ],
+  "candidate_rows": 9,
+  "created_at": "2026-09-03T07:32:23.458848+00:00",
+  "docx_files_extracted": 5,
+  "file_reports": [
+    {
+      "candidate_rows": 1,
+      "extraction_status": "text_extracted",
+      "file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/Venus-15B淀粉酶项目/incoming/reference_docs/auto_selected/α-淀粉酶（ET180型）-酒精专用.pdf",
+      "format": "pdf",
+      "pages": 2,
+      "paragraphs": 2,
+      "requires_review": true,
+      "sha256": "9000c1e12a5632c850b61d0d682bcb205bc7f0aa7368d4e23e44df2b4c5e0937"
+    },
+    {
+      "candidate_rows": 1,
+      "extraction_status": "text_extracted",
+      "file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/Venus-15B淀粉酶项目/incoming/reference_docs/auto_selected/α-淀粉酶（ET513型）-酒精专用.pdf",
+      "format": "pdf",
+      "pages": 2,
+      "paragraphs": 2,
+      "requires_review": true,
+      "sha256": "5bf26d14d512f0bb21c9c9928105d6295e2814cfbf411c97dfaf3fab3ef36357"
+    },
+    {
+      "candidate_rows": 1,
+      "extraction_status": "text_extracted",
+      "file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/Venus-15B淀粉酶项目/incoming/reference_docs/auto_selected/科为博酶制剂实验方案（α-淀粉酶A513型、复合葡糖淀粉酶GP185型）巴彦诺尔华恒生物科技有限公司.docx",
+      "format": "docx",
+      "paragraphs": 171,
+      "sha256": "adfb187a2096198fce8f7e701464e68eee7295c0c54d1e7128bcfe8ced9f6d8f"
+    },
+    {
+      "candidate_rows": 1,
+      "extraction_status": "text_extracted",
+      "file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/Venus-15B淀粉酶项目/incoming/reference_docs/auto_selected/科为博酶制剂实验方案（α-淀粉酶、糖化酶）河南丰源生物2026.4.24..docx",
+      "format": "docx",
+      "paragraphs": 202,
+      "sha256": "f58298844668d4026649b715028703848601d35932e96a9da414678382910a80"
+    },
+    {
+      "candidate_rows": 1,
+      "extraction_status": "text_extracted",
+      "file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/Venus-15B淀粉酶项目/incoming/reference_docs/auto_selected/科为博酶制剂实验方案（α-淀粉酶、糖化酶）河南新兴生物.docx",
+      "format": "docx",
+      "paragraphs": 199,
+      "sha256": "7ee6e8908861854f64fbdc9fda7c0b542a945713ff6cce73dcb1f8f6badd027c"
+    },
+    {
+      "candidate_rows": 1,
+      "extraction_status": "text_extracted",
+      "file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/Venus-15B淀粉酶项目/incoming/reference_docs/auto_selected/科为博酶制剂实验方案（α-淀粉酶、糖化酶）河南新兴生物2026.4.22.docx",
+      "format": "docx",
+      "paragraphs": 203,
+      "sha256": "6321579bb169ede15997a416e99709ae7f0484fb9de2416c1ec8c8762bc4095f"
+    },
+    {
+      "candidate_rows": 1,
+      "extraction_status": "text_extracted",
+      "file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/Venus-15B淀粉酶项目/incoming/reference_docs/auto_selected/科为博酶制剂实验方案（α-淀粉酶、糖化酶）河南新兴生物_.docx",
+      "format": "docx",
+      "paragraphs": 199,
+      "sha256": "f34e74a5f6ffc9bfee9f65afdadfd977d4373ae8d05c9e014e3e605b5c2128af"
+    },
+    {
+      "candidate_rows": 2,
+      "extraction_status": "text_extracted",
+      "file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/Venus-15B淀粉酶项目/incoming/reference_docs/auto_selected/葡糖淀粉酶(1).pdf",
+      "format": "pdf",
+      "pages": 2,
+      "paragraphs": 2,
+      "requires_review": true,
+      "sha256": "4b86ddc07d3883cdc7062a764c6fa4b73c0d1fb8dad6b05686eca3e1a4abe5fe"
+    }
+  ],
+  "formal_decision_rows": 0,
+  "output": "datasets/curation/substrate_identity_evidence_candidates.jsonl",
+  "pdf_files_extracted": 3,
+  "pdf_files_needing_extraction": 0,
+  "policy": "Protocol evidence is extracted into a candidate packet only. No SMILES, reviewed decision, training label, or quality claim is inferred.",
+  "release_ready": false,
+  "reviewed_rows": 0,
+  "safe_for_model_claim": false,
+  "source_dir": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/Venus-15B淀粉酶项目/incoming/reference_docs/auto_selected",
+  "source_files_scanned": 8,
+  "substrate_fit_training_rows_written": 0
+}

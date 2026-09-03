@@ -1,0 +1,107 @@
+{
+  "accession": "P07384",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00648",
+        "name": "Calpain family cysteine protease",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001300",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07384",
+          "protein_length": 714,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 56,
+                  "end": 352,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00648",
+              "score": 6.7e-129
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01067",
+        "name": "Calpain large subunit, domain III",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022682",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07384",
+          "protein_length": 714,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 371,
+                  "end": 514,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01067",
+              "score": 1.8e-47
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13833",
+        "name": "EF-hand domain pair",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002048",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07384",
+          "protein_length": 714,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 557,
+                  "end": 616,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13833",
+              "score": 0.069
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

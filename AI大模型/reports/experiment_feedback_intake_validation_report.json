@@ -1,0 +1,80 @@
+{
+  "input_rows": 7,
+  "valid_rows": 7,
+  "invalid_rows": 0,
+  "training_eligible_rows": 7,
+  "qualitative_training_eligible_rows": 1,
+  "numeric_training_eligible_rows": 6,
+  "numeric_label_fields": [
+    "activity_relative_to_wt",
+    "expression_yield_relative",
+    "stability_delta_tm_c"
+  ],
+  "error_counts": {},
+  "records": [
+    {
+      "feedback_id": "venus15b-e331q-ph45-ph60-ratio-observation-001",
+      "valid": true,
+      "training_eligible": true,
+      "qualitative_training_eligible": true,
+      "numeric_training_eligible": false,
+      "data_granularity": "qualitative_historical_observation",
+      "errors": []
+    },
+    {
+      "feedback_id": "wetlab-mutlib-15b-d105n-acid-retention-ph4-8-vs-ph6-0",
+      "valid": true,
+      "training_eligible": true,
+      "qualitative_training_eligible": false,
+      "numeric_training_eligible": true,
+      "data_granularity": "numeric_relative_to_control_measurement",
+      "errors": []
+    },
+    {
+      "feedback_id": "wetlab-mutlib-15b-d105n-activity-abs-ph4-8",
+      "valid": true,
+      "training_eligible": true,
+      "qualitative_training_eligible": false,
+      "numeric_training_eligible": true,
+      "data_granularity": "numeric_relative_to_control_measurement",
+      "errors": []
+    },
+    {
+      "feedback_id": "wetlab-mutlib-15b-d105n-activity-abs-ph6-0",
+      "valid": true,
+      "training_eligible": true,
+      "qualitative_training_eligible": false,
+      "numeric_training_eligible": true,
+      "data_granularity": "numeric_relative_to_control_measurement",
+      "errors": []
+    },
+    {
+      "feedback_id": "wetlab-mutlib-15b-s265t-acid-retention-ph4-8-vs-ph6-0",
+      "valid": true,
+      "training_eligible": true,
+      "qualitative_training_eligible": false,
+      "numeric_training_eligible": true,
+      "data_granularity": "numeric_relative_to_control_measurement",
+      "errors": []
+    },
+    {
+      "feedback_id": "wetlab-mutlib-15b-s265t-activity-abs-ph4-8",
+      "valid": true,
+      "training_eligible": true,
+      "qualitative_training_eligible": false,
+      "numeric_training_eligible": true,
+      "data_granularity": "numeric_relative_to_control_measurement",
+      "errors": []
+    },
+    {
+      "feedback_id": "wetlab-mutlib-15b-s265t-activity-abs-ph6-0",
+      "valid": true,
+      "training_eligible": true,
+      "qualitative_training_eligible": false,
+      "numeric_training_eligible": true,
+      "data_granularity": "numeric_relative_to_control_measurement",
+      "errors": []
+    }
+  ],
+  "policy": "empty or unverified feedback cannot become training labels; qualitative historical observations are separated from numeric assay labels"
+}

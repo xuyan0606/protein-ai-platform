@@ -1,0 +1,73 @@
+{
+  "accession": "Q16671",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00069",
+        "name": "Protein kinase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000719",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q16671",
+          "protein_length": 573,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 211,
+                  "end": 503,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00069",
+              "score": 4.8e-20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01064",
+        "name": "Activin types I and II receptor domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000472",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q16671",
+          "protein_length": 573,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 46,
+                  "end": 122,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01064",
+              "score": 4.6e-16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

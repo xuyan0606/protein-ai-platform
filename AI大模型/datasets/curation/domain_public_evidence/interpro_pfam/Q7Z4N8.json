@@ -1,0 +1,107 @@
+{
+  "accession": "Q7Z4N8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF08336",
+        "name": "Prolyl 4-Hydroxylase alpha-subunit, N-terminal region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR013547",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q7z4n8",
+          "protein_length": 544,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 35,
+                  "end": 160,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF08336",
+              "score": 5.6e-25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13640",
+        "name": "2OG-Fe(II) oxygenase superfamily",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR044862",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q7z4n8",
+          "protein_length": 544,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 426,
+                  "end": 528,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13640",
+              "score": 4.8e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23558",
+        "name": "Prolyl 4-hydroxylase peptide-substrate-binding domain",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR059068",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q7z4n8",
+          "protein_length": 544,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 181,
+                  "end": 276,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF23558",
+              "score": 4.4e-32
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

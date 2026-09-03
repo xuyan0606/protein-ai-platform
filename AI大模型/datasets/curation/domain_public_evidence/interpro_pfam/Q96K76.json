@@ -1,0 +1,107 @@
+{
+  "accession": "Q96K76",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00443",
+        "name": "Ubiquitin carboxyl-terminal hydrolase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001394",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96k76",
+          "protein_length": 1375,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 188,
+                  "end": 561,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00443",
+              "score": 6.7e-60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19718",
+        "name": "Ubiquitin carboxyl-terminal hydrolase 47 C-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR045578",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96k76",
+          "protein_length": 1375,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1124,
+                  "end": 1363,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF19718",
+              "score": 8.6e-99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25985",
+        "name": "Ubiquitin carboxyl-terminal hydrolase 47, ubiquitin-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR059974",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96k76",
+          "protein_length": 1375,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 41,
+                  "end": 138,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25985",
+              "score": 3.2e-35
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

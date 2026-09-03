@@ -1,0 +1,107 @@
+{
+  "accession": "Q5TDH0",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00240",
+        "name": "Ubiquitin family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000626",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5tdh0",
+          "protein_length": 399,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 13,
+                  "end": 77,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00240",
+              "score": 0.0052
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09668",
+        "name": "Aspartyl protease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019103",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5tdh0",
+          "protein_length": 399,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 227,
+                  "end": 335,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09668",
+              "score": 2.4e-49
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF24669",
+        "name": "Ddi2 HDD domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057273",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5tdh0",
+          "protein_length": 399,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 133,
+                  "end": 198,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF24669",
+              "score": 3.2e-26
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

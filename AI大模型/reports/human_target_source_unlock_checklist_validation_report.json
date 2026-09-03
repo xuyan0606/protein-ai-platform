@@ -1,0 +1,22 @@
+{
+  "local_only": true,
+  "success": true,
+  "checked_checklist": "datasets/governance/human_target_source_unlock_checklist.jsonl",
+  "checked_report": "reports/human_target_source_unlock_checklist_report.json",
+  "checked_index": "reports/human_target_blocked_source_manifest_index.json",
+  "checked_blocked_index_validation": "reports/human_target_blocked_source_manifest_index_validation_report.json",
+  "builder_contract": "scripts/build_human_target_source_unlock_checklist.py",
+  "checklist_matches_current_builder_projection": true,
+  "report_matches_current_builder_projection": true,
+  "blocked_source_manifest_index_validation_success": true,
+  "blocked_source_manifest_index_projection_valid": true,
+  "blocked_split_manifests_projection_valid": true,
+  "expected_checklist_rows": 7,
+  "checklist_rows": 7,
+  "ready_to_unlock_rows": 0,
+  "failures": [],
+  "failure_count": 0,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Validation only proves generated checklist rows remain blocked."
+}

@@ -1,0 +1,107 @@
+{
+  "accession": "Q9H3S7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00102",
+        "name": "Protein-tyrosine phosphatase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000242",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h3s7",
+          "protein_length": 1636,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1220,
+                  "end": 1450,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00102",
+              "score": 1.6e-64
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03097",
+        "name": "BRO1-like domain",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR004328",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h3s7",
+          "protein_length": 1636,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 9,
+                  "end": 380,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03097",
+              "score": 8.9e-116
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13949",
+        "name": "ALIX V-shaped domain binding to HIV",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR025304",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h3s7",
+          "protein_length": 1636,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 417,
+                  "end": 701,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13949",
+              "score": 4.3e-52
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "P04424",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00206",
+        "name": "Lyase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022761",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p04424",
+          "protein_length": 464,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 11,
+                  "end": 305,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00206",
+              "score": 7.3e-105
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14698",
+        "name": "Argininosuccinate lyase C-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR029419",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p04424",
+          "protein_length": 464,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 368,
+                  "end": 435,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14698",
+              "score": 2.6e-22
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

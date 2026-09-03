@@ -1,0 +1,153 @@
+{
+  "accession": "Q9H6E5",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00076",
+        "name": "RNA recognition motif",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000504",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h6e5",
+          "protein_length": 874,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 58,
+                  "end": 120,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00076",
+              "score": 0.25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03828",
+        "name": "Cid1 family poly A polymerase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002058",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h6e5",
+          "protein_length": 874,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 491,
+                  "end": 549,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03828",
+              "score": 0.0016
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12874",
+        "name": "Zinc-finger of C2H2 type",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013087",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h6e5",
+          "protein_length": 874,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 16,
+                  "end": 40,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12874",
+              "score": 0.19
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22600",
+        "name": "Poly(A) RNA polymerase, mitochondrial-like, central palm domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR054708",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h6e5",
+          "protein_length": 874,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 162,
+                  "end": 225,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22600",
+              "score": 4.1e-07
+            },
+            {
+              "fragments": [
+                {
+                  "start": 332,
+                  "end": 398,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22600",
+              "score": 2.5e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

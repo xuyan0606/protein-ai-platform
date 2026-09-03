@@ -1,0 +1,141 @@
+{
+  "accession": "Q8NB49",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00122",
+        "name": "P-type ATPase actuator domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR059000",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8nb49",
+          "protein_length": 1132,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 124,
+                  "end": 251,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00122",
+              "score": 0.03
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13246",
+        "name": "P-type ATPase, cytoplasmic domain N",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8nb49",
+          "protein_length": 1132,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 465,
+                  "end": 656,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13246",
+              "score": 3.7e-11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16209",
+        "name": "Phospholipid-translocating ATPase N-terminal",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR032631",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8nb49",
+          "protein_length": 1132,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 39,
+                  "end": 94,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16209",
+              "score": 2.4e-18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16212",
+        "name": "Phospholipid-translocating P-type ATPase C-terminal",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR032630",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8nb49",
+          "protein_length": 1132,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 845,
+                  "end": 1093,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16212",
+              "score": 2.8e-71
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

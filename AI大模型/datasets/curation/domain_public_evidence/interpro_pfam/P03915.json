@@ -1,0 +1,107 @@
+{
+  "accession": "P03915",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00361",
+        "name": "NADH:quinone oxidoreductase/Mrp antiporter, TM",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001750",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p03915",
+          "protein_length": 603,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 134,
+                  "end": 419,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00361",
+              "score": 2.7e-67
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00662",
+        "name": "NADH-Ubiquinone oxidoreductase (complex I), chain 5 N-terminus",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001516",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p03915",
+          "protein_length": 603,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 68,
+                  "end": 118,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00662",
+              "score": 3.8e-11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF06455",
+        "name": "NADH dehydrogenase subunit 5 C-terminus",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR010934",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p03915",
+          "protein_length": 603,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 422,
+                  "end": 602,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF06455",
+              "score": 2.8e-49
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

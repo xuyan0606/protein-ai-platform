@@ -1,0 +1,107 @@
+{
+  "accession": "Q5SY16",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF16575",
+        "name": "mRNA cleavage and polyadenylation factor CLP1 P-loop",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR032319",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5sy16",
+          "protein_length": 702,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 306,
+                  "end": 438,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16575",
+              "score": 2e-29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF24419",
+        "name": "Polynucleotide 5'-hydroxyl-kinase NOL9, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057573",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5sy16",
+          "protein_length": 702,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 125,
+                  "end": 247,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF24419",
+              "score": 3.7e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25467",
+        "name": "NOL9-like, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057570",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5sy16",
+          "protein_length": 702,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 544,
+                  "end": 646,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25467",
+              "score": 7.7e-15
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

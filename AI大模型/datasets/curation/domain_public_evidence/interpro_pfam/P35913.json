@@ -1,0 +1,85 @@
+{
+  "accession": "P35913",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00233",
+        "name": "3'5'-cyclic nucleotide phosphodiesterase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002073",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p35913",
+          "protein_length": 854,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 556,
+                  "end": 799,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00233",
+              "score": 5.4e-75
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01590",
+        "name": "GAF domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003018",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p35913",
+          "protein_length": 854,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 72,
+                  "end": 209,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01590",
+              "score": 3.2e-13
+            },
+            {
+              "fragments": [
+                {
+                  "start": 252,
+                  "end": 428,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01590",
+              "score": 7.3e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "case_id": "bench-thermo-sequence-only-001",
+  "title": "Sequence-only thermostability request must avoid premature structure claims",
+  "input": {
+    "message": "给这条酶序列做耐热性改造，推荐 5 个优先突变。MSTNPKPQRKTKRNTNRRPQDVKFPGGGQIVGGYKVVGQLVGEDNINVVEGNEQFISASKSIVHPSYNSNTLNNDIMLIKLAQKVGLVQ",
+    "history_context": [],
+    "attachments": []
+  },
+  "expected_workflow": [
+    "predict_properties",
+    "esmfold_folding",
+    "annotation_bundle",
+    "kwb_enzyme_designer"
+  ],
+  "must_have": [
+    "sequence-level properties may run before structure prediction",
+    "pocket, exposure, distance, catalytic network conclusions wait for predicted structure",
+    "mark predicted-structure conclusions separately"
+  ],
+  "must_not_have": [
+    "claim experimental structure exists",
+    "make distance or pocket claims before structure prediction result",
+    "recommend catalytic-site mutation without guardrail"
+  ],
+  "expected_output": {
+    "sections": [
+      "Sequence-level analysis",
+      "Predicted-structure analysis",
+      "Candidate mutations",
+      "Confidence and limitations"
+    ]
+  },
+  "scoring_profile": "default"
+}

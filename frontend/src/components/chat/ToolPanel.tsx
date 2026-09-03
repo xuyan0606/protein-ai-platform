@@ -7,6 +7,11 @@ interface ToolSchema {
   description: string
   category: string
   is_async: boolean
+  requires?: string[]
+  provides?: string[]
+  evidence_level?: string
+  runtime_mode?: string
+  license_status?: string
   parameters: {
     type: string
     properties: Record<string, { type: string; description?: string; default?: unknown; items?: { type: string } }>
@@ -77,12 +82,24 @@ export function ToolPanel() {
 
   const handleRun = async () => {
     if (!selectedTool) return
+    const props = selectedTool.parameters.properties || {}
+    const required = selectedTool.parameters.required || []
+    const missing = required.filter((key) => {
+      const raw = formValues[key]
+      const schema = props[key]
+      return (raw === undefined || raw.trim() === '') && schema?.default === undefined
+    })
+    if (missing.length > 0) {
+      setError(`Missing required parameter: ${missing.map(label).join(', ')}`)
+      setResult(null)
+      return
+    }
+
     setRunning(true)
     setError(null)
     setResult(null)
     try {
       const params: Record<string, unknown> = {}
-      const props = selectedTool.parameters.properties || {}
       for (const [key, schema] of Object.entries(props)) {
         const raw = formValues[key]
         if (raw === undefined || raw === '') {
@@ -92,7 +109,11 @@ export function ToolPanel() {
           continue
         }
         if (schema.type === 'integer' || schema.type === 'number') {
-          params[key] = Number(raw)
+          const parsed = Number(raw)
+          if (!Number.isFinite(parsed)) {
+            throw new Error(`${label(key)} must be a valid number`)
+          }
+          params[key] = parsed
         } else if (schema.type === 'boolean') {
           params[key] = raw === 'true'
         } else if (schema.type === 'array' && schema.items) {
@@ -104,6 +125,20 @@ export function ToolPanel() {
         } else {
           params[key] = raw
         }
+      }
+      const hasValue = (keys: string[]) => keys.some((key) => {
+        const value = params[key]
+        return value !== undefined && value !== null && value !== ''
+      })
+      const preflight = await api.preflightTool(selectedTool.name, {
+        has_sequence: hasValue(['sequence', 'protein_sequence', 'seq']),
+        has_pdb: hasValue(['pdb_data', 'pdb_structure', 'pdb_path', 'pdb_object_name']),
+        has_ligand_3d: hasValue(['ligand_3d', 'ligand_3d_path', 'ligand_3d_object_name', 'ligand_pdbqt_path', 'ligand_pdbqt_object_name']),
+        has_topology: hasValue(['topology', 'topology_path', 'topology_object_name']),
+      })
+      if (!preflight.allowed) {
+        const details = preflight.violations.map((item) => item.dependency || item.code).join(', ')
+        throw new Error(`Preflight blocked: ${details}`)
       }
       const res = await api.callTool(selectedTool.name, params)
       setResult(res)
@@ -136,22 +171,22 @@ export function ToolPanel() {
   return (
     <div className="flex flex-col h-full">
       {/* Search */}
-      <div className="relative mb-2">
-        <Search className="absolute left-2 top-1/2 -translate-y-1/2 w-3 h-3 text-muted-foreground" />
+      <div className="relative mb-3">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-muted-foreground" />
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search tools..."
-          className="w-full pl-6.5 pr-2 py-1 rounded-md border border-border bg-transparent text-xs focus:outline-none focus:border-ring"
+          className="w-full rounded-2xl border border-border/80 bg-background/80 py-2.5 pl-9 pr-3 text-xs shadow-sm outline-none transition focus:border-primary/30 focus:ring-2 focus:ring-primary/10"
         />
       </div>
 
       {/* Category filter */}
-      <div className="flex items-center gap-1 mb-3 flex-wrap">
+      <div className="mb-4 flex flex-wrap items-center gap-1.5">
         <button
           onClick={() => { setActiveCat('all'); setSelectedTool(null) }}
-          className={`px-2 py-0.5 rounded-full text-[10px] font-medium transition-colors ${
+          className={`rounded-full px-4 py-2 text-sm font-medium leading-none transition-colors ${
             activeCat === 'all' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground hover:text-foreground'
           }`}
         >
@@ -164,11 +199,11 @@ export function ToolPanel() {
             <button
               key={cat}
               onClick={() => { setActiveCat(cat); setSelectedTool(null) }}
-              className={`flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium transition-colors ${
+              className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium leading-none transition-colors ${
                 activeCat === cat ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground hover:bg-secondary/70'
               }`}
             >
-              <Icon className="w-2.5 h-2.5" />
+              <Icon className="h-3.5 w-3.5" />
               {cat} ({count})
             </button>
           )
@@ -177,20 +212,24 @@ export function ToolPanel() {
 
       {/* Tool list or detail */}
       {!selectedTool ? (
-        <div className="space-y-1 overflow-y-auto flex-1">
+        <div className="space-y-2 overflow-y-auto flex-1 pr-1">
           {filteredTools.map((tool) => (
             <button
               key={tool.name}
               onClick={() => selectTool(tool)}
-              className="w-full text-left px-2.5 py-2 rounded-md hover:bg-secondary/50 transition-colors group"
+              className="group w-full rounded-[22px] border border-border/70 bg-card/80 px-3.5 py-3 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/5"
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-medium truncate">{tool.name}</span>
-                <ChevronRight className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                <span className="truncate text-sm font-medium">{tool.name}</span>
+                <ChevronRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
               </div>
-              <p className="text-[10px] text-muted-foreground line-clamp-2 mt-0.5">
+              <p className="mt-1 text-[11px] leading-5 text-muted-foreground line-clamp-2">
                 {tool.description}
               </p>
+              <div className="mt-2 flex flex-wrap gap-1 text-[9px] text-muted-foreground">
+                <span className="rounded-md bg-secondary px-1.5 py-0.5">{tool.evidence_level || 'unverified'}</span>
+                <span className="rounded-md bg-secondary px-1.5 py-0.5">{tool.runtime_mode || (tool.is_async ? 'async_worker' : 'inline_sync')}</span>
+              </div>
             </button>
           ))}
           {filteredTools.length === 0 && (
@@ -200,24 +239,43 @@ export function ToolPanel() {
           )}
         </div>
       ) : (
-        <div className="flex-1 flex flex-col min-h-0">
+        <div className="flex min-h-0 flex-1 flex-col rounded-[24px] border border-border/70 bg-card/70 p-4 shadow-sm">
           {/* Back + tool name */}
           <button
             onClick={() => setSelectedTool(null)}
-            className="text-xs text-muted-foreground hover:text-foreground mb-2 flex items-center gap-1"
+            className="mb-2 flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
           >
             ← Back to list
           </button>
-          <h4 className="text-sm font-medium mb-1">{selectedTool.name}</h4>
-          <p className="text-[11px] text-muted-foreground mb-3">{selectedTool.description}</p>
+          <h4 className="mb-1 text-base font-semibold">{selectedTool.name}</h4>
+          <p className="mb-4 text-[11px] leading-5 text-muted-foreground">{selectedTool.description}</p>
+
+          <div className="mb-4 grid grid-cols-2 gap-2 text-[10px]">
+            <div className="rounded-lg border border-border/70 bg-background/50 p-2">
+              <div className="text-muted-foreground">Requires</div>
+              <div className="mt-1 font-mono">{selectedTool.requires?.join(', ') || 'none'}</div>
+            </div>
+            <div className="rounded-lg border border-border/70 bg-background/50 p-2">
+              <div className="text-muted-foreground">Provides</div>
+              <div className="mt-1 font-mono">{selectedTool.provides?.join(', ') || 'none'}</div>
+            </div>
+            <div className="rounded-lg border border-border/70 bg-background/50 p-2">
+              <div className="text-muted-foreground">Evidence</div>
+              <div className="mt-1">{selectedTool.evidence_level || 'unverified'}</div>
+            </div>
+            <div className="rounded-lg border border-border/70 bg-background/50 p-2">
+              <div className="text-muted-foreground">Runtime / license</div>
+              <div className="mt-1">{selectedTool.runtime_mode || (selectedTool.is_async ? 'async_worker' : 'inline_sync')} / {selectedTool.license_status || 'review_required'}</div>
+            </div>
+          </div>
 
           {/* Parameter form */}
-          <div className="space-y-2 flex-1 overflow-y-auto mb-3">
+          <div className="mb-4 flex-1 space-y-3 overflow-y-auto pr-1">
             {Object.entries(selectedTool.parameters.properties || {}).map(([key, schema]) => {
               const isRequired = selectedTool.parameters.required?.includes(key)
               return (
-                <div key={key} className="space-y-0.5">
-                  <label className="text-[10px] font-medium text-muted-foreground flex items-center gap-1">
+                <div key={key} className="space-y-1">
+                  <label className="flex items-center gap-1 text-[10px] font-medium text-muted-foreground">
                     {label(key)}
                     {isRequired && <span className="text-red-400">*</span>}
                     <span className="text-[9px] opacity-50">({schema.type})</span>
@@ -226,7 +284,7 @@ export function ToolPanel() {
                     <select
                       value={formValues[key] || ''}
                       onChange={(e) => setFormValues((p) => ({ ...p, [key]: e.target.value }))}
-                      className="w-full px-2 py-1 rounded-md border border-border bg-transparent text-xs focus:outline-none focus:border-ring"
+                      className="w-full rounded-xl border border-border/80 bg-background/80 px-3 py-2 text-xs outline-none transition focus:border-primary/30 focus:ring-2 focus:ring-primary/10"
                     >
                       <option value="">—</option>
                       <option value="true">true</option>
@@ -238,7 +296,7 @@ export function ToolPanel() {
                       value={formValues[key] || ''}
                       onChange={(e) => setFormValues((p) => ({ ...p, [key]: e.target.value }))}
                       placeholder={placeholder(schema)}
-                      className="w-full px-2 py-1 rounded-md border border-border bg-transparent text-xs font-mono focus:outline-none focus:border-ring"
+                      className="w-full rounded-xl border border-border/80 bg-background/80 px-3 py-2 text-xs font-mono outline-none transition focus:border-primary/30 focus:ring-2 focus:ring-primary/10"
                     />
                   )}
                   {schema.description && (
@@ -253,7 +311,7 @@ export function ToolPanel() {
           <button
             onClick={handleRun}
             disabled={running}
-            className="flex items-center justify-center gap-1.5 w-full py-1.5 rounded-md bg-primary text-primary-foreground text-xs font-medium hover:bg-primary/90 disabled:opacity-40 transition-colors shrink-0"
+            className="flex w-full shrink-0 items-center justify-center gap-1.5 rounded-2xl bg-primary py-2.5 text-xs font-medium text-primary-foreground shadow-[0_14px_34px_rgba(37,99,235,0.22)] transition-colors hover:bg-primary/90 disabled:opacity-40"
           >
             {running ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin" />

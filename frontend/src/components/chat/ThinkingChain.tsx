@@ -1,19 +1,11 @@
-import { ChevronDown, ChevronRight, Brain, CheckCircle2, XCircle, Loader2, Clock, FlaskConical, ScrollText, Microscope, FileText } from 'lucide-react'
+import { ChevronDown, ChevronRight, Brain, CheckCircle2, XCircle, Loader2, Clock, FileDown, Package } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useChatStore } from '@/stores/chat'
+import { StrategyMemoryPanel } from '@/components/chat/StrategyMemoryPanel'
 
 interface Props {
   steps: string[]
-}
-
-const stageIcons: Record<string, React.ReactNode> = {
-  router: <Brain className="w-4 h-4" />,
-  research: <FlaskConical className="w-4 h-4" />,
-  plan: <ScrollText className="w-4 h-4" />,
-  execute: <Microscope className="w-4 h-4" />,
-  synthesize: <FileText className="w-4 h-4" />,
-  done: <CheckCircle2 className="w-4 h-4 text-green-500" />,
 }
 
 const statusIcons: Record<string, React.ReactNode> = {
@@ -25,10 +17,25 @@ const statusIcons: Record<string, React.ReactNode> = {
 
 const stageOrder = ['router', 'research', 'plan', 'execute', 'synthesize'] as const
 
+function asRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === 'object' && !Array.isArray(value) ? value as Record<string, unknown> : {}
+}
+
+function artifactHandoffs(artifacts: Record<string, unknown> | undefined) {
+  const handoffs = artifacts?.handoffs
+  return Array.isArray(handoffs) ? handoffs.map(asRecord) : []
+}
+
+function artifactItems(handoff: Record<string, unknown>) {
+  const items = handoff.items
+  return Array.isArray(items) ? items.map(asRecord) : []
+}
+
 export function ThinkingChain({ steps }: Props) {
   const { t } = useTranslation()
   const [expanded, setExpanded] = useState(true)
   const agentState = useChatStore((s) => s.agentState)
+  const strategyCheckpointHistory = useChatStore((s) => s.strategyCheckpointHistory)
 
   const getStageLabel = (s: string): string => {
     const map: Record<string, string> = {
@@ -62,8 +69,9 @@ export function ThinkingChain({ steps }: Props) {
   // No agent state yet
   if (!agentState) return null
 
-  const { stage, plan, step_results, waiting_for } = agentState
+  const { stage, plan, step_results, waiting_for, artifacts } = agentState
   const totalSteps = plan.length
+  const handoffs = artifactHandoffs(artifacts)
 
   return (
     <div className="border border-border rounded-lg overflow-hidden">
@@ -154,6 +162,72 @@ export function ThinkingChain({ steps }: Props) {
                     )}
                     {step.status === 'failed' && (
                       <span className="text-[10px] text-red-500 shrink-0">{t('agent.failed')}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {strategyCheckpointHistory.length > 0 && (
+            <div className="border-t border-border px-3 py-2">
+              <div className="text-[11px] font-medium text-muted-foreground mb-1.5">
+                策略版本
+              </div>
+              <div className="space-y-1">
+                {strategyCheckpointHistory.slice(0, 5).map((checkpoint, index) => (
+                  <div key={String(checkpoint.id ?? index)} className="flex items-center gap-2 text-[11px] text-muted-foreground">
+                    <span className="font-mono text-foreground">r{String(checkpoint.revision ?? '?')}</span>
+                    <span>{String(checkpoint.status ?? 'unknown')}</span>
+                    {checkpoint.next_action ? (
+                      <span className="truncate">next: {String(checkpoint.next_action)}</span>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <StrategyMemoryPanel compact />
+
+          {handoffs.length > 0 && (
+            <div className="border-t border-border px-3 py-2">
+              <div className="text-[11px] font-medium text-muted-foreground mb-1.5 flex items-center gap-1.5">
+                <Package className="w-3 h-3" />
+                Artifact Handoff
+              </div>
+              <div className="space-y-1.5">
+                {handoffs.slice(0, 6).map((handoff, index) => (
+                  <div key={`${String(handoff.step ?? index)}-${String(handoff.tool ?? 'tool')}`} className="rounded border border-border/70 px-2 py-1.5">
+                    <div className="flex items-center gap-2 text-[11px]">
+                      <span className="font-mono text-foreground">Step {String(handoff.step ?? '?')}</span>
+                      <span className="truncate text-muted-foreground">{String(handoff.tool ?? 'unknown')}</span>
+                      <span className="ml-auto text-muted-foreground">{String(handoff.handoff_status ?? handoff.status ?? 'unknown')}</span>
+                    </div>
+                    {artifactItems(handoff).length > 0 && (
+                      <div className="mt-1 space-y-1">
+                        {artifactItems(handoff).slice(0, 4).map((item, itemIndex) => {
+                          const name = String(item.name ?? item.object_name ?? item.task_id ?? `artifact-${itemIndex + 1}`)
+                          const downloadUrl = typeof item.download_url === 'string' ? item.download_url : null
+                          const statusUrl = typeof item.status_url === 'string' ? item.status_url : null
+                          return (
+                            <div key={`${name}-${itemIndex}`} className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                              <FileDown className="w-3 h-3 shrink-0" />
+                              <span className="min-w-0 flex-1 truncate">{name}</span>
+                              {downloadUrl && (
+                                <a className="text-primary hover:underline" href={downloadUrl} target="_blank" rel="noreferrer">
+                                  file
+                                </a>
+                              )}
+                              {statusUrl && (
+                                <a className="text-primary hover:underline" href={statusUrl} target="_blank" rel="noreferrer">
+                                  task
+                                </a>
+                              )}
+                            </div>
+                          )
+                        })}
+                      </div>
                     )}
                   </div>
                 ))}

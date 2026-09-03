@@ -1,0 +1,33 @@
+{
+  "candidate_rows": 445,
+  "claim_eligible_rows_now": 0,
+  "counts": {
+    "assay_activity_rows": 354,
+    "assay_stability_rows": 91,
+    "control_rows": 41,
+    "numbering_verified_rows": 29,
+    "numeric_training_candidate_rows": 12,
+    "parseable_mutation_rows": 351,
+    "project_15B_parseable_mutation_rows": 120,
+    "project_15B_rows": 190,
+    "project_16B_parseable_mutation_rows": 60,
+    "project_16B_rows": 66,
+    "project_4G_parseable_mutation_rows": 171,
+    "project_4G_rows": 189,
+    "rows": 445
+  },
+  "created_at": "2026-09-03T07:32:17.729506+00:00",
+  "local_only": true,
+  "numeric_training_candidate_rows": 12,
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/wet_lab_mutant_library_feedback_candidates.jsonl",
+  "parseable_mutation_rows": 351,
+  "policy": "Candidates are evidence-backed wet-lab numeric observations; formal feedback intake remains blocked until reviewed numbering and intake authorization are complete.",
+  "ready_for_feedback_intake_rows": 0,
+  "safe_for_model_claim": false,
+  "source_projects": [
+    "15B",
+    "16B",
+    "4G"
+  ],
+  "source_root": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/酶改造突变体库-湿实验数据"
+}

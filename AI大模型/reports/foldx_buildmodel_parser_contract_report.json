@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-09-03T07:32:13.441889+00:00",
+  "first_ddg_kcal_mol": -1.234,
+  "fixture_dir": "cache/advanced_features/ddg_physical_smoke/foldx_parser_contract_fixture",
+  "fixture_files": [
+    {
+      "path": "cache/advanced_features/ddg_physical_smoke/foldx_parser_contract_fixture/Dif_10MH_A_T10A.fxout",
+      "sha256": "4cf299460444bc98e32cae3e3d81200ca147ad725f2dfa779b1b15854852377b",
+      "size_bytes": 152
+    },
+    {
+      "path": "cache/advanced_features/ddg_physical_smoke/foldx_parser_contract_fixture/Average_10MH_A_T10A.fxout",
+      "sha256": "f0fb80dd16eeddf106776de6ee274fd503fb31b241ee091d3bfd173151974773",
+      "size_bytes": 154
+    },
+    {
+      "path": "cache/advanced_features/ddg_physical_smoke/foldx_parser_contract_fixture/Raw_10MH_A_T10A.fxout",
+      "sha256": "6c011f9f6cf83026f4cb65b2b0bd0c4e09fcbc39347837b4aacc89db33b84d4d",
+      "size_bytes": 154
+    }
+  ],
+  "foldx_executable_found": false,
+  "foldx_runtime_ready": false,
+  "local_only": true,
+  "negative_ddg_is_stabilizing": true,
+  "parse_status": "parsed",
+  "parsed_rows": 1,
+  "parser_contract_ready": true,
+  "policy": "Parser contract only. It proves FoldX BuildModel output ingestion logic against a static fixture; it is not a FoldX install, license, runtime smoke, or training-label receipt.",
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "source_family_counts": {
+    "average": 1,
+    "difference": 1,
+    "raw": 1
+  },
+  "training_import_written_rows": 0
+}

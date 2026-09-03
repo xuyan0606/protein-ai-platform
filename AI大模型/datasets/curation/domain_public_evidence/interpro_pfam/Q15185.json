@@ -1,0 +1,39 @@
+{
+  "accession": "Q15185",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04969",
+        "name": "CS domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007052",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q15185",
+          "protein_length": 160,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 6,
+                  "end": 79,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04969",
+              "score": 1.5e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

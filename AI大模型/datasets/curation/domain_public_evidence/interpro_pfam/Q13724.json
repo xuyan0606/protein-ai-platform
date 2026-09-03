@@ -1,0 +1,73 @@
+{
+  "accession": "Q13724",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03200",
+        "name": "Glycosyl hydrolase family 63 C-terminal domain",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR031335",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13724",
+          "protein_length": 837,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 354,
+                  "end": 835,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03200",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16923",
+        "name": "Glycosyl hydrolase family 63 N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR031631",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13724",
+          "protein_length": 837,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 94,
+                  "end": 244,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16923",
+              "score": 1e-39
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

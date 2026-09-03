@@ -1,0 +1,28 @@
+{
+  "authorized_rows": 8,
+  "claim_eligible_rows_now": 0,
+  "completion_ready_rows": 0,
+  "created_at": "2026-09-03T07:32:18.134025+00:00",
+  "decision_present_rows": 8,
+  "execution_queue_rows": 3,
+  "local_only": true,
+  "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/wet_lab_mutant_library_feedback_authorization_execution_queue.md",
+  "open_blocked_queue_rows": 3,
+  "operator_receipt_rows": 12,
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/wet_lab_mutant_library_feedback_authorization_execution_queue.jsonl",
+  "policy": "Execution queue guides human review only; it never grants authorization, writes preflight, appends labels, or enables model claims.",
+  "preflight_present_rows": 8,
+  "ready_for_feedback_intake_rows": 0,
+  "receipt_validation_all_rows_valid": false,
+  "requires_human_input_rows": 3,
+  "review_order": [
+    "E331Q",
+    "D105N",
+    "S265T"
+  ],
+  "safe_for_model_claim": false,
+  "status_counts": {
+    "open_blocked_waiting_for_human_authorization": 3
+  },
+  "tradeoff_queue_rows": 1
+}

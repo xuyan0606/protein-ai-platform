@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KWB 两个硬门槛人工核实</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>两个硬门槛人工核实</h1>
+        <p>只看真实证据，人工确认后才可能进入正式数据</p>
+      </div>
+      <div class="status"><span id="statusText">正在加载...</span><a href="../numbering_review/index.html">编号审核</a></div>
+    </header>
+    <main class="layout">
+      <aside class="queue">
+        <div class="queue-head"><h2>待核实</h2><span id="queueCount">0</span></div>
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-kind="strict">突变 holdout</button>
+          <button class="tab" data-kind="substrate">底物身份</button>
+        </div>
+        <div id="queueList" class="queue-list"></div>
+      </aside>
+      <section class="detail">
+        <div class="detail-head"><div><span id="kindLabel" class="eyebrow">突变 holdout</span><h2 id="title">选择一条记录</h2></div><span id="gateState" class="badge">blocked</span></div>
+        <div id="summaryCards" class="summary-cards"></div>
+        <div class="rule-box">
+          <h3>怎么判断</h3>
+          <ul id="rules"></ul>
+        </div>
+        <div id="evidence" class="evidence"></div>
+        <div class="decision-box">
+          <h3>人工结论</h3>
+          <div id="decisionButtons" class="decision-buttons"></div>
+          <div id="checks" class="checks"></div>
+          <label><span>审核人</span><input id="reviewer" type="text" placeholder="填写真实姓名或工号" /></label>
+          <label><span>审核时间</span><input id="reviewedAt" type="datetime-local" /></label>
+          <label id="representationField" hidden><span>底物表示方式</span><select id="representationType"><option value="process_mixture">工艺混合物</option><option value="single_compound">单一化合物</option><option value="defined_substrate_set">定义底物集合</option></select></label>
+          <label><span>审核依据和意见</span><textarea id="reviewBasis" rows="4" placeholder="写清楚看了哪些证据，为什么通过、拒绝或待补充"></textarea></label>
+          <label><span>receipt / 实验记录号</span><input id="receipt" type="text" placeholder="填写真实记录号；不能编造" /></label>
+          <div class="actions"><button id="saveBtn" type="button">保存人工结论</button><button id="validateBtn" type="button">验证两个硬门槛</button><button id="refreshBtn" type="button">刷新</button></div>
+          <div class="guide-box">
+            <div class="guide-head">
+              <div>
+                <h3>审核后下一步</h3>
+                <p>按顺序点击即可；没有正式通过的记录时，系统只会报告 blocked，不会改成通过。</p>
+              </div>
+              <button id="runAllBtn" type="button">一键跑完</button>
+            </div>
+            <div id="guideSteps" class="guide-steps"></div>
+          </div>
+          <pre id="output">尚未选择记录。</pre>
+        </div>
+      </section>
+    </main>
+    <script src="./app.js?v=20260804-hard-gate-v2"></script>
+  </body>
+</html>

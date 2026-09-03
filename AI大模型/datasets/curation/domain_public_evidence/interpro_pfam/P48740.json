@@ -1,0 +1,131 @@
+{
+  "accession": "P48740",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00084",
+        "name": "Sushi repeat (SCR repeat)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000436",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p48740",
+          "protein_length": 699,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 301,
+                  "end": 362,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00084",
+              "score": 7e-08
+            },
+            {
+              "fragments": [
+                {
+                  "start": 367,
+                  "end": 424,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00084",
+              "score": 0.92
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00089",
+        "name": "Trypsin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001254",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p48740",
+          "protein_length": 699,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 449,
+                  "end": 691,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00089",
+              "score": 4.8e-59
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00431",
+        "name": "CUB domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000859",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p48740",
+          "protein_length": 699,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 24,
+                  "end": 135,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00431",
+              "score": 4.4e-15
+            },
+            {
+              "fragments": [
+                {
+                  "start": 185,
+                  "end": 294,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00431",
+              "score": 2.2e-27
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -18,14 +18,107 @@ import logging
 from datetime import datetime
 from typing import Any
 
+from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.project import Project, ProjectFile
+from app.services.report_quality_contract import validate_publishable_enzyme_report
 from app.services.report_generator import ReportGenerator
 
 logger = logging.getLogger(__name__)
 
 _generator = ReportGenerator()
+_AUTO_WIKI_WORKSPACE_NAME = "知识库发布区"
+_AUTO_WIKI_WORKSPACE_DESC = "系统自动创建，用于未绑定项目的 Wiki 发布归档。"
+
+
+class ReportQualityGateError(ValueError):
+    """Raised when a structured enzyme report is not publishable."""
+
+    def __init__(self, violations: list):
+        self.violations = violations
+        details = "；".join(str(item.message) for item in violations)
+        super().__init__(f"报告质量门槛未通过：{details}")
+
+
+async def ensure_wiki_publish_project(
+    db: AsyncSession,
+    *,
+    user_id: int,
+    collection_id: str | None = None,
+) -> Project:
+    """Get or create the lightweight workspace used for collection-only wiki publishing."""
+    result = await db.execute(
+        select(Project)
+        .where(Project.user_id == user_id, Project.name == _AUTO_WIKI_WORKSPACE_NAME)
+        .order_by(Project.created_at.asc())
+    )
+    project = result.scalars().first()
+
+    if project is None:
+        project = Project(
+            name=_AUTO_WIKI_WORKSPACE_NAME,
+            description=_AUTO_WIKI_WORKSPACE_DESC,
+            user_id=user_id,
+            wiki_auto_publish=False,
+            outline_collection_id=collection_id,
+        )
+        db.add(project)
+        await db.flush()
+        logger.info("Created auto wiki publish workspace for user %s: %s", user_id, project.id)
+
+    if collection_id and project.outline_collection_id != collection_id:
+        project.outline_collection_id = collection_id
+        project.outline_root_doc_id = None
+        await db.flush()
+
+    return project
+
+
+async def ensure_project_wiki(
+    db: AsyncSession,
+    project: Project,
+) -> Project:
+    """Ensure the project has an Outline collection + root doc.
+
+    Existing projects created while Outline API auth was broken may have
+    no collection/root IDs. Repair them lazily on first publish or tree load.
+    """
+    from app.services.outline_client import OutlineClient
+
+    client = OutlineClient()
+    collection_id = project.outline_collection_id
+    if not collection_id:
+        collection = await client.create_collection(
+            name=project.name,
+            description=project.description or f"酶蛋白AI平台项目: {project.name}",
+        )
+        collection_id = collection.get("id")
+        if not collection_id:
+            raise ValueError(f"Outline returned empty collection id for project {project.id}")
+        project.outline_collection_id = collection_id
+
+    if not project.outline_root_doc_id:
+        root_content = _project_overview_template(project)
+        doc = await client.create_document(
+            title="项目概述",
+            content=root_content,
+            collection_id=collection_id,
+            publish=True,
+        )
+        root_doc_id = doc.get("id")
+        if not root_doc_id:
+            raise ValueError(f"Outline returned empty root doc id for project {project.id}")
+        project.outline_root_doc_id = root_doc_id
+
+    await db.flush()
+    logger.info(
+        "Wiki lazily initialized for project %s: collection=%s, root_doc=%s",
+        project.id,
+        project.outline_collection_id,
+        project.outline_root_doc_id,
+    )
+    return project
 
 
 async def publish_report(
@@ -36,6 +129,8 @@ async def publish_report(
     content: str,
     conversation_id: int | None = None,
     tags: list[str] | None = None,
+    collection_id: str | None = None,
+    parent_document_id: str | None = None,
     source: str = "manual",
 ) -> dict[str, Any]:
     """Publish a Markdown report: MinIO + Outline + DB record.
@@ -52,10 +147,25 @@ async def publish_report(
     Returns:
         dict with file_id, object_name, outline_doc_id, wiki_url
     """
+    violations = validate_publishable_enzyme_report(content)
+    if violations:
+        raise ReportQualityGateError(violations)
+
     # 1. Validate project exists
     project = await db.get(Project, project_id)
     if not project:
         raise ValueError(f"Project {project_id} not found")
+
+    # Manual publish can explicitly target an existing Outline collection.
+    # When a collection is selected in the UI, keep the project bound to that
+    # collection for subsequent publishes instead of auto-creating a new one.
+    if collection_id:
+        if project.outline_collection_id != collection_id:
+            project.outline_collection_id = collection_id
+            project.outline_root_doc_id = None
+            await db.flush()
+    elif not project.outline_collection_id:
+        project = await ensure_project_wiki(db, project)
 
     # 2. Generate filename and object path
     date_str = datetime.now().strftime("%Y-%m-%d")
@@ -86,15 +196,16 @@ async def publish_report(
     # 5. Publish to Outline Wiki (if project has a collection)
     outline_doc_id = None
     wiki_url = None
-    if project.outline_collection_id:
+    target_collection_id = collection_id or project.outline_collection_id
+    if target_collection_id:
         try:
             from app.services.outline_client import OutlineClient
             client = OutlineClient()
             doc = await client.create_document(
                 title=f"{date_str} {title}",
                 content=content,
-                collection_id=project.outline_collection_id,
-                parent_id=project.outline_root_doc_id,
+                collection_id=target_collection_id,
+                parent_id=parent_document_id,
                 publish=True,
             )
             outline_doc_id = doc.get("id")
@@ -193,3 +304,19 @@ def _safe_filename(title: str) -> str:
     safe = re.sub(r'[^\w一-鿿-]', '_', title)
     safe = re.sub(r'_+', '_', safe).strip('_')
     return safe[:80] or "report"
+
+
+def _project_overview_template(project: Project) -> str:
+    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+    desc = project.description or "（暂无描述）"
+    return (
+        f"# {project.name}\n\n"
+        f"> 创建时间：{now} | 序列数：0\n\n"
+        f"## 项目描述\n\n{desc}\n\n"
+        f"## 蛋白序列\n\n"
+        f"_（添加序列后在此显示）_\n\n"
+        f"## 分析报告\n\n"
+        f"_（AI分析完成后自动更新）_\n\n"
+        f"## 批量结果\n\n"
+        f"_（批量任务完成后自动更新）_\n"
+    )

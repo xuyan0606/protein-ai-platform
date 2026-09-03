@@ -1,0 +1,73 @@
+{
+  "accession": "O60551",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01233",
+        "name": "Myristoyl-CoA:protein N-myristoyltransferase, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022676",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60551",
+          "protein_length": 498,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 143,
+                  "end": 296,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01233",
+              "score": 1.4e-72
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02799",
+        "name": "Myristoyl-CoA:protein N-myristoyltransferase, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022677",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60551",
+          "protein_length": 498,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 310,
+                  "end": 491,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02799",
+              "score": 2.3e-79
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

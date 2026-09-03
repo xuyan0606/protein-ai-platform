@@ -1,0 +1,122 @@
+{
+  "created_at": "2026-09-03T07:47:17.780509+00:00",
+  "local_only": true,
+  "case_rows": 11,
+  "positive_cases": 1,
+  "negative_cases": 10,
+  "expected_rejected_negative_cases": 10,
+  "actual_rejected_negative_cases": 10,
+  "failed_regression_cases": 0,
+  "success": true,
+  "cases": [
+    {
+      "case_id": "positive_current_receipted_execution_gate",
+      "expected_valid": true,
+      "actual_valid": true,
+      "expected_outcome_met": true,
+      "failure_checks": []
+    },
+    {
+      "case_id": "bad_executed_action_missing_receipt",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "missing_receipts_empty",
+        "receipt_actions_match_executed_actions"
+      ]
+    },
+    {
+      "case_id": "bad_unexpected_receipt_without_execution",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "unexpected_receipts_empty",
+        "receipt_actions_match_executed_actions"
+      ]
+    },
+    {
+      "case_id": "bad_receipt_model_claim_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "receipt_model_claim_false"
+      ]
+    },
+    {
+      "case_id": "bad_receipt_training_import_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "receipt_training_import_false"
+      ]
+    },
+    {
+      "case_id": "bad_receipt_release_ready_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "receipt_release_ready_false"
+      ]
+    },
+    {
+      "case_id": "bad_executed_passed_without_output_artifacts",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "executed_receipt_output_artifacts_nonempty"
+      ]
+    },
+    {
+      "case_id": "bad_executed_passed_without_validator_artifacts",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "executed_receipt_validator_artifacts_nonempty"
+      ]
+    },
+    {
+      "case_id": "bad_report_safe_for_execution_claim_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "receipt_rows_match_file",
+        "receipt_actions_match_executed_actions",
+        "safe_for_execution_claim_false"
+      ]
+    },
+    {
+      "case_id": "bad_report_model_claim_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "receipt_rows_match_file",
+        "receipt_actions_match_executed_actions",
+        "report_model_claim_false"
+      ]
+    },
+    {
+      "case_id": "bad_receipt_missing_required_field",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "receipt_required_fields_present"
+      ]
+    }
+  ],
+  "cases_artifact": "datasets/governance/enzyme_agent_execution_receipt_safety_regression_cases.jsonl",
+  "safe_for_execution_claim": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Regression suite proves execution receipt validation rejects unsafe execution claims and malformed receipts. It does not execute any action or authorize training/model/release claims."
+}

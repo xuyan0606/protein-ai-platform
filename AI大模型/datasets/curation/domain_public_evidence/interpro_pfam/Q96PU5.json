@@ -1,0 +1,143 @@
+{
+  "accession": "Q96PU5",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00168",
+        "name": "C2 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000008",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96pu5",
+          "protein_length": 975,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 21,
+                  "end": 119,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00168",
+              "score": 1.7e-23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00397",
+        "name": "WW domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001202",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96pu5",
+          "protein_length": 975,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 195,
+                  "end": 224,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00397",
+              "score": 4.5e-09
+            },
+            {
+              "fragments": [
+                {
+                  "start": 387,
+                  "end": 416,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00397",
+              "score": 5.5e-10
+            },
+            {
+              "fragments": [
+                {
+                  "start": 499,
+                  "end": 528,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00397",
+              "score": 7.1e-10
+            },
+            {
+              "fragments": [
+                {
+                  "start": 550,
+                  "end": 579,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00397",
+              "score": 5.4e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00632",
+        "name": "HECT-domain (ubiquitin-transferase)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000569",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96pu5",
+          "protein_length": 975,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 670,
+                  "end": 972,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00632",
+              "score": 9.4e-100
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

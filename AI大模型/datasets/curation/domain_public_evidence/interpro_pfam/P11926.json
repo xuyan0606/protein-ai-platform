@@ -1,0 +1,78 @@
+{
+  "accession": "P11926",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00278",
+        "name": "Pyridoxal-dependent decarboxylase, C-terminal sheet domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022643",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p11926",
+          "protein_length": 461,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 40,
+                  "end": 44,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 282,
+                  "end": 387,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": false,
+              "model": "PF00278",
+              "score": 4e-25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02784",
+        "name": "Pyridoxal-dependent decarboxylase, pyridoxal binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022644",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p11926",
+          "protein_length": 461,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 45,
+                  "end": 281,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02784",
+              "score": 2.7e-93
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

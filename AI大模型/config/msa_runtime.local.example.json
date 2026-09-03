@@ -1,0 +1,34 @@
+{
+  "local_only": true,
+  "preferred_runtime_order": ["local_binary", "docker_image", "trusted_cache"],
+  "local_binary": {
+    "required_executables": ["mmseqs"],
+    "binary_path": "cache/external/MMseqs2/bin/mmseqs",
+    "binary_manifest": "reports/mmseqs2_local_runtime_manifest.json",
+    "notes": "Use when MMseqs2 binary is installed on PATH or linked into a local tools directory."
+  },
+  "homolog_database": {
+    "database_path": "cache/mmseqs_databases/uniprot_sprot",
+    "database_name": "UniProtKB/Swiss-Prot",
+    "database_version": "UniProtKB/Swiss-Prot Release 2026_02 of 10-Jun-2026",
+    "checksum_manifest": "reports/mmseqs_homolog_database_manifest.json",
+    "notes": "Required for MMseqs2 search. Example: a local UniRef/Swiss-Prot/MMseqs database path with version and checksum."
+  },
+  "docker_image": {
+    "enabled": true,
+    "pull_allowed": false,
+    "selected_image": null,
+    "image_candidates": [
+      "ghcr.io/soedinglab/mmseqs2:latest",
+      "soedinglab/mmseqs2:latest"
+    ],
+    "notes": "Docker is the preferred fallback when brew/conda/micromamba are unavailable. Pulling an image requires explicit user approval."
+  },
+  "trusted_cache": {
+    "enabled": true,
+    "msa_cache_root": "cache/msa",
+    "conservation_cache_root": "datasets/curation/msa_conservation",
+    "manifest_path": "reports/msa_conservation_manifest.json",
+    "notes": "Use only for precomputed trusted MSA/conservation files with source database version and checksum."
+  }
+}

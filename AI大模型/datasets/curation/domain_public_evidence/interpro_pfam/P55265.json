@@ -1,0 +1,143 @@
+{
+  "accession": "P55265",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00035",
+        "name": "Double-stranded RNA binding motif",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014720",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p55265",
+          "protein_length": 1226,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 504,
+                  "end": 567,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00035",
+              "score": 1.5e-10
+            },
+            {
+              "fragments": [
+                {
+                  "start": 615,
+                  "end": 679,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00035",
+              "score": 4.4e-07
+            },
+            {
+              "fragments": [
+                {
+                  "start": 727,
+                  "end": 792,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00035",
+              "score": 1.1e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02137",
+        "name": "Adenosine-deaminase (editase) domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002466",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p55265",
+          "protein_length": 1226,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 886,
+                  "end": 1215,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02137",
+              "score": 1.5e-99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02295",
+        "name": "Adenosine deaminase z-alpha domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR042371",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p55265",
+          "protein_length": 1226,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 135,
+                  "end": 200,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02295",
+              "score": 5.4e-25
+            },
+            {
+              "fragments": [
+                {
+                  "start": 295,
+                  "end": 358,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02295",
+              "score": 5.2e-23
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

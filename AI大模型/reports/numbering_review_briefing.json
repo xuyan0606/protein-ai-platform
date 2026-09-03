@@ -1,0 +1,519 @@
+{
+  "created_at": "2026-09-03T07:32:18.411916+00:00",
+  "local_only": true,
+  "packet_report": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/numbering_review_packet_report.json",
+  "briefing_packet_ids": [
+    "numbering_review_isoform_exact_001",
+    "numbering_review_abstract_signal_001"
+  ],
+  "packet_summaries": [
+    {
+      "packet_id": "numbering_review_isoform_exact_001",
+      "rows": 8,
+      "bucket_counts": {
+        "isoform_exact_plus_abstract_signal": 1,
+        "isoform_exact_candidate": 7
+      },
+      "title_flag_counts": {
+        "title_mismatch_risk": 8
+      },
+      "review_rank_min": 1,
+      "review_rank_max": 48
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "rows": 25,
+      "bucket_counts": {
+        "abstract_signal": 25
+      },
+      "title_flag_counts": {
+        "title_mismatch_risk": 20,
+        "title_has_broad_protein_signal": 5
+      },
+      "review_rank_min": 5,
+      "review_rank_max": 29
+    }
+  ],
+  "briefing_rows": [
+    {
+      "packet_id": "numbering_review_isoform_exact_001",
+      "review_rank": 1,
+      "record_id": "stability:261",
+      "bucket": "isoform_exact_plus_abstract_signal",
+      "uniprot_id": "P06865",
+      "mutation": "F9E",
+      "current_residue": "S",
+      "candidate_isoforms": [
+        "P06865-2"
+      ],
+      "pmid": "PMID:31050886",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Probing the Origin of the Toxicity of Oligomeric Aggregates of α-Synuclein with Antibodies."
+    },
+    {
+      "packet_id": "numbering_review_isoform_exact_001",
+      "review_rank": 2,
+      "record_id": "stability:103",
+      "bucket": "isoform_exact_candidate",
+      "uniprot_id": "O60502",
+      "mutation": "L511H",
+      "current_residue": "S",
+      "candidate_isoforms": [
+        "O60502-2",
+        "O60502-4"
+      ],
+      "pmid": "PMID:31078391",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Tibial insertion of the anterior cruciate ligament and anterior horn of the lateral meniscus share the lateral slope of the medial intercondylar ridge: A computed tomography study in a young, healthy population."
+    },
+    {
+      "packet_id": "numbering_review_isoform_exact_001",
+      "review_rank": 3,
+      "record_id": "stability:458",
+      "bucket": "isoform_exact_candidate",
+      "uniprot_id": "P21127",
+      "mutation": "E560S",
+      "current_residue": "H",
+      "candidate_isoforms": [
+        "P21127-9"
+      ],
+      "pmid": "PMID:31048474",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "In search of blue."
+    },
+    {
+      "packet_id": "numbering_review_isoform_exact_001",
+      "review_rank": 4,
+      "record_id": "stability:460",
+      "bucket": "isoform_exact_candidate",
+      "uniprot_id": "P21128",
+      "mutation": "S107Y",
+      "current_residue": "N",
+      "candidate_isoforms": [
+        "P21128-3"
+      ],
+      "pmid": "PMID:31094770",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Perioperative Use of High Fraction of Inspired Oxygen: Another Null Result?"
+    },
+    {
+      "packet_id": "numbering_review_isoform_exact_001",
+      "review_rank": 45,
+      "record_id": "stability:219",
+      "bucket": "isoform_exact_candidate",
+      "uniprot_id": "P00338",
+      "mutation": "L332A",
+      "current_residue": "F",
+      "candidate_isoforms": [
+        "P00338-3"
+      ],
+      "pmid": "PMID:31018812",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Cognitive Impairment and Predicting Response to Treatment in an Intensive Clinical Program for Post-9/11 Veterans With Posttraumatic Stress Disorder."
+    },
+    {
+      "packet_id": "numbering_review_isoform_exact_001",
+      "review_rank": 46,
+      "record_id": "stability:274",
+      "bucket": "isoform_exact_candidate",
+      "uniprot_id": "P08253",
+      "mutation": "H357I",
+      "current_residue": "G",
+      "candidate_isoforms": [
+        "P08253-3"
+      ],
+      "pmid": "PMID:31002123",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Uroflowmetry alterations in patients with autosomal dominant polycystic kidney disease."
+    },
+    {
+      "packet_id": "numbering_review_isoform_exact_001",
+      "review_rank": 47,
+      "record_id": "stability:308",
+      "bucket": "isoform_exact_candidate",
+      "uniprot_id": "P09936",
+      "mutation": "L6A",
+      "current_residue": "M",
+      "candidate_isoforms": [
+        "P09936-3"
+      ],
+      "pmid": "PMID:31017179",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Analysis of the efficiency of an emergency network for the treatment of multiple burn victims."
+    },
+    {
+      "packet_id": "numbering_review_isoform_exact_001",
+      "review_rank": 48,
+      "record_id": "stability:457",
+      "bucket": "isoform_exact_candidate",
+      "uniprot_id": "P21127",
+      "mutation": "L495W",
+      "current_residue": "P",
+      "candidate_isoforms": [
+        "P21127-9"
+      ],
+      "pmid": "PMID:31099969",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Patient and caregiver experience with delayed discharge from a hospital setting: A scoping review."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 5,
+      "record_id": "stability:118",
+      "bucket": "abstract_signal",
+      "uniprot_id": "O60930",
+      "mutation": "I127T",
+      "current_residue": "P",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31079356",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Safety, Tolerability and Pharmacokinetics of Yimitasvir Phosphate Capsule, a Novel Oral Hepatitis C Virus NS5A Inhibitor, in Healthy Chinese Volunteers."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 6,
+      "record_id": "stability:138",
+      "bucket": "abstract_signal",
+      "uniprot_id": "O75449",
+      "mutation": "G15N",
+      "current_residue": "E",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31062430",
+      "title_flag": "title_has_broad_protein_signal",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Diagnosis and management of pregnancies complicated by haemolysis, elevated liver enzymes and low platelets syndrome in the tertiary setting."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 7,
+      "record_id": "stability:144",
+      "bucket": "abstract_signal",
+      "uniprot_id": "O75884",
+      "mutation": "R138M",
+      "current_residue": "D",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31059741",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "The transcriptome analysis of the bamboo grasshopper provides insights into hypothermic stress acclimation."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 8,
+      "record_id": "stability:15",
+      "bucket": "abstract_signal",
+      "uniprot_id": "O00329",
+      "mutation": "I208W",
+      "current_residue": "S",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31010999",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "β-xylosidase and β-mannosidase in combination improved growth performance and altered microbial profiles in weanling pigs fed a corn-soybean meal-based diet."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 9,
+      "record_id": "stability:152",
+      "bucket": "abstract_signal",
+      "uniprot_id": "O76039",
+      "mutation": "W877E",
+      "current_residue": "H",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31089057",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "RNA sequencing screening of differentially expressed genes after spinal cord injury."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 10,
+      "record_id": "stability:155",
+      "bucket": "abstract_signal",
+      "uniprot_id": "O76039",
+      "mutation": "P247T",
+      "current_residue": "L",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31087915",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "[Analysis of the Optical Properties and Factors Influencing DOM in an Ecological Purification System: A Case Study of Yanlong Lake in Spring]."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 11,
+      "record_id": "stability:160",
+      "bucket": "abstract_signal",
+      "uniprot_id": "O76075",
+      "mutation": "P11W",
+      "current_residue": "R",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31068014",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Advances in genomic, transcriptomic, proteomic, and metabolomic approaches to study biotic stress in fruit crops."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 12,
+      "record_id": "stability:161",
+      "bucket": "abstract_signal",
+      "uniprot_id": "O76075",
+      "mutation": "V300E",
+      "current_residue": "K",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31091124",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Stress granules are formed in renal proximal tubular cells during metabolic stress and ischemic injury for cell survival."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 13,
+      "record_id": "stability:17",
+      "bucket": "abstract_signal",
+      "uniprot_id": "O00329",
+      "mutation": "A86S",
+      "current_residue": "Q",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31063202",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Histopathologic and immunohistochemical investigations of dental abscess formed in maxillofacial area."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 14,
+      "record_id": "stability:170",
+      "bucket": "abstract_signal",
+      "uniprot_id": "O94923",
+      "mutation": "Q324P",
+      "current_residue": "V",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31069661",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Adult-Onset Hypothyroidism Alters the Metaplastic Properties of Dentate Granule Cells by Decreasing Akt Phosphorylation."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 15,
+      "record_id": "stability:190",
+      "bucket": "abstract_signal",
+      "uniprot_id": "O95470",
+      "mutation": "E204I",
+      "current_residue": "G",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31021013",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Insight into the rheological behaviors of a polyanionic collagen fabricated with poly(γ-glutamic acid)-NHS ester."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 16,
+      "record_id": "stability:231",
+      "bucket": "abstract_signal",
+      "uniprot_id": "P00519",
+      "mutation": "M301F",
+      "current_residue": "L",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31075740",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Synthesis, computational molecular docking analysis and effectiveness on tyrosinase inhibition of kojic acid derivatives."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 17,
+      "record_id": "stability:233",
+      "bucket": "abstract_signal",
+      "uniprot_id": "P03951",
+      "mutation": "S435Q",
+      "current_residue": "G",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31054875",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Alendronate induces postnatal maxillary bone growth by stimulating intramembranous ossification and preventing premature cartilage mineralization in the midpalatal suture of newborn rats."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 18,
+      "record_id": "stability:244",
+      "bucket": "abstract_signal",
+      "uniprot_id": "P04179",
+      "mutation": "H33Q",
+      "current_residue": "Y",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31061399",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Plin2-deficiency reduces lipophagy and results in increased lipid accumulation in the heart."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 19,
+      "record_id": "stability:247",
+      "bucket": "abstract_signal",
+      "uniprot_id": "P04179",
+      "mutation": "V42E",
+      "current_residue": "I",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31026441",
+      "title_flag": "title_has_broad_protein_signal",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "A trypsin inhibitor-like protein secreted by Cotesia vestalis teratocytes inhibits hemolymph prophenoloxidase activation of Plutella xylostella."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 20,
+      "record_id": "stability:26",
+      "bucket": "abstract_signal",
+      "uniprot_id": "O00506",
+      "mutation": "I414K",
+      "current_residue": "R",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31092281",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Circadian rhythms in the three-dimensional genome: implications of chromatin interactions for cyclic transcription."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 21,
+      "record_id": "stability:27",
+      "bucket": "abstract_signal",
+      "uniprot_id": "O00506",
+      "mutation": "Y362H",
+      "current_residue": "V",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31074594",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "MicroRNA-4286 promotes cell proliferation, migration, and invasion via PTEN regulation of the PI3K/Akt pathway in non-small cell lung cancer."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 22,
+      "record_id": "stability:287",
+      "bucket": "abstract_signal",
+      "uniprot_id": "P09467",
+      "mutation": "D105E",
+      "current_residue": "I",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31081016",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Overexpression of amyA and glaA substantially increases glucoamylase activity in Aspergillus niger."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 23,
+      "record_id": "stability:288",
+      "bucket": "abstract_signal",
+      "uniprot_id": "P09467",
+      "mutation": "D279Y",
+      "current_residue": "L",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31082773",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Ginsenoside Re inhibits PDGF-BB-induced VSMC proliferation via the eNOS/NO/cGMP pathway."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 24,
+      "record_id": "stability:294",
+      "bucket": "abstract_signal",
+      "uniprot_id": "P09769",
+      "mutation": "E33N",
+      "current_residue": "H",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31068387",
+      "title_flag": "title_has_broad_protein_signal",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Cell Death Triggered by the YUCCA-like Bs3 Protein Coincides with Accumulation of Salicylic Acid and Pipecolic Acid But Not of Indole-3-Acetic Acid."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 25,
+      "record_id": "stability:299",
+      "bucket": "abstract_signal",
+      "uniprot_id": "P09874",
+      "mutation": "W813L",
+      "current_residue": "I",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31055541",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Prevalence of acidic and non-acidic refluxes in patients with functional dyspepsia and its risk factors investigated by means of multichannel intraluminal pH-monitoring."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 26,
+      "record_id": "stability:300",
+      "bucket": "abstract_signal",
+      "uniprot_id": "P09874",
+      "mutation": "K611N",
+      "current_residue": "I",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31046258",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Characterization of the Earliest Intermediate of Fe-N"
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 27,
+      "record_id": "stability:303",
+      "bucket": "abstract_signal",
+      "uniprot_id": "P09884",
+      "mutation": "D503I",
+      "current_residue": "S",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31041759",
+      "title_flag": "title_has_broad_protein_signal",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "Protein Acetylation in Pathogen Virulence and Host Defense: In Vitro Detection of Protein Acetylation by Radiolabeled Acetyl Coenzyme A."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 28,
+      "record_id": "stability:306",
+      "bucket": "abstract_signal",
+      "uniprot_id": "P09884",
+      "mutation": "Q864M",
+      "current_residue": "L",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31006134",
+      "title_flag": "title_mismatch_risk",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "ABCA1 variants rs2230806 (R219K), rs4149313 (M8831I), and rs9282541 (R230C) are associated with susceptibility to coronary heart disease."
+    },
+    {
+      "packet_id": "numbering_review_abstract_signal_001",
+      "review_rank": 29,
+      "record_id": "stability:313",
+      "bucket": "abstract_signal",
+      "uniprot_id": "P0C024",
+      "mutation": "A212G",
+      "current_residue": "V",
+      "candidate_isoforms": [],
+      "pmid": "PMID:31011537",
+      "title_flag": "title_has_broad_protein_signal",
+      "review_action": "confirm_source_or_keep_unresolved_weak",
+      "notes": "A response to Germain, et al. The effect of enzyme replacement therapy on clinical outcomes in male patients with Fabry disease: A systematic literature review by a European panel of experts."
+    }
+  ],
+  "policy": "Navigation only; do not copy these rows into numbering_curation_decisions.jsonl without source review."
+}

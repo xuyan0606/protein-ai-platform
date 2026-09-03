@@ -1,0 +1,73 @@
+{
+  "accession": "Q9Y2P5",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00501",
+        "name": "AMP-binding enzyme",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000873",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y2p5",
+          "protein_length": 690,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 120,
+                  "end": 442,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00501",
+              "score": 2.4e-46
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13193",
+        "name": "AMP-binding enzyme C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR025110",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y2p5",
+          "protein_length": 690,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 566,
+                  "end": 642,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13193",
+              "score": 8.9e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "accession": "O95571",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00753",
+        "name": "Metallo-beta-lactamase superfamily",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001279",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95571",
+          "protein_length": 254,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 37,
+                  "end": 195,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00753",
+              "score": 7.6e-15
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

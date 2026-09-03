@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { Upload, File, X, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
+import { uploadFormWithProgress } from '@/lib/api'
 
 interface UploadedFile {
   name: string
@@ -20,57 +21,36 @@ export function FileUploader({ onFilesChange }: Props) {
   const [uploaded, setUploaded] = useState<UploadedFile[]>([])
 
   const uploadFile = async (file: File, index: number) => {
-    const token = localStorage.getItem('token')
     const formData = new FormData()
     formData.append('file', file)
 
-    return new Promise<void>((resolve) => {
-      const xhr = new XMLHttpRequest()
-      xhr.open('POST', '/api/files/upload')
-      if (token) xhr.setRequestHeader('Authorization', `Bearer ${token}`)
-
-      xhr.upload.onprogress = (e) => {
-        if (e.lengthComputable) {
-          const pct = Math.round((e.loaded / e.total) * 100)
+    try {
+      const data = await uploadFormWithProgress<{
+        id: string
+        object_name?: string
+        download_url?: string
+      }>('/files/upload', formData, {
+        onProgress: (pct) => {
           setUploaded((prev) =>
             prev.map((f, j) => (j === index ? { ...f, progress: pct } : f))
           )
-        }
-      }
-
-      xhr.onload = () => {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          const data = JSON.parse(xhr.responseText)
-          setUploaded((prev) =>
-            prev.map((f, j) =>
-              j === index
-                ? { ...f, progress: 100, status: 'done', objectName: data.object_name || data.id, downloadUrl: data.download_url }
-                : f
-            )
-          )
-          resolve()
-        } else {
-          const err = JSON.parse(xhr.responseText || '{}')
-          setUploaded((prev) =>
-            prev.map((f, j) =>
-              j === index ? { ...f, status: 'error', error: err.detail || 'Upload failed' } : f
-            )
-          )
-          resolve()
-        }
-      }
-
-      xhr.onerror = () => {
-        setUploaded((prev) =>
-          prev.map((f, j) =>
-            j === index ? { ...f, status: 'error', error: 'Network error' } : f
-          )
+        },
+      })
+      setUploaded((prev) =>
+        prev.map((f, j) =>
+          j === index
+            ? { ...f, progress: 100, status: 'done', objectName: data.object_name || data.id, downloadUrl: data.download_url }
+            : f
         )
-        resolve()
-      }
-
-      xhr.send(formData)
-    })
+      )
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Upload failed'
+      setUploaded((prev) =>
+        prev.map((f, j) =>
+          j === index ? { ...f, status: 'error', error: message } : f
+        )
+      )
+    }
   }
 
   const onDrop = useCallback(

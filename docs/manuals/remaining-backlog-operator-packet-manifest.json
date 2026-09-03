@@ -1,0 +1,258 @@
+{
+  "created_at": "2026-09-02T05:59:07.626000+00:00",
+  "destructive_actions": "not_executed",
+  "dispatch_validation": {
+    "armed_rows": 0,
+    "blocked_rows": 7,
+    "exists": true,
+    "failure_count": 0,
+    "invalid_json": null,
+    "invalid_shape": null,
+    "item_count": 7,
+    "lane_count": 6,
+    "source_bound_current": true,
+    "success": true
+  },
+  "files": [
+    {
+      "bytes": 32616,
+      "exists": true,
+      "label": "readiness_script",
+      "path": "scripts/check_remaining_backlog_readiness.py",
+      "sha256": "3fa5691d8de0fa8df793883dbf1081153dd334cc6c83ca43e44a12b53d9d0627"
+    },
+    {
+      "bytes": 9828,
+      "exists": true,
+      "label": "external_input_packet_builder",
+      "path": "scripts/build_remaining_backlog_external_input_packet.py",
+      "sha256": "a6498160679257c45cc9f9f34b3aecd9a76ce917ee11196d88d074934112ba46"
+    },
+    {
+      "bytes": 7464,
+      "exists": true,
+      "label": "external_input_validator",
+      "path": "scripts/validate_remaining_backlog_external_inputs.py",
+      "sha256": "68b0f8ad51cd9cd5a2f2ad6ce933222373882a60a32a0dd911b0ed7a5edb44fd"
+    },
+    {
+      "bytes": 10316,
+      "exists": true,
+      "label": "gate_execution_plan_builder",
+      "path": "scripts/build_remaining_backlog_gate_execution_plan.py",
+      "sha256": "02b7dc5c0043b34ef702d244c271d61ef88b6392745a2d9389308f1671542bc8"
+    },
+    {
+      "bytes": 10722,
+      "exists": true,
+      "label": "operator_dispatch_builder",
+      "path": "scripts/build_remaining_backlog_operator_dispatch_checklist.py",
+      "sha256": "a62dfa060ccff18a0cb2e9e3636d4714f396811f34f43818e302db87dbb05d98"
+    },
+    {
+      "bytes": 8693,
+      "exists": true,
+      "label": "operator_dispatch_validator",
+      "path": "scripts/validate_remaining_backlog_operator_dispatch_checklist.py",
+      "sha256": "a9a9a92e943400752bc5d38d72c0d0ac34dd9783c41e9c0bd706586bbb1dda35"
+    },
+    {
+      "bytes": 12245,
+      "exists": true,
+      "label": "operator_packet_manifest_builder",
+      "path": "scripts/build_remaining_backlog_operator_packet_manifest.py",
+      "sha256": "1240f287d431f5a85ec9a91f1bf885d232b6081eb5c4e54cb7fb31911a97d928"
+    },
+    {
+      "bytes": 14825,
+      "exists": true,
+      "label": "remaining_backlog_go_no_go_summary_builder",
+      "path": "scripts/build_remaining_backlog_go_no_go_summary.py",
+      "sha256": "fd2c2855fb1cd6687633b5fd82e4c6307aac20f745fa5d281249ace269d5babd"
+    },
+    {
+      "bytes": 11172,
+      "exists": true,
+      "label": "remaining_backlog_execution_tickets_builder",
+      "path": "scripts/build_remaining_backlog_execution_tickets.py",
+      "sha256": "5a7edc5de3ed024dec45d30f8f42c484cdd76c127865c335333ee027d809fb9a"
+    },
+    {
+      "bytes": 9778,
+      "exists": true,
+      "label": "remaining_backlog_execution_tickets_validator",
+      "path": "scripts/validate_remaining_backlog_execution_tickets.py",
+      "sha256": "984f9d0747e04d76dfac38887af6f0574c8717d264a9b0550586480d855fb936"
+    },
+    {
+      "bytes": 20483,
+      "exists": true,
+      "label": "p0_p4_backlog_ticket_bridge_builder",
+      "path": "scripts/build_p0_p4_backlog_ticket_bridge.py",
+      "sha256": "11230d28d0955f30f2f5d4e121ca29cd8eeedb574733bf7b84684bc54a940a8b"
+    },
+    {
+      "bytes": 6440,
+      "exists": true,
+      "label": "p0_p4_backlog_ticket_bridge_validator",
+      "path": "scripts/validate_p0_p4_backlog_ticket_bridge.py",
+      "sha256": "290f8d0f89a42522af645146f2f18abe9bc477705fa03665b8dd389fd264af33"
+    },
+    {
+      "bytes": 15320,
+      "exists": true,
+      "label": "p0_p4_status_export_builder",
+      "path": "scripts/build_p0_p4_status_export.py",
+      "sha256": "46c8dbb76aa3c561f74f4b8d214fe0777247bf12f2fdc32766c61fe4ac309b20"
+    },
+    {
+      "bytes": 30354,
+      "exists": true,
+      "label": "p0_p4_status_export_json",
+      "path": "docs/manuals/p0-p4-status-export.json",
+      "sha256": "84e9c2214c8c6c1b01d74cc25c440eea941cc5d5f2f37c42a0861f9fbb3e55fa"
+    },
+    {
+      "bytes": 16284,
+      "exists": true,
+      "label": "p0_p4_status_export_md",
+      "path": "docs/manuals/p0-p4-status-export.md",
+      "sha256": "57ed30e20197714c3e84da82a2c20a6f818b0692474eeefd1d0941036585f7e7"
+    },
+    {
+      "bytes": 26439,
+      "exists": true,
+      "label": "p0_p4_backlog_ticket_bridge_json",
+      "path": "docs/manuals/p0-p4-backlog-ticket-bridge.json",
+      "sha256": "fad36240a699b4e3b83a3a74965b61a7d2aea2dbb13b03054605eee69e902138"
+    },
+    {
+      "bytes": 6220,
+      "exists": true,
+      "label": "p0_p4_backlog_ticket_bridge_md",
+      "path": "docs/manuals/p0-p4-backlog-ticket-bridge.md",
+      "sha256": "ded0ffa448bb62870949e1153861f2b018b7306dcaf8e882a37602bf86a49111"
+    },
+    {
+      "bytes": 354,
+      "exists": true,
+      "label": "p0_p4_backlog_ticket_bridge_validation_report",
+      "path": "docs/manuals/p0-p4-backlog-ticket-bridge-validation-report.json",
+      "sha256": "f19becfcc812b326227441a66f9622c9f908263ba5073d5b054e07c0a12b0eab"
+    },
+    {
+      "bytes": 3652,
+      "exists": true,
+      "label": "remaining_backlog_go_no_go_summary_json",
+      "path": "docs/manuals/remaining-backlog-go-no-go-summary.json",
+      "sha256": "7cd374fcc8f292897d2371de2f54aa941343ab5079853b3f773f60fb843aa369"
+    },
+    {
+      "bytes": 1582,
+      "exists": true,
+      "label": "remaining_backlog_go_no_go_summary_md",
+      "path": "docs/manuals/remaining-backlog-go-no-go-summary.md",
+      "sha256": "7b4ae8d55c1d7a48a5d21b120d3014347f714b1cb363d4fff76e14a9ae17bc28"
+    },
+    {
+      "bytes": 8493,
+      "exists": true,
+      "label": "external_input_packet_json",
+      "path": "docs/manuals/remaining-backlog-external-input-packet.json",
+      "sha256": "84619cb7d2879ac27fda0a5b7ede22e9e2d0bf8ea9ec3c27cd5de0dc9f13518f"
+    },
+    {
+      "bytes": 6886,
+      "exists": true,
+      "label": "external_input_packet_md",
+      "path": "docs/manuals/remaining-backlog-external-input-packet.md",
+      "sha256": "43dd4d206e95d764225a98cc86ae3df6937c1820d76edcf3ae3b80bca100d3e7"
+    },
+    {
+      "bytes": 2342,
+      "exists": true,
+      "label": "external_input_values_template",
+      "path": "docs/manuals/remaining-backlog-external-input-values.template.json",
+      "sha256": "86da3337c42713929a7ca8ac39bb45cad7e6e6d7bcd4318558bb120973219b20"
+    },
+    {
+      "bytes": 6066,
+      "exists": true,
+      "label": "external_input_validation_report",
+      "path": "docs/manuals/remaining-backlog-external-input-validation-report.json",
+      "sha256": "f9709684f97a349c5a503ed0a4f7ab6281a498a5766f6faee48fcda9148198df"
+    },
+    {
+      "bytes": 7131,
+      "exists": true,
+      "label": "gate_execution_plan_json",
+      "path": "docs/manuals/remaining-backlog-gate-execution-plan.json",
+      "sha256": "7d3a9568a6642ee202ba99f78be6ab4e9719591053c50fa0b7a721135ed3d3d3"
+    },
+    {
+      "bytes": 4042,
+      "exists": true,
+      "label": "gate_execution_plan_md",
+      "path": "docs/manuals/remaining-backlog-gate-execution-plan.md",
+      "sha256": "b49129b9c60da5aaf63df377e7822f3580392f09ae90f121c9a0629076abd363"
+    },
+    {
+      "bytes": 12244,
+      "exists": true,
+      "label": "operator_dispatch_checklist_json",
+      "path": "docs/manuals/remaining-backlog-operator-dispatch-checklist.json",
+      "sha256": "9dbed5f6ec0eebe170848569dc90f023c93ddc234a1664269be38aa22542f64b"
+    },
+    {
+      "bytes": 5375,
+      "exists": true,
+      "label": "operator_dispatch_checklist_md",
+      "path": "docs/manuals/remaining-backlog-operator-dispatch-checklist.md",
+      "sha256": "e329e89aece797e19e32d0905e70d7195c12b028c266691c6fa89800c7548389"
+    },
+    {
+      "bytes": 405,
+      "exists": true,
+      "label": "operator_dispatch_validation_report",
+      "path": "docs/manuals/remaining-backlog-operator-dispatch-checklist-validation-report.json",
+      "sha256": "0d10d204f7609514ef9e4dfd980ea59777ba53359db2727fedc304cf2ba05f09"
+    },
+    {
+      "bytes": 15087,
+      "exists": true,
+      "label": "execution_tickets_json",
+      "path": "docs/manuals/remaining-backlog-execution-tickets.json",
+      "sha256": "e80b81047d9afa213867db295fe57077e91bbea6505ff965bcbc74b944099ad7"
+    },
+    {
+      "bytes": 6401,
+      "exists": true,
+      "label": "execution_tickets_md",
+      "path": "docs/manuals/remaining-backlog-execution-tickets.md",
+      "sha256": "67f6fc4f2c8a3f0a5238234d3571d6e5f006c74e72a4f7646b68076760ebcce0"
+    },
+    {
+      "bytes": 394,
+      "exists": true,
+      "label": "execution_tickets_validation_report",
+      "path": "docs/manuals/remaining-backlog-execution-tickets-validation-report.json",
+      "sha256": "014740f1b890eecec35f3da6c10c26094382b9d9ab17cfeb60d32ffd0c9e774a"
+    }
+  ],
+  "live_gate_execution_allowed": false,
+  "mode": "read_only_remaining_backlog_operator_packet_manifest",
+  "network_io": "not_executed",
+  "operator_packet_status": {
+    "blocked_input_rows": 7,
+    "live_gate_armed_rows": 0,
+    "next_decision": "operator must collect external inputs by lane, rerun validation, then explicitly execute live gates only for armed rows",
+    "ready_for_operator_review": true,
+    "remaining_backlog_status": "external_required"
+  },
+  "secrets_printed": false,
+  "summary": {
+    "file_count": 32,
+    "missing_files": [],
+    "status": "ready-for-operator-review"
+  }
+}

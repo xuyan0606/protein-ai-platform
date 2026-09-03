@@ -1,0 +1,31 @@
+{
+  "all_operator_packets_valid": true,
+  "completion_ready_rows": 0,
+  "created_at": "2026-09-03T07:33:45.363495+00:00",
+  "expected_counts": {
+    "action_packet_rows": 6,
+    "packet_rows": 13,
+    "source_packet_rows": 7
+  },
+  "inputs": {
+    "gap_report": "reports/substrate_fit_label_gap_plan_report.json",
+    "packet_report": "reports/substrate_fit_hard_gate_operator_packet_report.json",
+    "packets": "datasets/governance/substrate_fit_hard_gate_operator_packets.jsonl"
+  },
+  "invalid_rows": 0,
+  "local_only": true,
+  "outputs": {
+    "report": "reports/substrate_fit_hard_gate_operator_packet_validation_report.json",
+    "status": "datasets/governance/substrate_fit_hard_gate_operator_packet_status.jsonl"
+  },
+  "packet_rows": 13,
+  "packet_type_counts": {
+    "candidate_source_review": 7,
+    "substrate_fit_action": 6
+  },
+  "release_ready": false,
+  "report_errors": [],
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "valid_rows": 13
+}

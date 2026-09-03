@@ -1,0 +1,107 @@
+{
+  "accession": "Q9UM07",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03068",
+        "name": "Protein-arginine deiminase (PAD)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR013530",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9um07",
+          "protein_length": 663,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 284,
+                  "end": 660,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03068",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08526",
+        "name": "Protein-arginine deiminase (PAD) N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013732",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9um07",
+          "protein_length": 663,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1,
+                  "end": 111,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08526",
+              "score": 7.5e-35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08527",
+        "name": "Protein-arginine deiminase (PAD) middle domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013733",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9um07",
+          "protein_length": 663,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 113,
+                  "end": 273,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08527",
+              "score": 1.1e-60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

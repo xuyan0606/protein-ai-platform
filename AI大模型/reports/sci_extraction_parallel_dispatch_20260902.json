@@ -1,0 +1,101 @@
+{
+  "packet_count": 4,
+  "task_count": 12,
+  "packets": [
+    {
+      "packet_id": "sci-extraction-01",
+      "task_count": 3,
+      "tasks": [
+        {
+          "pmcid": "PMC10804518",
+          "table_locator": "Tab1",
+          "source_path": "datasets/source_drops/sci_open_candidates_20260902/PMC10804518.xml"
+        },
+        {
+          "pmcid": "PMC10804518",
+          "table_locator": "Tab2",
+          "source_path": "datasets/source_drops/sci_open_candidates_20260902/PMC10804518.xml"
+        },
+        {
+          "pmcid": "PMC12016552",
+          "table_locator": "T1",
+          "source_path": "datasets/source_drops/sci_open_candidates_20260902/PMC12016552.xml"
+        }
+      ],
+      "status": "ready_for_parallel_human_extraction",
+      "training_import_allowed": false
+    },
+    {
+      "packet_id": "sci-extraction-02",
+      "task_count": 3,
+      "tasks": [
+        {
+          "pmcid": "PMC12344977",
+          "table_locator": "Tab1",
+          "source_path": "datasets/source_drops/sci_open_candidates_20260902/PMC12344977.xml"
+        },
+        {
+          "pmcid": "PMC12344977",
+          "table_locator": "Tab2",
+          "source_path": "datasets/source_drops/sci_open_candidates_20260902/PMC12344977.xml"
+        },
+        {
+          "pmcid": "PMC12800693",
+          "table_locator": "tbl1",
+          "source_path": "datasets/source_drops/sci_open_candidates_20260902/PMC12800693.xml"
+        }
+      ],
+      "status": "ready_for_parallel_human_extraction",
+      "training_import_allowed": false
+    },
+    {
+      "packet_id": "sci-extraction-03",
+      "task_count": 3,
+      "tasks": [
+        {
+          "pmcid": "PMC13051958",
+          "table_locator": "pro70555-tbl-0001",
+          "source_path": "datasets/source_drops/sci_open_candidates_20260902/PMC13051958.xml"
+        },
+        {
+          "pmcid": "PMC13051958",
+          "table_locator": "pro70555-tbl-0002",
+          "source_path": "datasets/source_drops/sci_open_candidates_20260902/PMC13051958.xml"
+        },
+        {
+          "pmcid": "PMC13119103",
+          "table_locator": "microorganisms-14-00817-t001",
+          "source_path": "datasets/source_drops/sci_open_candidates_20260902/PMC13119103.xml"
+        }
+      ],
+      "status": "ready_for_parallel_human_extraction",
+      "training_import_allowed": false
+    },
+    {
+      "packet_id": "sci-extraction-04",
+      "task_count": 3,
+      "tasks": [
+        {
+          "pmcid": "PMC13119103",
+          "table_locator": "microorganisms-14-00817-t002",
+          "source_path": "datasets/source_drops/sci_open_candidates_20260902/PMC13119103.xml"
+        },
+        {
+          "pmcid": "PMC13234801",
+          "table_locator": "tbl1",
+          "source_path": "datasets/source_drops/sci_open_candidates_20260902/PMC13234801.xml"
+        },
+        {
+          "pmcid": "PMC13234801",
+          "table_locator": "tbl2",
+          "source_path": "datasets/source_drops/sci_open_candidates_20260902/PMC13234801.xml"
+        }
+      ],
+      "status": "ready_for_parallel_human_extraction",
+      "training_import_allowed": false
+    }
+  ],
+  "training_import_allowed": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

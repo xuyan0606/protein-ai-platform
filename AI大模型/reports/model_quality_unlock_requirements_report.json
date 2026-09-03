@@ -1,0 +1,332 @@
+{
+  "created_at": "2026-09-03T07:35:25.485046+00:00",
+  "local_only": true,
+  "jsonl": "datasets/governance/model_quality_unlock_requirements.jsonl",
+  "requirement_rows": 5,
+  "blocked_requirements": 4,
+  "ready_to_verify_requirements": 1,
+  "complete_requirements": 0,
+  "model_quality_ready": false,
+  "model_quality_claim_missing_requirements": [
+    "safe_for_model_claim",
+    "strict supervised rows >= 100",
+    "claim-eligible real supervised rows >= 100",
+    "all five heads ready",
+    "benchmark matrix ready",
+    "master board ready"
+  ],
+  "top_blockers": [
+    {
+      "blocker_id": "P43-A001-B001",
+      "action_id": "P43-A001",
+      "workstream": "numbering_curation",
+      "failed_check": "numbering valid rows meet action target",
+      "observed": 4,
+      "expected": 100,
+      "next_evidence_artifact": "datasets/curation/numbering_curation_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A001-B002",
+      "action_id": "P43-A001",
+      "workstream": "numbering_curation",
+      "failed_check": "strict supervised rows meet model-claim threshold",
+      "observed": 0,
+      "expected": 100,
+      "next_evidence_artifact": "datasets/curation/numbering_curation_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A006-B001",
+      "action_id": "P43-A006",
+      "workstream": "plate_feedback_intake",
+      "failed_check": "plate feedback training eligible rows present",
+      "observed": 0,
+      "expected": "> 0",
+      "next_evidence_artifact": "datasets/feedback/experiment_feedback_plate.local.jsonl"
+    },
+    {
+      "blocker_id": "P43-A007-B001",
+      "action_id": "P43-A007",
+      "workstream": "external_license_review",
+      "failed_check": "license decisions cover all packets",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "datasets/governance/external_license_review_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A007-B002",
+      "action_id": "P43-A007",
+      "workstream": "external_license_review",
+      "failed_check": "license decisions ready for customer delivery",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "datasets/governance/external_license_review_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A008-B001",
+      "action_id": "P43-A008",
+      "workstream": "biosecurity_screening",
+      "failed_check": "biosecurity drafts all decided",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "datasets/governance/biosecurity_screening_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A008-B002",
+      "action_id": "P43-A008",
+      "workstream": "biosecurity_screening",
+      "failed_check": "biosecurity ready for ordering",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "datasets/governance/biosecurity_screening_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A009-B001",
+      "action_id": "P43-A009",
+      "workstream": "sequence_ip_fto",
+      "failed_check": "IP/FTO delivery candidates all decided",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "datasets/governance/sequence_ip_fto_decisions.jsonl"
+    }
+  ],
+  "minimum_unlock_sequence": [
+    "MQ-U001 reviewed numbering: get strict supervised rows to >=100",
+    "MQ-U001 label provenance: replace synthetic/unreceipted stability rows with real source receipts",
+    "MQ-U002 MSA conservation: only ready after strict real-source rows join to MSA site features (>0 rows)",
+    "MQ-U004 real experiment feedback: add schema-valid numbered feedback rows",
+    "MQ-U003 physical ddG backend: approve/license/install Rosetta/PyRosetta/FoldX and produce runtime receipts; ThermoMPNN remains proxy evidence only",
+    "Rerun safe pipeline, benchmark matrix and claim readiness",
+    "MQ-U005 production sync: only after explicit user authorization and release_ready=true"
+  ],
+  "requirements": [
+    {
+      "requirement_id": "MQ-U001",
+      "workstream": "reviewed_numbering",
+      "status": "blocked",
+      "current_state": {
+        "valid_reviewed_numbering_rows": 4,
+        "strict_supervised_rows": 0,
+        "claim_eligible_real_supervised_rows": 0,
+        "synthetic_or_unreceipted_rows": 0,
+        "label_provenance_hard_gate_status": "blocked_no_claim_eligible_real_source_labels",
+        "safe_for_model_claim": false
+      },
+      "target_state": {
+        "minimum_new_valid_reviewed_numbering_rows": 71,
+        "strict_supervised_rows": ">=100",
+        "claim_eligible_real_supervised_rows": ">=100",
+        "synthetic_or_unreceipted_rows": 0,
+        "safe_for_model_claim": true
+      },
+      "required_artifacts": [
+        "datasets/curation/numbering_curation_decisions.jsonl",
+        "datasets/curation/numbering_review_packets/",
+        "datasets/curation/numbering_review_decision_drafts/",
+        "datasets/curated/enzyme_mutation_supervised_claim_eligible.jsonl",
+        "reports/label_provenance_audit_report.json"
+      ],
+      "validator_reports": [
+        "reports/numbering_curation_validation_report.json",
+        "reports/numbering_curation_apply_report.json",
+        "reports/safe_training_entrypoint_check.json",
+        "reports/label_provenance_audit_report.json"
+      ],
+      "human_or_external_authorization_required": true,
+      "forbidden_shortcuts": [
+        "Do not promote weak evidence without canonical/isoform/literature numbering review.",
+        "Do not use template rows as reviewed decisions.",
+        "Do not use generate_sample_data synthetic ProThermDB rows for model-quality claims."
+      ],
+      "unlocks_when_complete": [
+        "strict row-count and real-label provenance gate for supervised training"
+      ]
+    },
+    {
+      "requirement_id": "MQ-U002",
+      "workstream": "msa_conservation",
+      "status": "blocked",
+      "current_state": {
+        "runtime_ready": true,
+        "selected_runtime": "local_binary",
+        "cache_ready": true,
+        "valid_cache_rows": 158,
+        "invalid_cache_rows": 0,
+        "strict_msa_site_feature_rows": 0,
+        "strict_msa_site_feature_missing_rows": 0,
+        "runtime_blockers": [
+          "docker daemon not reachable or not running"
+        ]
+      },
+      "target_state": {
+        "runtime_ready_or_cache_ready": true,
+        "target_rows": 158,
+        "valid_cache_rows": 158,
+        "manifest_errors": []
+      },
+      "required_artifacts": [
+        "config/msa_runtime.local.example.json",
+        "reports/msa_conservation_manifest.json",
+        "cache/msa/",
+        "datasets/curation/msa_conservation/",
+        "datasets/curation/msa_inputs/msa_targets.fasta",
+        "datasets/curated/enzyme_mutation_strict_msa_site_features.jsonl"
+      ],
+      "validator_reports": [
+        "reports/msa_runtime_readiness_report.json",
+        "reports/msa_conservation_cache_validation_report.json",
+        "reports/msa_execution_plan_report.json",
+        "reports/strict_msa_site_feature_report.json"
+      ],
+      "human_or_external_authorization_required": true,
+      "forbidden_shortcuts": [
+        "Do not synthesize conservation from a single sequence.",
+        "Do not mark MSA ready without homolog database version and file checksums.",
+        "Do not mark MSA site features ready when strict real-source supervised rows are zero.",
+        "Do not run Docker pulls or downloads without explicit approval."
+      ],
+      "unlocks_when_complete": [
+        "MSA/conservation feature production"
+      ]
+    },
+    {
+      "requirement_id": "MQ-U003",
+      "workstream": "rosetta_pyrosetta_foldx_ddg",
+      "status": "ready_to_verify",
+      "current_state": {
+        "rosetta_policy_status": "not_integrated_as_executable_ddg_tool",
+        "ddg_adapter_integrated": true,
+        "executable_ddg_backend_ready": true,
+        "proxy_ddg_backend_ready": true,
+        "one_ddg_backend_ready": true,
+        "thermompnn_ready": false,
+        "ready_external_tools": 2
+      },
+      "target_state": {
+        "one_ddg_backend_ready": true,
+        "allowed_backends": [
+          "Rosetta",
+          "PyRosetta",
+          "FoldX",
+          "ThermoMPNN baseline"
+        ],
+        "artifact_requirements": [
+          "parameters",
+          "input_structure_checksum",
+          "mutation_list",
+          "ddg_table",
+          "runtime_log"
+        ]
+      },
+      "required_artifacts": [
+        "config/foreign_tool_registry.local.example.json",
+        "config/ddg_backend.local.example.json",
+        "contracts/external_tool_adapter.schema.json",
+        "contracts/ddg_backend_result.schema.json",
+        "reports/foreign_tool_readiness_report.json",
+        "reports/ddg_backend_readiness_report.json",
+        "reports/ddg_backend_execution_plan_report.json",
+        "reports/enzyme_analysis_constraint_policy_report.json"
+      ],
+      "validator_reports": [
+        "reports/foreign_tool_readiness_report.json",
+        "reports/ddg_backend_readiness_report.json",
+        "reports/ddg_backend_execution_plan_report.json",
+        "reports/external_license_review_decision_validation_report.json",
+        "reports/enzyme_analysis_constraint_policy_report.json"
+      ],
+      "human_or_external_authorization_required": true,
+      "forbidden_shortcuts": [
+        "Do not claim Rosetta/PyRosetta/FoldX ddG execution without licensed runtime evidence.",
+        "Do not treat ddG predictions as wet-lab stability labels.",
+        "Do not use restricted or unreviewed external tools for production claims."
+      ],
+      "unlocks_when_complete": [
+        "external ddG evidence tier",
+        "stability-head external baseline comparison"
+      ]
+    },
+    {
+      "requirement_id": "MQ-U004",
+      "workstream": "real_experiment_feedback",
+      "status": "blocked",
+      "current_state": {
+        "feedback_training_eligible_rows": 7,
+        "feedback_qualitative_training_eligible_rows": 1,
+        "feedback_numeric_training_eligible_rows": 6,
+        "plate_training_eligible_rows": 0
+      },
+      "target_state": {
+        "feedback_training_eligible_rows": ">0",
+        "numeric_feedback_training_eligible_rows": ">0 for numeric activity/stability calibration",
+        "plate_training_eligible_rows": ">0 for assay_success_head",
+        "required_fields": [
+          "variant_id",
+          "mutation",
+          "assay_condition",
+          "replicate",
+          "normalized_activity",
+          "QC_flag"
+        ]
+      },
+      "required_artifacts": [
+        "datasets/feedback/experiment_feedback.local.jsonl",
+        "datasets/feedback/experiment_feedback_plate.local.jsonl",
+        "contracts/experiment_feedback.schema.json",
+        "contracts/experiment_feedback_plate.schema.json"
+      ],
+      "validator_reports": [
+        "reports/experiment_feedback_intake_validation_report.json",
+        "reports/experiment_feedback_plate_intake_validation_report.json",
+        "reports/multitask_training_readiness_report.json"
+      ],
+      "human_or_external_authorization_required": true,
+      "forbidden_shortcuts": [
+        "Do not convert Matvenus summaries or model reports directly into wet-lab feedback.",
+        "Do not accept rows without units, conditions, replicate/QC and numbering verification."
+      ],
+      "unlocks_when_complete": [
+        "activity_risk_head labels",
+        "assay_success_head labels",
+        "closed-loop model updates"
+      ]
+    },
+    {
+      "requirement_id": "MQ-U005",
+      "workstream": "production_sync_authorization",
+      "status": "blocked",
+      "current_state": {
+        "local_release_ready": false,
+        "artifact_count": 2746,
+        "model_quality_claim_ready": false
+      },
+      "target_state": {
+        "explicit_user_authorization": true,
+        "pre_sync_requirements": [
+          "release_ready true",
+          "backup plan",
+          "minimal file set",
+          "rollback plan",
+          "smoke test plan"
+        ]
+      },
+      "required_artifacts": [
+        "reports/local_release_manifest.json",
+        "reports/claim_readiness_matrix.json",
+        "reports/customer_delivery_readiness_report.json"
+      ],
+      "validator_reports": [
+        "reports/local_release_manifest.json",
+        "reports/claim_readiness_matrix.json"
+      ],
+      "human_or_external_authorization_required": true,
+      "forbidden_shortcuts": [
+        "Do not sync, deploy, restart, or modify production without explicit user instruction.",
+        "Do not treat local-only reports as customer delivery approval."
+      ],
+      "unlocks_when_complete": [
+        "P31 production integration review only after explicit authorization"
+      ]
+    }
+  ],
+  "policy": "This report defines what is required to unlock model-quality work. It does not execute external tools, create labels, approve production, or change release_ready/model-quality status."
+}

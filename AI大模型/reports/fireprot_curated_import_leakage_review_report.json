@@ -1,0 +1,61 @@
+{
+  "created_at": "2026-09-03T07:33:50.341672+00:00",
+  "local_only": true,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/fireprot_curated_kwb_schema_mapping_candidates.jsonl",
+  "split_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/fireprot_curated_import_split_proposal.jsonl",
+  "candidate_rows": 5067,
+  "candidate_unique_mutation_keys": 2905,
+  "duplicate_mutation_key_count": 2133,
+  "duplicate_mutation_key_examples": {
+    "P04637:Q104H": 2,
+    "P04637:Q104P": 2,
+    "P04637:T123A": 2,
+    "P04637:A129D": 2,
+    "P04637:A129E": 2,
+    "P04637:A129S": 2,
+    "P04637:M133L": 2,
+    "P04637:F134L": 2,
+    "P04637:V143A": 2,
+    "P04637:L145Q": 2,
+    "P04637:D148E": 2,
+    "P04637:D148S": 2,
+    "P04637:T150P": 2,
+    "P04637:P151S": 2,
+    "P04637:V157F": 2,
+    "P04637:Q165K": 2,
+    "P04637:Q167E": 2,
+    "P04637:H168R": 2,
+    "P04637:R174K": 2,
+    "P04637:R175A": 2
+  },
+  "group_count": 75,
+  "rows_by_split": {
+    "validation": 807,
+    "train": 4192,
+    "test": 68
+  },
+  "groups_by_split": {
+    "validation": 7,
+    "train": 63,
+    "test": 5
+  },
+  "group_split_leakage_count": 0,
+  "group_split_leakage_examples": {},
+  "strict_supervised_overlap_rows": 0,
+  "strict_supervised_overlap_examples": [],
+  "kwb_strict_holdout_overlap_rows": 0,
+  "kwb_strict_holdout_overlap_examples": [],
+  "automated_leakage_checks_passed": true,
+  "leakage_policy_approved": false,
+  "ready_for_training_import": false,
+  "claim_eligible_rows_now": 0,
+  "remaining_blockers": [
+    "leakage_policy_human_approval_missing",
+    "license_scope_not_selected",
+    "reviewed_import_receipt_missing",
+    "numbering_not_reviewed_by_kwb",
+    "duplicate_mutation_keys_require_dedup_policy"
+  ],
+  "safe_for_model_claim": false,
+  "policy": "Automated leakage checks do not equal human approval. Rows remain blocked from training."
+}

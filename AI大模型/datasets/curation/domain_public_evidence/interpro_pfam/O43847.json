@@ -1,0 +1,119 @@
+{
+  "accession": "O43847",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00675",
+        "name": "Insulinase (Peptidase family M16)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR011765",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43847",
+          "protein_length": 1151,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 203,
+                  "end": 336,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00675",
+              "score": 4.4e-37
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05193",
+        "name": "Peptidase M16 inactive domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007863",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43847",
+          "protein_length": 1151,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 362,
+                  "end": 547,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05193",
+              "score": 8.2e-28
+            },
+            {
+              "fragments": [
+                {
+                  "start": 839,
+                  "end": 1020,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05193",
+              "score": 1.2e-15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16187",
+        "name": "Middle or third domain of peptidase_M16",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR032632",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43847",
+          "protein_length": 1151,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 553,
+                  "end": 834,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16187",
+              "score": 5.4e-92
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "accession": "Q8IU81",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF11261",
+        "name": "Interferon regulatory factor 2-binding protein zinc finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022750",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iu81",
+          "protein_length": 584,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 8,
+                  "end": 59,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF11261",
+              "score": 4.2e-30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25454",
+        "name": "IRF-2BP1/2 C3HC4 zinc finger domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057414",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iu81",
+          "protein_length": 584,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 501,
+                  "end": 572,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF25454",
+              "score": 9.5e-30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25457",
+        "name": "IRF-2BP1/2 middle domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR058682",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iu81",
+          "protein_length": 584,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 197,
+                  "end": 354,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25457",
+              "score": 1.8e-65
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

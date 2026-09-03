@@ -1,0 +1,17 @@
+{
+  "chain_concordant_rows": 5,
+  "chain_context_sensitive_rows": 6,
+  "concordance_span_reu": 1.0,
+  "input_feature_rows": 29,
+  "multi_chain_candidate_rows": 11,
+  "multi_chain_feature_rows": 22,
+  "output": "datasets/features/pyrosetta_verified_mutation_ddg_concordance.jsonl",
+  "policy": "Concordance report is an input-feature diagnostic, not a chain-selection or model-quality decision.",
+  "quality_block_reason_counts": {
+    "ddg_span_gt_concordance_threshold": 6,
+    "member_score_quality_blocked": 5
+  },
+  "quality_blocked_rows": 6,
+  "quality_passed_rows": 5,
+  "safe_for_model_claim": false
+}

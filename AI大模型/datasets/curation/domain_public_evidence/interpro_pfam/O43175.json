@@ -1,0 +1,112 @@
+{
+  "accession": "O43175",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00389",
+        "name": "D-isomer specific 2-hydroxyacid dehydrogenase, catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006139",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43175",
+          "protein_length": 533,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 9,
+                  "end": 111,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 286,
+                  "end": 317,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": true,
+              "model": "PF00389",
+              "score": 2.3e-36
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02826",
+        "name": "D-isomer specific 2-hydroxyacid dehydrogenase, NAD binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006140",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43175",
+          "protein_length": 533,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 112,
+                  "end": 285,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF02826",
+              "score": 4.4e-56
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19304",
+        "name": "D-3-phosphoglycerate dehydrogenase intervening domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR045626",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43175",
+          "protein_length": 533,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 330,
+                  "end": 409,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF19304",
+              "score": 1.5e-07
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

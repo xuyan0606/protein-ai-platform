@@ -1,0 +1,107 @@
+{
+  "accession": "Q8IYT8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00069",
+        "name": "Protein kinase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000719",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iyt8",
+          "protein_length": 1036,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 9,
+                  "end": 271,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00069",
+              "score": 1.7e-66
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12063",
+        "name": "Atg1-like, MIT domain 1",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022708",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iyt8",
+          "protein_length": 1036,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 863,
+                  "end": 945,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF12063",
+              "score": 1.4e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21127",
+        "name": "ATG1-like, MIT domain 2",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR048941",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iyt8",
+          "protein_length": 1036,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 956,
+                  "end": 1029,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF21127",
+              "score": 5.3e-07
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

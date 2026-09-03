@@ -1,0 +1,73 @@
+{
+  "accession": "Q9Y252",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF13639",
+        "name": "Ring finger domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001841",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y252",
+          "protein_length": 685,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 631,
+                  "end": 673,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13639",
+              "score": 5.8e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25914",
+        "name": "E3 ubiquitin-protein ligase RNF6, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR058896",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y252",
+          "protein_length": 685,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 25,
+                  "end": 83,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25914",
+              "score": 4.8e-29
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

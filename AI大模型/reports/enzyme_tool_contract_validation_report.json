@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-09-03T07:47:17.174312+00:00",
+  "local_only": true,
+  "success": true,
+  "action_rows": 12,
+  "contract_rows": 12,
+  "required_action_rows": 12,
+  "required_contract_rows": 12,
+  "human_confirmation_required_actions": 6,
+  "formal_decision_actions": 3,
+  "training_write_actions": 0,
+  "safe_for_model_claim_actions": 0,
+  "contract_training_write_tools": 0,
+  "contract_formal_write_tools": 0,
+  "failures": [],
+  "safe_for_controlled_agent_planning": true,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Tool contracts are metadata for controlled planning. They do not authorize writing formal human decisions, training rows, model claims, downloads, or production release."
+}

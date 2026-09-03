@@ -1,0 +1,73 @@
+{
+  "accession": "Q8NAG6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF12796",
+        "name": "Ankyrin repeats (3 copies)",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR002110",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8nag6",
+          "protein_length": 615,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 15,
+                  "end": 106,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12796",
+              "score": 3.3e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22945",
+        "name": "LEM-3-like GIY-YIG domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR054739",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8nag6",
+          "protein_length": 615,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 450,
+                  "end": 612,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF22945",
+              "score": 1.2e-55
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

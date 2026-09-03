@@ -1,0 +1,515 @@
+{
+  "created_at": "2026-09-03T07:34:49.649247+00:00",
+  "success": true,
+  "contract_module_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/stage25_operator_docs_sync_contract.py",
+  "contract_module_sha256": "2f754c5865ddcbfa824f4f1e8d61f919f6f08bda998f15e68c0cd8d8c3bcc6fe",
+  "expected_contract_version": "stage25-operator-docs-sync-v4",
+  "expected_output_path_id": "ai:reports/stage25_operator_docs_dynamic_status_sync_report.json",
+  "expected_lock_path_id": "ai:reports/.stage25_operator_docs_sync.lock",
+  "expected_target_specs": [
+    [
+      "next",
+      "ai:reports/next_operator_packet_20260806.md"
+    ],
+    [
+      "daily",
+      "platform:docs/manuals/2026-08-06-daily-report.md"
+    ]
+  ],
+  "expected_slots": [
+    "latest-release",
+    "core-counts",
+    "data-lake",
+    "human-backlog",
+    "post-source"
+  ],
+  "expected_marker_specs": [
+    {
+      "namespace": "next",
+      "slot": "latest-release",
+      "marker": "<!-- stage25-sync:latest-release -->",
+      "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+    },
+    {
+      "namespace": "next",
+      "slot": "core-counts",
+      "marker": "<!-- stage25-sync:core-counts -->",
+      "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+    },
+    {
+      "namespace": "next",
+      "slot": "data-lake",
+      "marker": "<!-- stage25-sync:data-lake -->",
+      "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+    },
+    {
+      "namespace": "next",
+      "slot": "human-backlog",
+      "marker": "<!-- stage25-sync:human-backlog -->",
+      "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+    },
+    {
+      "namespace": "next",
+      "slot": "post-source",
+      "marker": "<!-- stage25-sync:post-source -->",
+      "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+    },
+    {
+      "namespace": "daily",
+      "slot": "latest-release",
+      "marker": "<!-- stage25-sync:latest-release -->",
+      "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+    },
+    {
+      "namespace": "daily",
+      "slot": "core-counts",
+      "marker": "<!-- stage25-sync:core-counts -->",
+      "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+    },
+    {
+      "namespace": "daily",
+      "slot": "data-lake",
+      "marker": "<!-- stage25-sync:data-lake -->",
+      "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+    },
+    {
+      "namespace": "daily",
+      "slot": "human-backlog",
+      "marker": "<!-- stage25-sync:human-backlog -->",
+      "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+    },
+    {
+      "namespace": "daily",
+      "slot": "post-source",
+      "marker": "<!-- stage25-sync:post-source -->",
+      "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+    }
+  ],
+  "expected_upstream_input_specs": [
+    [
+      "sync_script",
+      "ai:scripts/sync_stage25_operator_docs_dynamic_status.py",
+      "implementation"
+    ],
+    [
+      "sync_contract",
+      "ai:scripts/stage25_operator_docs_sync_contract.py",
+      "implementation"
+    ],
+    [
+      "runner_contract",
+      "ai:scripts/run_stage25_fail_closed_validation_20260806.py",
+      "code_contract"
+    ],
+    [
+      "overall_contract",
+      "ai:scripts/build_stage25_overall_fail_closed_index_20260806.py",
+      "code_contract"
+    ],
+    [
+      "handoff_contract",
+      "ai:scripts/build_stage25_handoff_bundle_manifest_20260806.py",
+      "code_contract"
+    ],
+    [
+      "local_release",
+      "ai:reports/local_release_manifest.json",
+      "status_report"
+    ],
+    [
+      "data_lake",
+      "ai:reports/data_lake_manifest.json",
+      "status_report"
+    ],
+    [
+      "live_integrity",
+      "ai:reports/data_lake_live_content_integrity_validation_report.json",
+      "status_report"
+    ],
+    [
+      "human_backlog",
+      "ai:reports/human_decision_backlog_fail_closed_consistency_validation_report.json",
+      "status_report"
+    ],
+    [
+      "safety_guard_contract",
+      "ai:scripts/validate_local_release_safety_guard_links.py",
+      "code_contract"
+    ],
+    [
+      "approved_apply",
+      "enzyme_db:stage25_approved_apply_report_20260806.json",
+      "external_status_report"
+    ],
+    [
+      "approved_apply_validation",
+      "enzyme_db:stage25_approved_apply_report_validation_20260806.json",
+      "external_status_report"
+    ],
+    [
+      "post_source_receipt",
+      "ai:reports/stage25_post_source_drop_rerun_receipt_20260806.json",
+      "status_report"
+    ],
+    [
+      "post_source_validation",
+      "ai:reports/stage25_post_source_drop_rerun_receipt_validation_20260806.json",
+      "status_report"
+    ],
+    [
+      "post_source_dry_run",
+      "ai:reports/stage25_post_source_drop_rerun_dry_run_audit_validation_20260806.json",
+      "status_report"
+    ]
+  ],
+  "expected_semantic_projection_version": "stage25-operator-docs-semantic-projection-v3",
+  "expected_semantic_projection_specs": [
+    {
+      "role": "local_release",
+      "fields": [
+        "artifact_count",
+        "release_ready"
+      ]
+    },
+    {
+      "role": "data_lake",
+      "fields": [
+        "source_artifact_rows",
+        "artifact_rows",
+        "unique_path_rows",
+        "deduplicated_input_rows",
+        "duplicate_input_path_rows"
+      ]
+    },
+    {
+      "role": "live_integrity",
+      "fields": [
+        "success",
+        "failure_count",
+        "artifact_rows",
+        "strict_verified_rows",
+        "volatile_existence_only_rows",
+        "missing_rows",
+        "unsafe_path_rows",
+        "size_mismatch_rows",
+        "sha256_mismatch_rows",
+        "row_mismatch_rows"
+      ]
+    },
+    {
+      "role": "human_backlog",
+      "fields": [
+        "success",
+        "open_items",
+        "total_required_rows",
+        "total_completed_rows",
+        "total_missing_rows",
+        "safe_for_model_claim",
+        "release_ready"
+      ]
+    },
+    {
+      "role": "post_source_receipt",
+      "fields": [
+        "command_rows",
+        "command_contract_sha256",
+        "sqlite_write_command_rows",
+        "rerun_ready",
+        "safe_for_model_claim",
+        "release_ready"
+      ]
+    },
+    {
+      "role": "post_source_validation",
+      "fields": [
+        "command_rows",
+        "command_contract_valid",
+        "failure_count",
+        "receipt_valid",
+        "sqlite_write_command_rows",
+        "safe_for_model_claim",
+        "release_ready"
+      ]
+    },
+    {
+      "role": "post_source_dry_run",
+      "fields": [
+        "audit_valid",
+        "command_rows",
+        "command_contract_sha256",
+        "sqlite_write_command_rows",
+        "commands_executed",
+        "outputs_freshness_verified",
+        "rerun_completion_receipted",
+        "ready_for_source_drop_rerun",
+        "safe_for_model_claim",
+        "release_ready"
+      ]
+    }
+  ],
+  "expected_semantic_projection_test_vector_sha256": "e9bd090aba163342dd6587fb229deca7eed2993e09eba1f4ec0415f340630797",
+  "expected_contract_sha256": "5bd2721fd12b10d35394d789a8eebea6debb5bc46d9a5a02e18e6dca19bd2cc2",
+  "observed_contract": {
+    "version": "stage25-operator-docs-sync-v4",
+    "sha256": "5bd2721fd12b10d35394d789a8eebea6debb5bc46d9a5a02e18e6dca19bd2cc2",
+    "target_rows": 2,
+    "slot_rows": 5,
+    "marker_rows": 10,
+    "upstream_input_rows": 15,
+    "semantic_projection_rows": 7,
+    "semantic_projection_version": "stage25-operator-docs-semantic-projection-v3",
+    "semantic_projection_test_vector_sha256": "e9bd090aba163342dd6587fb229deca7eed2993e09eba1f4ec0415f340630797",
+    "payload": {
+      "version": "stage25-operator-docs-sync-v4",
+      "output_path_id": "ai:reports/stage25_operator_docs_dynamic_status_sync_report.json",
+      "lock_path_id": "ai:reports/.stage25_operator_docs_sync.lock",
+      "targets": [
+        {
+          "namespace": "next",
+          "path_id": "ai:reports/next_operator_packet_20260806.md"
+        },
+        {
+          "namespace": "daily",
+          "path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+        }
+      ],
+      "slots": [
+        "latest-release",
+        "core-counts",
+        "data-lake",
+        "human-backlog",
+        "post-source"
+      ],
+      "markers": [
+        {
+          "namespace": "next",
+          "slot": "latest-release",
+          "marker": "<!-- stage25-sync:latest-release -->",
+          "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+        },
+        {
+          "namespace": "next",
+          "slot": "core-counts",
+          "marker": "<!-- stage25-sync:core-counts -->",
+          "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+        },
+        {
+          "namespace": "next",
+          "slot": "data-lake",
+          "marker": "<!-- stage25-sync:data-lake -->",
+          "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+        },
+        {
+          "namespace": "next",
+          "slot": "human-backlog",
+          "marker": "<!-- stage25-sync:human-backlog -->",
+          "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+        },
+        {
+          "namespace": "next",
+          "slot": "post-source",
+          "marker": "<!-- stage25-sync:post-source -->",
+          "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+        },
+        {
+          "namespace": "daily",
+          "slot": "latest-release",
+          "marker": "<!-- stage25-sync:latest-release -->",
+          "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+        },
+        {
+          "namespace": "daily",
+          "slot": "core-counts",
+          "marker": "<!-- stage25-sync:core-counts -->",
+          "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+        },
+        {
+          "namespace": "daily",
+          "slot": "data-lake",
+          "marker": "<!-- stage25-sync:data-lake -->",
+          "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+        },
+        {
+          "namespace": "daily",
+          "slot": "human-backlog",
+          "marker": "<!-- stage25-sync:human-backlog -->",
+          "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+        },
+        {
+          "namespace": "daily",
+          "slot": "post-source",
+          "marker": "<!-- stage25-sync:post-source -->",
+          "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+        }
+      ],
+      "upstream_inputs": [
+        {
+          "role": "sync_script",
+          "path_id": "ai:scripts/sync_stage25_operator_docs_dynamic_status.py",
+          "kind": "implementation"
+        },
+        {
+          "role": "sync_contract",
+          "path_id": "ai:scripts/stage25_operator_docs_sync_contract.py",
+          "kind": "implementation"
+        },
+        {
+          "role": "runner_contract",
+          "path_id": "ai:scripts/run_stage25_fail_closed_validation_20260806.py",
+          "kind": "code_contract"
+        },
+        {
+          "role": "overall_contract",
+          "path_id": "ai:scripts/build_stage25_overall_fail_closed_index_20260806.py",
+          "kind": "code_contract"
+        },
+        {
+          "role": "handoff_contract",
+          "path_id": "ai:scripts/build_stage25_handoff_bundle_manifest_20260806.py",
+          "kind": "code_contract"
+        },
+        {
+          "role": "local_release",
+          "path_id": "ai:reports/local_release_manifest.json",
+          "kind": "status_report"
+        },
+        {
+          "role": "data_lake",
+          "path_id": "ai:reports/data_lake_manifest.json",
+          "kind": "status_report"
+        },
+        {
+          "role": "live_integrity",
+          "path_id": "ai:reports/data_lake_live_content_integrity_validation_report.json",
+          "kind": "status_report"
+        },
+        {
+          "role": "human_backlog",
+          "path_id": "ai:reports/human_decision_backlog_fail_closed_consistency_validation_report.json",
+          "kind": "status_report"
+        },
+        {
+          "role": "safety_guard_contract",
+          "path_id": "ai:scripts/validate_local_release_safety_guard_links.py",
+          "kind": "code_contract"
+        },
+        {
+          "role": "approved_apply",
+          "path_id": "enzyme_db:stage25_approved_apply_report_20260806.json",
+          "kind": "external_status_report"
+        },
+        {
+          "role": "approved_apply_validation",
+          "path_id": "enzyme_db:stage25_approved_apply_report_validation_20260806.json",
+          "kind": "external_status_report"
+        },
+        {
+          "role": "post_source_receipt",
+          "path_id": "ai:reports/stage25_post_source_drop_rerun_receipt_20260806.json",
+          "kind": "status_report"
+        },
+        {
+          "role": "post_source_validation",
+          "path_id": "ai:reports/stage25_post_source_drop_rerun_receipt_validation_20260806.json",
+          "kind": "status_report"
+        },
+        {
+          "role": "post_source_dry_run",
+          "path_id": "ai:reports/stage25_post_source_drop_rerun_dry_run_audit_validation_20260806.json",
+          "kind": "status_report"
+        }
+      ],
+      "semantic_projection_version": "stage25-operator-docs-semantic-projection-v3",
+      "semantic_projections": [
+        {
+          "role": "local_release",
+          "fields": [
+            "artifact_count",
+            "release_ready"
+          ]
+        },
+        {
+          "role": "data_lake",
+          "fields": [
+            "source_artifact_rows",
+            "artifact_rows",
+            "unique_path_rows",
+            "deduplicated_input_rows",
+            "duplicate_input_path_rows"
+          ]
+        },
+        {
+          "role": "live_integrity",
+          "fields": [
+            "success",
+            "failure_count",
+            "artifact_rows",
+            "strict_verified_rows",
+            "volatile_existence_only_rows",
+            "missing_rows",
+            "unsafe_path_rows",
+            "size_mismatch_rows",
+            "sha256_mismatch_rows",
+            "row_mismatch_rows"
+          ]
+        },
+        {
+          "role": "human_backlog",
+          "fields": [
+            "success",
+            "open_items",
+            "total_required_rows",
+            "total_completed_rows",
+            "total_missing_rows",
+            "safe_for_model_claim",
+            "release_ready"
+          ]
+        },
+        {
+          "role": "post_source_receipt",
+          "fields": [
+            "command_rows",
+            "command_contract_sha256",
+            "sqlite_write_command_rows",
+            "rerun_ready",
+            "safe_for_model_claim",
+            "release_ready"
+          ]
+        },
+        {
+          "role": "post_source_validation",
+          "fields": [
+            "command_rows",
+            "command_contract_valid",
+            "failure_count",
+            "receipt_valid",
+            "sqlite_write_command_rows",
+            "safe_for_model_claim",
+            "release_ready"
+          ]
+        },
+        {
+          "role": "post_source_dry_run",
+          "fields": [
+            "audit_valid",
+            "command_rows",
+            "command_contract_sha256",
+            "sqlite_write_command_rows",
+            "commands_executed",
+            "outputs_freshness_verified",
+            "rerun_completion_receipted",
+            "ready_for_source_drop_rerun",
+            "safe_for_model_claim",
+            "release_ready"
+          ]
+        }
+      ],
+      "semantic_projection_test_vector_sha256": "e9bd090aba163342dd6587fb229deca7eed2993e09eba1f4ec0415f340630797"
+    }
+  },
+  "failure_count": 0,
+  "failures": [],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Independent constants pin the sync contract; this report does not authorize document, SQLite, model, release, or production actions."
+}

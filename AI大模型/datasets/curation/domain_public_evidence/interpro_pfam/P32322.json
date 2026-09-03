@@ -1,0 +1,73 @@
+{
+  "accession": "P32322",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03807",
+        "name": "NADP oxidoreductase coenzyme F420-dependent",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR028939",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p32322",
+          "protein_length": 319,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 3,
+                  "end": 98,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03807",
+              "score": 2.8e-18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14748",
+        "name": "Pyrroline-5-carboxylate reductase dimerisation",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR029036",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p32322",
+          "protein_length": 319,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 164,
+                  "end": 268,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14748",
+              "score": 1.6e-34
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

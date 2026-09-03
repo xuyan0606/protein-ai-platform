@@ -1,0 +1,39 @@
+{
+  "accession": "O75951",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00062",
+        "name": "C-type lysozyme/alpha-lactalbumin family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001916",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75951",
+          "protein_length": 148,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 22,
+                  "end": 141,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00062",
+              "score": 1.5e-33
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

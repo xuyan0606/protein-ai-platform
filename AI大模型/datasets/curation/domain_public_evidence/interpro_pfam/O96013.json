@@ -1,0 +1,73 @@
+{
+  "accession": "O96013",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00069",
+        "name": "Protein kinase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000719",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o96013",
+          "protein_length": 591,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 326,
+                  "end": 572,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00069",
+              "score": 1.7e-64
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00786",
+        "name": "P21-Rho-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000095",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o96013",
+          "protein_length": 591,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 10,
+                  "end": 63,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00786",
+              "score": 1.1e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

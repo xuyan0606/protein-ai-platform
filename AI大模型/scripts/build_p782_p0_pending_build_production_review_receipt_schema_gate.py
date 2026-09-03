@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+from build_p700_p0_real_input_pending_build_checklist import load_jsonl
+ROOT=Path(__file__).resolve().parents[1]; SOURCE=ROOT/"datasets/governance/p781_p0_pending_build_production_review_dispatch_gate.jsonl"; OUT=ROOT/"datasets/governance/p782_p0_pending_build_production_review_receipt_schema_gate.jsonl"; REPORT=ROOT/"reports/p782_p0_pending_build_production_review_receipt_schema_gate_report.json"; MD=ROOT/"reports/p782_p0_pending_build_production_review_receipt_schema_gate.md"
+FIELDS=("review_dispatched","receipt_received","receipt_schema_validated","receipt_identity_verified","receipt_timestamp_verified","receipt_result_validated","receipt_provenance_validated","formal_decision_ready","production_execution_allowed")
+def main():
+ created=datetime.now(timezone.utc).isoformat(); src=[r for r in load_jsonl(SOURCE) if r.get("boundary")!="summary"]; rows=[]
+ for i,s in enumerate(src,1):
+  r={"schema_gate_id":f"p782::{s.get('dispatch_gate_id')}","schema_gate_order":i,"created_at":created,"boundary":s.get("boundary"),"source_p781_id":s.get("dispatch_gate_id"),"gate_status":"empty_no_production_review_receipt_to_validate","blocker_reason":"No authorized dispatch or real review receipt exists for schema, identity, timestamp, result, or provenance validation.","operator_action":"Do not accept, validate, infer, or synthesize production review receipts.","policy":"P782 is a receipt-schema gate only; it performs no receipt intake or authorization."}; r.update({f:False for f in FIELDS}); rows.append(r)
+ zero={f+"_rows":0 for f in FIELDS}; summary={"schema_gate_id":"p782::summary","schema_gate_order":len(rows)+1,"created_at":created,"boundary":"summary","schema_gate_rows":len(rows),**zero,"policy":"P782 remains empty and fail-closed."}; OUT.write_text("".join(json.dumps(r,ensure_ascii=False,sort_keys=True)+"\n" for r in rows+[summary]),encoding="utf-8"); report={"manifest_id":"P782","created_at":created,"local_only":True,"schema_gate_rows":len(rows),**zero,"artifact_jsonl":str(OUT.relative_to(ROOT)),"artifact_md":str(MD.relative_to(ROOT)),"policy":"P782 is planning-only and fail-closed."}; REPORT.write_text(json.dumps(report,ensure_ascii=False,indent=2,sort_keys=True)+"\n",encoding="utf-8"); MD.write_text(f"# P782 production review receipt schema gate\n\nRows: `{len(rows)}`. Receipts received: `0`.\n",encoding="utf-8"); print(json.dumps({"manifest_id":"P782","schema_gate_rows":len(rows),"receipt_received_rows":0,"output":str(REPORT)},ensure_ascii=False)); return 0
+if __name__=='__main__': raise SystemExit(main())

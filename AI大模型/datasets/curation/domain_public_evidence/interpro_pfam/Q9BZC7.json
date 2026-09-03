@@ -1,0 +1,165 @@
+{
+  "accession": "Q9BZC7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00005",
+        "name": "ABC transporter",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003439",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bzc7",
+          "protein_length": 2435,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1007,
+                  "end": 1151,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00005",
+              "score": 5.2e-29
+            },
+            {
+              "fragments": [
+                {
+                  "start": 2072,
+                  "end": 2214,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00005",
+              "score": 2.1e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12698",
+        "name": "ABC-2 family transporter protein",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR013525",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bzc7",
+          "protein_length": 2435,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 706,
+                  "end": 912,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF12698",
+              "score": 5.8e-11
+            },
+            {
+              "fragments": [
+                {
+                  "start": 1725,
+                  "end": 2007,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF12698",
+              "score": 5.4e-37
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23321",
+        "name": "ABCA1-like, C-terminal R1 regulatory domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR056264",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bzc7",
+          "protein_length": 2435,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 2277,
+                  "end": 2350,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF23321",
+              "score": 2.2e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF26955",
+        "name": "ACT-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bzc7",
+          "protein_length": 2435,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1247,
+                  "end": 1314,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF26955",
+              "score": 0.00044
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

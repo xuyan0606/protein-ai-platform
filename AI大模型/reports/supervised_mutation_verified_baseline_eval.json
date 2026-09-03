@@ -1,0 +1,398 @@
+{
+  "model": "KWB-EnzymeDesigner-supervised-mutation-baseline",
+  "version": "0.4.0-centroid-baseline",
+  "rows": 25,
+  "features": 67,
+  "selected_strategy": "majority_class",
+  "candidate_validation_accuracy": {
+    "centroid": 0.0,
+    "majority_class": 0.0
+  },
+  "splits": {
+    "train": {
+      "split": "train",
+      "rows": 20,
+      "accuracy": 0.35,
+      "label_distribution": {
+        "go": 7,
+        "watch": 7,
+        "no_go": 6
+      },
+      "confusion": {
+        "go": {
+          "go": 7,
+          "watch": 0,
+          "no_go": 0
+        },
+        "watch": {
+          "go": 7,
+          "watch": 0,
+          "no_go": 0
+        },
+        "no_go": {
+          "go": 6,
+          "watch": 0,
+          "no_go": 0
+        }
+      },
+      "records": [
+        {
+          "record_id": "stability:34",
+          "uniprot_id": "O00762",
+          "mutation": "Q177D",
+          "actual": "go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:44",
+          "uniprot_id": "O14933",
+          "mutation": "N132L",
+          "actual": "watch",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:47",
+          "uniprot_id": "O14933",
+          "mutation": "R122M",
+          "actual": "go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:68",
+          "uniprot_id": "O15488",
+          "mutation": "A388T",
+          "actual": "go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:71",
+          "uniprot_id": "O15541",
+          "mutation": "A286P",
+          "actual": "no_go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:87",
+          "uniprot_id": "O43598",
+          "mutation": "T54C",
+          "actual": "watch",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:90",
+          "uniprot_id": "O43598",
+          "mutation": "G72H",
+          "actual": "go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:166",
+          "uniprot_id": "O94768",
+          "mutation": "C122I",
+          "actual": "no_go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:182",
+          "uniprot_id": "O95342",
+          "mutation": "T346I",
+          "actual": "no_go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:218",
+          "uniprot_id": "O95881",
+          "mutation": "S24G",
+          "actual": "watch",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:242",
+          "uniprot_id": "P04062",
+          "mutation": "C62H",
+          "actual": "watch",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:248",
+          "uniprot_id": "P04179",
+          "mutation": "C164K",
+          "actual": "no_go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:278",
+          "uniprot_id": "P08519",
+          "mutation": "Q1394L",
+          "actual": "go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:310",
+          "uniprot_id": "P09936",
+          "mutation": "S18E",
+          "actual": "go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:358",
+          "uniprot_id": "P14735",
+          "mutation": "S107A",
+          "actual": "go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:369",
+          "uniprot_id": "P15170",
+          "mutation": "E119F",
+          "actual": "watch",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:425",
+          "uniprot_id": "P18440",
+          "mutation": "A78Y",
+          "actual": "watch",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:429",
+          "uniprot_id": "P18858",
+          "mutation": "N102L",
+          "actual": "no_go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:440",
+          "uniprot_id": "P19835",
+          "mutation": "K429Q",
+          "actual": "watch",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:464",
+          "uniprot_id": "P21439",
+          "mutation": "F770A",
+          "actual": "no_go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        }
+      ]
+    },
+    "validation": {
+      "split": "validation",
+      "rows": 4,
+      "accuracy": 0.0,
+      "label_distribution": {
+        "no_go": 2,
+        "watch": 2
+      },
+      "confusion": {
+        "go": {
+          "go": 0,
+          "watch": 0,
+          "no_go": 0
+        },
+        "watch": {
+          "go": 2,
+          "watch": 0,
+          "no_go": 0
+        },
+        "no_go": {
+          "go": 2,
+          "watch": 0,
+          "no_go": 0
+        }
+      },
+      "records": [
+        {
+          "record_id": "stability:128",
+          "uniprot_id": "O75319",
+          "mutation": "W4C",
+          "actual": "no_go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:204",
+          "uniprot_id": "O95622",
+          "mutation": "E179G",
+          "actual": "watch",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:227",
+          "uniprot_id": "P00505",
+          "mutation": "G252E",
+          "actual": "no_go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        },
+        {
+          "record_id": "stability:463",
+          "uniprot_id": "P21128",
+          "mutation": "I161N",
+          "actual": "watch",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        }
+      ]
+    },
+    "test": {
+      "split": "test",
+      "rows": 1,
+      "accuracy": 1.0,
+      "label_distribution": {
+        "go": 1
+      },
+      "confusion": {
+        "go": {
+          "go": 1,
+          "watch": 0,
+          "no_go": 0
+        },
+        "watch": {
+          "go": 0,
+          "watch": 0,
+          "no_go": 0
+        },
+        "no_go": {
+          "go": 0,
+          "watch": 0,
+          "no_go": 0
+        }
+      },
+      "records": [
+        {
+          "record_id": "stability:401",
+          "uniprot_id": "P17050",
+          "mutation": "D141K",
+          "actual": "go",
+          "predicted": "go",
+          "scores": {
+            "go": 1.0,
+            "watch": 0.0,
+            "no_go": 0.0
+          }
+        }
+      ]
+    }
+  },
+  "leakage_guard": "label_stability_delta_tm_c and label_ddg excluded from training features"
+}

@@ -10,7 +10,7 @@ interface ECPrediction {
   motif_details?: Array<{ pattern: string; position: number; matched: string }>
 }
 
-interface ECPredictionData {
+export interface ECPredictionData {
   query_length: number
   predictions: ECPrediction[]
   top_k?: number
@@ -127,10 +127,4 @@ export function ECPredictionCard({ data }: { data: ECPredictionData }) {
       </div>
     </div>
   )
-}
-
-export function isECPredictionResult(data: unknown): data is ECPredictionData {
-  if (!data || typeof data !== 'object') return false
-  const d = data as Record<string, unknown>
-  return 'predictions' in d && 'query_length' in d && 'method' in d
 }

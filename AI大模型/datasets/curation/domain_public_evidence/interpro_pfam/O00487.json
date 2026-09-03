@@ -1,0 +1,73 @@
+{
+  "accession": "O00487",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01398",
+        "name": "JAB1/Mov34/MPN/PAD-1 ubiquitin protease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000555",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00487",
+          "protein_length": 310,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 27,
+                  "end": 138,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01398",
+              "score": 4.9e-31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23594",
+        "name": "26S proteasome regulatory subunit RPN11 C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR056263",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00487",
+          "protein_length": 310,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 228,
+                  "end": 307,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF23594",
+              "score": 2.7e-36
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -27,11 +27,27 @@ from app.core.security import get_current_user
 from app.models.project import Project, ProjectFile
 from app.models.conversation import Conversation
 from app.services import publish_service
+from app.services.project_acl import can_perform_project_action, get_project_access
 from app.services.report_generator import ReportGenerator
 
 router = APIRouter(tags=["publish"])  # mounted under /api/projects
 conv_router = APIRouter(tags=["publish"])  # mounted under /api
 _generator = ReportGenerator()
+
+
+async def _require_project_access(
+    session: AsyncSession,
+    *,
+    project_id: str,
+    user_id: int | str,
+    write: bool = False,
+) -> tuple[Project, str]:
+    project, access_role = await get_project_access(session, project_id=project_id, user_id=user_id)
+    if not project or not can_perform_project_action(access_role, "project.read"):
+        raise HTTPException(404, "Project not found")
+    if write and not can_perform_project_action(access_role, "project.wiki.publish"):
+        raise HTTPException(404, "Project not found")
+    return project, access_role
 
 
 # ---------------------------------------------------------------------------
@@ -43,6 +59,8 @@ class PublishRequest(BaseModel):
     content: str = Field(min_length=1, max_length=200_000)  # up to 200KB markdown
     conversation_id: int | None = None
     tags: list[str] | None = None
+    collection_id: str | None = None
+    parent_document_id: str | None = None
 
 
 class PublishResponse(BaseModel):
@@ -77,6 +95,14 @@ class GenerateReportRequest(BaseModel):
     conversation_id: int
 
 
+class WikiCollectionOut(BaseModel):
+    id: str
+    name: str
+    description: str | None = None
+    url: str | None = None
+    document_count: int | None = None
+
+
 # ---------------------------------------------------------------------------
 # Publish
 # ---------------------------------------------------------------------------
@@ -89,20 +115,60 @@ async def publish_to_wiki(
     user: dict = Depends(get_current_user),
 ):
     """Manually publish a Markdown report to Wiki + knowledge base."""
-    # Verify project ownership
-    project = await session.get(Project, project_id)
-    if not project or project.user_id != user["id"]:
-        raise HTTPException(404, "Project not found")
+    await _require_project_access(session, project_id=project_id, user_id=user["id"], write=True)
 
-    result = await publish_service.publish_report(
+    try:
+        result = await publish_service.publish_report(
+            session,
+            project_id=project_id,
+            title=req.title,
+            content=req.content,
+            conversation_id=req.conversation_id,
+            tags=req.tags,
+            collection_id=req.collection_id,
+            parent_document_id=req.parent_document_id,
+            source="manual",
+        )
+    except publish_service.ReportQualityGateError as e:
+        raise HTTPException(400, str(e)) from e
+    return PublishResponse(**result)
+
+
+@conv_router.post("/wiki/publish", response_model=PublishResponse)
+async def publish_to_collection(
+    req: PublishRequest,
+    session: AsyncSession = Depends(get_session),
+    user: dict = Depends(get_current_user),
+):
+    """Publish directly to a selected Wiki collection without requiring project selection."""
+    if not req.collection_id:
+        raise HTTPException(400, "请选择 Wiki collection")
+
+    if req.conversation_id is not None:
+        conv = await session.get(Conversation, req.conversation_id)
+        if not conv or conv.user_id != user["id"]:
+            raise HTTPException(404, "Conversation not found")
+
+    project = await publish_service.ensure_wiki_publish_project(
         session,
-        project_id=project_id,
-        title=req.title,
-        content=req.content,
-        conversation_id=req.conversation_id,
-        tags=req.tags,
-        source="manual",
+        user_id=user["id"],
+        collection_id=req.collection_id,
     )
+
+    try:
+        result = await publish_service.publish_report(
+            session,
+            project_id=project.id,
+            title=req.title,
+            content=req.content,
+            conversation_id=req.conversation_id,
+            tags=req.tags,
+            collection_id=req.collection_id,
+            parent_document_id=req.parent_document_id,
+            source="manual",
+        )
+    except publish_service.ReportQualityGateError as e:
+        raise HTTPException(400, str(e)) from e
     return PublishResponse(**result)
 
 
@@ -119,9 +185,7 @@ async def list_files(
     user: dict = Depends(get_current_user),
 ):
     """List files in a project's knowledge base."""
-    project = await session.get(Project, project_id)
-    if not project or project.user_id != user["id"]:
-        raise HTTPException(404, "Project not found")
+    await _require_project_access(session, project_id=project_id, user_id=user["id"])
 
     files = await publish_service.list_project_files(
         session, project_id, file_type=file_type, source=source,
@@ -137,9 +201,7 @@ async def download_file(
     user: dict = Depends(get_current_user),
 ):
     """Download a file from the project knowledge base."""
-    project = await session.get(Project, project_id)
-    if not project or project.user_id != user["id"]:
-        raise HTTPException(404, "Project not found")
+    await _require_project_access(session, project_id=project_id, user_id=user["id"])
 
     file_record = await session.get(ProjectFile, file_id)
     if not file_record or file_record.project_id != project_id:
@@ -165,9 +227,7 @@ async def get_file_content(
     user: dict = Depends(get_current_user),
 ):
     """Get raw Markdown content of a file (for editor preview)."""
-    project = await session.get(Project, project_id)
-    if not project or project.user_id != user["id"]:
-        raise HTTPException(404, "Project not found")
+    await _require_project_access(session, project_id=project_id, user_id=user["id"])
 
     file_record = await session.get(ProjectFile, file_id)
     if not file_record or file_record.project_id != project_id:
@@ -189,9 +249,7 @@ async def delete_file(
     user: dict = Depends(get_current_user),
 ):
     """Delete a file from the project knowledge base."""
-    project = await session.get(Project, project_id)
-    if not project or project.user_id != user["id"]:
-        raise HTTPException(404, "Project not found")
+    await _require_project_access(session, project_id=project_id, user_id=user["id"], write=True)
 
     ok = await publish_service.delete_project_file(session, project_id, file_id)
     if not ok:
@@ -211,9 +269,7 @@ async def generate_report(
     user: dict = Depends(get_current_user),
 ):
     """Generate a Markdown report from a conversation (returns preview, doesn't publish)."""
-    project = await session.get(Project, project_id)
-    if not project or project.user_id != user["id"]:
-        raise HTTPException(404, "Project not found")
+    project, _ = await _require_project_access(session, project_id=project_id, user_id=user["id"], write=True)
 
     conv = await session.get(Conversation, req.conversation_id)
     if not conv:
@@ -280,9 +336,7 @@ async def bind_conversation_to_project(
         raise HTTPException(404, "Conversation not found")
 
     if req.project_id:
-        project = await session.get(Project, req.project_id)
-        if not project or project.user_id != user["id"]:
-            raise HTTPException(404, "Project not found")
+        await _require_project_access(session, project_id=req.project_id, user_id=user["id"], write=True)
         conv.project_id = req.project_id
     else:
         conv.project_id = None
@@ -295,6 +349,74 @@ async def bind_conversation_to_project(
 # Wiki tree (Outline proxy)
 # ---------------------------------------------------------------------------
 
+@conv_router.get("/wiki/collections", response_model=list[WikiCollectionOut])
+async def list_wiki_collections(
+    user: dict = Depends(get_current_user),
+):
+    """List existing Outline collections the backend API token can access."""
+    try:
+        from app.services.outline_client import get_outline_client
+
+        client = get_outline_client()
+        collections = await client.list_collections()
+        return [
+            WikiCollectionOut(
+                id=item.get("id"),
+                name=item.get("name") or "Untitled",
+                description=item.get("description"),
+                url=item.get("url"),
+                document_count=item.get("documentCount"),
+            )
+            for item in collections
+            if item.get("id")
+        ]
+    except Exception as e:
+        logger.warning("Failed to list wiki collections for user %s: %s", user["id"], e)
+        raise HTTPException(502, "加载 Wiki collection 失败")
+
+
+@conv_router.get("/wiki/collections/{collection_id}/tree")
+async def get_collection_tree(
+    collection_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Get the Outline document tree for an existing collection."""
+    try:
+        from app.services.outline_client import get_outline_client
+
+        client = get_outline_client()
+        docs = await client.get_collection_tree(collection_id)
+
+        tree = []
+
+        def walk(nodes: list[dict], parent_id: str | None = None):
+            for doc in nodes:
+                doc_id = doc.get("id")
+                tree.append({
+                    "id": doc_id,
+                    "title": doc.get("title", "Untitled"),
+                    "parent_id": parent_id,
+                    "url_id": doc.get("urlId"),
+                    "updated_at": doc.get("updatedAt"),
+                    "emoji": doc.get("emoji"),
+                })
+                walk(doc.get("children", []) or [], doc_id)
+
+        walk(docs)
+        return {
+            "collection_id": collection_id,
+            "root_doc_id": None,
+            "documents": tree,
+        }
+    except Exception as e:
+        logger.warning(
+            "Failed to load wiki tree for collection %s user %s: %s",
+            collection_id,
+            user["id"],
+            e,
+        )
+        raise HTTPException(502, "加载知识库目录树失败")
+
 @router.get("/{project_id}/wiki/tree")
 async def get_wiki_tree(
     project_id: str,
@@ -302,29 +424,38 @@ async def get_wiki_tree(
     user: dict = Depends(get_current_user),
 ):
     """Get the Outline document tree for a project's wiki collection."""
-    project = await session.get(Project, project_id)
-    if not project or project.user_id != user["id"]:
-        raise HTTPException(404, "Project not found")
-
-    if not project.outline_collection_id:
-        return {"collection_id": None, "documents": []}
+    project, access_role = await _require_project_access(session, project_id=project_id, user_id=user["id"])
 
     try:
+        if not project.outline_collection_id:
+            if not can_perform_project_action(access_role, "project.wiki.publish"):
+                return {
+                    "collection_id": None,
+                    "root_doc_id": None,
+                    "documents": [],
+                    "error": "项目尚未初始化 Wiki，viewer 仅可读取已有知识库",
+                }
+            project = await publish_service.ensure_project_wiki(session, project)
         from app.services.outline_client import get_outline_client
         client = get_outline_client()
-        docs = await client.list_documents(project.outline_collection_id, limit=200)
+        docs = await client.get_collection_tree(project.outline_collection_id)
 
-        # Build a flat list with parent references for the frontend to tree-ify
+        # Flatten Outline's nested tree into parent-linked nodes for the frontend.
         tree = []
-        for doc in docs:
-            tree.append({
-                "id": doc.get("id"),
-                "title": doc.get("title", "Untitled"),
-                "parent_id": doc.get("parentDocumentId"),
-                "url_id": doc.get("urlId"),
-                "updated_at": doc.get("updatedAt"),
-                "emoji": doc.get("emoji"),
-            })
+        def walk(nodes: list[dict], parent_id: str | None = None):
+            for doc in nodes:
+                doc_id = doc.get("id")
+                tree.append({
+                    "id": doc_id,
+                    "title": doc.get("title", "Untitled"),
+                    "parent_id": parent_id,
+                    "url_id": doc.get("urlId"),
+                    "updated_at": doc.get("updatedAt"),
+                    "emoji": doc.get("emoji"),
+                })
+                walk(doc.get("children", []) or [], doc_id)
+
+        walk(docs)
 
         return {
             "collection_id": project.outline_collection_id,
@@ -333,7 +464,12 @@ async def get_wiki_tree(
         }
     except Exception as e:
         logger.warning("Outline wiki tree failed for project %s: %s", project_id, e)
-        return {"collection_id": project.outline_collection_id, "documents": [], "error": str(e)}
+        return {
+            "collection_id": project.outline_collection_id,
+            "root_doc_id": project.outline_root_doc_id,
+            "documents": [],
+            "error": "知识库目录暂时加载失败，请先发布到根目录",
+        }
 
 
 @router.get("/{project_id}/wiki/pages/{doc_id}")
@@ -344,9 +480,7 @@ async def get_wiki_page(
     user: dict = Depends(get_current_user),
 ):
     """Get a single Outline document's content (Markdown text)."""
-    project = await session.get(Project, project_id)
-    if not project or project.user_id != user["id"]:
-        raise HTTPException(404, "Project not found")
+    project, _ = await _require_project_access(session, project_id=project_id, user_id=user["id"])
 
     if not project.outline_collection_id:
         raise HTTPException(400, "Project has no wiki collection")
@@ -388,9 +522,7 @@ async def list_project_conversations(
     user: dict = Depends(get_current_user),
 ):
     """List conversations belonging to a project."""
-    project = await session.get(Project, project_id)
-    if not project or project.user_id != user["id"]:
-        raise HTTPException(404, "Project not found")
+    await _require_project_access(session, project_id=project_id, user_id=user["id"])
 
     stmt = (
         select(Conversation)

@@ -1,0 +1,270 @@
+{
+  "created_at": "2026-09-03T07:33:55.852917+00:00",
+  "local_only": true,
+  "online_deployment": false,
+  "jsonl": "datasets/governance/governance_review_bundle.jsonl",
+  "markdown": "reports/governance_review_bundle.md",
+  "bundle_rows": 37,
+  "open_rows": 37,
+  "completion_ready_rows": 0,
+  "human_review_required_rows": 37,
+  "no_auto_approval_rows": 37,
+  "ready": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "workstreams": [
+    {
+      "workstream": "external_license_review",
+      "priority": "P0",
+      "rows": 19,
+      "open_rows": 19,
+      "completion_ready_rows": 0,
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_report": "reports/external_license_review_decision_validation_report.json",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "workstream": "biosecurity_screening",
+      "priority": "P0",
+      "rows": 3,
+      "open_rows": 3,
+      "completion_ready_rows": 0,
+      "decision_input": "datasets/governance/biosecurity_screening_decisions.jsonl",
+      "validator_report": "reports/biosecurity_screening_decision_validation_report.json",
+      "validator_command": "python3 scripts/validate_biosecurity_screening_decisions.py"
+    },
+    {
+      "workstream": "sequence_ip_fto",
+      "priority": "P0",
+      "rows": 3,
+      "open_rows": 3,
+      "completion_ready_rows": 0,
+      "decision_input": "datasets/governance/sequence_ip_fto_decisions.jsonl",
+      "validator_report": "reports/sequence_ip_fto_decision_validation_report.json",
+      "validator_command": "python3 scripts/validate_sequence_ip_fto_decisions.py"
+    },
+    {
+      "workstream": "operator_review_actions",
+      "priority": "P1",
+      "rows": 6,
+      "open_rows": 6,
+      "completion_ready_rows": 0,
+      "decision_input": "datasets/governance/operator_review_action_decisions.jsonl",
+      "validator_report": "reports/operator_review_action_decision_validation_report.json",
+      "validator_command": "python3 scripts/validate_operator_review_action_decisions.py"
+    },
+    {
+      "workstream": "workstream_acceptance",
+      "priority": "P1",
+      "rows": 6,
+      "open_rows": 6,
+      "completion_ready_rows": 0,
+      "decision_input": "datasets/governance/workstream_acceptance_decisions.jsonl",
+      "validator_report": "reports/workstream_acceptance_decision_validation_report.json",
+      "validator_command": "python3 scripts/validate_workstream_acceptance_decisions.py"
+    }
+  ],
+  "top_blockers": [
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_UniProt",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:UniProt",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_RCSB_PDB",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:RCSB PDB",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_BRENDA",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:BRENDA",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_SABIO-RK",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:SABIO-RK",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_MaveDB",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:MaveDB",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_ProteinGym",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:ProteinGym",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_FireProtDB",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:FireProtDB",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_ProThermDB",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:ProThermDB",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_mmseqs2",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:mmseqs2",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_boltz2",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:boltz2",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_chai1",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:chai1",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_thermompnn",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:thermompnn",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_rosetta",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:rosetta",
+      "current_status": "reviewed_valid_but_not_approved",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_pyrosetta",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:pyrosetta",
+      "current_status": "reviewed_valid_but_not_approved",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_foldx",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:foldx",
+      "current_status": "reviewed_valid_but_not_approved",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_clean",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:clean",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_ligandmpnn",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:ligandmpnn",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_alphafold3",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:alphafold3",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_esm3_open",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:esm3_open",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_external_license_review_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:biosecurity_screening:screening_kwb-venus15b-strict-review-001",
+      "workstream": "biosecurity_screening",
+      "source_row_id": "screening:kwb-venus15b-strict-review-001",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/biosecurity_screening_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_biosecurity_screening_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:biosecurity_screening:screening_kwb-venus15b-strict-review-002",
+      "workstream": "biosecurity_screening",
+      "source_row_id": "screening:kwb-venus15b-strict-review-002",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/biosecurity_screening_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_biosecurity_screening_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:biosecurity_screening:screening_kwb-venus15b-strict-review-003",
+      "workstream": "biosecurity_screening",
+      "source_row_id": "screening:kwb-venus15b-strict-review-003",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/biosecurity_screening_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_biosecurity_screening_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:sequence_ip_fto:sequence_ip_review_internal_labels_001_kwb-venus15b-strict-review-001",
+      "workstream": "sequence_ip_fto",
+      "source_row_id": "sequence_ip_review_internal_labels_001:kwb-venus15b-strict-review-001",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/sequence_ip_fto_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_sequence_ip_fto_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:sequence_ip_fto:sequence_ip_review_internal_labels_001_kwb-venus15b-strict-review-002",
+      "workstream": "sequence_ip_fto",
+      "source_row_id": "sequence_ip_review_internal_labels_001:kwb-venus15b-strict-review-002",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/sequence_ip_fto_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_sequence_ip_fto_decisions.py"
+    },
+    {
+      "bundle_id": "governance_review:sequence_ip_fto:sequence_ip_review_internal_labels_001_kwb-venus15b-strict-review-003",
+      "workstream": "sequence_ip_fto",
+      "source_row_id": "sequence_ip_review_internal_labels_001:kwb-venus15b-strict-review-003",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "decision_input": "datasets/governance/sequence_ip_fto_decisions.jsonl",
+      "validator_command": "python3 scripts/validate_sequence_ip_fto_decisions.py"
+    }
+  ],
+  "policy": "This governance bundle is a shared human-review work queue. It preserves fail-closed gates: no row grants license, FTO, biosecurity, operator, workstream, model, release, ordering, customer, or deployment approval until the separate human decision file and validator explicitly say so."
+}

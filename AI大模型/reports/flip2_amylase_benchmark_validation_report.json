@@ -1,0 +1,20 @@
+{
+  "benchmark_name": "FLIP/FLIP2-style protein/family/time split",
+  "created_at": "2026-09-03T07:32:23.778327+00:00",
+  "dataset_rows": 3706,
+  "failures": [],
+  "head": "mutation_rank",
+  "local_only": true,
+  "policy": "Evaluation-only FLIP2 amylase mutation-rank benchmark. It does not create KWB labels, model claims, or release readiness.",
+  "ready_as_benchmark_scorecard": true,
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "split_counts": {
+    "test": 702,
+    "train": 2403,
+    "validation": 601
+  },
+  "success": true,
+  "training_import_written_rows": 0
+}

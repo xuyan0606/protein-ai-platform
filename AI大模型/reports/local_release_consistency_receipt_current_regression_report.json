@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "mode": "local_release_consistency_receipt_current_regression",
+  "success": true,
+  "isolated_fixture": true,
+  "post_consistency_drift_allowed": true,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_consistency_receipt_current_regression.py",
+  "regression_script_sha256": "d2e46c156f661b78cf252b02d629591e48da04670768e88e7a05a1d1eb0e707b",
+  "current_validator_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_consistency_receipt_current.py",
+  "current_validator_script_sha256": "5413fc8845a3d72afa5412a052ffda0f30f68ba389d87a7642258d11cf74f0a8",
+  "case_count": 16,
+  "passed_case_count": 16,
+  "failed_case_count": 0,
+  "real_inputs_mutated": false,
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case": "fixture_control",
+      "passed": true,
+      "returncode": 0,
+      "failure_count": 0,
+      "observed_checks": []
+    },
+    {
+      "case": "post_consistency_release_summary_drift_allowed",
+      "passed": true,
+      "returncode": 0,
+      "failure_count": 0,
+      "observed_checks": []
+    },
+    {
+      "case": "release_consumed_field_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "semantic_inputs_exact_current",
+      "observed_checks": [
+        "semantic_inputs_exact_current",
+        "semantic_inputs_sha256_current"
+      ]
+    },
+    {
+      "case": "data_lake_included_artifact_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "semantic_inputs_exact_current",
+      "observed_checks": [
+        "semantic_inputs_exact_current",
+        "semantic_inputs_sha256_current"
+      ]
+    },
+    {
+      "case": "live_consumed_field_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "semantic_inputs_exact_current",
+      "observed_checks": [
+        "semantic_inputs_exact_current",
+        "semantic_inputs_sha256_current"
+      ]
+    },
+    {
+      "case": "policy_consumed_field_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "semantic_inputs_exact_current",
+      "observed_checks": [
+        "semantic_inputs_exact_current",
+        "semantic_inputs_sha256_current"
+      ]
+    },
+    {
+      "case": "semantic_policy_consumed_field_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "semantic_inputs_exact_current",
+      "observed_checks": [
+        "expected_contract_version_exact",
+        "receipt_semantic_policy_sha256_current",
+        "semantic_inputs_exact_current",
+        "semantic_inputs_sha256_current"
+      ]
+    },
+    {
+      "case": "recorded_semantic_rows_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "semantic_inputs_exact_current",
+      "observed_checks": [
+        "semantic_inputs_exact_current"
+      ]
+    },
+    {
+      "case": "recorded_semantic_digest_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "semantic_inputs_sha256_current",
+      "observed_checks": [
+        "semantic_inputs_sha256_current"
+      ]
+    },
+    {
+      "case": "validator_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "receipt_validator_sha256_current",
+      "observed_checks": [
+        "receipt_validator_sha256_current"
+      ]
+    },
+    {
+      "case": "contract_module_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "receipt_semantic_contract_sha256_current",
+      "observed_checks": [
+        "receipt_semantic_contract_sha256_current"
+      ]
+    },
+    {
+      "case": "receipt_output_path_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "receipt_output_path",
+      "observed_checks": [
+        "receipt_output_path"
+      ]
+    },
+    {
+      "case": "receipt_lock_path_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "receipt_lock_path",
+      "observed_checks": [
+        "receipt_lock_path"
+      ]
+    },
+    {
+      "case": "receipt_atomic_flag_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "receipt_atomic_commit",
+      "observed_checks": [
+        "receipt_atomic_commit"
+      ]
+    },
+    {
+      "case": "receipt_success_flag_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "receipt_success",
+      "observed_checks": [
+        "receipt_success"
+      ]
+    },
+    {
+      "case": "release_receipt_proof_current_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "semantic_inputs_exact_current",
+      "observed_checks": [
+        "semantic_inputs_exact_current",
+        "semantic_inputs_sha256_current"
+      ]
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

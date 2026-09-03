@@ -1,0 +1,73 @@
+{
+  "accession": "O43353",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00619",
+        "name": "Caspase recruitment domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001315",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43353",
+          "protein_length": 540,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 437,
+                  "end": 519,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00619",
+              "score": 6.3e-15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07714",
+        "name": "Protein tyrosine and serine/threonine kinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001245",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43353",
+          "protein_length": 540,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 22,
+                  "end": 288,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07714",
+              "score": 9.9e-40
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

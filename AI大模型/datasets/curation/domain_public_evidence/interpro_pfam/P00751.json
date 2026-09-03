@@ -1,0 +1,131 @@
+{
+  "accession": "P00751",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00084",
+        "name": "Sushi repeat (SCR repeat)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000436",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p00751",
+          "protein_length": 764,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 53,
+                  "end": 85,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00084",
+              "score": 1.5
+            },
+            {
+              "fragments": [
+                {
+                  "start": 103,
+                  "end": 158,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00084",
+              "score": 1.6e-06
+            },
+            {
+              "fragments": [
+                {
+                  "start": 176,
+                  "end": 218,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00084",
+              "score": 2.2e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00089",
+        "name": "Trypsin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001254",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p00751",
+          "protein_length": 764,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 489,
+                  "end": 730,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00089",
+              "score": 7e-31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00092",
+        "name": "von Willebrand factor type A domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002035",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p00751",
+          "protein_length": 764,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 270,
+                  "end": 466,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00092",
+              "score": 8e-26
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

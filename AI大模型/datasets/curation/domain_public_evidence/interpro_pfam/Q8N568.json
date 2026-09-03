@@ -1,0 +1,85 @@
+{
+  "accession": "Q8N568",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00069",
+        "name": "Protein kinase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000719",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n568",
+          "protein_length": 766,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 394,
+                  "end": 651,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00069",
+              "score": 5.8e-70
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03607",
+        "name": "Doublecortin",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR003533",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n568",
+          "protein_length": 766,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 91,
+                  "end": 152,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF03607",
+              "score": 4.5e-18
+            },
+            {
+              "fragments": [
+                {
+                  "start": 215,
+                  "end": 274,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF03607",
+              "score": 2.5e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

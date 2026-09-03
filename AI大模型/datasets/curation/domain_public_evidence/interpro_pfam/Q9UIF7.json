@@ -1,0 +1,112 @@
+{
+  "accession": "Q9UIF7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00633",
+        "name": "Helix-hairpin-helix motif",
+        "source_database": "pfam",
+        "type": "conserved_site",
+        "integrated": "IPR000445",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uif7",
+          "protein_length": 546,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 194,
+                  "end": 223,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00633",
+              "score": 0.01
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00730",
+        "name": "HhH-GPD superfamily base excision DNA repair protein",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003265",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uif7",
+          "protein_length": 546,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 129,
+                  "end": 193,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 224,
+                  "end": 263,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": false,
+              "model": "PF00730",
+              "score": 1.7e-20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14815",
+        "name": "NUDIX domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR029119",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uif7",
+          "protein_length": 546,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 382,
+                  "end": 491,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14815",
+              "score": 3.2e-18
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

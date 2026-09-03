@@ -74,10 +74,16 @@ def as_float(value: Any) -> float:
 
 
 def row_group(row: dict[str, Any]) -> str:
-    for key in ("group_id", "mutation", "project_id", "enzyme_id", "uniprot_id"):
-        value = row.get(key)
-        if value not in (None, ""):
-            return str(value)
+    explicit_group = row.get("group_id")
+    if explicit_group not in (None, ""):
+        return str(explicit_group)
+    identity = [
+        f"{key}={row[key]}"
+        for key in ("project_id", "enzyme_id", "uniprot_id", "mutation")
+        if row.get(key) not in (None, "")
+    ]
+    if identity:
+        return "|".join(identity)
     return f"ungrouped-{stable_fraction(json.dumps(row, sort_keys=True, default=str)):.12f}"
 
 
@@ -165,6 +171,62 @@ def normalize_rows(rows: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], li
     return normalized, sorted(unknown)
 
 
+def align_feature_rows(rows: list[dict[str, Any]]) -> list[str]:
+    """Align heterogeneous feature vectors to one name-based union schema."""
+    schema = sorted(
+        {
+            field
+            for row in rows
+            for field in row.get("feature_schema") or []
+        }
+    )
+    for row in rows:
+        values_by_field = dict(zip(row.get("feature_schema") or [], row.get("features") or []))
+        row["features"] = [as_float(values_by_field.get(field)) for field in schema]
+        row["feature_schema"] = list(schema)
+    return schema
+
+
+def canonical_sha256(value: Any) -> str:
+    payload = json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+        default=str,
+    )
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def build_training_input_manifest(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    canonical_rows = [
+        {
+            "head": row["head"],
+            "label": row["label"],
+            "group": row["group"],
+            "replicate": row["replicate"],
+            "feature_schema": row["feature_schema"],
+            "features": row["features"],
+        }
+        for row in rows
+    ]
+    return {
+        "schema_version": "kwb_five_head_training_input_v1",
+        "normalized_label_row_count": len(rows),
+        "head_label_rows": {
+            head: sum(1 for row in rows if row["head"] == head)
+            for head in EXPECTED_HEADS
+        },
+        "group_count": len({row["group"] for row in rows}),
+        "explicit_replicate_count": len(
+            {row["replicate"] for row in rows if row["replicate"] is not None}
+        ),
+        "feature_schema": list(rows[0]["feature_schema"]) if rows else [],
+        "canonical_rows_sha256": canonical_sha256(canonical_rows),
+        "label_fields_excluded_from_features": sorted(LABEL_OR_NEAR_LABEL_FEATURE_FIELDS),
+    }
+
+
 def head_metrics(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
     metrics = {}
     for head in EXPECTED_HEADS:
@@ -241,6 +303,9 @@ def run_training(
     if mode not in {"research", "smoke"}:
         raise ValueError("mode must be research or smoke")
     rows, unknown_heads = normalize_rows(source_rows)
+    feature_schema = align_feature_rows(rows)
+    training_input_manifest = build_training_input_manifest(rows)
+    training_input_manifest_sha256 = canonical_sha256(training_input_manifest)
     metrics = head_metrics(rows)
     trainable = eligible_heads(
         metrics,
@@ -267,8 +332,10 @@ def run_training(
         "safe_for_model_claim": False,
         "release_ready": False,
         "excluded_feature_fields": sorted(LABEL_OR_NEAR_LABEL_FEATURE_FIELDS),
-        "feature_schema": [],
-        "feature_schema_sha256": feature_schema_hash([]),
+        "feature_schema": feature_schema,
+        "feature_schema_sha256": feature_schema_hash(feature_schema),
+        "training_input_manifest": training_input_manifest,
+        "training_input_manifest_sha256": training_input_manifest_sha256,
         "thresholds": {
             "minimum_samples": minimum_samples,
             "minimum_groups": minimum_groups,
@@ -280,9 +347,6 @@ def run_training(
             "head is gated independently."
         ),
     }
-    if rows:
-        report["feature_schema"] = list(rows[0]["feature_schema"])
-        report["feature_schema_sha256"] = feature_schema_hash(report["feature_schema"])
     if not rows or not any(metrics[head]["sample_count"] for head in EXPECTED_HEADS):
         report.update(status="blocked_no_trainable_heads")
         return report
@@ -291,9 +355,6 @@ def run_training(
         return report
 
     selected = [row for row in rows if row["head"] in trainable]
-    feature_schema = list(selected[0]["feature_schema"])
-    report["feature_schema"] = feature_schema
-    report["feature_schema_sha256"] = feature_schema_hash(feature_schema)
     input_dim = pad_features(selected)
     train_rows, validation_rows = split_by_group(
         selected,
@@ -385,6 +446,7 @@ def run_training(
             "feature_schema": feature_schema,
             "excluded_feature_fields": sorted(LABEL_OR_NEAR_LABEL_FEATURE_FIELDS),
             "feature_schema_sha256": feature_schema_hash(feature_schema),
+            "training_input_manifest_sha256": training_input_manifest_sha256,
             "mode": mode,
             "safe_for_model_claim": False,
             "release_ready": False,
@@ -405,6 +467,13 @@ def run_training(
         ),
         checkpoint_path=str(checkpoint_path.resolve()),
         checkpoint_sha256=file_sha256(checkpoint_path),
+        checkpoint_receipt={
+            "path": str(checkpoint_path.resolve()),
+            "sha256": file_sha256(checkpoint_path),
+            "size_bytes": checkpoint_path.stat().st_size,
+            "training_input_manifest_sha256": training_input_manifest_sha256,
+            "feature_schema_sha256": feature_schema_hash(feature_schema),
+        },
     )
     return report
 

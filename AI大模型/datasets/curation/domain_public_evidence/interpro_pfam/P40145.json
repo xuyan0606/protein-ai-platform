@@ -1,0 +1,119 @@
+{
+  "accession": "P40145",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00211",
+        "name": "Adenylate and Guanylate cyclase catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001054",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p40145",
+          "protein_length": 1251,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 406,
+                  "end": 588,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00211",
+              "score": 2.4e-56
+            },
+            {
+              "fragments": [
+                {
+                  "start": 974,
+                  "end": 1171,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00211",
+              "score": 2.7e-63
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF06327",
+        "name": "Adenylate cyclase, conserved domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR009398",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p40145",
+          "protein_length": 1251,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 617,
+                  "end": 712,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF06327",
+              "score": 9.6e-30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16214",
+        "name": "Adenylyl cyclase N-terminal extracellular and transmembrane region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR032628",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p40145",
+          "protein_length": 1251,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 159,
+                  "end": 395,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16214",
+              "score": 3.2e-31
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

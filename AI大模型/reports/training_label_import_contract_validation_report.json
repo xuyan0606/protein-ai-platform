@@ -1,0 +1,52 @@
+{
+  "created_at": "2026-09-03T07:33:56.058525+00:00",
+  "local_only": true,
+  "contract": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/training_label_import_contract_report.json",
+  "checked_inputs": {
+    "strict_supervised_jsonl": "datasets/curated/enzyme_mutation_supervised_repaired_verified.jsonl",
+    "claim_eligible_jsonl": "datasets/curated/enzyme_mutation_supervised_claim_eligible.jsonl",
+    "label_provenance_audit": "reports/label_provenance_audit_report.json",
+    "fireprot_reviewed_import_candidate": "reports/fireprot_reviewed_import_candidate_report.json",
+    "wet_lab_feedback_preflight": "reports/wet_lab_mutant_library_feedback_preflight_report.json",
+    "feedback_training_import_semantic_guard": "reports/feedback_training_import_semantic_guard_report.json",
+    "activity_risk_training_import_labels": "datasets/training/activity_risk_training_import_labels.jsonl",
+    "activity_risk_training_import_label_validation": "reports/activity_risk_training_import_label_validation_report.json"
+  },
+  "current_state": {
+    "strict_supervised_jsonl_rows": 0,
+    "claim_eligible_jsonl_rows": 0,
+    "label_provenance_strict_rows": 0,
+    "label_provenance_claim_eligible_rows": 0,
+    "fireprot_ready_for_training_import_rows": 0,
+    "fireprot_reviewed_import_candidate_rows": 0,
+    "wet_lab_preflight_rows": 8,
+    "wet_lab_ready_for_training_import_rows": 0,
+    "wet_lab_authorized_candidate_rows": 8,
+    "numeric_feedback_training_import_eligible_rows": 6,
+    "feedback_guard_strict_supervised_rows": 0,
+    "feedback_guard_claim_eligible_rows": 0,
+    "activity_risk_training_import_written_rows": 6,
+    "activity_risk_training_import_validated_written_rows": 6
+  },
+  "expected_current_state": {
+    "strict_supervised_jsonl_rows": 0,
+    "claim_eligible_jsonl_rows": 0,
+    "label_provenance_strict_rows": 0,
+    "label_provenance_claim_eligible_rows": 0,
+    "fireprot_ready_for_training_import_rows": 0,
+    "wet_lab_ready_for_training_import_rows": 0
+  },
+  "contract_totals": {
+    "training_import_eligible_label_sources": 1,
+    "training_import_eligible_rows": 6,
+    "counted_as_trainable_rows": 6
+  },
+  "training_import_written_rows": 6,
+  "input_true_claim_release_flags": [],
+  "failures": [],
+  "success": true,
+  "safe_for_training_import": true,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Validation is fail-closed: any strict, claim-eligible, reviewed import, preflight, or feedback row counted as trainable must have reviewed/source/provenance/authorization evidence. safe_for_training_import may become true only for numeric feedback rows that match the semantic guard; safe_for_model_claim and release_ready must remain false."
+}

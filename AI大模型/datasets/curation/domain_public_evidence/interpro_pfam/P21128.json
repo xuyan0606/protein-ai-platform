@@ -1,0 +1,85 @@
+{
+  "accession": "P21128",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01033",
+        "name": "Somatomedin B domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001212",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p21128",
+          "protein_length": 410,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 22,
+                  "end": 60,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF01033",
+              "score": 2.7e-08
+            },
+            {
+              "fragments": [
+                {
+                  "start": 88,
+                  "end": 126,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01033",
+              "score": 9.6e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09412",
+        "name": "Endoribonuclease XendoU",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR018998",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p21128",
+          "protein_length": 410,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 140,
+                  "end": 406,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09412",
+              "score": 8.5e-96
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

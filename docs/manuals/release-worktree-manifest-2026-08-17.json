@@ -1,0 +1,1509 @@
+{
+  "counts_by_status": {
+    "??": 246,
+    "D": 2,
+    "M": 124
+  },
+  "created_at": "2026-08-17T06:27:27.864564+00:00",
+  "destructive_actions": "not_executed",
+  "dirty": true,
+  "dirty_file_count": 372,
+  "files": [
+    {
+      "path": "github/workflows/ci.yml",
+      "status": "M "
+    },
+    {
+      "path": ".gitignore",
+      "status": " M"
+    },
+    {
+      "path": "README.md",
+      "status": " M"
+    },
+    {
+      "path": "backend/.env.example",
+      "status": " M"
+    },
+    {
+      "path": "backend/Dockerfile",
+      "status": " D"
+    },
+    {
+      "path": "backend/alembic/env.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/api/auth.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/api/chat.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/api/conversations.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/api/data.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/api/files.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/api/oidc.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/api/outline_proxy.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/api/pdb.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/api/projects.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/api/publish.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/api/tools.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/core/agent_graph.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/core/agent_roles.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/core/config.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/core/llm.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/core/metrics.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/core/oidc_config.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/core/security.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/data/base_ingestor.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/main.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/ml/embeddings.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/models/__init__.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/models/base.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/models/domain.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/models/literature.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/models/project.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/models/tool_call.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/models/user.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/services/literature_store.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/services/outline_client.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/services/publish_service.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/services/report_generator.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/services/scheduler.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/services/storage.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/services/vectordb.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/alphafold2_folding.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/blast_search.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/diffdock_docking.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/enzyme_function.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/esmfold_folding.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/gromacs_md.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/kcat_predict.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/mutation_priority_score.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/mutation_scan.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/predict_properties.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/protein_benchmark.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/proteinmpnn_design.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/protssn_score.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/registry.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/rfdiffusion_design.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/app/tools/sequence_search.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/docker-compose.yml",
+      "status": " D"
+    },
+    {
+      "path": "backend/requirements-core.txt",
+      "status": " M"
+    },
+    {
+      "path": "backend/scripts/ingest_data.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/scripts/migrate_sqlite_to_pg.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/tests/conftest.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/tests/test_agent_binder.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/tests/test_config_validation.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/tests/test_data_api.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/tests/test_data_tools.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/tests/test_ingestors.py",
+      "status": " M"
+    },
+    {
+      "path": "backend/tests/test_publish.py",
+      "status": " M"
+    },
+    {
+      "path": "deploy-aliyun.sh",
+      "status": " M"
+    },
+    {
+      "path": "docker/.env.example",
+      "status": " M"
+    },
+    {
+      "path": "docker/Dockerfile.backend",
+      "status": " M"
+    },
+    {
+      "path": "docker/docker-compose.yml",
+      "status": " M"
+    },
+    {
+      "path": "docker/nginx-frontend.conf",
+      "status": " M"
+    },
+    {
+      "path": "docker/nginx.conf",
+      "status": " M"
+    },
+    {
+      "path": "frontend/README.md",
+      "status": " M"
+    },
+    {
+      "path": "frontend/eslint.config.js",
+      "status": " M"
+    },
+    {
+      "path": "frontend/package-lock.json",
+      "status": " M"
+    },
+    {
+      "path": "frontend/package.json",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/App.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/ProtectedRoute.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/analysis/BatchCompare.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/analysis/BenchmarkReport.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/analysis/BlastResultView.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/analysis/CatalyticParamsCard.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/analysis/ECPredictionCard.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/analysis/ESM2ResultCard.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/analysis/MDResultView.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/analysis/MutationScoreCard.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/analysis/PDBAnalysisCard.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/analysis/RFdiffusionResult.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/analysis/index.ts",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/chat/ChatInput.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/chat/ChatLayout.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/chat/MarkdownView.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/chat/MessageBubble.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/chat/MessageList.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/chat/PublishToolbar.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/chat/ThinkingChain.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/chat/ToolCallCard.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/chat/ToolPanel.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/files/FileUploader.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/files/FileViewer.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/sidebar/ConversationList.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/sidebar/SearchDialog.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/components/viewer/ProteinViewer.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/hooks/useChatStream.ts",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/hooks/useFileUpload.ts",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/i18n/index.ts",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/index.css",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/lib/api.ts",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/lib/conversation-report.ts",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/lib/report.ts",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/main.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/pages/AuthPage.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/pages/DataBrowser.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/pages/HomePage.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/pages/PDBUploadPage.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/pages/ProjectDetailPage.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/pages/ProjectListPage.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/pages/WikiPage.tsx",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/stores/auth.ts",
+      "status": " M"
+    },
+    {
+      "path": "frontend/src/stores/chat.ts",
+      "status": " M"
+    },
+    {
+      "path": "frontend/vite.config.ts",
+      "status": " M"
+    },
+    {
+      "path": "scripts/backup.sh",
+      "status": " M"
+    },
+    {
+      "path": "scripts/init_outline.sh",
+      "status": " M"
+    },
+    {
+      "path": "scripts/restore.sh",
+      "status": " M"
+    },
+    {
+      "path": ".dockerignore",
+      "status": "??"
+    },
+    {
+      "path": ".planning/",
+      "status": "??"
+    },
+    {
+      "path": ".playwright-cli/",
+      "status": "??"
+    },
+    {
+      "path": ".tmp/",
+      "status": "??"
+    },
+    {
+      "path": "AGENTS.md",
+      "status": "??"
+    },
+    {
+      "path": "AI大模型/",
+      "status": "??"
+    },
+    {
+      "path": "Fanzor无实验训练数据突变挖掘_深度学习方法论.md",
+      "status": "??"
+    },
+    {
+      "path": "Makefile",
+      "status": "??"
+    },
+    {
+      "path": "Structure2D_COMPOUND_CID_5478883.sdf",
+      "status": "??"
+    },
+    {
+      "path": "VERSION",
+      "status": "??"
+    },
+    {
+      "path": "Venus-15B淀粉酶项目/",
+      "status": "??"
+    },
+    {
+      "path": "backend/alembic/versions/0d4a9f1c8b23_add_project_members.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/alembic/versions/2f6c8d9e0a12_add_lipase_curation_records.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/alembic/versions/7c2a1d4e9b66_add_user_status_controls.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/alembic/versions/9c8d7e6f5a41_add_experiment_feedback_records.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/alembic/versions/b9a4c2d7e8f1_add_organization_permissions.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/alembic/versions/c4d9e1b2f7aa_add_annotation_and_signal_tables.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/alembic/versions/d6f4b8c2a901_add_enzyme_metadata_curation.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/alembic/versions/e7a2d4c9b601_add_tool_task_audits.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/alembic/versions/f1b9c8d2a704_add_user_roles.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/alembic/versions/f8a1c2d3e4b5_add_strategy_checkpoints_and_wet_lab_calibration.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/api/ops.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/api/research.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/core/jwt_compat.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/core/llm_gateway.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/core/llm_policy.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/core/llm_registry.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/core/passwords.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/core/version.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/data/fixtures/",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/data/ingestors/local_annotations.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/models/enzyme_metadata_curation.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/models/experiment_feedback.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/models/lipase_curation.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/models/strategy_checkpoint.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/agent_policy.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/annotation_dataset_service.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/annotation_facade.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/annotation_query_service.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/deploy_data_status.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/enzyme_evidence_db.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/enzyme_metadata_curation.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/evidence_source_status.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/experiment_feedback.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/interpro_live.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/lipase_curation.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/lipase_db_status.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/md_protocols.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/ncbi_api.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/ops_notifications.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/ops_status.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/platform_manifest.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/project_acl.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/report_quality_contract.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/strategy_checkpoint.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/task_execution_contract.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/tool_cache.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/tool_diagnostics.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/tool_task_audit.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/tool_task_store.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/services/wet_lab_calibration.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/annotation_bundle.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/bio_specialty_input_gate.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/catalytic_site_lookup.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/enzyme_identity_profile.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/enzyme_objective_module_plan.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/external_connectivity_check.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/external_research_evidence.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/feedback_iteration_planner.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/human_target_antibody_contracts.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/interpro_annotation.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/interpro_live_lookup.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/interproscan_sequence_submit.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/ligand_preprocess.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/literature_live_search.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/mutation_epistasis_check.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/residue_mapping_sifts.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/residue_numbering_gate.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/rosetta_ddg.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/scientific_claim_gate.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/signal_peptide_predict.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/structure_search_foldseek.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/tool_capability_audit.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/app/tools/tool_capability_contract.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/scripts/import_domain_sqlite_to_pg.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/scripts/seed_local_annotations.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/scripts/smoke_ligand_toolchain.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/scripts/smoke_md_topology.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/scripts/smoke_structure_data.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/scripts/structure_smoke_readiness.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/scripts/verify_md_blackbox.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/enzyme_agent_eval_cases.json",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/enzyme_report_quality_cases.json",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_annotation_facade.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_annotation_query_service.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_auth_resilience.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_external_connectivity_check.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_external_research_evidence.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_gromacs_md_artifacts.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_hm_pdb_deep_quality_gate.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_llm_gateway.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_matvenus_session_extractor.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_ops_api.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_p0_audit_regressions.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_passwords.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_pdb_api.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_project_acl.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_publish_api.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_report_quality_contract.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_research_api.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_scheduler_status.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_storage_fallback.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_structure_tools.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_task_execution_contract.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_tool_fallbacks.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_tool_lane_evidence_pack.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_tool_task_store.py",
+      "status": "??"
+    },
+    {
+      "path": "backend/tests/test_tools_api.py",
+      "status": "??"
+    },
+    {
+      "path": "backups/",
+      "status": "??"
+    },
+    {
+      "path": "deploy_data/",
+      "status": "??"
+    },
+    {
+      "path": "docker/.env.aliyun.app.example",
+      "status": "??"
+    },
+    {
+      "path": "docker/.env.aliyun.gpu.example",
+      "status": "??"
+    },
+    {
+      "path": "docker/Dockerfile.backend.hotfix",
+      "status": "??"
+    },
+    {
+      "path": "docker/Dockerfile.ligand-worker",
+      "status": "??"
+    },
+    {
+      "path": "docker/Dockerfile.ligand-worker.aliyun",
+      "status": "??"
+    },
+    {
+      "path": "docker/Dockerfile.ligand-worker.local",
+      "status": "??"
+    },
+    {
+      "path": "docker/docker-compose.aliyun-app.yml",
+      "status": "??"
+    },
+    {
+      "path": "docker/docker-compose.aliyun-gpu.yml",
+      "status": "??"
+    },
+    {
+      "path": "docker/health-check.sh",
+      "status": "??"
+    },
+    {
+      "path": "docker/init-db.sql",
+      "status": "??"
+    },
+    {
+      "path": "docker/ligand-runtime-check.py",
+      "status": "??"
+    },
+    {
+      "path": "docker/pg_hba.conf",
+      "status": "??"
+    },
+    {
+      "path": "docker/recover.sh",
+      "status": "??"
+    },
+    {
+      "path": "docker/start.sh",
+      "status": "??"
+    },
+    {
+      "path": "docs/aliyun-live-environment-prep-2026-07-16.md",
+      "status": "??"
+    },
+    {
+      "path": "docs/aliyun-managed-deployment.md",
+      "status": "??"
+    },
+    {
+      "path": "docs/designs/2026-07-04-tool-and-database-expansion-roadmap.md",
+      "status": "??"
+    },
+    {
+      "path": "docs/designs/2026-07-10-matvenus-analysis-style-study.md",
+      "status": "??"
+    },
+    {
+      "path": "docs/designs/2026-07-10-matvenus-multi-session-study.md",
+      "status": "??"
+    },
+    {
+      "path": "docs/designs/2026-07-29-enzyme-manual-analysis-flow-v1.md",
+      "status": "??"
+    },
+    {
+      "path": "docs/designs/2026-08-04-bio-rd-capability-audit.md",
+      "status": "??"
+    },
+    {
+      "path": "docs/designs/2026-08-04-enzyme-foundation-and-objective-modules.md",
+      "status": "??"
+    },
+    {
+      "path": "docs/designs/2026-08-04-next-stage-execution-plan.md",
+      "status": "??"
+    },
+    {
+      "path": "docs/designs/2026-08-04-scientific-report-format-and-claim-gating.md",
+      "status": "??"
+    },
+    {
+      "path": "docs/designs/2026-08-05-enzyme-db-patent-preprint-policy.md",
+      "status": "??"
+    },
+    {
+      "path": "docs/designs/2026-08-11-ai-protein-platform-strategy-state-research.md",
+      "status": "??"
+    },
+    {
+      "path": "docs/live-deploy-runbook.md",
+      "status": "??"
+    },
+    {
+      "path": "docs/manuals/",
+      "status": "??"
+    },
+    {
+      "path": "docs/project-experience-memory.md",
+      "status": "??"
+    },
+    {
+      "path": "findings.md",
+      "status": "??"
+    },
+    {
+      "path": "frontend/output/",
+      "status": "??"
+    },
+    {
+      "path": "frontend/public/brand/",
+      "status": "??"
+    },
+    {
+      "path": "frontend/public/sw.js",
+      "status": "??"
+    },
+    {
+      "path": "frontend/scripts/",
+      "status": "??"
+    },
+    {
+      "path": "frontend/smoke-tests.html",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/components/BrandLogo.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/components/analysis/AnnotationBundleCard.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/components/analysis/AnnotationBundleResult.ts",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/components/analysis/CatalyticSiteCard.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/components/analysis/InterProAnnotationCard.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/components/analysis/ReportShell.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/components/analysis/SignalPeptideCard.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/components/analysis/StructureMappingCard.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/components/analysis/StructureSearchResultCard.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/components/analysis/resultGuards.ts",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/components/chat/StrategyMemoryPanel.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/pages/AdminPage.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/pages/BenchmarkCasePage.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/pages/BenchmarkListPage.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/pages/ResearchEvidencePage.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/src/pages/TaskCenterPage.tsx",
+      "status": "??"
+    },
+    {
+      "path": "frontend/tests/",
+      "status": "??"
+    },
+    {
+      "path": "frontend/vite.smoke.config.ts",
+      "status": "??"
+    },
+    {
+      "path": "matvenus-research/",
+      "status": "??"
+    },
+    {
+      "path": "matvenus-session-08b460.capture.json",
+      "status": "??"
+    },
+    {
+      "path": "matvenus-session-08b460.json",
+      "status": "??"
+    },
+    {
+      "path": "matvenus-session-08b460.review.md",
+      "status": "??"
+    },
+    {
+      "path": "matvenus-session-08b460.stream-events.json",
+      "status": "??"
+    },
+    {
+      "path": "matvenus-session-08b460.style.json",
+      "status": "??"
+    },
+    {
+      "path": "matvenus-sessions-list-page1-size50.json",
+      "status": "??"
+    },
+    {
+      "path": "matvenus-sessions-list.json",
+      "status": "??"
+    },
+    {
+      "path": "md_analysis_full.tar.gz",
+      "status": "??"
+    },
+    {
+      "path": "model_cards/",
+      "status": "??"
+    },
+    {
+      "path": "output/",
+      "status": "??"
+    },
+    {
+      "path": "progress.md",
+      "status": "??"
+    },
+    {
+      "path": "scripts/archive_benchmark_bundle.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/batch_fetch_matvenus_sessions.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/build_foldseek_db.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/build_release_go_no_go_summary.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/build_release_operator_packet_manifest.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/build_release_worktree_manifest.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/build_remaining_backlog_external_input_packet.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/build_remaining_backlog_gate_execution_plan.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/capture_manual_screenshots.mjs",
+      "status": "??"
+    },
+    {
+      "path": "scripts/check_deploy_data.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/check_environment.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/check_production_config.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/check_remaining_backlog_readiness.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/check_upgrade_readiness.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/discover_benchmark_assets.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/discover_deploy_data_sources.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/download_alphafold_models.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/download_oss_object.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/download_rcsb_structures.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/download_real_annotations.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/download_sifts_mappings.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/ecs_app_preflight.sh",
+      "status": "??"
+    },
+    {
+      "path": "scripts/ecs_app_prepare.sh",
+      "status": "??"
+    },
+    {
+      "path": "scripts/ensure_users_from_stdin.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/extract_matvenus_session.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/fetch_matvenus_session.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/import_deploy_data.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/init_deployment.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/install_release_bundle.sh",
+      "status": "??"
+    },
+    {
+      "path": "scripts/materialize_foldseek_links.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/oss_shadow_restore_drill.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/package_deploy_bundle.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/prepare_deploy_data.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/refresh_live_deploy_data.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/restore_drill.sh",
+      "status": "??"
+    },
+    {
+      "path": "scripts/rollback_plan.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/run_acceptance_matrix.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/run_deploy_data_update.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/run_nightly_live_gates.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/run_release_acceptance.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/select_benchmark_reference_docs.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/smoke_admin_oidc_tools_live.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/smoke_ai_blackbox_live.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/smoke_benchmark_bundle_live.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/smoke_file_download_live.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/smoke_oss_minio_contract.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/smoke_uploaded_pdb_strategy_live.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/smoke_user_isolation.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/smoke_wiki_publish_checkpoint_live.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/summarize_matvenus_research.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/sync_benchmark_case.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/update_aliyun_oss_env.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/upgrade.sh",
+      "status": "??"
+    },
+    {
+      "path": "scripts/validate_release_manual_gate_evidence.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/validate_release_manual_gate_inputs.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/validate_remaining_backlog_external_inputs.py",
+      "status": "??"
+    },
+    {
+      "path": "scripts/verify_backup.sh",
+      "status": "??"
+    },
+    {
+      "path": "scripts/write_deploy_env.py",
+      "status": "??"
+    },
+    {
+      "path": "task_plan.md",
+      "status": "??"
+    },
+    {
+      "path": "酶蛋白AI平台_服务器购买审批方案.md",
+      "status": "??"
+    },
+    {
+      "path": "酶蛋白AI平台_汇报版.html",
+      "status": "??"
+    }
+  ],
+  "mode": "read_only_release_worktree_manifest",
+  "network_io": "not_executed",
+  "revision": "25679eb",
+  "secrets_printed": false,
+  "summary": {
+    "detail": "dirty worktree must be reviewed before production deployment",
+    "status": "manual_required"
+  }
+}

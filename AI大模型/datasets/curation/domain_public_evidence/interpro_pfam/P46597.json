@@ -1,0 +1,73 @@
+{
+  "accession": "P46597",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00891",
+        "name": "O-methyltransferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001077",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p46597",
+          "protein_length": 345,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 117,
+                  "end": 327,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00891",
+              "score": 2.5e-88
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08100",
+        "name": "O-methyltransferase dimerisation domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012967",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p46597",
+          "protein_length": 345,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 14,
+                  "end": 95,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08100",
+              "score": 4.4e-25
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

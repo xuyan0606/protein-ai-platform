@@ -1,0 +1,141 @@
+{
+  "accession": "Q13423",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01262",
+        "name": "Alanine dehydrogenase/PNT, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007698",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13423",
+          "protein_length": 1086,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 203,
+                  "end": 435,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF01262",
+              "score": 1.9e-60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02233",
+        "name": "NAD(P) transhydrogenase beta subunit",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR034300",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13423",
+          "protein_length": 1086,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 621,
+                  "end": 1078,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02233",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05222",
+        "name": "Alanine dehydrogenase/PNT, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007886",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13423",
+          "protein_length": 1086,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 60,
+                  "end": 199,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05222",
+              "score": 4.5e-39
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12769",
+        "name": "4TM region of pyridine nucleotide transhydrogenase, mitoch",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR024605",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13423",
+          "protein_length": 1086,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 502,
+                  "end": 587,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12769",
+              "score": 4.7e-27
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

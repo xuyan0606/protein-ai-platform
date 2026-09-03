@@ -1,0 +1,107 @@
+{
+  "accession": "Q9H0K6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01142",
+        "name": "tRNA pseudouridine synthase D (TruD)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001656",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h0k6",
+          "protein_length": 701,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 295,
+                  "end": 696,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01142",
+              "score": 2.5e-67
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23943",
+        "name": "PUS7L N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR056963",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h0k6",
+          "protein_length": 701,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 124,
+                  "end": 205,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF23943",
+              "score": 2.2e-26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25094",
+        "name": "PUS7L R3H domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR056961",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h0k6",
+          "protein_length": 701,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 206,
+                  "end": 279,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25094",
+              "score": 5.7e-33
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

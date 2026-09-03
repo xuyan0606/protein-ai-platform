@@ -1,0 +1,147 @@
+{
+  "created_at": "2026-09-03T07:47:17.879941+00:00",
+  "local_only": true,
+  "case_rows": 14,
+  "positive_cases": 1,
+  "negative_cases": 13,
+  "expected_rejected_negative_cases": 13,
+  "actual_rejected_negative_cases": 13,
+  "failed_regression_cases": 0,
+  "success": true,
+  "cases": [
+    {
+      "case_id": "positive_current_receipted_eligibility_matrix",
+      "expected_valid": true,
+      "actual_valid": true,
+      "expected_outcome_met": true,
+      "failure_checks": []
+    },
+    {
+      "case_id": "bad_report_allowed_rows_positive",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "current_execution_allowed_rows_match_matrix"
+      ]
+    },
+    {
+      "case_id": "bad_row_current_execution_allowed_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "current_execution_allowed_rows_match_matrix",
+        "row_current_execution_allowed_only_low_risk_classes"
+      ]
+    },
+    {
+      "case_id": "bad_row_executed_in_current_trace_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "receipt_present_rows_match_matrix",
+        "row_current_execution_allowed_requires_receipt",
+        "row_executed_requires_receipt"
+      ]
+    },
+    {
+      "case_id": "bad_row_receipt_present_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "row_current_execution_allowed_requires_passed_receipt"
+      ]
+    },
+    {
+      "case_id": "bad_row_model_claim_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "row_model_claim_false"
+      ]
+    },
+    {
+      "case_id": "bad_row_training_import_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "row_training_import_false"
+      ]
+    },
+    {
+      "case_id": "bad_row_release_ready_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "row_release_ready_false"
+      ]
+    },
+    {
+      "case_id": "bad_row_writes_training_rows_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "row_writes_training_rows_false"
+      ]
+    },
+    {
+      "case_id": "bad_executable_missing_confirmation_reason",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "executable_requires_confirmation_reason"
+      ]
+    },
+    {
+      "case_id": "bad_blocked_missing_human_reason",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "blocked_human_decision_reason"
+      ]
+    },
+    {
+      "case_id": "bad_forbidden_missing_forbidden_reason",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "row_blocked_reasons_nonempty",
+        "forbidden_reason"
+      ]
+    },
+    {
+      "case_id": "bad_report_safe_for_execution_claim_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "safe_for_execution_claim_false"
+      ]
+    },
+    {
+      "case_id": "bad_receipt_regression_failed_cases_positive",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "receipt_safety_regression_failed_cases_zero"
+      ]
+    }
+  ],
+  "cases_artifact": "datasets/governance/enzyme_agent_execution_eligibility_safety_regression_cases.jsonl",
+  "safe_for_execution_claim": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Regression suite proves execution eligibility validation rejects unsafe eligibility changes after the receipted execution wave. It does not execute any action or authorize training/model/release claims."
+}

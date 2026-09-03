@@ -1,0 +1,107 @@
+{
+  "accession": "Q9NQ11",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00122",
+        "name": "P-type ATPase actuator domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR059000",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nq11",
+          "protein_length": 1180,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 299,
+                  "end": 410,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00122",
+              "score": 8.7e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12409",
+        "name": "P5-type ATPase cation transporter",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR047819",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nq11",
+          "protein_length": 1180,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 34,
+                  "end": 175,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12409",
+              "score": 3.6e-19
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13246",
+        "name": "P-type ATPase, cytoplasmic domain N",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nq11",
+          "protein_length": 1180,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 626,
+                  "end": 730,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13246",
+              "score": 0.0039
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

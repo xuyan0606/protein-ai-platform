@@ -1,0 +1,85 @@
+{
+  "accession": "Q8IWU6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00884",
+        "name": "Sulfatase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000917",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iwu6",
+          "protein_length": 871,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 43,
+                  "end": 373,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00884",
+              "score": 5e-44
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12548",
+        "name": "Sulfatase protein",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR024609",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iwu6",
+          "protein_length": 871,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 534,
+                  "end": 679,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12548",
+              "score": 4e-56
+            },
+            {
+              "fragments": [
+                {
+                  "start": 682,
+                  "end": 741,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12548",
+              "score": 0.00013
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

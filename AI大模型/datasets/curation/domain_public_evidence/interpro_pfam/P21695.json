@@ -1,0 +1,73 @@
+{
+  "accession": "P21695",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01210",
+        "name": "NAD-dependent glycerol-3-phosphate dehydrogenase N-terminus",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR011128",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p21695",
+          "protein_length": 349,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 5,
+                  "end": 172,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01210",
+              "score": 4.7e-46
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07479",
+        "name": "NAD-dependent glycerol-3-phosphate dehydrogenase C-terminus",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006109",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p21695",
+          "protein_length": 349,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 194,
+                  "end": 339,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07479",
+              "score": 5.2e-44
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

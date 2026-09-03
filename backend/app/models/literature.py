@@ -11,7 +11,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from app.models.base import Base
+from app.models.base import Base, utcnow_naive
 
 
 class Paper(Base):
@@ -28,8 +28,8 @@ class Paper(Base):
     mesh_terms: Mapped[str | None] = mapped_column(Text, nullable=True)  # JSON array
     citation_count: Mapped[int | None] = mapped_column(Integer, nullable=True)
     source: Mapped[str] = mapped_column(String(20), default="pubmed")  # pubmed, europe_pmc
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
-    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow_naive)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow_naive, onupdate=utcnow_naive)
 
     # Relationships
     enzyme_links: Mapped[list[EnzymeLiteratureLink]] = relationship(
@@ -61,7 +61,7 @@ class EnzymeLiteratureLink(Base):
         String(30), nullable=False, default="manual"
     )  # brenda, protherm, enzengdb, pubmed_search, manual
     relevance_score: Mapped[float | None] = mapped_column(Float, nullable=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow_naive)
 
     # Relationships
     enzyme: Mapped["EnzymeRecord"] = relationship("EnzymeRecord", backref="literature_links")

@@ -1,0 +1,71 @@
+{
+  "created_at": "2026-09-03T07:34:42.928230+00:00",
+  "local_only": true,
+  "success": true,
+  "checked_reports": {
+    "backend_readiness": "reports/ddg_backend_readiness_report.json",
+    "backend_failure_diagnostic": "reports/ddg_backend_failure_diagnostic_report.json",
+    "proxy_not_physics_claim_validation": "reports/ddg_proxy_not_physics_claim_validation_report.json",
+    "thermompnn_venus15b_smoke": "reports/thermompnn_venus15b_smoke_report.json",
+    "pyrosetta_physical_smoke": "reports/pyrosetta_physical_smoke_bootstrap_report.json",
+    "runtime_receipt_validation": "reports/ddg_backend_runtime_receipt_validation_report.json",
+    "executable_probe": "reports/ddg_executable_probe_report.json",
+    "consumption_contract": "reports/ddg_model_consumption_contract_report.json"
+  },
+  "state_summary": {
+    "physics_ddg_ready": false,
+    "executable_ddg_backend_ready": true,
+    "proxy_ddg_backend_ready": true,
+    "proxy_is_physics": false,
+    "pyrosetta_physics_rows": 1,
+    "thermompnn_proxy_rows": 4,
+    "negative_ddg_is_stabilizing": true
+  },
+  "fail_closed_checks": {
+    "forbidden_true_fields": [
+      "safe_for_model_claim",
+      "release_ready"
+    ],
+    "forbidden_true_states": [],
+    "required_proxy_row_fields": [
+      "manual_review",
+      "evidence_level",
+      "negative_ddg_is_stabilizing",
+      "limitations"
+    ],
+    "proxy_rows": {
+      "row_count": 4,
+      "rows": [
+        {
+          "mutation": "S265D",
+          "manual_review": true,
+          "evidence_level": "computational_proxy",
+          "has_limitations": true
+        },
+        {
+          "mutation": "D405N",
+          "manual_review": true,
+          "evidence_level": "computational_proxy",
+          "has_limitations": true
+        },
+        {
+          "mutation": "E331Q",
+          "manual_review": true,
+          "evidence_level": "computational_proxy",
+          "has_limitations": true
+        },
+        {
+          "mutation": "M204H",
+          "manual_review": true,
+          "evidence_level": "computational_proxy",
+          "has_limitations": true
+        }
+      ]
+    }
+  },
+  "failures": [],
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Fail-closed validation: PyRosetta physics ddG may be ready only through approved receipt and smoke artifacts. Every PyRosetta/ThermoMPNN row must remain non-training and manual-review; model/release claims stay false."
+}

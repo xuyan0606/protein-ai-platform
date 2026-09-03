@@ -1,0 +1,73 @@
+{
+  "accession": "O43567",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02225",
+        "name": "PA domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003137",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43567",
+          "protein_length": 381,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 66,
+                  "end": 158,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02225",
+              "score": 1.6e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13639",
+        "name": "Ring finger domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001841",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43567",
+          "protein_length": 381,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 239,
+                  "end": 282,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13639",
+              "score": 1.1e-10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

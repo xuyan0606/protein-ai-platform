@@ -1,0 +1,73 @@
+{
+  "accession": "Q9NVE7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01937",
+        "name": "Damage-control phosphatase ARMT1-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002791",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nve7",
+          "protein_length": 773,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 453,
+                  "end": 759,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01937",
+              "score": 1.9e-48
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03630",
+        "name": "Fumble",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR004567",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nve7",
+          "protein_length": 773,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 36,
+                  "end": 367,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03630",
+              "score": 9.6e-129
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

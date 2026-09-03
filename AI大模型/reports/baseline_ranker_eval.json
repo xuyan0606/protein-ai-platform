@@ -1,0 +1,91 @@
+{
+  "rows": 12,
+  "correct": 10,
+  "accuracy": 0.833,
+  "records": [
+    {
+      "case_id": "kwb-demo-lipase-thermostability-001",
+      "mutation": "A42P",
+      "score": 61.3,
+      "predicted": "watch",
+      "expected": "watch"
+    },
+    {
+      "case_id": "kwb-demo-lipase-thermostability-001",
+      "mutation": "S153A",
+      "score": 0.0,
+      "predicted": "no_go",
+      "expected": "no_go"
+    },
+    {
+      "case_id": "bench-assay-feedback-001",
+      "mutation": "A42P",
+      "score": 49.6,
+      "predicted": "watch",
+      "expected": "go"
+    },
+    {
+      "case_id": "bench-assay-feedback-001",
+      "mutation": "G88P",
+      "score": 18.6,
+      "predicted": "no_go",
+      "expected": "no_go"
+    },
+    {
+      "case_id": "bench-assay-feedback-001",
+      "mutation": "K210E",
+      "score": 12.6,
+      "predicted": "no_go",
+      "expected": "no_go"
+    },
+    {
+      "case_id": "bench-catalytic-guardrail-001",
+      "mutation": "S153A",
+      "score": 0.0,
+      "predicted": "no_go",
+      "expected": "no_go"
+    },
+    {
+      "case_id": "bench-catalytic-guardrail-001",
+      "mutation": "D180N",
+      "score": 22.9,
+      "predicted": "no_go",
+      "expected": "watch"
+    },
+    {
+      "case_id": "bench-catalytic-guardrail-001",
+      "mutation": "A42P",
+      "score": 48.9,
+      "predicted": "watch",
+      "expected": "watch"
+    },
+    {
+      "case_id": "bench-lipase-substrate-001",
+      "mutation": "A42P",
+      "score": 63.7,
+      "predicted": "watch",
+      "expected": "watch"
+    },
+    {
+      "case_id": "bench-low-ph-amylase-001",
+      "mutation": "A42P",
+      "score": 64.4,
+      "predicted": "watch",
+      "expected": "watch"
+    },
+    {
+      "case_id": "bench-thermo-sequence-only-001",
+      "mutation": "A42P",
+      "score": 62.4,
+      "predicted": "watch",
+      "expected": "watch"
+    },
+    {
+      "case_id": "bench-uploaded-pdb-numbering-001",
+      "mutation": "A42P",
+      "score": 59.7,
+      "predicted": "watch",
+      "expected": "watch"
+    }
+  ]
+}

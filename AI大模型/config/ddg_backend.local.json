@@ -1,0 +1,89 @@
+{
+  "local_only": true,
+  "policy": "平台不设置一刀切的非商业限制。Rosetta/PyRosetta/FoldX ddG 能否用于商业评估、训练导入、客户交付、服务化和发布，按组件许可证、企业授权、项目授权、runtime receipt、reviewed structure mapping、mutation-list 和 artifact checksum gates 逐项判定。",
+  "config_decision": {
+    "config_id": "ddg-backend-local-pyrosetta-rosetta-20260801",
+    "reviewer": "Robert Smith / user authorization; pending license verification",
+    "reviewed_at": "2026-08-01T03:23:46Z",
+    "scope": "Enable PyRosetta and Rosetta technical runtime smoke / reviewed-structure physics-feature generation under self_attested component authorization. Training import, customer delivery, service hosting and publication are platform-supported workflows, but each remains separately gated by authorization matrix, label eligibility, customer/IP/biosecurity review and release governance.",
+    "source_license_decision": "foreign_tool:pyrosetta; foreign_tool:rosetta"
+  },
+  "negative_ddg_is_stabilizing": true,
+  "thresholds_kcal_mol": {
+    "stabilizing": { "max": -1.0, "decision": "stabilizing_hypothesis" },
+    "near_neutral_manual_review": { "min": -1.0, "max": 1.0, "decision": "manual_review" },
+    "destabilizing_watch": { "min": 1.0, "max": 2.0, "decision": "watch" },
+    "destabilizing_no_go": { "min": 2.0, "decision": "no_go" }
+  },
+  "backend_priority": ["pyrosetta", "rosetta", "foldx", "thermompnn"],
+  "backends": {
+    "rosetta": {
+      "enabled": true,
+      "tool_id": "rosetta",
+      "install_path": "cache/external/RosettaConda",
+      "library_path": "cache/external/RosettaConda/bin",
+      "command_template": [
+        "{cartesian_ddg}",
+        "-s", "{input_pdb}",
+        "-ddg::mut_file", "{mutation_file}",
+        "-ddg::iterations", "{iterations}",
+        "-score:weights", "ref2015_cart",
+        "-ddg::legacy", "false",
+        "-database", "{database}",
+        "-out:path:all", "{output_dir}"
+      ],
+      "required_parameters": ["input_pdb", "mutation_file", "iterations", "database", "output_dir"],
+      "default_parameters": {
+        "iterations": 1,
+        "score_weights": "ref2015_cart",
+        "legacy": false
+      }
+    },
+    "pyrosetta": {
+      "enabled": true,
+      "tool_id": "pyrosetta",
+      "python_module": "pyrosetta",
+      "install_path": "cache/external/PyRosetta/python",
+      "required_parameters": ["input_pdb", "mutation_list", "protocol_name", "output_dir"],
+      "default_parameters": {
+        "protocol_name": "minimal_scorefxn_single_mutation_smoke",
+        "pyrosetta_init_options": "-mute all"
+      }
+    },
+    "foldx": {
+      "enabled": true,
+      "tool_id": "foldx",
+      "install_path": "cache/external/foldx5_MacSilicon_0",
+      "command_template": [
+        "{foldx}",
+        "--command=BuildModel",
+        "--pdb={input_pdb_name}",
+        "--mutant-file={mutation_file}",
+        "--output-dir={output_dir}"
+      ],
+      "required_parameters": ["input_pdb", "input_pdb_name", "mutation_file", "output_dir"],
+      "default_parameters": {}
+    },
+    "thermompnn": {
+      "enabled": true,
+      "tool_id": "thermompnn",
+      "proxy_only": true,
+      "required_parameters": ["input_pdb", "mutation_list", "output_dir"],
+      "default_parameters": {}
+    }
+  },
+  "artifact_requirements": [
+    "parameters.json",
+    "input_structure.sha256",
+    "mutation_list.json",
+    "ddg_table.json",
+    "runtime.log"
+  ],
+  "forbidden_claims": [
+    "computed ddG is a wet-lab stability label",
+    "computed ddG is training-import eligible without separate reviewed label authorization and training import eligibility",
+    "positive ddG is stabilizing",
+    "self_attested component authorization is verified legal clearance",
+    "PyRosetta or Rosetta local smoke implies customer_delivery_ready or release_ready"
+  ]
+}

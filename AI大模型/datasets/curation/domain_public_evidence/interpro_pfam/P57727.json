@@ -1,0 +1,107 @@
+{
+  "accession": "P57727",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00057",
+        "name": "Low-density lipoprotein receptor domain class A",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR002172",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p57727",
+          "protein_length": 454,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 73,
+                  "end": 107,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00057",
+              "score": 0.031
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00089",
+        "name": "Trypsin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001254",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p57727",
+          "protein_length": 454,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 217,
+                  "end": 444,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00089",
+              "score": 1.9e-64
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF15494",
+        "name": "Scavenger receptor cysteine-rich domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001190",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p57727",
+          "protein_length": 454,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 112,
+                  "end": 210,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF15494",
+              "score": 6.7e-22
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

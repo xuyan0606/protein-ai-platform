@@ -1,0 +1,78 @@
+{
+  "accession": "P27144",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00406",
+        "name": "Adenylate kinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p27144",
+          "protein_length": 223,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 10,
+                  "end": 125,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 162,
+                  "end": 189,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": false,
+              "model": "PF00406",
+              "score": 2.2e-47
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05191",
+        "name": "Adenylate kinase, active site lid",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007862",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p27144",
+          "protein_length": 223,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 126,
+                  "end": 161,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05191",
+              "score": 2.2e-12
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

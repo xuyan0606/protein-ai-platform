@@ -1,0 +1,107 @@
+{
+  "accession": "Q08J23",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01189",
+        "name": "16S rRNA methyltransferase RsmB/F",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049560",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q08j23",
+          "protein_length": 767,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 170,
+                  "end": 341,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01189",
+              "score": 3.1e-31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25376",
+        "name": "NSUN2 Pre-PUA domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057285",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q08j23",
+          "protein_length": 767,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 520,
+                  "end": 616,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25376",
+              "score": 5.8e-27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25378",
+        "name": "NSUN2 PUA domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057286",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q08j23",
+          "protein_length": 767,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 618,
+                  "end": 703,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25378",
+              "score": 4.5e-26
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

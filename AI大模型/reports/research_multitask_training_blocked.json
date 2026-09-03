@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-09-03T03:34:43.247815+00:00",
+  "created_at": "2026-09-03T08:00:24.452997+00:00",
   "mode": "research",
   "artifact_kind": "research_multitask_checkpoint",
   "source_row_count": 6,
@@ -54,13 +54,46 @@
   ],
   "feature_schema": [
     "canonical_position_scaled",
-    "ph_scaled",
     "enzyme_identity_hash",
-    "wt_aa_hash",
+    "metric_or_assay_hash",
     "mutant_aa_hash",
-    "metric_or_assay_hash"
+    "ph_scaled",
+    "wt_aa_hash"
   ],
-  "feature_schema_sha256": "1cc0c78d2d73e075f0f07f0d0263947e59692f3265f5f35ea5736371e72252e0",
+  "feature_schema_sha256": "1798f4bc4af27dea444464138a2574ba52bea1a603151534203813b8471d21f0",
+  "training_input_manifest": {
+    "schema_version": "kwb_five_head_training_input_v1",
+    "normalized_label_row_count": 6,
+    "head_label_rows": {
+      "mutation_rank": 0,
+      "stability": 0,
+      "activity_risk": 6,
+      "substrate_fit": 0,
+      "assay_success": 0
+    },
+    "group_count": 2,
+    "explicit_replicate_count": 0,
+    "feature_schema": [
+      "canonical_position_scaled",
+      "enzyme_identity_hash",
+      "metric_or_assay_hash",
+      "mutant_aa_hash",
+      "ph_scaled",
+      "wt_aa_hash"
+    ],
+    "canonical_rows_sha256": "76ca8d88e0a9e6d6cced33e35918624fdcd887e9c2721ddcf0664e90ec68a667",
+    "label_fields_excluded_from_features": [
+      "activity_relative_to_wt",
+      "activity_risk_label",
+      "assay_success",
+      "label_ddg",
+      "label_decision",
+      "label_stability_delta_tm_c",
+      "label_value",
+      "substrate_fit_label"
+    ]
+  },
+  "training_input_manifest_sha256": "76e6e43d0ea2795d2262cc82507b2ff4b51c32363a78899f74f416ff2f4bdff5",
   "thresholds": {
     "minimum_samples": 100,
     "minimum_groups": 10,

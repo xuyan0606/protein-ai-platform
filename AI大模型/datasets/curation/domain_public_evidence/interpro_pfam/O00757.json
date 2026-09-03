@@ -1,0 +1,73 @@
+{
+  "accession": "O00757",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00316",
+        "name": "Fructose-1-6-bisphosphatase, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR033391",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00757",
+          "protein_length": 339,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 13,
+                  "end": 198,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00316",
+              "score": 3e-73
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18913",
+        "name": "Fructose-1-6-bisphosphatase, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR044015",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00757",
+          "protein_length": 339,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 203,
+                  "end": 332,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18913",
+              "score": 1.8e-44
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

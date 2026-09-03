@@ -1,0 +1,144 @@
+{
+  "project_dir": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/Venus-15B淀粉酶项目",
+  "local_only": true,
+  "source_files_scanned": 3,
+  "sequence_length": 486,
+  "sequence_sha256": "15a4430c8325d35c38f31f81e6f850757bd423f5b1964285ebeb7ec03ed9c2da",
+  "background_sha256": "63e807ae7ab83fafbea7af6765f3781f404337247ea4da0623567934276e50bb",
+  "structure_sha256": "327eacf9cab8703f13bd7dc72e052278a509ba4fe6ce594245565425db7f2454",
+  "candidate_mutation_rows": 4,
+  "numbering_verified_mutation_rows": 4,
+  "qualitative_feedback_rows": 1,
+  "numeric_training_eligible_rows": 0,
+  "plate_training_eligible_rows": 0,
+  "tabular_assay_file_count": 0,
+  "plate_hint_file_count": 0,
+  "numeric_assay_hint_file_count": 1,
+  "tabular_assay_files": [],
+  "plate_hint_files": [],
+  "numeric_assay_hint_files": [
+    {
+      "relative_path": "淀粉酶背景.txt",
+      "suffix": ".txt",
+      "size_bytes": 1053,
+      "sha256": "63e807ae7ab83fafbea7af6765f3781f404337247ea4da0623567934276e50bb",
+      "text_scanned": true,
+      "character_count": 411,
+      "candidate_mutation_hits": [
+        "S265D",
+        "D405N",
+        "E331Q",
+        "M204H"
+      ],
+      "mutation_token_hits": [
+        "D405N",
+        "E331Q",
+        "M204H",
+        "S265D"
+      ],
+      "numeric_assay_hint_count": 1,
+      "numeric_assay_hints": [
+        "活性。需对现有淀粉酶进行突变改造， 提高其在pH4.0"
+      ],
+      "plate_term_hits": [],
+      "qc_term_hits": [],
+      "is_tabular_assay_candidate": false,
+      "is_pdf": false
+    }
+  ],
+  "mutation_evidence_rows": [
+    {
+      "mutation": "S265D",
+      "wild_type": "S",
+      "mutant": "D",
+      "canonical_position": 265,
+      "observed_sequence_residue": "S",
+      "numbering_verified": true,
+      "project_id": "venus-15b",
+      "source_granularity": "design_candidate_only",
+      "feedback_intake_allowed": false,
+      "numeric_training_eligible": false,
+      "plate_training_eligible": false,
+      "evidence_files": [],
+      "blockers": [
+        "no_current_source_text_reports_measured_outcome"
+      ],
+      "policy": "Mutation evidence audit only; unsupported candidates are not feedback labels."
+    },
+    {
+      "mutation": "D405N",
+      "wild_type": "D",
+      "mutant": "N",
+      "canonical_position": 405,
+      "observed_sequence_residue": "D",
+      "numbering_verified": true,
+      "project_id": "venus-15b",
+      "source_granularity": "design_candidate_only",
+      "feedback_intake_allowed": false,
+      "numeric_training_eligible": false,
+      "plate_training_eligible": false,
+      "evidence_files": [],
+      "blockers": [
+        "no_current_source_text_reports_measured_outcome"
+      ],
+      "policy": "Mutation evidence audit only; unsupported candidates are not feedback labels."
+    },
+    {
+      "mutation": "E331Q",
+      "wild_type": "E",
+      "mutant": "Q",
+      "canonical_position": 331,
+      "observed_sequence_residue": "E",
+      "numbering_verified": true,
+      "project_id": "venus-15b",
+      "source_granularity": "qualitative_historical_observation",
+      "feedback_intake_allowed": true,
+      "numeric_training_eligible": false,
+      "plate_training_eligible": false,
+      "evidence_files": [
+        "淀粉酶背景.txt"
+      ],
+      "blockers": [],
+      "policy": "Mutation evidence audit only; unsupported candidates are not feedback labels."
+    },
+    {
+      "mutation": "M204H",
+      "wild_type": "M",
+      "mutant": "H",
+      "canonical_position": 204,
+      "observed_sequence_residue": "M",
+      "numbering_verified": true,
+      "project_id": "venus-15b",
+      "source_granularity": "design_candidate_only",
+      "feedback_intake_allowed": false,
+      "numeric_training_eligible": false,
+      "plate_training_eligible": false,
+      "evidence_files": [],
+      "blockers": [
+        "no_current_source_text_reports_measured_outcome"
+      ],
+      "policy": "Mutation evidence audit only; unsupported candidates are not feedback labels."
+    }
+  ],
+  "missing_for_numeric_training": [
+    "numeric pH4.5/pH6.0 activity ratio or normalized activity",
+    "WT comparator value",
+    "replicate count or replicate-level values",
+    "unit and assay protocol version",
+    "reviewed QC status"
+  ],
+  "missing_for_plate_training": [
+    "plate_id",
+    "well_id",
+    "variant_id",
+    "replicate",
+    "raw_signal",
+    "normalized_activity",
+    "qc_flag",
+    "instrument",
+    "operator",
+    "recorded_at"
+  ],
+  "safe_for_model_claim": false,
+  "policy": "The user-designated source is treated as real experiment evidence, but only observed fields are eligible for downstream training gates."
+}

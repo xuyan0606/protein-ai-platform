@@ -1,0 +1,73 @@
+{
+  "accession": "P16455",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01035",
+        "name": "6-O-methylguanine DNA methyltransferase, DNA binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014048",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p16455",
+          "protein_length": 207,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 96,
+                  "end": 173,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01035",
+              "score": 1.5e-26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02870",
+        "name": "6-O-methylguanine DNA methyltransferase, ribonuclease-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR008332",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p16455",
+          "protein_length": 207,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 7,
+                  "end": 82,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02870",
+              "score": 4.3e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

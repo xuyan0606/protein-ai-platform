@@ -1,0 +1,73 @@
+{
+  "accession": "P09211",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02798",
+        "name": "Glutathione S-transferase, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004045",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p09211",
+          "protein_length": 210,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 6,
+                  "end": 74,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02798",
+              "score": 0.0059
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14497",
+        "name": "Glutathione S-transferase, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004046",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p09211",
+          "protein_length": 210,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 98,
+                  "end": 196,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14497",
+              "score": 1.4e-15
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

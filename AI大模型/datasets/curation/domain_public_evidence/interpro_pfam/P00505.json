@@ -1,0 +1,39 @@
+{
+  "accession": "P00505",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00155",
+        "name": "Aminotransferase class I and II",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004839",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p00505",
+          "protein_length": 430,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 58,
+                  "end": 425,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00155",
+              "score": 8.2e-95
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

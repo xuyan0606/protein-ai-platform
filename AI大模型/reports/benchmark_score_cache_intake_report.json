@@ -1,0 +1,27 @@
+{
+  "created_at": "2026-09-03T07:35:30.661103+00:00",
+  "local_only": true,
+  "plan_rows": 15,
+  "intake_rows": 14,
+  "accepted_rows": 13,
+  "rejected_rows": 1,
+  "missing_rows": 2,
+  "ready_to_validate_cache": false,
+  "template": "datasets/benchmark/benchmark_score_cache_intake.template.jsonl",
+  "intake": "datasets/benchmark/benchmark_score_cache_intake.local.jsonl",
+  "manifest": "reports/benchmark_score_cache_manifest.json",
+  "error_counts": {
+    "leakage_check_not_passed": 1
+  },
+  "rejected": [
+    {
+      "head": "mutation_rank",
+      "benchmark_name": "KWB strict mutation holdout",
+      "errors": [
+        "leakage_check_not_passed"
+      ]
+    }
+  ],
+  "safe_for_model_claim": false,
+  "policy": "Benchmark cache accepts only local dataset/split/scorecard/metric artifacts with checksums and license review. Benchmark data must not be used as KWB wet-lab labels."
+}

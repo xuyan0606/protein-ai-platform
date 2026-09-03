@@ -1,0 +1,85 @@
+{
+  "accession": "O94808",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01380",
+        "name": "SIS domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001347",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94808",
+          "protein_length": 682,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 363,
+                  "end": 490,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01380",
+              "score": 8.7e-35
+            },
+            {
+              "fragments": [
+                {
+                  "start": 534,
+                  "end": 664,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01380",
+              "score": 6.1e-24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13537",
+        "name": "Glutamine amidotransferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR017932",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94808",
+          "protein_length": 682,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 100,
+                  "end": 186,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13537",
+              "score": 7.6e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

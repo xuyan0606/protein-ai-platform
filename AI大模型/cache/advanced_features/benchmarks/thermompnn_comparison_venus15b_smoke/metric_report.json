@@ -1,0 +1,20 @@
+{
+  "benchmark_name": "ThermoMPNN comparison",
+  "created_at": "2026-09-03T07:32:23.856466+00:00",
+  "dataset_rows": 4,
+  "head": "stability",
+  "leakage_check_status": "passed",
+  "local_only": true,
+  "primary_metric": "coverage_rows",
+  "primary_metric_value": 4,
+  "quality_status": "sample_limited_proxy_comparison_only",
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "secondary_metrics": {
+    "destabilizing_rows_gt_0_5": 2,
+    "mean_predicted_ddg_kcal_mol": 0.36283421516418457,
+    "near_neutral_rows_minus_0_5_to_0_5": 1,
+    "stabilizing_rows_lt_minus_0_5": 1
+  }
+}

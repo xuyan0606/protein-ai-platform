@@ -1,0 +1,73 @@
+{
+  "accession": "O15541",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00642",
+        "name": "Zinc finger C-x8-C-x5-C-x3-H type (and similar)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000571",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15541",
+          "protein_length": 343,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 197,
+                  "end": 222,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00642",
+              "score": 1.8e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13920",
+        "name": "Zinc finger, C3HC4 type (RING finger)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15541",
+          "protein_length": 343,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 261,
+                  "end": 304,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13920",
+              "score": 0.00026
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

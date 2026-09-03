@@ -1,0 +1,73 @@
+{
+  "accession": "P46736",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01398",
+        "name": "JAB1/Mov34/MPN/PAD-1 ubiquitin protease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000555",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p46736",
+          "protein_length": 316,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 8,
+                  "end": 147,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01398",
+              "score": 3.9e-24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18110",
+        "name": "BRCC36 C-terminal helical domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040749",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p46736",
+          "protein_length": 316,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 228,
+                  "end": 308,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18110",
+              "score": 1.9e-29
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

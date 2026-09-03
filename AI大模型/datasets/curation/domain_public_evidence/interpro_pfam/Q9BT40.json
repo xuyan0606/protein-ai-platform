@@ -1,0 +1,73 @@
+{
+  "accession": "Q9BT40",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF17751",
+        "name": "SKICH domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041611",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bt40",
+          "protein_length": 448,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 332,
+                  "end": 431,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17751",
+              "score": 1.3e-26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22669",
+        "name": "Endonuclease/Exonuclease/phosphatase family 2",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000300",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bt40",
+          "protein_length": 448,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 19,
+                  "end": 316,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22669",
+              "score": 6.7e-59
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

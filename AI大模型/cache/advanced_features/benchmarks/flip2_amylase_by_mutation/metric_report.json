@@ -1,0 +1,29 @@
+{
+  "benchmark_name": "FLIP/FLIP2-style protein/family/time split",
+  "created_at": "2026-09-03T07:32:23.695361+00:00",
+  "dataset_rows": 3706,
+  "head": "mutation_rank",
+  "leakage_check_status": "passed",
+  "local_only": true,
+  "primary_metric": "published_split_rank_target_rows",
+  "primary_metric_value": 3706,
+  "quality_status": "external_flip2_mutation_rank_cache_ready_not_model_claim",
+  "ready_as_benchmark_scorecard": true,
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "secondary_metrics": {
+    "split_counts": {
+      "test": 702,
+      "train": 2403,
+      "validation": 601
+    },
+    "target_summary": {
+      "max": 0.2116333333333333,
+      "mean": 0.05423224730569963,
+      "min": -0.0103499999999999,
+      "rankable_pair_upper_bound": 6865365,
+      "unique_values": 2615
+    }
+  }
+}

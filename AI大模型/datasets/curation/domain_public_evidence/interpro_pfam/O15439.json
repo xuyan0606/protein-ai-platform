@@ -1,0 +1,97 @@
+{
+  "accession": "O15439",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00005",
+        "name": "ABC transporter",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003439",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15439",
+          "protein_length": 1325,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 428,
+                  "end": 562,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00005",
+              "score": 1.4e-19
+            },
+            {
+              "fragments": [
+                {
+                  "start": 1058,
+                  "end": 1205,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00005",
+              "score": 3.1e-23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00664",
+        "name": "ABC transporter transmembrane region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR011527",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15439",
+          "protein_length": 1325,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 94,
+                  "end": 359,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00664",
+              "score": 1.1e-27
+            },
+            {
+              "fragments": [
+                {
+                  "start": 714,
+                  "end": 991,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00664",
+              "score": 1.1e-44
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

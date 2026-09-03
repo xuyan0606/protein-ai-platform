@@ -1,0 +1,4490 @@
+{
+  "created_at": "2026-09-03T07:35:11.637485+00:00",
+  "local_only": true,
+  "success": true,
+  "scanned_report_count": 1452,
+  "scanned_reports": {
+    "reports/active_learning_trial_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/active_learning_trial_readiness_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/active_stage_execution_matrix_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/active_stage_execution_matrix_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/activity_risk_formal_label_decision_report.json": {
+      "risky_true_hits": 1
+    },
+    "reports/activity_risk_formal_label_decision_validation_report.json": {
+      "risky_true_hits": 1
+    },
+    "reports/activity_risk_label_replicate_preflight_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/activity_risk_label_replicate_preflight_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/activity_risk_training_import_label_report.json": {
+      "risky_true_hits": 1
+    },
+    "reports/activity_risk_training_import_label_validation_report.json": {
+      "risky_true_hits": 1
+    },
+    "reports/activity_risk_training_lineage_ledger_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/activity_risk_training_lineage_ledger_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/advanced_feature_cache_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/advanced_feature_cache_plan_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/advanced_model_architecture_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/advanced_model_demo.json": {
+      "risky_true_hits": 0
+    },
+    "reports/advanced_model_feature_contract_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/advanced_model_feature_contract_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/advanced_model_scaffold_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/atom3d_msp_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/atom3d_msp_benchmark_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/backlog_execution_snapshot_20260829.json": {
+      "risky_true_hits": 0
+    },
+    "reports/baseline_calibration_suggestions.json": {
+      "risky_true_hits": 0
+    },
+    "reports/baseline_ranker_eval.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_acquisition_plan_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_coverage_dashboard.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_coverage_dashboard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_hard_gate_operator_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_hard_gate_operator_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_lane_machine_prereview_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_lane_status_aggregate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_matrix_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_matrix_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_readiness_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_readiness_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_score_cache_intake_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_score_cache_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/benchmark_score_cache_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/biosecurity_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/biosecurity_screening_decision_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/biosecurity_screening_draft_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/biosecurity_screening_draft_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/casf_affinity_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/casf_affinity_benchmark_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/catpred_gotenzymes_reference_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/catpred_gotenzymes_reference_benchmark_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/claim_promotion_decision_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/claim_readiness_matrix.json": {
+      "risky_true_hits": 0
+    },
+    "reports/claim_readiness_matrix_fail_closed_policy_current_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/claim_readiness_matrix_fail_closed_policy_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/claim_readiness_policy_anchor_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/claim_readiness_policy_anchor_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/cleanroom_kinetics_training_candidate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/cleanroom_kinetics_training_candidate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/construct_review_queue_prefilled_status.json": {
+      "risky_true_hits": 0
+    },
+    "reports/construct_review_queue_prefilled_validation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/construct_review_template_status_20260829.json": {
+      "risky_true_hits": 0
+    },
+    "reports/curation_batch_p0_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/curation_batch_p0_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/curation_batch_p1_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/curation_batch_p1_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/curation_batch_p2_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/curation_batch_p2_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/curation_batch_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/curation_batch_status_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/curation_batch_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/curation_dashboard.json": {
+      "risky_true_hits": 0
+    },
+    "reports/curation_decision_template_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/customer_delivery_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/data_lake_artifact_integrity_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/data_lake_live_content_integrity_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/data_lake_live_content_integrity_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/data_lake_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/data_lake_release_input_contract_policy_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/data_lake_release_input_contract_policy_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/data_lake_volatile_exemption_safety_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/data_quality_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_backend_execution_plan_foldx_stage25_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_backend_execution_plan_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_backend_failure_diagnostic_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_backend_operator_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_backend_operator_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_backend_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_backend_runtime_receipt_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_executable_probe_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_local_runtime_discovery_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_model_consumption_contract_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_model_consumption_contract_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_physical_runtime_receipt_preflight_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_physical_runtime_receipt_preflight_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_physical_smoke_harness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_physical_smoke_harness_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ddg_proxy_not_physics_claim_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/domain_interpro_evidence_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/domain_interpro_review_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/domain_interval_apply_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/domain_interval_batch_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/domain_interval_batch_status_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/domain_interval_decision_template_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/domain_interval_decision_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/domain_interval_interpro_decision_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/domain_interval_repair_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/domain_multi_occurrence_feature_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/domain_state_consistency_20260829.json": {
+      "risky_true_hits": 0
+    },
+    "reports/domain_unresolved_review_packet_20260829.json": {
+      "risky_true_hits": 0
+    },
+    "reports/draft_namespace_isolation_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_action_space_registry_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_controlled_execution_wave_pair_atomicity_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_controlled_execution_wave_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_controlled_release_guard_order_atomicity_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_controlled_release_guard_order_current_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_controlled_release_guard_order_current_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_controlled_release_guard_order_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_controlled_release_guard_order_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_execution_eligibility_matrix_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_execution_eligibility_matrix_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_execution_eligibility_safety_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_execution_outcome_dashboard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_execution_outcome_dashboard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_execution_receipt_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_execution_receipt_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_execution_receipt_lineage_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_execution_receipt_proof_current_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_execution_receipt_proof_current_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_execution_receipt_safety_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_result_safety_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_result_template.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_result_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_trace_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_agent_trace_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_analysis_constraint_policy_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_know_how_retrieval_execution_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_mutation_enrichment_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_mutation_training_table_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_resource_retrieval_plan_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_resource_retrieval_plan_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/enzyme_tool_contract_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/execution_receipt_artifact_freshness_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/experiment_feedback_intake_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/experiment_feedback_plate_intake_backlog_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/experiment_feedback_plate_intake_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/experiment_feedback_plate_review_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/experiment_feedback_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/experiment_feedback_source_discovery_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/experiment_feedback_source_intake_candidate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/experiment_feedback_source_review_decision_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/experiment_feedback_source_review_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/experiment_feedback_trainability_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/external_data_source_registry_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/external_license_review_decision_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/external_license_review_missing_checklist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/external_license_review_missing_checklist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/external_license_review_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/external_stability_label_source_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/family_split_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/feature_coverage_by_head_group_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/feature_coverage_by_head_group_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/feature_coverage_gap_queue_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/feature_coverage_gap_queue_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/feature_label_boundary_quarantine_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/feedback_training_import_semantic_guard_report.json": {
+      "risky_true_hits": 1
+    },
+    "reports/feedback_training_import_semantic_guard_validation_report.json": {
+      "risky_true_hits": 1
+    },
+    "reports/fireprot_curated_dedup_aggregation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/fireprot_curated_import_leakage_review_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/fireprot_curated_kwb_schema_mapping_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/fireprot_curated_stability_direction_normalization_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/fireprot_curated_stability_import_candidate_receipt.json": {
+      "risky_true_hits": 0
+    },
+    "reports/fireprot_curated_stability_import_leakage_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/fireprot_dedup_review_decision_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/fireprot_dedup_review_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/fireprot_protherm_stability_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/fireprot_reviewed_import_candidate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/fireprot_supervised_import_authorization_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/fireprot_supervised_import_preflight_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/five_head_benchmark_gap_plan_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/five_head_benchmark_gap_plan_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/five_head_training_execution_contract_report.json": {
+      "risky_true_hits": 1
+    },
+    "reports/five_head_training_execution_contract_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/five_head_training_gap_plan_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/five_head_training_gap_plan_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/five_head_training_sample_gap_queue_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/five_head_training_sample_gap_queue_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/five_head_training_threshold_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/five_head_training_threshold_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/flip2_amylase_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/flip2_amylase_benchmark_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/foldx_buildmodel_parser_contract_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/foldx_buildmodel_parser_contract_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/foldx_physical_smoke_bootstrap_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/foldx_physical_smoke_bootstrap_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/foreign_tool_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/google_github_advanced_model_research_2026_07_28.json": {
+      "risky_true_hits": 0
+    },
+    "reports/governance_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/governance_review_bundle_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/governance_review_bundle_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/hard_gate_decision_benchmark_bridge_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/hard_gate_decision_benchmark_bridge_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/hard_gate_operator_packet_status_board.json": {
+      "risky_true_hits": 0
+    },
+    "reports/hard_gate_operator_packet_status_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/hard_gate_review_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/hard_gate_review_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/head_model_card_status_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/head_model_card_status_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_decision_backlog_fail_closed_consistency_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_decision_backlog_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_decision_batch_session_board_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_decision_batch_session_board_validation_report_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_decision_first_assignment_wave_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_decision_first_assignment_wave_validation_report_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_decision_next_closeout_package_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_decision_pending_row_index_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_decision_priority_queue_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_decision_release_blocker_matrix_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_decision_review_batches_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_decision_review_batches_validation_report_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_decision_reviewer_input_package_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_preflight_package_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_preflight_package_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_review_closeout_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_review_closeout_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_review_launch_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_review_launch_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_review_release_consistency_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_blocked_source_manifest_index.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_blocked_source_manifest_index_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_contract_gap_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_contract_gap_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_source_runtime_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_source_runtime_manifest_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_source_unlock_checklist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_source_unlock_checklist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_sources/anarci_imgt_runtime_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_sources/gtex_expression_source_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_sources/hpa_expression_source_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_sources/human_germline_db_source_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_sources/ligand_receptor_graph_source_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_sources/reactome_pathway_source_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/human_target_sources/sabdab_oas_reference_source_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_activity_risk_plate_feedback_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_activity_risk_plate_feedback_benchmark_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_activity_risk_smoke_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_activity_risk_smoke_benchmark_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_plate_level_feedback_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_plate_level_feedback_benchmark_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_qc_fail_rate_calibration_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_qc_fail_rate_calibration_benchmark_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_replicate_consistency_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_replicate_consistency_benchmark_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_strict_mutation_holdout_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_tool_lifecycle_registry_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_tool_lifecycle_registry_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_venus15b_strict_holdout_candidate_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_wetlab_mutation_ranking_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_wetlab_mutation_ranking_benchmark_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_workflow_skill_registry_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/kwb_workflow_skill_registry_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/label_provenance_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/literature_measurement_approved_preview.json": {
+      "risky_true_hits": 0
+    },
+    "reports/literature_measurement_review_batch_status_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/literature_measurement_review_batch_status_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/literature_measurement_review_batches_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/literature_measurement_review_batches_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/literature_measurement_review_decision_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/literature_measurement_review_dispatch.json": {
+      "risky_true_hits": 0
+    },
+    "reports/literature_measurement_review_healthcheck_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/literature_measurement_review_queue.json": {
+      "risky_true_hits": 0
+    },
+    "reports/literature_measurement_review_queue_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/literature_measurement_source_availability_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/literature_measurement_source_recovery_execution_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/literature_measurement_source_recovery_requests_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_data_discovery.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_consistency_receipt_atomicity_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_consistency_receipt_current_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_consistency_receipt_current_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_consistency_semantic_policy_atomicity_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_consistency_semantic_policy_current_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_consistency_semantic_policy_current_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_consistency_semantic_policy_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_consistency_semantic_policy_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_contract_policy_binding_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_guard_coverage_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_high_risk_coverage_safety_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_high_risk_summary_safety_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_human_decision_control_plane_validation_report_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_live_integrity_binding_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_manifest_fail_closed_consistency_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_promotion_summary_safety_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_safety_guard_link_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_safety_guard_links_atomicity_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_safety_guard_links_current_regression_atomicity_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_safety_guard_links_current_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_safety_guard_links_current_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_release_terminal_defer_mode_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_service_deployment.json": {
+      "risky_true_hits": 0
+    },
+    "reports/local_tool_adapter_demo.json": {
+      "risky_true_hits": 0
+    },
+    "reports/master_readiness_board.json": {
+      "risky_true_hits": 0
+    },
+    "reports/master_readiness_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/mcp_wrapper_staging_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/mcp_wrapper_staging_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/mmseqs2_local_runtime_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/mmseqs2_local_runtime_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/mmseqs_homolog_database_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/mmseqs_homolog_database_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/model_artifact_claim_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/model_artifact_claim_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/model_claim_fail_closed_consistency_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/model_quality_hard_gate_contract_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/model_quality_hard_gate_contract_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/model_quality_unlock_requirements_report.json": {
+      "risky_true_hits": 1
+    },
+    "reports/model_status.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_conservation_cache_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_conservation_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_conservation_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_execution_plan_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_executor_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_gap_approved_preview.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_gap_cache_build_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_gap_cache_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_gap_human_review_queue_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_gap_review_decision_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_gap_target_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_input_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_mmseqs_swissprot_cache_build_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_runtime_command_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_runtime_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_sequence_deduplication_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/msa_trusted_cache_intake_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/multi_agent_rnd_acceleration_board.json": {
+      "risky_true_hits": 0
+    },
+    "reports/multitask_training_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/multitask_training_readiness_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/mutation_label_integrity_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/mutation_structure_site_feature_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/mutation_structure_site_feature_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_hard_gate_attack_wave_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_hard_gate_attack_wave_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_operator_decision_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_operator_packet_validation_order_validation_report_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_release_operator_decision_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_action_checklist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_action_checklist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_agent_lane_status_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_blocker_matrix.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_execution_board.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_execution_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_lane_dispatch_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_lane_dispatch_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_multi_agent_launch_board.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_multi_agent_launch_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_operator_index.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_operator_work_ledger_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_operator_work_ledger_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_operator_work_receipt_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_operator_work_receipt_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_plan.json": {
+      "risky_true_hits": 0
+    },
+    "reports/next_unlock_remediation_queue.json": {
+      "risky_true_hits": 0
+    },
+    "reports/no_pseudo_strict_training_leakage_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/no_review_draft_training_leakage_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/no_unreviewed_positive_gate_flags_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/non_human_construction_board.json": {
+      "risky_true_hits": 0
+    },
+    "reports/non_human_construction_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/non_human_ready_to_verify_receipt_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/non_human_ready_to_verify_receipt_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_auto_unlock_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_curation_apply_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_curation_queue_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_curation_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_decision_review_batch_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_decision_review_batch_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_decision_semantic_conflict_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_deep_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_enzyme_fireprot_etl_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_fireprotdb_evidence_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_hard_gate_operator_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_hard_gate_operator_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_isoform_evidence_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_isoform_review_candidate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_literature_review_risk_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_pubmed_abstract_evidence_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_pubmed_evidence_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_repair_suggestions.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_retrieval_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_review_briefing.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_review_briefing_status_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_review_briefing_status_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_review_briefing_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_review_operator_queue.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_review_packet_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_review_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_review_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_review_worklist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/numbering_uniprot_evidence_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/operator_review_action_decision_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/operator_review_action_queue_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/operator_review_status_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/operator_work_receipt_manifest_consistency_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p26_numbering_formal_review_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p26_numbering_formal_review_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p26_p31_pending_backlog_all_started_board.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p26_p31_pending_backlog_all_started_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p26_p31_remaining_build_start_board.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p26_p31_remaining_build_start_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p26_structure_chain_formal_review_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p26_structure_chain_formal_review_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p27_feature_input_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p27_feature_input_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p28_feedback_intake_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p28_feedback_intake_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p28_feedback_source_review_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p28_feedback_source_review_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p29_five_head_training_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p29_five_head_training_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p30_acceptance_governance_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p30_acceptance_governance_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p31_production_execution_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p31_production_execution_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p476_human_decision_backlog_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p476_human_decision_backlog_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p477_operator_review_action_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p477_operator_review_action_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p478_governance_review_bundle_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p478_governance_review_bundle_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p479_customer_delivery_readiness_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p479_customer_delivery_readiness_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p480_claim_readiness_blocker_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p480_claim_readiness_blocker_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p481_local_release_blocked_capability_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p481_local_release_blocked_capability_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p482_master_readiness_stream_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p482_master_readiness_stream_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p483_next_unlock_execution_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p483_next_unlock_execution_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p484_next_unlock_operator_navigation_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p484_next_unlock_operator_navigation_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p485_next_unlock_blocker_matrix_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p485_next_unlock_blocker_matrix_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p486_next_unlock_remediation_queue_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p486_next_unlock_remediation_queue_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p487_next_unlock_multi_agent_launch_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p487_next_unlock_multi_agent_launch_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p488_next_unlock_agent_lane_status_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p488_next_unlock_agent_lane_status_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p489_next_unlock_lane_dispatch_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p489_next_unlock_lane_dispatch_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p490_next_unlock_action_checklist_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p490_next_unlock_action_checklist_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p491_next_unlock_operator_work_ledger_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p491_next_unlock_operator_work_ledger_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p492_next_unlock_operator_work_receipt_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p492_next_unlock_operator_work_receipt_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p493_human_review_closeout_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p493_human_review_closeout_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p494_operator_work_receipt_manifest_consistency_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p494_operator_work_receipt_manifest_consistency_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p495_top_tier_ready_to_verify_receipt_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p495_top_tier_ready_to_verify_receipt_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p496_non_human_ready_to_verify_receipt_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p496_non_human_ready_to_verify_receipt_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p497_stage25_operator_docs_sync_receipt_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p497_stage25_operator_docs_sync_receipt_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p498_safe_training_pipeline_current_receipt_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p498_safe_training_pipeline_current_receipt_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p499_local_release_consistency_receipt_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p499_local_release_consistency_receipt_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p500_stage25_fail_closed_validation_current_receipt_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p500_stage25_fail_closed_validation_current_receipt_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p501_ready_to_verify_promotion_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p501_ready_to_verify_promotion_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p502_local_release_safety_guard_link_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p502_local_release_safety_guard_link_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p503_safe_training_pipeline_receipt_atomicity_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p503_safe_training_pipeline_receipt_atomicity_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p504_local_release_consistency_receipt_atomicity_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p504_local_release_consistency_receipt_atomicity_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p505_local_release_terminal_defer_mode_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p505_local_release_terminal_defer_mode_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p506_local_release_consistency_semantic_policy_current_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p506_local_release_consistency_semantic_policy_current_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p507_data_lake_artifact_integrity_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p507_data_lake_artifact_integrity_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p508_local_release_safety_guard_link_atomicity_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p508_local_release_safety_guard_link_atomicity_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p509_local_release_safety_guard_link_current_atomicity_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p509_local_release_safety_guard_link_current_atomicity_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p510_data_lake_volatile_exemption_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p510_data_lake_volatile_exemption_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p511_data_lake_live_content_integrity_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p511_data_lake_live_content_integrity_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p512_local_release_live_integrity_binding_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p512_local_release_live_integrity_binding_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p513_data_lake_release_input_contract_policy_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p513_data_lake_release_input_contract_policy_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p514_data_lake_release_input_contract_policy_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p514_data_lake_release_input_contract_policy_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p515_local_release_contract_policy_binding_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p515_local_release_contract_policy_binding_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p516_safe_training_pipeline_bootstrap_release_consistency_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p516_safe_training_pipeline_bootstrap_release_consistency_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p517_local_release_high_risk_summary_safety_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p517_local_release_high_risk_summary_safety_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p518_local_release_high_risk_coverage_safety_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p518_local_release_high_risk_coverage_safety_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p519_safe_training_pipeline_current_receipt_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p519_safe_training_pipeline_current_receipt_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p520_local_release_consistency_receipt_current_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p520_local_release_consistency_receipt_current_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p521_local_release_consistency_semantic_policy_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p521_local_release_consistency_semantic_policy_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p522_local_release_consistency_semantic_policy_atomicity_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p522_local_release_consistency_semantic_policy_atomicity_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p523_stage25_operator_docs_sync_contract_policy_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p523_stage25_operator_docs_sync_contract_policy_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p524_stage25_operator_docs_dynamic_status_sync_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p524_stage25_operator_docs_dynamic_status_sync_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p525_stage25_operator_docs_dynamic_status_sync_current_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p525_stage25_operator_docs_dynamic_status_sync_current_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p526_stage25_operator_docs_dynamic_status_sync_current_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p526_stage25_operator_docs_dynamic_status_sync_current_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p527_stage25_operator_docs_dynamic_status_sync_atomicity_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p527_stage25_operator_docs_dynamic_status_sync_atomicity_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p528_stage25_operator_docs_sync_contract_policy_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p528_stage25_operator_docs_sync_contract_policy_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p529_stage25_operator_docs_sync_current_receipt_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p529_stage25_operator_docs_sync_current_receipt_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p530_stage25_operator_docs_sync_terminal_recovery_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p530_stage25_operator_docs_sync_terminal_recovery_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p531_controlled_release_guard_order_validation_receipt_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p531_controlled_release_guard_order_validation_receipt_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p532_controlled_release_guard_order_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p532_controlled_release_guard_order_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p533_controlled_release_guard_order_current_validation_receipt_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p533_controlled_release_guard_order_current_validation_receipt_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p534_controlled_release_guard_order_current_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p534_controlled_release_guard_order_current_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p535_controlled_release_guard_order_atomicity_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p535_controlled_release_guard_order_atomicity_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p536_stage25_remaining_blocker_cross_binding_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p536_stage25_remaining_blocker_cross_binding_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p537_stage25_remaining_blocker_cross_binding_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p537_stage25_remaining_blocker_cross_binding_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p538_controlled_execution_wave_pair_atomicity_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p538_controlled_execution_wave_pair_atomicity_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p539_enzyme_agent_execution_receipt_gate_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p539_enzyme_agent_execution_receipt_gate_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p540_enzyme_agent_execution_receipt_lineage_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p540_enzyme_agent_execution_receipt_lineage_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p541_enzyme_agent_execution_receipt_proof_current_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p541_enzyme_agent_execution_receipt_proof_current_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p542_enzyme_agent_execution_receipt_proof_current_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p542_enzyme_agent_execution_receipt_proof_current_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p543_enzyme_agent_execution_receipt_safety_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p543_enzyme_agent_execution_receipt_safety_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p544_enzyme_agent_execution_eligibility_matrix_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p544_enzyme_agent_execution_eligibility_matrix_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p545_enzyme_agent_execution_eligibility_safety_regression_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p545_enzyme_agent_execution_eligibility_safety_regression_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p546_enzyme_agent_execution_outcome_dashboard_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p546_enzyme_agent_execution_outcome_dashboard_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p547_top_tier_model_execution_board_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p547_top_tier_model_execution_board_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p548_non_human_construction_board_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p548_non_human_construction_board_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p549_parallel_hard_gate_execution_receipts_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p549_parallel_hard_gate_execution_receipts_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p550_execution_receipt_artifact_freshness_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p550_execution_receipt_artifact_freshness_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p551_execution_receipt_artifact_hash_coverage_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p551_execution_receipt_artifact_hash_coverage_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p552_top_tier_model_execution_board_claim_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p552_top_tier_model_execution_board_claim_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p553_non_human_construction_board_claim_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p553_non_human_construction_board_claim_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p554_enzyme_agent_execution_outcome_formal_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p554_enzyme_agent_execution_outcome_formal_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p555_parallel_hard_gate_execution_decision_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p555_parallel_hard_gate_execution_decision_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p556_top_tier_ready_receipt_completion_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p556_top_tier_ready_receipt_completion_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p557_non_human_ready_receipt_completion_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p557_non_human_ready_receipt_completion_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p558_ready_to_verify_promotion_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p558_ready_to_verify_promotion_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p559_data_lake_live_integrity_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p559_data_lake_live_integrity_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p560_local_release_consistency_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p560_local_release_consistency_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p561_reviewed_numbering_hard_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p561_reviewed_numbering_hard_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p562_wet_lab_feedback_numeric_eligibility_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p562_wet_lab_feedback_numeric_eligibility_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p563_physics_ddg_backend_readiness_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p563_physics_ddg_backend_readiness_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p564_claim_readiness_matrix_hard_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p564_claim_readiness_matrix_hard_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p565_production_release_authorization_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p565_production_release_authorization_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p566_five_head_training_execution_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p566_five_head_training_execution_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p567_validated_feature_index_training_label_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p567_validated_feature_index_training_label_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p568_model_artifact_claim_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p568_model_artifact_claim_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p569_local_release_guard_coverage_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p569_local_release_guard_coverage_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p570_training_readiness_quality_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p570_training_readiness_quality_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p571_five_head_training_execution_contract_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p571_five_head_training_execution_contract_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p572_model_quality_hard_gate_contract_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p572_model_quality_hard_gate_contract_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p573_tool_lane_evidence_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p573_tool_lane_evidence_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p574_human_target_source_runtime_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p574_human_target_source_runtime_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p575_human_target_source_unlock_checklist_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p575_human_target_source_unlock_checklist_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p576_training_label_import_contract_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p576_training_label_import_contract_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p577_wet_lab_feedback_authorization_contract_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p577_wet_lab_feedback_authorization_contract_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p578_ddg_model_consumption_contract_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p578_ddg_model_consumption_contract_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p579_structure_feature_model_contract_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p579_structure_feature_model_contract_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p580_advanced_model_feature_contract_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p580_advanced_model_feature_contract_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p581_active_learning_trial_readiness_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p581_active_learning_trial_readiness_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p582_benchmark_readiness_packet_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p582_benchmark_readiness_packet_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p583_enzyme_tool_contract_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p583_enzyme_tool_contract_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p584_foreign_tool_readiness_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p584_foreign_tool_readiness_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p585_msa_runtime_readiness_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p585_msa_runtime_readiness_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p586_enzyme_resource_retrieval_plan_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p586_enzyme_resource_retrieval_plan_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p587_enzyme_agent_result_validation_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p587_enzyme_agent_result_validation_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p588_enzyme_agent_result_safety_regression_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p588_enzyme_agent_result_safety_regression_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p589_enzyme_agent_trace_audit_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p589_enzyme_agent_trace_audit_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p590_enzyme_agent_controlled_release_order_current_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p590_enzyme_agent_controlled_release_order_current_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p591_governance_readiness_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p591_governance_readiness_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p592_biosecurity_readiness_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p592_biosecurity_readiness_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p593_workstream_acceptance_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p593_workstream_acceptance_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p594_sequence_ip_fto_decision_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p594_sequence_ip_fto_decision_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p595_model_claim_fail_closed_consistency_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p595_model_claim_fail_closed_consistency_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p596_external_data_source_registry_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p596_external_data_source_registry_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p597_operator_review_status_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p597_operator_review_status_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p598_human_review_release_consistency_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p598_human_review_release_consistency_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p599_claim_promotion_decision_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p599_claim_promotion_decision_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p600_claim_readiness_policy_current_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p600_claim_readiness_policy_current_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p601_structure_feature_hard_gate_operator_packet_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p601_structure_feature_hard_gate_operator_packet_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p602_wet_lab_hard_gate_operator_packet_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p602_wet_lab_hard_gate_operator_packet_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p603_benchmark_hard_gate_operator_packet_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p603_benchmark_hard_gate_operator_packet_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p604_substrate_fit_hard_gate_operator_packet_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p604_substrate_fit_hard_gate_operator_packet_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p605_review_draft_formal_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p605_review_draft_formal_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p606_activity_risk_formal_label_decision_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p606_activity_risk_formal_label_decision_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p607_activity_risk_training_lineage_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p607_activity_risk_training_lineage_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p608_feedback_training_import_semantic_guard_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p608_feedback_training_import_semantic_guard_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p609_wet_lab_feedback_import_reconciliation_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p609_wet_lab_feedback_import_reconciliation_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p610_positive_claim_gate_quarantine_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p610_positive_claim_gate_quarantine_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p611_activity_risk_training_import_label_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p611_activity_risk_training_import_label_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p612_activity_risk_label_replicate_preflight_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p612_activity_risk_label_replicate_preflight_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p613_feature_coverage_by_head_group_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p613_feature_coverage_by_head_group_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p614_feature_coverage_gap_queue_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p614_feature_coverage_gap_queue_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p615_feature_label_boundary_quarantine_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p615_feature_label_boundary_quarantine_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p616_benchmark_score_cache_validation_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p616_benchmark_score_cache_validation_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p617_benchmark_coverage_dashboard_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p617_benchmark_coverage_dashboard_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p618_five_head_benchmark_gap_plan_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p618_five_head_benchmark_gap_plan_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p619_benchmark_lane_machine_prereview_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p619_benchmark_lane_machine_prereview_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p620_benchmark_lane_status_aggregate_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p620_benchmark_lane_status_aggregate_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p621_ddg_executable_probe_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p621_ddg_executable_probe_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p622_pyrosetta_physical_smoke_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p622_pyrosetta_physical_smoke_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p623_pyrosetta_verified_ddg_feature_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p623_pyrosetta_verified_ddg_feature_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p624_foldx_physical_smoke_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p624_foldx_physical_smoke_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p625_ddg_backend_operator_packet_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p625_ddg_backend_operator_packet_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p626_rosetta_physical_smoke_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p626_rosetta_physical_smoke_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p627_pyrosetta_verified_mutation_ddg_concordance_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p627_pyrosetta_verified_mutation_ddg_concordance_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p628_pyrosetta_local_install_probe_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p628_pyrosetta_local_install_probe_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p629_ddg_physical_runtime_receipt_preflight_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p629_ddg_physical_runtime_receipt_preflight_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p630_ddg_backend_runtime_receipt_validation_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p630_ddg_backend_runtime_receipt_validation_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p631_ddg_physical_smoke_harness_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p631_ddg_physical_smoke_harness_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p632_ddg_proxy_physics_claim_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p632_ddg_proxy_physics_claim_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p633_execution_receipt_freshness_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p633_execution_receipt_freshness_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p634_parallel_hard_gate_execution_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p634_parallel_hard_gate_execution_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p635_ddg_backend_failure_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p635_ddg_backend_failure_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p636_human_review_closeout_current_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p636_human_review_closeout_current_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p637_operator_work_receipt_manifest_current_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p637_operator_work_receipt_manifest_current_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p638_top_tier_ready_to_verify_current_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p638_top_tier_ready_to_verify_current_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p639_non_human_ready_to_verify_current_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p639_non_human_ready_to_verify_current_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p640_ready_to_verify_promotion_current_boundary_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p640_ready_to_verify_promotion_current_boundary_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p641_p0_today_closeout_plan_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p641_p0_today_closeout_plan_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p642_p0_external_input_packet_manifest_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p642_p0_external_input_packet_manifest_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p643_p0_external_input_dispatch_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p643_p0_external_input_dispatch_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p644_p0_external_input_handoff_receipt_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p644_p0_external_input_handoff_receipt_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p645_p0_external_input_response_slot_registry_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p645_p0_external_input_response_slot_registry_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p646_p0_external_input_response_intake_queue_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p646_p0_external_input_response_intake_queue_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p647_p0_external_input_response_validation_preflight_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p647_p0_external_input_response_validation_preflight_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p648_p0_external_input_response_schema_contract_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p648_p0_external_input_response_schema_contract_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p649_p0_external_input_response_evidence_quarantine_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p649_p0_external_input_response_evidence_quarantine_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p650_p0_external_input_response_decision_routing_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p650_p0_external_input_response_decision_routing_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p651_p0_external_input_formal_intake_dry_run_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p651_p0_external_input_formal_intake_dry_run_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p652_p0_external_input_closeout_readiness_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p652_p0_external_input_closeout_readiness_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p653_p0_external_input_closeout_blocker_ledger_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p653_p0_external_input_closeout_blocker_ledger_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p654_p0_external_input_blocker_escalation_queue_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p654_p0_external_input_blocker_escalation_queue_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p655_p0_external_input_blocker_escalation_status_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p655_p0_external_input_blocker_escalation_status_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p656_p0_external_input_blocker_escalation_watchlist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p656_p0_external_input_blocker_escalation_watchlist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p657_p0_external_input_blocker_escalation_review_queue_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p657_p0_external_input_blocker_escalation_review_queue_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p658_p0_external_input_blocker_escalation_review_status_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p658_p0_external_input_blocker_escalation_review_status_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p659_p0_external_input_blocker_escalation_review_watchlist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p659_p0_external_input_blocker_escalation_review_watchlist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p660_p0_external_input_blocker_review_watchlist_aging_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p660_p0_external_input_blocker_review_watchlist_aging_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p661_p0_external_input_blocker_review_owner_assignment_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p661_p0_external_input_blocker_review_owner_assignment_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p662_p0_external_input_evidence_missing_matrix_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p662_p0_external_input_evidence_missing_matrix_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p663_p0_formal_decision_readiness_false_positive_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p663_p0_formal_decision_readiness_false_positive_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p664_p0_closeout_non_approval_receipt_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p664_p0_closeout_non_approval_receipt_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p665_p0_closeout_non_approval_watchlist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p665_p0_closeout_non_approval_watchlist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p666_p0_closeout_owner_review_queue_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p666_p0_closeout_owner_review_queue_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p667_p0_formal_intake_non_write_guard_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p667_p0_formal_intake_non_write_guard_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p668_p0_training_label_non_import_guard_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p668_p0_training_label_non_import_guard_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p669_p0_release_claim_non_promotion_guard_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p669_p0_release_claim_non_promotion_guard_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p670_p0_release_claim_non_promotion_status_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p670_p0_release_claim_non_promotion_status_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p671_p0_model_claim_non_assertion_guard_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p671_p0_model_claim_non_assertion_guard_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p672_p0_customer_delivery_non_authorization_guard_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p672_p0_customer_delivery_non_authorization_guard_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p673_p0_production_execution_non_authorization_guard_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p673_p0_production_execution_non_authorization_guard_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p674_p0_terminal_blocked_state_rollup_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p674_p0_terminal_blocked_state_rollup_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p676_p0_real_input_handoff_work_package_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p676_p0_real_input_handoff_work_package_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p677_p0_real_input_completion_checklist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p677_p0_real_input_completion_checklist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p678_p0_real_input_live_status_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p678_p0_real_input_live_status_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p679_p0_real_input_status_freshness_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p679_p0_real_input_status_freshness_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p680_p0_real_input_operator_dispatch_readiness_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p680_p0_real_input_operator_dispatch_readiness_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p681_p0_real_input_operator_dispatch_bundle_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p681_p0_real_input_operator_dispatch_bundle_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p682_p0_real_input_response_receive_preflight_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p682_p0_real_input_response_receive_preflight_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p683_p0_real_input_response_schema_contract_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p683_p0_real_input_response_schema_contract_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p684_p0_real_input_response_evidence_quarantine_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p684_p0_real_input_response_evidence_quarantine_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p685_p0_real_input_response_decision_routing_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p685_p0_real_input_response_decision_routing_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p686_p0_real_input_formal_intake_dry_run_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p686_p0_real_input_formal_intake_dry_run_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p687_p0_real_input_closeout_readiness_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p687_p0_real_input_closeout_readiness_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p688_p0_real_input_closeout_blocker_ledger_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p688_p0_real_input_closeout_blocker_ledger_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p689_p0_real_input_blocker_escalation_queue_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p689_p0_real_input_blocker_escalation_queue_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p690_p0_real_input_blocker_escalation_status_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p690_p0_real_input_blocker_escalation_status_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p691_p0_real_input_blocker_escalation_watchlist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p691_p0_real_input_blocker_escalation_watchlist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p692_p0_real_input_blocker_escalation_review_queue_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p692_p0_real_input_blocker_escalation_review_queue_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p693_p0_real_input_blocker_escalation_review_status_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p693_p0_real_input_blocker_escalation_review_status_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p694_p0_real_input_blocker_escalation_review_watchlist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p694_p0_real_input_blocker_escalation_review_watchlist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p695_p0_real_input_blocker_escalation_review_watchlist_aging_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p695_p0_real_input_blocker_escalation_review_watchlist_aging_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p696_p0_real_input_blocker_escalation_review_owner_assignment_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p696_p0_real_input_blocker_escalation_review_owner_assignment_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p697_p0_real_input_blocker_escalation_review_evidence_missing_matrix_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p697_p0_real_input_blocker_escalation_review_evidence_missing_matrix_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p698_p0_real_input_formal_decision_readiness_false_positive_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p698_p0_real_input_formal_decision_readiness_false_positive_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p699_p0_real_input_formal_decision_readiness_status_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p699_p0_real_input_formal_decision_readiness_status_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p700_p0_real_input_pending_build_checklist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p700_p0_real_input_pending_build_checklist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p701_p0_pending_build_all_started_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p701_p0_pending_build_all_started_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p702_p0_pending_build_action_queue_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p702_p0_pending_build_action_queue_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p703_p0_pending_build_dependency_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p703_p0_pending_build_dependency_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p704_p0_pending_build_unblock_evidence_matrix_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p704_p0_pending_build_unblock_evidence_matrix_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p705_p0_pending_build_owner_assignment_gap_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p705_p0_pending_build_owner_assignment_gap_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p706_p0_pending_build_aging_staleness_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p706_p0_pending_build_aging_staleness_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p707_p0_pending_build_escalation_readiness_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p707_p0_pending_build_escalation_readiness_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p708_p0_pending_build_blocker_resolution_readiness_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p708_p0_pending_build_blocker_resolution_readiness_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p709_p0_pending_build_completion_observation_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p709_p0_pending_build_completion_observation_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p710_p0_pending_build_terminal_blocked_rollup_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p710_p0_pending_build_terminal_blocked_rollup_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p711_p0_pending_build_next_unlock_wave_plan_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p711_p0_pending_build_next_unlock_wave_plan_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p712_p0_pending_build_start_gate_checklist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p712_p0_pending_build_start_gate_checklist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p713_p0_pending_build_start_gate_gap_matrix_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p713_p0_pending_build_start_gate_gap_matrix_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p714_p0_pending_build_prerequisite_request_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p714_p0_pending_build_prerequisite_request_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p715_p0_pending_build_request_acceptance_rejection_matrix_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p715_p0_pending_build_request_acceptance_rejection_matrix_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p716_p0_pending_build_response_receive_preflight_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p716_p0_pending_build_response_receive_preflight_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p717_p0_pending_build_response_schema_contract_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p717_p0_pending_build_response_schema_contract_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p718_p0_pending_build_evidence_quarantine_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p718_p0_pending_build_evidence_quarantine_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p719_p0_pending_build_decision_routing_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p719_p0_pending_build_decision_routing_readiness_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p720_p0_pending_build_formal_intake_dry_run_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p720_p0_pending_build_formal_intake_dry_run_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p721_p0_pending_build_formal_intake_non_write_guard_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p721_p0_pending_build_formal_intake_non_write_guard_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p722_p0_pending_build_formal_decision_write_authorization_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p722_p0_pending_build_formal_decision_write_authorization_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p723_p0_pending_build_release_claim_non_promotion_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p723_p0_pending_build_release_claim_non_promotion_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p724_p0_pending_build_model_claim_non_assertion_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p724_p0_pending_build_model_claim_non_assertion_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p725_p0_pending_build_customer_delivery_non_authorization_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p725_p0_pending_build_customer_delivery_non_authorization_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p726_p0_pending_build_production_execution_non_authorization_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p726_p0_pending_build_production_execution_non_authorization_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p727_p0_pending_build_terminal_non_authorization_rollup_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p727_p0_pending_build_terminal_non_authorization_rollup_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p728_p0_pending_build_stop_restart_entry_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p728_p0_pending_build_stop_restart_entry_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p729_p0_pending_build_blocker_monitoring_review_cycle_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p729_p0_pending_build_blocker_monitoring_review_cycle_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p730_p0_pending_build_next_review_action_checklist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p730_p0_pending_build_next_review_action_checklist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p731_p0_pending_build_review_dispatch_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p731_p0_pending_build_review_dispatch_readiness_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p732_p0_pending_build_review_dispatch_receipt_contract_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p732_p0_pending_build_review_dispatch_receipt_contract_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p733_p0_pending_build_review_receipt_atomicity_integrity_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p733_p0_pending_build_review_receipt_atomicity_integrity_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p734_p0_pending_build_review_receipt_freshness_staleness_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p734_p0_pending_build_review_receipt_freshness_staleness_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p735_p0_pending_build_review_receipt_to_decision_lineage_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p735_p0_pending_build_review_receipt_to_decision_lineage_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p736_p0_pending_build_lineage_to_authorization_provenance_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p736_p0_pending_build_lineage_to_authorization_provenance_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p737_p0_pending_build_authorization_to_release_claim_nonpromotion_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p737_p0_pending_build_authorization_to_release_claim_nonpromotion_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p738_p0_pending_build_nonpromotion_to_production_execution_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p738_p0_pending_build_nonpromotion_to_production_execution_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p739_p0_pending_build_production_execution_audit_receipt_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p739_p0_pending_build_production_execution_audit_receipt_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p740_p0_pending_build_audit_receipt_retention_immutability_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p740_p0_pending_build_audit_receipt_retention_immutability_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p741_p0_pending_build_audit_receipt_retrieval_access_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p741_p0_pending_build_audit_receipt_retrieval_access_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p742_p0_pending_build_audit_receipt_disclosure_nonleak_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p742_p0_pending_build_audit_receipt_disclosure_nonleak_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p743_p0_pending_build_disclosure_incident_containment_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p743_p0_pending_build_disclosure_incident_containment_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p744_p0_pending_build_incident_containment_closeout_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p744_p0_pending_build_incident_containment_closeout_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p745_p0_pending_build_closeout_to_reopen_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p745_p0_pending_build_closeout_to_reopen_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p746_p0_pending_build_all_started_continuation_register_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p746_p0_pending_build_all_started_continuation_register_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p747_p0_pending_build_execution_start_non_authorization_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p747_p0_pending_build_execution_start_non_authorization_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p748_p0_pending_build_real_input_non_write_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p748_p0_pending_build_real_input_non_write_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p749_p0_pending_build_input_provenance_evidence_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p749_p0_pending_build_input_provenance_evidence_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p750_p0_pending_build_evidence_to_decision_nonpromotion_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p750_p0_pending_build_evidence_to_decision_nonpromotion_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p751_p0_pending_build_formal_decision_authorization_preflight_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p751_p0_pending_build_formal_decision_authorization_preflight_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p752_p0_pending_build_formal_decision_non_write_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p752_p0_pending_build_formal_decision_non_write_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p753_p0_pending_build_decision_to_release_nonpromotion_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p753_p0_pending_build_decision_to_release_nonpromotion_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p754_p0_pending_build_release_to_production_non_authorization_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p754_p0_pending_build_release_to_production_non_authorization_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p755_p0_pending_build_production_audit_receipt_preflight_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p755_p0_pending_build_production_audit_receipt_preflight_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p756_p0_pending_build_audit_receipt_integrity_immutability_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p756_p0_pending_build_audit_receipt_integrity_immutability_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p757_p0_pending_build_audit_receipt_access_nonleak_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p757_p0_pending_build_audit_receipt_access_nonleak_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p758_p0_pending_build_disclosure_incident_containment_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p758_p0_pending_build_disclosure_incident_containment_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p759_p0_pending_build_incident_closeout_reopen_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p759_p0_pending_build_incident_closeout_reopen_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p760_p0_pending_build_terminal_fail_closed_monitor_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p760_p0_pending_build_terminal_fail_closed_monitor_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p761_p0_pending_build_terminal_restart_prerequisite_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p761_p0_pending_build_terminal_restart_prerequisite_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p762_p0_pending_build_restart_request_receipt_contract_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p762_p0_pending_build_restart_request_receipt_contract_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p763_p0_pending_build_restart_receipt_quarantine_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p763_p0_pending_build_restart_receipt_quarantine_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p764_p0_pending_build_receipt_to_restart_nonpromotion_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p764_p0_pending_build_receipt_to_restart_nonpromotion_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p765_p0_pending_build_restart_to_execution_non_authorization_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p765_p0_pending_build_restart_to_execution_non_authorization_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p766_p0_pending_build_terminal_consistency_rollup_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p766_p0_pending_build_terminal_consistency_rollup_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p767_p0_pending_build_next_review_action_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p767_p0_pending_build_next_review_action_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p768_p0_pending_build_review_dispatch_readiness_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p768_p0_pending_build_review_dispatch_readiness_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p769_p0_pending_build_review_receipt_integrity_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p769_p0_pending_build_review_receipt_integrity_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p770_p0_pending_build_review_receipt_freshness_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p770_p0_pending_build_review_receipt_freshness_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p771_p0_pending_build_receipt_to_decision_lineage_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p771_p0_pending_build_receipt_to_decision_lineage_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p772_p0_pending_build_decision_to_authorization_provenance_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p772_p0_pending_build_decision_to_authorization_provenance_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p773_p0_pending_build_authorization_downstream_nonpromotion_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p773_p0_pending_build_authorization_downstream_nonpromotion_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p774_p0_pending_build_downstream_to_production_non_authorization_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p774_p0_pending_build_downstream_to_production_non_authorization_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p775_p0_pending_build_production_audit_retention_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p775_p0_pending_build_production_audit_retention_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p776_p0_pending_build_production_audit_access_nonleak_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p776_p0_pending_build_production_audit_access_nonleak_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p777_p0_pending_build_production_audit_incident_containment_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p777_p0_pending_build_production_audit_incident_containment_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p778_p0_pending_build_production_audit_closeout_reopen_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p778_p0_pending_build_production_audit_closeout_reopen_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p779_p0_pending_build_terminal_production_governance_monitor_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p779_p0_pending_build_terminal_production_governance_monitor_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p780_p0_pending_build_production_next_review_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p780_p0_pending_build_production_next_review_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p781_p0_pending_build_production_review_dispatch_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p781_p0_pending_build_production_review_dispatch_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p782_p0_pending_build_production_review_receipt_schema_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p782_p0_pending_build_production_review_receipt_schema_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p783_p0_pending_build_production_review_receipt_quarantine_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p783_p0_pending_build_production_review_receipt_quarantine_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p784_p0_pending_build_production_receipt_decision_lineage_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p784_p0_pending_build_production_receipt_decision_lineage_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p785_p0_pending_build_production_decision_authorization_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p785_p0_pending_build_production_decision_authorization_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p786_p0_pending_build_production_authorization_execution_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p786_p0_pending_build_production_authorization_execution_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p787_p0_pending_build_production_execution_audit_integrity_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p787_p0_pending_build_production_execution_audit_integrity_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p788_p0_pending_build_production_audit_retention_immutability_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p788_p0_pending_build_production_audit_retention_immutability_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p789_p0_pending_build_production_audit_receipt_access_disclosure_non_leak_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p789_p0_pending_build_production_audit_receipt_access_disclosure_non_leak_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p790_p0_pending_build_terminal_production_governance_consistency_rollup_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p790_p0_pending_build_terminal_production_governance_consistency_rollup_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p791_p0_pending_build_terminal_state_drift_reopen_protection_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p791_p0_pending_build_terminal_state_drift_reopen_protection_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p792_p0_pending_build_governance_evidence_freshness_time_anchor_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p792_p0_pending_build_governance_evidence_freshness_time_anchor_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p793_p0_pending_build_evidence_source_integrity_lineage_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p793_p0_pending_build_evidence_source_integrity_lineage_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p794_p0_pending_build_evidence_scope_claim_mapping_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p794_p0_pending_build_evidence_scope_claim_mapping_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p795_p0_pending_build_risk_acceptance_residual_risk_decision_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p795_p0_pending_build_risk_acceptance_residual_risk_decision_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p796_p0_pending_build_control_implementation_verification_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p796_p0_pending_build_control_implementation_verification_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p797_p0_pending_build_control_exception_remediation_closure_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p797_p0_pending_build_control_exception_remediation_closure_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p798_p0_pending_build_independent_review_dual_approval_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p798_p0_pending_build_independent_review_dual_approval_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p799_p0_pending_build_formal_decision_package_completeness_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p799_p0_pending_build_formal_decision_package_completeness_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p800_p0_pending_build_release_package_integrity_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p800_p0_pending_build_release_package_integrity_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p801_p0_pending_build_production_change_window_rollback_readiness_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p801_p0_pending_build_production_change_window_rollback_readiness_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p802_p0_pending_build_production_final_preflight_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p802_p0_pending_build_production_final_preflight_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p803_p0_pending_build_production_start_request_receipt_contract_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p803_p0_pending_build_production_start_request_receipt_contract_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p804_p0_pending_build_execution_result_audit_receipt_integrity_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p804_p0_pending_build_execution_result_audit_receipt_integrity_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p805_p0_pending_build_execution_result_review_decision_conversion_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p805_p0_pending_build_execution_result_review_decision_conversion_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p806_p0_pending_build_formal_decision_release_authorization_binding_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p806_p0_pending_build_formal_decision_release_authorization_binding_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p807_p0_pending_build_authorization_expiry_revocation_check_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p807_p0_pending_build_authorization_expiry_revocation_check_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p808_p0_pending_build_authorization_usage_idempotency_replay_guard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p808_p0_pending_build_authorization_usage_idempotency_replay_guard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p809_p0_pending_build_authorization_consumption_atomic_ledger_gate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/p809_p0_pending_build_authorization_consumption_atomic_ledger_gate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/parallel_execution_board.json": {
+      "risky_true_hits": 0
+    },
+    "reports/parallel_hard_gate_execution_receipts_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/parallel_hard_gate_execution_receipts_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/parallel_hard_gate_workstreams_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/parallel_hard_gate_workstreams_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/pending_stage_all_started_board.json": {
+      "risky_true_hits": 0
+    },
+    "reports/pending_stage_all_started_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/plate_intake_schema_gap_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/plate_intake_schema_gap_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/posebusters_pose_plausibility_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/posebusters_pose_plausibility_benchmark_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/production_model_gate_20260829.json": {
+      "risky_true_hits": 0
+    },
+    "reports/production_model_package_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/production_model_package_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/production_training_run.json": {
+      "risky_true_hits": 0
+    },
+    "reports/proteingym_benchmark_scorecard_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/proteingym_local_source_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/proteingym_local_source_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/proteinmcp_deep_research_2026_07_31.json": {
+      "risky_true_hits": 0
+    },
+    "reports/proteinmcp_source_download_audit_2026_07_31.json": {
+      "risky_true_hits": 0
+    },
+    "reports/protherm_source_receipt_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/provenance_graph_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/pyrosetta_local_install_probe_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/pyrosetta_local_install_probe_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/pyrosetta_physical_smoke_bootstrap_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/pyrosetta_verified_mutation_ddg_concordance_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/pyrosetta_verified_mutation_ddg_concordance_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/pyrosetta_verified_mutation_ddg_feature_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/pyrosetta_verified_mutation_ddg_feature_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/readiness_snapshot_consistency_20260829.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ready_to_verify_promotion_board.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ready_to_verify_promotion_safety_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/ready_to_verify_promotion_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/real_input_breakthrough_status_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/real_input_breakthrough_status_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/release_benchmark_human_decision_worklist_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/release_benchmark_human_decision_worklist_validation_report_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/release_benchmark_stage25_fail_closed_summary_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/repaired_supervised_baseline_eval.json": {
+      "risky_true_hits": 0
+    },
+    "reports/repaired_supervised_msa_baseline_eval.json": {
+      "risky_true_hits": 0
+    },
+    "reports/repaired_supervised_split_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/repaired_supervised_table_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/report_positive_claim_gate_quarantine_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/research_multitask_training_blocked.json": {
+      "risky_true_hits": 0
+    },
+    "reports/research_multitask_training_run.json": {
+      "risky_true_hits": 0
+    },
+    "reports/review_draft_formal_boundary_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/reviewed_structure_graph_feature_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/reviewed_structure_graph_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/reviewed_structure_graph_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/rosetta_physical_smoke_bootstrap_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/safe_training_entrypoint_check.json": {
+      "risky_true_hits": 0
+    },
+    "reports/safe_training_pipeline_bootstrap_release_consistency_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/safe_training_pipeline_current_receipt_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/safe_training_pipeline_current_receipt_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/safe_training_pipeline_receipt_atomicity_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/safe_training_pipeline_run.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sample_case_result.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sci_candidate_extraction_queue_validation_20260902.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sci_extraction_parallel_dispatch_20260902.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sci_machine_extraction_parallel_dispatch_20260902.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sci_machine_extraction_workload_20260902.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sci_measurement_extraction_validation_20260902.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sci_open_candidate_extraction_queue_20260902.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sci_open_candidate_table_locators_20260902.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sci_open_candidates_20260902.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sci_pre_audit_human_dispatch_20260902.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sci_pre_audit_table_triage_20260902.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sci_targeted_candidate_table_locators_20260902.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sci_targeted_enzyme_engineering_downloads_20260902.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sci_targeted_enzyme_engineering_search_20260902.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_collision_analysis.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_collision_analysis_dedup_smoke.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_collision_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_continuous_collision_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_continuous_v2_collision_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_continuous_v3_collision_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_continuous_v4_collision_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_continuous_v6_collision_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_continuous_full.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_continuous_full_v2.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_continuous_full_v3.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_continuous_full_v4.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_continuous_full_v6.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_continuous_v2_validation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_continuous_v3_validation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_continuous_v4_validation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_continuous_v6_validation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_continuous_validation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_dedup_smoke.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_dedup_smoke_validation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_full.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_msa.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_msa_validation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_index_validation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_search_query0.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embedding_search_smoke.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_embeddings_msa_targets.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_ip_fto_decision_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_ip_review_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_ip_review_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0000.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0001.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0002.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0003.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0004.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0005.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0006.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0007.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0008.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0009.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0010.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0011.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0012.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0013.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0014.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0015.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0016.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0017.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0018.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0019.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0020.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0021.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0022.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0023.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0024.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_batch_0025.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_continuous_full.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_continuous_full_v2.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_continuous_full_v3.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_continuous_full_v3_evaluation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_continuous_full_v4.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_continuous_full_v4_candidate.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_continuous_full_v4_candidate_evaluation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_continuous_full_v4_evaluation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_continuous_full_v5_candidate.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_continuous_full_v5_candidate_evaluation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_continuous_full_v6.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_continuous_full_v6_evaluation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_epoch_sweep_decision.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_hidden64_candidate.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_hidden64_candidate_evaluation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_hidden_dimension_sweep_decision.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_kernel5_candidate.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_kernel5_candidate_evaluation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_kernel_sweep_decision.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_learning_rate_sweep_decision.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_lr2e3_candidate.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_lr2e3_candidate_evaluation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_lr3e4_candidate.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_lr3e4_candidate_evaluation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_lr5e4_candidate.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_lr5e4_candidate_evaluation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_pretraining_dedup_smoke.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_pretraining_msa_O60930.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_pretraining_run.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_residual_candidate.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_residual_candidate_evaluation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_mlm_residual_sweep_decision.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_pretraining_asset_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_pretraining_asset_manifest_validation.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_pretraining_batch_summary.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_pretraining_checkpoint_selection.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_pretraining_continuous_selection.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_pretraining_quality_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/sequence_pretraining_release_gate.json": {
+      "risky_true_hits": 0
+    },
+    "reports/site_sequence_feature_baseline_eval.json": {
+      "risky_true_hits": 0
+    },
+    "reports/site_sequence_feature_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/site_sequence_feature_split_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_benchmark_unblock_design_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_blocker_activation_map_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_blocker_activation_map_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_breakthrough_attempt_receipt_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_claim_release_consistency_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_codon262_cross_read_audit_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_codon262_cross_read_audit_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_codon262_sequence_quality_evidence_audit_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_codon262_sequence_quality_evidence_audit_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_adjudication_decision_intake_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_adjudication_evidence_intake_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_adjudication_evidence_path_safety_regression_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_adjudication_review_binding_regression_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_adjudication_review_binding_tamper_regression_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_adjudication_upstream_packet_provenance_regression_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_adjudication_upstream_review_provenance_regression_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_discrepancy_adjudication_packet_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_external_evidence_receipt_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_external_evidence_request_packet_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_external_evidence_review_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_external_request_authorization_safety_regression_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_external_request_authorization_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_external_request_message_drafts_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_external_request_send_guard_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_external_request_send_guard_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_public_source_probe_receipt_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_cm5_l262v_public_source_probe_receipt_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_execute_blocker_detail_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_execute_blocker_detail_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_execute_closeout_checklist_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_execute_closeout_checklist_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_execute_closeout_reviewer_intake_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_execute_closeout_reviewer_packet_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_external_input_readiness_board_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_external_input_readiness_board_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_fail_closed_validation_current_receipt_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_fail_closed_validation_current_receipt_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_fail_closed_validation_run_report_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_family_apply_importer_design_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_family_apply_transaction_plan_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_foldx_benchmark_bridge_isolation_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_foldx_execution_plan_blocker_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_foldx_execution_plan_blocker_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_foldx_provision_manifest_candidate_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_foldx_provision_manifest_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_foldx_runtime_receipt_candidate_draft_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_foldx_technical_smoke_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_foldx_technical_smoke_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_handoff_bundle_manifest_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_handoff_bundle_manifest_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_hard_gate_formal_decision_draft_package_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_latest_blocker_coverage_audit_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_latest_blocker_coverage_audit_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_literature_web_search_receipt_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_literature_web_search_receipt_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_markdown_operator_docs_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_new_paper_extraction_template_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_operator_docs_dynamic_status_sync_regression_atomicity_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_operator_docs_dynamic_status_sync_regression_current_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_operator_docs_dynamic_status_sync_regression_current_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_operator_docs_dynamic_status_sync_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_operator_docs_dynamic_status_sync_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_operator_docs_sync_contract_policy_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_operator_docs_sync_contract_policy_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_operator_docs_sync_current_receipt_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_operator_docs_sync_current_receipt_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_operator_docs_sync_terminal_recovery_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_overall_fail_closed_index_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_paper_metadata_only_plan_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_post_source_drop_rerun_dry_run_audit_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_post_source_drop_rerun_dry_run_audit_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_post_source_drop_rerun_independent_policy_current_20260810.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_post_source_drop_rerun_independent_policy_current_regression_20260810.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_post_source_drop_rerun_independent_policy_regression_20260810.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_post_source_drop_rerun_independent_policy_validation_20260810.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_post_source_drop_rerun_receipt_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_post_source_drop_rerun_receipt_regression_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_post_source_drop_rerun_receipt_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_post_source_drop_rerun_validation_current_20260810.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_post_source_drop_rerun_validation_current_regression_20260810.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_remaining_blocker_closure_matrix_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_remaining_blocker_closure_matrix_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_remaining_blocker_cross_binding_regression_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_remaining_blocker_cross_binding_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_reviewed_extraction_output_draft_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_source_acquisition_receipts_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_source_acquisition_shortlist_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_source_acquisition_shortlist_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_source_drop_extraction_readiness_candidate_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_source_drop_inventory_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_source_drop_inventory_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_source_drop_manifest_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_source_extraction_candidate_reviewer_packet_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_source_extraction_candidate_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_source_extraction_reviewer_closure_checklist_validation_20260807.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_unblock_operator_packet_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/stage25_user_authorization_receipt_validation_20260806.json": {
+      "risky_true_hits": 0
+    },
+    "reports/strict_msa_site_feature_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_acquisition_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_cache_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_cache_expected_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_cache_manifest_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_chain_autoreview_candidate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_chain_autoreview_decision_draft_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_chain_dbref_evidence_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_chain_evidence_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_chain_mapping_apply_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_chain_mapping_backlog_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_chain_mapping_decision_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_chain_mapping_worklist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_chain_review_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_coordinate_feature_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_download_failure_summary.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_feature_hard_gate_operator_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_feature_hard_gate_operator_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_feature_head_gap_plan_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_feature_model_contract_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_feature_model_contract_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_public_download_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/structure_workflow_gate_demo.json": {
+      "risky_true_hits": 0
+    },
+    "reports/substrate_fit_hard_gate_operator_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/substrate_fit_hard_gate_operator_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/substrate_fit_label_gap_plan_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/substrate_identity_evidence_candidate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/substrate_identity_evidence_candidate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/supervised_mutation_baseline_eval.json": {
+      "risky_true_hits": 0
+    },
+    "reports/supervised_mutation_enriched_baseline_eval.json": {
+      "risky_true_hits": 0
+    },
+    "reports/supervised_mutation_enriched_split_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/supervised_mutation_split_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/supervised_mutation_verified_baseline_eval.json": {
+      "risky_true_hits": 0
+    },
+    "reports/supervised_mutation_verified_split_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/thermompnn_comparison_benchmark_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/thermompnn_local_source_manifest.json": {
+      "risky_true_hits": 0
+    },
+    "reports/thermompnn_local_source_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/thermompnn_venus15b_smoke_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/tool_lane_evidence_pack.json": {
+      "risky_true_hits": 0
+    },
+    "reports/tool_lane_evidence_pack_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/top_tier_hard_gate_execution_board.json": {
+      "risky_true_hits": 0
+    },
+    "reports/top_tier_hard_gate_execution_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/top_tier_model_execution_board.json": {
+      "risky_true_hits": 0
+    },
+    "reports/top_tier_model_execution_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/top_tier_model_ready_to_verify_receipt_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/top_tier_model_ready_to_verify_receipt_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/training_label_import_contract_report.json": {
+      "risky_true_hits": 1
+    },
+    "reports/training_label_import_contract_validation_report.json": {
+      "risky_true_hits": 1
+    },
+    "reports/training_readiness_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/true_hard_gate_breakthrough_candidate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/true_hard_gate_breakthrough_candidate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/validated_feature_index_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/validated_feature_index_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/venus15b_experiment_asset_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/venus15b_feedback_import_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/verified_mutation_structure_candidate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/verified_mutation_structure_download_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/verified_mutation_structure_mapping_candidate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/verified_mutation_structure_mapping_candidate_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/weak_evidence_index_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_feedback_apply_duplicate_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_feedback_apply_duplicate_audit_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_feedback_authorization_contract_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_feedback_authorization_contract_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_feedback_import_reconciliation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_feedback_import_reconciliation_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_hard_gate_operator_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_hard_gate_operator_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_head_authorization_gap_plan_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_asset_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_closeout_board_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_closeout_board_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_closeout_operator_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_closeout_operator_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_dashboard.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_dashboard_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_execution_queue_operator_packet_receipt_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_execution_queue_operator_packet_receipt_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_execution_queue_operator_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_execution_queue_operator_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_execution_queue_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_execution_queue_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_gap_matrix_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_gap_matrix_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_operator_checklist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_operator_checklist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_operator_receipt_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_operator_receipt_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_worklist_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_authorization_worklist_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_candidate_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_intake_apply_plan_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_preflight_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_feedback_qc_matrix_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_numbering_audit_from_project_sequences_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_operator_packet_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_operator_packet_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_project_sequence_intake_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_sequence_evidence_audit_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/wet_lab_mutant_library_unlock_status_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/workstream_acceptance_decision_validation_report.json": {
+      "risky_true_hits": 0
+    },
+    "reports/workstream_acceptance_gates.json": {
+      "risky_true_hits": 0
+    }
+  },
+  "risky_true_fields": [
+    "approved_for_ordering",
+    "customer_delivery_ready",
+    "model_quality_ready",
+    "ready_for_customer_delivery",
+    "ready_for_model_claim",
+    "ready_for_ordering",
+    "ready_for_training_import",
+    "release_ready",
+    "safe_for_model_claim",
+    "safe_for_training_import",
+    "training_unlocked"
+  ],
+  "risky_true_hit_count": 10,
+  "allowlisted_true_hit_count": 10,
+  "disallowed_true_hit_count": 0,
+  "risky_true_hits": [
+    {
+      "file": "reports/activity_risk_formal_label_decision_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/activity_risk_formal_label_decision_validation_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/activity_risk_training_import_label_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/activity_risk_training_import_label_validation_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/feedback_training_import_semantic_guard_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/feedback_training_import_semantic_guard_validation_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/five_head_training_execution_contract_report.json",
+      "json_path": "training_label_import.safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/model_quality_unlock_requirements_report.json",
+      "json_path": "requirements[0].target_state.safe_for_model_claim",
+      "field": "safe_for_model_claim"
+    },
+    {
+      "file": "reports/training_label_import_contract_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/training_label_import_contract_validation_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    }
+  ],
+  "allowlisted_true_hits": [
+    {
+      "file": "reports/activity_risk_formal_label_decision_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/activity_risk_formal_label_decision_validation_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/activity_risk_training_import_label_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/activity_risk_training_import_label_validation_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/feedback_training_import_semantic_guard_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/feedback_training_import_semantic_guard_validation_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/five_head_training_execution_contract_report.json",
+      "json_path": "training_label_import.safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/model_quality_unlock_requirements_report.json",
+      "json_path": "requirements[0].target_state.safe_for_model_claim",
+      "field": "safe_for_model_claim"
+    },
+    {
+      "file": "reports/training_label_import_contract_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    },
+    {
+      "file": "reports/training_label_import_contract_validation_report.json",
+      "json_path": "safe_for_training_import",
+      "field": "safe_for_training_import"
+    }
+  ],
+  "failures": [],
+  "safe_for_training_pipeline": true,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Report-level training, model-claim and release gates must remain false. Allowed true values must be explicit non-current-state documentation, not readiness claims."
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q16584",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF07714",
+        "name": "Protein tyrosine and serine/threonine kinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001245",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q16584",
+          "protein_length": 847,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 118,
+                  "end": 376,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07714",
+              "score": 3.2e-60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14604",
+        "name": "Variant SH3 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001452",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q16584",
+          "protein_length": 847,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 48,
+                  "end": 100,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14604",
+              "score": 6.7e-10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

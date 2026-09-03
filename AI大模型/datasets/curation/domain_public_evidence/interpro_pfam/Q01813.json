@@ -1,0 +1,51 @@
+{
+  "accession": "Q01813",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00365",
+        "name": "Phosphofructokinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000023",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q01813",
+          "protein_length": 784,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 27,
+                  "end": 332,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00365",
+              "score": 1.5e-103
+            },
+            {
+              "fragments": [
+                {
+                  "start": 412,
+                  "end": 697,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00365",
+              "score": 8e-90
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

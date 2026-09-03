@@ -1,0 +1,97 @@
+{
+  "accession": "Q9BYZ6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00071",
+        "name": "Ras family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001806",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9byz6",
+          "protein_length": 727,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 16,
+                  "end": 207,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00071",
+              "score": 2.9e-18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00651",
+        "name": "BTB/POZ domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000210",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9byz6",
+          "protein_length": 727,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 264,
+                  "end": 299,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00651",
+              "score": 1.1
+            },
+            {
+              "fragments": [
+                {
+                  "start": 385,
+                  "end": 469,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00651",
+              "score": 0.33
+            },
+            {
+              "fragments": [
+                {
+                  "start": 492,
+                  "end": 595,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00651",
+              "score": 1.7e-08
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

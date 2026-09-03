@@ -1,0 +1,119 @@
+{
+  "accession": "Q13263",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00628",
+        "name": "PHD-finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019787",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13263",
+          "protein_length": 835,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 628,
+                  "end": 669,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00628",
+              "score": 0.00086
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00643",
+        "name": "B-box zinc finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000315",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13263",
+          "protein_length": 835,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 150,
+                  "end": 194,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00643",
+              "score": 0.0078
+            },
+            {
+              "fragments": [
+                {
+                  "start": 208,
+                  "end": 243,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00643",
+              "score": 2.2e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14634",
+        "name": "zinc-RING finger domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001841",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13263",
+          "protein_length": 835,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 64,
+                  "end": 122,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14634",
+              "score": 0.0016
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

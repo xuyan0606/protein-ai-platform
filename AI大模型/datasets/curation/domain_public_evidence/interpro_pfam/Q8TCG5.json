@@ -1,0 +1,73 @@
+{
+  "accession": "Q8TCG5",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00755",
+        "name": "Choline/Carnitine o-acyltransferase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR039551",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8tcg5",
+          "protein_length": 803,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 175,
+                  "end": 752,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00755",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16484",
+        "name": "Carnitine O-palmitoyltransferase N-terminus",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR032476",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8tcg5",
+          "protein_length": 803,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1,
+                  "end": 47,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16484",
+              "score": 1.1e-19
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

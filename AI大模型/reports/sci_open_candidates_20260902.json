@@ -1,0 +1,23 @@
+{
+  "retrieved_at": "2026-09-02T14:30:00+08:00",
+  "source": "Europe PMC REST fullTextXML",
+  "candidate_count": 5,
+  "downloaded_count": 3,
+  "candidates": [
+    {
+      "pmcid": "PMC13119103",
+      "doi": "10.3390/microorganisms14040817",
+      "path": "datasets/source_drops/sci_open_candidates_20260902/PMC13119103.xml",
+      "sha256": "050abb19004bd1a2b8ed185c432ad99cf74cb7c95321a97dbd1f7d0bdfe2b7f1",
+      "status": "downloaded_pending_human_review"
+    },
+    {"pmcid": "PMC13051958", "path": "datasets/source_drops/sci_open_candidates_20260902/PMC13051958.xml", "sha256": "3cca6a81718189c4ce0266c8cdc5394f2240c21b7e65191864af209bf0da0817", "status": "downloaded_pending_human_review"},
+    {"pmcid": "PMC13234801", "path": "datasets/source_drops/sci_open_candidates_20260902/PMC13234801.xml", "sha256": "49b9e27bc43bcae8fcea6604fe14bb5b17344a92a8895bd777f907fffa72e7c7", "status": "downloaded_pending_human_review"},
+    {"pmcid": "PMC13297978", "status": "downloaded_to_temp_only"},
+    {"pmcid": "PMC13233964", "status": "downloaded_to_temp_only"}
+  ],
+  "training_import_allowed": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "SCI candidates require measurement extraction, provenance checks, human approval, and independent evaluation before any training import."
+}

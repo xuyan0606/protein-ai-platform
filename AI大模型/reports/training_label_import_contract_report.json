@@ -1,0 +1,204 @@
+{
+  "created_at": "2026-09-03T07:33:56.034485+00:00",
+  "local_only": true,
+  "input_artifacts": {
+    "strict_supervised_jsonl": "datasets/curated/enzyme_mutation_supervised_repaired_verified.jsonl",
+    "claim_eligible_jsonl": "datasets/curated/enzyme_mutation_supervised_claim_eligible.jsonl",
+    "label_provenance_audit": "reports/label_provenance_audit_report.json",
+    "fireprot_reviewed_import_candidate": "reports/fireprot_reviewed_import_candidate_report.json",
+    "wet_lab_feedback_preflight": "reports/wet_lab_mutant_library_feedback_preflight_report.json",
+    "feedback_training_import_semantic_guard": "reports/feedback_training_import_semantic_guard_report.json",
+    "activity_risk_training_import_labels": "datasets/training/activity_risk_training_import_labels.jsonl",
+    "activity_risk_training_import_label_validation": "reports/activity_risk_training_import_label_validation_report.json"
+  },
+  "missing_inputs": [],
+  "jsonl_profiles": {
+    "strict_supervised_jsonl": {
+      "path": "datasets/curated/enzyme_mutation_supervised_repaired_verified.jsonl",
+      "exists": true,
+      "rows": 0,
+      "invalid_json_rows": 0,
+      "rows_with_reviewed_marker": 0,
+      "rows_with_source_marker": 0,
+      "rows_with_provenance_marker": 0,
+      "rows_with_authorization_marker": 0
+    },
+    "claim_eligible_jsonl": {
+      "path": "datasets/curated/enzyme_mutation_supervised_claim_eligible.jsonl",
+      "exists": true,
+      "rows": 0,
+      "invalid_json_rows": 0,
+      "rows_with_reviewed_marker": 0,
+      "rows_with_source_marker": 0,
+      "rows_with_provenance_marker": 0,
+      "rows_with_authorization_marker": 0
+    }
+  },
+  "observed_current_state": {
+    "strict_supervised_jsonl_rows": 0,
+    "claim_eligible_jsonl_rows": 0,
+    "label_provenance_strict_rows": 0,
+    "label_provenance_claim_eligible_rows": 0,
+    "fireprot_ready_for_training_import_rows": 0,
+    "fireprot_reviewed_import_candidate_rows": 0,
+    "wet_lab_preflight_rows": 8,
+    "wet_lab_ready_for_training_import_rows": 0,
+    "wet_lab_authorized_candidate_rows": 8,
+    "numeric_feedback_training_import_eligible_rows": 6,
+    "activity_risk_training_import_written_rows": 6,
+    "activity_risk_training_import_validated_written_rows": 6,
+    "feedback_guard_strict_supervised_rows": 0,
+    "feedback_guard_claim_eligible_rows": 0
+  },
+  "source_contracts": [
+    {
+      "source_id": "strict_supervised_repaired_verified_jsonl",
+      "observed_rows": 0,
+      "reported_ready_or_eligible_rows": 0,
+      "counted_as_trainable_rows": 0,
+      "training_import_eligible_label_source": false,
+      "evidence_required": [
+        "reviewed",
+        "source",
+        "provenance",
+        "authorization"
+      ],
+      "evidence_observed": {
+        "reviewed": false,
+        "source": false,
+        "provenance": false,
+        "authorization": false
+      },
+      "complete_evidence_observed": false,
+      "block_reason": "no rows and no formal training-import authorization recorded",
+      "notes": "Strict repaired/verified rows are not automatically a training-import authorization."
+    },
+    {
+      "source_id": "claim_eligible_supervised_jsonl",
+      "observed_rows": 0,
+      "reported_ready_or_eligible_rows": 0,
+      "counted_as_trainable_rows": 0,
+      "training_import_eligible_label_source": false,
+      "evidence_required": [
+        "reviewed",
+        "source",
+        "provenance",
+        "authorization"
+      ],
+      "evidence_observed": {
+        "reviewed": false,
+        "source": false,
+        "provenance": false,
+        "authorization": false
+      },
+      "complete_evidence_observed": false,
+      "block_reason": "no claim-eligible rows and no formal training-import authorization recorded",
+      "notes": "Claim eligibility is a hard-gated label provenance state, not a model claim release."
+    },
+    {
+      "source_id": "label_provenance_audit",
+      "observed_rows": 0,
+      "reported_ready_or_eligible_rows": 0,
+      "counted_as_trainable_rows": 0,
+      "training_import_eligible_label_source": false,
+      "evidence_required": [
+        "reviewed",
+        "source",
+        "provenance",
+        "authorization"
+      ],
+      "evidence_observed": {
+        "reviewed": false,
+        "source": false,
+        "provenance": false,
+        "authorization": false
+      },
+      "complete_evidence_observed": false,
+      "block_reason": "blocked_no_claim_eligible_real_source_labels",
+      "notes": "The audit reports provenance state only; it does not perform a supervised import."
+    },
+    {
+      "source_id": "fireprot_reviewed_import_candidates",
+      "observed_rows": 0,
+      "reported_ready_or_eligible_rows": 0,
+      "counted_as_trainable_rows": 0,
+      "training_import_eligible_label_source": false,
+      "evidence_required": [
+        "reviewed",
+        "source",
+        "provenance",
+        "authorization"
+      ],
+      "evidence_observed": {
+        "reviewed": false,
+        "source": true,
+        "provenance": true,
+        "authorization": false
+      },
+      "complete_evidence_observed": false,
+      "block_reason": "blocked_until_separate_formal_supervised_import_authorization",
+      "notes": "Reviewed import candidates remain blocked from training until a separate formal supervised import is explicitly authorized."
+    },
+    {
+      "source_id": "wet_lab_feedback_preflight",
+      "observed_rows": 8,
+      "reported_ready_or_eligible_rows": 0,
+      "counted_as_trainable_rows": 0,
+      "training_import_eligible_label_source": false,
+      "evidence_required": [
+        "reviewed",
+        "source",
+        "provenance",
+        "authorization"
+      ],
+      "evidence_observed": {
+        "reviewed": true,
+        "source": true,
+        "provenance": true,
+        "authorization": true
+      },
+      "complete_evidence_observed": true,
+      "block_reason": "preflight_is_read_only_and_current_ready_rows_are_zero",
+      "notes": "Preflight rows preserve approved wet-lab evidence mapping but never modify training or feedback intake tables automatically."
+    },
+    {
+      "source_id": "numeric_feedback_training_import_semantic_guard",
+      "observed_rows": 6,
+      "reported_ready_or_eligible_rows": 6,
+      "counted_as_trainable_rows": 6,
+      "training_import_eligible_label_source": true,
+      "evidence_required": [
+        "reviewed",
+        "source",
+        "provenance",
+        "authorization"
+      ],
+      "evidence_observed": {
+        "reviewed": true,
+        "source": true,
+        "provenance": true,
+        "authorization": true
+      },
+      "complete_evidence_observed": true,
+      "block_reason": "numeric wet-lab feedback import eligible rows are present; qualitative feedback is excluded",
+      "notes": "qualitative_feedback_eligible is not a supervised label import allowance. numeric_training_import_eligible requires numeric source support; strict_supervised_rows and claim_eligible_rows must be supported by safe_training_entrypoint_check and label_provenance_audit. This guard is read-only and never writes datasets/feedback or training labels."
+    }
+  ],
+  "contract_totals": {
+    "training_import_eligible_label_sources": 1,
+    "training_import_eligible_rows": 6,
+    "counted_as_trainable_rows": 6
+  },
+  "training_import_written_rows": 6,
+  "training_import_validated_written_rows": 6,
+  "training_import_eligible_label_sources": [
+    "numeric_feedback_training_import_semantic_guard"
+  ],
+  "no_training_import_eligible_label_source": false,
+  "input_true_claim_release_flags": [],
+  "safe_for_training_import": true,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "success": true,
+  "policy": "This contract is fail-closed and read-only. Strict supervised, claim-eligible, reviewed external import, wet-lab preflight, or numeric feedback rows become trainable only with reviewed source evidence, source receipt, provenance, and explicit import authorization. Training import eligibility remains separate from model-quality and release claims."
+}

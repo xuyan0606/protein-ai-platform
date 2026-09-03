@@ -1,0 +1,107 @@
+{
+  "accession": "Q9Y6X2",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02037",
+        "name": "SAP domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003034",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y6x2",
+          "protein_length": 628,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 10,
+                  "end": 45,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02037",
+              "score": 0.023
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02891",
+        "name": "MIZ/SP-RING zinc finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004181",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y6x2",
+          "protein_length": 628,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 323,
+                  "end": 371,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02891",
+              "score": 6.6e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14324",
+        "name": "PINIT domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR023321",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y6x2",
+          "protein_length": 628,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 127,
+                  "end": 278,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14324",
+              "score": 2e-27
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

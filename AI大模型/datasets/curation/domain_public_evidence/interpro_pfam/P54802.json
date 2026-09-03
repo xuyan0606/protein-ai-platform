@@ -1,0 +1,107 @@
+{
+  "accession": "P54802",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF05089",
+        "name": "Alpha-N-acetylglucosaminidase (NAGLU) tim-barrel domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR024733",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p54802",
+          "protein_length": 743,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 130,
+                  "end": 465,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05089",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12971",
+        "name": "Alpha-N-acetylglucosaminidase (NAGLU) N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR024240",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p54802",
+          "protein_length": 743,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 30,
+                  "end": 116,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12971",
+              "score": 1.2e-19
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12972",
+        "name": "Alpha-N-acetylglucosaminidase (NAGLU) C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR024732",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p54802",
+          "protein_length": 743,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 474,
+                  "end": 733,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12972",
+              "score": 7.6e-85
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

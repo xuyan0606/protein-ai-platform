@@ -1,0 +1,166 @@
+- generic [ref=e67]:
+  - complementary [ref=e68]:
+    - generic [ref=e71]:
+      - generic [ref=e72]:
+        - img "科为博 CRVAB" [ref=e74]
+        - heading "Conversations" [level=2] [ref=e75]
+      - button "New Conversation" [ref=e77]
+      - generic [ref=e220] [cursor=pointer]:
+        - generic [ref=e221]:
+          - generic [ref=e222]: 酶比活力提升策略
+          - generic [ref=e223]:
+            - button "重命名" [ref=e224]
+            - button "删除" [ref=e228]
+        - generic [ref=e232]:
+          - generic [ref=e233]: 8月12日
+          - generic [ref=e235]: 4 msgs
+  - main [ref=e80]:
+    - generic [ref=e81]:
+      - generic [ref=e83]:
+        - button "Toggle sidebar" [ref=e84]
+        - generic [ref=e86]:
+          - button "Go home" [ref=e87]
+          - button "Projects" [ref=e91]
+          - button "Data" [ref=e94]
+          - button "PDB" [ref=e99]
+          - button "Wiki" [ref=e112]
+          - button "Tasks" [ref=e115]
+        - generic [ref=e118]:
+          - button "Toggle theme" [ref=e119]
+          - button "EN" [ref=e126]
+          - button "Export report" [ref=e132]
+          - button "User menu" [ref=e137]:
+            - generic [ref=e141]: UI Strategy Live Gate
+          - button "Toggle detail panel" [ref=e142]
+      - generic [ref=e146]:
+        - generic [ref=e148]:
+          - paragraph [ref=e206]: 请制定提高这个酶比活力的分析策略，序列：MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQANNSTPAY
+          - generic [ref=e208]:
+            - generic [ref=e239]:
+              - heading "分析策略确认" [level=2] [ref=e240]
+              - heading "我已按平台人工分析流程 v1 生成本次策略，当前还没有执行任何分析工具。" [level=1] [ref=e241]
+              - heading "任务理解" [level=3] [ref=e242]
+              - list [ref=e243]:
+                - listitem [ref=e244]: 用户目标：请制定提高这个酶比活力的分析策略，序列：MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQANNSTPAY
+              - heading "改造策略（先确认方向，再执行分析）" [level=3] [ref=e245]
+              - paragraph [ref=e246]:
+                - strong [ref=e247]: 比活力/催化效率：保护催化核心，优先调节口袋边缘和二壳层
+              - heading "本轮定制化依据" [level=4] [ref=e248]
+              - list [ref=e249]:
+                - listitem [ref=e250]:
+                  - text: 序列指纹
+                  - code [ref=e251]: b6e4cbf3cd
+                  - text: ：
+              - heading "41 aa，疏水=41.5%，带电=24.4%，Gly=2.4%，Pro=2." [level=2] [ref=e252]
+              - paragraph [ref=e253]: 4%，Cys=0。
+              - list [ref=e254]:
+                - listitem [ref=e255]: 1 potential N-glycosylation motif(s), first positions [35]
+                - listitem [ref=e256]: low Pro content suggests loop entropy-reduction substitutions may be worth testing
+                - listitem [ref=e257]: 已识别实验上下文键：protein_normalized, specific_activity；候选排序必须围绕这些证据。
+              - heading "策略逻辑" [level=4] [ref=e258]
+              - list [ref=e259]:
+                - listitem [ref=e260]: 先确认催化残基、底物结合约束和结构编号，再围绕比活力/催化效率拆解可调区域。
+                - listitem [ref=e261]: 候选优先来自口袋入口、通道和二壳层，而不是直接改造催化核心。
+                - listitem [ref=e262]: 同时评估活性收益、底物谱、表达和稳定性风险，避免只输出单一活性分数。
+                - listitem [ref=e263]: 实验顺序是单点方向验证、机制互补单点、通过上位性检查后再组合。
+                - listitem [ref=e264]:
+                  - strong [ref=e265]: 预期输出：
+                  - text: 最终输出候选位点、具体替换方向、催化/底物作用逻辑、风险和实验优先级。
+              - heading "执行流程" [level=3] [ref=e266]
+              - list [ref=e267]:
+                - listitem [ref=e268]:
+                  - code [ref=e269]: predict_properties
+                  - text: ：Compute objective-relevant physicochemical sequence features；参数：
+                  - code [ref=e270]: "{\"sequence\": \"MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQANNSTPAY\"}"
+                - listitem [ref=e271]:
+                  - code [ref=e272]: annotation_bundle
+                  - text: ：Resolve curated family/domain, EC, catalytic-site, cofactor, and signal-peptide evidence before engineering；参数：
+                  - code [ref=e273]: "{\"sequence\": \"MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQANNSTPAY\"}"
+                - listitem [ref=e274]:
+                  - code [ref=e275]: enzyme_identity_profile
+                  - text: ：Identify enzyme family, catalytic motifs, protected residues, and numbering guardrails before candidate ranking；参数：
+                  - code [ref=e276]: "{\"sequence\": \"MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQANNSTPAY\"}"
+                - listitem [ref=e277]:
+                  - code [ref=e278]: enzyme_objective_module_plan
+                  - text: ：Gate the objective-specific module and decide whether mutation candidate output is allowed；参数：
+                  - code [ref=e279]: "{\"objective\": \"activity\", \"assay_context\": {\"specific_activity\": true, \"protein_normalized\": true}}"
+                - listitem [ref=e280]:
+                  - code [ref=e281]: protein_benchmark
+                  - text: ：Characterize enzyme family, motifs, catalytic residues, and conserved constraints relevant to the objective；参数：
+                  - code [ref=e282]: "{\"query_sequence\": \"MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQANNSTPAY\"}"
+                - listitem [ref=e283]:
+                  - code [ref=e284]: enzyme_function
+                  - text: ：Predict EC number and enzyme class from sequence using curated motifs and ESM-2 embeddings；参数：
+                  - code [ref=e285]: "{\"sequence\": \"MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQANNSTPAY\"}"
+                - listitem [ref=e286]:
+                  - code [ref=e287]: esmfold_folding
+                  - text: ：Predict 3D structure for subsequent pocket, exposure, and catalytic-network interpretation；参数：
+                  - code [ref=e288]: "{\"sequence\": \"MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQANNSTPAY\"}"
+                - listitem [ref=e289]:
+                  - code [ref=e290]: mutation_priority_score
+                  - text: ：Score residues for activity engineering and rank Tier 1/2 candidates；参数：
+                  - code [ref=e291]: "{\"sequence\": \"MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQANNSTPAY\", \"engineering_goal\": \"activity\"}"
+                - listitem [ref=e292]:
+                  - code [ref=e293]: kcat_predict
+                  - text: ：Predict enzyme turnover number (Kcat) and catalytic efficiency；参数：
+                  - code [ref=e294]: "{\"protein_sequence\": \"MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQANNSTPAY\"}"
+                - listitem [ref=e295]:
+                  - code [ref=e296]: mutation_scan
+                  - text: ：Scan substitutions around candidate residues for activity/specificity engineering；参数：
+                  - code [ref=e297]: "{\"sequence\": \"MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQANNSTPAY\", \"scan_type\": \"alanine\"}"
+              - heading "确认方式" [level=3] [ref=e298]
+              - list [ref=e299]:
+                - listitem [ref=e300]:
+                  - text: 策略指纹：
+                  - code [ref=e301]: b07baf72c9680a4e
+                  - text: 。
+                - listitem [ref=e302]: 点“确认执行”后，只按上面列出的工具和参数执行；不会临时换成另一套通用流程。
+                - listitem [ref=e303]: 如果要调整策略，请在输入框写修改要求，我会重新出策略，不会直接执行。
+              - paragraph [ref=e304]: 状态：等待确认，未执行工具。
+            - button "发布到Wiki" [ref=e306]
+          - paragraph [ref=e324]: 确认执行上述分析策略
+          - generic [ref=e328]:
+            - button "predict_properties Complete" [ref=e330]:
+              - generic [ref=e334]: predict_properties
+              - generic [ref=e335]: Complete
+            - button "annotation_bundle Complete" [ref=e339]:
+              - generic [ref=e343]: annotation_bundle
+              - generic [ref=e344]: Complete
+            - button "enzyme_identity_profile Complete" [ref=e348]:
+              - generic [ref=e352]: enzyme_identity_profile
+              - generic [ref=e353]: Complete
+            - button "enzyme_objective_module_plan Complete" [ref=e357]:
+              - generic [ref=e361]: enzyme_objective_module_plan
+              - generic [ref=e362]: Complete
+            - button "protein_benchmark Complete" [ref=e366]:
+              - generic [ref=e370]: protein_benchmark
+              - generic [ref=e371]: Complete
+            - button "enzyme_function Complete" [ref=e375]:
+              - generic [ref=e379]: enzyme_function
+              - generic [ref=e380]: Complete
+            - button "esmfold_folding Submitted" [ref=e384]:
+              - generic [ref=e388]: esmfold_folding
+              - generic [ref=e389]: Submitted
+            - button "mutation_priority_score Complete" [ref=e393]:
+              - generic [ref=e397]: mutation_priority_score
+              - generic [ref=e398]: Complete
+            - button "kcat_predict Complete" [ref=e402]:
+              - generic [ref=e406]: kcat_predict
+              - generic [ref=e407]: Complete
+            - button "mutation_scan Complete" [ref=e411]:
+              - generic [ref=e415]: mutation_scan
+              - generic [ref=e416]: Complete
+          - generic [ref=e419]: Agent is responding
+        - generic [ref=e174]:
+          - generic [ref=e175]:
+            - generic [ref=e176]:
+              - button "GPT-5.5" [ref=e178]
+              - generic [ref=e185]:
+                - button "快" [ref=e189]
+                - button "标准" [pressed] [ref=e190]
+                - button "深度" [ref=e191]
+            - generic [ref=e192]: Streaming response...
+          - generic [ref=e193]:
+            - button [ref=e194]
+            - textbox "Describe your protein engineering task..." [ref=e423]
+            - button [disabled] [ref=e198]

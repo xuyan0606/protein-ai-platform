@@ -1,0 +1,107 @@
+{
+  "accession": "Q9ULG1",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00176",
+        "name": "SNF2-related domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000330",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ulg1",
+          "protein_length": 1556,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 521,
+                  "end": 821,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00176",
+              "score": 4.9e-82
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00271",
+        "name": "Helicase conserved C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001650",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ulg1",
+          "protein_length": 1556,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1105,
+                  "end": 1214,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00271",
+              "score": 3.8e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13892",
+        "name": "DNA-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR020838",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ulg1",
+          "protein_length": 1556,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 274,
+                  "end": 403,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF13892",
+              "score": 1.3e-44
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

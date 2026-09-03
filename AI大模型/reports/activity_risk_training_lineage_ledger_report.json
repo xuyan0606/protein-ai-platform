@@ -1,0 +1,26 @@
+{
+  "activity_risk_threshold": {
+    "blockers": [
+      "sample_replicate_group_thresholds_not_met"
+    ],
+    "group_count": 2,
+    "label_rows": 6,
+    "replicate_count": 0,
+    "thresholds_met": false
+  },
+  "authorization_matched_rows": 6,
+  "created_at": "2026-09-03T07:32:22.708045+00:00",
+  "feedback_matched_rows": 6,
+  "formal_label_rows": 6,
+  "ledger_rows": 6,
+  "local_only": true,
+  "missing_authorization_candidate_ids": [],
+  "missing_feedback_ids": [],
+  "output_jsonl": "datasets/governance/activity_risk_training_lineage_ledger.jsonl",
+  "policy": "Activity-risk lineage ledger only. It traces six formal labels and their remaining threshold blockers without importing training rows or opening model/release gates.",
+  "release_ready": false,
+  "replicate_rows_counted_for_training": 0,
+  "safe_for_model_claim": false,
+  "source_training_import_eligible_rows": 6,
+  "training_execution_allowed": false
+}

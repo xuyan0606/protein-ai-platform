@@ -1,0 +1,73 @@
+{
+  "accession": "P17405",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00149",
+        "name": "Calcineurin-like phosphoesterase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004843",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p17405",
+          "protein_length": 631,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 202,
+                  "end": 462,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00149",
+              "score": 2.2e-12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19272",
+        "name": "Acid sphingomyelin phosphodiesterase C-terminal region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR045473",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p17405",
+          "protein_length": 631,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 492,
+                  "end": 600,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF19272",
+              "score": 0.047
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

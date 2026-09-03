@@ -1,0 +1,24 @@
+{
+  "created_at": "2026-09-03T07:32:03.421544+00:00",
+  "local_only": true,
+  "feature_rows": 210,
+  "model_consumable_rows": 210,
+  "training_label_source_rows": 0,
+  "family_counts": {
+    "msa_conservation": 158,
+    "structure_graph": 34,
+    "pyrosetta_ddg_reu_input": 11,
+    "structure_site": 7
+  },
+  "pyrosetta_ddg_input_feature_rows": 11,
+  "pyrosetta_ddg_unique_mutation_groups": 7,
+  "pyrosetta_ddg_independent_training_sample_rows": 0,
+  "msa_cache_validation_ready": true,
+  "structure_graph_validation_ready": true,
+  "pyrosetta_ddg_validation_ready": true,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "index": "datasets/features/validated_feature_index.jsonl",
+  "policy": "Validated feature index exposes only validator-ready cached features for model input contracts. It does not import labels, train models, approve model claims, or release."
+}

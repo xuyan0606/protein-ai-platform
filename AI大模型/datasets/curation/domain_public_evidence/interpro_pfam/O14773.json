@@ -1,0 +1,73 @@
+{
+  "accession": "O14773",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00082",
+        "name": "Subtilase family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000209",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14773",
+          "protein_length": 563,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 317,
+                  "end": 490,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00082",
+              "score": 0.0066
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09286",
+        "name": "Pro-kumamolisin, activation domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015366",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14773",
+          "protein_length": 563,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 33,
+                  "end": 176,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09286",
+              "score": 2.7e-34
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

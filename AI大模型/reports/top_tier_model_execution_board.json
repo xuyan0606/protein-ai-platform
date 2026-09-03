@@ -1,0 +1,392 @@
+{
+  "created_at": "2026-09-03T07:34:36.563129+00:00",
+  "local_only": true,
+  "research_report": "reports/google_github_advanced_model_research_2026_07_28.json",
+  "workstreams": "datasets/governance/top_tier_model_workstreams.jsonl",
+  "start_packets": "datasets/governance/top_tier_model_start_packets.jsonl",
+  "total_workstreams": 12,
+  "started_workstreams": 12,
+  "blocked_workstreams": 9,
+  "ready_to_verify_workstreams": 3,
+  "completion_ready_workstreams": 0,
+  "priority_counts": {
+    "P0": 6,
+    "P1": 4,
+    "P2": 2
+  },
+  "current_readiness": {
+    "current_state_is_top_tier": false,
+    "safe_for_model_claim": false,
+    "release_ready": false,
+    "numbering_valid_rows": 4,
+    "msa_runtime_ready": true,
+    "feedback_training_eligible_rows": 7,
+    "feedback_numeric_training_eligible_rows": 6,
+    "plate_feedback_training_eligible_rows": 0,
+    "strict_msa_site_feature_rows": 0,
+    "external_benchmark_ready_for_model_claim": false,
+    "benchmark_score_cache_ready_for_model_claim": false,
+    "benchmark_score_cache_valid_rows": 13,
+    "reviewed_structure_graph_ready_for_coordinate_feature_use": true,
+    "reviewed_structure_graph_valid_rows": 34,
+    "ddg_backend_adapter_integrated": true,
+    "executable_ddg_backend_ready": true,
+    "proxy_ddg_backend_ready": true
+  },
+  "blocked_capabilities": [
+    "benchmark_score_cache",
+    "candidate_generation",
+    "ddg_stability",
+    "governance",
+    "kinetics_function",
+    "msa_conservation",
+    "sequence_plm_embeddings",
+    "structure_affinity_complex"
+  ],
+  "rows": [
+    {
+      "workstream_id": "p0_msa_cache_validator",
+      "priority": "P0",
+      "title": "MMseqs2 or trusted MSA/cache validator",
+      "capability": "msa_conservation",
+      "owner_role": "msa_runtime_operator",
+      "source_artifacts": [
+        "datasets/curation/msa_inputs/msa_targets.fasta",
+        "reports/msa_runtime_readiness_report.json",
+        "reports/msa_conservation_cache_validation_report.json"
+      ],
+      "target_artifacts": [
+        "reports/msa_conservation_cache_validation_report.json",
+        "cache/advanced_features/msa_conservation"
+      ],
+      "completion_checks": [
+        "runtime_ready or trusted cache ready",
+        "homolog database/cache manifest has version and checksum",
+        "target coverage > 0"
+      ],
+      "created_at": "2026-09-03T07:34:36.563129+00:00",
+      "local_only": true,
+      "started": true,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "blockers": [
+        "strict MSA site feature rows are zero after real-source label filtering"
+      ],
+      "policy": "Local execution workstream only; no external model execution, production sync, customer delivery, or model-quality claim."
+    },
+    {
+      "workstream_id": "p0_reviewed_structure_graph",
+      "priority": "P0",
+      "title": "Reviewed structure graph feature builder",
+      "capability": "structure_graph",
+      "owner_role": "structure_feature_engineer",
+      "source_artifacts": [
+        "datasets/curation/structure_chain_mapping_decisions.jsonl",
+        "reports/structure_chain_mapping_decision_validation_report.json",
+        "reports/structure_coordinate_feature_report.json"
+      ],
+      "target_artifacts": [
+        "cache/advanced_features/structure_graph",
+        "datasets/curation/structure_chain_mappings_curated.jsonl"
+      ],
+      "completion_checks": [
+        "reviewed chain mapping rows > 0",
+        "residue graph checksum exists",
+        "numbering_verified is true for exported rows"
+      ],
+      "created_at": "2026-09-03T07:34:36.563129+00:00",
+      "local_only": true,
+      "started": true,
+      "completion_ready": false,
+      "status": "started_ready_to_verify",
+      "blockers": [],
+      "policy": "Local execution workstream only; no external model execution, production sync, customer delivery, or model-quality claim."
+    },
+    {
+      "workstream_id": "p0_proteingym_benchmark_cache",
+      "priority": "P0",
+      "title": "ProteinGym-style benchmark cache and no-leak scorecard",
+      "capability": "benchmark_score_cache",
+      "owner_role": "benchmark_engineer",
+      "source_artifacts": [
+        "reports/benchmark_matrix_report.json",
+        "datasets/benchmark/benchmark_acquisition_plan.jsonl"
+      ],
+      "target_artifacts": [
+        "cache/advanced_features/benchmarks",
+        "reports/benchmark_matrix_report.json"
+      ],
+      "completion_checks": [
+        "dataset license/version recorded",
+        "protein/family/time split has no leakage",
+        "scorecard exists for mutation_rank_head"
+      ],
+      "created_at": "2026-09-03T07:34:36.563129+00:00",
+      "local_only": true,
+      "started": true,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "blockers": [
+        "external benchmark scorecard is not ready for model claim"
+      ],
+      "policy": "Local execution workstream only; no external model execution, production sync, customer delivery, or model-quality claim."
+    },
+    {
+      "workstream_id": "p0_kwb_wet_lab_feedback",
+      "priority": "P0",
+      "title": "KWB plate/well wet-lab feedback calibration",
+      "capability": "wet_lab_feedback_calibration",
+      "owner_role": "assay_feedback_curator",
+      "source_artifacts": [
+        "datasets/feedback/experiment_feedback_plate.local.jsonl",
+        "reports/experiment_feedback_plate_intake_validation_report.json",
+        "reports/experiment_feedback_intake_validation_report.json"
+      ],
+      "target_artifacts": [
+        "cache/advanced_features/wet_lab_feedback",
+        "datasets/feedback/experiment_feedback_features.jsonl"
+      ],
+      "completion_checks": [
+        "training eligible feedback rows > 0",
+        "units, conditions, replicates and QC are validated",
+        "numbering verified for feedback-linked variants"
+      ],
+      "created_at": "2026-09-03T07:34:36.563129+00:00",
+      "local_only": true,
+      "started": true,
+      "completion_ready": false,
+      "status": "started_ready_to_verify",
+      "blockers": [],
+      "policy": "Local execution workstream only; no external model execution, production sync, customer delivery, or model-quality claim."
+    },
+    {
+      "workstream_id": "p1_boltz2_structure_affinity",
+      "priority": "P1",
+      "title": "Boltz-2 structure/affinity adapter",
+      "capability": "structure_affinity_complex",
+      "owner_role": "structure_affinity_engineer",
+      "source_artifacts": [
+        "reports/foreign_tool_readiness_report.json",
+        "reports/google_github_advanced_model_research_2026_07_28.json"
+      ],
+      "target_artifacts": [
+        "cache/advanced_features/structure_affinity"
+      ],
+      "completion_checks": [
+        "license/runtime/model-weight gates pass",
+        "input ligand identity is verified",
+        "runtime log and checksum exist"
+      ],
+      "created_at": "2026-09-03T07:34:36.563129+00:00",
+      "local_only": true,
+      "started": true,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "blockers": [
+        "Boltz-2 license/runtime/data/model-weight readiness is not complete"
+      ],
+      "policy": "Local execution workstream only; no external model execution, production sync, customer delivery, or model-quality claim."
+    },
+    {
+      "workstream_id": "p1_thermompnn_stability",
+      "priority": "P1",
+      "title": "ThermoMPNN and ThermoMPNN-D stability adapters",
+      "capability": "ddg_stability",
+      "owner_role": "stability_adapter_engineer",
+      "source_artifacts": [
+        "reports/foreign_tool_readiness_report.json",
+        "datasets/curation/structure_chain_mappings_curated.jsonl"
+      ],
+      "target_artifacts": [
+        "cache/advanced_features/ddg_stability"
+      ],
+      "completion_checks": [
+        "reviewed structure rows exist",
+        "runtime/model-weight gates pass",
+        "ddG/proxy-ddG table has parameters and checksum"
+      ],
+      "created_at": "2026-09-03T07:34:36.563129+00:00",
+      "local_only": true,
+      "started": true,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "blockers": [
+        "ThermoMPNN runtime/model-weight readiness is not complete"
+      ],
+      "policy": "Local execution workstream only; no external model execution, production sync, customer delivery, or model-quality claim."
+    },
+    {
+      "workstream_id": "p1_plm_structure_representation",
+      "priority": "P1",
+      "title": "ESMC/SaProt/ProSST representation adapters",
+      "capability": "sequence_plm_embeddings",
+      "owner_role": "representation_model_engineer",
+      "source_artifacts": [
+        "reports/advanced_feature_cache_plan_report.json",
+        "reports/google_github_advanced_model_research_2026_07_28.json"
+      ],
+      "target_artifacts": [
+        "cache/advanced_features/sequence_plm",
+        "cache/advanced_features/structure_graph"
+      ],
+      "completion_checks": [
+        "per-model license and weight gates pass",
+        "embedding/token metadata has model version",
+        "input sequence or structure checksum exists"
+      ],
+      "created_at": "2026-09-03T07:34:36.563129+00:00",
+      "local_only": true,
+      "started": true,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "blockers": [
+        "PLM license/runtime/model-weight readiness must be reviewed per model"
+      ],
+      "policy": "Local execution workstream only; no external model execution, production sync, customer delivery, or model-quality claim."
+    },
+    {
+      "workstream_id": "p1_catpred_kinetics",
+      "priority": "P1",
+      "title": "CatPred kinetics/function adapter",
+      "capability": "kinetics_function",
+      "owner_role": "enzyme_kinetics_engineer",
+      "source_artifacts": [
+        "reports/foreign_tool_readiness_report.json",
+        "reports/google_github_advanced_model_research_2026_07_28.json"
+      ],
+      "target_artifacts": [
+        "cache/advanced_features/kinetics_function"
+      ],
+      "completion_checks": [
+        "substrate SMILES/InChI mapping is verified",
+        "assay condition metadata exists",
+        "calibration report exists before claim use"
+      ],
+      "created_at": "2026-09-03T07:34:36.563129+00:00",
+      "local_only": true,
+      "started": true,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "blockers": [
+        "CatPred runtime/data/calibration readiness is not complete"
+      ],
+      "policy": "Local execution workstream only; no external model execution, production sync, customer delivery, or model-quality claim."
+    },
+    {
+      "workstream_id": "p2_ligandmpnn_generation_gate",
+      "priority": "P2",
+      "title": "LigandMPNN/ProteinMPNN candidate generation gate",
+      "capability": "candidate_generation",
+      "owner_role": "candidate_generation_engineer",
+      "source_artifacts": [
+        "reports/biosecurity_readiness_report.json",
+        "reports/operator_review_status_report.json",
+        "reports/google_github_advanced_model_research_2026_07_28.json"
+      ],
+      "target_artifacts": [
+        "cache/advanced_features/candidate_generation"
+      ],
+      "completion_checks": [
+        "protected sites are fixed or manually approved",
+        "biosecurity and human approval gates pass",
+        "candidate output remains design_candidate only"
+      ],
+      "created_at": "2026-09-03T07:34:36.563129+00:00",
+      "local_only": true,
+      "started": true,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "blockers": [
+        "biosecurity ordering gate is not ready",
+        "human/operator approval gate is not ready"
+      ],
+      "policy": "Local execution workstream only; no external model execution, production sync, customer delivery, or model-quality claim."
+    },
+    {
+      "workstream_id": "p2_rfdiffusion2_generation_gate",
+      "priority": "P2",
+      "title": "RFdiffusion2 enzyme active-site scaffold generation gate",
+      "capability": "candidate_generation",
+      "owner_role": "generative_design_reviewer",
+      "source_artifacts": [
+        "reports/biosecurity_readiness_report.json",
+        "reports/operator_review_status_report.json",
+        "reports/google_github_advanced_model_research_2026_07_28.json"
+      ],
+      "target_artifacts": [
+        "cache/advanced_features/candidate_generation"
+      ],
+      "completion_checks": [
+        "license/runtime gates pass",
+        "motif/protected-site constraints are reviewed",
+        "no order-ready sequence export is enabled"
+      ],
+      "created_at": "2026-09-03T07:34:36.563129+00:00",
+      "local_only": true,
+      "started": true,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "blockers": [
+        "biosecurity ordering gate is not ready",
+        "human/operator approval gate is not ready"
+      ],
+      "policy": "Local execution workstream only; no external model execution, production sync, customer delivery, or model-quality claim."
+    },
+    {
+      "workstream_id": "cross_rosetta_foldx_ddg_backend",
+      "priority": "P0",
+      "title": "Rosetta/PyRosetta/FoldX ddG backend gate",
+      "capability": "ddg_stability",
+      "owner_role": "ddg_backend_operator",
+      "source_artifacts": [
+        "reports/enzyme_analysis_constraint_policy_report.json",
+        "reports/foreign_tool_readiness_report.json"
+      ],
+      "target_artifacts": [
+        "cache/advanced_features/ddg_stability"
+      ],
+      "completion_checks": [
+        "commercial license/legal review is recorded",
+        "runtime command and parameters are versioned",
+        "negative ddG stabilization convention is preserved"
+      ],
+      "created_at": "2026-09-03T07:34:36.563129+00:00",
+      "local_only": true,
+      "started": true,
+      "completion_ready": false,
+      "status": "started_ready_to_verify",
+      "blockers": [],
+      "policy": "Local execution workstream only; no external model execution, production sync, customer delivery, or model-quality claim."
+    },
+    {
+      "workstream_id": "cross_license_runtime_weight_gate",
+      "priority": "P0",
+      "title": "Global license/runtime/model-weight gate",
+      "capability": "governance",
+      "owner_role": "release_governance_reviewer",
+      "source_artifacts": [
+        "reports/foreign_tool_readiness_report.json",
+        "reports/external_license_review_decision_validation_report.json",
+        "reports/local_release_manifest.json"
+      ],
+      "target_artifacts": [
+        "reports/local_release_manifest.json"
+      ],
+      "completion_checks": [
+        "license decisions are approved",
+        "runtime/model-weight/data readiness is true",
+        "release_ready remains false until all claim gates pass"
+      ],
+      "created_at": "2026-09-03T07:34:36.563129+00:00",
+      "local_only": true,
+      "started": true,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "blockers": [
+        "release remains fail-closed"
+      ],
+      "policy": "Local execution workstream only; no external model execution, production sync, customer delivery, or model-quality claim."
+    }
+  ],
+  "policy": "All top-tier model workstreams are started locally and fail closed. This board does not install tools, run external models, generate synthetic features, approve ordering, or unlock model-quality claims."
+}

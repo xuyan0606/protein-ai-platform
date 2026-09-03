@@ -1,0 +1,107 @@
+{
+  "accession": "P26640",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00043",
+        "name": "Glutathione S-transferase, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004046",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p26640",
+          "protein_length": 1264,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 109,
+                  "end": 198,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00043",
+              "score": 9.2e-12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00133",
+        "name": "tRNA synthetases class I (I, L, M and V)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002300",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p26640",
+          "protein_length": 1264,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 309,
+                  "end": 939,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00133",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08264",
+        "name": "Anticodon-binding domain of tRNA ligase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013155",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p26640",
+          "protein_length": 1264,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 984,
+                  "end": 1132,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08264",
+              "score": 1.1e-27
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "mode": "stage25_post_source_drop_rerun_receipt_regression",
+  "success": true,
+  "isolated_fixture": true,
+  "real_inputs_mutated": false,
+  "case_count": 9,
+  "passed_case_count": 9,
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case": "fixture_control",
+      "passed": true,
+      "returncode": 0,
+      "failure_count": 0
+    },
+    {
+      "case": "builder_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "failure_count": 3,
+      "expected_check": "builder_script_sha256_current",
+      "observed_checks": [
+        "builder_script_sha256_current",
+        "output_path_canonical",
+        "builder_output_contract_canonical"
+      ]
+    },
+    {
+      "case": "command_contract_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "failure_count": 3,
+      "expected_check": "receipt_command_contract_sha256",
+      "observed_checks": [
+        "output_path_canonical",
+        "builder_output_contract_canonical",
+        "receipt_command_contract_sha256"
+      ]
+    },
+    {
+      "case": "output_path_drift",
+      "passed": true,
+      "returncode": 1,
+      "failure_count": 2,
+      "expected_check": "output_path_canonical",
+      "observed_checks": [
+        "output_path_canonical",
+        "builder_output_contract_canonical"
+      ]
+    },
+    {
+      "case": "lock_path_drift",
+      "passed": true,
+      "returncode": 1,
+      "failure_count": 3,
+      "expected_check": "lock_path_canonical",
+      "observed_checks": [
+        "output_path_canonical",
+        "lock_path_canonical",
+        "builder_output_contract_canonical"
+      ]
+    },
+    {
+      "case": "command_rows_drift",
+      "passed": true,
+      "returncode": 1,
+      "failure_count": 4,
+      "expected_check": "command_rows",
+      "observed_checks": [
+        "output_path_canonical",
+        "builder_output_contract_canonical",
+        "command_rows",
+        "commands_len_matches"
+      ]
+    },
+    {
+      "case": "command_entry_drift",
+      "passed": true,
+      "returncode": 1,
+      "failure_count": 5,
+      "expected_check": "commands_exact_contract",
+      "observed_checks": [
+        "output_path_canonical",
+        "builder_output_contract_canonical",
+        "observed_command_contract_sha256",
+        "commands_exact_contract",
+        "command_names_exact_order"
+      ]
+    },
+    {
+      "case": "lock_acquired_drift",
+      "passed": true,
+      "returncode": 1,
+      "failure_count": 3,
+      "expected_check": "lock_acquired_true",
+      "observed_checks": [
+        "output_path_canonical",
+        "builder_output_contract_canonical",
+        "lock_acquired_true"
+      ]
+    },
+    {
+      "case": "atomic_commit_drift",
+      "passed": true,
+      "returncode": 1,
+      "failure_count": 3,
+      "expected_check": "receipt_atomic_commit_true",
+      "observed_checks": [
+        "output_path_canonical",
+        "builder_output_contract_canonical",
+        "receipt_atomic_commit_true"
+      ]
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

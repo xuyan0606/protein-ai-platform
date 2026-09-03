@@ -1,0 +1,97 @@
+{
+  "accession": "P19367",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00349",
+        "name": "Hexokinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022672",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p19367",
+          "protein_length": 917,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 22,
+                  "end": 219,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00349",
+              "score": 8.1e-68
+            },
+            {
+              "fragments": [
+                {
+                  "start": 470,
+                  "end": 667,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00349",
+              "score": 8.4e-73
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03727",
+        "name": "Hexokinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022673",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p19367",
+          "protein_length": 917,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 226,
+                  "end": 459,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03727",
+              "score": 9.7e-76
+            },
+            {
+              "fragments": [
+                {
+                  "start": 674,
+                  "end": 907,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03727",
+              "score": 3.7e-78
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

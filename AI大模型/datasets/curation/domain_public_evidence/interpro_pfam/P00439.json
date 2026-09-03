@@ -1,0 +1,73 @@
+{
+  "accession": "P00439",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00351",
+        "name": "Biopterin-dependent aromatic amino acid hydroxylase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019774",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p00439",
+          "protein_length": 452,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 119,
+                  "end": 449,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00351",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01842",
+        "name": "ACT domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002912",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p00439",
+          "protein_length": 452,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 36,
+                  "end": 98,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01842",
+              "score": 5.1e-07
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

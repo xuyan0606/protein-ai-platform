@@ -1,0 +1,78 @@
+{
+  "accession": "P78549",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00633",
+        "name": "Helix-hairpin-helix motif",
+        "source_database": "pfam",
+        "type": "conserved_site",
+        "integrated": "IPR000445",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p78549",
+          "protein_length": 304,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 192,
+                  "end": 215,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00633",
+              "score": 1.3e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00730",
+        "name": "HhH-GPD superfamily base excision DNA repair protein",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003265",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p78549",
+          "protein_length": 304,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 127,
+                  "end": 191,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 216,
+                  "end": 263,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": false,
+              "model": "PF00730",
+              "score": 1.3e-22
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

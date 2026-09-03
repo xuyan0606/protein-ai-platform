@@ -1,0 +1,39 @@
+{
+  "accession": "Q147X3",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00583",
+        "name": "Acetyltransferase (GNAT) family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000182",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q147x3",
+          "protein_length": 362,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 225,
+                  "end": 338,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00583",
+              "score": 1.8e-17
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

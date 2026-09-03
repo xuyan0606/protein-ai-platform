@@ -1,0 +1,73 @@
+{
+  "accession": "P0DPD6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01431",
+        "name": "Peptidase family M13",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR018497",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p0dpd6",
+          "protein_length": 811,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 607,
+                  "end": 810,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01431",
+              "score": 3.4e-68
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05649",
+        "name": "Peptidase family M13",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR008753",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p0dpd6",
+          "protein_length": 811,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 162,
+                  "end": 548,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05649",
+              "score": 3.5e-126
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

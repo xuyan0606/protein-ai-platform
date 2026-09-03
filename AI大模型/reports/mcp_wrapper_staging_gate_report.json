@@ -1,0 +1,14 @@
+{
+  "created_at": "2026-09-03T07:33:44.979864+00:00",
+  "queue_rows": 3,
+  "schema_path": "contracts/mcp_wrapper_staging.schema.json",
+  "schema_present": true,
+  "staging_ready_rows": 0,
+  "production_allowed_rows": 0,
+  "agent_exposure_allowed_rows": 0,
+  "training_write_allowed_rows": 0,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Wrappers may be described in staging only. No wrapper is exposed to agents, production, training import, model claim, or release without explicit checksum/license/runtime/schema/smoke receipts.",
+  "queue_path": "datasets/governance/mcp_wrapper_staging_queue.jsonl"
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "P35558",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00821",
+        "name": "Phosphoenolpyruvate carboxykinase C-terminal P-loop domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR035077",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p35558",
+          "protein_length": 622,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 260,
+                  "end": 618,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00821",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17297",
+        "name": "Phosphoenolpyruvate carboxykinase N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR035078",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p35558",
+          "protein_length": 622,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 29,
+                  "end": 256,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17297",
+              "score": 3.7e-91
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "accession": "A0A087X1C5",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00067",
+        "name": "Cytochrome P450",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001128",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "a0a087x1c5",
+          "protein_length": 515,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 34,
+                  "end": 329,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00067",
+              "score": 7e-59
+            },
+            {
+              "fragments": [
+                {
+                  "start": 348,
+                  "end": 511,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00067",
+              "score": 1.2e-57
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

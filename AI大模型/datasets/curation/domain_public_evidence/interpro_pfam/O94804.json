@@ -1,0 +1,85 @@
+{
+  "accession": "O94804",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00069",
+        "name": "Protein kinase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000719",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94804",
+          "protein_length": 968,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 37,
+                  "end": 294,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00069",
+              "score": 2.6e-61
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12474",
+        "name": "Polo kinase kinase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR022165",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94804",
+          "protein_length": 968,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 587,
+                  "end": 725,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF12474",
+              "score": 3e-33
+            },
+            {
+              "fragments": [
+                {
+                  "start": 755,
+                  "end": 895,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF12474",
+              "score": 3.3e-30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

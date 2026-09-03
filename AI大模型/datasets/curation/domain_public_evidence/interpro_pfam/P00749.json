@@ -1,0 +1,73 @@
+{
+  "accession": "P00749",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00051",
+        "name": "Kringle domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000001",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p00749",
+          "protein_length": 431,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 70,
+                  "end": 151,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00051",
+              "score": 6.5e-19
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00089",
+        "name": "Trypsin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001254",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p00749",
+          "protein_length": 431,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 179,
+                  "end": 419,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00089",
+              "score": 2.3e-58
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

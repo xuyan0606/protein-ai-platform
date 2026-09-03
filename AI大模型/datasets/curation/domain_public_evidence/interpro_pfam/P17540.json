@@ -1,0 +1,73 @@
+{
+  "accession": "P17540",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00217",
+        "name": "ATP:guanido phosphotransferase, C-terminal catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022414",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p17540",
+          "protein_length": 419,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 187,
+                  "end": 400,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00217",
+              "score": 4.3e-71
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02807",
+        "name": "ATP:guanido phosphotransferase, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022413",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p17540",
+          "protein_length": 419,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 59,
+                  "end": 128,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02807",
+              "score": 7.2e-28
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+EntryID	Substrate	Product	EnzymeType	PubMedID	Organism	UniprotID	ECNumber	pH	Temperature	parameter.type	parameter.associatedSpecies	parameter.startValue	parameter.endValue	parameter.standardDeviation	parameter.unit
+39415	O2;H+;Cyclohexanone;NADPH	NADP+;H2O;6-Hexanolide	wildtype	4144074	Nocardia globerula		1.14.13.22	8.4	30.0	Km	Cyclohexanone	1.5E-6		-	M
+39415	O2;H+;Cyclohexanone;NADPH	NADP+;H2O;6-Hexanolide	wildtype	4144074	Nocardia globerula		1.14.13.22	8.4	30.0	Km	NADPH	3.1E-5		-	M
+46792	H+;O2;Cyclohexanone;NADPH	H2O;6-Hexanolide;NADP+	wildtype	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	Km	NADPH	7.3E-6		1.4E-6	M
+46792	H+;O2;Cyclohexanone;NADPH	H2O;6-Hexanolide;NADP+	wildtype	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	kcat/Km	NADPH	1900000.0		-	M^(-1)*s^(-1)
+46792	H+;O2;Cyclohexanone;NADPH	H2O;6-Hexanolide;NADP+	wildtype	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	kcat		14.0		5E-1	s^(-1)
+46792	H+;O2;Cyclohexanone;NADPH	H2O;6-Hexanolide;NADP+	wildtype	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	concentration	Cyclohexanone	1.0E-4		-	M
+46793	H+;NADH;O2;Cyclohexanone	NAD+;H2O;6-Hexanolide	wildtype	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	Km	NADH	4.2E-4		8E-5	M
+46793	H+;NADH;O2;Cyclohexanone	NAD+;H2O;6-Hexanolide	wildtype	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	kcat/Km	NADH	3300.0		-	M^(-1)*s^(-1)
+46793	H+;NADH;O2;Cyclohexanone	NAD+;H2O;6-Hexanolide	wildtype	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	kcat		1.4		1E-1	s^(-1)
+46793	H+;NADH;O2;Cyclohexanone	NAD+;H2O;6-Hexanolide	wildtype	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	concentration	Cyclohexanone	1.0E-4		-	M
+46794	H+;NADPH;Cyclohexanone;O2	H2O;NADP+;6-Hexanolide	mutant K326A	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	kcat/Km	NADPH	23000.0		-	M^(-1)*s^(-1)
+46794	H+;NADPH;Cyclohexanone;O2	H2O;NADP+;6-Hexanolide	mutant K326A	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	Km	NADPH	1.6E-4		3E-5	M
+46794	H+;NADPH;Cyclohexanone;O2	H2O;NADP+;6-Hexanolide	mutant K326A	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	kcat		3.7		2E-1	s^(-1)
+46794	H+;NADPH;Cyclohexanone;O2	H2O;NADP+;6-Hexanolide	mutant K326A	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	concentration	Cyclohexanone	1.0E-4		-	M
+46795	Cyclohexanone;NADH;O2;H+	6-Hexanolide;H2O;NAD+	mutant K326A	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	kcat		0.5		1E-1	s^(-1)
+46795	Cyclohexanone;NADH;O2;H+	6-Hexanolide;H2O;NAD+	mutant K326A	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	kcat/Km	NADH	2200.0		-	M^(-1)*s^(-1)
+46795	Cyclohexanone;NADH;O2;H+	6-Hexanolide;H2O;NAD+	mutant K326A	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	concentration	Cyclohexanone	1.0E-4		-	M
+46795	Cyclohexanone;NADH;O2;H+	6-Hexanolide;H2O;NAD+	mutant K326A	15153101	Pseudomonas fluorescens		1.14.13.22	9.0	25.0	Km	NADH	2.3E-4		1E-4	M

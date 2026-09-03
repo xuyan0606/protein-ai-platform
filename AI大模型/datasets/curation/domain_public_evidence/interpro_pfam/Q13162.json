@@ -1,0 +1,73 @@
+{
+  "accession": "Q13162",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00578",
+        "name": "AhpC/TSA family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000866",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13162",
+          "protein_length": 271,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 82,
+                  "end": 213,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00578",
+              "score": 5.2e-32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF10417",
+        "name": "C-terminal domain of 1-Cys peroxiredoxin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019479",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13162",
+          "protein_length": 271,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 234,
+                  "end": 261,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10417",
+              "score": 1.1e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

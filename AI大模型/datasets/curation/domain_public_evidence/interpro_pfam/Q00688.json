@@ -1,0 +1,73 @@
+{
+  "accession": "Q00688",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00254",
+        "name": "FKBP-type peptidyl-prolyl cis-trans isomerase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001179",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q00688",
+          "protein_length": 224,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 123,
+                  "end": 221,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00254",
+              "score": 1.2e-28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18410",
+        "name": "Basic tilted helix bundle domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041200",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q00688",
+          "protein_length": 224,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 6,
+                  "end": 77,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18410",
+              "score": 6.2e-31
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

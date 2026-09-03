@@ -1,0 +1,115 @@
+{
+  "created_at": "2026-09-03T07:34:02.492485+00:00",
+  "local_only": true,
+  "source_blockers": "datasets/governance/next_unlock_blockers.jsonl",
+  "source_operator_index": "datasets/governance/next_unlock_operator_index.jsonl",
+  "jsonl": "datasets/governance/next_unlock_remediation_queue.jsonl",
+  "queue_rows": 8,
+  "open_items": 8,
+  "ready_to_start_items": 8,
+  "requires_human_input_items": 8,
+  "critical_items": 5,
+  "high_items": 2,
+  "medium_items": 1,
+  "workstream_items": {
+    "biosecurity_screening": 1,
+    "external_license_review": 1,
+    "model_claim": 1,
+    "numbering_curation": 1,
+    "operator_review_actions": 1,
+    "plate_feedback_intake": 1,
+    "sequence_ip_fto": 1,
+    "workstream_acceptance": 1
+  },
+  "top_queue": [
+    {
+      "execution_order": 1,
+      "remediation_id": "P43-A001-REMEDIATION",
+      "workstream": "numbering_curation",
+      "severity": "critical",
+      "blocker_count": 2,
+      "operator_open_first": "datasets/curation/numbering_review_packets/",
+      "next_evidence_artifacts": [
+        "datasets/curation/numbering_curation_decisions.jsonl"
+      ]
+    },
+    {
+      "execution_order": 2,
+      "remediation_id": "P43-A006-REMEDIATION",
+      "workstream": "plate_feedback_intake",
+      "severity": "critical",
+      "blocker_count": 1,
+      "operator_open_first": "datasets/feedback/plate_review_packets/feedback_plate_review_priority_001.jsonl",
+      "next_evidence_artifacts": [
+        "datasets/feedback/experiment_feedback_plate.local.jsonl"
+      ]
+    },
+    {
+      "execution_order": 3,
+      "remediation_id": "P43-A007-REMEDIATION",
+      "workstream": "external_license_review",
+      "severity": "critical",
+      "blocker_count": 2,
+      "operator_open_first": "datasets/governance/external_license_review_packets.jsonl",
+      "next_evidence_artifacts": [
+        "datasets/governance/external_license_review_decisions.jsonl"
+      ]
+    },
+    {
+      "execution_order": 4,
+      "remediation_id": "P43-A008-REMEDIATION",
+      "workstream": "biosecurity_screening",
+      "severity": "critical",
+      "blocker_count": 2,
+      "operator_open_first": "datasets/governance/biosecurity_screening_drafts.jsonl",
+      "next_evidence_artifacts": [
+        "datasets/governance/biosecurity_screening_decisions.jsonl"
+      ]
+    },
+    {
+      "execution_order": 5,
+      "remediation_id": "P43-A009-REMEDIATION",
+      "workstream": "sequence_ip_fto",
+      "severity": "critical",
+      "blocker_count": 2,
+      "operator_open_first": "datasets/curation/sequence_ip_review_packets/",
+      "next_evidence_artifacts": [
+        "datasets/governance/sequence_ip_fto_decisions.jsonl"
+      ]
+    },
+    {
+      "execution_order": 6,
+      "remediation_id": "P43-A010-REMEDIATION",
+      "workstream": "workstream_acceptance",
+      "severity": "high",
+      "blocker_count": 1,
+      "operator_open_first": "reports/workstream_acceptance_gates.json",
+      "next_evidence_artifacts": [
+        "datasets/governance/workstream_acceptance_decisions.jsonl"
+      ]
+    },
+    {
+      "execution_order": 7,
+      "remediation_id": "P43-A011-REMEDIATION",
+      "workstream": "operator_review_actions",
+      "severity": "high",
+      "blocker_count": 1,
+      "operator_open_first": "datasets/governance/operator_review_action_queue.jsonl",
+      "next_evidence_artifacts": [
+        "datasets/governance/operator_review_action_decisions.jsonl"
+      ]
+    },
+    {
+      "execution_order": 8,
+      "remediation_id": "P43-A012-REMEDIATION",
+      "workstream": "model_claim",
+      "severity": "medium",
+      "blocker_count": 4,
+      "operator_open_first": "reports/claim_readiness_matrix.json",
+      "next_evidence_artifacts": [
+        "reports/claim_readiness_matrix.json"
+      ]
+    }
+  ],
+  "policy": "This remediation queue is a local planning artifact only; it does not write reviewed decisions, grant approvals, unlock claims, download tools, deploy services, sync files, or restart servers."
+}

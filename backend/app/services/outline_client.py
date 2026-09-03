@@ -81,7 +81,7 @@ class OutlineClient:
         payload: dict[str, Any] = {
             "name": name,
             "description": description,
-            "permission": "member",
+            "permission": "read_write",
         }
         if parent_id:
             payload["parentId"] = parent_id
@@ -211,6 +211,7 @@ class OutlineClient:
     async def list_documents(
         self,
         collection_id: str,
+        parent_document_id: str | None = None,
         limit: int = 100,
     ) -> list[dict]:
         """List all documents in a collection.
@@ -226,11 +227,73 @@ class OutlineClient:
             resp = await client.post(
                 f"{self.api_url}/documents.list",
                 headers=self._headers,
-                json={"collectionId": collection_id, "limit": limit},
+                json={
+                    "collectionId": collection_id,
+                    "parentDocumentId": parent_document_id,
+                    "limit": limit,
+                    "sort": "updatedAt",
+                    "direction": "DESC",
+                },
             )
             resp.raise_for_status()
             data = resp.json()
             return data.get("data", [])
+
+    async def get_collection_tree(self, collection_id: str) -> list[dict]:
+        """Fetch the hierarchical document tree for a collection.
+
+        Prefer Outline's native tree endpoint, but fall back to recursive
+        documents.list calls because some deployments intermittently return
+        403 for collections.documents even when document APIs still work.
+        """
+        try:
+            async with httpx.AsyncClient(timeout=_TIMEOUT) as client:
+                resp = await client.post(
+                    f"{self.api_url}/collections.documents",
+                    headers=self._headers,
+                    json={"id": collection_id},
+                )
+                resp.raise_for_status()
+                data = resp.json()
+                return data.get("data", [])
+        except httpx.HTTPStatusError as e:
+            logger.warning(
+                "collections.documents failed for collection %s with %s, falling back to documents.list",
+                collection_id,
+                e.response.status_code,
+            )
+        except Exception as e:
+            logger.warning(
+                "collections.documents failed for collection %s, falling back to documents.list: %s",
+                collection_id,
+                e,
+            )
+
+        return await self._build_collection_tree(collection_id, parent_document_id=None, seen=set())
+
+    async def _build_collection_tree(
+        self,
+        collection_id: str,
+        parent_document_id: str | None,
+        seen: set[str],
+    ) -> list[dict]:
+        documents = await self.list_documents(
+            collection_id=collection_id,
+            parent_document_id=parent_document_id,
+            limit=200,
+        )
+        tree: list[dict] = []
+        for doc in documents:
+            doc_id = doc.get("id")
+            if not doc_id or doc_id in seen:
+                continue
+            seen.add(doc_id)
+            children = await self._build_collection_tree(collection_id, doc_id, seen)
+            tree.append({
+                **doc,
+                "children": children,
+            })
+        return tree
 
     # ------------------------------------------------------------------
     # Health

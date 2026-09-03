@@ -1,0 +1,130 @@
+{
+  "created_at": "2026-09-03T07:34:02.267786+00:00",
+  "local_only": true,
+  "plan": "reports/next_unlock_plan.json",
+  "actions": "datasets/governance/next_unlock_actions.jsonl",
+  "packets": "datasets/governance/next_unlock_start_packets.jsonl",
+  "total_actions": 12,
+  "started_actions": 12,
+  "not_started_actions": 0,
+  "completion_ready_actions": 0,
+  "stage_count": 7,
+  "started_stage_count": 7,
+  "completion_ready_stage_count": 0,
+  "not_started": [],
+  "stages": [
+    {
+      "stage_id": "unlock_training_threshold",
+      "order": 1,
+      "title": "Reach the strict supervised-row threshold",
+      "plan_status": "blocked",
+      "action_packets": 1,
+      "started_packets": 1,
+      "missing_artifact_packets": 0,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "upstream_blockers": [
+        "strict supervised rows are 0/100",
+        "numbering curation still has 471 missing reviewed rows"
+      ]
+    },
+    {
+      "stage_id": "unlock_coordinate_features",
+      "order": 2,
+      "title": "Expand reviewed structure chain mappings",
+      "plan_status": "blocked",
+      "action_packets": 1,
+      "started_packets": 1,
+      "missing_artifact_packets": 0,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "upstream_blockers": [
+        "structure chain mapping still has 466 missing reviewed rows"
+      ]
+    },
+    {
+      "stage_id": "complete_domain_tail",
+      "order": 3,
+      "title": "Finish unresolved domain occurrence selection",
+      "plan_status": "ready_to_verify",
+      "action_packets": 1,
+      "started_packets": 1,
+      "missing_artifact_packets": 0,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "upstream_blockers": []
+    },
+    {
+      "stage_id": "unlock_msa_conservation",
+      "order": 4,
+      "title": "Make MSA/conservation runtime or cache ready",
+      "plan_status": "ready_to_verify",
+      "action_packets": 1,
+      "started_packets": 1,
+      "missing_artifact_packets": 0,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "upstream_blockers": [
+        "docker daemon not reachable or not running"
+      ]
+    },
+    {
+      "stage_id": "unlock_feedback_loop",
+      "order": 5,
+      "title": "Create verified experiment feedback intake",
+      "plan_status": "blocked",
+      "action_packets": 2,
+      "started_packets": 2,
+      "missing_artifact_packets": 0,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "upstream_blockers": [
+        "experiment feedback intake has 0 eligible rows",
+        "plate feedback intake has 0 eligible rows"
+      ]
+    },
+    {
+      "stage_id": "unlock_governance_delivery",
+      "order": 6,
+      "title": "Complete governance, delivery, and operator decisions",
+      "plan_status": "blocked",
+      "action_packets": 5,
+      "started_packets": 5,
+      "missing_artifact_packets": 0,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "upstream_blockers": [
+        "external data source commercial/redistribution review is incomplete",
+        "external data source registry validation is not ready",
+        "verified external data/tool customer-delivery authorization scope is not ready",
+        "head-level benchmark matrix is not ready for model claims",
+        "biosecurity/order approval is not ready",
+        "sequence IP/FTO decisions are not ready for customer delivery",
+        "master readiness board is blocked for model claim",
+        "data_license_clearance",
+        "tool_license_clearance",
+        "verified_component_customer_delivery_scope",
+        "ip_fto_review",
+        "biosecurity_approval",
+        "human_delivery_approval",
+        "allowed_claims_review",
+        "benchmark_scorecards"
+      ]
+    },
+    {
+      "stage_id": "unlock_model_claim",
+      "order": 7,
+      "title": "Re-evaluate model-quality and release claims",
+      "plan_status": "blocked",
+      "action_packets": 1,
+      "started_packets": 1,
+      "missing_artifact_packets": 0,
+      "completion_ready": false,
+      "status": "started_blocked",
+      "upstream_blockers": [
+        "blocked claims remain: ['local_safe_training_pipeline', 'model_quality_claim', 'five_head_training_run', 'active_learning_experiment_submission', 'customer_sequence_package', 'approved_for_ordering', 'ip_fto_cleared', 'biosecurity_screened', 'external_tool_production_use', 'local_release_review_package']"
+      ]
+    }
+  ],
+  "policy": "All actions are local work starts only. Human/legal/biosecurity/operator decisions must still be written to their reviewed decision inputs and pass validators before any unlock is ready."
+}

@@ -1,0 +1,32 @@
+{
+  "manifest_id": "kwb_mmseqs2_local_runtime_manifest",
+  "version": "1.0.0",
+  "created_at": "2026-09-03T07:32:00.651914+00:00",
+  "local_only": true,
+  "tool_id": "mmseqs2",
+  "source_url": "https://mmseqs.com/latest/mmseqs-osx-universal.tar.gz",
+  "source_root": "cache/external/MMseqs2",
+  "archive_path": "/private/tmp/mmseqs-osx-universal.tar.gz",
+  "archive_sha256": null,
+  "binary_path": "cache/external/MMseqs2/bin/mmseqs",
+  "binary_sha256": "8a13c3c252adc296c3f2996389be657cb42f3a3f24beb145d500f21b84a0a33d",
+  "binary_version": "17b688d21dda57fc5f5b7286ecba7ec003d4717f",
+  "file_count": 50,
+  "missing_important_files": [],
+  "version_probe": {
+    "returncode": 0,
+    "stdout": "17b688d21dda57fc5f5b7286ecba7ec003d4717f",
+    "stderr": ""
+  },
+  "help_probe_returncode": 0,
+  "file_probe": {
+    "returncode": 0,
+    "stdout": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/MMseqs2/bin/mmseqs: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]\n/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/MMseqs2/bin/mmseqs (for architecture x86_64):\tMach-O 64-bit executable x86_64\n/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/MMseqs2/bin/mmseqs (for architecture arm64):\tMach-O 64-bit executable arm64",
+    "stderr": ""
+  },
+  "is_universal_macos_binary": true,
+  "supports_arm64": true,
+  "license_path": "cache/external/MMseqs2/LICENSE.md",
+  "safe_for_model_claim": false,
+  "policy": "Runtime package evidence only. Homolog database and cache validation are still required before MSA/conservation feature generation."
+}

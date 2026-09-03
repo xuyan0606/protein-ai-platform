@@ -1,0 +1,78 @@
+{
+  "accession": "Q96KP4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01546",
+        "name": "Peptidase family M20/M25/M40",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002933",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96kp4",
+          "protein_length": 475,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 95,
+                  "end": 207,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 367,
+                  "end": 468,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": false,
+              "model": "PF01546",
+              "score": 3.2e-29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07687",
+        "name": "Peptidase dimerisation domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011650",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96kp4",
+          "protein_length": 475,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 208,
+                  "end": 366,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07687",
+              "score": 2.8e-08
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

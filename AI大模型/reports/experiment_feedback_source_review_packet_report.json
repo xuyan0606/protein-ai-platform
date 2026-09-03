@@ -1,0 +1,154 @@
+{
+  "input_rows": 308,
+  "packets": 17,
+  "packet_rows": 308,
+  "draft_rows": 308,
+  "bucket_counts": {
+    "historical_feedback_candidate": 4,
+    "historical_session_candidate": 31,
+    "assay_protocol_reference": 5,
+    "manual_feedback_triage": 75,
+    "fixture_or_reference": 27,
+    "development_or_noise": 56,
+    "low_signal_candidate": 110
+  },
+  "packet_reports": [
+    {
+      "packet_id": "feedback_source_historical_feedback_001",
+      "bucket": "historical_feedback_candidate",
+      "rows": 4,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_historical_feedback_001.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_historical_feedback_001.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_historical_feedback_001.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_historical_session_001",
+      "bucket": "historical_session_candidate",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_historical_session_001.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_historical_session_001.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_historical_session_001.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_historical_session_002",
+      "bucket": "historical_session_candidate",
+      "rows": 6,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_historical_session_002.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_historical_session_002.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_historical_session_002.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_assay_protocol_001",
+      "bucket": "assay_protocol_reference",
+      "rows": 5,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_assay_protocol_001.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_assay_protocol_001.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_assay_protocol_001.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_manual_feedback_triage_001",
+      "bucket": "manual_feedback_triage",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_manual_feedback_triage_001.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_manual_feedback_triage_001.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_manual_feedback_triage_001.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_manual_feedback_triage_002",
+      "bucket": "manual_feedback_triage",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_manual_feedback_triage_002.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_manual_feedback_triage_002.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_manual_feedback_triage_002.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_manual_feedback_triage_003",
+      "bucket": "manual_feedback_triage",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_manual_feedback_triage_003.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_manual_feedback_triage_003.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_manual_feedback_triage_003.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_fixture_or_001",
+      "bucket": "fixture_or_reference",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_fixture_or_001.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_fixture_or_001.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_fixture_or_001.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_fixture_or_002",
+      "bucket": "fixture_or_reference",
+      "rows": 2,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_fixture_or_002.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_fixture_or_002.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_fixture_or_002.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_development_or_noise_001",
+      "bucket": "development_or_noise",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_development_or_noise_001.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_development_or_noise_001.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_development_or_noise_001.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_development_or_noise_002",
+      "bucket": "development_or_noise",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_development_or_noise_002.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_development_or_noise_002.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_development_or_noise_002.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_development_or_noise_003",
+      "bucket": "development_or_noise",
+      "rows": 6,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_development_or_noise_003.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_development_or_noise_003.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_development_or_noise_003.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_low_signal_001",
+      "bucket": "low_signal_candidate",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_low_signal_001.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_low_signal_001.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_low_signal_001.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_low_signal_002",
+      "bucket": "low_signal_candidate",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_low_signal_002.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_low_signal_002.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_low_signal_002.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_low_signal_003",
+      "bucket": "low_signal_candidate",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_low_signal_003.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_low_signal_003.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_low_signal_003.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_low_signal_004",
+      "bucket": "low_signal_candidate",
+      "rows": 25,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_low_signal_004.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_low_signal_004.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_low_signal_004.source_review.draft.jsonl"
+    },
+    {
+      "packet_id": "feedback_source_low_signal_005",
+      "bucket": "low_signal_candidate",
+      "rows": 10,
+      "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_low_signal_005.jsonl",
+      "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_packets/feedback_source_low_signal_005.md",
+      "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/source_review_drafts/feedback_source_low_signal_005.source_review.draft.jsonl"
+    }
+  ],
+  "policy": "review packets and drafts are not experiment feedback; only schema-valid rows in experiment_feedback.local.jsonl can enter intake validation"
+}

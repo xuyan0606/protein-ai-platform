@@ -1,0 +1,73 @@
+{
+  "accession": "Q9BQ52",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF13691",
+        "name": "tRNase Z endonuclease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR027794",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bq52",
+          "protein_length": 826,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 61,
+                  "end": 120,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13691",
+              "score": 2.4e-14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23023",
+        "name": "Anti-Pycsar protein Apyc1",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bq52",
+          "protein_length": 826,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 482,
+                  "end": 728,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF23023",
+              "score": 1.7e-10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

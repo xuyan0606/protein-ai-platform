@@ -1,0 +1,16 @@
+{
+  "local_only": true,
+  "gap_target_count": 17,
+  "sequence_ready_count": 17,
+  "missing_sequence_targets": [],
+  "fasta": "datasets/curation/msa_inputs/coverage_gap_targets.fasta",
+  "available_executors": {},
+  "executor_status": "unavailable",
+  "msa_generated": false,
+  "conservation_generated": false,
+  "training_import_allowed": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "next_action": "run a trusted MSA/conservation workflow when an approved executor and database are available",
+  "policy": "Real sequence preparation only; this report does not create MSA, conservation values, labels, or approvals."
+}

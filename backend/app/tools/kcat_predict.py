@@ -174,17 +174,18 @@ def kcat_predict(
 
     kcat = round(10 ** log_kcat, 4)
 
-    # 7. Assessment
+    # 7. Uncalibrated proxy band.  Keep this deliberately neutral: the value is
+    # a class/statistics estimate, not measured catalytic efficiency.
     if kcat > 100:
-        efficiency = "高催化效率 (扩散限制接近)"
+        efficiency = "启发式 kcat 区间：>100 s⁻¹；未校准，不能代表真实比活力"
     elif kcat > 10:
-        efficiency = "中高催化效率 (典型工业酶)"
+        efficiency = "启发式 kcat 区间：10-100 s⁻¹；未校准，不能代表真实比活力"
     elif kcat > 1:
-        efficiency = "中等催化效率"
+        efficiency = "启发式 kcat 区间：1-10 s⁻¹；未校准，不能代表真实比活力"
     elif kcat > 0.1:
-        efficiency = "中低催化效率"
+        efficiency = "启发式 kcat 区间：0.1-1 s⁻¹；未校准，不能代表真实比活力"
     else:
-        efficiency = "低催化效率 (可能需要优化)"
+        efficiency = "启发式 kcat 区间：<0.1 s⁻¹；未校准，不能代表真实比活力"
 
     return {
         "predicted_kcat_s1": kcat,
@@ -203,9 +204,15 @@ def kcat_predict(
             "temperature_factor": round(temp_factor, 2),
             "ph_factor": round(ph_factor, 2),
         },
-        "model": "BioStructNet-inspired (ESM-2 + physicochemical features)",
-        "method": "enzyme class statistics + sequence features + substrate analysis",
-        "is_real_inference": True,
+        "model": "BioStructNet-inspired proxy (enzyme-class statistics + physicochemical features)",
+        "method": "heuristic/statistical estimate from sequence features and substrate complexity proxy",
+        "is_real_inference": False,
+        "capability_status": "proxy",
+        "evidence_level": "DESIGN_HYPOTHESIS",
+        "report_boundary": (
+            "仅可作为启发式动力学背景。没有纯化酶动力学实测前，不得写成校准 kcat、"
+            "kcat/Km、比活力提升或突变增益证据。"
+        ),
         "sequence_length": n,
     }
 

@@ -1,0 +1,107 @@
+{
+  "accession": "Q96IV0",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01841",
+        "name": "Transglutaminase-like superfamily",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002931",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96iv0",
+          "protein_length": 654,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 274,
+                  "end": 354,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01841",
+              "score": 2.6e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04721",
+        "name": "PNGase C-terminal domain, mannose-binding module PAW",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006588",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96iv0",
+          "protein_length": 654,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 457,
+                  "end": 651,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04721",
+              "score": 2.3e-75
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09409",
+        "name": "PUB domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR018997",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96iv0",
+          "protein_length": 654,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 26,
+                  "end": 102,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09409",
+              "score": 1.1e-21
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

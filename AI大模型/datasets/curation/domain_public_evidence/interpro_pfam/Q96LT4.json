@@ -1,0 +1,73 @@
+{
+  "accession": "Q96LT4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00536",
+        "name": "SAM domain (Sterile alpha motif)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001660",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96lt4",
+          "protein_length": 415,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 11,
+                  "end": 75,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00536",
+              "score": 2.2e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14360",
+        "name": "PAP2 superfamily C-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR025749",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96lt4",
+          "protein_length": 415,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 292,
+                  "end": 365,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF14360",
+              "score": 4.4e-25
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

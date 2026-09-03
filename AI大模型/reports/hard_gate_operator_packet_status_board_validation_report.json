@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-09-03T07:33:45.413527+00:00",
+  "failure_count": 0,
+  "failures": [],
+  "gate_rows": 6,
+  "invalid_gates": 0,
+  "jsonl": "datasets/governance/hard_gate_operator_packet_status_board.jsonl",
+  "local_only": true,
+  "markdown": "reports/hard_gate_operator_packet_status_board.md",
+  "output": "reports/hard_gate_operator_packet_status_board_validation_report.json",
+  "packet_rows": 65,
+  "policy": "Validation only. Passing means status board inputs are current and fail-closed, not approved.",
+  "release_ready": false,
+  "report": "reports/hard_gate_operator_packet_status_board.json",
+  "safe_for_model_claim": false,
+  "success": true,
+  "validated_gates": 6,
+  "validation_pending_gates": 0
+}

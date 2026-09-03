@@ -1,0 +1,73 @@
+{
+  "accession": "Q8N490",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00753",
+        "name": "Metallo-beta-lactamase superfamily",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001279",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n490",
+          "protein_length": 385,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 155,
+                  "end": 291,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00753",
+              "score": 7e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16123",
+        "name": "Hydroxyacylglutathione hydrolase C-terminus",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR032282",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n490",
+          "protein_length": 385,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 292,
+                  "end": 380,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16123",
+              "score": 1.6e-17
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

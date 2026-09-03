@@ -1,0 +1,119 @@
+{
+  "accession": "Q08188",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00868",
+        "name": "Transglutaminase family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001102",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q08188",
+          "protein_length": 693,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 7,
+                  "end": 117,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00868",
+              "score": 1.3e-30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00927",
+        "name": "Transglutaminase family, C-terminal ig like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR008958",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q08188",
+          "protein_length": 693,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 485,
+                  "end": 587,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00927",
+              "score": 2.1e-21
+            },
+            {
+              "fragments": [
+                {
+                  "start": 595,
+                  "end": 692,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00927",
+              "score": 1.6e-19
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01841",
+        "name": "Transglutaminase-like superfamily",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002931",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q08188",
+          "protein_length": 693,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 269,
+                  "end": 355,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01841",
+              "score": 9.6e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

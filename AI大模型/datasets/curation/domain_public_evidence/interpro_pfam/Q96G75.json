@@ -1,0 +1,73 @@
+{
+  "accession": "Q96G75",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF10607",
+        "name": "CTLH/CRA C-terminal to LisH motif domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR024964",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96g75",
+          "protein_length": 393,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 156,
+                  "end": 298,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10607",
+              "score": 3.2e-36
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13445",
+        "name": "RING-type zinc-finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR027370",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96g75",
+          "protein_length": 393,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 338,
+                  "end": 377,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13445",
+              "score": 0.031
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

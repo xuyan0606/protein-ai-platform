@@ -1,0 +1,73 @@
+{
+  "accession": "O95630",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01398",
+        "name": "JAB1/Mov34/MPN/PAD-1 ubiquitin protease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000555",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95630",
+          "protein_length": 424,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 253,
+                  "end": 361,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01398",
+              "score": 5.4e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08969",
+        "name": "USP8 dimerisation domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015063",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95630",
+          "protein_length": 424,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 13,
+                  "end": 116,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08969",
+              "score": 9.4e-21
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

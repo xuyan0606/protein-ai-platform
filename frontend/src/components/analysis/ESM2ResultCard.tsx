@@ -1,4 +1,4 @@
-import { Dna, TrendingUp, TrendingDown, Minus, Zap } from 'lucide-react'
+import { Dna, TrendingUp, TrendingDown, Minus } from 'lucide-react'
 
 interface ESM2Mutation {
   mutation: string
@@ -17,7 +17,7 @@ interface ESM2Residue {
   embedding_preview: number[]
 }
 
-interface ESM2ResultData {
+export interface ESM2ResultData {
   mutations?: ESM2Mutation[]
   per_residue?: ESM2Residue[]
   sequence_length?: number
@@ -122,10 +122,4 @@ export function ESM2ResultCard({ data }: { data: ESM2ResultData }) {
       )}
     </div>
   )
-}
-
-export function isESM2Result(data: unknown): data is ESM2ResultData {
-  if (!data || typeof data !== 'object') return false
-  const d = data as Record<string, unknown>
-  return ('mutations' in d || 'per_residue' in d || 'embedding_dim' in d) && 'model' in d
 }

@@ -1,0 +1,20 @@
+{
+  "backend": "pyrosetta",
+  "constant_seed": true,
+  "ddg_units": "REU",
+  "input": "datasets/features/verified_mutation_structure_mapping_candidates.jsonl",
+  "input_sha256": "2848e29188ebb14ff3712618bfb499dfacbe285ebd1fd019cd716d8d78bfec45",
+  "negative_ddg_is_stabilizing": true,
+  "output_scope": "computational_input_feature_only",
+  "protocol": "fa_scorefxn_single_mutation_feature",
+  "pyrosetta_init_options": "-mute all -ignore_unrecognized_res true -constant_seed",
+  "quality_gate": {
+    "ddg_abs_sanity_limit_reu": 20.0,
+    "policy": "Heuristic runtime sanity checks only; thresholds do not establish scientific validity or convert REU into a wet-lab label.",
+    "total_score_sanity_limit_reu": 5000.0
+  },
+  "random_seed": 20260803,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "training_label": false
+}

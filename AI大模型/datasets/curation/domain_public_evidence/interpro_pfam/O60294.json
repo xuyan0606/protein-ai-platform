@@ -1,0 +1,73 @@
+{
+  "accession": "O60294",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04072",
+        "name": "Leucine carboxyl methyltransferase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR007213",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60294",
+          "protein_length": 686,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 38,
+                  "end": 206,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04072",
+              "score": 6.1e-20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF24681",
+        "name": "KLHDC2/KLHL20/DRC7 Kelch-repeats domain",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60294",
+          "protein_length": 686,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 491,
+                  "end": 661,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF24681",
+              "score": 2.8e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

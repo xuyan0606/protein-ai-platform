@@ -1,0 +1,73 @@
+{
+  "accession": "Q9UII4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00632",
+        "name": "HECT-domain (ubiquitin-transferase)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000569",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uii4",
+          "protein_length": 1024,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 733,
+                  "end": 1024,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00632",
+              "score": 3.4e-66
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25390",
+        "name": "RCC1-like domain",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR058923",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uii4",
+          "protein_length": 1024,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 136,
+                  "end": 370,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF25390",
+              "score": 1e-53
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

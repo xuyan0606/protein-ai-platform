@@ -1,0 +1,16 @@
+{
+  "input_structure_rows": 500,
+  "worklist_rows": 500,
+  "db_mapping_rows": 500,
+  "unique_uniprot_ids": 114,
+  "bucket_counts": {
+    "single_chain_ca_length_close": 93,
+    "multi_chain_needs_selection": 356,
+    "single_chain_ca_length_mismatch": 51
+  },
+  "single_chain_close_candidates": 93,
+  "multi_chain_needs_selection": 356,
+  "missing_db_mapping": 0,
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_worklist.jsonl",
+  "policy": "worklist is not a reviewed chain mapping and cannot unlock structure conclusions"
+}

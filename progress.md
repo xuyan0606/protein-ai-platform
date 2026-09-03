@@ -1,5 +1,80 @@
 # 进度日志
 
+## 会话：2026-09-03（research multitask 近标签泄漏修复）
+
+- 先在 `AI大模型/tests/test_research_multitask_training.py` 补失败测试，证明标签/近标签字段不得进入 numeric feature；红灯确认后修复 `AI大模型/scripts/train_research_multitask.py`。
+- 修复后测试：`PYTHONPATH=scripts python3 -m pytest -q tests/test_research_multitask_training.py tests/test_continuous_pretraining.py tests/test_pretraining_asset_manifest.py tests/test_pretraining_release_gate.py tests/test_pretraining_quality_report.py scripts/test_train_production_multitask.py` -> `31 passed`。
+- 重新生成 activity-risk smoke：`reports/research_multitask_training_run.json` + `reports/research_multitask_smoke.checkpoint.pt`；formal research 阻断回执 `reports/research_multitask_training_blocked.json`；生产入口仍 `blocked_pending_production_gate`；`reports/model_status.json` 刷新后 `safe_for_model_claim=false`、`production.ready=false`。
+- smoke checkpoint 新 SHA256：`3458291499a18c7feb435e4d48cbc7241a216434f5c2603bdd4bb538171d6e44`。未把 smoke loss 解释为性能，未提交。
+
+## 会话：2026-09-02
+
+- 临时 HTTP 上线切换完成：已将 release `20260902T071756Z-bcf5b2d` 安装到 ECS current，执行目标 RDS Alembic migration（`1a2b3c4d5e6f -> c7e5a1b2d9f0`）并重建 backend/frontend/worker/ligand-worker。nginx 因 current 缺 SSL 文件首次重启失败，随后从既有 release 恢复证书并恢复 healthy；公网 `http://120.27.108.138/login?next=%2Fkb` 返回 HTTP 200，`/api/health` 返回 200。未回显或写入任何凭据。
+- 上线后观察：health 报告 `tools_registered=59`，与此前线上实测基线 33 存在漂移，需 operator/业务继续核对 `/api/tools` manifest；当前不把 59 视为已确认线上基线。
+- 线上黑盒验收：`FRONTEND_BASE_URL=http://120.27.108.138 node frontend/tests/http-smoke.mjs` -> `HTTP smoke passed`；`node frontend/tests/live-smoke.mjs` -> `Live smoke passed`。用户指定登录地址返回 HTTP 200，`/nginx-health` 返回 200/`ok`；Wiki 文档请求（`Accept: text/html` + `Sec-Fetch-Dest: document`）返回 SPA HTML 200，嵌入请求按设计 302 到 `/wiki/auth/oidc`，OIDC 入口返回 302。未执行写入型 Wiki 操作。
+
+- 前端交付回归：在 `frontend` 目录执行 `npm run lint && npm run build`，ESLint 通过，TypeScript/Vite 生产构建通过（3005 modules transformed）。未新增网络、部署或破坏性操作。
+- 当前工作区仍保留既有用户改动；本轮未回滚或覆盖无关文件。剩余线上验收继续按 `ready_for_operator` / `external_required` 管理。
+- 工具基线口径审计：将 `docs/designs/2026-08-25-tool-orchestration-matrix.md` 中的 58/13 统计明确标注为历史快照，并指向当前交付包 v2 与 `/api/tools` 的 55/33/22、异步 6 项事实；避免历史设计矩阵被误用为当前线上基线。
+- 同步修正文档正文中的异步统计：矩阵第 62 行的“13 个异步工具”已标注为 2026-08-25 历史快照，并明确当前线上异步数量以 `/api/tools` 实测 6 个为准；格式检查通过。
+- 工具与数据库扩展路线图（2026-07-04）中的“当前已注册 33 个工具”已改为历史快照，并在文首明确该文不作为当前线上能力清单；当前工具验收仍锚定交付包 v2、`tool_baseline_manifest` 和 `/api/tools` 的 55/33/22 事实。
+- 跨模块回归：工具基线、工具 API、酶工作流运行态、报告质量、身份一致性持久化共 `164 passed in 21.55s`；`git diff --check` 通过。
+- 交付包新鲜度复验：发现 source-bound 生成物顺序导致的短暂 stale 后，按“重建 status/go-no-go -> 重建 bridge -> validator -> 重建 manifest -> freshness check”顺序恢复；P0-P4 bridge `success=true`、ticket validator `success=true`、operator manifest `file_count=32` 且 `status=current`。
+- 完成定义核对：整改计划中的工具基线测试计数已从历史 `3 passed` 更新为当前 4 条基线测试；完整工具 API 证据仍为 `134 passed`，其余新增行为均有对应回归或明确外部阻断记录。
+- 最终 operator packet freshness 复验：bridge validator 与 ticket validator 均 `success=true`、`source_bound_current=true`；按 validator 刷新报告后重建 manifest，最终 `file_count=32`、`missing_files=[]`、`status=current`。全程未执行网络或破坏性动作。
+- 2026-09-02 readiness 新鲜快照：总计 9 项，其中 `real_deploy_data`、`remote_pytest_runner` 为 `ready`，其余 7 项保持 `external_required`；无新增本地可安全执行项，未执行 live gate。
+- 上线准备生成 release candidate：`dist/packages/protein-ai-platform-20260902T070244Z-bcf5b2d.tar.gz`（6.1 MB）及 SHA-256 sidecar；包内未发现 `.env`、PEM 或 secret 文件，checksum 校验通过。仅生成本地包，未上传、重启或切流。
+- 只读交接产物核对：operator packet 摘要 `file_count=32`、`missing_files=[]`、`ready-for-operator-review`；go/no-go `defer_waiting_for_external_inputs`（7 blocked、0 armed）；P0-P4 bridge 与 execution tickets validator 均成功。
+- 工具台账降级语义收紧：无在线原工具且无可用替补时，`pending_reconnect` 条目的 `fallback_level` 现在为 `null`，不会错误标记 `DEGRADED`；只有实际选中替补工具才标记降级。失败测试先复现该问题，修复后工具台账与 API 回归 `137 passed`。
+- 工具替补台账进一步区分配置与执行：新增 `configured_fallback_tool` 保存静态候选，`fallback_tool` 仅表示当前在线、可实际选用的替补；离线候选保持 `pending_reconnect`，不再被下游误判为已选替补。失败测试先复现，修复后工具台账与 API 回归 `138 passed`。
+- 增加 `/api/tools` manifest 字段契约回归：每条 baseline entry 必须同时暴露 `configured_fallback_tool`、`fallback_tool`、`fallback_level`；完整工具 API 回归 `134 passed`，确保任务审计、异步工具和 artifact 权限链路未受影响。
+
+## 会话：2026-09-01（全量整改波次启动）
+
+### 工作包 A-D 第一批
+- **状态：** local_complete；本地可实现项已完成，部署/模型安装/线上验收保持外部依赖状态。
+- 新增脱敏会话回归集 `backend/tests/enzyme_workflow_regression_cases.json`，按 `conv_78`、`conv_225`、`conv_226` 症状名称验证续问不重跑、输入补充、目标切换、解释问答不误入序列检索。`test_enzyme_workflow_runtime.py` -> `15 passed`。
+- 新增 `tool_baseline_manifest`：`GET /api/tools` 的 runtime manifest 现含 baseline 台账；台账区分 catalog 数、运行时数和每项 `available/degraded/pending_reconnect/not_applicable`。交付包本地文件仍见 58 条历史声明，而用户实测线上基线为 55/33/22；该差异被保留为待对账事实，未被任何本地数字覆盖。
+- 前端流式请求对 HTTP 非成功、连接拒绝、reader 中断和网络错误统一显示“服务暂不可用，请稍后重试”，并保留已收到内容；前端当前没有单元测试 runner，`npm run build` 已通过。
+- 新增只读 ESM-2/torch readiness：`GET /api/tools/diagnostics` 追加 `model_runtime.esm2`，仅检查 torch/transformers import，不下载权重、不安装依赖；缺失依赖返回 `blocked` 和操作建议。定向测试通过。
+- 外部项：工具接回、torch 安装/GPU smoke、生产部署和线上验收均为 `ready_for_operator`，需目标环境与明确授权后执行。
+- 工具基线进一步实化：从交付包 v2 的 `platform_tool_catalog.md` 自动解析出 55 个设计条目，作为 `/api/tools` baseline desired 集合；新增治理工具替补映射（如 `catalytic_site_lookup -> enzyme_identity_profile`、`external_research_evidence -> literature_live_search`），仅标记 `DEGRADED`，不冒充原工具能力。baseline 测试 `3 passed`。
+- 本地波次验证完成：后端相关回归（agent binder、工作流运行态、治理、报告质量、ops、baseline、模型 readiness）`213 passed in 34.58s`；前端 `npm run lint` 与 `npm run build` 通过；`py_compile`、`git diff --check` 通过。
+- 补充 API 级交接验收：认证态 `GET /api/tools` 验证运行时 manifest、55 条 catalog 基线和缺失工具台账；`GET /api/tools/diagnostics` 验证 operator readiness、阻塞原因和操作清单。`backend/tests/test_tools_api.py` -> `134 passed in 20.27s`。本机未运行开发服务，因此未将此项表述为浏览器/SSE 验收。
+- 工作流目录强制已扩展到 `WF-ACTIVITY`、`WF-PH`、`WF-SPECIFICITY`、`WF-EXPRESSION`：计划内工具按交付包流程目录验证，未声明或该流程默认禁用的工具直接 `NEEDS_REVIEW`；条件工具只在所属流程内获准。治理回归 `26 passed in 2.32s`；主链路回归（agent、运行态、报告质量、工具 API）`311 passed in 26.81s`。
+- 身份一致性持久化契约已建立：新增 `identity_consistency_records` ORM、用户隔离读写服务和 Alembic 迁移 `c7e5a1b2d9f0`；按序列哈希 + 模型版本 + 证据版本保留身份与冲突状态。持久化回归 `17 passed`，Alembic 单一 head 已确认。主链路异步写入接入仍待下一步，当前未宣称跨进程一致性已完成。
+- 身份一致性已接入 orchestrator：身份工具结果会异步写入持久化记录，数据库写入失败只记录 warning 并保留原有内存护栏。持久化/运行态回归 `18 passed`；agent、身份、工作流治理回归 `200 passed`。目标环境仍需执行 Alembic 迁移和跨进程 smoke，未将本地结果当作线上完成。
+- 报告交付门槛已增加显式空值拦截：`依据：无`、`候选位点：无`、`优先级：无`、`实验动作：无` 等不再因关键词存在而误判 READY；结构化报告会降为 `NEEDS_REVIEW`。报告、发布、agent 与运行态回归 `206 passed in 7.47s`。
+- 修正 Alembic 元数据漏导入问题：`backend/alembic/env.py` 现在显式加载 `strategy_checkpoint` 与 `identity_consistency` 模型，避免后续 schema 对账漏表。配置与身份持久化回归 `122 passed in 6.23s`，本地 `alembic heads` 确认为单一 `c7e5a1b2d9f0`；目标环境迁移与跨进程 smoke 仍待 operator 执行。
+- 身份一致性持久化增加幂等保护：相同用户、序列哈希、模型版本、证据版本和身份重复写入时复用已有记录，不再触发唯一约束异常；身份持久化与运行态回归 `19 passed`。目标环境迁移与跨进程 smoke 仍待 operator 执行。
+- 刷新剩余待建清单 operator 交付包：`make remaining-backlog-operator-packet-refresh` 全链路完成，当前外部输入阻断项收敛为 7 条（P0=4、P1=3），`armed_rows=0`、`ready_for_live_gate_execution=false`；execution tickets、ticket validator、P0-P4 bridge validator 和 packet manifest 均通过，manifest `status=current`、`file_count=32`。未执行网络、破坏性动作或 live gate。
+- 本轮交接验收以 plan-only 运行：`make acceptance-matrix-plan` -> `0 failed / 0 blocked / 5 skipped / 16 planned`；`make release-acceptance-plan` -> `0 failed / 0 blocked / 3 manual_required / 1 skipped`。`check_remaining_backlog_readiness.py --json` 保持 `external_required`（7 项外部阻断、2 项 ready），未将计划态或跳过项冒充通过。
+- 后端全量测试回归：`./.venv/bin/python -m pytest -q` -> `936 passed in 291.77s`；确认身份持久化幂等改动未影响既有 API、工具、权限和报告链路。
+- 待 operator 执行：目标部署环境调用 `/api/tools` 固化线上 33/55/22 实测差异；安装 torch/ESM-2 并运行 GPU/model smoke；接回或替补剩余工具；生产环境断连/SSE 浏览器验收；线上全量回归与发布签字。上述项目当前均为 `ready_for_operator`，未在本地冒充完成。
+
+## 会话：2026-09-01
+
+### 酶性质工作流强制执行（P0）第一层
+- **状态：** complete（第一层）；五类性质工作流的工具目录约束已接入，报告质量门槛仍为第一层结构化检查。
+- 新增 `backend/app/services/enzyme_workflow_runtime.py`，在聊天主链路前确定 `NEW_TASK`、`FOLLOW_UP`、`INPUT_UPDATE`、`TARGET_CHANGE`、`NON_EXECUTION`，并输出统一任务契约：`intent`、`session_id`、`intake_status`、`workflow_id`、路由依据、目标/约束、输入缺口、`final_status`、`trace[]`、`fallback_trace[]`。
+- `AgentOrchestrator.stream_chat()` 已消费契约：概念问答不规划/不调工具；缺少酶身份输入的性质目标先追问；短续问复用当前任务且不重新规划；SSE `state` 提供完整 `task_contract`。
+- 已将 `WF-STABILITY` 的声明工具 allow/deny 检查接入确认前及执行前路径：禁用或未登记工具会以 `NEEDS_REVIEW` 阻断。其他工作流尚无完整 catalog，临时保留 legacy 执行以避免把现有结构上传流程误判为未知工具，契约明确标记该策略未启用。
+- confirmed checkpoint 的执行结果逐步写入 `trace[]`；确认计划仍保持签名严格匹配，缺失或不匹配不会重规划或执行。
+- 新增/更新：`backend/tests/test_enzyme_workflow_runtime.py`、`backend/tests/test_property_workflow_governance.py`。关键回归：`./backend/.venv/bin/python -m pytest backend/tests/test_enzyme_workflow_runtime.py backend/tests/test_property_workflow_governance.py backend/tests/test_agent_binder.py -q` -> `184 passed in 8.73s`。
+- 编译与空白检查：`py_compile backend/app/services/enzyme_workflow_runtime.py backend/app/core/agent_graph.py`、`git diff --check` 均通过。
+- 环境备注：agent binder 回归中外部 PubMed/Europe PMC、ChromaDB 与 LLM provider 不可用会记录日志；测试已通过，未将网络不可达误报成业务执行成功。
+- 已补充运行态回归：`继续`、`再说人话`、`这个什么意思` 在已有酶任务中复用 `WF-STABILITY`；蛋白对话中的“这个结果是什么意思？”保持 `NON_EXECUTION`，不会触发新任务或序列检索。运行态测试现为 `9 passed`。
+- 已接入第一层报告交付门槛：`assess_enzyme_report_completion()` 对结构化酶报告检查证据、候选位点、优先级、风险和实验动作；缺任一项则将运行态 `final_status` 降为 `NEEDS_REVIEW`，并输出 `report_quality_violations[]`。普通/非酶报告不受影响。
+- 本轮回归：`./backend/.venv/bin/python -m pytest backend/tests/test_report_quality_contract.py backend/tests/test_enzyme_workflow_runtime.py backend/tests/test_property_workflow_governance.py backend/tests/test_agent_binder.py -q` -> `194 passed in 8.78s`。
+- 已补齐工具失败明示：结果收集阶段对 `failed/blocked` 步骤记录 `primary_tool`、`selected_tool`、`fallback_level=DEGRADED` 与原因；最终报告前增加“执行降级提示”，避免静默跳过或把失败伪装成成功。新增失败回归通过。
+- 已增加 `identity_consistency` 序列哈希护栏：按序列 hash 记录身份及模型/证据版本；同一序列返回冲突身份时，任务契约标记 `NEEDS_REVIEW` 并保留冲突前身份，不强行给出新结论。运行态新增一致性回归。
+- 本轮关键回归：`196 passed`；`git diff --check` 通过。
+- 已强化 `/api/health` 兜底端点：增加 `service`、`version`、`tools_registered` 和中文 `message`，即使工具尚未完成注册也返回明确状态，不让前端表现为空白。`test_ops_api.py`：`6 passed`。
+- 已补齐 SC 复审追加步骤的执行留痕：追加工具成功、参数缺失、超时、异常均写入统一 `trace[]`；失败/跳过同步写入 `fallback_trace[]`，避免主计划之外的工具调用不可追溯。
+- 已在 `GET /api/tools` 增加 `manifest`：运行时工具数量、排序名称 SHA-256、manifest 版本和来源，后续可直接与交付包/catalog 做漂移比对。
+- 已将设计/对接工具边界扩展至 `WF-ACTIVITY`、`WF-PH`、`WF-SPECIFICITY`、`WF-EXPRESSION`；这些工作流仍允许现有分析工具，但命中 `rfdiffusion/chroma/ligandmpnn/diffdock` 等设计工具会先阻断并标记 `NEEDS_REVIEW`。完整 allowlist catalog 仍待业务确认。
+- 已修正身份一致性缓存语义：缓存键现在包含序列 hash、模型版本和证据版本；同版本冲突才触发 `NEEDS_REVIEW`，跨版本结果独立记录。运行态测试现为 `11 passed`。
+
 ## 会话：2026-08-20
 
 ### P0 全部启动与收口
@@ -11705,3 +11780,15 @@
 - 新增独立 `production_https_gate`：严格 production config 不允许公网 HTTP；当前 `http://120.27.108.138` 返回 `manual_required`，要求正式 HTTPS 域名、TLS 证书及 PUBLIC_BASE_URL/FRONTEND_URL/OIDC_ISSUER 更新。
 - release acceptance plan-only 总计从 9 项变为 10 项，明确列出 `production_https_gate`；完整只读执行（compose backup verify）结果：failed=0、manual_required=4、skipped=0、total=10，备份校验 passed。
 - 未执行恢复、回滚、线上发布、对象删除或 MD；本地 acceptance 的 `--skip-domain-https` 仅用于准备，不再掩盖正式 HTTPS 门。
+
+## 2026-09-03 KWB-EnzymeDesigner 五头训练升级
+
+- 新增实现计划：`docs/superpowers/plans/2026-09-03-kwb-five-head-training-upgrade.md`。
+- 新增 `build_model_status_snapshot.py` 与 3 个红绿测试；生成 `reports/model_status.json`，当前 production=false、ready heads=0、状态冲突=1。
+- 新增 `train_research_multitask.py` 与 5 个红绿测试；实现共享 encoder、独立 heads、缺失标签 mask、per-head 阈值和 group holdout。
+- 扩展 `train_production_multitask.py` 与 4 个红绿测试；production gate、execution contract、五头数据集三层均需满足。
+- 执行真实 activity-risk smoke：6 行、2 groups、0 repeats、3 epochs、18 steps，只生成 research-only checkpoint；正式 research 与 production 均按预期阻断。
+- 生产接入审计补充后新增回归：完成训练的 receipt 本身不得授权 claim/release；实现固定保留 `safe_for_model_claim=false`、`release_ready=false` 和 `requires_post_training_validation=true`。
+- 验证：新测试 `13 passed`；预训练回归 `19 passed`；Python 编译通过；scoped `git diff --check` 通过。一次编译命令从项目根误用 `scripts/...` 相对路径失败，改用 `AI大模型/scripts/...` 后通过，未产生代码副作用。
+- 未执行生产训练、模型发布、线上部署、GPU 任务或标签伪造。下一训练条件为五个 head 分别达到 100 样本、3 个显式重复和 10 个独立 group。
+- 2026-09-03 11:07 按计划再次完整执行：新训练测试 `13 passed`、预训练回归 `19 passed`；状态快照、预训练隔离门、activity-risk smoke、正式 research 阻断和 production 阻断回执均已重新生成并完成 SHA-256/声明边界断言。

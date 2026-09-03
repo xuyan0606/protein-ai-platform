@@ -1,0 +1,73 @@
+{
+  "accession": "Q9HC36",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00588",
+        "name": "SpoU rRNA Methylase family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001537",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hc36",
+          "protein_length": 420,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 210,
+                  "end": 400,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00588",
+              "score": 3.9e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22435",
+        "name": "MRM3-like substrate binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR053888",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hc36",
+          "protein_length": 420,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 112,
+                  "end": 187,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22435",
+              "score": 9.8e-07
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

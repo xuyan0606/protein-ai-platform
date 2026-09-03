@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-09-03T07:32:00.651914+00:00",
+  "local_only": true,
+  "tool_id": "mmseqs2",
+  "source_present": true,
+  "binary_present": true,
+  "binary_executable_probe_ok": true,
+  "binary_version": "17b688d21dda57fc5f5b7286ecba7ec003d4717f",
+  "binary_sha256": "8a13c3c252adc296c3f2996389be657cb42f3a3f24beb145d500f21b84a0a33d",
+  "archive_sha256": null,
+  "file_count": 50,
+  "missing_important_files": [],
+  "is_universal_macos_binary": true,
+  "supports_arm64": true,
+  "ready_as_local_binary_runtime": true,
+  "ready_for_msa_search": false,
+  "ready_for_model_claim": false,
+  "remaining_blockers": [
+    "homolog database is not configured",
+    "MSA/conservation cache validation is not ready",
+    "external license/customer delivery decisions are not complete"
+  ],
+  "manifest": "reports/mmseqs2_local_runtime_manifest.json",
+  "policy": "Runtime package evidence only. Homolog database and cache validation are still required before MSA/conservation feature generation."
+}

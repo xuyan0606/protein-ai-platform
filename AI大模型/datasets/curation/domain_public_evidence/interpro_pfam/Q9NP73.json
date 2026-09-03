@@ -1,0 +1,73 @@
+{
+  "accession": "Q9NP73",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02338",
+        "name": "OTU-like cysteine protease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003323",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9np73",
+          "protein_length": 1137,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 239,
+                  "end": 346,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02338",
+              "score": 1.6e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04101",
+        "name": "Glycosyltransferase family 28 C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007235",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9np73",
+          "protein_length": 1137,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 4,
+                  "end": 123,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04101",
+              "score": 1.4e-23
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

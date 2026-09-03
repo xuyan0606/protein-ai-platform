@@ -1,0 +1,791 @@
+{
+  "contract_status_items": [
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "specified_mutation_review",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "surface the review contract in P0/P1/P2/P3/P4 gap audit exports",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "specified_mutation_reviews",
+        "specified_mutation_review_computational_hypothesis"
+      ],
+      "external_blockers": [
+        "complete numbering, pocket, conservation, WT baseline, and experiment feedback evidence for claim upgrade"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "specified mutation is experimentally validated by review",
+        "numbering mismatch can be ignored"
+      ],
+      "phase": "P0",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "User-requested point mutations are parsed and reviewed separately from generic candidate generation."
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "site_structure_function_mvp",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "add downstream SOP/status rollup for pocket/channel/interface unknown fields",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "site_structure_function_features_v1",
+        "residue_distance_graph_v1"
+      ],
+      "external_blockers": [
+        "validated pocket/channel/interface calculator",
+        "curated conservation or MSA pipeline",
+        "real ddG/packing/MD RMSF artifacts"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "complete residue feature table",
+        "DSSP/pocket/conservation/ddG/MD coverage when unavailable"
+      ],
+      "phase": "P0",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "Residue-level CA geometry, relSASA, HETATM distance, secondary-structure annotation, and distance graph are available with conservative unknowns."
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "multi_objective_candidate_table",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "expose schedulability and objective gaps in SOP/status exports",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "candidate_table_generation_v1",
+        "experiment_design_schedulability_policy_v1"
+      ],
+      "external_blockers": [
+        "wet-lab validation for promotion",
+        "matched WT baseline and assay controls for improvement claims"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "blocked candidates are schedulable",
+        "candidate table is wet-lab validated"
+      ],
+      "phase": "P0",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "Candidate table separates activity, stability, risk, evidence, status, and experiment action with schedulability policy."
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "followup_review_routes",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "add explicit P0 follow-up status line to audit/report exports",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "_is_p0_followup_review",
+        "specified_mutation_reviews"
+      ],
+      "external_blockers": [
+        "prior trace context and structured experiment feedback for conflict explanation"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "follow-up generated new validated candidates",
+        "experiment mismatch is resolved without assay context"
+      ],
+      "phase": "P0",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "Follow-up questions for Venus comparison, candidate explanation, experiment mismatch, and specified mutations reuse the prior object instead of replanning new candidates."
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "numbering_registry",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "publish numbering registry readiness in P0-P4 audit outputs",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "numbering_registry_rows",
+        "unified_numbering_registry_v1"
+      ],
+      "external_blockers": [
+        "complete SIFTS coverage or user-confirmed numbering for each target"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "inferred mapping is verified SIFTS",
+        "unmapped residues support strong site claims"
+      ],
+      "phase": "P1",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "SIFTS/curated rows and inferred mappings are normalized into unified numbering registry rows consumed by numbering gate."
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "catalytic_mechanism_profile",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "add explicit second-shell/source-coordinate coverage rollup to audit exports",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "catalytic_mechanism_profile_v1",
+        "pending_numbering",
+        "first_shell_positions"
+      ],
+      "external_blockers": [
+        "complete M-CSA-style curated mechanism coverage and user-coordinate verification"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "complete M-CSA mechanism map",
+        "second shell fully computed"
+      ],
+      "phase": "P1",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "Catalytic role, first-shell state, pending numbering, and mechanism report contract are available from local annotation services."
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "reaction_profile",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "connect reaction profile readiness into the P0-P4 audit and report status exports",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "reaction_profile_v1",
+        "requires_reaction_profile"
+      ],
+      "external_blockers": [
+        "Rhea/ChEBI production coverage and curated substrate/product/cofactor directionality"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "substrate spectrum optimized without reaction evidence",
+        "Rhea/ChEBI production sync complete"
+      ],
+      "phase": "P1",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "Reaction Profile is available for exact local EC/Rhea-style matches and blocks substrate-scope claims when incomplete."
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "wt_baseline_registry",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "show WT baseline readiness next to objective assay gaps in downstream exports",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "wt_baseline_registry_v1",
+        "wt_baseline_report_contract_v1"
+      ],
+      "external_blockers": [
+        "same-batch WT baseline, assay conditions, replicate/QC metadata, BRENDA/SABIO-RK-style curation"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "improvement without exact-condition WT baseline",
+        "approximate baseline is equivalent"
+      ],
+      "phase": "P1",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "WT baseline registry resolves only exact-condition QC-passed WT feedback and blocks improvement claims without matched baseline."
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "residue_feature_table_contract",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "Expose a structure-feature gap summary in downstream SOP/status exports so pocket/channel/interface, conservation, ddG, and MD-derived fields remain explicit until computed.",
+          "status": "covered_by_contract_status_export"
+        },
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "Expose the calculator/source boundary in downstream SOP/status exports and continue widening residue feature fields only when a structured calculator or curated source exists.",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "site_structure_function_features_v1",
+        "residue_distance_graph_v1",
+        "p2_structure_feature_gap_summary_v1"
+      ],
+      "external_blockers": [
+        "curated conservation database or MSA pipeline",
+        "validated pocket/channel/tunnel calculation",
+        "real ddG or MD RMSF artifacts"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "complete residue feature table",
+        "DSSP/MD/conservation coverage when unavailable"
+      ],
+      "phase": "P2",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "Residue structure-function rows and residue distance graph are present as traceable contracts."
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "objective_score_contract",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "Expose unknown-component blocking state in downstream SOP/status exports and keep unknown objective components blocking instead of neutral.",
+          "status": "covered_by_contract_status_export"
+        },
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "Expose objective assay gaps beside project feedback readiness in downstream SOP/status exports.",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "mutation_objective_score_v1",
+        "p2_objective_score_readiness_summary_v1",
+        "p2_objective_assay_gap_summary_v1",
+        "no_composite_score",
+        "unknown_policy"
+      ],
+      "external_blockers": [
+        "matched WT baseline for claim upgrade",
+        "objective-specific assay data"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "single objective total score",
+        "measured improvement without assay"
+      ],
+      "phase": "P2",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "Activity, stability, specificity, pH, expression, and risk scores are component-local; no total score is emitted."
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "candidate_table_generation_contract",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "Expose experiment design schedulability policy in downstream SOP views.",
+          "status": "covered_by_contract_status_export"
+        },
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "Keep candidate table promotion tied to candidate_status and assay readiness.",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "candidate_table_generation_v1",
+        "p2_engineering_scorecard_contract_v1",
+        "p2_candidate_readiness_summary_v1",
+        "experiment_design_schedulability_policy_v1"
+      ],
+      "external_blockers": [
+        "wet-lab validation for candidate promotion"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "blocked candidates are schedulable",
+        "candidate table is wet-lab validated"
+      ],
+      "phase": "P2",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "Candidate rows are grouped as high-confidence, exploratory, or blocked using residue features and objective score contracts."
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "dbtl_trace_contract",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "Expose raw-trace approval state in downstream SOP/status exports and keep raw trace read-only until formal DBTL tables are product-approved.",
+          "status": "covered_by_contract_status_export"
+        },
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "Expose project memory readiness in downstream SOP/status views.",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "dbtl_trace_v1",
+        "dbtl_project_model_v1",
+        "dbtl_project_memory_readiness_v1",
+        "dbtl_trace_summary_v1",
+        "dbtl_readiness_bridge_v1"
+      ],
+      "external_blockers": [
+        "product decision for formal DBTL write model"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "formal Project/Round/Variant tables exist",
+        "trace has trained a model"
+      ],
+      "phase": "P3",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "Project DBTL trace aggregates existing checkpoints, feedback, calibration, formal decision, and next-round preview as read-only memory."
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "feedback_import_and_next_round_contract",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "Expose feedback readiness in downstream SOP/status exports.",
+          "status": "covered_by_contract_status_export"
+        },
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "Expose pair/higher-order gate state in downstream SOP/status exports and keep pair/higher-order designs blocked until singleton and structure evidence pass.",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "experiment_feedback_import_v1",
+        "dbtl_feedback_readiness_summary_v1",
+        "next_round_library_design_v1",
+        "next_round_combination_evidence_contract_v1"
+      ],
+      "external_blockers": [
+        "QC-passed replicated wet-lab feedback",
+        "assay condition completeness",
+        "formal Go/Watch/No-Go decisions"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "trained epistasis model",
+        "higher-order combination readiness without pair data"
+      ],
+      "phase": "P3",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "Experiment feedback import gates training/claim eligibility, and next-round library planning is constrained by validated singleton evidence."
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "capability_boundary": {
+        "covered_followups_are_visibility_only": true,
+        "external_blockers_remain_blocking": true,
+        "may_claim_wet_lab_validation": false,
+        "may_run_live_gate": false,
+        "may_train_model": false,
+        "ready_local_contract_is_not_live_complete": true
+      },
+      "contract_name": "industrial_closed_loop_readiness",
+      "covered_local_followups": [
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "Expose P4 contract status and operator review state in downstream SOP/status exports.",
+          "status": "covered_by_contract_status_export"
+        },
+        {
+          "evidence": "p0_p4_contract_status_export_v1",
+          "gap": "Expose live-gate approval block state in downstream SOP/status exports and keep live gate approval blocked until an explicit operator review is recorded.",
+          "status": "covered_by_contract_status_export"
+        }
+      ],
+      "evidence_tokens": [
+        "p4_closed_loop_readiness_v1",
+        "p4_active_learning_batch_contract_v1",
+        "p4_model_calibration_registry_contract_v1",
+        "p4_manufacturing_constraint_schema_v1",
+        "live_gate_approval",
+        "model_retrained",
+        "p4_operator_review_contract_v1"
+      ],
+      "external_blockers": [
+        "approved production learning policy",
+        "sufficient training-eligible feedback",
+        "maintenance window and live gate approval",
+        "manufacturing/process constraint owner input"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "P4 production loop is running",
+        "model is retrained",
+        "manufacturing constraints are validated"
+      ],
+      "phase": "P4",
+      "read_only": true,
+      "schema_version": "p0_p4_contract_status_export_v1",
+      "status": "ready_local_contract",
+      "summary": "P4 is defined as production-grade closed-loop operation: active learning batches, model calibration registry, manufacturing constraints, and approved live-gate execution."
+    }
+  ],
+  "created_at": "2026-09-02T05:54:37.280297+00:00",
+  "decision": "continue_local_gap_closure_fail_closed_for_external_dependencies",
+  "destructive_actions": "not_executed",
+  "external_followups": [
+    "formal_domain_https",
+    "gpu_gromacs_md_live",
+    "md_blackbox_live_e2e",
+    "ligand_runtime_live",
+    "oss_minio_live_e2e",
+    "admin_authenticated_screenshots",
+    "maintenance_window_drills"
+  ],
+  "live_gate_execution_allowed": false,
+  "local_followups": [],
+  "mode": "read_only_p0_p4_status_export",
+  "must_not_claim": [
+    "ready local contract means production complete",
+    "live gates have run",
+    "model has been trained or retrained",
+    "wet-lab validation is proven by status export",
+    "manufacturing constraints are validated"
+  ],
+  "network_io": "not_executed",
+  "phase_status": [
+    {
+      "blocked": 0,
+      "covered_local_gap_count": 4,
+      "item_count": 4,
+      "items": [
+        "specified_mutation_review",
+        "site_structure_function_mvp",
+        "multi_objective_candidate_table",
+        "followup_review_routes"
+      ],
+      "label": "Venus-level review experience",
+      "must_not_claim": [
+        "specified mutation is experimentally validated by review",
+        "numbering mismatch can be ignored",
+        "complete residue feature table",
+        "DSSP/pocket/conservation/ddG/MD coverage when unavailable",
+        "blocked candidates are schedulable",
+        "candidate table is wet-lab validated",
+        "follow-up generated new validated candidates",
+        "experiment mismatch is resolved without assay context"
+      ],
+      "partial": 0,
+      "phase": "P0",
+      "ready_local_contract": 4,
+      "status": "ready_local_contract",
+      "top_external_blockers": [
+        "complete numbering, pocket, conservation, WT baseline, and experiment feedback evidence for claim upgrade",
+        "validated pocket/channel/interface calculator",
+        "curated conservation or MSA pipeline",
+        "real ddG/packing/MD RMSF artifacts",
+        "wet-lab validation for promotion",
+        "matched WT baseline and assay controls for improvement claims"
+      ],
+      "top_local_gaps": []
+    },
+    {
+      "blocked": 0,
+      "covered_local_gap_count": 4,
+      "item_count": 4,
+      "items": [
+        "numbering_registry",
+        "catalytic_mechanism_profile",
+        "reaction_profile",
+        "wt_baseline_registry"
+      ],
+      "label": "enzyme-specific evidence layer",
+      "must_not_claim": [
+        "inferred mapping is verified SIFTS",
+        "unmapped residues support strong site claims",
+        "complete M-CSA mechanism map",
+        "second shell fully computed",
+        "substrate spectrum optimized without reaction evidence",
+        "Rhea/ChEBI production sync complete",
+        "improvement without exact-condition WT baseline",
+        "approximate baseline is equivalent"
+      ],
+      "partial": 0,
+      "phase": "P1",
+      "ready_local_contract": 4,
+      "status": "ready_local_contract",
+      "top_external_blockers": [
+        "complete SIFTS coverage or user-confirmed numbering for each target",
+        "complete M-CSA-style curated mechanism coverage and user-coordinate verification",
+        "Rhea/ChEBI production coverage and curated substrate/product/cofactor directionality",
+        "same-batch WT baseline, assay conditions, replicate/QC metadata, BRENDA/SABIO-RK-style curation"
+      ],
+      "top_local_gaps": []
+    },
+    {
+      "blocked": 0,
+      "covered_local_gap_count": 6,
+      "item_count": 3,
+      "items": [
+        "residue_feature_table_contract",
+        "objective_score_contract",
+        "candidate_table_generation_contract"
+      ],
+      "label": "structure-function scoring system",
+      "must_not_claim": [
+        "complete residue feature table",
+        "DSSP/MD/conservation coverage when unavailable",
+        "single objective total score",
+        "measured improvement without assay",
+        "blocked candidates are schedulable",
+        "candidate table is wet-lab validated"
+      ],
+      "partial": 0,
+      "phase": "P2",
+      "ready_local_contract": 3,
+      "status": "ready_local_contract",
+      "top_external_blockers": [
+        "curated conservation database or MSA pipeline",
+        "validated pocket/channel/tunnel calculation",
+        "real ddG or MD RMSF artifacts",
+        "matched WT baseline for claim upgrade",
+        "objective-specific assay data",
+        "wet-lab validation for candidate promotion"
+      ],
+      "top_local_gaps": []
+    },
+    {
+      "blocked": 0,
+      "covered_local_gap_count": 4,
+      "item_count": 2,
+      "items": [
+        "dbtl_trace_contract",
+        "feedback_import_and_next_round_contract"
+      ],
+      "label": "DBTL project memory",
+      "must_not_claim": [
+        "formal Project/Round/Variant tables exist",
+        "trace has trained a model",
+        "trained epistasis model",
+        "higher-order combination readiness without pair data"
+      ],
+      "partial": 0,
+      "phase": "P3",
+      "ready_local_contract": 2,
+      "status": "ready_local_contract",
+      "top_external_blockers": [
+        "product decision for formal DBTL write model",
+        "QC-passed replicated wet-lab feedback",
+        "assay condition completeness",
+        "formal Go/Watch/No-Go decisions"
+      ],
+      "top_local_gaps": []
+    },
+    {
+      "blocked": 0,
+      "covered_local_gap_count": 2,
+      "item_count": 1,
+      "items": [
+        "industrial_closed_loop_readiness"
+      ],
+      "label": "production closed-loop readiness",
+      "must_not_claim": [
+        "P4 production loop is running",
+        "model is retrained",
+        "manufacturing constraints are validated"
+      ],
+      "partial": 0,
+      "phase": "P4",
+      "ready_local_contract": 1,
+      "status": "ready_local_contract",
+      "top_external_blockers": [
+        "approved production learning policy",
+        "sufficient training-eligible feedback",
+        "maintenance window and live gate approval",
+        "manufacturing/process constraint owner input"
+      ],
+      "top_local_gaps": []
+    }
+  ],
+  "remaining_backlog_summary": {
+    "bucket_counts": {
+      "external_dependency": 7,
+      "local_capable": 2
+    },
+    "counts": {
+      "external_required": 7,
+      "ready": 2
+    },
+    "destructive_actions": "not_executed",
+    "network_io": "not_executed",
+    "status": "external_required",
+    "total": 9
+  },
+  "schema_version": "p0_p4_status_export_v1",
+  "secrets_printed": false,
+  "source_audit_mode": "read_only_p0_p4_gap_audit",
+  "status_export_contract": {
+    "consumer_scope": [
+      "daily_report",
+      "project_review",
+      "SOP_status_page"
+    ],
+    "contract_status_items_are_source_bound": true,
+    "covered_followups_do_not_clear_external_blockers": true,
+    "local_followups_are_not_capability_completion": true,
+    "must_keep_external_required_blocked": true,
+    "must_label_ready_local_contract_as_not_live_complete": true,
+    "open_local_gaps_are_read_from_gap_audit": true,
+    "read_only": true,
+    "schema_version": "p0_p4_status_export_contract_v1",
+    "source": "docs/manuals/p0-p4-gap-audit.json"
+  }
+}

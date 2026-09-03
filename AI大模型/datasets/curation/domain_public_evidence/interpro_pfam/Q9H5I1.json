@@ -1,0 +1,107 @@
+{
+  "accession": "Q9H5I1",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00385",
+        "name": "Chromo (CHRromatin Organisation MOdifier) domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR023780",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h5i1",
+          "protein_length": 410,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 47,
+                  "end": 94,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00385",
+              "score": 7.4e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00856",
+        "name": "SET domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001214",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h5i1",
+          "protein_length": 410,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 262,
+                  "end": 373,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00856",
+              "score": 8.6e-22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05033",
+        "name": "Pre-SET motif",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR007728",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h5i1",
+          "protein_length": 410,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 148,
+                  "end": 242,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05033",
+              "score": 5.6e-16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

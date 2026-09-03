@@ -1,0 +1,73 @@
+{
+  "accession": "P09622",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02852",
+        "name": "Pyridine nucleotide-disulphide oxidoreductase, dimerisation domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004099",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p09622",
+          "protein_length": 509,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 389,
+                  "end": 497,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02852",
+              "score": 8.3e-40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07992",
+        "name": "Pyridine nucleotide-disulphide oxidoreductase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR023753",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p09622",
+          "protein_length": 509,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 43,
+                  "end": 370,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07992",
+              "score": 3.1e-66
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

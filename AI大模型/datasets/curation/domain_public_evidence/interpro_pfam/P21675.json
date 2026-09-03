@@ -1,0 +1,153 @@
+{
+  "accession": "P21675",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00439",
+        "name": "Bromodomain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001487",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p21675",
+          "protein_length": 1893,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1411,
+                  "end": 1491,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00439",
+              "score": 4.4e-15
+            },
+            {
+              "fragments": [
+                {
+                  "start": 1537,
+                  "end": 1616,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00439",
+              "score": 8.9e-20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09247",
+        "name": "TATA box-binding protein binding",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR009067",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p21675",
+          "protein_length": 1893,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 26,
+                  "end": 86,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF09247",
+              "score": 1.4e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12157",
+        "name": "Protein of unknown function (DUF3591)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR022591",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p21675",
+          "protein_length": 1893,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 586,
+                  "end": 1048,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12157",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF15288",
+        "name": "Zinc knuckle",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041670",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p21675",
+          "protein_length": 1893,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1282,
+                  "end": 1323,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF15288",
+              "score": 1.9e-13
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q8NB14",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00443",
+        "name": "Ubiquitin carboxyl-terminal hydrolase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001394",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8nb14",
+          "protein_length": 1042,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 445,
+                  "end": 946,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00443",
+              "score": 1.7e-44
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21246",
+        "name": "Ubiquitin carboxyl-terminal hydrolase 38-like, N-terminal domain",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR049407",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8nb14",
+          "protein_length": 1042,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 48,
+                  "end": 384,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF21246",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

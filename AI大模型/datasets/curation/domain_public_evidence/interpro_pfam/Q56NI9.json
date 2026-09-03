@@ -1,0 +1,73 @@
+{
+  "accession": "Q56NI9",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF13878",
+        "name": "zinc-finger of acetyl-transferase ESCO",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR028005",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q56ni9",
+          "protein_length": 601,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 374,
+                  "end": 413,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF13878",
+              "score": 5.1e-12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13880",
+        "name": "ESCO1/2 acetyl-transferase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR028009",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q56ni9",
+          "protein_length": 601,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 529,
+                  "end": 597,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF13880",
+              "score": 8.3e-26
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

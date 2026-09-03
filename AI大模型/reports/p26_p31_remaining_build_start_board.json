@@ -1,0 +1,368 @@
+{
+  "created_at": "2026-09-03T07:34:02.198193+00:00",
+  "local_only": true,
+  "stage_ids": [
+    "P26",
+    "P27",
+    "P28",
+    "P29",
+    "P30",
+    "P31"
+  ],
+  "action_count": 20,
+  "started_action_count": 20,
+  "requires_human_or_external_input_count": 13,
+  "actions": [
+    {
+      "stage_id": "P26",
+      "action_id": "P26-A001",
+      "title": "numbering formal reviewed decisions below threshold",
+      "started": true,
+      "status": "started_blocked_human_review",
+      "blocker": "formal reviewed numbering decisions remain insufficient",
+      "source_state": {
+        "human_backlog_total_missing_rows": 1392
+      },
+      "next_action": "continue numbering review packets without auto-writing formal decisions",
+      "requires_human_or_external_input": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P26",
+      "action_id": "P26-A002",
+      "title": "unreviewed structure chain rows remain",
+      "started": true,
+      "status": "started_blocked_human_review",
+      "blocker": "unreviewed chain mappings cannot enter reviewed graph features",
+      "source_state": {
+        "reviewed_chain_rows": 34
+      },
+      "next_action": "keep chain mapping review queue open and source-bound",
+      "requires_human_or_external_input": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P26",
+      "action_id": "P26-A003",
+      "title": "plate backlog not formally intaken",
+      "started": true,
+      "status": "started_blocked_human_review",
+      "blocker": "plate rows lack formal intake approval",
+      "source_state": {
+        "plate_backlog_rows": 110,
+        "ready_for_feedback_intake_rows": 0
+      },
+      "next_action": "review plate rows only through formal intake workflow",
+      "requires_human_or_external_input": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P26",
+      "action_id": "P26-A004",
+      "title": "human backlog total gap remains",
+      "started": true,
+      "status": "started_blocked_human_review",
+      "blocker": "human decision backlog remains open",
+      "source_state": {
+        "human_backlog_total_missing_rows": 1392,
+        "human_backlog_open_items": 11
+      },
+      "next_action": "keep all human gates visible until reviewed decisions exist",
+      "requires_human_or_external_input": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P27",
+      "action_id": "P27-A001",
+      "title": "feature input-only boundary",
+      "started": true,
+      "status": "started_guarded",
+      "blocker": "features must not become labels",
+      "source_state": {
+        "feature_contract_safe_for_model_claim": false
+      },
+      "next_action": "refresh feature contracts after upstream source changes",
+      "requires_human_or_external_input": false,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P27",
+      "action_id": "P27-A002",
+      "title": "unreviewed coordinates and numbering excluded",
+      "started": true,
+      "status": "started_guarded",
+      "blocker": "unreviewed coordinates/numbering cannot enter training labels",
+      "source_state": {
+        "reviewed_chain_rows": 34
+      },
+      "next_action": "continue excluding unreviewed feature rows from model-consumable labels",
+      "requires_human_or_external_input": false,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P27",
+      "action_id": "P27-A003",
+      "title": "feature coverage by head and protein group",
+      "started": true,
+      "status": "started_completion_ready_fail_closed_audit",
+      "blocker": "coverage audit is complete but does not unlock training or model claims",
+      "source_state": {
+        "coverage_rows": 875,
+        "protein_group_count": 175,
+        "validation_success": true,
+        "ready_head_count": 0
+      },
+      "next_action": "keep head/group feature coverage refreshed after upstream feature index changes",
+      "requires_human_or_external_input": false,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P28",
+      "action_id": "P28-A001",
+      "title": "numeric wet-lab authorization fields missing",
+      "started": true,
+      "status": "started_blocked_human_authorization",
+      "blocker": "12 numeric candidates require authorization/QC/reviewer/date/basis",
+      "source_state": {
+        "human_backlog_total_missing_rows": 1392
+      },
+      "next_action": "wait for explicit authorization rows before preflight",
+      "requires_human_or_external_input": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P28",
+      "action_id": "P28-A002",
+      "title": "plate schema and formal intake incomplete",
+      "started": true,
+      "status": "started_blocked_human_review",
+      "blocker": "plate rows lack required schema fields and formal intake review",
+      "source_state": {
+        "plate_backlog_rows": 110
+      },
+      "next_action": "keep plate review workspace separate from local intake",
+      "requires_human_or_external_input": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P28",
+      "action_id": "P28-A003",
+      "title": "16B/4G parent sequence intake incomplete",
+      "started": true,
+      "status": "started_blocked_external_source",
+      "blocker": "parent sequence intake remains unresolved",
+      "source_state": {
+        "human_backlog_total_missing_rows": 1392
+      },
+      "next_action": "wait for reviewed parent sequence/source/version evidence",
+      "requires_human_or_external_input": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P29",
+      "action_id": "P29-A001",
+      "title": "five-head training blocked",
+      "started": true,
+      "status": "started_blocked_data_gate",
+      "blocker": "five-head execution contract is not trainable",
+      "source_state": {
+        "training_execution_allowed": false
+      },
+      "next_action": "refresh contract only; do not train",
+      "requires_human_or_external_input": false,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P29",
+      "action_id": "P29-A002",
+      "title": "ready head count remains zero",
+      "started": true,
+      "status": "started_blocked_data_gate",
+      "blocker": "no head is ready for claimable training",
+      "source_state": {
+        "ready_head_count": 0
+      },
+      "next_action": "keep per-head missing row counts visible",
+      "requires_human_or_external_input": false,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P29",
+      "action_id": "P29-A003",
+      "title": "training import forbidden",
+      "started": true,
+      "status": "started_blocked_training_import",
+      "blocker": "training import remains disabled",
+      "source_state": {
+        "training_import_allowed": false
+      },
+      "next_action": "do not import labels without reviewed authorization",
+      "requires_human_or_external_input": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P29",
+      "action_id": "P29-A004",
+      "title": "benchmark and model-claim gates closed",
+      "started": true,
+      "status": "started_blocked_model_claim",
+      "blocker": "benchmark/model-claim gates remain false",
+      "source_state": {
+        "claim_promotion_ready": false
+      },
+      "next_action": "run only fail-closed validators and scaffolds",
+      "requires_human_or_external_input": false,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P30",
+      "action_id": "P30-A001",
+      "title": "workstream acceptance incomplete",
+      "started": true,
+      "status": "started_blocked_human_acceptance",
+      "blocker": "human workstream acceptance is incomplete",
+      "source_state": {
+        "accepted_streams": 0,
+        "total_streams": 6
+      },
+      "next_action": "keep acceptance gates open-blocked",
+      "requires_human_or_external_input": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P30",
+      "action_id": "P30-A002",
+      "title": "customer/license/biosecurity/IP-FTO blocked",
+      "started": true,
+      "status": "started_blocked_governance",
+      "blocker": "external delivery gates remain unresolved",
+      "source_state": {
+        "human_backlog_total_missing_rows": 1392
+      },
+      "next_action": "wait for formal governance decisions",
+      "requires_human_or_external_input": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P30",
+      "action_id": "P30-A003",
+      "title": "release package fail-closed",
+      "started": true,
+      "status": "started_guarded_release",
+      "blocker": "release_ready remains false",
+      "source_state": {
+        "release_ready": false
+      },
+      "next_action": "refresh local release evidence without marking release ready",
+      "requires_human_or_external_input": false,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P31",
+      "action_id": "P31-A001",
+      "title": "review preparation only",
+      "started": true,
+      "status": "review_preparation_started_no_production_execution",
+      "blocker": "production authorization is absent",
+      "source_state": {
+        "explicit_production_authorization_present": false
+      },
+      "next_action": "prepare pre-sync checklist only",
+      "requires_human_or_external_input": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P31",
+      "action_id": "P31-A002",
+      "title": "production authorization absent",
+      "started": true,
+      "status": "started_blocked_production_authorization",
+      "blocker": "no user production authorization",
+      "source_state": {
+        "production_execution_allowed": false
+      },
+      "next_action": "do not sync/deploy/restart",
+      "requires_human_or_external_input": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    },
+    {
+      "stage_id": "P31",
+      "action_id": "P31-A003",
+      "title": "sync deploy restart grey release forbidden",
+      "started": true,
+      "status": "started_blocked_production_execution",
+      "blocker": "production execution remains forbidden",
+      "source_state": {
+        "release_ready": false
+      },
+      "next_action": "keep production actions disabled",
+      "requires_human_or_external_input": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "production_execution_allowed": false
+    }
+  ],
+  "training_import_allowed": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "policy": "Remaining P26-P31 work items are started as local fail-closed workstreams only; this board authorizes no formal decisions, training import, model claim, production action, or release."
+}

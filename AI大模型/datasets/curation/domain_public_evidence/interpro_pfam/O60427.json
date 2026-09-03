@@ -1,0 +1,73 @@
+{
+  "accession": "O60427",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00173",
+        "name": "Cytochrome b5-like Heme/Steroid binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001199",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60427",
+          "protein_length": 444,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 21,
+                  "end": 93,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00173",
+              "score": 2.7e-18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00487",
+        "name": "Fatty acid desaturase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR005804",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60427",
+          "protein_length": 444,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 156,
+                  "end": 416,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00487",
+              "score": 4.1e-30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

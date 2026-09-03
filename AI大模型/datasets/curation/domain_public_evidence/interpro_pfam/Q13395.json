@@ -1,0 +1,73 @@
+{
+  "accession": "Q13395",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00588",
+        "name": "SpoU rRNA Methylase family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001537",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13395",
+          "protein_length": 1621,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1464,
+                  "end": 1605,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00588",
+              "score": 3.2e-27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25050",
+        "name": "TARBP1 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR056921",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13395",
+          "protein_length": 1621,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 278,
+                  "end": 363,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF25050",
+              "score": 9.6e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

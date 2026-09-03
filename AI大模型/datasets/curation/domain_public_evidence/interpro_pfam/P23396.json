@@ -1,0 +1,73 @@
+{
+  "accession": "P23396",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00189",
+        "name": "Ribosomal protein S3, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001351",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p23396",
+          "protein_length": 243,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 106,
+                  "end": 188,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00189",
+              "score": 2.1e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07650",
+        "name": "KH domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004044",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p23396",
+          "protein_length": 243,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 20,
+                  "end": 93,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07650",
+              "score": 1.2e-10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

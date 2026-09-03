@@ -1,0 +1,73 @@
+{
+  "accession": "Q63ZY6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01189",
+        "name": "16S rRNA methyltransferase RsmB/F",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049560",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q63zy6",
+          "protein_length": 315,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 56,
+                  "end": 237,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01189",
+              "score": 4.6e-12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21148",
+        "name": "NOL1/NOP2/Sun domain family member 5, ferredoxin-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049561",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q63zy6",
+          "protein_length": 315,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1,
+                  "end": 27,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF21148",
+              "score": 2.3e-06
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

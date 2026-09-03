@@ -1,0 +1,85 @@
+{
+  "accession": "Q9UK32",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00069",
+        "name": "Protein kinase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000719",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uk32",
+          "protein_length": 745,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 73,
+                  "end": 330,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00069",
+              "score": 2.2e-67
+            },
+            {
+              "fragments": [
+                {
+                  "start": 426,
+                  "end": 683,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00069",
+              "score": 3.3e-71
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00433",
+        "name": "Protein kinase C terminal domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR017892",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uk32",
+          "protein_length": 745,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 354,
+                  "end": 390,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00433",
+              "score": 0.075
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

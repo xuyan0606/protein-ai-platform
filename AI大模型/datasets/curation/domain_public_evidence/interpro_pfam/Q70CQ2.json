@@ -1,0 +1,119 @@
+{
+  "accession": "Q70CQ2",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00443",
+        "name": "Ubiquitin carboxyl-terminal hydrolase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001394",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q70cq2",
+          "protein_length": 3546,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": false,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1894,
+                  "end": 2236,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00443",
+              "score": 2.9e-45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12030",
+        "name": "Domain of unknown function (DUF3517)",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR021905",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q70cq2",
+          "protein_length": 3546,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": false,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 2359,
+                  "end": 2464,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF12030",
+              "score": 3.1e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25010",
+        "name": "UBP24/USP9X/USP9Y ARM repeat",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR056850",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q70cq2",
+          "protein_length": 3546,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": false,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 314,
+                  "end": 449,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25010",
+              "score": 2.3e-06
+            },
+            {
+              "fragments": [
+                {
+                  "start": 853,
+                  "end": 1074,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25010",
+              "score": 1.1e-08
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

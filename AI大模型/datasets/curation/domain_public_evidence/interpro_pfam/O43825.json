@@ -1,0 +1,73 @@
+{
+  "accession": "O43825",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01762",
+        "name": "Galactosyltransferase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002659",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43825",
+          "protein_length": 422,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 166,
+                  "end": 357,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF01762",
+              "score": 3.6e-64
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19341",
+        "name": "Beta-1,3-galactosyltransferase 2 N-terminus",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR045821",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43825",
+          "protein_length": 422,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 75,
+                  "end": 154,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF19341",
+              "score": 3.8e-30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

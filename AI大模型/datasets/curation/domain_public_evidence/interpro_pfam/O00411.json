@@ -1,0 +1,73 @@
+{
+  "accession": "O00411",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00940",
+        "name": "DNA-dependent RNA polymerase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR046950",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00411",
+          "protein_length": 1230,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 831,
+                  "end": 1205,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00940",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14700",
+        "name": "DNA-directed RNA polymerase N-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR029262",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00411",
+          "protein_length": 1230,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 428,
+                  "end": 704,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14700",
+              "score": 3.1e-59
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

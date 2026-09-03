@@ -1,0 +1,73 @@
+{
+  "accession": "P45381",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04952",
+        "name": "AstE/AspA barrel-sandwich hybrid domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007036",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p45381",
+          "protein_length": 313,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 219,
+                  "end": 299,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04952",
+              "score": 5.6e-20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF24827",
+        "name": "Succinylglutamate desuccinylase/Aspartoacylase catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR055438",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p45381",
+          "protein_length": 313,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 11,
+                  "end": 206,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF24827",
+              "score": 1.5e-51
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,545 @@
+EntryID	Substrate	Product	EnzymeType	PubMedID	Organism	UniprotID	ECNumber	pH	Temperature	parameter.type	parameter.associatedSpecies	parameter.startValue	parameter.endValue	parameter.standardDeviation	parameter.unit
+6051	AMP;ATP	ADP	wildtype	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	concentration	unknown compound	2.0E-5		-	mg/ml
+6051	AMP;ATP	ADP	wildtype	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	ATP	3.5E-5		-	M
+6051	AMP;ATP	ADP	wildtype	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	AMP	9.2E-5		-	M
+6051	AMP;ATP	ADP	wildtype	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat		650.0		-	s^(-1)
+6052	ATP;AMP	ADP	mutant H36Q	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	AMP	9.8E-4		-	M
+6052	ATP;AMP	ADP	mutant H36Q	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat		680.0		-	s^(-1)
+6052	ATP;AMP	ADP	mutant H36Q	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	concentration	unknown compound	2.0E-5		-	mg/ml
+6052	ATP;AMP	ADP	mutant H36Q	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	ATP	2.1E-4		-	M
+6053	ATP;AMP	ADP	mutant H36N	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	concentration	unknown compound	2.0E-5		-	mg/ml
+6053	ATP;AMP	ADP	mutant H36N	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	ATP	7.8E-5		-	M
+6053	ATP;AMP	ADP	mutant H36N	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	AMP	4.1E-4		-	M
+6053	ATP;AMP	ADP	mutant H36N	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat		595.0		-	s^(-1)
+6054	ATP;AMP	ADP	mutant H36G	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	concentration	unknown compound	2.0E-5		-	mg/ml
+6054	ATP;AMP	ADP	mutant H36G	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	ATP	9.1E-5		-	M
+6054	ATP;AMP	ADP	mutant H36G	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	AMP	1.7E-4		-	M
+6054	ATP;AMP	ADP	mutant H36G	2846042	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat		81.0		-	s^(-1)
+6055	AMP;ATP	ADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	-	-	Km	AMP	1.5E-4		1.5E-5	M
+6055	AMP;ATP	ADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	-	-	kcat/Km	AMP	3300000.0		-	M^(-1)*s^(-1)
+6055	AMP;ATP	ADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	-	-	kcat		500.0		2.5E1	s^(-1)
+6056	AMP;ATP	ADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	-	-	kcat/Km	AMP	4300.0		-	M^(-1)*s^(-1)
+6056	AMP;ATP	ADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	-	-	Km	AMP	0.0014		1.4E-4	M
+6056	AMP;ATP	ADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	-	-	kcat		6.0		3E-1	s^(-1)
+6057	ATP;AMP	ADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	-	-	kcat		22.0		1.1E0	s^(-1)
+6057	ATP;AMP	ADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	-	-	Km	AMP	0.0018		1.8E-4	M
+6057	ATP;AMP	ADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	-	-	kcat/Km	AMP	12000.0		-	M^(-1)*s^(-1)
+6058	ATP;dAMP	ADP;dADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	-	-	Km	dAMP	0.0021		2.1E-4	M
+6058	ATP;dAMP	ADP;dADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	-	-	kcat/Km	dAMP	41000.0		-	M^(-1)*s^(-1)
+6058	ATP;dAMP	ADP;dADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	-	-	kcat		87.0		4.35E0	s^(-1)
+6059	dAMP;ATP	ADP;dADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	-	-	kcat/Km	dAMP	25.0		-	M^(-1)*s^(-1)
+6059	dAMP;ATP	ADP;dADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	-	-	Km	dAMP	0.0039		3.9E-4	M
+6059	dAMP;ATP	ADP;dADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	-	-	kcat		0.1		5E-3	s^(-1)
+6060	ATP;dAMP	ADP;dADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	-	-	Km	dAMP	0.0103		1.03E-3	M
+6060	ATP;dAMP	ADP;dADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	-	-	kcat/Km	dAMP	26.0		-	M^(-1)*s^(-1)
+6060	ATP;dAMP	ADP;dADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	-	-	kcat		0.27		1.35E-2	s^(-1)
+6061	AMP;ATP	ADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	ATP	1.55E7		-	M^(-1)*s^(-1)
+6061	AMP;ATP	ADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	AMP	6600000.0		-	M^(-1)*s^(-1)
+6061	AMP;ATP	ADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	AMP	3.7E-4		3.7E-5	M
+6061	AMP;ATP	ADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	ATP	1.6E-4		1.6E-5	M
+6061	AMP;ATP	ADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	concentration	unknown compound	2.0E-5		-	mg/ml
+6061	AMP;ATP	ADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	AMP	9.8E-5		9.8E-6	M
+6061	AMP;ATP	ADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat		650.0		3.25E1	s^(-1)
+6061	AMP;ATP	ADP	wildtype	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	ATP	4.2E-5		4.2E-6	M
+6062	AMP;ATP	ADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	ATP	33000.0		-	M^(-1)*s^(-1)
+6062	AMP;ATP	ADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	AMP	5.5E-4		5.5E-5	M
+6062	AMP;ATP	ADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	ATP	1.7E-4		1.7E-5	M
+6062	AMP;ATP	ADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	AMP	15000.0		-	M^(-1)*s^(-1)
+6062	AMP;ATP	ADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	ATP	2.5E-4		2.5E-5	M
+6062	AMP;ATP	ADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat		8.3		4.15E-1	s^(-1)
+6062	AMP;ATP	ADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	concentration	unknown compound	2.0E-5		-	mg/ml
+6062	AMP;ATP	ADP	mutant D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	AMP	1.5E-4		1.5E-5	M
+6063	AMP;ATP	ADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat		38.0		1.9E0	s^(-1)
+6063	AMP;ATP	ADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	ATP	5.1E-4		5.1E-5	M
+6063	AMP;ATP	ADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	concentration	unknown compound	2.0E-5		-	mg/ml
+6063	AMP;ATP	ADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	AMP	45000.0		-	M^(-1)*s^(-1)
+6063	AMP;ATP	ADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	AMP	2.4E-4		2.4E-5	M
+6063	AMP;ATP	ADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	ATP	74000.0		-	M^(-1)*s^(-1)
+6063	AMP;ATP	ADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	AMP	8.4E-4		8.4E-5	M
+6063	AMP;ATP	ADP	mutant D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	ATP	1.5E-4		1.5E-5	M
+6064	AMP;ATP	ADP	mutant R138M/D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	AMP	0.0014		1.4E-4	M
+6064	AMP;ATP	ADP	mutant R138M/D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	AMP	7.4E-4		7.4E-5	M
+6064	AMP;ATP	ADP	mutant R138M/D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	ATP	1.7E-4		1.7E-5	M
+6064	AMP;ATP	ADP	mutant R138M/D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	concentration	unknown compound	2.0E-5		-	mg/ml
+6064	AMP;ATP	ADP	mutant R138M/D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	AMP	28.0		-	M^(-1)*s^(-1)
+6064	AMP;ATP	ADP	mutant R138M/D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	ATP	3.0E-4		3E-5	M
+6064	AMP;ATP	ADP	mutant R138M/D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	ATP	133.0		-	M^(-1)*s^(-1)
+6064	AMP;ATP	ADP	mutant R138M/D140A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat		0.04		2E-3	s^(-1)
+6065	ATP;AMP	ADP	mutant R132M/D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	AMP	0.0018		1.8E-4	M
+6065	ATP;AMP	ADP	mutant R132M/D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	ATP	7.0E-4		7E-5	M
+6065	ATP;AMP	ADP	mutant R132M/D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	AMP	23.0		-	M^(-1)*s^(-1)
+6065	ATP;AMP	ADP	mutant R132M/D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	concentration	unknown compound	2.0E-5		-	mg/ml
+6065	ATP;AMP	ADP	mutant R132M/D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	AMP	0.001		1E-4	M
+6065	ATP;AMP	ADP	mutant R132M/D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	ATP	0.0012		1.2E-4	M
+6065	ATP;AMP	ADP	mutant R132M/D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	ATP	34.0		-	M^(-1)*s^(-1)
+6065	ATP;AMP	ADP	mutant R132M/D141A	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat		0.04		2E-3	s^(-1)
+6066	ATP;AMP	ADP	mutant R138M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat		0.05		2.5E-3	s^(-1)
+6066	ATP;AMP	ADP	mutant R138M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	ATP	4.0E-4		4E-5	M
+6066	ATP;AMP	ADP	mutant R138M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	AMP	4.7E-4		4.7E-5	M
+6066	ATP;AMP	ADP	mutant R138M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	ATP	120.0		-	M^(-1)*s^(-1)
+6066	ATP;AMP	ADP	mutant R138M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	concentration	unknown compound	2.0E-5		-	mg/ml
+6066	ATP;AMP	ADP	mutant R138M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	AMP	0.0022		2.2E-4	M
+6066	ATP;AMP	ADP	mutant R138M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	ATP	8.5E-5		8.5E-6	M
+6066	ATP;AMP	ADP	mutant R138M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	AMP	22.0		-	M^(-1)*s^(-1)
+6067	AMP;ATP	ADP	mutant R132M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	concentration	unknown compound	2.0E-5		-	mg/ml
+6067	AMP;ATP	ADP	mutant R132M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	AMP	5.3E-5		5.3E-6	M
+6067	AMP;ATP	ADP	mutant R132M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat		0.08		4E-3	s^(-1)
+6067	AMP;ATP	ADP	mutant R132M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	AMP	1600.0		-	M^(-1)*s^(-1)
+6067	AMP;ATP	ADP	mutant R132M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	ATP	1.8E-4		1.8E-5	M
+6067	AMP;ATP	ADP	mutant R132M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Km	ATP	5.6E-5		5.6E-6	M
+6067	AMP;ATP	ADP	mutant R132M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	kcat/Km	ATP	1500.0		-	M^(-1)*s^(-1)
+6067	AMP;ATP	ADP	mutant R132M	8132532	Gallus gallus	P05081	2.7.4.3	8.0	30.0	Kd	AMP	1.7E-4		1.7E-5	M
+6600	ATP;AMP	ADP	wildtype	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	ATP	0.002		-	M
+6600	ATP;AMP	ADP	wildtype	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound	5.0E-6	1.0E-5	-	mg/ml
+6600	ATP;AMP	ADP	wildtype	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	AMP	5.0E-4	0.005	-	M
+6600	ATP;AMP	ADP	wildtype	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	AMP	1.6E-4		-	M
+6600	ATP;AMP	ADP	wildtype	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	AMP	4700000.0		-	M^(-1)*s^(-1)
+6600	ATP;AMP	ADP	wildtype	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		751.0		-	s^(-1)
+6601	AMP;ATP	ADP	mutant R44A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		167.0		-	s^(-1)
+6601	AMP;ATP	ADP	mutant R44A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	ATP	0.002		-	M
+6601	AMP;ATP	ADP	mutant R44A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound	6.8E-5		-	mg/ml
+6601	AMP;ATP	ADP	mutant R44A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	AMP	0.00699		-	M
+6601	AMP;ATP	ADP	mutant R44A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	AMP	5.0E-4	0.005	-	M
+6601	AMP;ATP	ADP	mutant R44A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	AMP	24000.0		-	M^(-1)*s^(-1)
+6602	AMP;ATP	ADP	mutant R97A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	AMP	3.4E-4		-	M
+6602	AMP;ATP	ADP	mutant R97A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	AMP	42000.0		-	M^(-1)*s^(-1)
+6602	AMP;ATP	ADP	mutant R97A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	AMP			-	-
+6602	AMP;ATP	ADP	mutant R97A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound			-	-
+6602	AMP;ATP	ADP	mutant R97A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		14.3		-	s^(-1)
+6603	ATP;AMP	ADP	mutant R132A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	AMP	27.0		-	M^(-1)*s^(-1)
+6603	ATP;AMP	ADP	mutant R132A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	AMP	0.00209		-	M
+6603	ATP;AMP	ADP	mutant R132A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	AMP	5.0E-4	0.005	-	M
+6603	ATP;AMP	ADP	mutant R132A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		0.0557		-	s^(-1)
+6603	ATP;AMP	ADP	mutant R132A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound	1.3E-4	1.6E-4	-	mg/ml
+6603	ATP;AMP	ADP	mutant R132A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	ATP	0.002		-	M
+6604	ATP;AMP	ADP	mutant R138A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	AMP	5.0E-4	0.005	-	M
+6604	ATP;AMP	ADP	mutant R138A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	ATP	0.002		-	M
+6604	ATP;AMP	ADP	mutant R138A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound	1.3E-4	1.6E-4	-	mg/ml
+6604	ATP;AMP	ADP	mutant R138A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	AMP	4.8		-	M^(-1)*s^(-1)
+6604	ATP;AMP	ADP	mutant R138A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	AMP	0.00328		-	M
+6604	ATP;AMP	ADP	mutant R138A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		0.0157		-	s^(-1)
+6605	AMP;ATP	ADP	mutant R149A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		0.108		-	s^(-1)
+6605	AMP;ATP	ADP	mutant R149A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	ATP	0.002		-	M
+6605	AMP;ATP	ADP	mutant R149A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound	1.3E-4	1.6E-4	-	mg/ml
+6605	AMP;ATP	ADP	mutant R149A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	AMP	0.00292		-	M
+6605	AMP;ATP	ADP	mutant R149A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	AMP	5.0E-4	0.005	-	M
+6605	AMP;ATP	ADP	mutant R149A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	AMP	37.0		-	M^(-1)*s^(-1)
+6606	AMP;ATP	ADP	mutant D119N	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	AMP	3.4E-4		-	M
+6606	AMP;ATP	ADP	mutant D119N	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	AMP	2500000.0		-	M^(-1)*s^(-1)
+6606	AMP;ATP	ADP	mutant D119N	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	ATP	0.001		-	M
+6606	AMP;ATP	ADP	mutant D119N	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	AMP	1.0E-4	0.002	-	M
+6606	AMP;ATP	ADP	mutant D119N	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound	5.0E-6	1.0E-5	-	mg/ml
+6606	AMP;ATP	ADP	mutant D119N	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		837.0		-	s^(-1)
+6607	AMP;ATP	ADP	wildtype	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		1100.0		-	s^(-1)
+6607	AMP;ATP	ADP	wildtype	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	ATP	1.0E-4	0.002	-	M
+6607	AMP;ATP	ADP	wildtype	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	ATP	1.1E7		-	M^(-1)*s^(-1)
+6607	AMP;ATP	ADP	wildtype	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	ATP	1.0E-4		-	M
+6607	AMP;ATP	ADP	wildtype	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	AMP	0.005		-	M
+6607	AMP;ATP	ADP	wildtype	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound	5.0E-6	1.0E-5	-	mg/ml
+6608	ATP;AMP	ADP	mutant R44A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	AMP	0.005		-	M
+6608	ATP;AMP	ADP	mutant R44A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		164.0		-	s^(-1)
+6608	ATP;AMP	ADP	mutant R44A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	ATP	4.1E-4		-	M
+6608	ATP;AMP	ADP	mutant R44A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound	6.8E-5		-	mg/ml
+6608	ATP;AMP	ADP	mutant R44A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	ATP	400000.0		-	M^(-1)*s^(-1)
+6608	ATP;AMP	ADP	mutant R44A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	ATP	1.0E-4	0.002	-	M
+6609	AMP;ATP	ADP	mutant R97A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	ATP	640000.0		-	M^(-1)*s^(-1)
+6609	AMP;ATP	ADP	mutant R97A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	ATP	2.0E-5		-	M
+6609	AMP;ATP	ADP	mutant R97A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound			-	-
+6609	AMP;ATP	ADP	mutant R97A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	ATP			-	-
+6609	AMP;ATP	ADP	mutant R97A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		12.8		-	s^(-1)
+6610	AMP;ATP	ADP	mutant R132A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound	1.3E-4	1.6E-4	-	mg/ml
+6610	AMP;ATP	ADP	mutant R132A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	AMP	0.005		-	M
+6610	AMP;ATP	ADP	mutant R132A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	ATP	0.00184		-	M
+6610	AMP;ATP	ADP	mutant R132A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	ATP	1.0E-4	0.002	-	M
+6610	AMP;ATP	ADP	mutant R132A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		0.0387		-	s^(-1)
+6610	AMP;ATP	ADP	mutant R132A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	ATP	21.0		-	M^(-1)*s^(-1)
+6611	ATP;AMP	ADP	mutant R138A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		0.0116		-	s^(-1)
+6611	ATP;AMP	ADP	mutant R138A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	ATP	89.0		-	M^(-1)*s^(-1)
+6611	ATP;AMP	ADP	mutant R138A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound	1.3E-4	1.6E-4	-	mg/ml
+6611	ATP;AMP	ADP	mutant R138A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	ATP	1.0E-4	0.002	-	M
+6611	ATP;AMP	ADP	mutant R138A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	ATP	1.3E-4		-	M
+6611	ATP;AMP	ADP	mutant R138A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	AMP	0.005		-	M
+6612	ATP;AMP	ADP	mutant R149A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		0.0957		-	s^(-1)
+6612	ATP;AMP	ADP	mutant R149A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	ATP	7.9E-4		-	M
+6612	ATP;AMP	ADP	mutant R149A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	AMP	0.005		-	M
+6612	ATP;AMP	ADP	mutant R149A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	ATP	120.0		-	M^(-1)*s^(-1)
+6612	ATP;AMP	ADP	mutant R149A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound	1.3E-4	1.6E-4	-	mg/ml
+6612	ATP;AMP	ADP	mutant R149A	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	ATP	1.0E-4	0.002	-	M
+6613	AMP;ATP	ADP	mutant D119N	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	unknown compound	5.0E-6	1.0E-5	-	mg/ml
+6613	AMP;ATP	ADP	mutant D119N	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	AMP	0.001		-	M
+6613	AMP;ATP	ADP	mutant D119N	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat		646.0		-	s^(-1)
+6613	AMP;ATP	ADP	mutant D119N	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	kcat/Km	ATP	1.1E7		-	M^(-1)*s^(-1)
+6613	AMP;ATP	ADP	mutant D119N	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	concentration	ATP	5.0E-5	0.002	-	M
+6613	AMP;ATP	ADP	mutant D119N	2157484	Homo sapiens	P00568	2.7.4.3	7.5	-	Km	ATP	6.0E-5		-	M
+6790	ATP;AMP	ADP	wildtype	6089748	Oryctolagus cuniculus	P00569	2.7.4.3	8.5	22.0	concentration	ATP	0.001		-	M
+6790	ATP;AMP	ADP	wildtype	6089748	Oryctolagus cuniculus	P00569	2.7.4.3	8.5	22.0	kcat/Km	AMP	115000.0		-	M^(-1)*s^(-1)
+6790	ATP;AMP	ADP	wildtype	6089748	Oryctolagus cuniculus	P00569	2.7.4.3	8.5	22.0	concentration	AMP	2.0E-5	0.002	-	M
+6790	ATP;AMP	ADP	wildtype	6089748	Oryctolagus cuniculus	P00569	2.7.4.3	8.5	22.0	kcat		17.0		-	s^(-1)
+6790	ATP;AMP	ADP	wildtype	6089748	Oryctolagus cuniculus	P00569	2.7.4.3	8.5	22.0	concentration	unknown compound	5.4E-4	0.002	-	mg/ml
+6790	ATP;AMP	ADP	wildtype	6089748	Oryctolagus cuniculus	P00569	2.7.4.3	8.5	22.0	Km	AMP	1.5E-4		-	M
+6791	(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(arsonoethyl)oxolane-3,4-diol;ATP	ADP;(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(phosphoarsonoethyl)oxolane-3,4-diol	wildtype	6089748	Oryctolagus cuniculus	P00569	2.7.4.3	8.5	22.0	Km	(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(arsonoethyl)oxolane-3,4-diol	0.01		-	M
+6791	(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(arsonoethyl)oxolane-3,4-diol;ATP	ADP;(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(phosphoarsonoethyl)oxolane-3,4-diol	wildtype	6089748	Oryctolagus cuniculus	P00569	2.7.4.3	8.5	22.0	kcat/Km	(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(arsonoethyl)oxolane-3,4-diol	100.0		-	M^(-1)*s^(-1)
+6791	(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(arsonoethyl)oxolane-3,4-diol;ATP	ADP;(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(phosphoarsonoethyl)oxolane-3,4-diol	wildtype	6089748	Oryctolagus cuniculus	P00569	2.7.4.3	8.5	22.0	concentration	ATP	0.001		-	M
+6791	(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(arsonoethyl)oxolane-3,4-diol;ATP	ADP;(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(phosphoarsonoethyl)oxolane-3,4-diol	wildtype	6089748	Oryctolagus cuniculus	P00569	2.7.4.3	8.5	22.0	kcat		1.0		-	s^(-1)
+6791	(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(arsonoethyl)oxolane-3,4-diol;ATP	ADP;(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(phosphoarsonoethyl)oxolane-3,4-diol	wildtype	6089748	Oryctolagus cuniculus	P00569	2.7.4.3	8.5	22.0	concentration	unknown compound	5.4E-4	0.002	-	mg/ml
+6791	(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(arsonoethyl)oxolane-3,4-diol;ATP	ADP;(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(phosphoarsonoethyl)oxolane-3,4-diol	wildtype	6089748	Oryctolagus cuniculus	P00569	2.7.4.3	8.5	22.0	concentration	(2R,3R,4R,5R)-2-(6-aminopurin-9-yl)-5-(arsonoethyl)oxolane-3,4-diol	0.002	0.025	-	M
+11594	ADP	ATP;AMP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	Km	ADP	3.7E-5		-	M
+11594	ADP	ATP;AMP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	Vmax		0.00375		-	mol*s^(-1)*g^(-1)
+11594	ADP	ATP;AMP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	concentration	unknown compound	0.002	0.03	-	mg/ml
+11595	ATP;AMP	ADP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	concentration	unknown compound	0.002	0.03	-	mg/ml
+11595	ATP;AMP	ADP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	concentration	AMP	1.4E-4		-	M
+11595	ATP;AMP	ADP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	concentration	ATP	0.0	0.001	-	M
+11595	ATP;AMP	ADP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	Km	ATP	3.6E-5		-	M
+11595	ATP;AMP	ADP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	Vmax		0.0048		-	mol*s^(-1)*g^(-1)
+11596	ATP;AMP	ADP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	Vmax		0.0048		-	mol*s^(-1)*g^(-1)
+11596	ATP;AMP	ADP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	concentration	ATP	0.001		-	M
+11596	ATP;AMP	ADP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	concentration	AMP	0.0	1.4E-4	-	M
+11596	ATP;AMP	ADP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	concentration	unknown compound	0.002	0.03	-	mg/ml
+11596	ATP;AMP	ADP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	Km	AMP	7.6E-5		-	M
+11597	ADP	AMP;ATP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	Km	ADP	9.2E-5		-	M
+11597	ADP	AMP;ATP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	concentration	unknown compound	0.002	0.03	-	mg/ml
+11597	ADP	AMP;ATP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	Vmax		0.01008333		-	mol*s^(-1)*g^(-1)
+11598	AMP;ATP	ADP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	Vmax		0.017		-	mol*s^(-1)*g^(-1)
+11598	AMP;ATP	ADP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	concentration	ATP	0.0	0.001	-	M
+11598	AMP;ATP	ADP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	concentration	unknown compound	0.002	0.03	-	mg/ml
+11598	AMP;ATP	ADP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	concentration	AMP	1.4E-4		-	M
+11598	AMP;ATP	ADP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	Km	ATP	5.1E-5		-	M
+11599	AMP;ATP	ADP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	concentration	AMP	0.0	1.4E-4	-	M
+11599	AMP;ATP	ADP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	Km	AMP	3.8E-5		-	M
+11599	AMP;ATP	ADP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	concentration	unknown compound	0.002	0.03	-	mg/ml
+11599	AMP;ATP	ADP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	concentration	ATP	0.001		-	M
+11599	AMP;ATP	ADP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	Vmax		0.017		-	mol*s^(-1)*g^(-1)
+11600	ADP	AMP;ATP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	Ki	Bis(5'-adenosyl) pentaphosphate	6.0E-8		-	M
+11600	ADP	AMP;ATP	wildtype	1554691	Geobacillus stearothermophilus	P27142	2.7.4.3	7.4	37.0	concentration	unknown compound	0.002	0.03	-	mg/ml
+11601	ADP	ATP;AMP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	Ki	Bis(5'-adenosyl) pentaphosphate	6.0E-7		-	M
+11601	ADP	ATP;AMP	wildtype	1554691	Escherichia coli	P69441	2.7.4.3	7.4	30.0	concentration	unknown compound	0.002	0.03	-	mg/ml
+12425	AMP;ATP	ADP	wildtype	3858849	Bos taurus	Q0VCP1 P08166	2.7.4.3	8.0	30.0	Km	AMP	1.2E-4		-	M
+12425	AMP;ATP	ADP	wildtype	3858849	Bos taurus	Q0VCP1 P08166	2.7.4.3	8.0	30.0	concentration	ATP	1.0E-4	0.005	-	M
+12425	AMP;ATP	ADP	wildtype	3858849	Bos taurus	Q0VCP1 P08166	2.7.4.3	8.0	30.0	concentration	AMP	1.0E-4	0.005	-	M
+12425	AMP;ATP	ADP	wildtype	3858849	Bos taurus	Q0VCP1 P08166	2.7.4.3	8.0	30.0	Km	ATP	3.5E-4		-	M
+12426	ADP	ATP;AMP	wildtype	3858849	Bos taurus	Q0VCP1 P08166	2.7.4.3	8.0	30.0	Km	ADP	6.5E-4		-	M
+12426	ADP	ATP;AMP	wildtype	3858849	Bos taurus	Q0VCP1 P08166	2.7.4.3	8.0	30.0	concentration	ADP	2.0E-4	0.01	-	M
+12750	ATP;AMP	ADP	wildtype	164348	Cyprinus carpio	P12115	2.7.4.3	-	-	Km	AMP	1.14E-4		-	M
+12750	ATP;AMP	ADP	wildtype	164348	Cyprinus carpio	P12115	2.7.4.3	-	-	Km	ATP	2.03E-4		-	M
+13276	ATP;AMP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	unknown compound	0.002	0.05	-	mg/ml
+13276	ATP;AMP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Km	AMP	3.8E-5		-	M
+13276	ATP;AMP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Km	ATP	4.8E-5		-	M
+13276	ATP;AMP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Vmax		0.02078333		-	M*s^(-1)*g^(-1)
+13277	3'-deoxy-AMP;ATP	ADP;3'-deoxy-ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	unknown compound	0.002	0.05	-	mg/ml
+13277	3'-deoxy-AMP;ATP	ADP;3'-deoxy-ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	ATP	0.001		-	M
+13277	3'-deoxy-AMP;ATP	ADP;3'-deoxy-ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Km	3'-deoxy-AMP	2.7E-4		-	M
+13277	3'-deoxy-AMP;ATP	ADP;3'-deoxy-ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Vmax		0.01588333		-	M*s^(-1)*g^(-1)
+13278	dAMP;ATP	ADP;dADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Km	ATP	8.4E-5		-	M
+13278	dAMP;ATP	ADP;dADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Km	dAMP	8.5E-4		-	M
+13278	dAMP;ATP	ADP;dADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	unknown compound	0.002	0.05	-	mg/ml
+13278	dAMP;ATP	ADP;dADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Vmax		0.01458333		-	M*s^(-1)*g^(-1)
+13279	ATP;7-Deazaadenosine 5'-monophosphate	7-Deazaadenosine 5'-diphosphate;ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	unknown compound	0.002	0.05	-	mg/ml
+13279	ATP;7-Deazaadenosine 5'-monophosphate	7-Deazaadenosine 5'-diphosphate;ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	ATP	0.001		-	M
+13279	ATP;7-Deazaadenosine 5'-monophosphate	7-Deazaadenosine 5'-diphosphate;ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Vmax		0.00935		-	M*s^(-1)*g^(-1)
+13279	ATP;7-Deazaadenosine 5'-monophosphate	7-Deazaadenosine 5'-diphosphate;ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Km	7-Deazaadenosine 5'-monophosphate	7.3E-4		-	M
+13280	Adenine-9-beta-D-arabinofuranoside 5'-monophosphate;ATP	Adenine-9-beta-D-arabinofuranoside 5'-diphosphate;ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	ATP	0.001		-	M
+13280	Adenine-9-beta-D-arabinofuranoside 5'-monophosphate;ATP	Adenine-9-beta-D-arabinofuranoside 5'-diphosphate;ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	unknown compound	0.002	0.05	-	mg/ml
+13280	Adenine-9-beta-D-arabinofuranoside 5'-monophosphate;ATP	Adenine-9-beta-D-arabinofuranoside 5'-diphosphate;ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Km	Adenine-9-beta-D-arabinofuranoside 5'-monophosphate	0.00137		-	M
+13280	Adenine-9-beta-D-arabinofuranoside 5'-monophosphate;ATP	Adenine-9-beta-D-arabinofuranoside 5'-diphosphate;ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Vmax		0.0017		-	M*s^(-1)*g^(-1)
+13281	ADP	AMP;ATP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Km	ADP	9.2E-5		-	M
+13281	ADP	AMP;ATP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	unknown compound	0.002	0.05	-	mg/ml
+13282	AMP;ATP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	20.0	Kd	ATP	3.7E-5		-	M
+13282	AMP;ATP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	20.0	concentration	ATP	1.0E-5	4.0E-4	-	M
+13282	AMP;ATP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	20.0	concentration	unknown compound	5.0E-5		-	M
+13283	ATP;AMP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	AMP	3.0E-4		-	M
+13283	ATP;AMP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Ki	3'-O-(4-Benzoyl)benzoyl ATP	9.5E-5		-	M
+13283	ATP;AMP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	unknown compound	0.002	0.05	-	mg/ml
+13283	ATP;AMP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	3'-O-(4-Benzoyl)benzoyl ATP	8.5E-5	2.24E-4	-	M
+13283	ATP;AMP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	ATP	5.0E-5	0.002	-	M
+13284	AMP;ATP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	Ki	Bis(5'-adenosyl) pentaphosphate	6.0E-7		-	M
+13284	AMP;ATP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	27.0	concentration	unknown compound	0.002	0.05	-	mg/ml
+13285	AMP;ATP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	20.0	Kd	AMP	3.0E-5		-	M
+13285	AMP;ATP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	20.0	concentration	unknown compound	5.0E-5		-	M
+13285	AMP;ATP	ADP	wildtype	3027060	Escherichia coli	P69441	2.7.4.3	7.4	20.0	concentration	AMP	1.0E-5	4.0E-4	-	M
+14844	ATP;AMP	ADP	wildtype allelozyme AK1*2	1969292	Homo sapiens	P00568	2.7.4.3	7.4	25.0	Km	ATP	2.3E-4		-	M
+14844	ATP;AMP	ADP	wildtype allelozyme AK1*2	1969292	Homo sapiens	P00568	2.7.4.3	7.4	25.0	kcat		151.6667		-	s^(-1)
+14844	ATP;AMP	ADP	wildtype allelozyme AK1*2	1969292	Homo sapiens	P00568	2.7.4.3	7.4	25.0	specific enz. activity		0.00700014		-	katal*g^(-1)
+14844	ATP;AMP	ADP	wildtype allelozyme AK1*2	1969292	Homo sapiens	P00568	2.7.4.3	7.4	25.0	Km	AMP	1.8E-4		-	M
+14845	ADP	AMP;ATP	wildtype allelozyme AK1*2	1969292	Homo sapiens	P00568	2.7.4.3	8.1	30.0	Km	ADP	5.0E-5		-	M
+14845	ADP	AMP;ATP	wildtype allelozyme AK1*2	1969292	Homo sapiens	P00568	2.7.4.3	8.1	30.0	Km	ADP	1.5E-4		-	M
+14846	ATP;AMP	ADP	wildtype allelozyme AK1*1	1969292	Homo sapiens	P00568	2.7.4.3	7.4	25.0	Km	ATP	2.3E-4		-	M
+14846	ATP;AMP	ADP	wildtype allelozyme AK1*1	1969292	Homo sapiens	P00568	2.7.4.3	7.4	25.0	Km	AMP	1.8E-4		-	M
+14846	ATP;AMP	ADP	wildtype allelozyme AK1*1	1969292	Homo sapiens	P00568	2.7.4.3	7.4	25.0	specific enz. activity		0.02466716		-	katal*g^(-1)
+14847	ADP	AMP;ATP	wildtype allelozyme AK1*1	1969292	Homo sapiens	P00568	2.7.4.3	8.1	30.0	Km	ADP	5.0E-5		-	M
+14847	ADP	AMP;ATP	wildtype allelozyme AK1*1	1969292	Homo sapiens	P00568	2.7.4.3	8.1	30.0	Km	ADP	1.5E-4		-	M
+15500	AMP;ATP	ADP	wildtype isoenzyme AK1	211388	Homo sapiens	P00568	2.7.4.3	8.0	25.0	Km	ATP	9.0E-5		-	M
+15500	AMP;ATP	ADP	wildtype isoenzyme AK1	211388	Homo sapiens	P00568	2.7.4.3	8.0	25.0	concentration	AMP	0.001		-	M
+15500	AMP;ATP	ADP	wildtype isoenzyme AK1	211388	Homo sapiens	P00568	2.7.4.3	8.0	25.0	concentration	ATP			-	-
+15500	AMP;ATP	ADP	wildtype isoenzyme AK1	211388	Homo sapiens	P00568	2.7.4.3	8.0	25.0	Vmax		0.0533344		-	katal*g^(-1)
+15501	ADP	ATP;AMP	wildtype isoenzyme AK1	211388	Homo sapiens	P00568	2.7.4.3	8.0	25.0	Vmax		0.0533344		-	katal*g^(-1)
+15501	ADP	ATP;AMP	wildtype isoenzyme AK1	211388	Homo sapiens	P00568	2.7.4.3	8.0	25.0	concentration	ADP	1.0E-5	5.0E-5	-	M
+15501	ADP	ATP;AMP	wildtype isoenzyme AK1	211388	Homo sapiens	P00568	2.7.4.3	8.0	25.0	Km	ADP	1.1E-4		-	M
+15502	AMP;ATP	ADP	wildtype isoenzyme AK1	211388	Homo sapiens	P00568	2.7.4.3	8.0	25.0	Km	AMP	8.0E-5		-	M
+15502	AMP;ATP	ADP	wildtype isoenzyme AK1	211388	Homo sapiens	P00568	2.7.4.3	8.0	25.0	concentration	ATP	0.001		-	M
+15502	AMP;ATP	ADP	wildtype isoenzyme AK1	211388	Homo sapiens	P00568	2.7.4.3	8.0	25.0	concentration	AMP			-	-
+15502	AMP;ATP	ADP	wildtype isoenzyme AK1	211388	Homo sapiens	P00568	2.7.4.3	8.0	25.0	Vmax		0.0533344		-	katal*g^(-1)
+21419	ATP;AMP	ADP	wildtype	4354813	Oryctolagus cuniculus	P00569	2.7.4.3	8.0	22.0	Km	ATP	6.5E-5		-	M
+21419	ATP;AMP	ADP	wildtype	4354813	Oryctolagus cuniculus	P00569	2.7.4.3	8.0	22.0	concentration	ATP	0.0	0.001	-	M
+21419	ATP;AMP	ADP	wildtype	4354813	Oryctolagus cuniculus	P00569	2.7.4.3	8.0	22.0	concentration	AMP	0.0017		-	M
+21419	ATP;AMP	ADP	wildtype	4354813	Oryctolagus cuniculus	P00569	2.7.4.3	8.0	22.0	Vmax				-	-
+21420	AMP;ATP	ADP	wildtype	4354813	Oryctolagus cuniculus	P00569	2.7.4.3	8.0	22.0	Vmax				-	-
+21420	AMP;ATP	ADP	wildtype	4354813	Oryctolagus cuniculus	P00569	2.7.4.3	8.0	22.0	concentration	AMP	0.0017		-	M
+21420	AMP;ATP	ADP	wildtype	4354813	Oryctolagus cuniculus	P00569	2.7.4.3	8.0	22.0	concentration	ATP	0.0	0.0184	-	M
+21420	AMP;ATP	ADP	wildtype	4354813	Oryctolagus cuniculus	P00569	2.7.4.3	8.0	22.0	Km	ATP	0.00184		-	M
+21421	AMP;ATP	ADP	wildtype	4354813	Oryctolagus cuniculus	P00569	2.7.4.3	8.0	22.0	concentration	AMP	0.0	0.0017	-	M
+21421	AMP;ATP	ADP	wildtype	4354813	Oryctolagus cuniculus	P00569	2.7.4.3	8.0	22.0	concentration	ATP	0.001		-	M
+21421	AMP;ATP	ADP	wildtype	4354813	Oryctolagus cuniculus	P00569	2.7.4.3	8.0	22.0	Km	AMP	1.7E-4		-	M
+21421	AMP;ATP	ADP	wildtype	4354813	Oryctolagus cuniculus	P00569	2.7.4.3	8.0	22.0	Vmax				-	-
+21434	AMP;ATP	ADP	wildtype	4354813	Oryctolagus cuniculus	P00569	2.7.4.3	8.0	22.0	Ki	2-AminoAMP	0.01		-	M
+41127	ATP;AMP	ADP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	Kd	AMP	5.6E-7		-	M
+41127	ATP;AMP	ADP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	specific enz. activity		0.004669833		-	mol*s^(-1)*g^(-1)
+41127	ATP;AMP	ADP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	concentration	AMP	0.001		-	M
+41127	ATP;AMP	ADP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	concentration	ATP	0.003		-	M
+41127	ATP;AMP	ADP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	Vmax		0.01733333		6.666667E-4	mol*s^(-1)*g^(-1)
+41127	ATP;AMP	ADP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	Kd	ATP	1.2E-7		-	M
+41128	Adenosine 5-O-(3-thiotriphosphate);AMP	Adenosine 5-O-(3-thiodiphosphate);ADP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	concentration	AMP	0.001		-	M
+41128	Adenosine 5-O-(3-thiotriphosphate);AMP	Adenosine 5-O-(3-thiodiphosphate);ADP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	concentration	Adenosine 5-O-(3-thiotriphosphate)	0.003		-	M
+41128	Adenosine 5-O-(3-thiotriphosphate);AMP	Adenosine 5-O-(3-thiodiphosphate);ADP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	Vmax		0.0117		-	mol*s^(-1)*g^(-1)
+41128	Adenosine 5-O-(3-thiotriphosphate);AMP	Adenosine 5-O-(3-thiodiphosphate);ADP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	specific enz. activity		0.004669833		-	mol*s^(-1)*g^(-1)
+41128	Adenosine 5-O-(3-thiotriphosphate);AMP	Adenosine 5-O-(3-thiodiphosphate);ADP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	Kd	Adenosine 5-O-(3-thiodiphosphate)	5.7E-7		-	M
+41129	ATP;AMP-alpha-S	ADP;ADP-alpha-S	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	concentration	AMP-alpha-S	0.001		-	M
+41129	ATP;AMP-alpha-S	ADP;ADP-alpha-S	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	concentration	ATP	0.003		-	M
+41129	ATP;AMP-alpha-S	ADP;ADP-alpha-S	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	Kd	AMP-alpha-S	1.86E-4		-	M
+41129	ATP;AMP-alpha-S	ADP;ADP-alpha-S	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	specific enz. activity		0.004669833		-	mol*s^(-1)*g^(-1)
+41129	ATP;AMP-alpha-S	ADP;ADP-alpha-S	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	Vmax		0.006833333		-	mol*s^(-1)*g^(-1)
+41130	ADP	AMP;ATP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	Kd	ADP	1.68E-7		-	M
+41130	ADP	AMP;ATP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	concentration	AMP	0.001		-	M
+41130	ADP	AMP;ATP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	specific enz. activity		0.004669833		-	mol*s^(-1)*g^(-1)
+41130	ADP	AMP;ATP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	concentration	ATP	0.003		-	M
+41130	ADP	AMP;ATP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	Vmax		0.01066667		5E-5	mol*s^(-1)*g^(-1)
+41130	ADP	AMP;ATP	wildtype	6182143	Homo sapiens		2.7.4.3	7.4	30.0	Kd	ADP	5.25E-7		-	M
+48564	ATP;AMP	ADP	wildtype	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48564	ATP;AMP	ADP	wildtype	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	ATP	1.2E-4		-	M
+48564	ATP;AMP	ADP	wildtype	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+48564	ATP;AMP	ADP	wildtype	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	1.0E-4	0.001	-	M
+48564	ATP;AMP	ADP	wildtype	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	0.001		-	M
+48565	ATP;AMP	ADP	mutant Q48E	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	1.0E-4	0.001	-	M
+48565	ATP;AMP	ADP	mutant Q48E	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48565	ATP;AMP	ADP	mutant Q48E	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+48565	ATP;AMP	ADP	mutant Q48E	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	ATP	2.16E-4		-	M
+48565	ATP;AMP	ADP	mutant Q48E	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	0.001		-	M
+48566	ATP;AMP	ADP	mutant N169D	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+48566	ATP;AMP	ADP	mutant N169D	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	ATP	3.6E-4		-	M
+48566	ATP;AMP	ADP	mutant N169D	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	0.001		-	M
+48566	ATP;AMP	ADP	mutant N169D	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48566	ATP;AMP	ADP	mutant N169D	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	1.0E-4	0.001	-	M
+48567	ATP;AMP	ADP	mutant T77H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+48567	ATP;AMP	ADP	mutant T77H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48567	ATP;AMP	ADP	mutant T77H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	0.001		-	M
+48567	ATP;AMP	ADP	mutant T77H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	1.0E-4	0.001	-	M
+48567	ATP;AMP	ADP	mutant T77H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	ATP	1.68E-4		-	M
+48568	ATP;AMP	ADP	mutant T110H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	1.0E-4	0.001	-	M
+48568	ATP;AMP	ADP	mutant T110H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48568	ATP;AMP	ADP	mutant T110H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	0.001		-	M
+48568	ATP;AMP	ADP	mutant T110H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+48568	ATP;AMP	ADP	mutant T110H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	ATP	2.04E-4		-	M
+48569	AMP;ATP	ADP	mutant V8I	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	0.001		-	M
+48569	AMP;ATP	ADP	mutant V8I	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	ATP	1.8E-4		-	M
+48569	AMP;ATP	ADP	mutant V8I	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48569	AMP;ATP	ADP	mutant V8I	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	1.0E-4	0.001	-	M
+48569	AMP;ATP	ADP	mutant V8I	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+48570	AMP;ATP	ADP	mutant I213F	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48570	AMP;ATP	ADP	mutant I213F	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	1.0E-4	0.001	-	M
+48570	AMP;ATP	ADP	mutant I213F	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	0.001		-	M
+48570	AMP;ATP	ADP	mutant I213F	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	ATP	1.56E-4		-	M
+48570	AMP;ATP	ADP	mutant I213F	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+48571	AMP;ATP	ADP	wildtype	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+48571	AMP;ATP	ADP	wildtype	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	1.0E-4	0.001	-	M
+48571	AMP;ATP	ADP	wildtype	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	AMP	1.3E-4		-	M
+48571	AMP;ATP	ADP	wildtype	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	0.0016		-	M
+48571	AMP;ATP	ADP	wildtype	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48572	ATP;AMP	ADP	mutant Q48E	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	AMP	1.82E-4		-	M
+48572	ATP;AMP	ADP	mutant Q48E	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+48572	ATP;AMP	ADP	mutant Q48E	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	0.0016		-	M
+48572	ATP;AMP	ADP	mutant Q48E	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	1.0E-4	0.001	-	M
+48572	ATP;AMP	ADP	mutant Q48E	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48573	AMP;ATP	ADP	mutant N169D	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	0.0016		-	M
+48573	AMP;ATP	ADP	mutant N169D	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48573	AMP;ATP	ADP	mutant N169D	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	AMP	0.001365		-	M
+48573	AMP;ATP	ADP	mutant N169D	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+48573	AMP;ATP	ADP	mutant N169D	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	1.0E-4	0.001	-	M
+48574	AMP;ATP	ADP	mutant T77H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48574	AMP;ATP	ADP	mutant T77H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	1.0E-4	0.001	-	M
+48574	AMP;ATP	ADP	mutant T77H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	AMP	2.47E-4		-	M
+48574	AMP;ATP	ADP	mutant T77H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	0.0016		-	M
+48574	AMP;ATP	ADP	mutant T77H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+48575	ATP;AMP	ADP	mutant T110H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	1.0E-4	0.001	-	M
+48575	ATP;AMP	ADP	mutant T110H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48575	ATP;AMP	ADP	mutant T110H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+48575	ATP;AMP	ADP	mutant T110H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	AMP	2.99E-4		-	M
+48575	ATP;AMP	ADP	mutant T110H	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	0.0016		-	M
+48576	AMP;ATP	ADP	mutant V8I	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48576	AMP;ATP	ADP	mutant V8I	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	0.0016		-	M
+48576	AMP;ATP	ADP	mutant V8I	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	AMP	1.56E-4		-	M
+48576	AMP;ATP	ADP	mutant V8I	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	1.0E-4	0.001	-	M
+48576	AMP;ATP	ADP	mutant V8I	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+48577	AMP;ATP	ADP	mutant I213F	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	Mg2+	0.005		-	M
+48577	AMP;ATP	ADP	mutant I213F	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	AMP	1.0E-4	0.001	-	M
+48577	AMP;ATP	ADP	mutant I213F	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Km	AMP	2.86E-4		-	M
+48577	AMP;ATP	ADP	mutant I213F	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	concentration	ATP	0.0016		-	M
+48577	AMP;ATP	ADP	mutant I213F	7635152	Saccharomyces cerevisiae	P07170	2.7.4.3	7.7	25.0	Vmax				-	-
+49508	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	Vmax		0.006166667		1.666667E-4	mol*s^(-1)*g^(-1)
+49508	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	concentration	AMP	5.0E-6	0.001	-	M
+49508	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	concentration	ATP	0.001		-	M
+49508	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	kcat/Km	AMP	3333.333		-	M^(-1)*s^(-1)
+49508	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	Km	AMP	1.1E-5		1E-6	M
+49508	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	concentration	unknown compound	1.0E-9		-	M
+49508	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	kcat		0.035		1.666667E-3	s^(-1)
+49509	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	concentration	ATP	0.001		-	M
+49509	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	kcat/Km	AMP	1166.667		-	M^(-1)*s^(-1)
+49509	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	concentration	unknown compound	1.0E-9		-	M
+49509	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	Km	AMP	1.3E-5		1E-6	M
+49509	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	concentration	AMP	5.0E-6	0.001	-	M
+49509	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	Vmax		0.002833333		1.666667E-4	mol*s^(-1)*g^(-1)
+49509	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	27.0	kcat		0.015		1.666667E-3	s^(-1)
+49510	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	Vmax		0.009666667		1.666667E-4	mol*s^(-1)*g^(-1)
+49510	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	concentration	ATP	0.001		-	M
+49510	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	kcat/Km	AMP	3333.333		-	M^(-1)*s^(-1)
+49510	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	concentration	unknown compound	1.0E-9		-	M
+49510	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	Km	AMP	1.6E-5		2E-6	M
+49510	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	concentration	AMP	5.0E-6	0.001	-	M
+49510	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	kcat		0.05333333		1.666667E-3	s^(-1)
+49511	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	concentration	AMP	5.0E-6	0.001	-	M
+49511	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	Km	AMP	2.4E-5		2E-6	M
+49511	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	Vmax		0.0065		1.666667E-4	mol*s^(-1)*g^(-1)
+49511	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	concentration	unknown compound	1.0E-9		-	M
+49511	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	kcat		0.035		1.666667E-3	s^(-1)
+49511	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	concentration	ATP	0.001		-	M
+49511	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	35.0	kcat/Km	AMP	1500.0		-	M^(-1)*s^(-1)
+49512	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	Km	AMP	4.6E-5		4E-6	M
+49512	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	Vmax		0.01083333		1.666667E-4	mol*s^(-1)*g^(-1)
+49512	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	kcat/Km	AMP	1333.333		-	M^(-1)*s^(-1)
+49512	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	concentration	AMP	5.0E-6	0.001	-	M
+49512	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	kcat		0.06		1.666667E-3	s^(-1)
+49512	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	concentration	ATP	0.001		-	M
+49512	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	concentration	unknown compound	1.0E-9		-	M
+49513	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	concentration	ATP	0.001		-	M
+49513	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	Km	AMP	2.6E-5		3E-6	M
+49513	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	concentration	AMP	5.0E-6	0.001	-	M
+49513	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	Vmax		0.01333333		3.333333E-4	mol*s^(-1)*g^(-1)
+49513	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	kcat/Km	AMP	2833.333		-	M^(-1)*s^(-1)
+49513	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	kcat		0.07333333		1.666667E-3	s^(-1)
+49513	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	45.0	concentration	unknown compound	1.0E-9		-	M
+49514	AMP;ATP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	concentration	ATP	0.001		-	M
+49514	AMP;ATP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	concentration	AMP	5.0E-6	0.001	-	M
+49514	AMP;ATP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	Vmax		0.0185		3.333333E-4	mol*s^(-1)*g^(-1)
+49514	AMP;ATP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	concentration	unknown compound	1.0E-9		-	M
+49514	AMP;ATP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	kcat		0.1033333		1.666667E-3	s^(-1)
+49514	AMP;ATP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	kcat/Km	AMP	2166.667		-	M^(-1)*s^(-1)
+49514	AMP;ATP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	Km	AMP	4.8E-5		4E-6	M
+49515	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	kcat		0.1316667		1.666667E-3	s^(-1)
+49515	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	Vmax		0.02383333		1.666667E-4	mol*s^(-1)*g^(-1)
+49515	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	concentration	unknown compound	1.0E-9		-	M
+49515	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	Km	AMP	9.4E-5		3E-6	M
+49515	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	concentration	AMP	5.0E-6	0.001	-	M
+49515	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	kcat/Km	AMP	1333.333		-	M^(-1)*s^(-1)
+49515	AMP;ATP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	55.0	concentration	ATP	0.001		-	M
+49516	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	Vmax		0.02333333		5E-4	mol*s^(-1)*g^(-1)
+49516	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	kcat/Km	AMP	2000.0		-	M^(-1)*s^(-1)
+49516	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	concentration	AMP	5.0E-6	0.001	-	M
+49516	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	concentration	ATP	0.001		-	M
+49516	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	kcat		0.135		3.333333E-3	s^(-1)
+49516	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	concentration	unknown compound	1.0E-9		-	M
+49516	ATP;AMP	ADP	wildtype	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	Km	AMP	7.0E-5		7E-6	M
+49517	ATP;AMP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	concentration	ATP	0.001		-	M
+49517	ATP;AMP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	concentration	AMP	5.0E-6	0.001	-	M
+49517	ATP;AMP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	kcat		0.1916667		3.333333E-3	s^(-1)
+49517	ATP;AMP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	Km	AMP	1.1E-4		8E-6	M
+49517	ATP;AMP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	Vmax		0.03433333		6.666667E-4	mol*s^(-1)*g^(-1)
+49517	ATP;AMP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	kcat/Km	AMP	1666.667		-	M^(-1)*s^(-1)
+49517	ATP;AMP	ADP	mutant Q199R	18093993	Bacillus subtilis	P16304	2.7.4.3	7.2	60.0	concentration	unknown compound	1.0E-9		-	M
+56566	ADP	ATP;AMP	wildtype		Saccharomyces cerevisiae		2.7.4.3	-	-	rate const.		7.5E-4		-	M*s^(-1)
+56566	ADP	ATP;AMP	wildtype		Saccharomyces cerevisiae		2.7.4.3	-	-	concentration	ATP	0.00429		-	M
+56566	ADP	ATP;AMP	wildtype		Saccharomyces cerevisiae		2.7.4.3	-	-	concentration	ADP	0.00129		-	M
+56566	ADP	ATP;AMP	wildtype		Saccharomyces cerevisiae		2.7.4.3	-	-	Keq		0.45		-	-
+56566	ADP	ATP;AMP	wildtype		Saccharomyces cerevisiae		2.7.4.3	-	-	concentration	AMP	4.4E-4		-	M
+56727	AMP;ATP	ADP	wildtype	16508996	Penicillium chrysogenum	B6GZ61	2.7.4.3	6.5	25.0	Keq		1.0		-	-
+56861	ADP	AMP;ATP	wildtype	12180966	Saccharomyces cerevisiae		2.7.4.3	-	-	unknown		45.0		-	-
+56861	ADP	AMP;ATP	wildtype	12180966	Saccharomyces cerevisiae		2.7.4.3	-	-	concentration	ADP	0.001281988		-	M
+56861	ADP	AMP;ATP	wildtype	12180966	Saccharomyces cerevisiae		2.7.4.3	-	-	concentration	AMP	2.928849E-4		-	M
+56861	ADP	AMP;ATP	wildtype	12180966	Saccharomyces cerevisiae		2.7.4.3	-	-	concentration	ATP	0.002525127		-	M
+56861	ADP	AMP;ATP	wildtype	12180966	Saccharomyces cerevisiae		2.7.4.3	-	-	unknown		100.0		-	-
+56861	ADP	AMP;ATP	wildtype	12180966	Saccharomyces cerevisiae		2.7.4.3	-	-	volume				-	-
+73018	ADP	ATP;AMP	wildtype	8281944	Escherichia coli	P69441	2.7.4.3	7.4	30.0	concentration	unknown compound	0.002	0.01	-	mg/ml
+73018	ADP	ATP;AMP	wildtype	8281944	Escherichia coli	P69441	2.7.4.3	7.4	30.0	Vmax		0.01008333		-	mol*s^(-1)*g^(-1)
+73018	ADP	ATP;AMP	wildtype	8281944	Escherichia coli	P69441	2.7.4.3	7.4	30.0	Km	ADP	9.2E-5		-	M
+73019	ADP	AMP;ATP	wildtype	8281944	Bordetella pertussis	J7RC67	2.7.4.3	7.4	30.0	concentration	unknown compound	0.002	0.01	-	mg/ml
+73019	ADP	AMP;ATP	wildtype	8281944	Bordetella pertussis	J7RC67	2.7.4.3	7.4	30.0	Vmax		0.007		-	mol*s^(-1)*g^(-1)
+73019	ADP	AMP;ATP	wildtype	8281944	Bordetella pertussis	J7RC67	2.7.4.3	7.4	30.0	Km	ADP	1.0E-4		-	M
+73020	AMP;ATP	ADP	wildtype	8281944	Escherichia coli	P69441	2.7.4.3	7.4	30.0	Km	AMP	3.8E-5		-	M
+73020	AMP;ATP	ADP	wildtype	8281944	Escherichia coli	P69441	2.7.4.3	7.4	30.0	concentration	unknown compound	0.002	0.01	-	mg/ml
+73020	AMP;ATP	ADP	wildtype	8281944	Escherichia coli	P69441	2.7.4.3	7.4	30.0	concentration	AMP	1.4E-4		-	M
+73020	AMP;ATP	ADP	wildtype	8281944	Escherichia coli	P69441	2.7.4.3	7.4	30.0	concentration	ATP	3.0E-4		-	M
+73020	AMP;ATP	ADP	wildtype	8281944	Escherichia coli	P69441	2.7.4.3	7.4	30.0	Km	ATP	5.1E-5		-	M
+73020	AMP;ATP	ADP	wildtype	8281944	Escherichia coli	P69441	2.7.4.3	7.4	30.0	Vmax		0.017		-	mol*s^(-1)*g^(-1)
+73021	AMP;ATP	ADP	wildtype	8281944	Bordetella pertussis	J7RC67	2.7.4.3	7.4	30.0	Km	ATP	3.6E-5		-	M
+73021	AMP;ATP	ADP	wildtype	8281944	Bordetella pertussis	J7RC67	2.7.4.3	7.4	30.0	concentration	ATP	3.0E-4		-	M
+73021	AMP;ATP	ADP	wildtype	8281944	Bordetella pertussis	J7RC67	2.7.4.3	7.4	30.0	Km	AMP	8.2E-5		-	M
+73021	AMP;ATP	ADP	wildtype	8281944	Bordetella pertussis	J7RC67	2.7.4.3	7.4	30.0	concentration	unknown compound	0.002	0.01	-	mg/ml
+73021	AMP;ATP	ADP	wildtype	8281944	Bordetella pertussis	J7RC67	2.7.4.3	7.4	30.0	Vmax		0.008933333		-	mol*s^(-1)*g^(-1)
+73021	AMP;ATP	ADP	wildtype	8281944	Bordetella pertussis	J7RC67	2.7.4.3	7.4	30.0	concentration	AMP	1.4E-4		-	M
+73098	AMP;ATP	ADP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	concentration	ATP	0.005		-	M
+73098	AMP;ATP	ADP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	Km	AMP	1.0E-6		2E-7	M
+73098	AMP;ATP	ADP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	Vmax		1.883333E-5		3.333333E-7	mol*s^(-1)*g^(-1)
+73098	AMP;ATP	ADP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	concentration	AMP	1.0E-6	0.01	-	M
+73098	AMP;ATP	ADP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	Vmax/Km	AMP	18.83333		-	l*g^(-1)*s^(-1)
+73098	AMP;ATP	ADP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	concentration	unknown compound	0.001		-	mg/ml
+73099	ATP;dAMP	ADP;dADP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	concentration	dAMP	1.0E-6	0.01	-	M
+73099	ATP;dAMP	ADP;dADP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	Vmax/Km	dAMP	0.5166667		-	l*g^(-1)*s^(-1)
+73099	ATP;dAMP	ADP;dADP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	concentration	unknown compound	0.001		-	mg/ml
+73099	ATP;dAMP	ADP;dADP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	Km	dAMP	2.8E-5		1.2E-5	M
+73099	ATP;dAMP	ADP;dADP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	Vmax		1.433333E-5		3.333333E-7	mol*s^(-1)*g^(-1)
+73099	ATP;dAMP	ADP;dADP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	concentration	ATP	0.005		-	M
+73100	CMP;ATP	ADP;CDP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	concentration	ATP	0.005		-	M
+73100	CMP;ATP	ADP;CDP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	Vmax		2.5E-6		1E-6	mol*s^(-1)*g^(-1)
+73100	CMP;ATP	ADP;CDP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	Km	CMP	1.2E-6		8E-7	M
+73100	CMP;ATP	ADP;CDP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	concentration	unknown compound	0.001		-	mg/ml
+73100	CMP;ATP	ADP;CDP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	Vmax/Km	CMP	2.083333		-	l*g^(-1)*s^(-1)
+73100	CMP;ATP	ADP;CDP	wildtype AK7	21080915	Homo sapiens	Q96M32	2.7.4.3	7.6	37.0	concentration	CMP	1.0E-6	0.01	-	M
+73101	ATP;AMP	ADP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	concentration	ATP	0.005		-	M
+73101	ATP;AMP	ADP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	Km	AMP	4.1E-6		6E-7	M
+73101	ATP;AMP	ADP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	concentration	unknown compound	8.0E-4		-	mg/ml
+73101	ATP;AMP	ADP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	concentration	AMP	1.0E-6	0.01	-	M
+73101	ATP;AMP	ADP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	Vmax		4.0E-5		7.666667E-6	mol*s^(-1)*g^(-1)
+73101	ATP;AMP	ADP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	Vmax/Km	AMP	9.75		-	l*g^(-1)*s^(-1)
+73102	dAMP;ATP	ADP;dADP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	concentration	dAMP	1.0E-6	0.01	-	M
+73102	dAMP;ATP	ADP;dADP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	Vmax		2.266667E-5		1.166667E-6	mol*s^(-1)*g^(-1)
+73102	dAMP;ATP	ADP;dADP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	concentration	unknown compound	8.0E-4		-	mg/ml
+73102	dAMP;ATP	ADP;dADP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	Km	dAMP	6.3E-4		3.6E-5	M
+73102	dAMP;ATP	ADP;dADP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	Vmax/Km	dAMP	0.03666667		-	l*g^(-1)*s^(-1)
+73102	dAMP;ATP	ADP;dADP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	concentration	ATP	0.005		-	M
+73103	CMP;ATP	ADP;CDP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	concentration	CMP	1.0E-6	0.01	-	M
+73103	CMP;ATP	ADP;CDP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	concentration	unknown compound	8.0E-4		-	mg/ml
+73103	CMP;ATP	ADP;CDP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	Vmax		3.166667E-6		1.333333E-6	mol*s^(-1)*g^(-1)
+73103	CMP;ATP	ADP;CDP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	Km	CMP	1.4E-6		9E-7	M
+73103	CMP;ATP	ADP;CDP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	Vmax/Km	CMP	2.266667		-	l*g^(-1)*s^(-1)
+73103	CMP;ATP	ADP;CDP	wildtype AK8	21080915	Homo sapiens	Q96MA6	2.7.4.3	7.6	37.0	concentration	ATP	0.005		-	M
+73104	AMP;ATP	ADP	wildtype AK1	21080915	Homo sapiens	P00568	2.7.4.3	7.6	37.0	Km	AMP	0.0024		8.4E-4	M
+73104	AMP;ATP	ADP	wildtype AK1	21080915	Homo sapiens	P00568	2.7.4.3	7.6	37.0	Vmax		0.0026		2E-4	mol*s^(-1)*g^(-1)
+73104	AMP;ATP	ADP	wildtype AK1	21080915	Homo sapiens	P00568	2.7.4.3	7.6	37.0	Vmax/Km	AMP	1.083333		-	l*g^(-1)*s^(-1)
+73104	AMP;ATP	ADP	wildtype AK1	21080915	Homo sapiens	P00568	2.7.4.3	7.6	37.0	concentration	AMP	1.0E-6	0.01	-	M
+73104	AMP;ATP	ADP	wildtype AK1	21080915	Homo sapiens	P00568	2.7.4.3	7.6	37.0	concentration	unknown compound	4.0E-4		-	mg/ml
+73104	AMP;ATP	ADP	wildtype AK1	21080915	Homo sapiens	P00568	2.7.4.3	7.6	37.0	concentration	ATP	0.005		-	M
+73105	ATP;dAMP	ADP;dADP	wildtype AK1	21080915	Homo sapiens	P00568	2.7.4.3	7.6	37.0	concentration	unknown compound	4.0E-4		-	mg/ml
+73105	ATP;dAMP	ADP;dADP	wildtype AK1	21080915	Homo sapiens	P00568	2.7.4.3	7.6	37.0	concentration	ATP	0.005		-	M
+73105	ATP;dAMP	ADP;dADP	wildtype AK1	21080915	Homo sapiens	P00568	2.7.4.3	7.6	37.0	concentration	dAMP	1.0E-6	0.01	-	M
+73105	ATP;dAMP	ADP;dADP	wildtype AK1	21080915	Homo sapiens	P00568	2.7.4.3	7.6	37.0	Vmax/Km	dAMP	0.2433333		-	l*g^(-1)*s^(-1)
+73105	ATP;dAMP	ADP;dADP	wildtype AK1	21080915	Homo sapiens	P00568	2.7.4.3	7.6	37.0	Km	dAMP	0.0181		1.5E-3	M
+73105	ATP;dAMP	ADP;dADP	wildtype AK1	21080915	Homo sapiens	P00568	2.7.4.3	7.6	37.0	Vmax		0.004416667		1.833333E-4	mol*s^(-1)*g^(-1)
+74755	AMP;ATP	ADP	wildtype AMPK3 StrepII-tagged	29884623	Arabidopsis thaliana	Q9FK35	2.7.4.3	-	30.0	concentration	ATP	2.0E-4		-	M
+74755	AMP;ATP	ADP	wildtype AMPK3 StrepII-tagged	29884623	Arabidopsis thaliana	Q9FK35	2.7.4.3	-	30.0	kcat/Km	AMP	37000.0		-	M^(-1)*s^(-1)
+74755	AMP;ATP	ADP	wildtype AMPK3 StrepII-tagged	29884623	Arabidopsis thaliana	Q9FK35	2.7.4.3	-	30.0	concentration	AMP	1.0E-5	0.004	-	M
+74755	AMP;ATP	ADP	wildtype AMPK3 StrepII-tagged	29884623	Arabidopsis thaliana	Q9FK35	2.7.4.3	-	30.0	Km	AMP	9.9E-5		2.7E-5	M
+74755	AMP;ATP	ADP	wildtype AMPK3 StrepII-tagged	29884623	Arabidopsis thaliana	Q9FK35	2.7.4.3	-	30.0	concentration	unknown compound	0.0018		-	mg/ml
+74755	AMP;ATP	ADP	wildtype AMPK3 StrepII-tagged	29884623	Arabidopsis thaliana	Q9FK35	2.7.4.3	-	30.0	kcat		3.66		9.1E-1	s^(-1)
+74756	ATP;AMP	ADP	wildtype AMPK4 StrepII-tagged	29884623	Arabidopsis thaliana	O82514	2.7.4.3	-	30.0	concentration	ATP	2.0E-4		-	M
+74756	ATP;AMP	ADP	wildtype AMPK4 StrepII-tagged	29884623	Arabidopsis thaliana	O82514	2.7.4.3	-	30.0	kcat		3.65		1.11E0	s^(-1)
+74756	ATP;AMP	ADP	wildtype AMPK4 StrepII-tagged	29884623	Arabidopsis thaliana	O82514	2.7.4.3	-	30.0	concentration	unknown compound	0.0018		-	mg/ml
+74756	ATP;AMP	ADP	wildtype AMPK4 StrepII-tagged	29884623	Arabidopsis thaliana	O82514	2.7.4.3	-	30.0	Km	AMP	6.2E-4		1.1E-4	M
+74756	ATP;AMP	ADP	wildtype AMPK4 StrepII-tagged	29884623	Arabidopsis thaliana	O82514	2.7.4.3	-	30.0	concentration	AMP	1.0E-5	0.004	-	M
+74756	ATP;AMP	ADP	wildtype AMPK4 StrepII-tagged	29884623	Arabidopsis thaliana	O82514	2.7.4.3	-	30.0	kcat/Km	AMP	5900.0		-	M^(-1)*s^(-1)

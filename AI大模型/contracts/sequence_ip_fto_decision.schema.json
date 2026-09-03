@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB Sequence IP/FTO Review Decision",
+  "type": "object",
+  "required": [
+    "review_packet_id",
+    "candidate_id",
+    "fto_decision",
+    "reviewer",
+    "reviewed_at",
+    "review_basis",
+    "prior_art_evidence",
+    "jurisdictions",
+    "approved_for_internal_use",
+    "approved_for_customer_delivery",
+    "conditions",
+    "prohibited_uses"
+  ],
+  "properties": {
+    "review_packet_id": { "type": "string", "minLength": 1 },
+    "candidate_id": { "type": "string", "minLength": 1 },
+    "fto_decision": {
+      "type": "string",
+      "enum": ["cleared", "cleared_with_conditions", "blocked", "needs_more_info"]
+    },
+    "reviewer": { "type": "string", "minLength": 1 },
+    "reviewed_at": { "type": "string", "format": "date-time" },
+    "review_basis": { "type": "string", "minLength": 1 },
+    "prior_art_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "reference_id", "finding"],
+        "properties": {
+          "source": { "type": "string", "minLength": 1 },
+          "reference_id": { "type": "string", "minLength": 1 },
+          "finding": { "type": "string", "minLength": 1 },
+          "identity": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+          "coverage": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "jurisdictions": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "approved_for_internal_use": { "type": "boolean" },
+    "approved_for_customer_delivery": { "type": "boolean" },
+    "conditions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "prohibited_uses": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

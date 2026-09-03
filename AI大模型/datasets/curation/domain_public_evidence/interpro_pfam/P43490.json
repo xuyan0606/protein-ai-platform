@@ -1,0 +1,73 @@
+{
+  "accession": "P43490",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04095",
+        "name": "Nicotinate phosphoribosyltransferase (NAPRTase) family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR041525",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p43490",
+          "protein_length": 491,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 188,
+                  "end": 465,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04095",
+              "score": 4.1e-63
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18127",
+        "name": "Nicotinamide phosphoribosyltransferase, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041529",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p43490",
+          "protein_length": 491,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 10,
+                  "end": 116,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18127",
+              "score": 3.2e-42
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

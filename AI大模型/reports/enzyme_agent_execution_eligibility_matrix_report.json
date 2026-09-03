@@ -1,0 +1,33 @@
+{
+  "created_at": "2026-09-03T07:47:17.807443+00:00",
+  "local_only": true,
+  "plan_id": "enzyme_resource_retrieval_plan_20260731_p167",
+  "action_rows": 12,
+  "classification_counts": {
+    "blocked_requires_human_decision": 5,
+    "executable_after_user_confirmation": 5,
+    "forbidden_for_current_request": 1,
+    "recommended_read_only": 1
+  },
+  "current_execution_allowed_rows": 5,
+  "requires_user_confirmation_rows": 11,
+  "formal_decision_required_rows": 3,
+  "receipt_required_rows": 6,
+  "executed_in_current_trace_rows": 11,
+  "receipt_present_rows": 11,
+  "executed_with_receipt_rows": 11,
+  "executed_passed_rows": 11,
+  "executed_failed_rows": 0,
+  "skipped_rows": 1,
+  "authorization_ref": "user_20260731_continue_permission_can_execute_actions_receipts_tools",
+  "execution_wave_report": "reports/enzyme_agent_controlled_execution_wave_report.json",
+  "receipt_gate_validation_success": true,
+  "receipt_safety_regression_success": true,
+  "receipt_safety_regression_failed_cases": 0,
+  "matrix": "datasets/governance/enzyme_agent_execution_eligibility_matrix.jsonl",
+  "safe_for_execution_claim": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Matrix reflects the authorized local P175 execution wave. Validator-only/manual gate checks may be receipted, but formal human decisions, training imports, physics ddG success, model claims, and release remain blocked unless their separate gates pass."
+}

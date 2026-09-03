@@ -1,0 +1,107 @@
+{
+  "accession": "Q9BSW2",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00071",
+        "name": "Ras family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001806",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bsw2",
+          "protein_length": 731,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 547,
+                  "end": 705,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00071",
+              "score": 3.4e-46
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13499",
+        "name": "EF-hand domain pair",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002048",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bsw2",
+          "protein_length": 731,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 54,
+                  "end": 113,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13499",
+              "score": 2.3e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF27574",
+        "name": "EFCAB4A helical domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR060741",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bsw2",
+          "protein_length": 731,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 148,
+                  "end": 251,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF27574",
+              "score": 1.4e-35
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

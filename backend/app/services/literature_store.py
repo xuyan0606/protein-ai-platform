@@ -21,6 +21,7 @@ from typing import Any
 from chromadb import HttpClient, Collection
 from chromadb.config import Settings as ChromaSettings
 
+from app.core.config import settings
 from app.services.embedding_models import (
     DEFAULT_EMBEDDING_MODEL,
     get_embedding_function,
@@ -44,14 +45,19 @@ def _get_client() -> HttpClient | None:
     """Get ChromaDB HTTP client (same config as vectordb.py)."""
     try:
         client = HttpClient(
-            host="localhost",
-            port=8001,
+            host=settings.CHROMA_HOST,
+            port=settings.CHROMA_PORT,
             settings=ChromaSettings(anonymized_telemetry=False),
         )
         client.heartbeat()
         return client
-    except Exception:
-        logger.warning("ChromaDB not available at localhost:8001")
+    except Exception as e:
+        logger.warning(
+            "ChromaDB not available at %s:%s: %s",
+            settings.CHROMA_HOST,
+            settings.CHROMA_PORT,
+            e,
+        )
         return None
 
 
@@ -77,16 +83,6 @@ def _get_collection(
             "embedding_model": embedding_model or "default",
         },
     }
-
-    if embedding_model:
-        try:
-            kwargs["embedding_function"] = get_embedding_function(embedding_model)
-        except Exception as e:
-            logger.warning(
-                "Failed to load embedding model '%s' (%s); using default embedding",
-                embedding_model,
-                e,
-            )
 
     try:
         return client.get_or_create_collection(**kwargs)
@@ -162,11 +158,17 @@ class LiteratureStore:
 
         if ids:
             try:
-                self.collection.upsert(
-                    ids=ids,
-                    documents=documents,
-                    metadatas=metadatas,
-                )
+                upsert_kwargs: dict[str, Any] = {
+                    "ids": ids,
+                    "documents": documents,
+                    "metadatas": metadatas,
+                }
+                if self.embedding_model:
+                    embed_fn = get_embedding_function(self.embedding_model)
+                    embeddings = embed_fn(documents)
+                    upsert_kwargs["embeddings"] = embeddings
+
+                self.collection.upsert(**upsert_kwargs)
                 logger.info(
                     "Indexed %d papers to ChromaDB %s (model=%s)",
                     len(ids),

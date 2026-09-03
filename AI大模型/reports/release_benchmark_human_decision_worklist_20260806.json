@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-06",
+  "mode": "manual_decision_worklist",
+  "write_policy": "read_only_gap_worklist; no formal decision rows written",
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "benchmark_ready_for_model_claim": false,
+  "interpretation_warning": "worklist_valid or validator success means the gap list is structurally valid only; it does not imply release_ready, safe_for_model_claim, or benchmark_ready_for_model_claim",
+  "backlog_summary": {
+    "source": "reports/human_decision_backlog_report.json",
+    "total_backlog_items": 11,
+    "open_backlog_items": 11,
+    "ready_backlog_items": 0,
+    "priority_counts": {
+      "P0": 8,
+      "P1": 3
+    },
+    "required_rows": 1231,
+    "completed_rows": 31,
+    "missing_rows": 1202
+  },
+  "non_backlog_gap_summary": {
+    "item_count": 2,
+    "item_types": [
+      "structural_execution_gap",
+      "runtime_evidence_gap"
+    ],
+    "release_ready": false,
+    "safe_for_model_claim": false
+  },
+  "fail_closed_reports": [
+    "reports/human_decision_backlog_fail_closed_consistency_validation_report.json",
+    "reports/benchmark_readiness_packet_validation_report.json",
+    "reports/hard_gate_decision_benchmark_bridge_validation_report.json",
+    "reports/local_release_manifest_fail_closed_consistency_validation_report.json"
+  ],
+  "items": [
+    {
+      "item_type": "human_decision_backlog",
+      "backlog_id": "human_decision_structure_chain_001",
+      "priority": "P0",
+      "workstream": "structure_chain_mapping",
+      "decision_file": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "current_gap": "475 missing decisions",
+      "validator_report": "reports/structure_chain_mapping_decision_validation_report.json",
+      "next_human_input": "structure-chain mapping decision rows with reviewer evidence"
+    },
+    {
+      "item_type": "human_decision_backlog",
+      "backlog_id": "human_decision_numbering_001",
+      "priority": "P0",
+      "workstream": "numbering_curation",
+      "decision_file": "datasets/curation/numbering_curation_decisions.jsonl",
+      "current_gap": "471 pending decisions out of 475 packets",
+      "validator_report": "reports/numbering_curation_validation_report.json",
+      "next_human_input": "canonical/isoform/literature mapping or reject_label"
+    },
+    {
+      "item_type": "human_decision_backlog",
+      "backlog_id": "human_decision_feedback_source_001",
+      "priority": "P0",
+      "workstream": "experiment_feedback_source_review",
+      "decision_file": "datasets/feedback/experiment_feedback_source_review_decisions.local.jsonl",
+      "current_gap": "163 missing source review decisions",
+      "validator_report": "reports/experiment_feedback_source_review_decision_validation_report.json",
+      "next_human_input": "source provenance, eligibility, reviewer and decision evidence"
+    },
+    {
+      "item_type": "human_decision_backlog",
+      "backlog_id": "human_decision_plate_feedback_001",
+      "priority": "P0",
+      "workstream": "experiment_feedback_plate",
+      "decision_file": "datasets/feedback/experiment_feedback_plate.local.jsonl",
+      "current_gap": "50 plate/well/replicate records pending QC and training eligibility",
+      "validator_report": "reports/experiment_feedback_plate_intake_validation_report.json",
+      "next_human_input": "QC status, numbering, train eligibility and reviewer signature"
+    },
+    {
+      "item_type": "human_decision_backlog",
+      "backlog_id": "human_decision_license_001",
+      "priority": "P0",
+      "workstream": "external_license",
+      "decision_file": "datasets/governance/external_license_review_decisions.jsonl",
+      "current_gap": "19 packets; no customer-delivery approval",
+      "validator_report": "reports/external_license_review_decision_validation_report.json",
+      "next_human_input": "verified or needs_more_info decision with license evidence"
+    },
+    {
+      "item_type": "human_decision_backlog",
+      "backlog_id": "human_decision_sequence_ip_fto_001",
+      "priority": "P0",
+      "workstream": "sequence_ip_fto",
+      "decision_file": "datasets/governance/sequence_ip_fto_decisions.jsonl",
+      "current_gap": "3 candidates, 0 formal decisions",
+      "validator_report": "reports/sequence_ip_fto_decision_validation_report.json",
+      "next_human_input": "prior-art/FTO and delivery permission"
+    },
+    {
+      "item_type": "human_decision_backlog",
+      "backlog_id": "human_decision_biosecurity_001",
+      "priority": "P0",
+      "workstream": "biosecurity_screening",
+      "decision_file": "datasets/governance/biosecurity_screening_decisions.jsonl",
+      "current_gap": "3 drafts, 0 formal ordering approvals",
+      "validator_report": "reports/biosecurity_screening_decision_validation_report.json",
+      "next_human_input": "screening evidence, intended use, ordering decision and reviewer signature"
+    },
+    {
+      "item_type": "human_decision_backlog",
+      "backlog_id": "human_decision_numbering_semantic_conflict_001",
+      "priority": "P0",
+      "workstream": "numbering_semantic_conflict_resolution",
+      "decision_file": "datasets/curation/numbering_curation_decisions.jsonl",
+      "current_gap": "0 missing rows but formal conflict gate remains tracked",
+      "validator_report": "reports/numbering_decision_semantic_conflict_report.json",
+      "next_human_input": "maintain no-conflict decision evidence before release"
+    },
+    {
+      "item_type": "human_decision_backlog",
+      "backlog_id": "human_decision_domain_occurrence_001",
+      "priority": "P1",
+      "workstream": "domain_interval_occurrence_selection",
+      "decision_file": "datasets/curation/domain_interval_decisions.jsonl",
+      "current_gap": "0 missing rows but P1 release-tracked gate remains open",
+      "validator_report": "reports/domain_interval_decision_validation_report.json",
+      "next_human_input": "domain interval occurrence decisions where applicable"
+    },
+    {
+      "item_type": "human_decision_backlog",
+      "backlog_id": "human_decision_workstream_acceptance_001",
+      "priority": "P1",
+      "workstream": "workstream_acceptance",
+      "decision_file": "datasets/governance/workstream_acceptance_decisions.jsonl",
+      "current_gap": "6 missing acceptance decisions",
+      "validator_report": "reports/workstream_acceptance_decision_validation_report.json",
+      "next_human_input": "formal workstream acceptance or reject decision rows"
+    },
+    {
+      "item_type": "human_decision_backlog",
+      "backlog_id": "human_decision_operator_actions_001",
+      "priority": "P1",
+      "workstream": "operator_review_actions",
+      "decision_file": "datasets/governance/operator_review_action_decisions.jsonl",
+      "current_gap": "6 missing operator action decisions",
+      "validator_report": "reports/operator_review_action_decision_validation_report.json",
+      "next_human_input": "operator action approval, rejection, or escalation rows"
+    },
+    {
+      "item_type": "structural_execution_gap",
+      "workstream": "benchmark_gaps",
+      "decision_file": "reports/benchmark_readiness_packet_validation_report.json",
+      "current_gap": "2 open_blocked benchmark gaps: ProteinGym and FLIP-style split",
+      "validator_report": "reports/benchmark_readiness_packet_validation_report.json",
+      "release_ready": false,
+      "safe_for_model_claim": false,
+      "benchmark_ready_for_model_claim": false,
+      "next_human_input": "dataset URI/hash, split, license review, leakage check, scorecard, metric report, cache validation and human acceptance receipt"
+    },
+    {
+      "item_type": "runtime_evidence_gap",
+      "workstream": "foldx_runtime",
+      "decision_file": "reports/foldx_physical_smoke_bootstrap_validation_report.json",
+      "current_gap": "blocked_missing_runtime_evidence",
+      "validator_report": "reports/foldx_physical_smoke_bootstrap_validation_report.json",
+      "release_ready": false,
+      "safe_for_model_claim": false,
+      "benchmark_ready_for_model_claim": false,
+      "next_human_input": "FoldX executable/runtime evidence, smoke artifact and runtime receipt"
+    }
+  ]
+}

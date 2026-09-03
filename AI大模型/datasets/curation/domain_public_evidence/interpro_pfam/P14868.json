@@ -1,0 +1,73 @@
+{
+  "accession": "P14868",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00152",
+        "name": "tRNA synthetases class II (D, K and N)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004364",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p14868",
+          "protein_length": 501,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 175,
+                  "end": 495,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00152",
+              "score": 2.4e-79
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01336",
+        "name": "OB-fold nucleic acid binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004365",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p14868",
+          "protein_length": 501,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 60,
+                  "end": 145,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01336",
+              "score": 3.4e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

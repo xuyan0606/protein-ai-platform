@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kwb-ddg-backend-runtime-receipt.schema.json",
+  "title": "KWB physical ddG backend runtime receipt",
+  "type": "object",
+  "required": [
+    "runtime_receipt_id",
+    "backend",
+    "receipt_decision",
+    "license_review_item_id",
+    "license_decision_reviewed",
+    "install_path",
+    "executable_paths",
+    "python_module",
+    "runtime_version",
+    "probe_command",
+    "probe_report",
+    "probe_evidence_reviewed",
+    "config_enabled_reviewed",
+    "smoke_plan_reviewed",
+    "smoke_artifact_paths",
+    "smoke_artifact_sha256",
+    "approved_for_physical_ddg_runtime",
+    "reviewer",
+    "reviewed_at",
+    "review_basis",
+    "conditions",
+    "residual_risks"
+  ],
+  "properties": {
+    "runtime_receipt_id": { "type": "string", "minLength": 1 },
+    "backend": { "type": "string", "enum": ["rosetta", "pyrosetta", "foldx"] },
+    "receipt_decision": { "type": "string", "enum": ["approved_runtime_ready", "rejected", "needs_more_info"] },
+    "license_review_item_id": { "type": "string", "pattern": "^foreign_tool:(rosetta|pyrosetta|foldx)$" },
+    "license_decision_reviewed": { "type": "boolean" },
+    "install_path": { "type": "string" },
+    "executable_paths": { "type": "array", "items": { "type": "string" } },
+    "python_module": { "type": "string" },
+    "runtime_version": { "type": "string" },
+    "probe_command": { "type": "string" },
+    "probe_report": { "type": "string" },
+    "probe_evidence_reviewed": { "type": "boolean" },
+    "config_enabled_reviewed": { "type": "boolean" },
+    "smoke_plan_reviewed": { "type": "boolean" },
+    "smoke_artifact_paths": { "type": "array", "items": { "type": "string" } },
+    "smoke_artifact_sha256": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "approved_for_physical_ddg_runtime": { "type": "boolean" },
+    "reviewer": { "type": "string" },
+    "reviewed_at": { "type": "string" },
+    "review_basis": { "type": "string" },
+    "conditions": { "type": "array", "items": { "type": "string" } },
+    "residual_risks": { "type": "array", "items": { "type": "string" } },
+    "policy": { "type": "string" }
+  },
+  "additionalProperties": true
+}

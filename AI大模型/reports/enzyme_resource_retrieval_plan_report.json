@@ -1,0 +1,713 @@
+{
+  "plan_id": "enzyme_resource_retrieval_plan_20260731_p167",
+  "created_at": "2026-09-03T07:34:03.407950+00:00",
+  "local_only": true,
+  "request_class": "controlled_resource_retrieval_only",
+  "input_query": "Plan an enzyme mutation analysis using KWB local evidence, safety guards, and available tool contracts.",
+  "protocol": "contracts/enzyme_agent_execution_protocol.md",
+  "schemas": [
+    "schemas/enzyme_resource_retrieval_plan.schema.json",
+    "schemas/enzyme_agent_state_checkpoint.schema.json"
+  ],
+  "categories": {
+    "recommended_read_only": [
+      {
+        "action_id": "act_know_how_retrieval",
+        "title": "Enzyme know-how retrieval",
+        "category": "know_how",
+        "risk_level": "medium",
+        "classification": "recommended_read_only",
+        "primary_contract_id": "tool_enzyme_know_how_retrieval_plan",
+        "tool_name": "enzyme know-how retrieval planner",
+        "allowed_execution_mode": "read_only",
+        "runtime_readiness": "ready_read_only",
+        "license_status": "internal_only",
+        "human_confirmation_required": false,
+        "writes_formal_decision": false,
+        "writes_training_rows": false,
+        "safe_for_model_claim": false,
+        "input_artifacts": [
+          "reports/enzyme_analysis_constraint_policy_report.json",
+          "reports/biomni_deep_source_learning_for_kwb_2026_07_31.md"
+        ],
+        "output_artifacts": [
+          "reports/enzyme_resource_retrieval_plan_report.json"
+        ],
+        "entrypoints": [
+          "reports/enzyme_analysis_constraint_policy_report.json",
+          "reports/biomni_deep_source_learning_for_kwb_2026_07_31.md"
+        ],
+        "blocked_reason": null
+      }
+    ],
+    "executable_after_user_confirmation": [
+      {
+        "action_id": "act_msa_conservation",
+        "title": "MMseqs2 MSA conservation feature generation",
+        "category": "feature_generation",
+        "risk_level": "medium",
+        "classification": "executable_after_user_confirmation",
+        "primary_contract_id": "tool_msa_mmseqs_cache_validate",
+        "tool_name": "MSA MMseqs cache validation",
+        "allowed_execution_mode": "local_script",
+        "runtime_readiness": "ready_local_runtime_or_cache",
+        "license_status": "commercial_review_required_for_external_db_use",
+        "human_confirmation_required": false,
+        "writes_formal_decision": false,
+        "writes_training_rows": false,
+        "safe_for_model_claim": false,
+        "input_artifacts": [
+          "datasets/curation/msa_conservation_targets.jsonl",
+          "reports/mmseqs_homolog_database_manifest.json"
+        ],
+        "output_artifacts": [
+          "reports/msa_conservation_cache_validation_report.json",
+          "reports/strict_msa_site_feature_report.json"
+        ],
+        "entrypoints": [
+          "scripts/build_strict_msa_site_features.py",
+          "scripts/validate_msa_conservation_cache.py"
+        ],
+        "blocked_reason": "local script may be executed only after explicit user confirmation in a later step"
+      },
+      {
+        "action_id": "act_model_claim_consistency",
+        "title": "Model claim fail-closed consistency",
+        "category": "safety_guard",
+        "risk_level": "critical",
+        "classification": "executable_after_user_confirmation",
+        "primary_contract_id": "tool_model_claim_fail_closed_consistency",
+        "tool_name": "model claim fail-closed consistency validator",
+        "allowed_execution_mode": "local_script",
+        "runtime_readiness": "ready_local_script",
+        "license_status": "internal_only",
+        "human_confirmation_required": false,
+        "writes_formal_decision": false,
+        "writes_training_rows": false,
+        "safe_for_model_claim": false,
+        "input_artifacts": [
+          "reports/repaired_supervised_table_report.json",
+          "reports/label_provenance_audit_report.json",
+          "reports/strict_msa_site_feature_report.json"
+        ],
+        "output_artifacts": [
+          "reports/model_claim_fail_closed_consistency_report.json"
+        ],
+        "entrypoints": [
+          "scripts/validate_model_claim_fail_closed_consistency.py"
+        ],
+        "blocked_reason": "local script may be executed only after explicit user confirmation in a later step"
+      },
+      {
+        "action_id": "act_release_guard_links",
+        "title": "Local release safety guard links",
+        "category": "safety_guard",
+        "risk_level": "critical",
+        "classification": "executable_after_user_confirmation",
+        "primary_contract_id": "tool_local_release_safety_guard_links",
+        "tool_name": "local release safety guard link validator",
+        "allowed_execution_mode": "local_script",
+        "runtime_readiness": "ready_local_script",
+        "license_status": "internal_only",
+        "human_confirmation_required": false,
+        "writes_formal_decision": false,
+        "writes_training_rows": false,
+        "safe_for_model_claim": false,
+        "input_artifacts": [
+          "reports/local_release_manifest.json",
+          "reports/data_lake_manifest.json"
+        ],
+        "output_artifacts": [
+          "reports/local_release_safety_guard_link_validation_report.json"
+        ],
+        "entrypoints": [
+          "scripts/validate_local_release_safety_guard_links.py"
+        ],
+        "blocked_reason": "local script may be executed only after explicit user confirmation in a later step"
+      },
+      {
+        "action_id": "act_tool_contract_validation",
+        "title": "Enzyme tool contract validation",
+        "category": "safety_guard",
+        "risk_level": "critical",
+        "classification": "executable_after_user_confirmation",
+        "primary_contract_id": "tool_enzyme_tool_contract_validator",
+        "tool_name": "enzyme tool contract validator",
+        "allowed_execution_mode": "local_script",
+        "runtime_readiness": "ready_local_script",
+        "license_status": "internal_only",
+        "human_confirmation_required": false,
+        "writes_formal_decision": false,
+        "writes_training_rows": false,
+        "safe_for_model_claim": false,
+        "input_artifacts": [
+          "datasets/governance/enzyme_action_space_registry.jsonl",
+          "datasets/governance/enzyme_tool_contracts.jsonl"
+        ],
+        "output_artifacts": [
+          "reports/enzyme_tool_contract_validation_report.json"
+        ],
+        "entrypoints": [
+          "scripts/validate_enzyme_tool_contracts.py"
+        ],
+        "blocked_reason": "local script may be executed only after explicit user confirmation in a later step"
+      },
+      {
+        "action_id": "act_safe_pipeline",
+        "title": "Safe training pipeline orchestration",
+        "category": "pipeline",
+        "risk_level": "critical",
+        "classification": "executable_after_user_confirmation",
+        "primary_contract_id": "tool_safe_training_pipeline",
+        "tool_name": "safe training pipeline",
+        "allowed_execution_mode": "local_script",
+        "runtime_readiness": "ready_local_script",
+        "license_status": "internal_only",
+        "human_confirmation_required": false,
+        "writes_formal_decision": false,
+        "writes_training_rows": false,
+        "safe_for_model_claim": false,
+        "input_artifacts": [
+          "scripts/run_safe_training_pipeline.py"
+        ],
+        "output_artifacts": [
+          "reports/safe_training_pipeline_run.json",
+          "reports/local_release_manifest.json"
+        ],
+        "entrypoints": [
+          "scripts/run_safe_training_pipeline.py"
+        ],
+        "blocked_reason": "local script may be executed only after explicit user confirmation in a later step"
+      }
+    ],
+    "blocked_requires_human_decision": [
+      {
+        "action_id": "act_numbering_review",
+        "title": "Reviewed residue numbering curation",
+        "category": "human_curation",
+        "risk_level": "high",
+        "classification": "blocked_requires_human_decision",
+        "primary_contract_id": "tool_numbering_curation_validate_apply",
+        "tool_name": "numbering curation validate/apply",
+        "allowed_execution_mode": "manual_only",
+        "runtime_readiness": "ready_local_script",
+        "license_status": "internal_only",
+        "human_confirmation_required": true,
+        "writes_formal_decision": true,
+        "writes_training_rows": false,
+        "safe_for_model_claim": false,
+        "input_artifacts": [
+          "datasets/curation/numbering_curation_decisions.jsonl",
+          "reports/numbering_review_operator_queue.json"
+        ],
+        "output_artifacts": [
+          "reports/numbering_curation_validation_report.json",
+          "reports/numbering_curation_apply_report.json"
+        ],
+        "entrypoints": [
+          "scripts/validate_numbering_curation_decisions.py",
+          "scripts/apply_numbering_curation.py"
+        ],
+        "blocked_reason": "human decision, license review, formal gate, or benchmark acceptance is required before execution"
+      },
+      {
+        "action_id": "act_structure_chain_mapping",
+        "title": "Reviewed structure chain mapping",
+        "category": "human_curation",
+        "risk_level": "high",
+        "classification": "blocked_requires_human_decision",
+        "primary_contract_id": "tool_structure_chain_mapping_validate_apply",
+        "tool_name": "structure chain mapping validate/apply",
+        "allowed_execution_mode": "manual_only",
+        "runtime_readiness": "ready_local_script",
+        "license_status": "internal_only",
+        "human_confirmation_required": true,
+        "writes_formal_decision": true,
+        "writes_training_rows": false,
+        "safe_for_model_claim": false,
+        "input_artifacts": [
+          "datasets/curation/structure_chain_mapping_decisions.jsonl",
+          "reports/structure_chain_dbref_evidence_audit_report.json"
+        ],
+        "output_artifacts": [
+          "reports/structure_chain_mapping_decision_validation_report.json",
+          "reports/reviewed_structure_graph_validation_report.json"
+        ],
+        "entrypoints": [
+          "scripts/validate_structure_chain_mapping_decisions.py",
+          "scripts/apply_structure_chain_mapping_decisions.py"
+        ],
+        "blocked_reason": "human decision, license review, formal gate, or benchmark acceptance is required before execution"
+      },
+      {
+        "action_id": "act_wet_lab_feedback_authorization",
+        "title": "Wet-lab feedback authorization",
+        "category": "human_curation",
+        "risk_level": "high",
+        "classification": "blocked_requires_human_decision",
+        "primary_contract_id": "tool_wet_lab_feedback_authorization_gate",
+        "tool_name": "wet-lab feedback authorization gate",
+        "allowed_execution_mode": "manual_only",
+        "runtime_readiness": "ready_local_script",
+        "license_status": "internal_wet_lab_requires_human_authorization",
+        "human_confirmation_required": true,
+        "writes_formal_decision": true,
+        "writes_training_rows": false,
+        "safe_for_model_claim": false,
+        "input_artifacts": [
+          "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+          "reports/wet_lab_mutant_library_feedback_authorization_worklist_report.json"
+        ],
+        "output_artifacts": [
+          "reports/wet_lab_mutant_library_feedback_authorization_validation_report.json",
+          "reports/wet_lab_mutant_library_feedback_preflight_report.json"
+        ],
+        "entrypoints": [
+          "scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+          "scripts/preflight_wet_lab_mutant_library_feedback_intake.py"
+        ],
+        "blocked_reason": "human decision, license review, formal gate, or benchmark acceptance is required before execution"
+      },
+      {
+        "action_id": "act_fireprot_candidate_review",
+        "title": "FireProt stability candidate review",
+        "category": "external_data",
+        "risk_level": "high",
+        "classification": "blocked_requires_human_decision",
+        "primary_contract_id": "tool_fireprot_reviewed_import_gate",
+        "tool_name": "FireProt reviewed import gate",
+        "allowed_execution_mode": "local_script",
+        "runtime_readiness": "ready_local_script",
+        "license_status": "license_scope_not_selected",
+        "human_confirmation_required": true,
+        "writes_formal_decision": false,
+        "writes_training_rows": false,
+        "safe_for_model_claim": false,
+        "input_artifacts": [
+          "reports/fireprot_curated_kwb_schema_mapping_report.json",
+          "reports/fireprot_dedup_review_decision_validation_report.json"
+        ],
+        "output_artifacts": [
+          "reports/fireprot_reviewed_import_candidate_report.json"
+        ],
+        "entrypoints": [
+          "scripts/validate_fireprot_dedup_review_decisions.py",
+          "scripts/build_fireprot_reviewed_import_candidates.py"
+        ],
+        "blocked_reason": "human decision, license review, formal gate, or benchmark acceptance is required before execution"
+      },
+      {
+        "action_id": "act_benchmark_score_cache",
+        "title": "Benchmark score cache validation",
+        "category": "benchmark",
+        "risk_level": "high",
+        "classification": "blocked_requires_human_decision",
+        "primary_contract_id": "tool_benchmark_score_cache_validate",
+        "tool_name": "benchmark score cache validation",
+        "allowed_execution_mode": "local_script",
+        "runtime_readiness": "ready_local_script",
+        "license_status": "benchmark_license_review_incomplete",
+        "human_confirmation_required": true,
+        "writes_formal_decision": false,
+        "writes_training_rows": false,
+        "safe_for_model_claim": false,
+        "input_artifacts": [
+          "reports/benchmark_matrix_report.json",
+          "reports/benchmark_score_cache_intake_report.json"
+        ],
+        "output_artifacts": [
+          "reports/benchmark_score_cache_validation_report.json"
+        ],
+        "entrypoints": [
+          "scripts/validate_benchmark_score_cache_intake.py"
+        ],
+        "blocked_reason": "human decision, license review, formal gate, or benchmark acceptance is required before execution"
+      }
+    ],
+    "forbidden_for_current_request": [
+      {
+        "action_id": "act_ddg_proxy_or_physics",
+        "title": "ddG proxy or physical backend execution",
+        "category": "external_tool",
+        "risk_level": "high",
+        "classification": "forbidden_for_current_request",
+        "primary_contract_id": "tool_ddg_backend_readiness_probe",
+        "tool_name": "ddG backend readiness and smoke",
+        "allowed_execution_mode": "manual_only",
+        "runtime_readiness": "partially_ready_proxy_only",
+        "license_status": "physical_backends_not_authorized",
+        "human_confirmation_required": true,
+        "writes_formal_decision": false,
+        "writes_training_rows": false,
+        "safe_for_model_claim": false,
+        "input_artifacts": [
+          "reports/ddg_backend_readiness_report.json",
+          "reports/ddg_backend_runtime_receipt_validation_report.json"
+        ],
+        "output_artifacts": [
+          "reports/thermompnn_venus15b_smoke_report.json",
+          "reports/ddg_executable_probe_report.json"
+        ],
+        "entrypoints": [
+          "scripts/probe_ddg_executables.py",
+          "scripts/validate_ddg_backend_runtime_receipts.py"
+        ],
+        "blocked_reason": "external tool or physical/proxy ddG execution is outside this read-only retrieval planning request"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "action_id": "act_numbering_review",
+      "title": "Reviewed residue numbering curation",
+      "category": "human_curation",
+      "risk_level": "high",
+      "classification": "blocked_requires_human_decision",
+      "primary_contract_id": "tool_numbering_curation_validate_apply",
+      "tool_name": "numbering curation validate/apply",
+      "allowed_execution_mode": "manual_only",
+      "runtime_readiness": "ready_local_script",
+      "license_status": "internal_only",
+      "human_confirmation_required": true,
+      "writes_formal_decision": true,
+      "writes_training_rows": false,
+      "safe_for_model_claim": false,
+      "input_artifacts": [
+        "datasets/curation/numbering_curation_decisions.jsonl",
+        "reports/numbering_review_operator_queue.json"
+      ],
+      "output_artifacts": [
+        "reports/numbering_curation_validation_report.json",
+        "reports/numbering_curation_apply_report.json"
+      ],
+      "entrypoints": [
+        "scripts/validate_numbering_curation_decisions.py",
+        "scripts/apply_numbering_curation.py"
+      ],
+      "blocked_reason": "human decision, license review, formal gate, or benchmark acceptance is required before execution"
+    },
+    {
+      "action_id": "act_structure_chain_mapping",
+      "title": "Reviewed structure chain mapping",
+      "category": "human_curation",
+      "risk_level": "high",
+      "classification": "blocked_requires_human_decision",
+      "primary_contract_id": "tool_structure_chain_mapping_validate_apply",
+      "tool_name": "structure chain mapping validate/apply",
+      "allowed_execution_mode": "manual_only",
+      "runtime_readiness": "ready_local_script",
+      "license_status": "internal_only",
+      "human_confirmation_required": true,
+      "writes_formal_decision": true,
+      "writes_training_rows": false,
+      "safe_for_model_claim": false,
+      "input_artifacts": [
+        "datasets/curation/structure_chain_mapping_decisions.jsonl",
+        "reports/structure_chain_dbref_evidence_audit_report.json"
+      ],
+      "output_artifacts": [
+        "reports/structure_chain_mapping_decision_validation_report.json",
+        "reports/reviewed_structure_graph_validation_report.json"
+      ],
+      "entrypoints": [
+        "scripts/validate_structure_chain_mapping_decisions.py",
+        "scripts/apply_structure_chain_mapping_decisions.py"
+      ],
+      "blocked_reason": "human decision, license review, formal gate, or benchmark acceptance is required before execution"
+    },
+    {
+      "action_id": "act_msa_conservation",
+      "title": "MMseqs2 MSA conservation feature generation",
+      "category": "feature_generation",
+      "risk_level": "medium",
+      "classification": "executable_after_user_confirmation",
+      "primary_contract_id": "tool_msa_mmseqs_cache_validate",
+      "tool_name": "MSA MMseqs cache validation",
+      "allowed_execution_mode": "local_script",
+      "runtime_readiness": "ready_local_runtime_or_cache",
+      "license_status": "commercial_review_required_for_external_db_use",
+      "human_confirmation_required": false,
+      "writes_formal_decision": false,
+      "writes_training_rows": false,
+      "safe_for_model_claim": false,
+      "input_artifacts": [
+        "datasets/curation/msa_conservation_targets.jsonl",
+        "reports/mmseqs_homolog_database_manifest.json"
+      ],
+      "output_artifacts": [
+        "reports/msa_conservation_cache_validation_report.json",
+        "reports/strict_msa_site_feature_report.json"
+      ],
+      "entrypoints": [
+        "scripts/build_strict_msa_site_features.py",
+        "scripts/validate_msa_conservation_cache.py"
+      ],
+      "blocked_reason": "local script may be executed only after explicit user confirmation in a later step"
+    },
+    {
+      "action_id": "act_ddg_proxy_or_physics",
+      "title": "ddG proxy or physical backend execution",
+      "category": "external_tool",
+      "risk_level": "high",
+      "classification": "forbidden_for_current_request",
+      "primary_contract_id": "tool_ddg_backend_readiness_probe",
+      "tool_name": "ddG backend readiness and smoke",
+      "allowed_execution_mode": "manual_only",
+      "runtime_readiness": "partially_ready_proxy_only",
+      "license_status": "physical_backends_not_authorized",
+      "human_confirmation_required": true,
+      "writes_formal_decision": false,
+      "writes_training_rows": false,
+      "safe_for_model_claim": false,
+      "input_artifacts": [
+        "reports/ddg_backend_readiness_report.json",
+        "reports/ddg_backend_runtime_receipt_validation_report.json"
+      ],
+      "output_artifacts": [
+        "reports/thermompnn_venus15b_smoke_report.json",
+        "reports/ddg_executable_probe_report.json"
+      ],
+      "entrypoints": [
+        "scripts/probe_ddg_executables.py",
+        "scripts/validate_ddg_backend_runtime_receipts.py"
+      ],
+      "blocked_reason": "external tool or physical/proxy ddG execution is outside this read-only retrieval planning request"
+    },
+    {
+      "action_id": "act_wet_lab_feedback_authorization",
+      "title": "Wet-lab feedback authorization",
+      "category": "human_curation",
+      "risk_level": "high",
+      "classification": "blocked_requires_human_decision",
+      "primary_contract_id": "tool_wet_lab_feedback_authorization_gate",
+      "tool_name": "wet-lab feedback authorization gate",
+      "allowed_execution_mode": "manual_only",
+      "runtime_readiness": "ready_local_script",
+      "license_status": "internal_wet_lab_requires_human_authorization",
+      "human_confirmation_required": true,
+      "writes_formal_decision": true,
+      "writes_training_rows": false,
+      "safe_for_model_claim": false,
+      "input_artifacts": [
+        "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+        "reports/wet_lab_mutant_library_feedback_authorization_worklist_report.json"
+      ],
+      "output_artifacts": [
+        "reports/wet_lab_mutant_library_feedback_authorization_validation_report.json",
+        "reports/wet_lab_mutant_library_feedback_preflight_report.json"
+      ],
+      "entrypoints": [
+        "scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+        "scripts/preflight_wet_lab_mutant_library_feedback_intake.py"
+      ],
+      "blocked_reason": "human decision, license review, formal gate, or benchmark acceptance is required before execution"
+    },
+    {
+      "action_id": "act_fireprot_candidate_review",
+      "title": "FireProt stability candidate review",
+      "category": "external_data",
+      "risk_level": "high",
+      "classification": "blocked_requires_human_decision",
+      "primary_contract_id": "tool_fireprot_reviewed_import_gate",
+      "tool_name": "FireProt reviewed import gate",
+      "allowed_execution_mode": "local_script",
+      "runtime_readiness": "ready_local_script",
+      "license_status": "license_scope_not_selected",
+      "human_confirmation_required": true,
+      "writes_formal_decision": false,
+      "writes_training_rows": false,
+      "safe_for_model_claim": false,
+      "input_artifacts": [
+        "reports/fireprot_curated_kwb_schema_mapping_report.json",
+        "reports/fireprot_dedup_review_decision_validation_report.json"
+      ],
+      "output_artifacts": [
+        "reports/fireprot_reviewed_import_candidate_report.json"
+      ],
+      "entrypoints": [
+        "scripts/validate_fireprot_dedup_review_decisions.py",
+        "scripts/build_fireprot_reviewed_import_candidates.py"
+      ],
+      "blocked_reason": "human decision, license review, formal gate, or benchmark acceptance is required before execution"
+    },
+    {
+      "action_id": "act_benchmark_score_cache",
+      "title": "Benchmark score cache validation",
+      "category": "benchmark",
+      "risk_level": "high",
+      "classification": "blocked_requires_human_decision",
+      "primary_contract_id": "tool_benchmark_score_cache_validate",
+      "tool_name": "benchmark score cache validation",
+      "allowed_execution_mode": "local_script",
+      "runtime_readiness": "ready_local_script",
+      "license_status": "benchmark_license_review_incomplete",
+      "human_confirmation_required": true,
+      "writes_formal_decision": false,
+      "writes_training_rows": false,
+      "safe_for_model_claim": false,
+      "input_artifacts": [
+        "reports/benchmark_matrix_report.json",
+        "reports/benchmark_score_cache_intake_report.json"
+      ],
+      "output_artifacts": [
+        "reports/benchmark_score_cache_validation_report.json"
+      ],
+      "entrypoints": [
+        "scripts/validate_benchmark_score_cache_intake.py"
+      ],
+      "blocked_reason": "human decision, license review, formal gate, or benchmark acceptance is required before execution"
+    },
+    {
+      "action_id": "act_model_claim_consistency",
+      "title": "Model claim fail-closed consistency",
+      "category": "safety_guard",
+      "risk_level": "critical",
+      "classification": "executable_after_user_confirmation",
+      "primary_contract_id": "tool_model_claim_fail_closed_consistency",
+      "tool_name": "model claim fail-closed consistency validator",
+      "allowed_execution_mode": "local_script",
+      "runtime_readiness": "ready_local_script",
+      "license_status": "internal_only",
+      "human_confirmation_required": false,
+      "writes_formal_decision": false,
+      "writes_training_rows": false,
+      "safe_for_model_claim": false,
+      "input_artifacts": [
+        "reports/repaired_supervised_table_report.json",
+        "reports/label_provenance_audit_report.json",
+        "reports/strict_msa_site_feature_report.json"
+      ],
+      "output_artifacts": [
+        "reports/model_claim_fail_closed_consistency_report.json"
+      ],
+      "entrypoints": [
+        "scripts/validate_model_claim_fail_closed_consistency.py"
+      ],
+      "blocked_reason": "local script may be executed only after explicit user confirmation in a later step"
+    },
+    {
+      "action_id": "act_release_guard_links",
+      "title": "Local release safety guard links",
+      "category": "safety_guard",
+      "risk_level": "critical",
+      "classification": "executable_after_user_confirmation",
+      "primary_contract_id": "tool_local_release_safety_guard_links",
+      "tool_name": "local release safety guard link validator",
+      "allowed_execution_mode": "local_script",
+      "runtime_readiness": "ready_local_script",
+      "license_status": "internal_only",
+      "human_confirmation_required": false,
+      "writes_formal_decision": false,
+      "writes_training_rows": false,
+      "safe_for_model_claim": false,
+      "input_artifacts": [
+        "reports/local_release_manifest.json",
+        "reports/data_lake_manifest.json"
+      ],
+      "output_artifacts": [
+        "reports/local_release_safety_guard_link_validation_report.json"
+      ],
+      "entrypoints": [
+        "scripts/validate_local_release_safety_guard_links.py"
+      ],
+      "blocked_reason": "local script may be executed only after explicit user confirmation in a later step"
+    },
+    {
+      "action_id": "act_know_how_retrieval",
+      "title": "Enzyme know-how retrieval",
+      "category": "know_how",
+      "risk_level": "medium",
+      "classification": "recommended_read_only",
+      "primary_contract_id": "tool_enzyme_know_how_retrieval_plan",
+      "tool_name": "enzyme know-how retrieval planner",
+      "allowed_execution_mode": "read_only",
+      "runtime_readiness": "ready_read_only",
+      "license_status": "internal_only",
+      "human_confirmation_required": false,
+      "writes_formal_decision": false,
+      "writes_training_rows": false,
+      "safe_for_model_claim": false,
+      "input_artifacts": [
+        "reports/enzyme_analysis_constraint_policy_report.json",
+        "reports/biomni_deep_source_learning_for_kwb_2026_07_31.md"
+      ],
+      "output_artifacts": [
+        "reports/enzyme_resource_retrieval_plan_report.json"
+      ],
+      "entrypoints": [
+        "reports/enzyme_analysis_constraint_policy_report.json",
+        "reports/biomni_deep_source_learning_for_kwb_2026_07_31.md"
+      ],
+      "blocked_reason": null
+    },
+    {
+      "action_id": "act_tool_contract_validation",
+      "title": "Enzyme tool contract validation",
+      "category": "safety_guard",
+      "risk_level": "critical",
+      "classification": "executable_after_user_confirmation",
+      "primary_contract_id": "tool_enzyme_tool_contract_validator",
+      "tool_name": "enzyme tool contract validator",
+      "allowed_execution_mode": "local_script",
+      "runtime_readiness": "ready_local_script",
+      "license_status": "internal_only",
+      "human_confirmation_required": false,
+      "writes_formal_decision": false,
+      "writes_training_rows": false,
+      "safe_for_model_claim": false,
+      "input_artifacts": [
+        "datasets/governance/enzyme_action_space_registry.jsonl",
+        "datasets/governance/enzyme_tool_contracts.jsonl"
+      ],
+      "output_artifacts": [
+        "reports/enzyme_tool_contract_validation_report.json"
+      ],
+      "entrypoints": [
+        "scripts/validate_enzyme_tool_contracts.py"
+      ],
+      "blocked_reason": "local script may be executed only after explicit user confirmation in a later step"
+    },
+    {
+      "action_id": "act_safe_pipeline",
+      "title": "Safe training pipeline orchestration",
+      "category": "pipeline",
+      "risk_level": "critical",
+      "classification": "executable_after_user_confirmation",
+      "primary_contract_id": "tool_safe_training_pipeline",
+      "tool_name": "safe training pipeline",
+      "allowed_execution_mode": "local_script",
+      "runtime_readiness": "ready_local_script",
+      "license_status": "internal_only",
+      "human_confirmation_required": false,
+      "writes_formal_decision": false,
+      "writes_training_rows": false,
+      "safe_for_model_claim": false,
+      "input_artifacts": [
+        "scripts/run_safe_training_pipeline.py"
+      ],
+      "output_artifacts": [
+        "reports/safe_training_pipeline_run.json",
+        "reports/local_release_manifest.json"
+      ],
+      "entrypoints": [
+        "scripts/run_safe_training_pipeline.py"
+      ],
+      "blocked_reason": "local script may be executed only after explicit user confirmation in a later step"
+    }
+  ],
+  "summary": {
+    "action_rows": 12,
+    "recommended_read_only_rows": 1,
+    "executable_after_user_confirmation_rows": 5,
+    "blocked_requires_human_decision_rows": 5,
+    "forbidden_for_current_request_rows": 1,
+    "writes_training_rows": 0,
+    "writes_formal_decision_rows": 3,
+    "safe_for_model_claim_rows": 0
+  },
+  "safe_for_execution": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "This is a retrieval and planning artifact only. It does not execute tools or authorize formal decisions, training import, model claims, external downloads, MCP execution, or release."
+}

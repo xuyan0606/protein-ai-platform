@@ -1,0 +1,107 @@
+{
+  "accession": "P49821",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01512",
+        "name": "Nuo51 FMN-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011538",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49821",
+          "protein_length": 464,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 80,
+                  "end": 249,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01512",
+              "score": 7.1e-45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF10589",
+        "name": "NADH-ubiquinone oxidoreductase-F iron-sulfur binding region",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019575",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49821",
+          "protein_length": 464,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 366,
+                  "end": 448,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10589",
+              "score": 9.3e-30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22461",
+        "name": "SLBB domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR054765",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49821",
+          "protein_length": 464,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 274,
+                  "end": 356,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22461",
+              "score": 9.7e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

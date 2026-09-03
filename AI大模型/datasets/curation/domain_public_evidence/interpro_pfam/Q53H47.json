@@ -1,0 +1,141 @@
+{
+  "accession": "Q53H47",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00856",
+        "name": "SET domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001214",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q53h47",
+          "protein_length": 684,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 150,
+                  "end": 262,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00856",
+              "score": 1.2e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01359",
+        "name": "Transposase (partial DDE domain)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001888",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q53h47",
+          "protein_length": 684,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 501,
+                  "end": 577,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01359",
+              "score": 3.6e-24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05033",
+        "name": "Pre-SET motif",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR007728",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q53h47",
+          "protein_length": 684,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 47,
+                  "end": 131,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF05033",
+              "score": 1.1e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17906",
+        "name": "HTH domain in Mos1 transposase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041426",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q53h47",
+          "protein_length": 684,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 348,
+                  "end": 397,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF17906",
+              "score": 5.9e-12
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

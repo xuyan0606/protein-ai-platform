@@ -1,0 +1,140 @@
+{
+  "checks": [
+    {
+      "expected": 0,
+      "name": "receipt validation success",
+      "observed": 0,
+      "passed": true
+    },
+    {
+      "expected": "same",
+      "name": "receipt rows match",
+      "observed": {
+        "manifest": 8,
+        "receipt": 8
+      },
+      "passed": true
+    },
+    {
+      "expected": "same",
+      "name": "open blocked rows match",
+      "observed": {
+        "manifest": 8,
+        "receipt": 8
+      },
+      "passed": true
+    },
+    {
+      "expected": "same",
+      "name": "completion-ready rows match",
+      "observed": {
+        "manifest": 0,
+        "receipt": 0
+      },
+      "passed": true
+    },
+    {
+      "expected": "same",
+      "name": "human input rows match",
+      "observed": {
+        "manifest": 8,
+        "receipt": 8
+      },
+      "passed": true
+    },
+    {
+      "expected": "same",
+      "name": "observed decision rows match",
+      "observed": {
+        "manifest": 8,
+        "receipt": 8
+      },
+      "passed": true
+    },
+    {
+      "expected": "same",
+      "name": "target rows met match",
+      "observed": {
+        "manifest": 0,
+        "receipt": 0
+      },
+      "passed": true
+    },
+    {
+      "expected": "same",
+      "name": "validated receipt rows match",
+      "observed": {
+        "manifest": 8,
+        "validation": 8
+      },
+      "passed": true
+    },
+    {
+      "expected": "same",
+      "name": "invalid receipt rows match",
+      "observed": {
+        "manifest": 0,
+        "validation": 0
+      },
+      "passed": true
+    },
+    {
+      "expected": "same",
+      "name": "validation completion-ready items match",
+      "observed": {
+        "manifest": 0,
+        "validation": 0
+      },
+      "passed": true
+    },
+    {
+      "expected": "same",
+      "name": "validation target rows met items match",
+      "observed": {
+        "manifest": 0,
+        "validation": 0
+      },
+      "passed": true
+    },
+    {
+      "expected": "same",
+      "name": "validation target rows met completion-ready items match",
+      "observed": {
+        "manifest": 0,
+        "validation": 0
+      },
+      "passed": true
+    },
+    {
+      "expected": 0,
+      "name": "completion remains blocked",
+      "observed": {
+        "manifest": 0,
+        "receipt": 0
+      },
+      "passed": true
+    },
+    {
+      "expected": false,
+      "name": "release remains blocked",
+      "observed": false,
+      "passed": true
+    }
+  ],
+  "completion_ready_items": 0,
+  "created_at": "2026-08-08T23:49:02.800227+00:00",
+  "failures": [],
+  "invalid_receipt_rows": 0,
+  "local_only": true,
+  "observed_decision_input_rows": 8,
+  "open_blocked_receipt_rows": 8,
+  "policy": "Consistency validation only. Operator receipts track local work and do not create decisions, approvals, claims, ordering, customer delivery, or release readiness.",
+  "receipt_rows": 8,
+  "release_ready": false,
+  "success": true,
+  "target_rows_met_items": 0,
+  "validated_receipt_rows": 8,
+  "validation_completion_ready_items": 0,
+  "validation_target_rows_met_completion_ready_items": 0,
+  "validation_target_rows_met_items": 0
+}

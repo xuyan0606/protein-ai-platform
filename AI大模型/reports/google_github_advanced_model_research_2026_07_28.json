@@ -1,0 +1,157 @@
+{
+  "report_id": "google_github_advanced_model_research_2026_07_28",
+  "created_at": "2026-07-28",
+  "local_only": true,
+  "current_state_is_top_tier": false,
+  "verdict": "Advanced architecture and cache landing zones exist, but claimable top-tier model quality is blocked by missing real MSA/cache, reviewed numbering, reviewed structure graph, validated ddG/kinetics artifacts, benchmark scorecards and KWB wet-lab calibration.",
+  "priority": [
+    {
+      "level": "P0",
+      "items": [
+        "MMseqs2 or trusted MSA cache validator",
+        "reviewed structure graph feature builder",
+        "ProteinGym benchmark cache and no-leak split report",
+        "KWB plate/well-level wet-lab feedback calibration"
+      ]
+    },
+    {
+      "level": "P1",
+      "items": [
+        "Boltz-2 structure/affinity adapter",
+        "ThermoMPNN and ThermoMPNN-D stability adapters",
+        "ESMC/SaProt/ProSST/ProstT5 representation adapters",
+        "CatPred kinetics adapter"
+      ]
+    },
+    {
+      "level": "P2",
+      "items": [
+        "LigandMPNN/ProteinMPNN candidate generation",
+        "RFdiffusion2 enzyme active-site scaffold generation behind human and biosecurity gates"
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "tool_id": "mmseqs2",
+      "role": "MSA/search/conservation",
+      "commercial_posture": "upstream GitHub reports MIT; package channels must be checked separately",
+      "kwb_action": "build runtime plus database/cache validator first",
+      "status": "blocked_until_runtime_and_database_or_cache_ready",
+      "sources": ["https://github.com/soedinglab/MMseqs2"]
+    },
+    {
+      "tool_id": "esm_c_esm3",
+      "role": "protein language model and folding/design route",
+      "commercial_posture": "license depends on exact model, weight and API route",
+      "kwb_action": "keep per-weight license gate; do not assume all ESM routes are commercial-ready",
+      "status": "blocked_until_license_runtime_weight_ready",
+      "sources": [
+        "https://github.com/evolutionaryscale/esm",
+        "https://www.evolutionaryscale.ai/policies/terms-of-use",
+        "https://www.evolutionaryscale.ai/policies/cambrian-open-license-agreement",
+        "https://www.evolutionaryscale.ai/policies/cambrian-non-commercial-license-agreement"
+      ]
+    },
+    {
+      "tool_id": "saprot",
+      "role": "structure-aware protein language model",
+      "commercial_posture": "requires model-specific license review and structure-token inputs",
+      "kwb_action": "add structure-token cache and pLDDT/mapping metadata before use",
+      "status": "blocked_until_structure_tokens_and_license_ready",
+      "sources": ["https://github.com/westlake-repl/SaProt"]
+    },
+    {
+      "tool_id": "prosst",
+      "role": "structure-token protein language model",
+      "commercial_posture": "visible GitHub repo reports GPL-3.0",
+      "kwb_action": "isolate from closed-source commercial mainline unless legal approves",
+      "status": "blocked_by_license_review",
+      "sources": ["https://github.com/openmedlab/ProSST"]
+    },
+    {
+      "tool_id": "boltz2",
+      "role": "complex structure and binding affinity",
+      "commercial_posture": "upstream reports MIT code and weights",
+      "kwb_action": "best P1 structure/affinity adapter candidate after runtime/model-weight/MSA gates",
+      "status": "blocked_until_runtime_weight_and_input_gates_ready",
+      "sources": ["https://github.com/jwohlwend/boltz", "https://pmc.ncbi.nlm.nih.gov/articles/PMC12262699/"]
+    },
+    {
+      "tool_id": "chai1",
+      "role": "multimodal structure prediction",
+      "commercial_posture": "Apache-2.0 per Chai docs, but Linux/CUDA/bfloat16 heavy",
+      "kwb_action": "keep as Linux-CUDA benchmark or alternative to Boltz-2",
+      "status": "blocked_until_linux_cuda_ready",
+      "sources": ["https://github.com/chaidiscovery/chai-lab", "https://huggingface.co/chaidiscovery/chai-1"]
+    },
+    {
+      "tool_id": "alphafold3",
+      "role": "broad biomolecular structure benchmark",
+      "commercial_posture": "non-commercial source and model parameter terms",
+      "kwb_action": "benchmark/isolation only, not commercial mainline",
+      "status": "blocked_by_license_for_commercial_mainline",
+      "sources": [
+        "https://github.com/google-deepmind/alphafold3",
+        "https://github.com/google-deepmind/alphafold3/blob/main/WEIGHTS_TERMS_OF_USE.md"
+      ]
+    },
+    {
+      "tool_id": "thermompnn",
+      "role": "point-mutant stability proxy",
+      "commercial_posture": "MIT",
+      "kwb_action": "add after reviewed structures and mutation list artifact exist",
+      "status": "blocked_until_reviewed_structure_and_runtime_ready",
+      "sources": ["https://github.com/Kuhlman-Lab/ThermoMPNN"]
+    },
+    {
+      "tool_id": "thermompnn_d",
+      "role": "double-mutant stability stress test",
+      "commercial_posture": "MIT",
+      "kwb_action": "use for epistasis risk and combo mutation watchlist",
+      "status": "blocked_until_reviewed_structure_and_runtime_ready",
+      "sources": ["https://github.com/Kuhlman-Lab/ThermoMPNN-D"]
+    },
+    {
+      "tool_id": "catpred",
+      "role": "kcat Km Ki enzyme kinetics prediction",
+      "commercial_posture": "MIT code",
+      "kwb_action": "add substrate SMILES and condition-aware kinetics adapter",
+      "status": "blocked_until_substrate_mapping_runtime_and_calibration_ready",
+      "sources": ["https://github.com/maranasgroup/CatPred", "https://www.nature.com/articles/s41467-025-57215-9"]
+    },
+    {
+      "tool_id": "proteingym",
+      "role": "mutation-effect benchmark",
+      "commercial_posture": "MIT/open benchmark route",
+      "kwb_action": "build benchmark cache and no-leak scorecard before top-tier claim",
+      "status": "blocked_until_dataset_version_and_scorecard_ready",
+      "sources": ["https://github.com/OATML-Markslab/ProteinGym", "https://registry.opendata.aws/proteingym/"]
+    },
+    {
+      "tool_id": "ligandmpnn_proteinmpnn",
+      "role": "ligand/backbone-conditioned sequence generation and scoring",
+      "commercial_posture": "MIT lineage visible for ProteinMPNN; verify exact LigandMPNN package terms",
+      "kwb_action": "candidate generation only after protected-site, biosecurity and human gates",
+      "status": "blocked_until_generation_gates_ready",
+      "sources": ["https://github.com/dauparas/LigandMPNN"]
+    },
+    {
+      "tool_id": "rfdiffusion2",
+      "role": "enzyme active-site scaffold generation",
+      "commercial_posture": "public GitHub route; license and Rosetta Commons terms must be reviewed",
+      "kwb_action": "P2 only; never auto-order or customer-deliver generated sequences",
+      "status": "blocked_until_license_runtime_human_and_biosecurity_gates_ready",
+      "sources": ["https://github.com/RosettaCommons/RFdiffusion2", "https://rosettacommons.org/2025/09/15/rfdiffusion2-is-now-available-on-github/"]
+    }
+  ],
+  "engineering_decisions": [
+    "No external install or execution in this research round.",
+    "No adapter readiness upgrade based only on web search.",
+    "Add linux_cuda_ready, license_ready, model_weight_ready, database_or_cache_ready, artifact_checksum_ready and validator_ready gates before execution.",
+    "Keep non-commercial/research-use tools outside the commercial mainline until legal review is complete.",
+    "Treat generated sequences as design candidates only; human approval and wet-lab validation remain mandatory."
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

@@ -1,0 +1,19 @@
+{
+  "local_only": true,
+  "success": true,
+  "checked_report": "reports/human_target_source_runtime_manifest.json",
+  "checked_receipts": "datasets/governance/human_target_source_runtime_receipts.jsonl",
+  "builder_contract": "scripts/build_human_target_source_runtime_manifest.py",
+  "manifest_matches_current_builder_projection": true,
+  "receipts_match_current_builder_projection": true,
+  "expected_sources": 7,
+  "expected_receipts": 7,
+  "sources": 7,
+  "receipts": 7,
+  "failures": [],
+  "failure_count": 0,
+  "safe_for_model_claim": false,
+  "customer_ready": false,
+  "release_ready": false,
+  "policy": "Validation only proves the blocked source/runtime manifest is internally consistent."
+}

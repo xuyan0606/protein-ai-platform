@@ -1,0 +1,73 @@
+{
+  "accession": "Q8IWW8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00465",
+        "name": "Iron-containing alcohol dehydrogenase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001670",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iww8",
+          "protein_length": 467,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 53,
+                  "end": 225,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00465",
+              "score": 2.1e-36
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25137",
+        "name": "Fe-containing alcohol dehydrogenase family, C-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR056798",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iww8",
+          "protein_length": 467,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 274,
+                  "end": 464,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF25137",
+              "score": 6.3e-23
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "created_at": "2026-09-03T07:33:56.259041+00:00",
+  "local_only": true,
+  "receipt_rows": 4,
+  "validation_passed_rows": 4,
+  "executed_rows": 4,
+  "eligibility_changed_rows": 0,
+  "formal_decision_written_rows": 1,
+  "runtime_receipt_written_rows": 1,
+  "training_import_written_rows": 0,
+  "model_or_release_flags_changed_rows": 0,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "output": "datasets/governance/parallel_hard_gate_execution_receipts.jsonl",
+  "policy": "Execution receipt only. The ddG lane may record a valid local PyRosetta runtime receipt, but these rows do not approve training imports, model claims, customer delivery, or release readiness."
+}

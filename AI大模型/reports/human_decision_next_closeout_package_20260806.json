@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-06",
+  "mode": "human_decision_next_closeout_package",
+  "write_policy": "closeout_package_only; no_formal_decision_rows_written",
+  "summary": {
+    "target_blockers": 5,
+    "total_missing_rows_in_scope": 977,
+    "formal_decision_rows_written": 0,
+    "release_ready": false,
+    "safe_for_model_claim": false
+  },
+  "items": [
+    {
+      "workstream": "numbering_curation",
+      "blocker_type": "partial_valid_rows_manual_rows_missing",
+      "priority": "P0",
+      "missing_rows": 471,
+      "valid_rows": 4,
+      "decision_input": "datasets/curation/numbering_curation_decisions.jsonl",
+      "validator_report": "reports/numbering_curation_validation_report.json",
+      "minimum_required_fields": [
+        "packet_id",
+        "decision",
+        "canonical_or_isoform_mapping",
+        "evidence_refs",
+        "reviewer"
+      ],
+      "validate_command": "python3 AI大模型/scripts/validate_numbering_curation_decisions.py",
+      "review_status": "pending_human_input",
+      "formal_decision_rows_written": 0,
+      "release_ready": false
+    },
+    {
+      "workstream": "structure_chain_mapping",
+      "blocker_type": "partial_valid_rows_manual_rows_missing",
+      "priority": "P0",
+      "missing_rows": 475,
+      "valid_rows": 25,
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "validator_report": "reports/structure_chain_mapping_decision_validation_report.json",
+      "minimum_required_fields": [
+        "packet_id",
+        "biological_chain",
+        "numbering_basis",
+        "uniprot_match",
+        "confidence",
+        "reviewer"
+      ],
+      "validate_command": "python3 AI大模型/scripts/validate_structure_chain_mapping_decisions.py",
+      "review_status": "pending_human_input",
+      "formal_decision_rows_written": 0,
+      "release_ready": false
+    },
+    {
+      "workstream": "external_license_review",
+      "blocker_type": "partial_valid_rows_manual_rows_missing",
+      "priority": "P0",
+      "missing_rows": 19,
+      "valid_rows": 3,
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_report": "reports/external_license_review_decision_validation_report.json",
+      "minimum_required_fields": [
+        "source_id",
+        "license_evidence",
+        "allowed_use",
+        "decision",
+        "reviewer"
+      ],
+      "validate_command": "python3 AI大模型/scripts/validate_external_license_review_decisions.py",
+      "review_status": "pending_human_input",
+      "formal_decision_rows_written": 0,
+      "release_ready": false
+    },
+    {
+      "workstream": "workstream_acceptance",
+      "blocker_type": "formal_acceptance_or_action_missing",
+      "priority": "P1",
+      "missing_rows": 6,
+      "valid_rows": 1,
+      "decision_input": "datasets/governance/workstream_acceptance_decisions.jsonl",
+      "validator_report": "reports/workstream_acceptance_decision_validation_report.json",
+      "minimum_required_fields": [
+        "workstream",
+        "accept_or_reject",
+        "evidence_artifacts",
+        "reviewer",
+        "decision_timestamp"
+      ],
+      "validate_command": "python3 AI大模型/scripts/validate_workstream_acceptance_decisions.py",
+      "review_status": "pending_human_input",
+      "formal_decision_rows_written": 0,
+      "release_ready": false
+    },
+    {
+      "workstream": "operator_review_actions",
+      "blocker_type": "formal_acceptance_or_action_missing",
+      "priority": "P1",
+      "missing_rows": 6,
+      "valid_rows": 0,
+      "decision_input": "datasets/governance/operator_review_action_decisions.jsonl",
+      "validator_report": "reports/operator_review_action_decision_validation_report.json",
+      "minimum_required_fields": [
+        "action_id",
+        "action_decision",
+        "evidence_artifacts",
+        "reviewer",
+        "decision_timestamp"
+      ],
+      "validate_command": "python3 AI大模型/scripts/validate_operator_review_action_decisions.py",
+      "review_status": "pending_human_input",
+      "formal_decision_rows_written": 0,
+      "release_ready": false
+    }
+  ]
+}

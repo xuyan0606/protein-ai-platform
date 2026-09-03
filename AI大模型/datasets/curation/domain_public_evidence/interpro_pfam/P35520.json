@@ -1,0 +1,73 @@
+{
+  "accession": "P35520",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00291",
+        "name": "Pyridoxal-phosphate dependent enzyme",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001926",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p35520",
+          "protein_length": 551,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 81,
+                  "end": 376,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00291",
+              "score": 1.3e-71
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00571",
+        "name": "CBS domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000644",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p35520",
+          "protein_length": 551,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 420,
+                  "end": 468,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00571",
+              "score": 0.001
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

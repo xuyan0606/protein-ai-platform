@@ -1,0 +1,73 @@
+{
+  "accession": "P47712",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00168",
+        "name": "C2 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000008",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p47712",
+          "protein_length": 749,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 19,
+                  "end": 118,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00168",
+              "score": 1.5e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01735",
+        "name": "Lysophospholipase catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002642",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p47712",
+          "protein_length": 749,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 190,
+                  "end": 674,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01735",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

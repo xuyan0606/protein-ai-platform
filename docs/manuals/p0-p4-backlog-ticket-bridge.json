@@ -1,0 +1,720 @@
+{
+  "bridge_contract": {
+    "contract_followup_only_means_no_operator_ticket_is_claimed_to_resolve_it": true,
+    "does_not_upgrade_contract_status": true,
+    "linked_means_all_external_blockers_are_mapped": true,
+    "partially_linked_keeps_uncovered_blockers": true,
+    "read_only": true,
+    "source_bound": true,
+    "ticket_links_are_explicit_not_keyword_inferred": true
+  },
+  "contract_counts": {
+    "contract_followup_only": 4,
+    "linked": 0,
+    "partially_linked": 10,
+    "total": 14
+  },
+  "contracts": [
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "specified_mutation_review",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [],
+      "external_blockers": [
+        "complete numbering, pocket, conservation, WT baseline, and experiment feedback evidence for claim upgrade"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "specified mutation is experimentally validated by review",
+        "numbering mismatch can be ignored"
+      ],
+      "phase": "P0",
+      "ticket_link_status": "partially_linked",
+      "ticket_links": [
+        {
+          "covered_blockers": [],
+          "lane": "md_runtime",
+          "notes": "MD artifacts can support review context, but do not close numbering, pocket, conservation, WT baseline, or experiment feedback.",
+          "priority": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_id": "RB-002-gpu_gromacs_md_live",
+          "ticket_name": "gpu_gromacs_md_live",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        },
+        {
+          "covered_blockers": [],
+          "lane": "md_runtime",
+          "notes": "Black-box MD evidence remains computational support and cannot promote the review to experimental validation.",
+          "priority": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_id": "RB-003-md_blackbox_live_e2e",
+          "ticket_name": "md_blackbox_live_e2e",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        }
+      ],
+      "uncovered_blockers": [
+        "complete numbering, pocket, conservation, WT baseline, and experiment feedback evidence for claim upgrade"
+      ]
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "site_structure_function_mvp",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [
+        "real ddG/packing/MD RMSF artifacts"
+      ],
+      "external_blockers": [
+        "validated pocket/channel/interface calculator",
+        "curated conservation or MSA pipeline",
+        "real ddG/packing/MD RMSF artifacts"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "complete residue feature table",
+        "DSSP/pocket/conservation/ddG/MD coverage when unavailable"
+      ],
+      "phase": "P0",
+      "ticket_link_status": "partially_linked",
+      "ticket_links": [
+        {
+          "covered_blockers": [
+            "real ddG/packing/MD RMSF artifacts"
+          ],
+          "lane": "md_runtime",
+          "notes": "Supports the MD-derived portion only; pocket/channel/interface and conservation remain separate blockers.",
+          "priority": "P0",
+          "relationship": "direct_blocker_support",
+          "ticket_id": "RB-002-gpu_gromacs_md_live",
+          "ticket_name": "gpu_gromacs_md_live",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        },
+        {
+          "covered_blockers": [],
+          "lane": "md_runtime",
+          "notes": "Black-box MD execution does not replace validated structure-feature calculators.",
+          "priority": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_id": "RB-003-md_blackbox_live_e2e",
+          "ticket_name": "md_blackbox_live_e2e",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        }
+      ],
+      "uncovered_blockers": [
+        "validated pocket/channel/interface calculator",
+        "curated conservation or MSA pipeline"
+      ]
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "multi_objective_candidate_table",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [],
+      "external_blockers": [
+        "wet-lab validation for promotion",
+        "matched WT baseline and assay controls for improvement claims"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "blocked candidates are schedulable",
+        "candidate table is wet-lab validated"
+      ],
+      "phase": "P0",
+      "ticket_link_status": "partially_linked",
+      "ticket_links": [
+        {
+          "covered_blockers": [],
+          "lane": "md_runtime",
+          "notes": "MD runtime evidence may inform ranking, but does not provide wet-lab validation or matched WT assay controls.",
+          "priority": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_id": "RB-002-gpu_gromacs_md_live",
+          "ticket_name": "gpu_gromacs_md_live",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        }
+      ],
+      "uncovered_blockers": [
+        "wet-lab validation for promotion",
+        "matched WT baseline and assay controls for improvement claims"
+      ]
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "followup_review_routes",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [],
+      "external_blockers": [
+        "prior trace context and structured experiment feedback for conflict explanation"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "follow-up generated new validated candidates",
+        "experiment mismatch is resolved without assay context"
+      ],
+      "phase": "P0",
+      "ticket_link_status": "partially_linked",
+      "ticket_links": [
+        {
+          "covered_blockers": [],
+          "lane": "md_runtime",
+          "notes": "A live MD result can be attached to a follow-up, but does not supply prior trace context or structured experiment feedback.",
+          "priority": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_id": "RB-003-md_blackbox_live_e2e",
+          "ticket_name": "md_blackbox_live_e2e",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        }
+      ],
+      "uncovered_blockers": [
+        "prior trace context and structured experiment feedback for conflict explanation"
+      ]
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "numbering_registry",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [],
+      "external_blockers": [
+        "complete SIFTS coverage or user-confirmed numbering for each target"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "inferred mapping is verified SIFTS",
+        "unmapped residues support strong site claims"
+      ],
+      "phase": "P1",
+      "ticket_link_status": "contract_followup_only",
+      "ticket_links": [],
+      "uncovered_blockers": [
+        "complete SIFTS coverage or user-confirmed numbering for each target"
+      ]
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "catalytic_mechanism_profile",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [],
+      "external_blockers": [
+        "complete M-CSA-style curated mechanism coverage and user-coordinate verification"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "complete M-CSA mechanism map",
+        "second shell fully computed"
+      ],
+      "phase": "P1",
+      "ticket_link_status": "contract_followup_only",
+      "ticket_links": [],
+      "uncovered_blockers": [
+        "complete M-CSA-style curated mechanism coverage and user-coordinate verification"
+      ]
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "reaction_profile",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [],
+      "external_blockers": [
+        "Rhea/ChEBI production coverage and curated substrate/product/cofactor directionality"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "substrate spectrum optimized without reaction evidence",
+        "Rhea/ChEBI production sync complete"
+      ],
+      "phase": "P1",
+      "ticket_link_status": "contract_followup_only",
+      "ticket_links": [],
+      "uncovered_blockers": [
+        "Rhea/ChEBI production coverage and curated substrate/product/cofactor directionality"
+      ]
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "wt_baseline_registry",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [],
+      "external_blockers": [
+        "same-batch WT baseline, assay conditions, replicate/QC metadata, BRENDA/SABIO-RK-style curation"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "improvement without exact-condition WT baseline",
+        "approximate baseline is equivalent"
+      ],
+      "phase": "P1",
+      "ticket_link_status": "partially_linked",
+      "ticket_links": [
+        {
+          "covered_blockers": [],
+          "lane": "md_runtime",
+          "notes": "WT PDB input is an MD prerequisite, not a same-batch WT assay baseline.",
+          "priority": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_id": "RB-002-gpu_gromacs_md_live",
+          "ticket_name": "gpu_gromacs_md_live",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        }
+      ],
+      "uncovered_blockers": [
+        "same-batch WT baseline, assay conditions, replicate/QC metadata, BRENDA/SABIO-RK-style curation"
+      ]
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "residue_feature_table_contract",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [
+        "real ddG or MD RMSF artifacts"
+      ],
+      "external_blockers": [
+        "curated conservation database or MSA pipeline",
+        "validated pocket/channel/tunnel calculation",
+        "real ddG or MD RMSF artifacts"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "complete residue feature table",
+        "DSSP/MD/conservation coverage when unavailable"
+      ],
+      "phase": "P2",
+      "ticket_link_status": "partially_linked",
+      "ticket_links": [
+        {
+          "covered_blockers": [
+            "real ddG or MD RMSF artifacts"
+          ],
+          "lane": "md_runtime",
+          "notes": "Supports MD-derived residue evidence only; conservation and pocket/tunnel calculations remain open.",
+          "priority": "P0",
+          "relationship": "direct_blocker_support",
+          "ticket_id": "RB-002-gpu_gromacs_md_live",
+          "ticket_name": "gpu_gromacs_md_live",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        },
+        {
+          "covered_blockers": [],
+          "lane": "md_runtime",
+          "notes": "Black-box execution is not a validated pocket or conservation calculator.",
+          "priority": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_id": "RB-003-md_blackbox_live_e2e",
+          "ticket_name": "md_blackbox_live_e2e",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        }
+      ],
+      "uncovered_blockers": [
+        "curated conservation database or MSA pipeline",
+        "validated pocket/channel/tunnel calculation"
+      ]
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "objective_score_contract",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [],
+      "external_blockers": [
+        "matched WT baseline for claim upgrade",
+        "objective-specific assay data"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "single objective total score",
+        "measured improvement without assay"
+      ],
+      "phase": "P2",
+      "ticket_link_status": "partially_linked",
+      "ticket_links": [
+        {
+          "covered_blockers": [],
+          "lane": "md_runtime",
+          "notes": "MD can add one computational objective signal, but does not close matched WT baseline or objective assay data.",
+          "priority": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_id": "RB-002-gpu_gromacs_md_live",
+          "ticket_name": "gpu_gromacs_md_live",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        }
+      ],
+      "uncovered_blockers": [
+        "matched WT baseline for claim upgrade",
+        "objective-specific assay data"
+      ]
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "candidate_table_generation_contract",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [],
+      "external_blockers": [
+        "wet-lab validation for candidate promotion"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "blocked candidates are schedulable",
+        "candidate table is wet-lab validated"
+      ],
+      "phase": "P2",
+      "ticket_link_status": "contract_followup_only",
+      "ticket_links": [],
+      "uncovered_blockers": [
+        "wet-lab validation for candidate promotion"
+      ]
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "dbtl_trace_contract",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [],
+      "external_blockers": [
+        "product decision for formal DBTL write model"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "formal Project/Round/Variant tables exist",
+        "trace has trained a model"
+      ],
+      "phase": "P3",
+      "ticket_link_status": "partially_linked",
+      "ticket_links": [
+        {
+          "covered_blockers": [],
+          "lane": "release_ops",
+          "notes": "Maintenance-window evidence supports operational review, not product approval for a formal DBTL write model.",
+          "priority": "P1",
+          "relationship": "supporting_approval_only",
+          "ticket_id": "RB-007-maintenance_window_drills",
+          "ticket_name": "maintenance_window_drills",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        }
+      ],
+      "uncovered_blockers": [
+        "product decision for formal DBTL write model"
+      ]
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "feedback_import_and_next_round_contract",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [],
+      "external_blockers": [
+        "QC-passed replicated wet-lab feedback",
+        "assay condition completeness",
+        "formal Go/Watch/No-Go decisions"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "trained epistasis model",
+        "higher-order combination readiness without pair data"
+      ],
+      "phase": "P3",
+      "ticket_link_status": "partially_linked",
+      "ticket_links": [
+        {
+          "covered_blockers": [],
+          "lane": "md_runtime",
+          "notes": "MD artifacts are not QC-passed replicated wet-lab feedback or formal Go/Watch/No-Go decisions.",
+          "priority": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_id": "RB-002-gpu_gromacs_md_live",
+          "ticket_name": "gpu_gromacs_md_live",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        }
+      ],
+      "uncovered_blockers": [
+        "QC-passed replicated wet-lab feedback",
+        "assay condition completeness",
+        "formal Go/Watch/No-Go decisions"
+      ]
+    },
+    {
+      "approval_required": true,
+      "approval_state": "blocked_until_explicit_review",
+      "contract_name": "industrial_closed_loop_readiness",
+      "contract_status": "ready_local_contract",
+      "covered_blockers": [
+        "maintenance window and live gate approval"
+      ],
+      "external_blockers": [
+        "approved production learning policy",
+        "sufficient training-eligible feedback",
+        "maintenance window and live gate approval",
+        "manufacturing/process constraint owner input"
+      ],
+      "local_followups": [],
+      "must_not_claim": [
+        "P4 production loop is running",
+        "model is retrained",
+        "manufacturing constraints are validated"
+      ],
+      "phase": "P4",
+      "ticket_link_status": "partially_linked",
+      "ticket_links": [
+        {
+          "covered_blockers": [
+            "maintenance window and live gate approval"
+          ],
+          "lane": "infra_dns_tls",
+          "notes": "Formal HTTPS and identity configuration is part of production gate readiness, but does not approve the gate.",
+          "priority": "P0",
+          "relationship": "direct_blocker_support",
+          "ticket_id": "RB-001-formal_domain_https",
+          "ticket_name": "formal_domain_https",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        },
+        {
+          "covered_blockers": [
+            "maintenance window and live gate approval"
+          ],
+          "lane": "storage",
+          "notes": "Controlled storage round-trip supports operational readiness, but does not approve production learning policy.",
+          "priority": "P0",
+          "relationship": "direct_blocker_support",
+          "ticket_id": "RB-005-oss_minio_live_e2e",
+          "ticket_name": "oss_minio_live_e2e",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        },
+        {
+          "covered_blockers": [
+            "maintenance window and live gate approval"
+          ],
+          "lane": "release_ops",
+          "notes": "This is the direct operator path for maintenance-window evidence; explicit approval remains required.",
+          "priority": "P1",
+          "relationship": "direct_blocker_support",
+          "ticket_id": "RB-007-maintenance_window_drills",
+          "ticket_name": "maintenance_window_drills",
+          "ticket_status": "started_blocked_waiting_for_operator_input"
+        }
+      ],
+      "uncovered_blockers": [
+        "approved production learning policy",
+        "sufficient training-eligible feedback",
+        "manufacturing/process constraint owner input"
+      ]
+    }
+  ],
+  "created_at": "2026-09-02T05:54:45.839816+00:00",
+  "destructive_actions": "not_executed",
+  "go_no_go_decision": "defer_waiting_for_external_inputs",
+  "live_gate_execution_allowed": false,
+  "mode": "read_only_p0_p4_backlog_ticket_bridge",
+  "network_io": "not_executed",
+  "next_action": "collect ticket inputs only for linked runtime/operations paths; keep contract-only blockers in P0-P4 review",
+  "ready_for_live_gate_execution": false,
+  "schema_version": "p0_p4_backlog_ticket_bridge_v1",
+  "secrets_printed": false,
+  "source_execution_tickets": {
+    "created_at": "2026-09-02T05:53:58.303842+00:00",
+    "path": "docs/manuals/remaining-backlog-execution-tickets.json",
+    "sha256": "e80b81047d9afa213867db295fe57077e91bbea6505ff965bcbc74b944099ad7"
+  },
+  "source_go_no_go": {
+    "created_at": "2026-09-02T05:54:37.308834+00:00",
+    "path": "docs/manuals/remaining-backlog-go-no-go-summary.json",
+    "sha256": "7cd374fcc8f292897d2371de2f54aa941343ab5079853b3f773f60fb843aa369"
+  },
+  "source_status_export": {
+    "created_at": "2026-09-02T05:54:37.280297+00:00",
+    "path": "docs/manuals/p0-p4-status-export.json",
+    "sha256": "84e9c2214c8c6c1b01d74cc25c440eea941cc5d5f2f37c42a0861f9fbb3e55fa"
+  },
+  "ticket_count": 7,
+  "tickets": [
+    {
+      "contract_impact_status": "linked_to_contracts",
+      "lane": "infra_dns_tls",
+      "linked_contracts": [
+        {
+          "contract_name": "industrial_closed_loop_readiness",
+          "covered_blockers": [
+            "maintenance window and live gate approval"
+          ],
+          "phase": "P4",
+          "relationship": "direct_blocker_support",
+          "ticket_link_status": "partially_linked"
+        }
+      ],
+      "name": "formal_domain_https",
+      "priority": "P0",
+      "ticket_id": "RB-001-formal_domain_https",
+      "ticket_status": "started_blocked_waiting_for_operator_input"
+    },
+    {
+      "contract_impact_status": "linked_to_contracts",
+      "lane": "md_runtime",
+      "linked_contracts": [
+        {
+          "contract_name": "specified_mutation_review",
+          "covered_blockers": [],
+          "phase": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_link_status": "partially_linked"
+        },
+        {
+          "contract_name": "site_structure_function_mvp",
+          "covered_blockers": [
+            "real ddG/packing/MD RMSF artifacts"
+          ],
+          "phase": "P0",
+          "relationship": "direct_blocker_support",
+          "ticket_link_status": "partially_linked"
+        },
+        {
+          "contract_name": "multi_objective_candidate_table",
+          "covered_blockers": [],
+          "phase": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_link_status": "partially_linked"
+        },
+        {
+          "contract_name": "wt_baseline_registry",
+          "covered_blockers": [],
+          "phase": "P1",
+          "relationship": "supporting_evidence_only",
+          "ticket_link_status": "partially_linked"
+        },
+        {
+          "contract_name": "residue_feature_table_contract",
+          "covered_blockers": [
+            "real ddG or MD RMSF artifacts"
+          ],
+          "phase": "P2",
+          "relationship": "direct_blocker_support",
+          "ticket_link_status": "partially_linked"
+        },
+        {
+          "contract_name": "objective_score_contract",
+          "covered_blockers": [],
+          "phase": "P2",
+          "relationship": "supporting_evidence_only",
+          "ticket_link_status": "partially_linked"
+        },
+        {
+          "contract_name": "feedback_import_and_next_round_contract",
+          "covered_blockers": [],
+          "phase": "P3",
+          "relationship": "supporting_evidence_only",
+          "ticket_link_status": "partially_linked"
+        }
+      ],
+      "name": "gpu_gromacs_md_live",
+      "priority": "P0",
+      "ticket_id": "RB-002-gpu_gromacs_md_live",
+      "ticket_status": "started_blocked_waiting_for_operator_input"
+    },
+    {
+      "contract_impact_status": "linked_to_contracts",
+      "lane": "md_runtime",
+      "linked_contracts": [
+        {
+          "contract_name": "specified_mutation_review",
+          "covered_blockers": [],
+          "phase": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_link_status": "partially_linked"
+        },
+        {
+          "contract_name": "site_structure_function_mvp",
+          "covered_blockers": [],
+          "phase": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_link_status": "partially_linked"
+        },
+        {
+          "contract_name": "followup_review_routes",
+          "covered_blockers": [],
+          "phase": "P0",
+          "relationship": "supporting_evidence_only",
+          "ticket_link_status": "partially_linked"
+        },
+        {
+          "contract_name": "residue_feature_table_contract",
+          "covered_blockers": [],
+          "phase": "P2",
+          "relationship": "supporting_evidence_only",
+          "ticket_link_status": "partially_linked"
+        }
+      ],
+      "name": "md_blackbox_live_e2e",
+      "priority": "P0",
+      "ticket_id": "RB-003-md_blackbox_live_e2e",
+      "ticket_status": "started_blocked_waiting_for_operator_input"
+    },
+    {
+      "contract_impact_status": "operator_ticket_only",
+      "lane": "ligand_runtime",
+      "linked_contracts": [],
+      "name": "ligand_runtime_live",
+      "priority": "P1",
+      "ticket_id": "RB-004-ligand_runtime_live",
+      "ticket_status": "started_blocked_waiting_for_operator_input"
+    },
+    {
+      "contract_impact_status": "linked_to_contracts",
+      "lane": "storage",
+      "linked_contracts": [
+        {
+          "contract_name": "industrial_closed_loop_readiness",
+          "covered_blockers": [
+            "maintenance window and live gate approval"
+          ],
+          "phase": "P4",
+          "relationship": "direct_blocker_support",
+          "ticket_link_status": "partially_linked"
+        }
+      ],
+      "name": "oss_minio_live_e2e",
+      "priority": "P0",
+      "ticket_id": "RB-005-oss_minio_live_e2e",
+      "ticket_status": "started_blocked_waiting_for_operator_input"
+    },
+    {
+      "contract_impact_status": "operator_ticket_only",
+      "lane": "qa_admin",
+      "linked_contracts": [],
+      "name": "admin_authenticated_screenshots",
+      "priority": "P1",
+      "ticket_id": "RB-006-admin_authenticated_screenshots",
+      "ticket_status": "started_blocked_waiting_for_operator_input"
+    },
+    {
+      "contract_impact_status": "linked_to_contracts",
+      "lane": "release_ops",
+      "linked_contracts": [
+        {
+          "contract_name": "dbtl_trace_contract",
+          "covered_blockers": [],
+          "phase": "P3",
+          "relationship": "supporting_approval_only",
+          "ticket_link_status": "partially_linked"
+        },
+        {
+          "contract_name": "industrial_closed_loop_readiness",
+          "covered_blockers": [
+            "maintenance window and live gate approval"
+          ],
+          "phase": "P4",
+          "relationship": "direct_blocker_support",
+          "ticket_link_status": "partially_linked"
+        }
+      ],
+      "name": "maintenance_window_drills",
+      "priority": "P1",
+      "ticket_id": "RB-007-maintenance_window_drills",
+      "ticket_status": "started_blocked_waiting_for_operator_input"
+    }
+  ]
+}

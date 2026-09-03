@@ -1,0 +1,73 @@
+{
+  "accession": "Q96M02",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF15309",
+        "name": "ALMS motif",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR029299",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96m02",
+          "protein_length": 699,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 569,
+                  "end": 697,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF15309",
+              "score": 1.8e-44
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17730",
+        "name": "Centrosomal C10orf90",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR041179",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96m02",
+          "protein_length": 699,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 52,
+                  "end": 563,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF17730",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

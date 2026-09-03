@@ -1,0 +1,73 @@
+{
+  "accession": "Q9HA82",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00046",
+        "name": "Homeodomain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001356",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ha82",
+          "protein_length": 394,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 82,
+                  "end": 126,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00046",
+              "score": 0.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03798",
+        "name": "TLC domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006634",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ha82",
+          "protein_length": 394,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 132,
+                  "end": 325,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03798",
+              "score": 4.4e-46
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

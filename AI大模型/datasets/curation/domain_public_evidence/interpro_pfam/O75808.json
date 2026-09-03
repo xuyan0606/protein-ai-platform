@@ -1,0 +1,143 @@
+{
+  "accession": "O75808",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00641",
+        "name": "Zn-finger in Ran binding protein and others",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001876",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75808",
+          "protein_length": 1086,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 5,
+                  "end": 30,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00641",
+              "score": 8.1
+            },
+            {
+              "fragments": [
+                {
+                  "start": 145,
+                  "end": 170,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00641",
+              "score": 0.16
+            },
+            {
+              "fragments": [
+                {
+                  "start": 344,
+                  "end": 366,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00641",
+              "score": 6.5
+            },
+            {
+              "fragments": [
+                {
+                  "start": 412,
+                  "end": 438,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00641",
+              "score": 0.0028
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00648",
+        "name": "Calpain family cysteine protease",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001300",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75808",
+          "protein_length": 1086,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 488,
+                  "end": 791,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00648",
+              "score": 1.9e-79
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF26741",
+        "name": "Calpain-D-like, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR060025",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75808",
+          "protein_length": 1086,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 961,
+                  "end": 1055,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF26741",
+              "score": 6.6e-35
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

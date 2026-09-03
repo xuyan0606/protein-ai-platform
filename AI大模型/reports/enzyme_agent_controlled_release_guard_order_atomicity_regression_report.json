@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "mode": "enzyme-agent-controlled-release-guard-order-atomicity-regression-v1",
+  "success": true,
+  "isolated_fixture": true,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_enzyme_agent_controlled_release_guard_order_atomicity_regression.py",
+  "regression_script_sha256": "90c22acfebe02c2a574815f6f1f8bc0226c3f306985c962d06821a950cf47cfc",
+  "signer_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_enzyme_agent_controlled_release_guard_order.py",
+  "signer_script_sha256": "7e92e18b80cf0b838191a58876a52dd719eff5330f36576f554ed1d9e7365426",
+  "order_regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_enzyme_agent_controlled_release_guard_order_regression.py",
+  "order_regression_script_sha256": "2086c09c7a184ccae82b57a1e446a4a8459a315abec9a6af0bc53721e7981d70",
+  "current_validator_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_enzyme_agent_controlled_release_guard_order_current.py",
+  "current_validator_script_sha256": "bec4b7baa33e2a1cbc009d6ad4b17cc70c61c070baacc2691f989ee6a5aa88b2",
+  "current_regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_enzyme_agent_controlled_release_guard_order_current_regression.py",
+  "current_regression_script_sha256": "060334268b71fff4660757c88ff5c1f7d492eebee4b00a4efecba935d6680c66",
+  "output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/enzyme_agent_controlled_release_guard_order_atomicity_regression_report.json",
+  "lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.enzyme_agent_controlled_release_guard_order.lock",
+  "lock_acquired": true,
+  "atomic_commit": true,
+  "case_count": 11,
+  "passed_case_count": 11,
+  "failed_case_count": 0,
+  "real_inputs_mutated": false,
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case": "signer_atomic_commit_complete_json",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "case": "regression_atomic_commit_complete_json",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "case": "current_atomic_commit_complete_json",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "case": "current_regression_atomic_commit_complete_json",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "case": "current_regression_interrupted_replace_preserves_prior",
+      "passed": true,
+      "returncode": 1,
+      "prior_preserved": true,
+      "residual_temp_files": []
+    },
+    {
+      "case": "signer_lock_timeout_and_recovery",
+      "passed": true,
+      "blocked_returncode": 1,
+      "blocked_output_preserved": true,
+      "recovered_returncode": 0
+    },
+    {
+      "case": "regression_lock_timeout_and_recovery",
+      "passed": true,
+      "blocked_returncode": 1,
+      "blocked_output_preserved": true,
+      "recovered_returncode": 0
+    },
+    {
+      "case": "current_lock_timeout_and_recovery",
+      "passed": true,
+      "blocked_returncode": 1,
+      "blocked_output_preserved": true,
+      "recovered_returncode": 0
+    },
+    {
+      "case": "current_regression_lock_timeout_and_recovery",
+      "passed": true,
+      "blocked_returncode": 1,
+      "blocked_output_preserved": true,
+      "recovered_returncode": 0
+    },
+    {
+      "case": "double_signer_serializes",
+      "passed": true,
+      "first_returncode": 0,
+      "second_returncode": 0
+    },
+    {
+      "case": "signer_regression_contention_serializes_to_current_pair",
+      "passed": true,
+      "signer_returncode": 0,
+      "regression_returncode": 0,
+      "current_returncode": 0
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

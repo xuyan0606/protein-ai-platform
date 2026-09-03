@@ -1,0 +1,85 @@
+{
+  "accession": "Q9GZV8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00096",
+        "name": "Zinc finger, C2H2 type",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013087",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9gzv8",
+          "protein_length": 571,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 461,
+                  "end": 483,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00096",
+              "score": 0.012
+            },
+            {
+              "fragments": [
+                {
+                  "start": 547,
+                  "end": 568,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00096",
+              "score": 4.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21549",
+        "name": "PR domain zinc finger protein 2, PR domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001214",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9gzv8",
+          "protein_length": 571,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 259,
+                  "end": 377,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF21549",
+              "score": 6.8e-40
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

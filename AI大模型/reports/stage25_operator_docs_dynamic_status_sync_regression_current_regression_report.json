@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "mode": "stage25-operator-docs-dynamic-status-sync-regression-current-regression-v1",
+  "created_at": "2026-09-03T07:34:51.578621+00:00",
+  "success": true,
+  "isolated_fixture": true,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_stage25_operator_docs_dynamic_status_sync_regression_current_regression.py",
+  "regression_script_sha256": "92091133d9030f5c937c1139706a284dfd7980fcd9b92894bad87d9751183afa",
+  "current_validator_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_stage25_operator_docs_dynamic_status_sync_regression_current.py",
+  "current_validator_script_sha256": "2ed2e60c615c6c2d0862935135426bae287ac68ac8e5ed30492f85deca91584b",
+  "marker_regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_stage25_operator_docs_dynamic_status_sync_regression.py",
+  "marker_regression_script_sha256": "f8e7294a3462153eb2e49e8fbc8da8733b2c12ada93e65bf57953633159f69f1",
+  "sync_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/sync_stage25_operator_docs_dynamic_status.py",
+  "sync_script_sha256": "c3cdc29dbf4a031fb47844bd97cbf77d72d09ae42a5623df4aee202cb1790337",
+  "proof_io_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/stage25_operator_docs_sync_regression_proof_io.py",
+  "proof_io_sha256": "6da6410e0574680638e289bf2fe741b23e730ce31b78ad9b38064b589df8f4b1",
+  "output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_operator_docs_dynamic_status_sync_regression_current_regression_report.json",
+  "lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.stage25_operator_docs_sync_regression_proof.lock",
+  "lock_acquired": true,
+  "atomic_commit": true,
+  "case_count": 14,
+  "passed_case_count": 14,
+  "failed_case_count": 0,
+  "real_inputs_mutated": false,
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case_id": "control_current_valid",
+      "passed": true,
+      "expected_check": "control_success"
+    },
+    {
+      "case_id": "recorded_regression_script_sha_drift",
+      "passed": true,
+      "expected_check": "report_regression_script_sha_current",
+      "observed_checks": [
+        "report_regression_script_sha_current"
+      ]
+    },
+    {
+      "case_id": "live_regression_script_sha_drift",
+      "passed": true,
+      "expected_check": "report_regression_script_sha_current",
+      "observed_checks": [
+        "report_regression_script_sha_current"
+      ]
+    },
+    {
+      "case_id": "recorded_sync_script_sha_drift",
+      "passed": true,
+      "expected_check": "report_sync_script_sha_current",
+      "observed_checks": [
+        "report_sync_script_sha_current"
+      ]
+    },
+    {
+      "case_id": "live_sync_script_sha_drift",
+      "passed": true,
+      "expected_check": "report_sync_script_sha_current",
+      "observed_checks": [
+        "report_sync_script_sha_current"
+      ]
+    },
+    {
+      "case_id": "recorded_proof_io_sha_drift",
+      "passed": true,
+      "expected_check": "report_proof_io_sha_current",
+      "observed_checks": [
+        "report_proof_io_sha_current"
+      ]
+    },
+    {
+      "case_id": "live_proof_io_sha_drift",
+      "passed": true,
+      "expected_check": "report_proof_io_sha_current",
+      "observed_checks": [
+        "report_proof_io_sha_current"
+      ]
+    },
+    {
+      "case_id": "output_path_drift",
+      "passed": true,
+      "expected_check": "report_output_path",
+      "observed_checks": [
+        "report_output_path"
+      ]
+    },
+    {
+      "case_id": "lock_path_drift",
+      "passed": true,
+      "expected_check": "report_lock_path",
+      "observed_checks": [
+        "report_lock_path"
+      ]
+    },
+    {
+      "case_id": "atomic_commit_false",
+      "passed": true,
+      "expected_check": "report_atomic_commit",
+      "observed_checks": [
+        "report_atomic_commit"
+      ]
+    },
+    {
+      "case_id": "case_set_drift",
+      "passed": true,
+      "expected_check": "report_case_ids_exact",
+      "observed_checks": [
+        "report_case_ids_exact",
+        "report_all_cases_passed"
+      ]
+    },
+    {
+      "case_id": "release_gate_reopened",
+      "passed": true,
+      "expected_check": "report_release_ready_closed",
+      "observed_checks": [
+        "report_release_ready_closed"
+      ]
+    },
+    {
+      "case_id": "replace_interruption_preserves_prior",
+      "passed": true,
+      "expected_check": "atomic_replace_or_prior"
+    },
+    {
+      "case_id": "lock_timeout_preserves_and_recovers",
+      "passed": true,
+      "expected_check": "bounded_lock_recovery"
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

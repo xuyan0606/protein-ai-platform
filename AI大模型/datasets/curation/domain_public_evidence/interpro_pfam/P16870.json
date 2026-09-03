@@ -1,0 +1,73 @@
+{
+  "accession": "P16870",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00246",
+        "name": "Zinc carboxypeptidase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000834",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p16870",
+          "protein_length": 476,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 64,
+                  "end": 363,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00246",
+              "score": 8.7e-77
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13620",
+        "name": "Carboxypeptidase regulatory-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p16870",
+          "protein_length": 476,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 376,
+                  "end": 450,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13620",
+              "score": 2.9e-13
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

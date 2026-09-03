@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-09-03T07:35:24.394152+00:00",
+  "local_only": true,
+  "success": true,
+  "audit_rows": 7,
+  "blocked_capability_rows": 6,
+  "blocked_capabilities": [
+    "model_quality_claim",
+    "customer_delivery",
+    "approved_for_ordering",
+    "IP/FTO conclusion",
+    "external tool production use",
+    "advanced feature cache execution"
+  ],
+  "release_ready": false,
+  "failures": [],
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "customer_delivery_ready": false,
+  "production_execution_allowed": false,
+  "policy": "Validation only. Local release blocked capabilities do not authorize downstream gates."
+}

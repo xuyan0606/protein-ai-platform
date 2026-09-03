@@ -1,0 +1,39 @@
+{
+  "status": "blocked_pending_human_review",
+  "rows": [
+    {
+      "domain_record_id": 77,
+      "uniprot_id": "O94808",
+      "pfam_id": "PF13522",
+      "sequence_length": 682,
+      "other_pfam_ids": [
+        "PF01380",
+        "PF13537"
+      ],
+      "matched_pfam_intervals": [],
+      "recommended_decision": "keep_unresolved",
+      "manual_review_required": true,
+      "training_authorized": false,
+      "notes": "No exact target Pfam interval in current InterPro evidence; require independent HMMER/UniProt/manual review before any interval is set."
+    },
+    {
+      "domain_record_id": 352,
+      "uniprot_id": "Q06203",
+      "pfam_id": "PF13522",
+      "sequence_length": 517,
+      "other_pfam_ids": [
+        "PF00156",
+        "PF13537"
+      ],
+      "matched_pfam_intervals": [],
+      "recommended_decision": "keep_unresolved",
+      "manual_review_required": true,
+      "training_authorized": false,
+      "notes": "No exact target Pfam interval in current InterPro evidence; require independent HMMER/UniProt/manual review before any interval is set."
+    }
+  ],
+  "row_count": 2,
+  "training_authorized": false,
+  "model_claim_authorized": false,
+  "policy": "unresolved domain rows remain excluded from domain-relative training features until reviewed decision is recorded"
+}

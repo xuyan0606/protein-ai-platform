@@ -1,0 +1,107 @@
+{
+  "accession": "Q9UNE7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04564",
+        "name": "U-box domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003613",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9une7",
+          "protein_length": 303,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 227,
+                  "end": 299,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04564",
+              "score": 8.9e-28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12895",
+        "name": "Anaphase-promoting complex, cyclosome, subunit 3",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9une7",
+          "protein_length": 303,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 41,
+                  "end": 119,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12895",
+              "score": 3.2e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18391",
+        "name": "CHIP N-terminal tetratricopeptide repeat domain",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR041312",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9une7",
+          "protein_length": 303,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 142,
+                  "end": 225,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF18391",
+              "score": 7.8e-24
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

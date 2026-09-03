@@ -1,0 +1,73 @@
+{
+  "accession": "O76075",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02017",
+        "name": "CIDE-N domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003508",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o76075",
+          "protein_length": 338,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 5,
+                  "end": 79,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02017",
+              "score": 1.1e-18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09230",
+        "name": "DNA fragmentation factor 40 kDa",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015311",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o76075",
+          "protein_length": 338,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 100,
+                  "end": 323,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09230",
+              "score": 5.5e-104
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

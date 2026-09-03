@@ -1,0 +1,221 @@
+{
+  "benchmark_gate": {
+    "benchmark_rows": null,
+    "contract_success": true,
+    "ready_for_model_claim": false,
+    "valid_rows": null
+  },
+  "blocked_reasons": [
+    "training_import_eligible_rows_below_minimum",
+    "per_head_sample_replicate_group_thresholds_not_met",
+    "all_five_heads_missing_minimum_training_rows",
+    "wet_lab_training_import_rows_zero",
+    "benchmark_ready_for_model_claim_false"
+  ],
+  "checked_inputs": {
+    "advanced_model_feature_contract_validation": "reports/advanced_model_feature_contract_validation_report.json",
+    "benchmark_coverage_dashboard_validation": "reports/benchmark_coverage_dashboard_validation_report.json",
+    "five_head_training_gap_plan": "reports/five_head_training_gap_plan_report.json",
+    "five_head_training_threshold": "reports/five_head_training_threshold_report.json",
+    "multitask_training_readiness": "reports/multitask_training_readiness_report.json",
+    "training_label_import_contract_validation": "reports/training_label_import_contract_validation_report.json",
+    "wet_lab_feedback_authorization_contract_validation": "reports/wet_lab_feedback_authorization_contract_validation_report.json"
+  },
+  "created_at": "2026-09-03T07:33:56.401191+00:00",
+  "expected_heads": [
+    "mutation_rank",
+    "stability",
+    "activity_risk",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "feature_input_gate": {
+    "contract_success": true,
+    "feature_inputs_are_labels": false,
+    "ready_feature_refs": 210
+  },
+  "head_rows": {
+    "activity_risk": {
+      "candidate_rows": 6,
+      "group_count": 2,
+      "label_rows": 6,
+      "minimum_groups": 10,
+      "minimum_replicates": 3,
+      "minimum_rows": 100,
+      "minimum_samples": 100,
+      "missing_to_minimum": 94,
+      "ready": false,
+      "replicate_count": 0,
+      "rows": 6,
+      "sample_count": 6,
+      "status": "label_rows_below_threshold",
+      "thresholds_met": false
+    },
+    "assay_success": {
+      "candidate_rows": 0,
+      "group_count": 0,
+      "label_rows": 0,
+      "minimum_groups": 10,
+      "minimum_replicates": 3,
+      "minimum_rows": 100,
+      "minimum_samples": 100,
+      "missing_to_minimum": 100,
+      "ready": false,
+      "replicate_count": 0,
+      "rows": 0,
+      "sample_count": 0,
+      "status": "blocked",
+      "thresholds_met": false
+    },
+    "mutation_rank": {
+      "candidate_rows": 0,
+      "group_count": 0,
+      "label_rows": 0,
+      "minimum_groups": 10,
+      "minimum_replicates": 3,
+      "minimum_rows": 100,
+      "minimum_samples": 100,
+      "missing_to_minimum": 100,
+      "ready": false,
+      "replicate_count": 0,
+      "rows": 0,
+      "sample_count": 0,
+      "status": "blocked",
+      "thresholds_met": false
+    },
+    "stability": {
+      "candidate_rows": 0,
+      "group_count": 0,
+      "label_rows": 0,
+      "minimum_groups": 10,
+      "minimum_replicates": 3,
+      "minimum_rows": 100,
+      "minimum_samples": 100,
+      "missing_to_minimum": 100,
+      "ready": false,
+      "replicate_count": 0,
+      "rows": 0,
+      "sample_count": 0,
+      "status": "blocked",
+      "thresholds_met": false
+    },
+    "substrate_fit": {
+      "candidate_rows": 0,
+      "group_count": 0,
+      "label_rows": 0,
+      "minimum_groups": 10,
+      "minimum_replicates": 3,
+      "minimum_rows": 100,
+      "minimum_samples": 100,
+      "missing_to_minimum": 100,
+      "ready": false,
+      "replicate_count": 0,
+      "rows": 0,
+      "sample_count": 0,
+      "status": "blocked",
+      "thresholds_met": false
+    }
+  },
+  "local_only": true,
+  "minimum_rows_per_head": 100,
+  "missing_inputs": [],
+  "model_quality_claim_allowed": false,
+  "per_head_threshold_gate": {
+    "blocked_heads": [
+      "mutation_rank",
+      "stability",
+      "activity_risk",
+      "substrate_fit",
+      "assay_success"
+    ],
+    "candidate_heads": [],
+    "feature_rows_counted_as_labels": 0,
+    "multitask_threshold_parity": {
+      "activity_risk": {
+        "minimum_rows_match": true,
+        "multitask_minimum_rows": 100,
+        "multitask_ready": false,
+        "multitask_rows": 6,
+        "rows_match": true,
+        "threshold_label_rows": 6,
+        "threshold_minimum_samples": 100,
+        "thresholds_met": false
+      },
+      "assay_success": {
+        "minimum_rows_match": true,
+        "multitask_minimum_rows": 100,
+        "multitask_ready": false,
+        "multitask_rows": 0,
+        "rows_match": true,
+        "threshold_label_rows": 0,
+        "threshold_minimum_samples": 100,
+        "thresholds_met": false
+      },
+      "mutation_rank": {
+        "minimum_rows_match": true,
+        "multitask_minimum_rows": 100,
+        "multitask_ready": false,
+        "multitask_rows": 0,
+        "rows_match": true,
+        "threshold_label_rows": 0,
+        "threshold_minimum_samples": 100,
+        "thresholds_met": false
+      },
+      "stability": {
+        "minimum_rows_match": true,
+        "multitask_minimum_rows": 100,
+        "multitask_ready": false,
+        "multitask_rows": 0,
+        "rows_match": true,
+        "threshold_label_rows": 0,
+        "threshold_minimum_samples": 100,
+        "thresholds_met": false
+      },
+      "substrate_fit": {
+        "minimum_rows_match": true,
+        "multitask_minimum_rows": 100,
+        "multitask_ready": false,
+        "multitask_rows": 0,
+        "rows_match": true,
+        "threshold_label_rows": 0,
+        "threshold_minimum_samples": 100,
+        "thresholds_met": false
+      }
+    },
+    "multitask_threshold_parity_failures": [],
+    "report": "reports/five_head_training_threshold_report.json",
+    "report_consistent": true,
+    "report_present": true,
+    "source_counts": {
+      "activity_risk_formal_label_decision_rows": 6,
+      "activity_risk_training_import_label_rows": 6,
+      "fireprot_reviewed_import_rows": 0,
+      "numeric_feedback_rows": 6,
+      "plate_training_eligible_rows": 0,
+      "strict_supervised_rows": 0
+    },
+    "threshold_ready_heads": []
+  },
+  "policy": "Five-head training execution is blocked until every head has enough reviewed, authorized, provenance-backed labels and benchmark gates are ready. Feature refs are input-only and cannot unlock training execution. Per-head sample, explicit replicate, and independent-group thresholds are required before any head can be considered threshold-ready.",
+  "ready_head_count": 0,
+  "ready_heads": [],
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "status": "blocked",
+  "success": true,
+  "total_head_training_rows": 6,
+  "training_execution_allowed": false,
+  "training_label_import": {
+    "contract_success": true,
+    "safe_for_model_claim": false,
+    "safe_for_training_import": true,
+    "training_import_eligible_rows": 6
+  },
+  "wet_lab_authorization": {
+    "authorized_rows": 8,
+    "contract_success": true,
+    "numeric_training_candidate_rows": 12,
+    "ready_for_training_import_rows": 0
+  }
+}

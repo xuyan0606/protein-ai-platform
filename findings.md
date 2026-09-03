@@ -1,5 +1,12 @@
 # 发现与决策
 
+## 2026-09-03 research multitask 近标签泄漏修复
+- 审计发现 `train_research_multitask.numeric_features` 曾把 `activity_relative_to_wt` 写入数值特征向量；该字段与 activity_risk 标签同源，属于近标签泄漏。
+- 修复采用显式 exclusion contract：`LABEL_OR_NEAR_LABEL_FEATURE_FIELDS` 至少排除 `activity_relative_to_wt`、`activity_risk_label`、`label_value`、`label_decision`、`label_ddg`、`label_stability_delta_tm_c`、`substrate_fit_label`、`assay_success`；`features` 字典输入同样过滤这些键。
+- 默认无字典特征改为非标签 schema：`canonical_position_scaled`、`ph_scaled`、`enzyme_identity_hash`、`wt_aa_hash`、`mutant_aa_hash`、`metric_or_assay_hash`。
+- 训练回执与 checkpoint 现写入 `feature_schema`、`excluded_feature_fields`、`feature_schema_sha256`；smoke/research/production 产物均保持 `safe_for_model_claim=false`。
+- smoke loss 仅证明代码路径可运行，不得解释为性能或模型质量；生产 gate 未放松。
+
 ## AI 模型训练 smoke 验证（2026-08-25）
 - 现有监督基线入口具备严格输入门禁：仅读取 `enzyme_mutation_supervised_repaired_verified.jsonl`，拒绝 weak evidence、完整性标记或深度审计 reject 记录。
 - 当前严格监督表为 0 行；入口和 `check_safe_training_entrypoint.py` 均正确阻断训练，未把 500 行候选训练表、475 行 weak evidence 或 25 行 verified 候选误当作正式监督标签。
@@ -6690,3 +6697,16 @@
 - release acceptance 现在独立运行 `production_https_gate`，不会因为 acceptance matrix 为本地准备跳过 HTTPS 就把发布总控标为可上线。
 - 当前公网 HTTP 被标记 `manual_required`，需要正式域名、TLS、OIDC/public URL 配置；备份 checksum/`pg_restore --list` 已通过。
 - 完整只读总控为 `passed-with-manual-gates`（10 项，0 failed，4 manual_required，0 skipped）；manual gates 仍是 HTTPS、维护窗口回滚、异地备份恢复、外部存储恢复。
+
+## 2026-09-03 KWB 五头训练源码审计与执行结论
+
+- `train_production_multitask.py` 原实现只有 production gate 检查和 `blocked_missing_training_entrypoint` 占位，没有真实五头训练内核。
+- 连续无标签预训练已经完成：12,830 条序列、3 epochs、source-group holdout、当前 v6 checkpoint；发布隔离门复核为 `blocked_pretraining_only`，不能充当监督模型。
+- 当前严格监督事实为：mutation-rank 0、stability 0、activity-risk 6、substrate-fit 0、assay-success 0；activity-risk 只有 2 个突变 group、0 个显式重复，低于每头 100 样本/10 groups/3 repeats 的阈值。
+- 当前输入特征可用量为 MSA 158、PyRosetta ddG REU input 11、structure graph 34、structure site 7；全部是 input-only，计入标签数为 0。
+- 新增唯一状态快照后发现一个真实状态漂移：当前 ddG readiness 将 ThermoMPNN 分维度判为 execution-ready，但旧 model-quality unlock 报告仍保存 aggregate `thermompnn_ready=false`。当前快照显式保留冲突并采用分维度来源，不把 execution-ready 升级为 claim-eligible。
+- 五头研究内核采用共享 MLP encoder、独立 `ModuleDict` heads、按样本 label mask 和 group holdout；smoke 模式只训练存在标签的 activity-risk 代码路径。
+- 真实 6 行 smoke 运行 3 epochs/18 steps，checkpoint SHA-256 为 `5bfba2e2ae4c57ce2ea3e91ef400535fbef90d823ee248c6625ff212c8fdd3aa`；无验证组，故 loss 不得解释为泛化性能。
+- 正式 research 入口正确返回 `blocked_head_thresholds_not_met`；production 入口正确返回 `blocked_pending_production_gate`。这两个阻断是科学正确结果。
+- 生产接入复核后进一步收紧：即使未来五头训练执行完成，训练回执仍固定 `safe_for_model_claim=false`、`release_ready=false`，必须经过训练后 benchmark、模型包、adapter 和发布授权门禁。
+- 新训练升级测试 13/13 通过；预训练回归使用 `PYTHONPATH=scripts` 后 19/19 通过；Python 编译和 scoped `git diff --check` 通过。

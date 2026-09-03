@@ -1,0 +1,107 @@
+{
+  "accession": "Q8IVL1",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00307",
+        "name": "Calponin homology (CH) domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001715",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8ivl1",
+          "protein_length": 2488,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 90,
+                  "end": 192,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00307",
+              "score": 7e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23092",
+        "name": "Neuron navigator 1-like, ubiquitin-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057126",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8ivl1",
+          "protein_length": 2488,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 2014,
+                  "end": 2119,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF23092",
+              "score": 9.1e-41
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25408",
+        "name": "NAV1-like, AAA+ ATPase lid domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057568",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8ivl1",
+          "protein_length": 2488,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 2299,
+                  "end": 2408,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25408",
+              "score": 2.6e-47
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "P35475",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01229",
+        "name": "Glycosyl hydrolases family 39",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049166",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p35475",
+          "protein_length": 653,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 30,
+                  "end": 525,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01229",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21200",
+        "name": "Alpha-L-iduronidase C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049167",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p35475",
+          "protein_length": 653,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 552,
+                  "end": 640,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF21200",
+              "score": 1.7e-39
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

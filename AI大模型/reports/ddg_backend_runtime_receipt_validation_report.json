@@ -1,0 +1,45 @@
+{
+  "all_physical_backends_ready": false,
+  "any_backend_runtime_ready": true,
+  "approved_runtime_rows": 2,
+  "backends_with_approved_runtime": [
+    "pyrosetta",
+    "rosetta"
+  ],
+  "created_at": "2026-09-03T07:34:42.822564+00:00",
+  "error_counts": {},
+  "executable_ddg_backend_ready": false,
+  "fail_closed_hard_gates": [
+    "backend_must_be_rosetta_pyrosetta_or_foldx",
+    "license_decision_must_be_reviewed_and_approved_for_local_evaluation",
+    "runtime_probe_evidence_must_be_reviewed",
+    "backend_config_enablement_must_be_reviewed",
+    "physical_ddg_smoke_artifacts_must_exist_with_sha256",
+    "approved_receipt_must_have_zero_residual_risks"
+  ],
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/ddg_backend_runtime_receipts.local.jsonl",
+  "invalid_receipt_rows": 0,
+  "license_local_evaluation_approved_items": [
+    "foreign_tool:foldx",
+    "foreign_tool:pyrosetta",
+    "foreign_tool:rosetta"
+  ],
+  "local_only": true,
+  "missing_backend_runtime_receipts": [
+    "foldx"
+  ],
+  "per_backend_runtime_ready_rows": 2,
+  "physical_ddg_lane_capability_status": "blocked",
+  "physics_ddg_ready": false,
+  "policy": "Physical ddG runtime is ready only for backends with explicit license review, installed executable/module evidence, reviewed config, probe evidence, and checksumed smoke artifacts. This does not create training labels, model-claim readiness, customer delivery readiness, or release readiness.",
+  "ready_for_ddg_smoke_rows": 2,
+  "ready_to_enable_backend_rows": 2,
+  "receipt_rows": 2,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "schema": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/contracts/ddg_backend_runtime_receipt.schema.json",
+  "status_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/ddg_backend_runtime_receipt_status.jsonl",
+  "template": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/ddg_backend_runtime_receipts.template.jsonl",
+  "thermompnn_proxy_receipt_allowed": false,
+  "valid_receipt_rows": 2
+}

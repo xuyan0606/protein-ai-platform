@@ -1,0 +1,119 @@
+{
+  "accession": "Q92499",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00270",
+        "name": "DEAD/DEAH box helicase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011545",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92499",
+          "protein_length": 740,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 26,
+                  "end": 70,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00270",
+              "score": 1.3e-05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 283,
+                  "end": 413,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00270",
+              "score": 2e-20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00271",
+        "name": "Helicase conserved C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001650",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92499",
+          "protein_length": 740,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 496,
+                  "end": 609,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00271",
+              "score": 3.6e-25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00622",
+        "name": "SPRY domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003877",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92499",
+          "protein_length": 740,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 132,
+                  "end": 244,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00622",
+              "score": 8.7e-26
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

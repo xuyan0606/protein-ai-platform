@@ -1,0 +1,73 @@
+{
+  "accession": "P17735",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00155",
+        "name": "Aminotransferase class I and II",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004839",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p17735",
+          "protein_length": 454,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 72,
+                  "end": 434,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00155",
+              "score": 2.1e-78
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07706",
+        "name": "Aminotransferase ubiquitination site",
+        "source_database": "pfam",
+        "type": "conserved_site",
+        "integrated": "IPR011715",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p17735",
+          "protein_length": 454,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1,
+                  "end": 40,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF07706",
+              "score": 2.2e-19
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

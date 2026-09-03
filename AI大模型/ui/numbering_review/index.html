@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KWB 酶蛋白编号核实平台</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232864a8'/%3E%3Cpath d='M18 16h28v8H34v24h-8V24H18z' fill='white'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>酶蛋白编号核实平台</h1>
+          <p>Numbering review workspace · <a href="../literature_review/index.html">文献证据复核</a></p>
+        </div>
+        <div class="status-strip">
+          <span class="pill neutral">local only</span>
+          <span class="pill blocked">model claim closed</span>
+          <span class="pill warn" id="openCount">loading</span>
+        </div>
+      </header>
+
+      <section class="toolbar" aria-label="review filters">
+        <label>
+          <span>搜索</span>
+          <input id="searchInput" type="search" placeholder="record / UniProt / mutation / PMID" />
+        </label>
+        <label>
+          <span>Packet</span>
+          <select id="packetFilter"></select>
+        </label>
+        <label>
+          <span>状态</span>
+          <select id="decisionFilter">
+            <option value="all">全部</option>
+            <option value="todo">未生成草稿</option>
+            <option value="drafted">已有草稿</option>
+            <option value="existing">正式文件已有行</option>
+            <option value="conflict">意见/字段冲突</option>
+          </select>
+        </label>
+        <button id="exportAllBtn" type="button" title="下载当前浏览器草稿 JSONL"><span>↓</span> 导出草稿</button>
+        <button id="copyAllBtn" type="button" title="复制当前浏览器草稿 JSONL"><span>□</span> 复制草稿</button>
+        <button id="refreshBtn" type="button" title="刷新最新编号数据"><span>↻</span> 刷新最新数据</button>
+      </section>
+
+      <main class="review-grid">
+        <aside class="queue-panel" aria-label="review queue">
+          <div class="panel-head">
+            <h2>待核实</h2>
+            <span id="queueMeta">0 rows</span>
+          </div>
+          <div id="queueList" class="queue-list"></div>
+        </aside>
+
+        <section class="evidence-panel" aria-label="evidence review">
+          <div class="panel-head">
+            <h2 id="detailTitle">选择记录</h2>
+            <span id="riskBadge" class="risk-badge">risk</span>
+          </div>
+
+          <div class="rules-panel">
+            <h3>先按这 3 条判断</h3>
+            <div class="rule-cards">
+              <button class="rule-card map" type="button" data-rule-decision="map_to_canonical">
+                <strong>证据明确</strong>
+                <span>文章讲的是这个蛋白，也找到这个突变，还能确定 canonical 位点。</span>
+                <b>标：map</b>
+              </button>
+              <button class="rule-card weak" type="button" data-rule-decision="keep_unresolved_weak">
+                <strong>看不准</strong>
+                <span>蛋白、突变或编号体系有疑问，不能放心放进训练。</span>
+                <b>标：weak</b>
+              </button>
+              <button class="rule-card reject" type="button" data-rule-decision="reject_label">
+                <strong>明显不对</strong>
+                <span>文献不是这个蛋白，找不到突变，或数据库串错了。</span>
+                <b>标：reject</b>
+              </button>
+            </div>
+          </div>
+
+          <div class="summary-band">
+            <div>
+              <span class="label">UniProt</span>
+              <strong id="detailUniProt">-</strong>
+            </div>
+            <div>
+              <span class="label">突变</span>
+              <strong id="detailMutation">-</strong>
+            </div>
+            <div>
+              <span class="label">reported</span>
+              <strong id="detailReported">-</strong>
+            </div>
+            <div>
+              <span class="label">canonical residue</span>
+              <strong id="detailResidue">-</strong>
+            </div>
+          </div>
+
+          <div class="visual-track" aria-label="numbering mismatch visualization">
+            <div class="track-label">编号核实</div>
+            <div class="track-line">
+              <span class="marker source">source</span>
+              <span id="trackState" class="marker state">unreviewed</span>
+              <span class="marker canonical">canonical</span>
+            </div>
+          </div>
+
+          <div class="evidence-block">
+            <h3>来源证据</h3>
+            <dl class="evidence-list">
+              <div><dt>PMID</dt><dd><a id="pubmedLink" href="#" target="_blank" rel="noreferrer">-</a></dd></div>
+              <div><dt>标题</dt><dd id="detailTitleText">-</dd></div>
+              <div><dt>候选 isoform</dt><dd id="detailIsoforms">-</dd></div>
+              <div><dt>方法</dt><dd id="detailMethod">-</dd></div>
+              <div><dt>来源库</dt><dd id="detailSourceDb">-</dd></div>
+              <div><dt>深度审计</dt><dd id="detailAudit">-</dd></div>
+              <div><dt>下一步</dt><dd id="detailNextAction">-</dd></div>
+              <div><dt>外部入口</dt><dd id="externalLinks">-</dd></div>
+            </dl>
+          </div>
+
+          <div class="check-block">
+            <h3>人工核实项</h3>
+            <div class="check-grid" id="checkGrid"></div>
+          </div>
+        </section>
+
+        <section class="decision-panel" aria-label="decision builder">
+          <div class="panel-head">
+            <h2>Decision</h2>
+            <span id="readinessBadge" class="risk-badge">blocked</span>
+          </div>
+
+          <div class="plain-guide" id="plainGuide">
+            <h3>当前标注规则</h3>
+            <p id="guideDecision">先选择一个结论。</p>
+            <ul id="guideBullets"></ul>
+          </div>
+
+          <div class="conflict-box" id="conflictBox" hidden>
+            <h3>必须先处理：意见和字段不一致</h3>
+            <p><strong id="conflictRecord">-</strong> <span id="conflictText">-</span></p>
+            <div class="conflict-actions">
+              <button id="resolveRejectBtn" type="button">按意见修正为 reject</button>
+              <button id="resolveWeakBtn" type="button">确认保留 weak</button>
+            </div>
+          </div>
+
+          <div class="segmented" id="decisionButtons">
+            <button type="button" data-decision="map_to_canonical">map</button>
+            <button type="button" data-decision="keep_unresolved_weak">weak</button>
+            <button type="button" data-decision="reject_label">reject</button>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              <span>canonical UniProt</span>
+              <input id="canonicalUniprot" type="text" />
+            </label>
+            <label>
+              <span>canonical position</span>
+              <input id="canonicalPosition" type="number" min="1" inputmode="numeric" />
+            </label>
+            <label>
+              <span>canonical WT</span>
+              <input id="canonicalWt" type="text" maxlength="1" />
+            </label>
+            <label>
+              <span>mutant</span>
+              <input id="canonicalMutant" type="text" maxlength="1" />
+            </label>
+            <label>
+              <span>mapping basis</span>
+              <select id="mappingBasis">
+                <option value="unresolved">unresolved</option>
+                <option value="uniprot_version_alignment">uniprot_version_alignment</option>
+                <option value="isoform_alignment">isoform_alignment</option>
+                <option value="literature_sequence_alignment">literature_sequence_alignment</option>
+                <option value="author_numbering_mapping">author_numbering_mapping</option>
+                <option value="manual_expert_review">manual_expert_review</option>
+              </select>
+            </label>
+            <label>
+              <span>confidence <b id="confidenceValue">0.00</b></span>
+              <input id="confidence" type="range" min="0" max="1" step="0.01" />
+            </label>
+            <label>
+              <span>curator</span>
+              <input id="curator" type="text" placeholder="keweibo" />
+            </label>
+            <label>
+              <span>curated_at</span>
+              <input id="curatedAt" type="datetime-local" />
+            </label>
+          </div>
+
+          <label class="wide-label">
+            <span>source refs</span>
+            <input id="sourceRefs" type="text" />
+          </label>
+
+          <label class="wide-label">
+            <span>notes</span>
+            <textarea id="notes" rows="5"></textarea>
+          </label>
+
+          <div class="note-templates">
+            <h3>意见模板</h3>
+            <button type="button" data-template="map">正确模板</button>
+            <button type="button" data-template="weak">不确定模板</button>
+            <button type="button" data-template="reject">错误模板</button>
+          </div>
+
+          <div id="validationBox" class="validation-box"></div>
+
+          <div class="decision-actions">
+            <button id="buildLineBtn" type="button"><span>◇</span> 生成当前 JSONL</button>
+            <button id="saveDraftBtn" type="button"><span>＋</span> 加入草稿</button>
+            <button id="clearDraftBtn" type="button"><span>×</span> 清除本条草稿</button>
+          </div>
+
+          <textarea id="jsonlOutput" class="jsonl-output" rows="8" spellcheck="false"></textarea>
+
+          <div class="wizard-box">
+            <h3>审核向导</h3>
+            <p id="serverMode">正在检测本地按钮服务...</p>
+            <div class="wizard-now">
+              <strong id="workflowCurrent">先完成当前人工判断</strong>
+              <span id="workflowHint">页面会按顺序保存、验证、应用和运行安全管线。</span>
+            </div>
+            <button id="nextStepBtn" class="next-step" type="button">下一步</button>
+            <div class="wizard-progress" aria-label="workflow progress">
+              <span id="stepSave" class="wizard-step">保存</span>
+              <span id="stepValidate" class="wizard-step">验证</span>
+              <span id="stepApply" class="wizard-step">应用</span>
+              <span id="stepPipeline" class="wizard-step">安全管线</span>
+            </div>
+            <details class="advanced-actions">
+              <summary>高级操作</summary>
+              <div class="wizard-actions">
+                <button id="saveOfficialBtn" type="button">保存正式结果</button>
+                <button id="runValidateBtn" type="button">运行验证</button>
+                <button id="runApplyBtn" type="button">应用修正</button>
+                <button id="runPipelineBtn" type="button">安全管线</button>
+              </div>
+            </details>
+            <pre id="stepOutput" class="step-output">等待审核操作。</pre>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="./app.js?v=20260731-enzyme-fastload"></script>
+  </body>
+</html>

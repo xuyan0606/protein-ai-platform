@@ -1,0 +1,73 @@
+{
+  "accession": "O60313",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00350",
+        "name": "Dynamin family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR045063",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60313",
+          "protein_length": 960,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 291,
+                  "end": 469,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00350",
+              "score": 8.7e-37
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19434",
+        "name": "Dynamin-like GTPase OPA1 C-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR045817",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60313",
+          "protein_length": 960,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 617,
+                  "end": 960,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF19434",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

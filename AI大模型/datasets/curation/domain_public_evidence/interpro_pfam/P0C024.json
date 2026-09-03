@@ -1,0 +1,39 @@
+{
+  "accession": "P0C024",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00293",
+        "name": "NUDIX domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000086",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p0c024",
+          "protein_length": 238,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 41,
+                  "end": 156,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00293",
+              "score": 3.8e-07
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

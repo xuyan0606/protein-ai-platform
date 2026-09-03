@@ -1,0 +1,36 @@
+{
+  "accepted_for_local_benchmark_cache_intake": true,
+  "assay_success_label_rows_written": 0,
+  "benchmark_name": "replicate consistency",
+  "created_at": "2026-09-03T07:33:37.227341+00:00",
+  "dataset": "cache/advanced_features/benchmarks/kwb_4g_replicate_consistency/dataset.jsonl",
+  "dataset_version": "kwb-4g-replicate-consistency-v0.1-local-2026-08-03",
+  "head": "assay_success",
+  "intake": "datasets/benchmark/benchmark_score_cache_intake.local.jsonl",
+  "leakage_check_status": "passed",
+  "local_only": true,
+  "metric_report": "cache/advanced_features/benchmarks/kwb_4g_replicate_consistency/metric_report.json",
+  "policy": "Real local benchmark artifact for KWB 4G replicate consistency evaluation only; no training import, assay_success label, model claim, or release gate is opened.",
+  "quality_status": "internal_replicate_consistency_cache_ready_not_model_claim",
+  "raw_activity_rows_used": 315,
+  "raw_measurement_rows": 641,
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "replicate_group_rows": 23,
+  "safe_for_model_claim": false,
+  "scorecard": "cache/advanced_features/benchmarks/kwb_4g_replicate_consistency/scorecard.json",
+  "skipped_counts": {
+    "not_xylanase_activity": 326
+  },
+  "source_control_map": "酶改造突变体库-湿实验数据/4G_database-提高比活力/06_批次与对照映射表.csv",
+  "source_raw_measurements": "酶改造突变体库-湿实验数据/4G_database-提高比活力/04_原始测量事实表.csv",
+  "source_sample_map": "酶改造突变体库-湿实验数据/4G_database-提高比活力/05_样本与批次对应表.csv",
+  "split_definition": "cache/advanced_features/benchmarks/kwb_4g_replicate_consistency/split_definition.json",
+  "status_counts": {
+    "consistent_pass": 3,
+    "consistent_watch": 4,
+    "inconsistent_fail": 11,
+    "insufficient_replicates": 5
+  },
+  "training_import_written_rows": 0
+}

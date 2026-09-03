@@ -1,0 +1,51 @@
+{
+  "created_at": "2026-09-03T07:33:53.742025+00:00",
+  "dashboard": "reports/benchmark_coverage_dashboard.json",
+  "derived": {
+    "benchmark_rows": 15,
+    "error_counts": {
+      "benchmark_status_not_present": 2
+    },
+    "gap_item_rows": 2,
+    "gap_queue_rows": 2,
+    "heads_ready": 3,
+    "invalid_rows": 2,
+    "valid_rows": 13
+  },
+  "expected_current_state": {
+    "benchmark_rows": 15,
+    "gap_queue_heads": 2,
+    "ready_for_model_claim": false,
+    "valid_rows": 13
+  },
+  "failures": [],
+  "gap_queue": "datasets/benchmark/benchmark_gap_queue.jsonl",
+  "local_only": true,
+  "observed": {
+    "benchmark_rows": 15,
+    "gap_queue_heads": [
+      "mutation_rank",
+      "substrate_fit"
+    ],
+    "gap_queue_rows": 2,
+    "head_count": 5,
+    "heads": [
+      "mutation_rank",
+      "stability",
+      "activity_risk",
+      "substrate_fit",
+      "assay_success"
+    ],
+    "heads_ready": 3,
+    "invalid_rows": 2,
+    "ready_for_model_claim": false,
+    "release_ready": false,
+    "safe_for_model_claim": false,
+    "valid_rows": 13
+  },
+  "policy": "Fail-closed validator for benchmark coverage dashboard consistency. Benchmark gaps may be tracked for evaluation coverage only; unresolved or unexplained benchmark rows must not open model claims, training import, intake approval, or release readiness.",
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_pipeline": true,
+  "success": true
+}

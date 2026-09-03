@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-09-03T07:33:55.918145+00:00",
+  "local_only": true,
+  "success": true,
+  "audit_rows": 38,
+  "bundle_audit_rows": 37,
+  "bundle_rows": 37,
+  "open_rows": 37,
+  "completion_ready_rows": 0,
+  "validation_valid_rows": 37,
+  "validation_ready": false,
+  "workstream_counts": {
+    "biosecurity_screening": 3,
+    "external_license_review": 19,
+    "operator_review_actions": 6,
+    "sequence_ip_fto": 3,
+    "workstream_acceptance": 6
+  },
+  "status_counts": {
+    "open_blocked_waiting_for_human_decision": 33,
+    "reviewed_valid_but_not_approved": 4
+  },
+  "failures": [],
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "customer_delivery_ready": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "policy": "Validation only. Governance review bundle gaps do not authorize training, claims, release, delivery, or production execution."
+}

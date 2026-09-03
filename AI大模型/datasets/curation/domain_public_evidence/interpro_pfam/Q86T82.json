@@ -1,0 +1,146 @@
+{
+  "accession": "Q86T82",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00443",
+        "name": "Ubiquitin carboxyl-terminal hydrolase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001394",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86t82",
+          "protein_length": 979,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 342,
+                  "end": 703,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 719,
+                  "end": 806,
+                  "dc-status": "NC_TERMINAL_DISC"
+                },
+                {
+                  "start": 823,
+                  "end": 828,
+                  "dc-status": "NC_TERMINAL_DISC"
+                },
+                {
+                  "start": 845,
+                  "end": 948,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": false,
+              "model": "PF00443",
+              "score": 2.8e-53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02809",
+        "name": "Ubiquitin interaction motif",
+        "source_database": "pfam",
+        "type": "conserved_site",
+        "integrated": "IPR003903",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86t82",
+          "protein_length": 979,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 704,
+                  "end": 718,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02809",
+              "score": 61000
+            },
+            {
+              "fragments": [
+                {
+                  "start": 807,
+                  "end": 822,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02809",
+              "score": 170
+            },
+            {
+              "fragments": [
+                {
+                  "start": 829,
+                  "end": 844,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02809",
+              "score": 0.63
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16674",
+        "name": "N-terminal of ubiquitin carboxyl-terminal hydrolase 37",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR032069",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86t82",
+          "protein_length": 979,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1,
+                  "end": 105,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF16674",
+              "score": 5.9e-41
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

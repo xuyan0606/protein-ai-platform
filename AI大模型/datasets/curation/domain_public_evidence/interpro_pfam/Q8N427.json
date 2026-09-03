@@ -1,0 +1,97 @@
+{
+  "accession": "Q8N427",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00085",
+        "name": "Thioredoxin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013766",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n427",
+          "protein_length": 588,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 14,
+                  "end": 103,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00085",
+              "score": 1.4e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00334",
+        "name": "Nucleoside diphosphate kinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR034907",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n427",
+          "protein_length": 588,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 156,
+                  "end": 228,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00334",
+              "score": 3.3e-09
+            },
+            {
+              "fragments": [
+                {
+                  "start": 316,
+                  "end": 449,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00334",
+              "score": 2.5e-21
+            },
+            {
+              "fragments": [
+                {
+                  "start": 451,
+                  "end": 584,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00334",
+              "score": 2.1e-29
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

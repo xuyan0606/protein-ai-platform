@@ -1,0 +1,73 @@
+{
+  "accession": "Q8N5Y8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00644",
+        "name": "Poly(ADP-ribose) polymerase catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012317",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n5y8",
+          "protein_length": 322,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 103,
+                  "end": 272,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00644",
+              "score": 4.8e-33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18084",
+        "name": "ARTD15 N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041400",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n5y8",
+          "protein_length": 322,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 13,
+                  "end": 90,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF18084",
+              "score": 1.1e-24
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

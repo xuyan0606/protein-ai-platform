@@ -1,0 +1,53 @@
+{
+  "local_only": true,
+  "success": true,
+  "checked_report": "reports/human_target_contract_gap_report.json",
+  "builder_contract": "scripts/build_human_target_contract_gap_report.py",
+  "backend_contract_source": "../backend/app/tools/human_target_antibody_contracts.py",
+  "report_matches_current_builder_projection": true,
+  "expected_product_line_sections": [
+    "antibody_humanization",
+    "human_target_intelligence"
+  ],
+  "observed_product_line_sections": [
+    "antibody_humanization",
+    "human_target_intelligence"
+  ],
+  "expected_backend_schema_contracts": [
+    "AntibodyChainProfile",
+    "DevelopabilityProfile",
+    "EpitopeSimilarity",
+    "ExpressionSafetyProfile",
+    "ExtracellularAccessibility",
+    "GermlineMatch",
+    "HumanProteinProfile",
+    "HumanizationProposal",
+    "OffTargetRisk",
+    "PathwayRelation"
+  ],
+  "observed_backend_schema_contracts": [
+    "AntibodyChainProfile",
+    "DevelopabilityProfile",
+    "EpitopeSimilarity",
+    "ExpressionSafetyProfile",
+    "ExtracellularAccessibility",
+    "GermlineMatch",
+    "HumanProteinProfile",
+    "HumanizationProposal",
+    "OffTargetRisk",
+    "PathwayRelation"
+  ],
+  "source_gate_snapshot": {
+    "bio_specialty_input_gate_present": false,
+    "scientific_claim_gate_present": false,
+    "bio_specialty_ready": null,
+    "scientific_claim_gate_status": null
+  },
+  "failures": [],
+  "failure_count": 0,
+  "human_target_gap_sections": 2,
+  "schema_only_contract_count": 10,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Validation proves the file is a gap report only. It does not create real target or antibody capability."
+}

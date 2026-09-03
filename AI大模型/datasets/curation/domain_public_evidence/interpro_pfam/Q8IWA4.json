@@ -1,0 +1,73 @@
+{
+  "accession": "Q8IWA4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00350",
+        "name": "Dynamin family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR045063",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iwa4",
+          "protein_length": 741,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 78,
+                  "end": 237,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00350",
+              "score": 2.3e-23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04799",
+        "name": "fzo-like conserved region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR006884",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iwa4",
+          "protein_length": 741,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 576,
+                  "end": 734,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04799",
+              "score": 4.9e-68
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "local_only": true,
+  "ready": false,
+  "components": {
+    "model_cards_present": true,
+    "head_model_card_template_present": true,
+    "external_data_source_registry_present": true,
+    "external_data_source_rows": 8,
+    "external_data_source_registry_valid_rows": 8,
+    "external_data_source_registry_ready_sources": 0,
+    "external_data_source_registry_ready": false,
+    "external_data_sources_requiring_review": [
+      "UniProt",
+      "RCSB PDB",
+      "BRENDA",
+      "SABIO-RK",
+      "MaveDB",
+      "ProteinGym",
+      "FireProtDB",
+      "ProThermDB"
+    ],
+    "foreign_tool_split_readiness": {
+      "install_ready": 6,
+      "runtime_ready": 6,
+      "license_ready": 6,
+      "data_ready": 3,
+      "model_weight_ready": 5
+    },
+    "license_review_packet_rows": 19,
+    "license_review_decision_rows": 3,
+    "license_review_valid_decision_rows": 3,
+    "license_review_approved_for_training": 0,
+    "license_review_approved_for_local_evaluation": 3,
+    "license_review_approved_for_delivery": 0,
+    "license_review_authorization_status_counts": {
+      "self_attested": 3,
+      "pending_verification": 0,
+      "verified": 0
+    },
+    "license_review_capability_authorization_counts": {
+      "commercial_evaluation": {
+        "allowed": 3,
+        "denied": 0,
+        "pending": 0
+      },
+      "training_import": {
+        "allowed": 3,
+        "denied": 0,
+        "pending": 0
+      },
+      "customer_delivery": {
+        "allowed": 3,
+        "denied": 0,
+        "pending": 0
+      },
+      "service_hosting": {
+        "allowed": 3,
+        "denied": 0,
+        "pending": 0
+      },
+      "publication": {
+        "allowed": 3,
+        "denied": 0,
+        "pending": 0
+      }
+    },
+    "license_review_verified_customer_delivery_rows": 0,
+    "license_review_ready_for_delivery": false,
+    "provenance_ready": true,
+    "benchmark_ready_for_model_claim": false,
+    "biosecurity_ready_for_ordering": false,
+    "sequence_ip_fto_decision_rows": 0,
+    "sequence_ip_fto_approved_for_delivery": 0,
+    "sequence_ip_fto_ready_for_delivery": false
+  },
+  "allowed_claims": [
+    "local-only engineering readiness artifacts exist",
+    "strict supervised training remains gated by reviewed labels",
+    "external tools and data sources fail closed until license/runtime/data gates pass",
+    "platform policy supports commercial evaluation, training import, customer delivery, service hosting and publication workflows when component/project authorization gates pass"
+  ],
+  "forbidden_claims": [
+    "customer-deliverable model quality",
+    "freedom-to-operate or patent clearance",
+    "synthesis/order approval",
+    "wet-lab activity or stability labels inferred from predicted/reference data"
+  ],
+  "blockers": [
+    "external data source commercial/redistribution review is incomplete",
+    "external data source registry validation is not ready",
+    "verified external data/tool customer-delivery authorization scope is not ready",
+    "head-level benchmark matrix is not ready for model claims",
+    "biosecurity/order approval is not ready",
+    "sequence IP/FTO decisions are not ready for customer delivery",
+    "master readiness board is blocked for model claim"
+  ],
+  "policy": "Governance must pass independently of training smoke tests before P30 release claims. Platform policy is not a default non-commercial ban; third-party component scopes are tracked as self_attested, pending_verification, or verified."
+}

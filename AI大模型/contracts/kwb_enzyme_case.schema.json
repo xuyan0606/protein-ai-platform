@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB-EnzymeCase",
+  "type": "object",
+  "required": ["case_id", "case_type", "objective", "enzyme", "quality", "audit"],
+  "properties": {
+    "case_id": { "type": "string", "minLength": 1 },
+    "project_id": { "type": "string" },
+    "case_type": {
+      "type": "string",
+      "enum": ["stability", "activity", "substrate_fit", "expression", "multi_objective"]
+    },
+    "objective": {
+      "type": "object",
+      "required": ["primary_goal"],
+      "properties": {
+        "primary_goal": { "type": "string" },
+        "secondary_goals": { "type": "array", "items": { "type": "string" } },
+        "constraints": { "type": "array", "items": { "type": "string" } },
+        "success_metric": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "enzyme": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "family": { "type": "string" },
+        "ec_number": { "type": "string" },
+        "organism": { "type": "string" },
+        "uniprot_id": { "type": "string" },
+        "sequence": { "type": "string" },
+        "sequence_md5": { "type": "string" },
+        "numbering_system": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "structure": {
+      "type": "object",
+      "properties": {
+        "source_type": {
+          "type": ["string", "null"],
+          "enum": ["uploaded_pdb", "pdb", "alphafold", "esmfold", "none", null]
+        },
+        "object_name": { "type": ["string", "null"] },
+        "pdb_id": { "type": ["string", "null"] },
+        "chain_id": { "type": ["string", "null"] },
+        "confidence": { "type": ["number", "null"] },
+        "numbering_verified": { "type": ["boolean", "null"] },
+        "residue_mapping_ref": { "type": ["string", "null"] },
+        "quality_flags": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "substrate": {
+      "type": "object",
+      "properties": {
+        "name": { "type": ["string", "null"] },
+        "smiles": { "type": ["string", "null"] },
+        "sdf_object": { "type": ["string", "null"] },
+        "reaction": { "type": ["string", "null"] },
+        "pocket_residues": { "type": "array", "items": { "type": "integer" } }
+      },
+      "additionalProperties": true
+    },
+    "assay_condition": {
+      "type": "object",
+      "properties": {
+        "ph": { "type": ["number", "string", "null"] },
+        "temperature_c": { "type": ["number", "string", "null"] },
+        "buffer": { "type": ["string", "null"] },
+        "expression_system": { "type": ["string", "null"] },
+        "assay_method": { "type": ["string", "null"] },
+        "replicates": { "type": ["integer", "null"] }
+      },
+      "additionalProperties": true
+    },
+    "mutations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code"],
+        "properties": {
+          "code": { "type": "string" },
+          "position": { "type": ["integer", "null"] },
+          "wild_type": { "type": ["string", "null"] },
+          "mutant": { "type": ["string", "null"] },
+          "source": { "type": ["string", "null"] },
+          "status": { "type": ["string", "null"] },
+          "rationale": { "type": ["string", "null"] },
+          "risk_flags": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": true
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["evidence_id", "source", "evidence_type", "summary"],
+        "properties": {
+          "evidence_id": { "type": "string" },
+          "source": { "type": "string" },
+          "source_ref": { "type": ["string", "null"] },
+          "evidence_type": { "type": "string" },
+          "summary": { "type": "string" },
+          "confidence": { "type": ["number", "null"] }
+        },
+        "additionalProperties": true
+      }
+    },
+    "tool_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tool_name", "status"],
+        "properties": {
+          "tool_name": { "type": "string" },
+          "status": { "type": "string" },
+          "result_ref": { "type": ["string", "null"] },
+          "summary": { "type": "object" },
+          "quality_flags": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": true
+      }
+    },
+    "labels": {
+      "type": "object",
+      "properties": {
+        "activity_relative_to_wt": { "type": ["number", "null"] },
+        "stability_delta_tm_c": { "type": ["number", "null"] },
+        "half_life_fold_change": { "type": ["number", "null"] },
+        "expression_relative_to_wt": { "type": ["number", "null"] },
+        "substrate_fit_label": { "type": ["string", "null"] },
+        "assay_success": { "type": ["boolean", "null"] },
+        "decision": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    },
+    "quality": {
+      "type": "object",
+      "required": ["data_quality_score", "usable_for_training", "usable_for_benchmark"],
+      "properties": {
+        "data_quality_score": { "type": "number" },
+        "usable_for_training": { "type": "boolean" },
+        "usable_for_benchmark": { "type": "boolean" },
+        "missing_fields": { "type": "array", "items": { "type": "string" } },
+        "warnings": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "audit": {
+      "type": "object",
+      "required": ["created_at", "source_owner", "review_status", "data_version"],
+      "properties": {
+        "created_at": { "type": "string" },
+        "updated_at": { "type": "string" },
+        "source_owner": { "type": "string" },
+        "review_status": { "type": "string" },
+        "data_version": { "type": "string" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

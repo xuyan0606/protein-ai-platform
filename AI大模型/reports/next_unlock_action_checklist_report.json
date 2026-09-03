@@ -1,0 +1,97 @@
+{
+  "created_at": "2026-09-03T07:34:02.806004+00:00",
+  "local_only": true,
+  "online_deployment": false,
+  "source_dispatch_packets": "datasets/governance/next_unlock_lane_dispatch_packets.jsonl",
+  "source_dispatch_status": "datasets/governance/next_unlock_lane_dispatch_status.jsonl",
+  "source_launch_board": "datasets/governance/next_unlock_multi_agent_launch_board.jsonl",
+  "jsonl": "datasets/governance/next_unlock_action_checklist.jsonl",
+  "checklist_rows": 8,
+  "open_blocked_checklist_rows": 8,
+  "invalid_or_blocked_checklist_rows": 0,
+  "ready_for_local_operator_rows": 8,
+  "completion_ready_items": 0,
+  "requires_human_input_items": 8,
+  "missing_local_material_rows": 0,
+  "lane_counts": {
+    "acceptance_claim_agent": 3,
+    "governance_agent": 3,
+    "msa_feedback_agent": 1,
+    "sequence_data_agent": 1
+  },
+  "top_checklist_items": [
+    {
+      "execution_order": 1,
+      "checklist_id": "P43-A001-LOCAL-ACTION-CHECKLIST",
+      "lane_id": "sequence_data_agent",
+      "workstream": "numbering_curation",
+      "operator_open_first": "datasets/curation/numbering_review_packets/",
+      "decision_input": "datasets/curation/numbering_curation_decisions.jsonl",
+      "validator_report": "reports/numbering_curation_validation_report.json"
+    },
+    {
+      "execution_order": 2,
+      "checklist_id": "P43-A006-LOCAL-ACTION-CHECKLIST",
+      "lane_id": "msa_feedback_agent",
+      "workstream": "plate_feedback_intake",
+      "operator_open_first": "datasets/feedback/plate_review_packets/feedback_plate_review_priority_001.jsonl",
+      "decision_input": "datasets/feedback/experiment_feedback_plate.local.jsonl",
+      "validator_report": "reports/experiment_feedback_plate_intake_validation_report.json"
+    },
+    {
+      "execution_order": 3,
+      "checklist_id": "P43-A007-LOCAL-ACTION-CHECKLIST",
+      "lane_id": "governance_agent",
+      "workstream": "external_license_review",
+      "operator_open_first": "datasets/governance/external_license_review_packets.jsonl",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_report": "reports/external_license_review_decision_validation_report.json"
+    },
+    {
+      "execution_order": 4,
+      "checklist_id": "P43-A008-LOCAL-ACTION-CHECKLIST",
+      "lane_id": "governance_agent",
+      "workstream": "biosecurity_screening",
+      "operator_open_first": "datasets/governance/biosecurity_screening_drafts.jsonl",
+      "decision_input": "datasets/governance/biosecurity_screening_decisions.jsonl",
+      "validator_report": "reports/biosecurity_screening_decision_validation_report.json"
+    },
+    {
+      "execution_order": 5,
+      "checklist_id": "P43-A009-LOCAL-ACTION-CHECKLIST",
+      "lane_id": "governance_agent",
+      "workstream": "sequence_ip_fto",
+      "operator_open_first": "datasets/curation/sequence_ip_review_packets/",
+      "decision_input": "datasets/governance/sequence_ip_fto_decisions.jsonl",
+      "validator_report": "reports/sequence_ip_fto_decision_validation_report.json"
+    },
+    {
+      "execution_order": 6,
+      "checklist_id": "P43-A010-LOCAL-ACTION-CHECKLIST",
+      "lane_id": "acceptance_claim_agent",
+      "workstream": "workstream_acceptance",
+      "operator_open_first": "reports/workstream_acceptance_gates.json",
+      "decision_input": "datasets/governance/workstream_acceptance_decisions.jsonl",
+      "validator_report": "reports/workstream_acceptance_decision_validation_report.json"
+    },
+    {
+      "execution_order": 7,
+      "checklist_id": "P43-A011-LOCAL-ACTION-CHECKLIST",
+      "lane_id": "acceptance_claim_agent",
+      "workstream": "operator_review_actions",
+      "operator_open_first": "datasets/governance/operator_review_action_queue.jsonl",
+      "decision_input": "datasets/governance/operator_review_action_decisions.jsonl",
+      "validator_report": "reports/operator_review_action_decision_validation_report.json"
+    },
+    {
+      "execution_order": 8,
+      "checklist_id": "P43-A012-LOCAL-ACTION-CHECKLIST",
+      "lane_id": "acceptance_claim_agent",
+      "workstream": "model_claim",
+      "operator_open_first": "reports/claim_readiness_matrix.json",
+      "decision_input": null,
+      "validator_report": "reports/claim_readiness_matrix.json"
+    }
+  ],
+  "policy": "This report is a local operator checklist only. It does not create reviewed decisions, grant approvals, unlock claims, approve customer delivery, authorize deployment, sync files, or restart servers."
+}

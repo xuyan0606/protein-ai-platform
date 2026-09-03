@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB enzyme resource retrieval plan",
+  "type": "object",
+  "required": [
+    "plan_id",
+    "created_at",
+    "local_only",
+    "request_class",
+    "input_query",
+    "categories",
+    "actions",
+    "summary",
+    "safe_for_execution",
+    "safe_for_training_import",
+    "safe_for_model_claim",
+    "release_ready"
+  ],
+  "properties": {
+    "plan_id": {"type": "string"},
+    "created_at": {"type": "string"},
+    "local_only": {"const": true},
+    "request_class": {"type": "string"},
+    "input_query": {"type": "string"},
+    "categories": {
+      "type": "object",
+      "required": [
+        "recommended_read_only",
+        "executable_after_user_confirmation",
+        "blocked_requires_human_decision",
+        "forbidden_for_current_request"
+      ],
+      "properties": {
+        "recommended_read_only": {"type": "array"},
+        "executable_after_user_confirmation": {"type": "array"},
+        "blocked_requires_human_decision": {"type": "array"},
+        "forbidden_for_current_request": {"type": "array"}
+      }
+    },
+    "actions": {"type": "array"},
+    "summary": {"type": "object"},
+    "safe_for_execution": {"const": false},
+    "safe_for_training_import": {"const": false},
+    "safe_for_model_claim": {"const": false},
+    "release_ready": {"const": false}
+  }
+}

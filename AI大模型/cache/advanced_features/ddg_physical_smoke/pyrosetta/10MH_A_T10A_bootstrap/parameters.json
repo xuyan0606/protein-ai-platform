@@ -1,0 +1,34 @@
+{
+  "backend": "pyrosetta",
+  "chain_id": "A",
+  "ddg_units": "Rosetta Energy Units (REU), not kcal/mol",
+  "mutation": {
+    "chain_id": "A",
+    "mutant": "A",
+    "mutation": "T10A",
+    "mutation_position": 10,
+    "scope": "runtime_smoke_only_not_training_label",
+    "wild_type": "T"
+  },
+  "negative_ddg_is_stabilizing": true,
+  "protocol_name": "minimal_scorefxn_single_mutation_smoke",
+  "release_ready": false,
+  "runtime": {
+    "added_sys_paths": [
+      "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/PyRosetta/python"
+    ],
+    "init_options": "-mute all",
+    "install_path": "cache/external/PyRosetta/python",
+    "pyrosetta_file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/PyRosetta/python/pyrosetta/__init__.py",
+    "pyrosetta_init_executed": true,
+    "pyrosetta_version": null,
+    "python_executable": "/Library/Developer/CommandLineTools/usr/bin/python3"
+  },
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "scope": "runtime_smoke_only_not_training_label",
+  "sequence_to_structure_mapping_status": "exact_sequence_match",
+  "structure_id": "10MH",
+  "structure_path": "cache/structures/pdb/10mh.pdb",
+  "structure_sha256": "9ec1d5f03fb4f979798bdf919834e6330f95f51dbb312a5c7c4088899f1e822e"
+}

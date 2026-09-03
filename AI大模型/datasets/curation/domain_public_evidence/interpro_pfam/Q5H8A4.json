@@ -1,0 +1,73 @@
+{
+  "accession": "Q5H8A4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01663",
+        "name": "Type I phosphodiesterase / nucleotide pyrophosphatase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002591",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5h8a4",
+          "protein_length": 983,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 68,
+                  "end": 275,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01663",
+              "score": 5.6e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19316",
+        "name": "GPI ethanolamine phosphate transferase membrane region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR045687",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5h8a4",
+          "protein_length": 983,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 649,
+                  "end": 966,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF19316",
+              "score": 6.2e-21
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

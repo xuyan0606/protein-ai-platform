@@ -1,0 +1,65 @@
+{
+  "allowed_use": "evaluation-only predicted-reference coverage benchmark",
+  "api_record": "cache/external/gotenzymes2_zenodo_record_17196785.json",
+  "api_record_sha256": "234865ef8240c94309e051ea810df1a050f383b699b34fe3b556160a04dbb2f2",
+  "archive": "cache/external/input_data.zip",
+  "archive_md5": "5b07cf2fa8a22262312bd9c9fde047cb",
+  "archive_sha256": "e8ff38a3e0d7764fea888d6679169381aa29c0d6b9dee354d647fd3f059df73d",
+  "archive_size": 1190270380,
+  "authorization_source": "public_dataset_source_self_attested",
+  "authorization_status": "self_attested",
+  "catpred_model_executed": false,
+  "catpred_repo_metadata": "cache/external/catpred_github_repo.json",
+  "catpred_repo_metadata_sha256": "3f071f549aa0e9fbe34fb5212bdf92a37dcef934bcf07585bfb9fb5c71d441a5",
+  "created_at": "2026-09-03T07:33:37.500291+00:00",
+  "doi": "10.5281/zenodo.17196785",
+  "forbidden_use": "do not use as KWB wet-lab labels, training import, model-quality claim, customer delivery, or release basis",
+  "license": {
+    "id": "cc-by-4.0"
+  },
+  "local_only": true,
+  "record_id": 17196785,
+  "shards": [
+    {
+      "compressed_size": 690,
+      "member": "input_data/gotEnzymes2/bdw.txt",
+      "rows": 38,
+      "sha256": "819d87946a78d32347e92adc97f1003b046e4d4b35ac29c9363b30bdfcaf9831",
+      "shard": "bdw",
+      "uncompressed_size": 2986
+    },
+    {
+      "compressed_size": 1091,
+      "member": "input_data/gotEnzymes2/oyw.txt",
+      "rows": 53,
+      "sha256": "58ca4d61671d48d4f3b850e07d90c2cd2ca4bdc1fd7c196584b10136fd15077b",
+      "shard": "oyw",
+      "uncompressed_size": 4489
+    },
+    {
+      "compressed_size": 2183,
+      "member": "input_data/gotEnzymes2/gsc.txt",
+      "rows": 135,
+      "sha256": "27ff50a991bebbef967e659e0df855aa84ffc682c8d6c41ffed646700367a721",
+      "shard": "gsc",
+      "uncompressed_size": 10825
+    }
+  ],
+  "source": "Zenodo GotEnzymes2 source data",
+  "source_field_schema": [
+    "source_protein_id",
+    "source_shard",
+    "organism_code",
+    "reaction_id",
+    "ec",
+    "compound_id",
+    "kcat_raw",
+    "km_raw",
+    "kcat_over_km_raw",
+    "topt_raw",
+    "tm_raw"
+  ],
+  "source_url": "https://zenodo.org/records/17196785",
+  "title": "GotEnzymes2 source data",
+  "verification_required": true
+}

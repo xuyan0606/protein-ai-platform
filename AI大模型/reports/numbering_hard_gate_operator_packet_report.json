@@ -1,0 +1,107 @@
+{
+  "apply_curation_allowed": false,
+  "created_at": "2026-09-03T07:33:45.236526+00:00",
+  "forbidden_outputs": [
+    "datasets/curation/numbering_curation_decisions.jsonl",
+    "datasets/curated/enzyme_mutation_supervised_claim_eligible.jsonl",
+    "reports/data_lake_manifest.json",
+    "reports/local_release_manifest.json",
+    "safe training pipeline outputs"
+  ],
+  "input_errors": [],
+  "input_presence": {
+    "label_provenance_audit_report": true,
+    "numbering_decision_semantic_conflict_queue": true,
+    "numbering_decision_semantic_conflict_report": true,
+    "numbering_review_operator_queue": true,
+    "numbering_review_worklist": true
+  },
+  "inputs": {
+    "label_provenance_audit_report": "reports/label_provenance_audit_report.json",
+    "numbering_decision_semantic_conflict_queue": "datasets/curation/numbering_decision_semantic_conflict_queue.jsonl",
+    "numbering_decision_semantic_conflict_report": "reports/numbering_decision_semantic_conflict_report.json",
+    "numbering_review_operator_queue": "reports/numbering_review_operator_queue.json",
+    "numbering_review_worklist": "datasets/curation/numbering_review_worklist.jsonl"
+  },
+  "label_import_allowed": false,
+  "label_provenance_gate": {
+    "claim_eligible_rows": 0,
+    "hard_gate_status": "blocked_no_claim_eligible_real_source_labels",
+    "safe_for_model_claim": false,
+    "safe_for_training_pipeline": false,
+    "strict_rows": 0,
+    "synthetic_or_unreceipted_rows": 0
+  },
+  "local_only": true,
+  "manifest_update_allowed": false,
+  "operator_status_counts": {
+    "reviewed_no_conflict": 4,
+    "todo": 471
+  },
+  "outputs": {
+    "markdown": "reports/numbering_hard_gate_operator_packets.md",
+    "packets": "datasets/governance/numbering_hard_gate_operator_packets.jsonl",
+    "report": "reports/numbering_hard_gate_operator_packet_report.json"
+  },
+  "packet_ids": [
+    "numbering-hard-gate-open-numbering_review_abstract_signal_001",
+    "numbering-hard-gate-open-numbering_review_abstract_signal_002",
+    "numbering-hard-gate-open-numbering_review_isoform_exact_001",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_001",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_002",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_003",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_004",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_005",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_006",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_007",
+    "numbering-hard-gate-open-numbering_review_pubmed_missing_001",
+    "numbering-hard-gate-open-numbering_review_abstract_signal_003",
+    "numbering-hard-gate-open-numbering_review_abstract_signal_004",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_008",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_009",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_010",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_011",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_012",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_013",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_014",
+    "numbering-hard-gate-open-numbering_review_low_signal_high_risk_015"
+  ],
+  "policy": "Fail-closed reviewed-numbering operator packets only. These packets guide human review; they do not write numbering_curation_decisions.jsonl, apply curation, import labels, run a safe pipeline, update a manifest, enable training, support model claims, or grant release readiness.",
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_pipeline_integration_allowed": false,
+  "semantic_conflict_report_status": {
+    "conflict_type_counts": {},
+    "reported_open_rows": 0,
+    "reported_rows": 0
+  },
+  "status": "blocked",
+  "summary": {
+    "completion_ready_rows": 0,
+    "curation_applied_rows": 0,
+    "decision_rows_written": 0,
+    "label_imported_rows": 0,
+    "largest_open_packet_rows": 25,
+    "open_numbering_bucket_counts": {
+      "abstract_signal": 88,
+      "isoform_exact_candidate": 4,
+      "low_signal_high_risk": 362,
+      "pubmed_missing_or_invalid": 17
+    },
+    "open_numbering_packet_counts_by_bucket": {
+      "abstract_signal": 4,
+      "isoform_exact_candidate": 1,
+      "low_signal_high_risk": 15,
+      "pubmed_missing_or_invalid": 1
+    },
+    "open_numbering_packet_rows": 21,
+    "open_numbering_rows": 471,
+    "packet_rows": 21,
+    "requires_human_input_rows": 21,
+    "semantic_conflict_packet_rows": 0,
+    "semantic_conflict_rows": 0,
+    "smallest_open_packet_rows": 4
+  },
+  "training_unlocked": false,
+  "write_numbering_curation_decisions_allowed": false
+}

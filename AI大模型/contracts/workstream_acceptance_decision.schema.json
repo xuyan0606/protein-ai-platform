@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB Workstream Acceptance Decision",
+  "type": "object",
+  "required": [
+    "stream",
+    "acceptance_decision",
+    "reviewer",
+    "reviewed_at",
+    "evidence_artifacts",
+    "validation_reports",
+    "acceptance_scope",
+    "acceptance_note"
+  ],
+  "properties": {
+    "stream": {
+      "type": "string",
+      "enum": [
+        "external_data_sources",
+        "structure_chain_mapping",
+        "msa_conservation",
+        "plate_feedback",
+        "biosecurity_customer_delivery",
+        "active_learning"
+      ]
+    },
+    "acceptance_decision": {
+      "type": "string",
+      "enum": ["accepted", "rejected", "blocked", "needs_more_info"]
+    },
+    "reviewer": { "type": "string", "minLength": 1 },
+    "reviewed_at": { "type": "string", "format": "date-time" },
+    "evidence_artifacts": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "validation_reports": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "acceptance_scope": {
+      "type": "string",
+      "enum": ["local_feature_production", "model_training", "model_claim", "customer_delivery", "experiment_submission"]
+    },
+    "accepted_for_model_claim": { "type": "boolean" },
+    "accepted_for_customer_delivery": { "type": "boolean" },
+    "accepted_for_experiment_submission": { "type": "boolean" },
+    "acceptance_note": { "type": "string", "minLength": 1 },
+    "residual_risks": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "next_action": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

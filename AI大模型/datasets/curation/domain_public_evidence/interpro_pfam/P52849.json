@@ -1,0 +1,107 @@
+{
+  "accession": "P52849",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00685",
+        "name": "Sulfotransferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000863",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p52849",
+          "protein_length": 883,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 604,
+                  "end": 853,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00685",
+              "score": 1.7e-36
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12062",
+        "name": "Heparan sulfate-N-deacetylase, deacetylase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR021930",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p52849",
+          "protein_length": 883,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 310,
+                  "end": 514,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF12062",
+              "score": 2.5e-115
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25119",
+        "name": "Heparan sulfate-N-deacetylase, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR056793",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p52849",
+          "protein_length": 883,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 83,
+                  "end": 300,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25119",
+              "score": 3.9e-92
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

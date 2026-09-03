@@ -1,0 +1,107 @@
+{
+  "accession": "P31153",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00438",
+        "name": "S-adenosylmethionine synthetase, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022628",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p31153",
+          "protein_length": 395,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 18,
+                  "end": 115,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00438",
+              "score": 2.6e-41
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02772",
+        "name": "S-adenosylmethionine synthetase, central domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022629",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p31153",
+          "protein_length": 395,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 129,
+                  "end": 250,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02772",
+              "score": 9e-44
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02773",
+        "name": "S-adenosylmethionine synthetase, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022630",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p31153",
+          "protein_length": 395,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 252,
+                  "end": 388,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02773",
+              "score": 1.3e-63
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

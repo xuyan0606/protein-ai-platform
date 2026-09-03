@@ -1,0 +1,73 @@
+{
+  "accession": "Q8IUH8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02225",
+        "name": "PA domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003137",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iuh8",
+          "protein_length": 684,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 88,
+                  "end": 160,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02225",
+              "score": 0.0007
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04258",
+        "name": "Signal peptide peptidase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR064098",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iuh8",
+          "protein_length": 684,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 249,
+                  "end": 529,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04258",
+              "score": 1.5e-69
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

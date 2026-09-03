@@ -1,0 +1,17 @@
+{
+  "benchmark_name": "PDBbind/CASF/D3R-style affinity or pose benchmark",
+  "created_at": "2026-09-03T07:33:44.278342+00:00",
+  "future_training_exclusion_required": true,
+  "head": "substrate_fit",
+  "leakage_basis": "Published CASF-2016 rows are kept evaluation-only and are never admitted to KWB substrate_fit labels.",
+  "leakage_check_status": "passed",
+  "local_only": true,
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "split_strategy": "published_casf2016_reference_rows_evaluation_only_no_training",
+  "test_rows": 4558,
+  "train_rows": 0,
+  "unique_test_complexes": 285,
+  "validation_rows": 0
+}

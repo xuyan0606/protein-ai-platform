@@ -1,0 +1,86 @@
+{
+  "allowed_use": "evaluation-only external stability benchmark cache",
+  "api_record": "cache/external/atom3d_msp_zenodo_record_4962515.json",
+  "api_record_sha256": "2408938fb60b3bb992e5f7f876af3b1a151b96d30c1e65c241b8a74c45e652c3",
+  "authorization_source": "source_site_public_dataset_download_self_attested",
+  "authorization_status": "self_attested",
+  "created_at": "2026-09-03T07:32:24.433943+00:00",
+  "doi": "10.5281/zenodo.4962515",
+  "file_checks": [
+    {
+      "exists": true,
+      "expected_md5": "868abd1be0d9a32cb614951f3d8297af",
+      "expected_size": 9579,
+      "file": "MSP-split-by-sequence-identity-30-indices.tar.gz",
+      "md5_ok": true,
+      "observed_md5": "868abd1be0d9a32cb614951f3d8297af",
+      "observed_size": 9579,
+      "path": "cache/external/atom3d_msp/MSP-split-by-sequence-identity-30-indices.tar.gz",
+      "sha256": "e2a5f09dedc81721fedd716c95d3365bedcb4a29c2347dfff50e62abd66b4750",
+      "size_ok": true
+    },
+    {
+      "exists": true,
+      "expected_md5": "6628e8efac12648d3b78bb0fc0d8860c",
+      "expected_size": 1384045096,
+      "file": "MSP-split-by-sequence-identity-30.tar.gz",
+      "md5_ok": true,
+      "observed_md5": "6628e8efac12648d3b78bb0fc0d8860c",
+      "observed_size": 1384045096,
+      "path": "cache/external/atom3d_msp/MSP-split-by-sequence-identity-30.tar.gz",
+      "sha256": "60e0859da703ba48c8ff791fa29bda7d829b77d7326972db92f70c7202106f81",
+      "size_ok": true
+    },
+    {
+      "exists": true,
+      "expected_md5": "1b66a04f42609c07485de669477dd5bd",
+      "expected_size": 2072,
+      "file": "README.md",
+      "md5_ok": true,
+      "observed_md5": "1b66a04f42609c07485de669477dd5bd",
+      "observed_size": 2072,
+      "path": "cache/external/atom3d_msp/README.md",
+      "sha256": "78f48bb2f3c7636cd0089b7132be514b8ae7545c785d4908607fe9257d1a0c3b",
+      "size_ok": true
+    }
+  ],
+  "forbidden_use": "do not use ATOM3D MSP rows as KWB wet-lab labels, training import, customer delivery claim, or release basis",
+  "license": {
+    "id": "cc-by-4.0"
+  },
+  "lmdb_sources": [
+    {
+      "label_counts": {
+        "0": 302,
+        "1": 45
+      },
+      "lmdb_path": "cache/external/atom3d_msp/split_by_sequence_identity_30/split-by-sequence-identity-30/data/test",
+      "num_examples": 347,
+      "split": "test"
+    },
+    {
+      "label_counts": {
+        "0": 2233,
+        "1": 631
+      },
+      "lmdb_path": "cache/external/atom3d_msp/split_by_sequence_identity_30/split-by-sequence-identity-30/data/train",
+      "num_examples": 2864,
+      "split": "train"
+    },
+    {
+      "label_counts": {
+        "0": 720,
+        "1": 217
+      },
+      "lmdb_path": "cache/external/atom3d_msp/split_by_sequence_identity_30/split-by-sequence-identity-30/data/val",
+      "num_examples": 937,
+      "split": "validation"
+    }
+  ],
+  "local_only": true,
+  "record_id": 4962515,
+  "source": "Zenodo",
+  "source_url": "https://zenodo.org/records/4962515",
+  "title": "ATOM3D: Mutation Stability Prediction (MSP) Dataset",
+  "verification_required": true
+}

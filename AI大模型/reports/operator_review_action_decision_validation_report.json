@@ -1,0 +1,33 @@
+{
+  "local_only": true,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/operator_review_action_decisions.jsonl",
+  "template": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/operator_review_action_decisions.template.jsonl",
+  "queue_rows": 6,
+  "decision_rows": 0,
+  "valid_rows": 0,
+  "invalid_rows": 0,
+  "decided_rows": 0,
+  "decided_action_ids": [],
+  "all_actions_decided": false,
+  "completed_rows": 0,
+  "all_actions_completed": false,
+  "missing_action_decisions": [
+    "review_action_001",
+    "review_action_002",
+    "review_action_003",
+    "review_action_004",
+    "review_action_005",
+    "review_action_006"
+  ],
+  "incomplete_action_ids": [
+    "review_action_001",
+    "review_action_002",
+    "review_action_003",
+    "review_action_004",
+    "review_action_005",
+    "review_action_006"
+  ],
+  "error_counts": {},
+  "records": [],
+  "policy": "Operator actions are complete only when a human decision references existing evidence and validation artifacts."
+}

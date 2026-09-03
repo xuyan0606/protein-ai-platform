@@ -1,0 +1,73 @@
+{
+  "accession": "P28039",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00657",
+        "name": "GDSL-like Lipase/Acylhydrolase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001087",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p28039",
+          "protein_length": 575,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 257,
+                  "end": 542,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00657",
+              "score": 1.4e-20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF20825",
+        "name": "Saposin-like domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR048593",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p28039",
+          "protein_length": 575,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 40,
+                  "end": 170,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF20825",
+              "score": 1.7e-72
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q9UNA3",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04488",
+        "name": "Glycosyltransferase sugar-binding region containing DXD motif",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR007577",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9una3",
+          "protein_length": 340,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 64,
+                  "end": 179,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04488",
+              "score": 4.5e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04572",
+        "name": "Alpha 1,4-glycosyltransferase conserved region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR007652",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9una3",
+          "protein_length": 340,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 197,
+                  "end": 321,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04572",
+              "score": 1.4e-42
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

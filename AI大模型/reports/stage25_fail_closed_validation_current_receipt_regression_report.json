@@ -1,0 +1,57 @@
+{
+  "created_at": "2026-08-12T00:48:37.067462+00:00",
+  "success": true,
+  "isolated_fixture": true,
+  "control_valid": true,
+  "case_rows": 6,
+  "passed_rows": 6,
+  "failed_rows": 0,
+  "real_inputs_mutated": false,
+  "results": [
+    {
+      "case_id": "runner_sha_drift",
+      "tamper_rejected": true,
+      "expected_check": "runner_sha_current",
+      "expected_check_observed": true,
+      "failure_count": 1
+    },
+    {
+      "case_id": "command_contract_sha_drift",
+      "tamper_rejected": true,
+      "expected_check": "contract_sha_current",
+      "expected_check_observed": true,
+      "failure_count": 1
+    },
+    {
+      "case_id": "output_path_drift",
+      "tamper_rejected": true,
+      "expected_check": "output_path_canonical",
+      "expected_check_observed": true,
+      "failure_count": 1
+    },
+    {
+      "case_id": "lock_path_drift",
+      "tamper_rejected": true,
+      "expected_check": "lock_path_canonical",
+      "expected_check_observed": true,
+      "failure_count": 1
+    },
+    {
+      "case_id": "command_count_drift",
+      "tamper_rejected": true,
+      "expected_check": "command_count_current",
+      "expected_check_observed": true,
+      "failure_count": 1
+    },
+    {
+      "case_id": "command_success_drift",
+      "tamper_rejected": true,
+      "expected_check": "all_command_results_success",
+      "expected_check_observed": true,
+      "failure_count": 1
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Only temporary Stage 25 receipt copies are mutated; canonical receipt and runner remain unchanged."
+}

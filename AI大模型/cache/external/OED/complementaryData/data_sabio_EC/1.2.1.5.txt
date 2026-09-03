@@ -1,0 +1,523 @@
+EntryID	Substrate	Product	EnzymeType	PubMedID	Organism	UniprotID	ECNumber	pH	Temperature	parameter.type	parameter.associatedSpecies	parameter.startValue	parameter.endValue	parameter.standardDeviation	parameter.unit
+5576	H2O;NAD+;Acetaldehyde	NADH;Acetate;H+	wildtype ALDH3	9723161	Homo sapiens	P30838	1.2.1.5	8.5	-	kcat		36.0		-	s^(-1)
+5576	H2O;NAD+;Acetaldehyde	NADH;Acetate;H+	wildtype ALDH3	9723161	Homo sapiens	P30838	1.2.1.5	8.5	-	Km	Acetaldehyde	0.067		-	M
+5577	NAD+;trans-2-Hexenal;H2O	trans-2-Hexenoic acid;H+;NADH	wildtype ALDH3	9723161	Homo sapiens	P30838	1.2.1.5	8.5	-	Km	trans-2-Hexenal	1.0E-4		-	M
+5577	NAD+;trans-2-Hexenal;H2O	trans-2-Hexenoic acid;H+;NADH	wildtype ALDH3	9723161	Homo sapiens	P30838	1.2.1.5	8.5	-	kcat		53.0		-	s^(-1)
+6068	NADP+;Acetaldehyde;H2O	Acetate;NADPH;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	Acetaldehyde	0.007034		6.35E-4	M
+6068	NADP+;Acetaldehyde;H2O	Acetate;NADPH;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6068	NADP+;Acetaldehyde;H2O	Acetate;NADPH;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	Acetaldehyde	0.0	0.07	-	M
+6068	NADP+;Acetaldehyde;H2O	Acetate;NADPH;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		9.075E-5		2.216667E-6	mol*s^(-1)*g^(-1)
+6069	NADP+;H2O;Benzaldehyde	Benzoate;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	Benzaldehyde	2.0E-4		3E-5	M
+6069	NADP+;H2O;Benzaldehyde	Benzoate;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		3.262333E-4		1.206667E-5	mol*s^(-1)*g^(-1)
+6069	NADP+;H2O;Benzaldehyde	Benzoate;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	Benzaldehyde	0.0	0.002	-	M
+6069	NADP+;H2O;Benzaldehyde	Benzoate;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6070	Malondialdehyde;H2O;NADP+	3-Oxopropanoate;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	Malondialdehyde	0.00655		5.01E-4	M
+6070	Malondialdehyde;H2O;NADP+	3-Oxopropanoate;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	Malondialdehyde	0.0	0.065	-	M
+6070	Malondialdehyde;H2O;NADP+	3-Oxopropanoate;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		1.141667E-5		5.166667E-7	mol*s^(-1)*g^(-1)
+6070	Malondialdehyde;H2O;NADP+	3-Oxopropanoate;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6071	H2O;NADP+;Glyceraldehyde	NADPH;H+;Glycerate	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6071	H2O;NADP+;Glyceraldehyde	NADPH;H+;Glycerate	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	Glyceraldehyde	0.0	0.1	-	M
+6071	H2O;NADP+;Glyceraldehyde	NADPH;H+;Glycerate	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		1.45E-6		2.9E-7	mol*s^(-1)*g^(-1)
+6071	H2O;NADP+;Glyceraldehyde	NADPH;H+;Glycerate	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	Glyceraldehyde	0.0105		3.769E-3	M
+6072	NADP+;4-Hydroxy-2-nonenal;H2O	4-Hydroxy-2-nonenoic acid;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	4-Hydroxy-2-nonenal	4.5E-5		1.8E-5	M
+6072	NADP+;4-Hydroxy-2-nonenal;H2O	4-Hydroxy-2-nonenoic acid;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6072	NADP+;4-Hydroxy-2-nonenal;H2O	4-Hydroxy-2-nonenoic acid;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		1.605E-5		2.333333E-6	mol*s^(-1)*g^(-1)
+6072	NADP+;4-Hydroxy-2-nonenal;H2O	4-Hydroxy-2-nonenoic acid;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	4-Hydroxy-2-nonenal	0.0	4.5E-4	-	M
+6073	trans-2-Nonenal;H2O;NADP+	NADPH;H+;trans-2-Nonenoic acid	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	trans-2-Nonenal	0.0	1.2E-4	-	M
+6073	trans-2-Nonenal;H2O;NADP+	NADPH;H+;trans-2-Nonenoic acid	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	trans-2-Nonenal	1.2E-5		3E-6	M
+6073	trans-2-Nonenal;H2O;NADP+	NADPH;H+;trans-2-Nonenoic acid	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		8.583333E-5		4.35E-6	mol*s^(-1)*g^(-1)
+6073	trans-2-Nonenal;H2O;NADP+	NADPH;H+;trans-2-Nonenoic acid	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6074	NADP+;trans-2-Octenal;H2O	trans-2-Octenoic acid;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	trans-2-Octenal	0.0	3.5E-4	-	M
+6074	NADP+;trans-2-Octenal;H2O	trans-2-Octenoic acid;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		1.217167E-4		8.033333E-6	mol*s^(-1)*g^(-1)
+6074	NADP+;trans-2-Octenal;H2O	trans-2-Octenoic acid;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6074	NADP+;trans-2-Octenal;H2O	trans-2-Octenoic acid;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	trans-2-Octenal	3.5E-5		7E-6	M
+6075	NADP+;H2O;trans-2-Hexenal	H+;NADPH;trans-2-Hexenoic acid	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	trans-2-Hexenal	1.55E-4		2.6E-5	M
+6075	NADP+;H2O;trans-2-Hexenal	H+;NADPH;trans-2-Hexenoic acid	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	trans-2-Hexenal	0.0	0.0015	-	M
+6075	NADP+;H2O;trans-2-Hexenal	H+;NADPH;trans-2-Hexenoic acid	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		2.793333E-5		1.116667E-6	mol*s^(-1)*g^(-1)
+6075	NADP+;H2O;trans-2-Hexenal	H+;NADPH;trans-2-Hexenoic acid	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6076	NADP+;H2O;Dodecanal	Dodecanoate;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		8.333333E-6		4.666667E-7	mol*s^(-1)*g^(-1)
+6076	NADP+;H2O;Dodecanal	Dodecanoate;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	Dodecanal	0.0	5.0E-6	-	M
+6076	NADP+;H2O;Dodecanal	Dodecanoate;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6076	NADP+;H2O;Dodecanal	Dodecanoate;H+;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	Dodecanal	5.0E-7		1E-7	M
+6077	Decanal;NADP+;H2O	NADPH;Decanoate;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	Decanal	8.0E-7		2E-7	M
+6077	Decanal;NADP+;H2O	NADPH;Decanoate;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		8.916667E-6		4.333333E-7	mol*s^(-1)*g^(-1)
+6077	Decanal;NADP+;H2O	NADPH;Decanoate;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	Decanal	0.0	8.0E-6	-	M
+6077	Decanal;NADP+;H2O	NADPH;Decanoate;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6078	NADP+;Nonanal;H2O	H+;Nonanoate;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	Nonanal	5.0E-7		2E-7	M
+6078	NADP+;Nonanal;H2O	H+;Nonanoate;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	Nonanal	0.0	5.0E-6	-	M
+6078	NADP+;Nonanal;H2O	H+;Nonanoate;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		1.223333E-5		7.333333E-7	mol*s^(-1)*g^(-1)
+6078	NADP+;Nonanal;H2O	H+;Nonanoate;NADPH	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6079	NADP+;H2O;1-Octanal	Octanoate;NADPH;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	1-Octanal	0.0	1.0E-5	-	M
+6079	NADP+;H2O;1-Octanal	Octanoate;NADPH;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	1-Octanal	1.0E-6		2E-7	M
+6079	NADP+;H2O;1-Octanal	Octanoate;NADPH;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6079	NADP+;H2O;1-Octanal	Octanoate;NADPH;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		4.183333E-6		1.833333E-7	mol*s^(-1)*g^(-1)
+6080	H2O;NADP+;Hexanal	NADPH;H+;Hexanoate	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	Hexanal	1.8E-5		1.6E-6	M
+6080	H2O;NADP+;Hexanal	NADPH;H+;Hexanoate	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6080	H2O;NADP+;Hexanal	NADPH;H+;Hexanoate	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		4.283333E-5		9.833333E-7	mol*s^(-1)*g^(-1)
+6080	H2O;NADP+;Hexanal	NADPH;H+;Hexanoate	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	Hexanal	0.0	1.8E-4	-	M
+6081	Propanal;H2O;NADP+	Propanoate;NADPH;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	Propanal	0.0	0.05	-	M
+6081	Propanal;H2O;NADP+	Propanoate;NADPH;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6081	Propanal;H2O;NADP+	Propanoate;NADPH;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	Propanal	0.004736		4E-4	M
+6081	Propanal;H2O;NADP+	Propanoate;NADPH;H+	wildtype ALDH3A1	12943535	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		7.1E-6		4.05E-7	mol*s^(-1)*g^(-1)
+6227	H2O;Benzaldehyde;NADP+	Benzoate;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	Benzaldehyde	0.005		-	M
+6227	H2O;Benzaldehyde;NADP+	Benzoate;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6227	H2O;Benzaldehyde;NADP+	Benzoate;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		8.833333E-7		1.433333E-7	mol*s^(-1)*g^(-1)
+6227	H2O;Benzaldehyde;NADP+	Benzoate;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	Benzaldehyde			-	-
+6228	NADP+;H2O;Benzaldehyde	NADPH;Benzoate	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	Benzaldehyde	0.005		-	M
+6228	NADP+;H2O;Benzaldehyde	NADPH;Benzoate	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		1.083333E-6		1.866667E-7	mol*s^(-1)*g^(-1)
+6228	NADP+;H2O;Benzaldehyde	NADPH;Benzoate	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	Benzaldehyde			-	-
+6228	NADP+;H2O;Benzaldehyde	NADPH;Benzoate	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6229	Benzaldehyde;H2O;NADP+	NADPH;Benzoate	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	Benzaldehyde	0.005		-	M
+6229	Benzaldehyde;H2O;NADP+	NADPH;Benzoate	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	Benzaldehyde			-	-
+6229	Benzaldehyde;H2O;NADP+	NADPH;Benzoate	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		3.133333E-6		3.6E-7	mol*s^(-1)*g^(-1)
+6229	Benzaldehyde;H2O;NADP+	NADPH;Benzoate	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6230	NADP+;H2O;Benzaldehyde	Benzoate;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	Benzaldehyde			-	-
+6230	NADP+;H2O;Benzaldehyde	Benzoate;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6230	NADP+;H2O;Benzaldehyde	Benzoate;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	Benzaldehyde	0.005		-	M
+6230	NADP+;H2O;Benzaldehyde	Benzoate;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		2.758333E-5		1.588333E-6	mol*s^(-1)*g^(-1)
+6231	H2O;4-Hydroxy-2-nonenal;NADP+	NADPH;4-Hydroxy-2-nonenoic acid	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6231	H2O;4-Hydroxy-2-nonenal;NADP+	NADPH;4-Hydroxy-2-nonenoic acid	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		4.5E-7		5.666667E-8	mol*s^(-1)*g^(-1)
+6231	H2O;4-Hydroxy-2-nonenal;NADP+	NADPH;4-Hydroxy-2-nonenoic acid	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	4-Hydroxy-2-nonenal			-	-
+6231	H2O;4-Hydroxy-2-nonenal;NADP+	NADPH;4-Hydroxy-2-nonenoic acid	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	4-Hydroxy-2-nonenal	1.0E-6	0.001	-	M
+6232	H2O;NADP+;4-Hydroxy-2-nonenal	4-Hydroxy-2-nonenoic acid;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		5.333333E-7		1.25E-7	mol*s^(-1)*g^(-1)
+6232	H2O;NADP+;4-Hydroxy-2-nonenal	4-Hydroxy-2-nonenoic acid;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	4-Hydroxy-2-nonenal			-	-
+6232	H2O;NADP+;4-Hydroxy-2-nonenal	4-Hydroxy-2-nonenoic acid;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	4-Hydroxy-2-nonenal	1.0E-6	0.001	-	M
+6232	H2O;NADP+;4-Hydroxy-2-nonenal	4-Hydroxy-2-nonenoic acid;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6233	H2O;4-Hydroxy-2-nonenal;NADP+	4-Hydroxy-2-nonenoic acid;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	4-Hydroxy-2-nonenal			-	-
+6233	H2O;4-Hydroxy-2-nonenal;NADP+	4-Hydroxy-2-nonenoic acid;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6233	H2O;4-Hydroxy-2-nonenal;NADP+	4-Hydroxy-2-nonenoic acid;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	4-Hydroxy-2-nonenal	1.0E-6	0.001	-	M
+6233	H2O;4-Hydroxy-2-nonenal;NADP+	4-Hydroxy-2-nonenoic acid;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		1.4E-6		2E-7	mol*s^(-1)*g^(-1)
+6234	H2O;NADP+;4-Hydroxy-2-nonenal	4-Hydroxy-2-nonenoic acid;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	4-Hydroxy-2-nonenal	1.0E-6	0.001	-	M
+6234	H2O;NADP+;4-Hydroxy-2-nonenal	4-Hydroxy-2-nonenoic acid;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+6234	H2O;NADP+;4-Hydroxy-2-nonenal	4-Hydroxy-2-nonenoic acid;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	4-Hydroxy-2-nonenal			-	-
+6234	H2O;NADP+;4-Hydroxy-2-nonenal	4-Hydroxy-2-nonenoic acid;NADPH	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		1.24E-5		9.383333E-7	mol*s^(-1)*g^(-1)
+6235	NADP+;4-Hydroxy-2-nonenal;H2O	NADPH;4-Hydroxy-2-nonenoic acid	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Km	4-Hydroxy-2-nonenal	5.46E-5		1.5E-6	M
+6235	NADP+;4-Hydroxy-2-nonenal;H2O	NADPH;4-Hydroxy-2-nonenoic acid	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	Vmax		1.324E-5		1.566667E-7	mol*s^(-1)*g^(-1)
+6235	NADP+;4-Hydroxy-2-nonenal;H2O	NADPH;4-Hydroxy-2-nonenoic acid	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	4-Hydroxy-2-nonenal	1.0E-6	0.001	-	M
+6235	NADP+;4-Hydroxy-2-nonenal;H2O	NADPH;4-Hydroxy-2-nonenoic acid	wildtype ALDH3A1	12706498	Homo sapiens	P30838	1.2.1.5	8.0	25.0	concentration	NADP+	0.0025		-	M
+20450	Benzaldehyde;H2O;NAD+	Benzoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Benzaldehyde	1.0E-4	0.004	-	M
+20450	Benzaldehyde;H2O;NAD+	Benzoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		2.816667E-4		-	mol*s^(-1)*g^(-1)
+20450	Benzaldehyde;H2O;NAD+	Benzoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	Benzaldehyde	6.4E-4		-	M
+20450	Benzaldehyde;H2O;NAD+	Benzoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	Benzaldehyde	0.4333333		-	l*g^(-1)*s^(-1)
+20450	Benzaldehyde;H2O;NAD+	Benzoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	0.001		-	M
+20451	H2O;NAD+;Pyridine-4-aldehyde	H+;Isonicotinic acid;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		8.888333E-5		-	mol*s^(-1)*g^(-1)
+20451	H2O;NAD+;Pyridine-4-aldehyde	H+;Isonicotinic acid;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	Pyridine-4-aldehyde	0.9833333		-	l*g^(-1)*s^(-1)
+20451	H2O;NAD+;Pyridine-4-aldehyde	H+;Isonicotinic acid;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Pyridine-4-aldehyde	2.0E-5	0.004	-	M
+20451	H2O;NAD+;Pyridine-4-aldehyde	H+;Isonicotinic acid;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	0.001		-	M
+20451	H2O;NAD+;Pyridine-4-aldehyde	H+;Isonicotinic acid;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	Pyridine-4-aldehyde	9.1E-5		-	M
+20452	Pyridine-4-aldehyde;H2O;NADP+	NADPH;Isonicotinic acid;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Pyridine-4-aldehyde	2.0E-5	0.004	-	M
+20452	Pyridine-4-aldehyde;H2O;NADP+	NADPH;Isonicotinic acid;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		1.481E-4		-	mol*s^(-1)*g^(-1)
+20452	Pyridine-4-aldehyde;H2O;NADP+	NADPH;Isonicotinic acid;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	Pyridine-4-aldehyde	1.633333		-	l*g^(-1)*s^(-1)
+20452	Pyridine-4-aldehyde;H2O;NADP+	NADPH;Isonicotinic acid;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	Pyridine-4-aldehyde	9.1E-5		-	M
+20452	Pyridine-4-aldehyde;H2O;NADP+	NADPH;Isonicotinic acid;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20453	H2O;NAD+;1-Octanal	NADH;H+;Octanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	1-Octanal	6.7E-5		-	M
+20453	H2O;NAD+;1-Octanal	NADH;H+;Octanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		1.201167E-4		-	mol*s^(-1)*g^(-1)
+20453	H2O;NAD+;1-Octanal	NADH;H+;Octanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	0.001		-	M
+20453	H2O;NAD+;1-Octanal	NADH;H+;Octanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	1-Octanal	1.8		-	l*g^(-1)*s^(-1)
+20453	H2O;NAD+;1-Octanal	NADH;H+;Octanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	1-Octanal	1.0E-5	5.0E-4	-	M
+20454	H2O;NADP+;Benzaldehyde	H+;Benzoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Benzaldehyde	1.0E-4	0.004	-	M
+20454	H2O;NADP+;Benzaldehyde	H+;Benzoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	Benzaldehyde	0.7666667		-	l*g^(-1)*s^(-1)
+20454	H2O;NADP+;Benzaldehyde	H+;Benzoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	Benzaldehyde	6.4E-4		-	M
+20454	H2O;NADP+;Benzaldehyde	H+;Benzoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		4.933333E-4		-	mol*s^(-1)*g^(-1)
+20454	H2O;NADP+;Benzaldehyde	H+;Benzoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20455	1-Octanal;H2O;NADP+	NADPH;Octanoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	1-Octanal	6.7E-5		-	M
+20455	1-Octanal;H2O;NADP+	NADPH;Octanoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		1.5325E-4		-	mol*s^(-1)*g^(-1)
+20455	1-Octanal;H2O;NADP+	NADPH;Octanoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	1-Octanal	1.0E-5	5.0E-4	-	M
+20455	1-Octanal;H2O;NADP+	NADPH;Octanoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20455	1-Octanal;H2O;NADP+	NADPH;Octanoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	1-Octanal	2.283333		-	l*g^(-1)*s^(-1)
+20456	Aldophosphamide;H2O;NAD+	NADH;H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Aldophosphamide	1.6E-4	0.00112	-	M
+20456	Aldophosphamide;H2O;NAD+	NADH;H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	Aldophosphamide	6.4E-4		-	M
+20456	Aldophosphamide;H2O;NAD+	NADH;H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		9.55E-6		-	mol*s^(-1)*g^(-1)
+20456	Aldophosphamide;H2O;NAD+	NADH;H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	Aldophosphamide	0.015		-	l*g^(-1)*s^(-1)
+20456	Aldophosphamide;H2O;NAD+	NADH;H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	0.001		-	M
+20457	NAD+;Benzaldehyde;H2O	H+;NADH;Benzoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	Benzaldehyde	5.05E-4		-	M
+20457	NAD+;Benzaldehyde;H2O	H+;NADH;Benzoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	Benzaldehyde	1.05		-	l*g^(-1)*s^(-1)
+20457	NAD+;Benzaldehyde;H2O	H+;NADH;Benzoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	0.001		-	M
+20457	NAD+;Benzaldehyde;H2O	H+;NADH;Benzoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		5.333333E-4		-	mol*s^(-1)*g^(-1)
+20457	NAD+;Benzaldehyde;H2O	H+;NADH;Benzoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Benzaldehyde	1.0E-4	0.004	-	M
+20457	NAD+;Benzaldehyde;H2O	H+;NADH;Benzoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	specific enz. activity		7.691667E-8		-	mol*s^(-1)*g^(-1)
+20458	Benzaldehyde;H2O;NADP+	H+;Benzoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	Benzaldehyde	1.75		-	l*g^(-1)*s^(-1)
+20458	Benzaldehyde;H2O;NADP+	H+;Benzoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Benzaldehyde	1.0E-4	0.004	-	M
+20458	Benzaldehyde;H2O;NADP+	H+;Benzoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	specific enz. activity		1.458333E-7		-	mol*s^(-1)*g^(-1)
+20458	Benzaldehyde;H2O;NADP+	H+;Benzoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20458	Benzaldehyde;H2O;NADP+	H+;Benzoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	Benzaldehyde	4.86E-4		-	M
+20458	Benzaldehyde;H2O;NADP+	H+;Benzoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		8.531667E-4		-	mol*s^(-1)*g^(-1)
+20459	Pyridine-4-aldehyde;NAD+;H2O	NADH;Isonicotinic acid;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Pyridine-4-aldehyde	2.0E-5	0.004	-	M
+20459	Pyridine-4-aldehyde;NAD+;H2O	NADH;Isonicotinic acid;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	Pyridine-4-aldehyde	1.9E-4		-	M
+20459	Pyridine-4-aldehyde;NAD+;H2O	NADH;Isonicotinic acid;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	Pyridine-4-aldehyde	1.866667		-	l*g^(-1)*s^(-1)
+20459	Pyridine-4-aldehyde;NAD+;H2O	NADH;Isonicotinic acid;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		3.541667E-4		-	mol*s^(-1)*g^(-1)
+20459	Pyridine-4-aldehyde;NAD+;H2O	NADH;Isonicotinic acid;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	0.001		-	M
+20460	Pyridine-4-aldehyde;NADP+;H2O	Isonicotinic acid;NADPH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		8.169833E-4		-	mol*s^(-1)*g^(-1)
+20460	Pyridine-4-aldehyde;NADP+;H2O	Isonicotinic acid;NADPH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Pyridine-4-aldehyde	2.0E-5	0.004	-	M
+20460	Pyridine-4-aldehyde;NADP+;H2O	Isonicotinic acid;NADPH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	Pyridine-4-aldehyde	1.9E-4		-	M
+20460	Pyridine-4-aldehyde;NADP+;H2O	Isonicotinic acid;NADPH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	Pyridine-4-aldehyde	4.3		-	l*g^(-1)*s^(-1)
+20460	Pyridine-4-aldehyde;NADP+;H2O	Isonicotinic acid;NADPH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20461	H2O;1-Octanal;NAD+	H+;Octanoate;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	1-Octanal	1.13E-4		-	M
+20461	H2O;1-Octanal;NAD+	H+;Octanoate;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	1-Octanal	2.25		-	l*g^(-1)*s^(-1)
+20461	H2O;1-Octanal;NAD+	H+;Octanoate;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	1-Octanal	1.0E-5	5.0E-4	-	M
+20461	H2O;1-Octanal;NAD+	H+;Octanoate;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		2.537667E-4		-	mol*s^(-1)*g^(-1)
+20461	H2O;1-Octanal;NAD+	H+;Octanoate;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	0.001		-	M
+20462	NADP+;1-Octanal;H2O	H+;NADPH;Octanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	1-Octanal	1.0E-5	5.0E-4	-	M
+20462	NADP+;1-Octanal;H2O	H+;NADPH;Octanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	1-Octanal	1.04E-4		-	M
+20462	NADP+;1-Octanal;H2O	H+;NADPH;Octanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	1-Octanal	3.133333		-	l*g^(-1)*s^(-1)
+20462	NADP+;1-Octanal;H2O	H+;NADPH;Octanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		3.2575E-4		-	mol*s^(-1)*g^(-1)
+20462	NADP+;1-Octanal;H2O	H+;NADPH;Octanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20463	H2O;Propanal;NAD+	Propanoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	Propanal	0.015		-	l*g^(-1)*s^(-1)
+20463	H2O;Propanal;NAD+	Propanoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	Propanal	0.01906		-	M
+20463	H2O;Propanal;NAD+	Propanoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Propanal	0.004	0.06	-	M
+20463	H2O;Propanal;NAD+	Propanoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	0.001		-	M
+20463	H2O;Propanal;NAD+	Propanoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		2.731333E-4		-	mol*s^(-1)*g^(-1)
+20464	Propanal;H2O;NADP+	NADPH;Propanoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Propanal	0.004	0.06	-	M
+20464	Propanal;H2O;NADP+	NADPH;Propanoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20464	Propanal;H2O;NADP+	NADPH;Propanoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	Propanal	0.019		-	M
+20464	Propanal;H2O;NADP+	NADPH;Propanoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	Propanal	0.02		-	l*g^(-1)*s^(-1)
+20464	Propanal;H2O;NADP+	NADPH;Propanoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		3.881667E-4		-	mol*s^(-1)*g^(-1)
+20465	NAD+;Acetaldehyde;H2O	NADH;Acetate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	0.001		-	M
+20465	NAD+;Acetaldehyde;H2O	NADH;Acetate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	Acetaldehyde	0.08		-	M
+20465	NAD+;Acetaldehyde;H2O	NADH;Acetate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	specific enz. activity		4.01E-8		-	mol*s^(-1)*g^(-1)
+20465	NAD+;Acetaldehyde;H2O	NADH;Acetate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	Acetaldehyde	0.005		-	l*g^(-1)*s^(-1)
+20465	NAD+;Acetaldehyde;H2O	NADH;Acetate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		3.416667E-4		-	mol*s^(-1)*g^(-1)
+20465	NAD+;Acetaldehyde;H2O	NADH;Acetate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004	0.2	-	M
+20466	H2O;Acetaldehyde;NADP+	H+;NADPH;Acetate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20466	H2O;Acetaldehyde;NADP+	H+;NADPH;Acetate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	Acetaldehyde	0.005		-	l*g^(-1)*s^(-1)
+20466	H2O;Acetaldehyde;NADP+	H+;NADPH;Acetate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	Acetaldehyde	0.081		-	M
+20466	H2O;Acetaldehyde;NADP+	H+;NADPH;Acetate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		4.443333E-4		-	mol*s^(-1)*g^(-1)
+20466	H2O;Acetaldehyde;NADP+	H+;NADPH;Acetate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004	0.2	-	M
+20466	H2O;Acetaldehyde;NADP+	H+;NADPH;Acetate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	specific enz. activity		3.583333E-8		-	mol*s^(-1)*g^(-1)
+20467	H2O;Benzaldehyde;NAD+	Benzoate;NADH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	NAD+	5.5E-4		-	M
+20467	H2O;Benzaldehyde;NAD+	Benzoate;NADH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	NAD+	0.6833333		-	l*g^(-1)*s^(-1)
+20467	H2O;Benzaldehyde;NAD+	Benzoate;NADH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	2.0E-5	0.001	-	M
+20467	H2O;Benzaldehyde;NAD+	Benzoate;NADH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		3.716167E-4		-	mol*s^(-1)*g^(-1)
+20467	H2O;Benzaldehyde;NAD+	Benzoate;NADH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20468	H2O;NADP+;Benzaldehyde	Benzoate;NADPH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	NADP+	9.4E-4		-	M
+20468	H2O;NADP+;Benzaldehyde	Benzoate;NADPH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	1.0E-4	0.004	-	M
+20468	H2O;NADP+;Benzaldehyde	Benzoate;NADPH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20468	H2O;NADP+;Benzaldehyde	Benzoate;NADPH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		6.188833E-4		-	mol*s^(-1)*g^(-1)
+20468	H2O;NADP+;Benzaldehyde	Benzoate;NADPH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	NADP+	0.6666667		-	l*g^(-1)*s^(-1)
+20469	H2O;NAD+;Benzaldehyde	Benzoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20469	H2O;NAD+;Benzaldehyde	Benzoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		4.432333E-4		-	mol*s^(-1)*g^(-1)
+20469	H2O;NAD+;Benzaldehyde	Benzoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	2.0E-5	0.001	-	M
+20469	H2O;NAD+;Benzaldehyde	Benzoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	NAD+	8.2		-	l*g^(-1)*s^(-1)
+20469	H2O;NAD+;Benzaldehyde	Benzoate;H+;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	NAD+	5.4E-5		-	M
+20470	Benzaldehyde;H2O;NADP+	NADPH;Benzoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		0.001336		-	mol*s^(-1)*g^(-1)
+20470	Benzaldehyde;H2O;NADP+	NADPH;Benzoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax/Km	NADP+	1.333333		-	l*g^(-1)*s^(-1)
+20470	Benzaldehyde;H2O;NADP+	NADPH;Benzoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20470	Benzaldehyde;H2O;NADP+	NADPH;Benzoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	1.0E-4	0.004	-	M
+20470	Benzaldehyde;H2O;NADP+	NADPH;Benzoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Km	NADP+	0.001		-	M
+20471	Propanal;NAD+;H2O	H+;Propanoate;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Propanal	0.004		-	M
+20471	Propanal;NAD+;H2O	H+;Propanoate;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	specific enz. activity		9.083333E-6		-	mol*s^(-1)*g^(-1)
+20471	Propanal;NAD+;H2O	H+;Propanoate;NADH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	0.001		-	M
+20472	NADP+;H2O;Propanal	Propanoate;NADPH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20472	NADP+;H2O;Propanal	Propanoate;NADPH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	specific enz. activity		9.55E-6		-	mol*s^(-1)*g^(-1)
+20472	NADP+;H2O;Propanal	Propanoate;NADPH;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Propanal	0.004		-	M
+20473	Acetaldehyde;NADP+;H2O	H+;NADPH;Acetate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20473	Acetaldehyde;NADP+;H2O	H+;NADPH;Acetate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	specific enz. activity		0.0		-	mol*s^(-1)*g^(-1)
+20473	Acetaldehyde;NADP+;H2O	H+;NADPH;Acetate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004		-	M
+20474	H2O;Acetaldehyde;NAD+	H+;NADH;Acetate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	0.001		-	M
+20474	H2O;Acetaldehyde;NAD+	H+;NADH;Acetate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004		-	M
+20474	H2O;Acetaldehyde;NAD+	H+;NADH;Acetate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	specific enz. activity		3.816667E-6		-	mol*s^(-1)*g^(-1)
+20475	Aldophosphamide;H2O;NADP+	H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Aldophosphamide	1.6E-4	0.00112	-	M
+20475	Aldophosphamide;H2O;NADP+	H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20475	Aldophosphamide;H2O;NADP+	H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;NADPH	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		0.0		-	mol*s^(-1)*g^(-1)
+20476	Aldophosphamide;H2O;NADP+	NADPH;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	Vmax		0.0		-	mol*s^(-1)*g^(-1)
+20476	Aldophosphamide;H2O;NADP+	NADPH;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20476	Aldophosphamide;H2O;NADP+	NADPH;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;H+	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Aldophosphamide	1.6E-4	0.00112	-	M
+20477	H2O;NAD+;Aldophosphamide	NADH;H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20477	H2O;NAD+;Aldophosphamide	NADH;H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	specific enz. activity		1.05E-9		-	mol*s^(-1)*g^(-1)
+20477	H2O;NAD+;Aldophosphamide	NADH;H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype ALDH class 3	8328987	Homo sapiens	P30838	1.2.1.5	8.1	37.0	concentration	Aldophosphamide	1.6E-4		-	M
+20478	Benzaldehyde;NAD+;H2O	Benzoate;NADH;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		4.0E-10		-	mol*s^(-1)*g^(-1)
+20478	Benzaldehyde;NAD+;H2O	Benzoate;NADH;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20478	Benzaldehyde;NAD+;H2O	Benzoate;NADH;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20479	Benzaldehyde;NADP+;H2O	NADPH;H+;Benzoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20479	Benzaldehyde;NADP+;H2O	NADPH;H+;Benzoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		1.0E-10		-	mol*s^(-1)*g^(-1)
+20479	Benzaldehyde;NADP+;H2O	NADPH;H+;Benzoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20480	NAD+;H2O;Benzaldehyde	NADH;H+;Benzoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20480	NAD+;H2O;Benzaldehyde	NADH;H+;Benzoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20480	NAD+;H2O;Benzaldehyde	NADH;H+;Benzoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		2.491667E-8		-	mol*s^(-1)*g^(-1)
+20481	H2O;NADP+;Benzaldehyde	H+;NADPH;Benzoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		5.45E-8		-	mol*s^(-1)*g^(-1)
+20481	H2O;NADP+;Benzaldehyde	H+;NADPH;Benzoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20481	H2O;NADP+;Benzaldehyde	H+;NADPH;Benzoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20482	Benzaldehyde;NAD+;H2O	H+;Benzoate;NADH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		1.333333E-10		-	mol*s^(-1)*g^(-1)
+20482	Benzaldehyde;NAD+;H2O	H+;Benzoate;NADH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20482	Benzaldehyde;NAD+;H2O	H+;Benzoate;NADH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20483	Benzaldehyde;H2O;NADP+	NADPH;Benzoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20483	Benzaldehyde;H2O;NADP+	NADPH;Benzoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20483	Benzaldehyde;H2O;NADP+	NADPH;Benzoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		1.666667E-11		-	mol*s^(-1)*g^(-1)
+20484	H2O;Benzaldehyde;NAD+	H+;NADH;Benzoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		6.0E-9		-	mol*s^(-1)*g^(-1)
+20484	H2O;Benzaldehyde;NAD+	H+;NADH;Benzoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20484	H2O;Benzaldehyde;NAD+	H+;NADH;Benzoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20485	H2O;NADP+;Benzaldehyde	NADPH;Benzoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20485	H2O;NADP+;Benzaldehyde	NADPH;Benzoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20485	H2O;NADP+;Benzaldehyde	NADPH;Benzoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		5.666667E-10		-	mol*s^(-1)*g^(-1)
+20486	NAD+;H2O;Benzaldehyde	Benzoate;H+;NADH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20486	NAD+;H2O;Benzaldehyde	Benzoate;H+;NADH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20486	NAD+;H2O;Benzaldehyde	Benzoate;H+;NADH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		1.016667E-8		-	mol*s^(-1)*g^(-1)
+20487	NADP+;H2O;Benzaldehyde	NADPH;Benzoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20487	NADP+;H2O;Benzaldehyde	NADPH;Benzoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		9.45E-9		-	mol*s^(-1)*g^(-1)
+20487	NADP+;H2O;Benzaldehyde	NADPH;Benzoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Benzaldehyde	0.004		-	M
+20488	H2O;NAD+;Acetaldehyde	Acetate;NADH;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004		-	M
+20488	H2O;NAD+;Acetaldehyde	Acetate;NADH;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20488	H2O;NAD+;Acetaldehyde	Acetate;NADH;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		1.107E-7		-	mol*s^(-1)*g^(-1)
+20489	Acetaldehyde;H2O;NADP+	Acetate;H+;NADPH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004		-	M
+20489	Acetaldehyde;H2O;NADP+	Acetate;H+;NADPH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20489	Acetaldehyde;H2O;NADP+	Acetate;H+;NADPH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		2.361667E-8		-	mol*s^(-1)*g^(-1)
+20490	NAD+;H2O;Acetaldehyde	Acetate;H+;NADH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20490	NAD+;H2O;Acetaldehyde	Acetate;H+;NADH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004		-	M
+20490	NAD+;H2O;Acetaldehyde	Acetate;H+;NADH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		3.283333E-9		-	mol*s^(-1)*g^(-1)
+20491	Acetaldehyde;NADP+;H2O	H+;Acetate;NADPH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20491	Acetaldehyde;NADP+;H2O	H+;Acetate;NADPH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		0.0		-	mol*s^(-1)*g^(-1)
+20491	Acetaldehyde;NADP+;H2O	H+;Acetate;NADPH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004		-	M
+20492	NAD+;H2O;Acetaldehyde	NADH;Acetate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20492	NAD+;H2O;Acetaldehyde	NADH;Acetate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		4.333333E-10		-	mol*s^(-1)*g^(-1)
+20492	NAD+;H2O;Acetaldehyde	NADH;Acetate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004		-	M
+20493	Acetaldehyde;NADP+;H2O	H+;Acetate;NADPH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20493	Acetaldehyde;NADP+;H2O	H+;Acetate;NADPH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		0.0		-	mol*s^(-1)*g^(-1)
+20493	Acetaldehyde;NADP+;H2O	H+;Acetate;NADPH	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004		-	M
+20494	H2O;Acetaldehyde;NAD+	H+;NADH;Acetate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004		-	M
+20494	H2O;Acetaldehyde;NAD+	H+;NADH;Acetate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		6.783333E-9		-	mol*s^(-1)*g^(-1)
+20494	H2O;Acetaldehyde;NAD+	H+;NADH;Acetate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20495	NADP+;H2O;Acetaldehyde	NADPH;Acetate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004		-	M
+20495	NADP+;H2O;Acetaldehyde	NADPH;Acetate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		5.733333E-9		-	mol*s^(-1)*g^(-1)
+20495	NADP+;H2O;Acetaldehyde	NADPH;Acetate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20496	H2O;Acetaldehyde;NAD+	NADH;Acetate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004		-	M
+20496	H2O;Acetaldehyde;NAD+	NADH;Acetate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		1.133333E-9		-	mol*s^(-1)*g^(-1)
+20496	H2O;Acetaldehyde;NAD+	NADH;Acetate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20497	NADP+;H2O;Acetaldehyde	NADPH;Acetate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Acetaldehyde	0.004		-	M
+20497	NADP+;H2O;Acetaldehyde	NADPH;Acetate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		0.0		-	mol*s^(-1)*g^(-1)
+20497	NADP+;H2O;Acetaldehyde	NADPH;Acetate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NADP+	0.004		-	M
+20498	NAD+;H2O;Aldophosphamide	3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;NADH;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20498	NAD+;H2O;Aldophosphamide	3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;NADH;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		6.0E-10		-	mol*s^(-1)*g^(-1)
+20498	NAD+;H2O;Aldophosphamide	3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;NADH;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Aldophosphamide	1.6E-4		-	M
+20499	H2O;Aldophosphamide;NAD+	NADH;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Aldophosphamide	1.6E-4		-	M
+20499	H2O;Aldophosphamide;NAD+	NADH;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		7.333333E-10		-	mol*s^(-1)*g^(-1)
+20499	H2O;Aldophosphamide;NAD+	NADH;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20500	Aldophosphamide;H2O;NAD+	H+;NADH;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Aldophosphamide	1.6E-4		-	M
+20500	Aldophosphamide;H2O;NAD+	H+;NADH;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20500	Aldophosphamide;H2O;NAD+	H+;NADH;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		1.833333E-10		-	mol*s^(-1)*g^(-1)
+20501	H2O;NAD+;Aldophosphamide	NADH;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Aldophosphamide	1.6E-4		-	M
+20501	H2O;NAD+;Aldophosphamide	NADH;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20501	H2O;NAD+;Aldophosphamide	NADH;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		8.666667E-10		-	mol*s^(-1)*g^(-1)
+20502	Aldophosphamide;NAD+;H2O	NADH;H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20502	Aldophosphamide;NAD+;H2O	NADH;H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	Aldophosphamide	1.6E-4		-	M
+20502	Aldophosphamide;NAD+;H2O	NADH;H+;3-[Amino-[bis(2-chloroethyl)amino]phosphoryl]oxypropanoate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		2.158333E-8		-	mol*s^(-1)*g^(-1)
+20503	L-Glutamate 5-semialdehyde;NAD+;H2O	L-Glutamate;NADH;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	L-Glutamate 5-semialdehyde	5.0E-4		-	M
+20503	L-Glutamate 5-semialdehyde;NAD+;H2O	L-Glutamate;NADH;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20503	L-Glutamate 5-semialdehyde;NAD+;H2O	L-Glutamate;NADH;H+	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		1.168333E-8		-	mol*s^(-1)*g^(-1)
+20504	H2O;NAD+;L-Glutamate 5-semialdehyde	NADH;H+;L-Glutamate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	NAD+	0.004		-	M
+20504	H2O;NAD+;L-Glutamate 5-semialdehyde	NADH;H+;L-Glutamate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	concentration	L-Glutamate 5-semialdehyde	5.0E-4		-	M
+20504	H2O;NAD+;L-Glutamate 5-semialdehyde	NADH;H+;L-Glutamate	wildtype	8328987	Homo sapiens		1.2.1.5	8.1	37.0	specific enz. activity		3.133333E-8		-	mol*s^(-1)*g^(-1)
+21963	H2O;Propanal;NAD+	NADH;H+;Propanoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	NAD+	0.001		-	M
+21963	H2O;Propanal;NAD+	NADH;H+;Propanoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		8.75E-5		-	mol*s^(-1)*g^(-1)
+21963	H2O;Propanal;NAD+	NADH;H+;Propanoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	Propanal	0.0	0.0033	-	M
+21963	H2O;Propanal;NAD+	NADH;H+;Propanoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	Propanal	0.005472		-	M
+21964	Acetaldehyde;NAD+;H2O	Acetate;H+;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		1.645E-5		-	mol*s^(-1)*g^(-1)
+21964	Acetaldehyde;NAD+;H2O	Acetate;H+;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	NAD+	0.001		-	M
+21964	Acetaldehyde;NAD+;H2O	Acetate;H+;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	Acetaldehyde			-	-
+21964	Acetaldehyde;NAD+;H2O	Acetate;H+;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	Acetaldehyde	0.012137		-	M
+21965	NAD+;H2O;Butanal	H+;NADH;Butanoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		2.091667E-5		-	mol*s^(-1)*g^(-1)
+21965	NAD+;H2O;Butanal	H+;NADH;Butanoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	NAD+	0.001		-	M
+21965	NAD+;H2O;Butanal	H+;NADH;Butanoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	Butanal			-	-
+21965	NAD+;H2O;Butanal	H+;NADH;Butanoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	Butanal	0.006347		-	M
+21966	H2O;NAD+;Heptanal	H+;Heptanoate;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		2.231667E-5		-	mol*s^(-1)*g^(-1)
+21966	H2O;NAD+;Heptanal	H+;Heptanoate;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	Heptanal	5.15E-4		-	M
+21966	H2O;NAD+;Heptanal	H+;Heptanoate;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	NAD+	0.001		-	M
+21966	H2O;NAD+;Heptanal	H+;Heptanoate;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	Heptanal			-	-
+21967	H2O;Decanal;NAD+	Decanoate;H+;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	NAD+	0.001		-	M
+21967	H2O;Decanal;NAD+	Decanoate;H+;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		7.166667E-7		-	mol*s^(-1)*g^(-1)
+21967	H2O;Decanal;NAD+	Decanoate;H+;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	Decanal	1.26E-4		-	M
+21967	H2O;Decanal;NAD+	Decanoate;H+;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	Decanal			-	-
+21968	16-Hexadecanal;H2O;NAD+	NADH;Palmitate;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	16-Hexadecanal			-	-
+21968	16-Hexadecanal;H2O;NAD+	NADH;Palmitate;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	NAD+	0.001		-	M
+21968	16-Hexadecanal;H2O;NAD+	NADH;Palmitate;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		4.066667E-6		-	mol*s^(-1)*g^(-1)
+21968	16-Hexadecanal;H2O;NAD+	NADH;Palmitate;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	16-Hexadecanal	1.74E-4		-	M
+21969	Benzaldehyde;NAD+;H2O	H+;Benzoate;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	Benzaldehyde	1.24E-4		-	M
+21969	Benzaldehyde;NAD+;H2O	H+;Benzoate;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	Benzaldehyde			-	-
+21969	Benzaldehyde;NAD+;H2O	H+;Benzoate;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	NAD+	0.001		-	M
+21969	Benzaldehyde;NAD+;H2O	H+;Benzoate;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		1.47E-5		-	mol*s^(-1)*g^(-1)
+21971	4-Methoxybenzaldehyde;H2O;NAD+	H+;NADH;4-Methoxybenzoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	4-Methoxybenzaldehyde	1.0E-5		-	M
+21971	4-Methoxybenzaldehyde;H2O;NAD+	H+;NADH;4-Methoxybenzoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	4-Methoxybenzaldehyde			-	-
+21971	4-Methoxybenzaldehyde;H2O;NAD+	H+;NADH;4-Methoxybenzoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		1.698333E-5		-	mol*s^(-1)*g^(-1)
+21971	4-Methoxybenzaldehyde;H2O;NAD+	H+;NADH;4-Methoxybenzoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	NAD+	0.001		-	M
+21972	NAD+;p-Nitrobenzaldehyde;H2O	H+;p-Nitrobenzoate;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	NAD+	0.001		-	M
+21972	NAD+;p-Nitrobenzaldehyde;H2O	H+;p-Nitrobenzoate;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	p-Nitrobenzaldehyde	4.6E-6		-	M
+21972	NAD+;p-Nitrobenzaldehyde;H2O	H+;p-Nitrobenzoate;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	p-Nitrobenzaldehyde			-	-
+21972	NAD+;p-Nitrobenzaldehyde;H2O	H+;p-Nitrobenzoate;NADH	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		5.633333E-6		-	mol*s^(-1)*g^(-1)
+21973	Indole-3-acetaldehyde;H2O;NAD+	H+;NADH;Indole-3-acetate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	NAD+	0.001		-	M
+21973	Indole-3-acetaldehyde;H2O;NAD+	H+;NADH;Indole-3-acetate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		9.716667E-6		-	mol*s^(-1)*g^(-1)
+21973	Indole-3-acetaldehyde;H2O;NAD+	H+;NADH;Indole-3-acetate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	Indole-3-acetaldehyde			-	-
+21973	Indole-3-acetaldehyde;H2O;NAD+	H+;NADH;Indole-3-acetate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	Indole-3-acetaldehyde	1.47E-4		-	M
+21983	Propanal;NAD+;H2O	NADH;Propanoate;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		8.75E-5		-	mol*s^(-1)*g^(-1)
+21983	Propanal;NAD+;H2O	NADH;Propanoate;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	NAD+	6.75E-5		-	M
+21983	Propanal;NAD+;H2O	NADH;Propanoate;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	Propanal	0.0033		-	M
+21983	Propanal;NAD+;H2O	NADH;Propanoate;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	NAD+			-	-
+21984	H2O;NADP+;Propanal	H+;NADPH;Propanoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	NADP+	0.00141		-	M
+21984	H2O;NADP+;Propanal	H+;NADPH;Propanoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	NADP+			-	-
+21984	H2O;NADP+;Propanal	H+;NADPH;Propanoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	Propanal	0.0033		-	M
+21984	H2O;NADP+;Propanal	H+;NADPH;Propanoate	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		1.811333E-4		-	mol*s^(-1)*g^(-1)
+21985	Propanal;Deamino-NAD+;H2O	Propanoate;Deamino-NADH;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	Deamino-NAD+	1.68E-5		-	M
+21985	Propanal;Deamino-NAD+;H2O	Propanoate;Deamino-NADH;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	Propanal	0.0033		-	M
+21985	Propanal;Deamino-NAD+;H2O	Propanoate;Deamino-NADH;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	Deamino-NAD+			-	-
+21985	Propanal;Deamino-NAD+;H2O	Propanoate;Deamino-NADH;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		6.433333E-6		-	mol*s^(-1)*g^(-1)
+21986	Propanal;H2O;3-Acetylpyridine-adenine dinucleotide	Propanoate;Reduced 3-acetylpyridine-adenine dinucleotide;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	Propanal	0.0033		-	M
+21986	Propanal;H2O;3-Acetylpyridine-adenine dinucleotide	Propanoate;Reduced 3-acetylpyridine-adenine dinucleotide;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	concentration	3-Acetylpyridine-adenine dinucleotide			-	-
+21986	Propanal;H2O;3-Acetylpyridine-adenine dinucleotide	Propanoate;Reduced 3-acetylpyridine-adenine dinucleotide;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Vmax		7.65E-6		-	mol*s^(-1)*g^(-1)
+21986	Propanal;H2O;3-Acetylpyridine-adenine dinucleotide	Propanoate;Reduced 3-acetylpyridine-adenine dinucleotide;H+	wildtype isoenzym Aldh3a1	4002223	Rattus norvegicus	P11883	1.2.1.5	9.6	25.0	Km	3-Acetylpyridine-adenine dinucleotide	4.25E-4		-	M
+25867	NAD+;all-trans-Retinal;H2O	Retinoate;H+;NADH	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	all-trans-Retinal	0.0	1.0E-4	-	M
+25867	NAD+;all-trans-Retinal;H2O	Retinoate;H+;NADH	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat		3.9		-	s^(-1)
+25867	NAD+;all-trans-Retinal;H2O	Retinoate;H+;NADH	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	NAD+	5.0E-4		-	M
+25867	NAD+;all-trans-Retinal;H2O	Retinoate;H+;NADH	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	unknown compound	2.0E-9	2.0E-7	-	M
+25867	NAD+;all-trans-Retinal;H2O	Retinoate;H+;NADH	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat/Km	all-trans-Retinal	1.95E7		-	M^(-1)*s^(-1)
+25867	NAD+;all-trans-Retinal;H2O	Retinoate;H+;NADH	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Km	all-trans-Retinal	2.0E-7		-	M
+25868	all-trans-Retinal;H2O;NAD+	H+;NADH;Retinoate	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	all-trans-Retinal	0.0	1.0E-4	-	M
+25868	all-trans-Retinal;H2O;NAD+	H+;NADH;Retinoate	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Km	all-trans-Retinal	2.0E-7		-	M
+25868	all-trans-Retinal;H2O;NAD+	H+;NADH;Retinoate	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	unknown compound	2.0E-9	2.0E-7	-	M
+25868	all-trans-Retinal;H2O;NAD+	H+;NADH;Retinoate	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	NAD+	5.0E-4		-	M
+25868	all-trans-Retinal;H2O;NAD+	H+;NADH;Retinoate	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat		13.0		-	s^(-1)
+25868	all-trans-Retinal;H2O;NAD+	H+;NADH;Retinoate	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat/Km	all-trans-Retinal	5.2E7		-	M^(-1)*s^(-1)
+25869	H2O;1-Octanal;NAD+	H+;NADH;Octanoate	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	NAD+	5.0E-4		-	M
+25869	H2O;1-Octanal;NAD+	H+;NADH;Octanoate	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	unknown compound	2.0E-9	2.0E-7	-	M
+25869	H2O;1-Octanal;NAD+	H+;NADH;Octanoate	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat/Km	1-Octanal	6000000.0		-	M^(-1)*s^(-1)
+25869	H2O;1-Octanal;NAD+	H+;NADH;Octanoate	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	1-Octanal	0.0	1.0E-4	-	M
+25869	H2O;1-Octanal;NAD+	H+;NADH;Octanoate	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Km	1-Octanal	9.0E-7		-	M
+25869	H2O;1-Octanal;NAD+	H+;NADH;Octanoate	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat		5.4		-	s^(-1)
+25869	H2O;1-Octanal;NAD+	H+;NADH;Octanoate	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Kd	1-Octanal	1.6E-7		-	M
+25870	1-Octanal;H2O;NAD+	NADH;H+;Octanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat/Km	1-Octanal	6900000.0		-	M^(-1)*s^(-1)
+25870	1-Octanal;H2O;NAD+	NADH;H+;Octanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Kd	1-Octanal	2.5E-7		-	M
+25870	1-Octanal;H2O;NAD+	NADH;H+;Octanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Km	1-Octanal	7.0E-7		-	M
+25870	1-Octanal;H2O;NAD+	NADH;H+;Octanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat		4.8		-	s^(-1)
+25870	1-Octanal;H2O;NAD+	NADH;H+;Octanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	1-Octanal	0.0	1.0E-4	-	M
+25870	1-Octanal;H2O;NAD+	NADH;H+;Octanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	NAD+	5.0E-4		-	M
+25870	1-Octanal;H2O;NAD+	NADH;H+;Octanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	unknown compound	2.0E-9	2.0E-7	-	M
+25871	NAD+;Hexanal;H2O	NADH;H+;Hexanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat/Km	Hexanal	14000.0		-	M^(-1)*s^(-1)
+25871	NAD+;Hexanal;H2O	NADH;H+;Hexanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	unknown compound	2.0E-9	2.0E-7	-	M
+25871	NAD+;Hexanal;H2O	NADH;H+;Hexanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat		0.3		-	s^(-1)
+25871	NAD+;Hexanal;H2O	NADH;H+;Hexanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Km	Hexanal	2.21E-5		-	M
+25871	NAD+;Hexanal;H2O	NADH;H+;Hexanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	Hexanal	0.0	1.0E-4	-	M
+25871	NAD+;Hexanal;H2O	NADH;H+;Hexanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	NAD+	5.0E-4		-	M
+25872	H2O;Decanal;NAD+	NADH;H+;Decanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	unknown compound	2.0E-9	2.0E-7	-	M
+25872	H2O;Decanal;NAD+	NADH;H+;Decanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat/Km	Decanal	61500.0		-	M^(-1)*s^(-1)
+25872	H2O;Decanal;NAD+	NADH;H+;Decanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	NAD+	5.0E-4		-	M
+25872	H2O;Decanal;NAD+	NADH;H+;Decanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	Decanal	0.0	1.0E-4	-	M
+25872	H2O;Decanal;NAD+	NADH;H+;Decanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Km	Decanal	6.5E-6		-	M
+25872	H2O;Decanal;NAD+	NADH;H+;Decanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat		0.4		-	s^(-1)
+25873	Benzaldehyde;NAD+;H2O	H+;NADH;Benzoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Km	Benzaldehyde	1.03E-4		-	M
+25873	Benzaldehyde;NAD+;H2O	H+;NADH;Benzoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	unknown compound	2.0E-9	2.0E-7	-	M
+25873	Benzaldehyde;NAD+;H2O	H+;NADH;Benzoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat/Km	Benzaldehyde	1900.0		-	M^(-1)*s^(-1)
+25873	Benzaldehyde;NAD+;H2O	H+;NADH;Benzoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat		0.2		-	s^(-1)
+25873	Benzaldehyde;NAD+;H2O	H+;NADH;Benzoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	Benzaldehyde	0.0	1.0E-4	-	M
+25873	Benzaldehyde;NAD+;H2O	H+;NADH;Benzoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	NAD+	5.0E-4		-	M
+25874	1-Octanal;NAD+;H2O	Octanoate;NADH;H+	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat/Km	1-Octanal	100000.0		-	M^(-1)*s^(-1)
+25874	1-Octanal;NAD+;H2O	Octanoate;NADH;H+	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Km	NAD+	4.31E-5		-	M
+25874	1-Octanal;NAD+;H2O	Octanoate;NADH;H+	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	1-Octanal	1.0E-4		-	M
+25874	1-Octanal;NAD+;H2O	Octanoate;NADH;H+	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat		3.1		-	s^(-1)
+25874	1-Octanal;NAD+;H2O	Octanoate;NADH;H+	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	NAD+	0.0	0.001	-	M
+25874	1-Octanal;NAD+;H2O	Octanoate;NADH;H+	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Kd	1-Octanal	1.3E-7		8E-8	M
+25874	1-Octanal;NAD+;H2O	Octanoate;NADH;H+	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	unknown compound	1.0E-8		-	M
+25875	NAD+;H2O;1-Octanal	Octanoate;H+;NADH	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat/Km	1-Octanal	100000.0		-	M^(-1)*s^(-1)
+25875	NAD+;H2O;1-Octanal	Octanoate;H+;NADH	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Km	NAD+	5.28E-5		-	M
+25875	NAD+;H2O;1-Octanal	Octanoate;H+;NADH	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	1-Octanal	1.0E-4		-	M
+25875	NAD+;H2O;1-Octanal	Octanoate;H+;NADH	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	kcat		3.3		-	s^(-1)
+25875	NAD+;H2O;1-Octanal	Octanoate;H+;NADH	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Kd	1-Octanal	1.6E-7		3E-8	M
+25875	NAD+;H2O;1-Octanal	Octanoate;H+;NADH	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	NAD+	0.0	0.001	-	M
+25875	NAD+;H2O;1-Octanal	Octanoate;H+;NADH	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	concentration	unknown compound	1.0E-8		-	M
+25876	1-Octanal;NAD+;H2O	H+;NADH;Octanoate	wildtype	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Kd	NADH	3.974E-5		2.22E-6	M
+25877	H2O;NAD+;1-Octanal	NADH;Octanoate;H+	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Kd	NADH	2.56E-5		3.76E-6	M
+25878	H2O;1-Octanal;NAD+	NADH;Octanoate;H+	mutant F471L	16241904	Mus musculus	Q9JHW9	1.2.1.5	8.5	37.0	Ki	Thyroid	3.77E-5		3.76E-6	M
+30802	H2O;NAD+;Acetaldehyde	H+;Acetate;NADH	wildtype isoenzyme Aldh3a1 (Tau)	2431694	Rattus norvegicus	P11883	1.2.1.5	7.4	37.0	Km	Acetaldehyde	0.012		-	M
+30802	H2O;NAD+;Acetaldehyde	H+;Acetate;NADH	wildtype isoenzyme Aldh3a1 (Tau)	2431694	Rattus norvegicus	P11883	1.2.1.5	7.4	37.0	concentration	Acetaldehyde			-	-
+30802	H2O;NAD+;Acetaldehyde	H+;Acetate;NADH	wildtype isoenzyme Aldh3a1 (Tau)	2431694	Rattus norvegicus	P11883	1.2.1.5	7.4	37.0	concentration	unknown compound			-	-
+30802	H2O;NAD+;Acetaldehyde	H+;Acetate;NADH	wildtype isoenzyme Aldh3a1 (Tau)	2431694	Rattus norvegicus	P11883	1.2.1.5	7.4	37.0	kcat				-	-
+63592	H2O;NADP+;Propanal	H+;NADPH;Propanoate	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	concentration	NADP+	0.02		-	M
+63592	H2O;NADP+;Propanal	H+;NADPH;Propanoate	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	Km	Propanal	3.9E-4		-	M
+63592	H2O;NADP+;Propanal	H+;NADPH;Propanoate	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	Vmax		7.5E-6		-	mol*s^(-1)*g^(-1)
+63593	H2O;Propanal;NADP+	NADPH;Propanoate;H+	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	Km	NADP+	0.00347		-	M
+63593	H2O;Propanal;NADP+	NADPH;Propanoate;H+	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	concentration	Propanal	0.0056		-	M
+63593	H2O;Propanal;NADP+	NADPH;Propanoate;H+	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	Vmax		7.5E-6		-	mol*s^(-1)*g^(-1)
+63596	NADP+;Propanal;H2O	NADPH;Propanoate;H+	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	Vmax		3.5E-5		-	mol*s^(-1)*g^(-1)
+63596	NADP+;Propanal;H2O	NADPH;Propanoate;H+	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	Km	Propanal	1.7E-5		-	M
+63596	NADP+;Propanal;H2O	NADPH;Propanoate;H+	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	concentration	NADP+	0.015		-	M
+63597	Propanal;NADP+;H2O	H+;Propanoate;NADPH	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	concentration	Propanal	2.8E-4		-	M
+63597	Propanal;NADP+;H2O	H+;Propanoate;NADPH	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	Km	NADP+	4.47E-4		-	M
+63597	Propanal;NADP+;H2O	H+;Propanoate;NADPH	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	Vmax		3.5E-5		-	mol*s^(-1)*g^(-1)
+63598	Acetaldehyde;NADP+;H2O	H+;NADPH;Acetate	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	Km	NADP+	0.0014		-	M
+63598	Acetaldehyde;NADP+;H2O	H+;NADPH;Acetate	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	Vmax		8.666667E-5		-	mol*s^(-1)*g^(-1)
+63598	Acetaldehyde;NADP+;H2O	H+;NADPH;Acetate	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	concentration	Acetaldehyde	1.8E-4		-	M
+63599	Acetaldehyde;NADP+;H2O	NADPH;Acetate;H+	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	concentration	NADP+	0.015		-	M
+63599	Acetaldehyde;NADP+;H2O	NADPH;Acetate;H+	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	Vmax		8.666667E-5		-	mol*s^(-1)*g^(-1)
+63599	Acetaldehyde;NADP+;H2O	NADPH;Acetate;H+	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	Km	Acetaldehyde	1.0E-5		-	M
+63600	H2O;NAD+;Propanal	H+;NADH;Propanoate	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	Vmax		7.0E-5		-	mol*s^(-1)*g^(-1)
+63600	H2O;NAD+;Propanal	H+;NADH;Propanoate	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	Km	Propanal	1.3E-5		-	M
+63600	H2O;NAD+;Propanal	H+;NADH;Propanoate	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	concentration	NAD+	0.02		-	M
+63601	NAD+;Propanal;H2O	NADH;Propanoate;H+	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	Km	NAD+	0.0011		-	M
+63601	NAD+;Propanal;H2O	NADH;Propanoate;H+	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	concentration	Propanal	2.8E-4		-	M
+63601	NAD+;Propanal;H2O	NADH;Propanoate;H+	wildtype	9473035	Saccharomyces cerevisiae	P46367	1.2.1.5	7.4	-	Vmax		7.0E-5		-	mol*s^(-1)*g^(-1)
+63602	Propanal;H2O;NAD+	H+;NADH;Propanoate	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	Vmax		1.833333E-7		-	mol*s^(-1)*g^(-1)
+63602	Propanal;H2O;NAD+	H+;NADH;Propanoate	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	Km	Propanal	8.3E-4		-	M
+63602	Propanal;H2O;NAD+	H+;NADH;Propanoate	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	concentration	NAD+	0.02		-	M
+63603	NAD+;Propanal;H2O	H+;Propanoate;NADH	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	concentration	Propanal	0.0056		-	M
+63603	NAD+;Propanal;H2O	H+;Propanoate;NADH	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	Vmax		1.833333E-7		-	mol*s^(-1)*g^(-1)
+63603	NAD+;Propanal;H2O	H+;Propanoate;NADH	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	Km	NAD+	0.00643		-	M
+63604	H2O;NADP+;Acetaldehyde	NADPH;H+;Acetate	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	concentration	NADP+	0.01		-	M
+63604	H2O;NADP+;Acetaldehyde	NADPH;H+;Acetate	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	Km	Acetaldehyde	5.8E-5		-	M
+63604	H2O;NADP+;Acetaldehyde	NADPH;H+;Acetate	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	Vmax		1.833333E-5		-	mol*s^(-1)*g^(-1)
+63605	H2O;Acetaldehyde;NADP+	H+;NADPH;Acetate	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	concentration	Acetaldehyde	0.0012		-	M
+63605	H2O;Acetaldehyde;NADP+	H+;NADPH;Acetate	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	Vmax		1.833333E-5		-	mol*s^(-1)*g^(-1)
+63605	H2O;Acetaldehyde;NADP+	H+;NADPH;Acetate	wildtype	9473035	Saccharomyces cerevisiae	P40047	1.2.1.5	7.4	-	Km	NADP+	6.4E-4		-	M
+64390	H2O;Benzaldehyde;NAD+	H+;NADH;Benzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.0	0.001	-	M
+64390	H2O;Benzaldehyde;NAD+	H+;NADH;Benzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	NAD+	2.0E-5		-	M
+64390	H2O;Benzaldehyde;NAD+	H+;NADH;Benzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64390	H2O;Benzaldehyde;NAD+	H+;NADH;Benzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	Benzaldehyde	6.0E-4		-	M
+64391	Benzaldehyde;H2O;NADP+	Benzoate;H+;NADPH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	Benzaldehyde	6.0E-4		-	M
+64391	Benzaldehyde;H2O;NADP+	Benzoate;H+;NADPH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NADP+	0.0	0.001	-	M
+64391	Benzaldehyde;H2O;NADP+	Benzoate;H+;NADPH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	NADP+	5.0E-5		-	M
+64391	Benzaldehyde;H2O;NADP+	Benzoate;H+;NADPH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64392	H2O;NAD+;Formaldehyde	H+;Formate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64392	H2O;NAD+;Formaldehyde	H+;Formate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64392	H2O;NAD+;Formaldehyde	H+;Formate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	Formaldehyde	7.0E-4		-	M
+64393	H2O;NAD+;Acetaldehyde	H+;NADH;Acetate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64393	H2O;NAD+;Acetaldehyde	H+;NADH;Acetate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64393	H2O;NAD+;Acetaldehyde	H+;NADH;Acetate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	Acetaldehyde	9.0E-6		-	M
+64394	H2O;Propanal;NAD+	NADH;Propanoate;H+	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	Propanal	3.0E-6		-	M
+64394	H2O;Propanal;NAD+	NADH;Propanoate;H+	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64394	H2O;Propanal;NAD+	NADH;Propanoate;H+	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64395	NAD+;H2O;Butanal	H+;Butanoate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64395	NAD+;H2O;Butanal	H+;Butanoate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64395	NAD+;H2O;Butanal	H+;Butanoate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	Butanal	9.0E-6		-	M
+64396	2-Methylpropanal;H2O;NAD+	H+;NADH;Isobutanoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	2-Methylpropanal	2.0E-6		-	M
+64396	2-Methylpropanal;H2O;NAD+	H+;NADH;Isobutanoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64396	2-Methylpropanal;H2O;NAD+	H+;NADH;Isobutanoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64397	NAD+;Glyceraldehyde;H2O	H+;Glycerate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64397	NAD+;Glyceraldehyde;H2O	H+;Glycerate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64397	NAD+;Glyceraldehyde;H2O	H+;Glycerate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	Glyceraldehyde	1.0E-4		-	M
+64398	Glutaral;NAD+;H2O	H+;NADH;5-Oxopentanoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64398	Glutaral;NAD+;H2O	H+;NADH;5-Oxopentanoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64398	Glutaral;NAD+;H2O	H+;NADH;5-Oxopentanoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	Glutaral	6.0E-5		-	M
+64399	H2O;NAD+;Glycolaldehyde	NADH;Glycolate;H+	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64399	H2O;NAD+;Glycolaldehyde	NADH;Glycolate;H+	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64399	H2O;NAD+;Glycolaldehyde	NADH;Glycolate;H+	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	Glycolaldehyde	0.0	1.0E-4	-	M
+64399	H2O;NAD+;Glycolaldehyde	NADH;Glycolate;H+	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	Glycolaldehyde	1.0E-4		-	M
+64400	NAD+;Benzaldehyde;H2O	NADH;H+;Benzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64400	NAD+;Benzaldehyde;H2O	NADH;H+;Benzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64400	NAD+;Benzaldehyde;H2O	NADH;H+;Benzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	Benzaldehyde	7.0E-6		-	M
+64401	H2O;NAD+;m-Nitrobenzaldehyde	NADH;H+;m-Nitrobenzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64401	H2O;NAD+;m-Nitrobenzaldehyde	NADH;H+;m-Nitrobenzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64401	H2O;NAD+;m-Nitrobenzaldehyde	NADH;H+;m-Nitrobenzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	m-Nitrobenzaldehyde	3.0E-6		-	M
+64402	H2O;p-Nitrobenzaldehyde;NAD+	H+;p-Nitrobenzoate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64402	H2O;p-Nitrobenzaldehyde;NAD+	H+;p-Nitrobenzoate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	p-Nitrobenzaldehyde	2.0E-6		-	M
+64402	H2O;p-Nitrobenzaldehyde;NAD+	H+;p-Nitrobenzoate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64403	2,4-Dihydroxybenzaldehyde;NAD+;H2O	2,4-Dihydroxybenzoate;NADH;H+	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64403	2,4-Dihydroxybenzaldehyde;NAD+;H2O	2,4-Dihydroxybenzoate;NADH;H+	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	2,4-Dihydroxybenzaldehyde	1.0E-4		-	M
+64403	2,4-Dihydroxybenzaldehyde;NAD+;H2O	2,4-Dihydroxybenzoate;NADH;H+	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64404	H2O;NAD+;Furfural	2-Furoate;NADH;H+	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64404	H2O;NAD+;Furfural	2-Furoate;NADH;H+	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64404	H2O;NAD+;Furfural	2-Furoate;NADH;H+	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Km	Furfural	5.0E-6		-	M
+64405	Glycolaldehyde;H2O;NAD+	H+;Glycolate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Ki	Glyoxal	9.0E-5		-	M
+64405	Glycolaldehyde;H2O;NAD+	H+;Glycolate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64405	Glycolaldehyde;H2O;NAD+	H+;Glycolate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64406	NAD+;Glycolaldehyde;H2O	H+;Glycolate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.001		-	M
+64406	NAD+;Glycolaldehyde;H2O	H+;Glycolate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64406	NAD+;Glycolaldehyde;H2O	H+;Glycolate;NADH	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Ki	Chloral hydrate	3.0E-5		-	M
+64407	Benzaldehyde;H2O;NAD+	H+;NADH;Benzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	Ki	Arsenite	2.0E-4		-	M
+64407	Benzaldehyde;H2O;NAD+	H+;NADH;Benzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	Benzaldehyde	6.0E-4		-	M
+64407	Benzaldehyde;H2O;NAD+	H+;NADH;Benzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	K+	0.2		-	M
+64407	Benzaldehyde;H2O;NAD+	H+;NADH;Benzoate	wildtype	4384252	Saccharomyces cerevisiae		1.2.1.5	8.0	25.0	concentration	NAD+	0.0	0.001	-	M

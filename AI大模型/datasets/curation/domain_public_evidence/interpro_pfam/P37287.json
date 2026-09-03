@@ -1,0 +1,73 @@
+{
+  "accession": "P37287",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00534",
+        "name": "Glycosyl transferases group 1",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001296",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p37287",
+          "protein_length": 484,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 221,
+                  "end": 363,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00534",
+              "score": 1.4e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08288",
+        "name": "PIGA (GPI anchor biosynthesis)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR013234",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p37287",
+          "protein_length": 484,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 72,
+                  "end": 161,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08288",
+              "score": 8.4e-39
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

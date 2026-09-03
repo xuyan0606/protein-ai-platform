@@ -1,0 +1,344 @@
+{
+  "created_at": "2026-09-03T07:34:43.794181+00:00",
+  "local_only": true,
+  "workstreams": "datasets/governance/non_human_construction_workstreams.jsonl",
+  "start_packets": "datasets/governance/non_human_construction_start_packets.jsonl",
+  "total_workstreams": 11,
+  "started_workstreams": 11,
+  "started_ready_to_verify_workstreams": 3,
+  "started_blocked_workstreams": 8,
+  "completion_ready_workstreams": 0,
+  "status_counts": {
+    "started_blocked": 8,
+    "started_ready_to_verify": 3
+  },
+  "priority_counts": {
+    "P0": 8,
+    "P1": 3,
+    "P2": 0
+  },
+  "current_readiness": {
+    "safe_for_model_claim": false,
+    "release_ready": false,
+    "claims_allowed": 1,
+    "claims_blocked": 10,
+    "executable_ddg_backend_ready": true,
+    "proxy_ddg_backend_ready": true,
+    "benchmark_score_cache_ready_for_model_claim": false,
+    "msa_runtime_ready": true,
+    "msa_cache_valid_rows": 158,
+    "strict_msa_site_feature_rows": 0,
+    "reviewed_structure_graph_valid_rows": 34,
+    "feedback_training_eligible_rows": 7,
+    "plate_feedback_training_eligible_rows": 0,
+    "active_learning_ready": false,
+    "advanced_model_status": "scaffold_only_fail_closed"
+  },
+  "rows": [
+    {
+      "workstream_id": "nhc_ddg_physics_backend",
+      "priority": "P0",
+      "title": "Rosetta/PyRosetta/FoldX physics ddG backend",
+      "capability": "ddg_physics",
+      "safe_local_commands": [
+        "python3 scripts/build_ddg_backend_readiness.py",
+        "python3 scripts/build_ddg_backend_execution_plan.py",
+        "python3 scripts/validate_ddg_backend_operator_packets.py"
+      ],
+      "completion_checks": [
+        "executable_ddg_backend_ready true",
+        "license/runtime/data gates approved",
+        "negative ddG stabilization convention preserved"
+      ],
+      "execution_order": 1,
+      "created_at": "2026-09-03T07:34:43.794181+00:00",
+      "local_only": true,
+      "started": true,
+      "status": "started_ready_to_verify",
+      "completion_ready": false,
+      "automatic_external_execution_allowed": false,
+      "blockers": [],
+      "policy": "Started as local fail-closed construction lane; this row is not a model-quality, release, ordering, license, or production approval."
+    },
+    {
+      "workstream_id": "nhc_benchmark_scorecards",
+      "priority": "P0",
+      "title": "Benchmark score cache and head scorecards",
+      "capability": "benchmarking",
+      "safe_local_commands": [
+        "python3 scripts/apply_benchmark_score_cache_intake.py",
+        "python3 scripts/validate_benchmark_score_cache.py",
+        "python3 scripts/build_benchmark_matrix_report.py"
+      ],
+      "completion_checks": [
+        "benchmark_score_cache ready_for_model_claim true",
+        "all five heads have scorecards",
+        "split/leakage reports present"
+      ],
+      "execution_order": 2,
+      "created_at": "2026-09-03T07:34:43.794181+00:00",
+      "local_only": true,
+      "started": true,
+      "status": "started_blocked",
+      "completion_ready": false,
+      "automatic_external_execution_allowed": false,
+      "blockers": [
+        "benchmark score cache is not ready for model claim",
+        "not all five head scorecards are ready"
+      ],
+      "policy": "Started as local fail-closed construction lane; this row is not a model-quality, release, ordering, license, or production approval."
+    },
+    {
+      "workstream_id": "nhc_five_head_training",
+      "priority": "P0",
+      "title": "Five-head supervised training pipeline",
+      "capability": "training",
+      "safe_local_commands": [
+        "python3 scripts/build_multitask_training_readiness.py",
+        "python3 scripts/check_safe_training_entrypoint.py"
+      ],
+      "completion_checks": [
+        "strict supervised rows >= 100",
+        "claim-eligible real supervised rows >= 100",
+        "all five heads have eligible labels"
+      ],
+      "execution_order": 3,
+      "created_at": "2026-09-03T07:34:43.794181+00:00",
+      "local_only": true,
+      "started": true,
+      "status": "started_blocked",
+      "completion_ready": false,
+      "automatic_external_execution_allowed": false,
+      "blockers": [
+        "all five heads have eligible labels",
+        "claim-eligible real supervised rows >= 100",
+        "safe entrypoint allows training pipeline",
+        "strict supervised rows >= 100"
+      ],
+      "policy": "Started as local fail-closed construction lane; this row is not a model-quality, release, ordering, license, or production approval."
+    },
+    {
+      "workstream_id": "nhc_msa_conservation_production",
+      "priority": "P0",
+      "title": "MSA/conservation feature production",
+      "capability": "msa_conservation",
+      "safe_local_commands": [
+        "python3 scripts/build_msa_runtime_readiness.py",
+        "python3 scripts/validate_msa_conservation_cache.py",
+        "python3 scripts/build_strict_msa_site_features.py"
+      ],
+      "completion_checks": [
+        "msa_runtime_ready true",
+        "cache validation valid_rows > 0",
+        "strict MSA site feature table built"
+      ],
+      "execution_order": 4,
+      "created_at": "2026-09-03T07:34:43.794181+00:00",
+      "local_only": true,
+      "started": true,
+      "status": "started_blocked",
+      "completion_ready": false,
+      "automatic_external_execution_allowed": false,
+      "blockers": [
+        "strict MSA site feature rows are zero after real-source label filtering"
+      ],
+      "policy": "Started as local fail-closed construction lane; this row is not a model-quality, release, ordering, license, or production approval."
+    },
+    {
+      "workstream_id": "nhc_structure_gnn_features",
+      "priority": "P0",
+      "title": "Structure graph and GNN feature production",
+      "capability": "structure_graph",
+      "safe_local_commands": [
+        "python3 scripts/build_reviewed_structure_graph_features.py",
+        "python3 scripts/validate_reviewed_structure_graph_features.py"
+      ],
+      "completion_checks": [
+        "reviewed structure graph validation ready",
+        "valid graph rows > 0",
+        "coordinate feature rows remain checksum-traceable"
+      ],
+      "execution_order": 5,
+      "created_at": "2026-09-03T07:34:43.794181+00:00",
+      "local_only": true,
+      "started": true,
+      "status": "started_ready_to_verify",
+      "completion_ready": false,
+      "automatic_external_execution_allowed": false,
+      "blockers": [],
+      "policy": "Started as local fail-closed construction lane; this row is not a model-quality, release, ordering, license, or production approval."
+    },
+    {
+      "workstream_id": "nhc_wet_lab_feedback_loop",
+      "priority": "P0",
+      "title": "Wet-lab feedback loop and calibration features",
+      "capability": "feedback_loop",
+      "safe_local_commands": [
+        "python3 scripts/validate_experiment_feedback_intake.py",
+        "python3 scripts/validate_experiment_feedback_plate_intake.py",
+        "python3 scripts/build_experiment_feedback_trainability_audit.py"
+      ],
+      "completion_checks": [
+        "training eligible feedback rows > 0",
+        "plate/well QC rows valid",
+        "feedback lineage and checksum receipts present"
+      ],
+      "execution_order": 6,
+      "created_at": "2026-09-03T07:34:43.794181+00:00",
+      "local_only": true,
+      "started": true,
+      "status": "started_blocked",
+      "completion_ready": false,
+      "automatic_external_execution_allowed": false,
+      "blockers": [
+        "plate/well feedback has no training-eligible rows"
+      ],
+      "policy": "Started as local fail-closed construction lane; this row is not a model-quality, release, ordering, license, or production approval."
+    },
+    {
+      "workstream_id": "nhc_data_lake_cache_governance",
+      "priority": "P0",
+      "title": "Data lake, cache manifest and provenance governance",
+      "capability": "data_governance",
+      "safe_local_commands": [
+        "python3 scripts/build_data_lake_manifest.py",
+        "python3 scripts/build_provenance_graph_report.py",
+        "python3 scripts/build_governance_readiness.py"
+      ],
+      "completion_checks": [
+        "data lake manifest has no missing artifacts",
+        "provenance graph ready",
+        "governance readiness report exists"
+      ],
+      "execution_order": 7,
+      "created_at": "2026-09-03T07:34:43.794181+00:00",
+      "local_only": true,
+      "started": true,
+      "status": "started_ready_to_verify",
+      "completion_ready": false,
+      "automatic_external_execution_allowed": false,
+      "blockers": [],
+      "policy": "Started as local fail-closed construction lane; this row is not a model-quality, release, ordering, license, or production approval."
+    },
+    {
+      "workstream_id": "nhc_production_platform_services",
+      "priority": "P1",
+      "title": "Production platform services, jobs, audit logs and permissions",
+      "capability": "production_service",
+      "safe_local_commands": [
+        "python3 scripts/build_customer_delivery_readiness.py",
+        "python3 scripts/build_operator_review_status_report.py",
+        "python3 scripts/build_local_release_manifest.py"
+      ],
+      "completion_checks": [
+        "authn/authz and audit log design implemented",
+        "job queue and rollback policy implemented",
+        "release remains gated until all claims pass"
+      ],
+      "execution_order": 8,
+      "created_at": "2026-09-03T07:34:43.794181+00:00",
+      "local_only": true,
+      "started": true,
+      "status": "started_blocked",
+      "completion_ready": false,
+      "automatic_external_execution_allowed": false,
+      "blockers": [
+        "local release remains blocked",
+        "operator review status is not ready"
+      ],
+      "policy": "Started as local fail-closed construction lane; this row is not a model-quality, release, ordering, license, or production approval."
+    },
+    {
+      "workstream_id": "nhc_safety_compliance_gates",
+      "priority": "P0",
+      "title": "Biosecurity, IP/FTO, license and delivery gates",
+      "capability": "safety_compliance",
+      "safe_local_commands": [
+        "python3 scripts/validate_biosecurity_screening_decisions.py",
+        "python3 scripts/validate_sequence_ip_fto_decisions.py",
+        "python3 scripts/validate_external_license_review_decisions.py"
+      ],
+      "completion_checks": [
+        "biosecurity screened",
+        "IP/FTO cleared",
+        "external license decisions approved"
+      ],
+      "execution_order": 9,
+      "created_at": "2026-09-03T07:34:43.794181+00:00",
+      "local_only": true,
+      "started": true,
+      "status": "started_blocked",
+      "completion_ready": false,
+      "automatic_external_execution_allowed": false,
+      "blockers": [
+        "biosecurity_screened is blocked",
+        "customer_sequence_package is blocked",
+        "external_tool_production_use is blocked",
+        "ip_fto_cleared is blocked"
+      ],
+      "policy": "Started as local fail-closed construction lane; this row is not a model-quality, release, ordering, license, or production approval."
+    },
+    {
+      "workstream_id": "nhc_advanced_model_adapters",
+      "priority": "P1",
+      "title": "Advanced model adapters and top-tier architecture implementation",
+      "capability": "advanced_model",
+      "safe_local_commands": [
+        "python3 scripts/build_advanced_model_architecture.py",
+        "python3 scripts/build_advanced_feature_cache_plan.py",
+        "python3 scripts/build_top_tier_model_execution_board.py"
+      ],
+      "completion_checks": [
+        "PLM/MSA/structure/ddG/feedback adapters emit real cached features",
+        "uncertainty and Pareto ranking use real modality evidence",
+        "advanced model status is not scaffold_only"
+      ],
+      "execution_order": 10,
+      "created_at": "2026-09-03T07:34:43.794181+00:00",
+      "local_only": true,
+      "started": true,
+      "status": "started_blocked",
+      "completion_ready": false,
+      "automatic_external_execution_allowed": false,
+      "blockers": [
+        "advanced model is scaffold only",
+        "model quality claim is blocked"
+      ],
+      "policy": "Started as local fail-closed construction lane; this row is not a model-quality, release, ordering, license, or production approval."
+    },
+    {
+      "workstream_id": "nhc_active_learning_loop",
+      "priority": "P1",
+      "title": "Active-learning experiment recommendation loop",
+      "capability": "active_learning",
+      "safe_local_commands": [
+        "python3 scripts/build_active_learning_trial_readiness.py",
+        "python3 scripts/build_biosecurity_readiness.py",
+        "python3 scripts/build_customer_delivery_readiness.py"
+      ],
+      "completion_checks": [
+        "five-head model and benchmark are ready",
+        "budget/capacity and human approval are recorded",
+        "biosecurity/order gate is approved"
+      ],
+      "execution_order": 11,
+      "created_at": "2026-09-03T07:34:43.794181+00:00",
+      "local_only": true,
+      "started": true,
+      "status": "started_blocked",
+      "completion_ready": false,
+      "automatic_external_execution_allowed": false,
+      "blockers": [
+        "biosecurity/order gate is not approved",
+        "budget and assay capacity are not approved",
+        "customer delivery gate is blocked",
+        "five-head model is not training-ready",
+        "head-level benchmark scorecards are not ready",
+        "human approval workflow is not configured",
+        "plate-level feedback intake has no eligible rows"
+      ],
+      "policy": "Started as local fail-closed construction lane; this row is not a model-quality, release, ordering, license, or production approval."
+    }
+  ],
+  "policy": "This board starts every non-human construction lane. It does not download tools, run unapproved external models, fabricate labels/features, approve production sync, or unlock model-quality claims."
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "mode": "local_release_consistency_receipt_atomicity_regression",
+  "success": true,
+  "isolated_fixture": true,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_consistency_receipt_atomicity_regression.py",
+  "regression_script_sha256": "a3f87570902c50d6609940aa68601980499417ff8d0ba48e8a29b393a4f21940",
+  "validator_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_manifest_fail_closed_consistency.py",
+  "validator_script_sha256": "3dfa8291099c130fed386a25e26f83fe9b402ed87ec3dc1c9fb23623c7461f89",
+  "case_count": 5,
+  "passed_case_count": 5,
+  "failed_case_count": 0,
+  "real_inputs_mutated": false,
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case": "input_snapshot_hashes_exact",
+      "passed": true,
+      "snapshot_rows": 5
+    },
+    {
+      "case": "receipt_provenance_exact",
+      "passed": true,
+      "observed": {
+        "validator_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_manifest_fail_closed_consistency.py",
+        "validator_script_sha256": "3dfa8291099c130fed386a25e26f83fe9b402ed87ec3dc1c9fb23623c7461f89",
+        "release_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/local_release_manifest.json",
+        "release_sha256": "397cc9a6745b93639022a8ac1017bf8513c0c1cf7942485768e3a7b5a9836163",
+        "data_lake_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/data_lake_manifest.json",
+        "data_lake_sha256": "e490002e04fb9377dac9309e5f6dc0be49d8decadbe90f5b59f939d1a629bd39",
+        "live_integrity_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/data_lake_live_content_integrity_validation_report.json",
+        "live_integrity_sha256": "28ec86bf9c4d92ea44b8892242b10aa2218e1d0dbb8d23a19e2aed91c4d51195",
+        "contract_policy_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/data_lake_release_input_contract_policy_validation_report.json",
+        "contract_policy_sha256": "2f3c7ce0ed2810f742a6bcd705a50b7cd7b3f6ee3bb27d9545eab3cc0ea5c87c",
+        "semantic_policy_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/local_release_consistency_semantic_policy_validation_report.json",
+        "semantic_policy_sha256": "0f99f694955bfb6c39620f3b40fde42c5a5c5e26f463a19d24fc6d58f86034e3",
+        "output_path": "/private/var/folders/g3/tv52qrj57pl6kcbwym47jssm0000gn/T/local-release-consistency-atomicity-xu38q0oj/consistency.json",
+        "lock_path": "/private/var/folders/g3/tv52qrj57pl6kcbwym47jssm0000gn/T/local-release-consistency-atomicity-xu38q0oj/consistency.lock",
+        "lock_acquired": true,
+        "receipt_atomic_commit": true
+      },
+      "expected": {
+        "validator_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_manifest_fail_closed_consistency.py",
+        "validator_script_sha256": "3dfa8291099c130fed386a25e26f83fe9b402ed87ec3dc1c9fb23623c7461f89",
+        "release_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/local_release_manifest.json",
+        "release_sha256": "397cc9a6745b93639022a8ac1017bf8513c0c1cf7942485768e3a7b5a9836163",
+        "data_lake_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/data_lake_manifest.json",
+        "data_lake_sha256": "e490002e04fb9377dac9309e5f6dc0be49d8decadbe90f5b59f939d1a629bd39",
+        "live_integrity_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/data_lake_live_content_integrity_validation_report.json",
+        "live_integrity_sha256": "28ec86bf9c4d92ea44b8892242b10aa2218e1d0dbb8d23a19e2aed91c4d51195",
+        "contract_policy_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/data_lake_release_input_contract_policy_validation_report.json",
+        "contract_policy_sha256": "2f3c7ce0ed2810f742a6bcd705a50b7cd7b3f6ee3bb27d9545eab3cc0ea5c87c",
+        "semantic_policy_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/local_release_consistency_semantic_policy_validation_report.json",
+        "semantic_policy_sha256": "0f99f694955bfb6c39620f3b40fde42c5a5c5e26f463a19d24fc6d58f86034e3",
+        "output_path": "/private/var/folders/g3/tv52qrj57pl6kcbwym47jssm0000gn/T/local-release-consistency-atomicity-xu38q0oj/consistency.json",
+        "lock_path": "/private/var/folders/g3/tv52qrj57pl6kcbwym47jssm0000gn/T/local-release-consistency-atomicity-xu38q0oj/consistency.lock",
+        "lock_acquired": true,
+        "receipt_atomic_commit": true
+      }
+    },
+    {
+      "case": "atomic_commit_complete_json",
+      "passed": true,
+      "output_sha256": "3f42de2e334da9476b5c771f540d624106b06c90013653363e4c4076b2184095"
+    },
+    {
+      "case": "interrupted_commit_preserves_prior_receipt",
+      "passed": true,
+      "interrupted": true,
+      "prior_receipt_preserved": true,
+      "residual_temp_files": []
+    },
+    {
+      "case": "lock_contention_and_recovery",
+      "passed": true,
+      "first_lock_acquired": true,
+      "contender_blocked": true,
+      "recovered_after_release": true
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

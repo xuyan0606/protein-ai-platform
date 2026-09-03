@@ -19,6 +19,8 @@ build/
 .env
 .env.local
 .env.*.local
+backend/.env.deploy-data
+docker/.env.deploy-data
 
 # Database
 *.db
@@ -45,6 +47,9 @@ logs/
 # Production secrets (NEVER commit real keys)
 backend/.env.production
 docker/.env
+docker/.env.aliyun.app
+docker/.env.aliyun.app.prepared
+docker/.env.aliyun.gpu
 docker/ssl/*.key
 docker/ssl/*.crt
 
@@ -53,6 +58,7 @@ frontend/test-*.ts
 frontend/test-*.mjs
 frontend/e2e-*.mjs
 frontend/test-results/
+frontend/public/vendor/
 
 # Generated reports
 report.html

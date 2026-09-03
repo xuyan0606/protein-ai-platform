@@ -1,0 +1,21 @@
+{
+  "benchmark_name": "CatPred/GotEnzymes predicted reference only",
+  "catpred_model_executed": false,
+  "created_at": "2026-09-03T07:33:43.934379+00:00",
+  "dataset_rows": 226,
+  "failures": [],
+  "head": "activity_risk",
+  "local_only": true,
+  "policy": "Evaluation-only GotEnzymes2 predicted-reference benchmark. It does not create KWB labels, execute CatPred, or grant model/release readiness.",
+  "ready_as_benchmark_scorecard": true,
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "source_shard_counts": {
+    "bdw": 38,
+    "gsc": 135,
+    "oyw": 53
+  },
+  "success": true,
+  "training_import_written_rows": 0
+}

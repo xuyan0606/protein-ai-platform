@@ -1,0 +1,143 @@
+{
+  "accession": "P03956",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00045",
+        "name": "Hemopexin",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR018487",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p03956",
+          "protein_length": 469,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 284,
+                  "end": 326,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00045",
+              "score": 6.2e-07
+            },
+            {
+              "fragments": [
+                {
+                  "start": 329,
+                  "end": 371,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00045",
+              "score": 1.1e-07
+            },
+            {
+              "fragments": [
+                {
+                  "start": 377,
+                  "end": 424,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00045",
+              "score": 6.4e-14
+            },
+            {
+              "fragments": [
+                {
+                  "start": 426,
+                  "end": 466,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00045",
+              "score": 0.00061
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00413",
+        "name": "Matrixin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001818",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p03956",
+          "protein_length": 469,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 108,
+                  "end": 261,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00413",
+              "score": 2.2e-59
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01471",
+        "name": "Putative peptidoglycan binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002477",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p03956",
+          "protein_length": 469,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 28,
+                  "end": 87,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01471",
+              "score": 1.1e-07
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

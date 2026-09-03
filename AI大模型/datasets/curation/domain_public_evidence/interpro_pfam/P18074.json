@@ -1,0 +1,107 @@
+{
+  "accession": "P18074",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF06733",
+        "name": "DEAD_2",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR010614",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p18074",
+          "protein_length": 760,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 72,
+                  "end": 256,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF06733",
+              "score": 1.6e-43
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF06777",
+        "name": "Helical and beta-bridge domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR010643",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p18074",
+          "protein_length": 760,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 271,
+                  "end": 413,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF06777",
+              "score": 7.1e-52
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13307",
+        "name": "Helicase C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006555",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p18074",
+          "protein_length": 760,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 525,
+                  "end": 699,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13307",
+              "score": 6.9e-38
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

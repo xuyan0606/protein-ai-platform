@@ -1,0 +1,73 @@
+{
+  "accession": "P39748",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00752",
+        "name": "XPG N-terminal domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR006085",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p39748",
+          "protein_length": 380,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1,
+                  "end": 107,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00752",
+              "score": 3.5e-33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00867",
+        "name": "XPG I-region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR006086",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p39748",
+          "protein_length": 380,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 149,
+                  "end": 233,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00867",
+              "score": 4.4e-28
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

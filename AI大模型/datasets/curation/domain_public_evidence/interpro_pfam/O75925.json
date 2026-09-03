@@ -1,0 +1,73 @@
+{
+  "accession": "O75925",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02891",
+        "name": "MIZ/SP-RING zinc finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004181",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75925",
+          "protein_length": 651,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 331,
+                  "end": 379,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02891",
+              "score": 1e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14324",
+        "name": "PINIT domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR023321",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75925",
+          "protein_length": 651,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 136,
+                  "end": 286,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14324",
+              "score": 1.4e-28
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "P06865",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00728",
+        "name": "Glycosyl hydrolase family 20, catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015883",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p06865",
+          "protein_length": 529,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 167,
+                  "end": 487,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00728",
+              "score": 8.4e-86
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14845",
+        "name": "beta-acetyl hexosaminidase like",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR029019",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p06865",
+          "protein_length": 529,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 23,
+                  "end": 145,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14845",
+              "score": 4.1e-23
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

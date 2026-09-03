@@ -1,0 +1,27 @@
+{
+  "created_at": "2026-09-03T07:33:55.454960+00:00",
+  "local_only": true,
+  "audit_rows": 31,
+  "gap_type_counts": {
+    "biosecurity_ordering_decision": 3,
+    "external_license_or_customer_delivery_decision": 16,
+    "external_license_verification": 3,
+    "sequence_ip_fto_delivery_decision": 3,
+    "workstream_human_acceptance": 6
+  },
+  "workstream_count": 6,
+  "workstream_accepted_count": 0,
+  "license_missing_decision_count": 16,
+  "license_unverified_decision_count": 3,
+  "biosecurity_missing_decision_count": 3,
+  "ip_fto_missing_delivery_decision_count": 3,
+  "customer_delivery_ready": false,
+  "biosecurity_ready_for_ordering": false,
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "audit_jsonl": "datasets/governance/p30_acceptance_governance_gap_audit.jsonl",
+  "policy": "P30 acceptance/governance audit only. Self-attested license decisions, missing biosecurity decisions, missing IP/FTO decisions, and unaccepted workstreams do not authorize delivery or release."
+}

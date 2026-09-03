@@ -1,0 +1,73 @@
+{
+  "accession": "Q8N6R0",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01564",
+        "name": "Spermine/spermidine synthase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n6r0",
+          "protein_length": 699,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 477,
+                  "end": 613,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01564",
+              "score": 0.00042
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13649",
+        "name": "Methyltransferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041698",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n6r0",
+          "protein_length": 699,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 52,
+                  "end": 147,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13649",
+              "score": 5.2e-10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

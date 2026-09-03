@@ -1,0 +1,73 @@
+{
+  "accession": "P49903",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00586",
+        "name": "AIR synthase related protein, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR016188",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49903",
+          "protein_length": 392,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 69,
+                  "end": 174,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00586",
+              "score": 1.5e-11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02769",
+        "name": "AIR synthase related protein, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR010918",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49903",
+          "protein_length": 392,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 193,
+                  "end": 366,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02769",
+              "score": 3.4e-17
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

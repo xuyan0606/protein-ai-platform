@@ -1,0 +1,370 @@
+{
+  "uploaded_structure": {
+    "status": "planned",
+    "error_code": null,
+    "structure_source": "uploaded_structure",
+    "structure_ready": true,
+    "numbering_verified": true,
+    "steps": [
+      {
+        "tool_name": "input_parser",
+        "stage": "input_parsing",
+        "status": "planned",
+        "task_id": "input_parser:session-a:turn-1:f2a4da4cf658",
+        "depends_on": [],
+        "conclusion_scope": "sequence"
+      },
+      {
+        "tool_name": "structure_file_parser",
+        "stage": "structure_gate",
+        "status": "planned",
+        "task_id": "structure_file_parser:session-a:turn-1:9613028893d1",
+        "depends_on": [
+          "input_parser"
+        ],
+        "conclusion_scope": "structure"
+      },
+      {
+        "tool_name": "residue_numbering_gate",
+        "stage": "residue_numbering",
+        "status": "completed",
+        "task_id": "residue_numbering_gate:session-a:turn-1:94fc0401773d",
+        "depends_on": [
+          "structure_file_parser"
+        ],
+        "conclusion_scope": "structure"
+      },
+      {
+        "tool_name": "annotation_bundle",
+        "stage": "evidence_retrieval",
+        "status": "planned",
+        "task_id": "annotation_bundle:session-a:turn-1:c3d7f4586ff8",
+        "depends_on": [
+          "residue_numbering_gate"
+        ],
+        "conclusion_scope": "structure"
+      },
+      {
+        "tool_name": "structure_search_foldseek",
+        "stage": "feature_enrichment",
+        "status": "planned",
+        "task_id": "structure_search_foldseek:session-a:turn-1:7801beaf378a",
+        "depends_on": [
+          "residue_numbering_gate"
+        ],
+        "conclusion_scope": "structure"
+      },
+      {
+        "tool_name": "kwb_enzyme_designer",
+        "stage": "multi_head_scoring",
+        "status": "planned",
+        "task_id": "kwb_enzyme_designer:session-a:turn-1:433aa70c880a",
+        "depends_on": [
+          "annotation_bundle",
+          "structure_search_foldseek"
+        ],
+        "conclusion_scope": "structure"
+      }
+    ],
+    "current_result_refs": [],
+    "ignored_stale_task_refs": [],
+    "allowed_conclusion_scopes": [
+      "sequence",
+      "structure",
+      "experimental"
+    ],
+    "forbidden_before_structure_ready": [
+      "annotation_bundle",
+      "structure_search_foldseek",
+      "pocket_analysis",
+      "distance_network",
+      "catalytic_network",
+      "residue_exposure",
+      "kwb_enzyme_designer"
+    ],
+    "policy": {
+      "uploaded_structure_precedes_prediction": true,
+      "sequence_level_analysis_may_precede_prediction": true,
+      "structure_claims_require_current_structure_result": true,
+      "task_refs_are_turn_scoped": true
+    }
+  },
+  "uploaded_structure_unverified": {
+    "status": "blocked",
+    "error_code": null,
+    "structure_source": "uploaded_structure",
+    "structure_ready": false,
+    "numbering_verified": false,
+    "steps": [
+      {
+        "tool_name": "input_parser",
+        "stage": "input_parsing",
+        "status": "planned",
+        "task_id": "input_parser:session-a:turn-2:20a0ad168ec0",
+        "depends_on": [],
+        "conclusion_scope": "sequence"
+      },
+      {
+        "tool_name": "structure_file_parser",
+        "stage": "structure_gate",
+        "status": "planned",
+        "task_id": "structure_file_parser:session-a:turn-2:3bd02ef00ba3",
+        "depends_on": [
+          "input_parser"
+        ],
+        "conclusion_scope": "structure"
+      },
+      {
+        "tool_name": "residue_numbering_gate",
+        "stage": "residue_numbering",
+        "status": "planned",
+        "task_id": "residue_numbering_gate:session-a:turn-2:c4f01336f1f4",
+        "depends_on": [
+          "structure_file_parser"
+        ],
+        "conclusion_scope": "structure",
+        "blocked_reason": "numbering_not_verified"
+      },
+      {
+        "tool_name": "annotation_bundle",
+        "stage": "feature_enrichment",
+        "status": "blocked",
+        "task_id": "annotation_bundle:session-a:turn-2:cdc8926df124",
+        "depends_on": [
+          "residue_numbering_gate"
+        ],
+        "conclusion_scope": "structure",
+        "blocked_reason": "numbering_not_verified"
+      },
+      {
+        "tool_name": "structure_search_foldseek",
+        "stage": "feature_enrichment",
+        "status": "blocked",
+        "task_id": "structure_search_foldseek:session-a:turn-2:953e3e3ef62c",
+        "depends_on": [
+          "residue_numbering_gate"
+        ],
+        "conclusion_scope": "structure",
+        "blocked_reason": "numbering_not_verified"
+      },
+      {
+        "tool_name": "kwb_enzyme_designer",
+        "stage": "multi_head_scoring",
+        "status": "blocked",
+        "task_id": "kwb_enzyme_designer:session-a:turn-2:5cfb4c1e6ca8",
+        "depends_on": [
+          "residue_numbering_gate"
+        ],
+        "conclusion_scope": "structure",
+        "blocked_reason": "numbering_not_verified"
+      }
+    ],
+    "current_result_refs": [],
+    "ignored_stale_task_refs": [],
+    "allowed_conclusion_scopes": [
+      "sequence"
+    ],
+    "forbidden_before_structure_ready": [
+      "annotation_bundle",
+      "structure_search_foldseek",
+      "pocket_analysis",
+      "distance_network",
+      "catalytic_network",
+      "residue_exposure",
+      "kwb_enzyme_designer"
+    ],
+    "policy": {
+      "uploaded_structure_precedes_prediction": true,
+      "sequence_level_analysis_may_precede_prediction": true,
+      "structure_claims_require_current_structure_result": true,
+      "task_refs_are_turn_scoped": true
+    }
+  },
+  "sequence_only": {
+    "status": "pending_structure",
+    "error_code": null,
+    "structure_source": "none",
+    "structure_ready": false,
+    "numbering_verified": false,
+    "steps": [
+      {
+        "tool_name": "input_parser",
+        "stage": "input_parsing",
+        "status": "planned",
+        "task_id": "input_parser:session-a:turn-3:2c11f0fccc08",
+        "depends_on": [],
+        "conclusion_scope": "sequence"
+      },
+      {
+        "tool_name": "sequence_basic_analysis",
+        "stage": "input_parsing",
+        "status": "planned",
+        "task_id": "sequence_basic_analysis:session-a:turn-3:8568cf805797",
+        "depends_on": [
+          "input_parser"
+        ],
+        "conclusion_scope": "sequence"
+      },
+      {
+        "tool_name": "predict_properties",
+        "stage": "feature_enrichment",
+        "status": "planned",
+        "task_id": "predict_properties:session-a:turn-3:5711990df478",
+        "depends_on": [
+          "sequence_basic_analysis"
+        ],
+        "conclusion_scope": "sequence"
+      },
+      {
+        "tool_name": "esmfold_folding",
+        "stage": "structure_gate",
+        "status": "planned",
+        "task_id": "esmfold_folding:session-a:turn-3:6add4cb30365",
+        "depends_on": [
+          "predict_properties"
+        ],
+        "conclusion_scope": "predicted_structure"
+      },
+      {
+        "tool_name": "annotation_bundle",
+        "stage": "evidence_retrieval",
+        "status": "blocked",
+        "task_id": "annotation_bundle:session-a:turn-3:9a888d9f535e",
+        "depends_on": [
+          "esmfold_folding"
+        ],
+        "conclusion_scope": "predicted_structure",
+        "blocked_reason": "pending_structure_prediction"
+      },
+      {
+        "tool_name": "kwb_enzyme_designer",
+        "stage": "multi_head_scoring",
+        "status": "blocked",
+        "task_id": "kwb_enzyme_designer:session-a:turn-3:46354ad7d9ac",
+        "depends_on": [
+          "annotation_bundle"
+        ],
+        "conclusion_scope": "predicted_structure",
+        "blocked_reason": "pending_structure_prediction"
+      }
+    ],
+    "current_result_refs": [],
+    "ignored_stale_task_refs": [],
+    "allowed_conclusion_scopes": [
+      "sequence"
+    ],
+    "forbidden_before_structure_ready": [
+      "annotation_bundle",
+      "structure_search_foldseek",
+      "pocket_analysis",
+      "distance_network",
+      "catalytic_network",
+      "residue_exposure",
+      "kwb_enzyme_designer"
+    ],
+    "policy": {
+      "uploaded_structure_precedes_prediction": true,
+      "sequence_level_analysis_may_precede_prediction": true,
+      "structure_claims_require_current_structure_result": true,
+      "task_refs_are_turn_scoped": true
+    }
+  },
+  "stale_task_isolation": {
+    "status": "pending_structure",
+    "error_code": null,
+    "structure_source": "none",
+    "structure_ready": false,
+    "numbering_verified": false,
+    "steps": [
+      {
+        "tool_name": "input_parser",
+        "stage": "input_parsing",
+        "status": "planned",
+        "task_id": "input_parser:session-a:turn-3:2c11f0fccc08",
+        "depends_on": [],
+        "conclusion_scope": "sequence"
+      },
+      {
+        "tool_name": "sequence_basic_analysis",
+        "stage": "input_parsing",
+        "status": "planned",
+        "task_id": "sequence_basic_analysis:session-a:turn-3:8568cf805797",
+        "depends_on": [
+          "input_parser"
+        ],
+        "conclusion_scope": "sequence"
+      },
+      {
+        "tool_name": "predict_properties",
+        "stage": "feature_enrichment",
+        "status": "planned",
+        "task_id": "predict_properties:session-a:turn-3:5711990df478",
+        "depends_on": [
+          "sequence_basic_analysis"
+        ],
+        "conclusion_scope": "sequence"
+      },
+      {
+        "tool_name": "esmfold_folding",
+        "stage": "structure_gate",
+        "status": "planned",
+        "task_id": "esmfold_folding:session-a:turn-3:6add4cb30365",
+        "depends_on": [
+          "predict_properties"
+        ],
+        "conclusion_scope": "predicted_structure"
+      },
+      {
+        "tool_name": "annotation_bundle",
+        "stage": "evidence_retrieval",
+        "status": "blocked",
+        "task_id": "annotation_bundle:session-a:turn-3:9a888d9f535e",
+        "depends_on": [
+          "esmfold_folding"
+        ],
+        "conclusion_scope": "predicted_structure",
+        "blocked_reason": "pending_structure_prediction"
+      },
+      {
+        "tool_name": "kwb_enzyme_designer",
+        "stage": "multi_head_scoring",
+        "status": "blocked",
+        "task_id": "kwb_enzyme_designer:session-a:turn-3:46354ad7d9ac",
+        "depends_on": [
+          "annotation_bundle"
+        ],
+        "conclusion_scope": "predicted_structure",
+        "blocked_reason": "pending_structure_prediction"
+      }
+    ],
+    "current_result_refs": [],
+    "ignored_stale_task_refs": [
+      "esmfold-old-task"
+    ],
+    "allowed_conclusion_scopes": [
+      "sequence"
+    ],
+    "forbidden_before_structure_ready": [
+      "annotation_bundle",
+      "structure_search_foldseek",
+      "pocket_analysis",
+      "distance_network",
+      "catalytic_network",
+      "residue_exposure",
+      "kwb_enzyme_designer"
+    ],
+    "policy": {
+      "uploaded_structure_precedes_prediction": true,
+      "sequence_level_analysis_may_precede_prediction": true,
+      "structure_claims_require_current_structure_result": true,
+      "task_refs_are_turn_scoped": true
+    }
+  },
+  "assertions": {
+    "uploaded_structure_precedes_model": true,
+    "unverified_numbering_blocks_structure_analysis": true,
+    "sequence_only_waits_for_prediction": true,
+    "stale_task_refs_ignored": true,
+    "task_ids_turn_scoped": true
+  }
+}

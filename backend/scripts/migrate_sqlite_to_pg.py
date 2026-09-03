@@ -1,6 +1,10 @@
-"""Migrate all data from SQLite to PostgreSQL.
+"""Deprecated full-app SQLite to PostgreSQL migration.
 
-Uses batch inserts for performance — 375MB DB with 280K enzymes migrates in minutes.
+This script migrates application tables such as users, conversations, messages,
+projects, and tool calls. It is not the production domain-data import path and
+must not be used as an export-safe or training-safe data source.
+
+Uses batch inserts for performance.
 
 Usage:
     python scripts/migrate_sqlite_to_pg.py
@@ -40,6 +44,10 @@ JSON_COLUMNS = {"cofactors", "chain_ids", "plddt_per_residue",
 
 
 def main():
+    raise SystemExit(
+        "Deprecated dangerous full-app migration. Use backend/scripts/import_domain_sqlite_to_pg.py "
+        "for domain restore, and use explicit export-safe endpoints for training/export candidates."
+    )
     sqlite_eng = create_engine(SQLITE_URL)
     pg_eng = create_engine(PG_URL, echo=False)
 

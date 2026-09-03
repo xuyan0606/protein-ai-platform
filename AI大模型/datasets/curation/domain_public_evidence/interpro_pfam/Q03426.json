@@ -1,0 +1,73 @@
+{
+  "accession": "Q03426",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00288",
+        "name": "GHMP kinases N terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006204",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q03426",
+          "protein_length": 396,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 122,
+                  "end": 212,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00288",
+              "score": 4.5e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08544",
+        "name": "GHMP kinases C terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013750",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q03426",
+          "protein_length": 396,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 296,
+                  "end": 349,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08544",
+              "score": 0.058
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

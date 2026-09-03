@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "mode": "enzyme-agent-execution-receipt-proof-current-regression-v1",
+  "created_at": "2026-09-03T07:47:17.745278+00:00",
+  "success": true,
+  "isolated_fixture": true,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_enzyme_agent_execution_receipt_proof_current_regression.py",
+  "regression_script_sha256": "bd4ad456141cf380a009701e9619c9bc9daf1f08a50a5aeb8c1cfb20d60f0f7e",
+  "current_validator_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_enzyme_agent_execution_receipt_proof_current.py",
+  "current_validator_sha256": "aa3e6a60fa3175389470ce5f21f44038eb769a86052bba575b854941eb655417",
+  "output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/enzyme_agent_execution_receipt_proof_current_regression_report.json",
+  "lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.enzyme_agent_execution_receipt_proof.lock",
+  "lock_acquired": true,
+  "atomic_commit": true,
+  "case_count": 11,
+  "passed_case_count": 11,
+  "failed_case_count": 0,
+  "real_inputs_mutated": false,
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case": "fixture_control",
+      "passed": true
+    },
+    {
+      "case": "gate_wave_sha_drift",
+      "passed": true,
+      "expected_check": "gate_wave_sha"
+    },
+    {
+      "case": "gate_validation_gate_sha_drift",
+      "passed": true,
+      "expected_check": "gate_validation_gate_sha"
+    },
+    {
+      "case": "lineage_gate_validation_sha_drift",
+      "passed": true,
+      "expected_check": "lineage_gate_validation_sha"
+    },
+    {
+      "case": "lineage_script_sha_drift",
+      "passed": true,
+      "expected_check": "lineage_script_sha"
+    },
+    {
+      "case": "gate_output_path_drift",
+      "passed": true,
+      "expected_check": "gate_output_path"
+    },
+    {
+      "case": "gate_validation_lock_drift",
+      "passed": true,
+      "expected_check": "gate_validation_lock_path"
+    },
+    {
+      "case": "lineage_atomic_false",
+      "passed": true,
+      "expected_check": "lineage_atomic_commit"
+    },
+    {
+      "case": "lock_timeout_preserves_prior",
+      "passed": true
+    },
+    {
+      "case": "replace_interrupt_preserves_prior",
+      "passed": true
+    },
+    {
+      "case": "recovery_commits_current",
+      "passed": true
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

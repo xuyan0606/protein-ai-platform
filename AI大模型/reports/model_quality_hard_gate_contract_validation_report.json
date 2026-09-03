@@ -1,0 +1,147 @@
+{
+  "created_at": "2026-09-03T07:33:56.518787+00:00",
+  "local_only": true,
+  "success": true,
+  "checked_report": "reports/model_quality_hard_gate_contract_report.json",
+  "checked_reports": {
+    "p183_training_label_import_contract": "reports/training_label_import_contract_report.json",
+    "p184_wet_lab_feedback_authorization_contract": "reports/wet_lab_feedback_authorization_contract_report.json",
+    "p185_ddg_model_consumption_contract": "reports/ddg_model_consumption_contract_report.json",
+    "benchmark_coverage_dashboard_validation": "reports/benchmark_coverage_dashboard_validation_report.json",
+    "advanced_model_feature_contract_validation": "reports/advanced_model_feature_contract_validation_report.json",
+    "local_release_manifest": "reports/local_release_manifest.json",
+    "claim_readiness_matrix": "reports/claim_readiness_matrix.json"
+  },
+  "report_matches_current_sources": true,
+  "expected_current_state": {
+    "training_import_eligible_rows": 6,
+    "training_import_written_rows": 6,
+    "wetlab_authorized_rows": 8,
+    "wetlab_preflight_rows": 8,
+    "wetlab_import_rows": 0,
+    "physics_ddg_ready": false,
+    "benchmark_ready_for_model_claim": false,
+    "feature_inputs_ready": 210,
+    "feature_inputs_minimum_required": 183,
+    "feature_inputs_input_only": true,
+    "model_quality_ready": false,
+    "safe_for_model_claim": false,
+    "release_ready": false
+  },
+  "observed_current_state": {
+    "training_import_eligible_rows": 6,
+    "training_import_written_rows": 6,
+    "wetlab_authorized_rows": 8,
+    "wetlab_preflight_rows": 8,
+    "wetlab_import_rows": 0,
+    "physics_ddg_ready": false,
+    "benchmark_ready_for_model_claim": false,
+    "feature_inputs_ready": 210,
+    "feature_inputs_minimum_required": 183,
+    "feature_inputs_input_only": true,
+    "feature_inputs_source_supported": true,
+    "model_quality_ready": false,
+    "safe_for_model_claim": false,
+    "release_ready": false
+  },
+  "expected_source_state": {
+    "training_import_eligible_rows": 6,
+    "training_import_eligible_label_sources": 1,
+    "training_import_written_rows": 6,
+    "wetlab_authorized_rows": 8,
+    "wetlab_preflight_rows": 8,
+    "wetlab_import_rows": 0,
+    "wetlab_candidate_rows": 445,
+    "wetlab_numeric_training_candidate_rows": 12,
+    "wetlab_claim_eligible_rows_now": 0,
+    "physics_ddg_ready": false,
+    "executable_ddg_backend_ready": false,
+    "benchmark_ready_for_model_claim": false,
+    "benchmark_rows": 15,
+    "feature_inputs_ready": 210,
+    "feature_inputs_minimum_required": 183,
+    "feature_inputs_input_only": true,
+    "feature_inputs_source_supported": true,
+    "feature_inputs_model_input_only_feature_refs": 210,
+    "feature_inputs_training_label_source_feature_refs": 0,
+    "model_quality_ready": false,
+    "safe_for_model_claim": false,
+    "release_ready": false,
+    "local_release_master_status": "blocked_for_model_claim",
+    "claim_matrix_model_quality_claim_ready": false,
+    "claim_matrix_model_quality_claim_allowed": false
+  },
+  "checked_hard_gates": {
+    "benchmark_ready_for_model_claim": {
+      "unlocked": false,
+      "source_supported": true,
+      "observed": false,
+      "expected": false
+    },
+    "feature_inputs_ready": {
+      "unlocked": false,
+      "source_supported": true,
+      "observed": 210,
+      "expected": ">=183"
+    },
+    "model_quality_ready": {
+      "unlocked": false,
+      "source_supported": true,
+      "observed": false,
+      "expected": false
+    },
+    "physics_ddg_ready": {
+      "unlocked": false,
+      "source_supported": true,
+      "observed": false,
+      "expected": false
+    },
+    "release_ready": {
+      "unlocked": false,
+      "source_supported": true,
+      "observed": false,
+      "expected": false
+    },
+    "safe_for_model_claim": {
+      "unlocked": false,
+      "source_supported": true,
+      "observed": false,
+      "expected": false
+    },
+    "training_import_eligible_rows": {
+      "unlocked": true,
+      "source_supported": true,
+      "observed": 6,
+      "expected": ">0"
+    },
+    "wetlab_authorized_rows": {
+      "unlocked": true,
+      "source_supported": true,
+      "observed": 8,
+      "expected": ">0"
+    },
+    "wetlab_import_rows": {
+      "unlocked": false,
+      "source_supported": true,
+      "observed": 0,
+      "expected": 0
+    },
+    "wetlab_preflight_rows": {
+      "unlocked": true,
+      "source_supported": true,
+      "observed": 8,
+      "expected": ">0"
+    }
+  },
+  "negative_protection_checks": {
+    "no_true_model_quality_or_release_flags": true,
+    "feature_inputs_are_model_input_only": true,
+    "wetlab_authorization_source_supported_but_import_stays_closed": true,
+    "physics_ddg_source_supported": true,
+    "benchmark_claim_remains_false": true
+  },
+  "failures": [],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Fail-closed validation for the model-quality hard gate. Any true model_quality_ready, safe_for_model_claim, or release_ready flag fails validation; any hard gate marked unlocked without source support also fails validation."
+}

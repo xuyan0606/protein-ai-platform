@@ -1,0 +1,85 @@
+{
+  "accession": "Q6PHR2",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00069",
+        "name": "Protein kinase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000719",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6phr2",
+          "protein_length": 472,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 17,
+                  "end": 270,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00069",
+              "score": 2.2e-70
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04212",
+        "name": "MIT (microtubule interacting and transport) domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007330",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6phr2",
+          "protein_length": 472,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 281,
+                  "end": 345,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04212",
+              "score": 3e-15
+            },
+            {
+              "fragments": [
+                {
+                  "start": 376,
+                  "end": 442,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04212",
+              "score": 2.8e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

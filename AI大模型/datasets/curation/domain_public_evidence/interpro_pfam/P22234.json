@@ -1,0 +1,73 @@
+{
+  "accession": "P22234",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00731",
+        "name": "AIR carboxylase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000031",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p22234",
+          "protein_length": 425,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 267,
+                  "end": 404,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00731",
+              "score": 4.5e-35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01259",
+        "name": "SAICAR synthetase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR028923",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p22234",
+          "protein_length": 425,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 12,
+                  "end": 238,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01259",
+              "score": 1.6e-61
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "accession": "O60312",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF13246",
+        "name": "P-type ATPase, cytoplasmic domain N",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60312",
+          "protein_length": 1499,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 691,
+                  "end": 868,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13246",
+              "score": 9.4e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16209",
+        "name": "Phospholipid-translocating ATPase N-terminal",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR032631",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60312",
+          "protein_length": 1499,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 57,
+                  "end": 109,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16209",
+              "score": 1e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16212",
+        "name": "Phospholipid-translocating P-type ATPase C-terminal",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR032630",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60312",
+          "protein_length": 1499,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1057,
+                  "end": 1302,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16212",
+              "score": 5.3e-79
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

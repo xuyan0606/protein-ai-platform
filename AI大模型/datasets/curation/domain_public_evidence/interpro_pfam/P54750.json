@@ -1,0 +1,73 @@
+{
+  "accession": "P54750",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00233",
+        "name": "3'5'-cyclic nucleotide phosphodiesterase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002073",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p54750",
+          "protein_length": 535,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 218,
+                  "end": 438,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00233",
+              "score": 1.3e-82
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08499",
+        "name": "3'5'-cyclic nucleotide phosphodiesterase N-terminal",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR013706",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p54750",
+          "protein_length": 535,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 73,
+                  "end": 133,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08499",
+              "score": 1.5e-30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

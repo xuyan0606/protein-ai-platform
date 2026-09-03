@@ -1,0 +1,101 @@
+{
+  "created_at": "2026-09-03T07:34:02.361016+00:00",
+  "local_only": true,
+  "source_completion_status": "datasets/governance/next_unlock_completion_status.jsonl",
+  "source_start_packets": "datasets/governance/next_unlock_start_packets.jsonl",
+  "source_plan": "datasets/governance/next_unlock_actions.jsonl",
+  "source_validation_report": "reports/next_unlock_execution_validation_report.json",
+  "jsonl": "datasets/governance/next_unlock_operator_index.jsonl",
+  "total_actions": 12,
+  "started_actions": 12,
+  "open_items": 8,
+  "completion_ready_items": 4,
+  "validation_completion_ready_actions": 4,
+  "validation_blocked_actions": 8,
+  "missing_operator_open_first": [],
+  "missing_decision_inputs": [],
+  "missing_templates": [],
+  "missing_validator_reports": [],
+  "top_open_items": [
+    {
+      "action_id": "P43-A001",
+      "workstream": "numbering_curation",
+      "operator_open_first": "datasets/curation/numbering_review_packets/",
+      "decision_input": "datasets/curation/numbering_curation_decisions.jsonl",
+      "failed_checks": [
+        "numbering valid rows meet action target",
+        "strict supervised rows meet model-claim threshold"
+      ]
+    },
+    {
+      "action_id": "P43-A006",
+      "workstream": "plate_feedback_intake",
+      "operator_open_first": "datasets/feedback/plate_review_packets/feedback_plate_review_priority_001.jsonl",
+      "decision_input": "datasets/feedback/experiment_feedback_plate.local.jsonl",
+      "failed_checks": [
+        "plate feedback training eligible rows present"
+      ]
+    },
+    {
+      "action_id": "P43-A007",
+      "workstream": "external_license_review",
+      "operator_open_first": "datasets/governance/external_license_review_packets.jsonl",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "failed_checks": [
+        "license decisions cover all packets",
+        "license decisions ready for customer delivery"
+      ]
+    },
+    {
+      "action_id": "P43-A008",
+      "workstream": "biosecurity_screening",
+      "operator_open_first": "datasets/governance/biosecurity_screening_drafts.jsonl",
+      "decision_input": "datasets/governance/biosecurity_screening_decisions.jsonl",
+      "failed_checks": [
+        "biosecurity drafts all decided",
+        "biosecurity ready for ordering"
+      ]
+    },
+    {
+      "action_id": "P43-A009",
+      "workstream": "sequence_ip_fto",
+      "operator_open_first": "datasets/curation/sequence_ip_review_packets/",
+      "decision_input": "datasets/governance/sequence_ip_fto_decisions.jsonl",
+      "failed_checks": [
+        "IP/FTO delivery candidates all decided",
+        "IP/FTO ready for customer delivery"
+      ]
+    },
+    {
+      "action_id": "P43-A010",
+      "workstream": "workstream_acceptance",
+      "operator_open_first": "reports/workstream_acceptance_gates.json",
+      "decision_input": "datasets/governance/workstream_acceptance_decisions.jsonl",
+      "failed_checks": [
+        "all workstreams human accepted"
+      ]
+    },
+    {
+      "action_id": "P43-A011",
+      "workstream": "operator_review_actions",
+      "operator_open_first": "datasets/governance/operator_review_action_queue.jsonl",
+      "decision_input": "datasets/governance/operator_review_action_decisions.jsonl",
+      "failed_checks": [
+        "all operator actions completed"
+      ]
+    },
+    {
+      "action_id": "P43-A012",
+      "workstream": "model_claim",
+      "operator_open_first": "reports/claim_readiness_matrix.json",
+      "decision_input": null,
+      "failed_checks": [
+        "claim promotion decision gate passes",
+        "all canonical claims are dynamically ready",
+        "promotion policy allows all canonical claims",
+        "claim matrix has zero blocked claims"
+      ]
+    }
+  ],
+  "policy": "This operator index is a local navigation artifact only; it does not write reviewed decisions, grant approvals, unlock claims, download tools, deploy services, sync files, or restart servers."
+}

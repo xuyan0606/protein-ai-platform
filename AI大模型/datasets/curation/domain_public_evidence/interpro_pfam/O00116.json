@@ -1,0 +1,73 @@
+{
+  "accession": "O00116",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01565",
+        "name": "FAD binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006094",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00116",
+          "protein_length": 658,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 206,
+                  "end": 345,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01565",
+              "score": 1.2e-35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02913",
+        "name": "FAD linked oxidases, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004113",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00116",
+          "protein_length": 658,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 385,
+                  "end": 654,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02913",
+              "score": 5.9e-49
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

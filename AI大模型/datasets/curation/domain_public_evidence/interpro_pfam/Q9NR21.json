@@ -1,0 +1,73 @@
+{
+  "accession": "Q9NR21",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00644",
+        "name": "Poly(ADP-ribose) polymerase catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012317",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nr21",
+          "protein_length": 338,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 147,
+                  "end": 337,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00644",
+              "score": 1.1e-35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02825",
+        "name": "WWE domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004170",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nr21",
+          "protein_length": 338,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 34,
+                  "end": 106,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02825",
+              "score": 2.1e-13
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

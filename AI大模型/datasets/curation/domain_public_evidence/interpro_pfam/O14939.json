@@ -1,0 +1,97 @@
+{
+  "accession": "O14939",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00614",
+        "name": "Phospholipase D",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001736",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14939",
+          "protein_length": 933,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 351,
+                  "end": 474,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00614",
+              "score": 1.2e-05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 532,
+                  "end": 724,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00614",
+              "score": 4.9e-17
+            },
+            {
+              "fragments": [
+                {
+                  "start": 752,
+                  "end": 815,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00614",
+              "score": 1.7e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00787",
+        "name": "PX domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001683",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14939",
+          "protein_length": 933,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 92,
+                  "end": 191,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00787",
+              "score": 2.4e-10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

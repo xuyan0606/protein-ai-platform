@@ -1,0 +1,48 @@
+{
+  "case_id": "bench-uploaded-pdb-numbering-001",
+  "title": "Uploaded PDB must pass structure and residue-numbering gates first",
+  "input": {
+    "message": "酶的名称：脂肪酶。结构已上传，目标：提高耐热性，同时保留底物 pNP-palmitate 活性。",
+    "history_context": [
+      {
+        "role": "user",
+        "content": "object_name: uploads/user_1/demo_lipase.pdb"
+      }
+    ],
+    "attachments": [
+      {
+        "type": "pdb",
+        "object_name": "uploads/user_1/demo_lipase.pdb"
+      }
+    ]
+  },
+  "expected_workflow": [
+    "parse_uploaded_structure",
+    "residue_numbering_gate",
+    "annotation_bundle",
+    "structure_search_foldseek",
+    "kwb_enzyme_designer"
+  ],
+  "must_have": [
+    "prioritize uploaded experimental/user structure over predicted structure",
+    "verify chain and residue numbering before mutation recommendations",
+    "separate structure-derived conclusions from model inferences"
+  ],
+  "must_not_have": [
+    "run structure-dependent mutation ranking before numbering gate",
+    "submit esmfold_folding when uploaded PDB is usable",
+    "cite previous task_id not present in current workflow"
+  ],
+  "expected_output": {
+    "sections": [
+      "Input parsing",
+      "Structure and numbering gate",
+      "Evidence summary",
+      "Candidate mutations",
+      "Risks",
+      "Next experiment"
+    ]
+  },
+  "scoring_profile": "default"
+}
+

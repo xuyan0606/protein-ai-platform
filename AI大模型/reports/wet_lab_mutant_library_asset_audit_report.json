@@ -1,0 +1,93 @@
+{
+  "created_at": "2026-09-03T07:32:17.694584+00:00",
+  "csv_file_count": 18,
+  "file_count": 25,
+  "local_only": true,
+  "metric_counts": {
+    "15B": 16,
+    "16B": 4,
+    "4G": 4
+  },
+  "metrics_by_project": {
+    "15B": [
+      "pH4.5酶活(U/mL)",
+      "pH4.8绝对酶活(U/mL)",
+      "pH4.8酶活(U/mL)",
+      "pH6.0绝对酶活(U/mL)",
+      "pH6.0酶活(U/mL)",
+      "pH稳定性/相对值",
+      "pH稳定性指标1",
+      "pH稳定性指标2",
+      "待从原始记录回填",
+      "最适pH相关指标",
+      "最适pH相关指标/比值",
+      "最适pH相关指标/相对值",
+      "热稳定性_85C_3min(%)",
+      "热稳定性_90C_3min(%)",
+      "酸性保持率(%)",
+      "酸性保持率_pH4.8/pH6.0(%)"
+    ],
+    "16B": [
+      "80°C，3min耐温性",
+      "80°C，3min耐温性_复测",
+      "比活力",
+      "酶活相对百分比"
+    ],
+    "4G": [
+      "OD540",
+      "木聚糖酶酶活",
+      "比活",
+      "蛋白浓度"
+    ]
+  },
+  "mutation_parse_counts": {
+    "parseable_variant_rows": 989,
+    "unresolved_variant_rows": 181
+  },
+  "policy": "User-designated real wet-lab assets are registered as evidence; training eligibility is handled by downstream validators.",
+  "project_ids": [
+    "15B",
+    "16B",
+    "4G"
+  ],
+  "project_role_row_counts": {
+    "15B": {
+      "batch_control_map": 16,
+      "derived_vs_control": 190,
+      "documentation_or_script": 2,
+      "measurement_judgement": 190,
+      "raw_measurement_fact": 198,
+      "sample_batch_map": 52,
+      "variant_summary": 44
+    },
+    "16B": {
+      "batch_control_map": 3,
+      "derived_vs_control": 66,
+      "documentation_or_script": 3,
+      "measurement_judgement": 66,
+      "raw_measurement_fact": 99,
+      "sample_batch_map": 33,
+      "variant_summary": 33
+    },
+    "4G": {
+      "batch_control_map": 5,
+      "derived_vs_control": 189,
+      "documentation_or_script": 2,
+      "measurement_judgement": 315,
+      "raw_measurement_fact": 641,
+      "sample_batch_map": 23,
+      "variant_summary": 23
+    }
+  },
+  "rows_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/wet_lab_mutant_library_asset_audit.jsonl",
+  "safe_for_model_claim": false,
+  "source_root": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/酶改造突变体库-湿实验数据",
+  "variant_counts": {
+    "15B": 30,
+    "16B": 21,
+    "4G": 13
+  },
+  "venus15b_numbering_verified_rows": 103,
+  "venus15b_sequence_length": 486,
+  "venus15b_sequence_present": true
+}

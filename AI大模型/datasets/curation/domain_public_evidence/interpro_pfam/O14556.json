@@ -1,0 +1,73 @@
+{
+  "accession": "O14556",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00044",
+        "name": "Glyceraldehyde 3-phosphate dehydrogenase, NAD binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR020828",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14556",
+          "protein_length": 408,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 77,
+                  "end": 174,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00044",
+              "score": 2e-32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02800",
+        "name": "Glyceraldehyde 3-phosphate dehydrogenase, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR020829",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14556",
+          "protein_length": 408,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 223,
+                  "end": 388,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02800",
+              "score": 8.2e-70
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

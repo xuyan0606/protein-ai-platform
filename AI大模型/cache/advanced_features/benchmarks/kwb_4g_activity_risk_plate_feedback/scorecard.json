@@ -1,0 +1,26 @@
+{
+  "benchmark_name": "KWB plate-level wet-lab feedback",
+  "created_at": "2026-09-03T07:33:37.431473+00:00",
+  "dataset_version": "kwb-4g-activity-risk-plate-feedback-v0.1-local-2026-08-03",
+  "evidence_quality_counts": {
+    "limited_variant_replicates_control_supported": 4,
+    "plate_control_ratio_supported": 13
+  },
+  "head": "activity_risk",
+  "label_counts": {
+    "high_activity_risk": 7,
+    "low_activity_risk": 4,
+    "watch_activity_risk": 6
+  },
+  "local_only": true,
+  "model_under_test": "none_batch_control_activity_ratio_scorecard_only",
+  "quality_status": "internal_plate_activity_risk_cache_ready_not_model_claim",
+  "raw_measurement_rows_used": 638,
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "rows_scored": 17,
+  "safe_for_model_claim": false,
+  "training_data_used": "none_by_this_benchmark_cache_row",
+  "unique_batches": 5,
+  "unique_variants": 11
+}

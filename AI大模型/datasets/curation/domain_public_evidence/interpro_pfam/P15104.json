@@ -1,0 +1,73 @@
+{
+  "accession": "P15104",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00120",
+        "name": "Glutamine synthetase, catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR008146",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p15104",
+          "protein_length": 373,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 114,
+                  "end": 356,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00120",
+              "score": 5.7e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03951",
+        "name": "Glutamine synthetase, beta-Grasp domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR008147",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p15104",
+          "protein_length": 373,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 29,
+                  "end": 103,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03951",
+              "score": 2.4e-07
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

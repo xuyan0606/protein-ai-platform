@@ -1,5 +1,6 @@
 import { Search, ExternalLink, Download, Printer } from 'lucide-react'
 import { downloadReport, printReport } from '@/lib/report'
+import { ReportBadge, ReportBody, ReportHeader, ReportPanel, ReportSection, ReportShell } from '@/components/analysis/ReportShell'
 
 interface Hsp {
   query_from?: number
@@ -24,7 +25,7 @@ interface BlastHit {
   hsps?: Hsp[]
 }
 
-interface BlastResult {
+export interface BlastResult {
   query_length: number
   program: string
   database: string
@@ -35,25 +36,21 @@ interface BlastResult {
 
 function EValueBadge({ e }: { e: string }) {
   const val = parseFloat(e)
-  let color = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
-  if (isNaN(val) || val > 1e-5) color = 'bg-amber-500/10 text-amber-400 border-amber-500/20'
-  if (val > 0.01) color = 'bg-red-500/10 text-red-400 border-red-500/20'
-
-  return (
-    <code className={`text-[10px] font-mono font-medium px-1.5 py-0.5 rounded border ${color}`}>
-      {e}
-    </code>
-  )
+  let tone: 'success' | 'warning' | 'danger' = 'success'
+  if (isNaN(val) || val > 1e-5) tone = 'warning'
+  if (val > 0.01) tone = 'danger'
+  return <ReportBadge tone={tone}>{e}</ReportBadge>
 }
 
 function IdentityBar({ pct }: { pct: number }) {
   const color = pct > 80 ? 'bg-emerald-400' : pct > 50 ? 'bg-amber-400' : pct > 30 ? 'bg-orange-400' : 'bg-red-400'
+  const textColor = pct > 80 ? 'text-emerald-500' : pct > 50 ? 'text-amber-500' : pct > 30 ? 'text-orange-500' : 'text-red-500'
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex-1 h-2 bg-secondary rounded-full overflow-hidden">
-        <div className={`h-full ${color} rounded-full`} style={{ width: `${Math.min(100, pct)}%` }} />
+    <div className="flex items-center gap-3">
+      <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-secondary">
+        <div className={`h-full rounded-full ${color}`} style={{ width: `${Math.min(100, pct)}%` }} />
       </div>
-      <span className="text-[10px] font-mono font-medium w-12 text-right" style={{ color: pct > 80 ? '#34d399' : pct > 50 ? '#fbbf24' : '#fb923c' }}>
+      <span className={`w-12 text-right font-mono text-[10px] font-medium ${textColor}`}>
         {pct.toFixed(1)}%
       </span>
     </div>
@@ -64,77 +61,68 @@ export function BlastResultView({ data }: { data: BlastResult }) {
   const { results, results_count, program, database, query_length } = data
 
   return (
-    <div className="space-y-4 text-sm">
-      {/* Header */}
-      <div className="flex items-center gap-2 mb-1 justify-between">
-        <div className="flex items-center gap-2">
-          <Search className="w-4 h-4 text-primary" />
-          <h3 className="font-semibold">BLAST Results</h3>
-        </div>
-        <div className="flex items-center gap-1 shrink-0">
-          <button onClick={() => downloadReport('blast', data)} className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground" title="Download HTML report">
-            <Download className="w-3.5 h-3.5" />
-          </button>
-          <button onClick={() => printReport('blast', data)} className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground" title="Print report">
-            <Printer className="w-3.5 h-3.5" />
-          </button>
-        </div>
-      </div>
-      <p className="text-xs text-muted-foreground">
-        {program} against {database} · {query_length} aa query · {results_count} hits
-      </p>
-
-      {/* Results */}
-      <div className="space-y-1.5 max-h-96 overflow-y-auto">
-        {results.map((hit) => (
-          <div key={`${hit.accession}-${hit.hit_num}`} className="bg-secondary/30 border border-border rounded-lg p-3 hover:border-ring/30 transition-colors">
-            <div className="flex items-start justify-between gap-3 mb-2">
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-0.5">
-                  <span className="text-[10px] text-muted-foreground font-mono">#{hit.hit_num}</span>
-                  <span className="text-xs font-medium truncate">{hit.definition}</span>
+    <ReportShell>
+      <ReportHeader
+        icon={Search}
+        title="BLAST Results"
+        subtitle={`${program} against ${database} · ${query_length} aa query · ${results_count} hits`}
+        actions={
+          <>
+            <button onClick={() => downloadReport('blast', data)} className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground" title="Download HTML report">
+              <Download className="w-3.5 h-3.5" />
+            </button>
+            <button onClick={() => printReport('blast', data)} className="p-1.5 rounded-md hover:bg-secondary text-muted-foreground" title="Print report">
+              <Printer className="w-3.5 h-3.5" />
+            </button>
+          </>
+        }
+      />
+      <ReportBody>
+        <ReportSection title="Top Hits">
+          <div className="max-h-96 space-y-2 overflow-y-auto pr-1">
+            {results.map((hit) => (
+              <ReportPanel key={`${hit.accession}-${hit.hit_num}`} className="transition-colors hover:border-primary/20">
+                <div className="mb-3 flex items-start justify-between gap-3">
+                  <div className="min-w-0 flex-1">
+                    <div className="mb-1 flex items-center gap-2">
+                      <ReportBadge tone="neutral">#{hit.hit_num}</ReportBadge>
+                      <span className="truncate text-xs font-medium">{hit.definition}</span>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 text-[10px] text-muted-foreground">
+                      <code className="font-mono">{hit.accession}</code>
+                      {hit.organism && <span>{hit.organism}</span>}
+                      <span>{hit.hit_length} aa</span>
+                      <span>{hit.total_hsps} HSPs</span>
+                    </div>
+                  </div>
+                  <a
+                    href={`https://www.ncbi.nlm.nih.gov/protein/${hit.accession}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-md p-1 text-muted-foreground hover:bg-secondary"
+                    title="View on NCBI"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
                 </div>
-                <div className="text-[10px] text-muted-foreground flex items-center gap-2 flex-wrap">
-                  <code className="font-mono">{hit.accession}</code>
-                  {hit.organism && <span>{hit.organism}</span>}
-                  <span>·</span>
-                  <span>{hit.hit_length} aa</span>
-                  <span>·</span>
-                  <span>{hit.total_hsps} HSPs</span>
+
+                <div className="flex items-center gap-3">
+                  <div className="flex-1">
+                    <IdentityBar pct={hit.best_identity_percent} />
+                  </div>
+                  <EValueBadge e={hit.best_e_value} />
                 </div>
-              </div>
-              <a
-                href={`https://www.ncbi.nlm.nih.gov/protein/${hit.accession}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1 rounded hover:bg-secondary text-muted-foreground shrink-0"
-                title="View on NCBI"
-              >
-                <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
+              </ReportPanel>
+            ))}
 
-            <div className="flex items-center gap-3">
-              <div className="flex-1">
-                <IdentityBar pct={hit.best_identity_percent} />
-              </div>
-              <EValueBadge e={hit.best_e_value} />
-            </div>
+            {results.length === 0 && (
+              <ReportPanel className="py-8 text-center text-xs text-muted-foreground">
+                No significant hits found in {database}
+              </ReportPanel>
+            )}
           </div>
-        ))}
-
-        {results.length === 0 && (
-          <div className="text-center py-8 text-muted-foreground text-xs">
-            No significant hits found in {database}
-          </div>
-        )}
-      </div>
-    </div>
+        </ReportSection>
+      </ReportBody>
+    </ReportShell>
   )
-}
-
-export function isBlastResult(data: unknown): data is BlastResult {
-  if (!data || typeof data !== 'object') return false
-  const d = data as Record<string, unknown>
-  return 'results' in d && 'program' in d && 'database' in d
 }

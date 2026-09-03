@@ -1,0 +1,107 @@
+{
+  "accession": "P04839",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01794",
+        "name": "Ferric reductase like transmembrane component",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013130",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p04839",
+          "protein_length": 570,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 79,
+                  "end": 219,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF01794",
+              "score": 2.8e-12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08022",
+        "name": "FAD-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013112",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p04839",
+          "protein_length": 570,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 295,
+                  "end": 394,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08022",
+              "score": 2.7e-19
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08030",
+        "name": "Ferric reductase NAD binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013121",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p04839",
+          "protein_length": 570,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 401,
+                  "end": 550,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08030",
+              "score": 1.6e-37
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

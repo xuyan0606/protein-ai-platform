@@ -1,0 +1,73 @@
+{
+  "accession": "Q9Y2C4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01223",
+        "name": "DNA/RNA non-specific endonuclease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001604",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y2c4",
+          "protein_length": 368,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 61,
+                  "end": 286,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01223",
+              "score": 6.1e-58
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18026",
+        "name": "Endo/exonuclease (EXOG) C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041003",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y2c4",
+          "protein_length": 368,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 302,
+                  "end": 350,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18026",
+              "score": 1e-24
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

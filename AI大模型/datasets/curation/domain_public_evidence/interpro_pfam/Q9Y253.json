@@ -1,0 +1,141 @@
+{
+  "accession": "Q9Y253",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00817",
+        "name": "impB/mucB/samB family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001126",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y253",
+          "protein_length": 713,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 12,
+                  "end": 227,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00817",
+              "score": 2.1e-41
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF11799",
+        "name": "impB/mucB/samB family C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR017961",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y253",
+          "protein_length": 713,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 316,
+                  "end": 401,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF11799",
+              "score": 0.0042
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18439",
+        "name": "Ubiquitin-Binding Zinc Finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041298",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y253",
+          "protein_length": 713,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 631,
+                  "end": 661,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18439",
+              "score": 1e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21704",
+        "name": "DNApol eta/Rev1, HhH motif",
+        "source_database": "pfam",
+        "type": "conserved_site",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y253",
+          "protein_length": 713,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 250,
+                  "end": 305,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF21704",
+              "score": 7.9e-27
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

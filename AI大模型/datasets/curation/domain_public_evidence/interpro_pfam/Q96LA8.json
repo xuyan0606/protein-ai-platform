@@ -1,0 +1,73 @@
+{
+  "accession": "Q96LA8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF13649",
+        "name": "Methyltransferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041698",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96la8",
+          "protein_length": 375,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 86,
+                  "end": 182,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13649",
+              "score": 2.5e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22528",
+        "name": "Arginine methyltransferase oligomerization subdomain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR055135",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96la8",
+          "protein_length": 375,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 188,
+                  "end": 364,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22528",
+              "score": 4.4e-42
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

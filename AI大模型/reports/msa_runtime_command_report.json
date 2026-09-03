@@ -1,0 +1,15 @@
+{
+  "runtime_ready": true,
+  "selected_runtime": "local_binary",
+  "execution_jobs": 158,
+  "command_rows": 3,
+  "ready_commands": 1,
+  "blocked_commands": 2,
+  "homolog_database_ready": true,
+  "homolog_database": "cache/mmseqs_databases/uniprot_sprot",
+  "blockers": [
+    "docker daemon not reachable or not running"
+  ],
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/msa_runtime_commands.jsonl",
+  "policy": "command planning only; no external downloads, docker pulls, MSA searches, or conservation features are generated"
+}

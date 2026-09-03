@@ -1,0 +1,73 @@
+{
+  "accession": "P03905",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00361",
+        "name": "NADH:quinone oxidoreductase/Mrp antiporter, TM",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001750",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p03905",
+          "protein_length": 459,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 112,
+                  "end": 397,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00361",
+              "score": 6.6e-78
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01059",
+        "name": "NADH-ubiquinone oxidoreductase chain 4, amino terminus",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000260",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p03905",
+          "protein_length": 459,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1,
+                  "end": 109,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF01059",
+              "score": 2.3e-25
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

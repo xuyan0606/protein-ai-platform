@@ -1,0 +1,39 @@
+{
+  "accession": "A6NMB9",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00004",
+        "name": "ATPase family associated with various cellular activities (AAA)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003959",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "a6nmb9",
+          "protein_length": 653,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 428,
+                  "end": 555,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00004",
+              "score": 2.5e-15
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

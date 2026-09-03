@@ -1,0 +1,1064 @@
+{
+  "overall_status": "blocked_for_model_claim",
+  "local_only": true,
+  "data_quality_score": 84.0,
+  "streams": [
+    {
+      "stream": "numbering_curation",
+      "status": "in_progress",
+      "ready": false,
+      "current": {
+        "strict_supervised_rows": 0,
+        "claim_eligible_supervised_rows": 0,
+        "synthetic_or_unreceipted_rows": 0,
+        "label_provenance_hard_gate_status": "blocked_no_claim_eligible_real_source_labels",
+        "decision_coverage": 0.0,
+        "covered_batch_rows": 125,
+        "retrieval_packets": 10,
+        "retrieval_packet_rows": 475,
+        "retrieval_not_fetched_rows": 475,
+        "public_uniprot_evidence_rows": 475,
+        "public_uniprot_accessions": 145,
+        "reported_wt_matches_current_uniprot": 0,
+        "rows_with_isoform_options": 287,
+        "isoform_evidence_rows": 287,
+        "isoform_exact_position_matches": 8,
+        "isoform_review_candidate_rows": 8,
+        "pubmed_unique_found": 473,
+        "pubmed_high_review_risk_rows": 436,
+        "pubmed_abstract_rows_with_signal": 89,
+        "pubmed_abstract_mutation_mentions": 0,
+        "review_worklist_rows": 475,
+        "review_worklist_bucket_counts": {
+          "isoform_exact_plus_abstract_signal": 1,
+          "isoform_exact_candidate": 7,
+          "abstract_signal": 88,
+          "low_signal_high_risk": 362,
+          "pubmed_missing_or_invalid": 17
+        },
+        "review_packet_rows": 475,
+        "review_packet_reports": [
+          {
+            "packet_id": "numbering_review_isoform_exact_001",
+            "rows": 8,
+            "bucket_counts": {
+              "isoform_exact_plus_abstract_signal": 1,
+              "isoform_exact_candidate": 7
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_isoform_exact_001.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_isoform_exact_001.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_isoform_exact_001.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_abstract_signal_001",
+            "rows": 25,
+            "bucket_counts": {
+              "abstract_signal": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_abstract_signal_001.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_abstract_signal_001.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_abstract_signal_001.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_abstract_signal_002",
+            "rows": 25,
+            "bucket_counts": {
+              "abstract_signal": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_abstract_signal_002.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_abstract_signal_002.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_abstract_signal_002.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_abstract_signal_003",
+            "rows": 25,
+            "bucket_counts": {
+              "abstract_signal": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_abstract_signal_003.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_abstract_signal_003.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_abstract_signal_003.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_abstract_signal_004",
+            "rows": 13,
+            "bucket_counts": {
+              "abstract_signal": 13
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_abstract_signal_004.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_abstract_signal_004.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_abstract_signal_004.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_pubmed_missing_001",
+            "rows": 17,
+            "bucket_counts": {
+              "pubmed_missing_or_invalid": 17
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_pubmed_missing_001.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_pubmed_missing_001.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_pubmed_missing_001.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_001",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_001.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_001.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_001.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_002",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_002.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_002.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_002.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_003",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_003.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_003.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_003.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_004",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_004.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_004.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_004.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_005",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_005.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_005.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_005.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_006",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_006.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_006.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_006.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_007",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_007.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_007.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_007.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_008",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_008.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_008.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_008.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_009",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_009.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_009.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_009.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_010",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_010.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_010.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_010.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_011",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_011.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_011.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_011.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_012",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_012.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_012.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_012.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_013",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_013.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_013.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_013.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_014",
+            "rows": 25,
+            "bucket_counts": {
+              "low_signal_high_risk": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_014.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_014.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_014.decisions.draft.jsonl"
+          },
+          {
+            "packet_id": "numbering_review_low_signal_high_risk_015",
+            "rows": 12,
+            "bucket_counts": {
+              "low_signal_high_risk": 12
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_015.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_packets/numbering_review_low_signal_high_risk_015.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_decision_drafts/numbering_review_low_signal_high_risk_015.decisions.draft.jsonl"
+          }
+        ],
+        "literature_high_risk_rows": 455,
+        "literature_possible_relevance_rows": 20
+      },
+      "blockers": [
+        "need reviewed numbering decisions to reach >=100 strict supervised rows",
+        "need non-synthetic source receipts so claim-eligible supervised rows reach >=100"
+      ],
+      "next_commands": [
+        "review datasets/curation/numbering_uniprot_evidence.jsonl",
+        "edit datasets/curation/numbering_curation_decisions.jsonl",
+        "python3 scripts/run_safe_training_pipeline.py"
+      ]
+    },
+    {
+      "stream": "structure_cache",
+      "status": "partial_ready",
+      "ready": false,
+      "current": {
+        "coordinate_features_ready": true,
+        "pdb_sample_existing": 502,
+        "alphafold_sample_existing": 0,
+        "acquisition_entries": 500,
+        "acquisition_missing": 0,
+        "acquisition_cache_root": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/structures",
+        "chain_mapping_worklist_rows": 500,
+        "chain_mapping_bucket_counts": {
+          "single_chain_ca_length_close": 93,
+          "multi_chain_needs_selection": 356,
+          "single_chain_ca_length_mismatch": 51
+        },
+        "chain_autoreview_candidate_rows": 84,
+        "chain_autoreview_bucket_counts": {
+          "construct_or_mutant_candidate": 16,
+          "exact_sequence_match_candidate": 2,
+          "manual_alignment_candidate": 66
+        },
+        "chain_autoreview_exact_candidates": 2,
+        "chain_autoreview_construct_candidates": 16,
+        "chain_autoreview_draft_rows": 18,
+        "chain_autoreview_accepted_rows": 0,
+        "single_chain_close_candidates": 93,
+        "multi_chain_needs_selection": 356,
+        "chain_review_packet_rows": 500,
+        "chain_review_packet_reports": [
+          {
+            "packet_id": "structure_chain_single_close_001",
+            "rows": 25,
+            "bucket_counts": {
+              "single_chain_ca_length_close": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_close_001.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_close_001.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_single_close_001.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_single_close_002",
+            "rows": 25,
+            "bucket_counts": {
+              "single_chain_ca_length_close": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_close_002.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_close_002.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_single_close_002.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_single_close_003",
+            "rows": 25,
+            "bucket_counts": {
+              "single_chain_ca_length_close": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_close_003.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_close_003.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_single_close_003.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_single_close_004",
+            "rows": 18,
+            "bucket_counts": {
+              "single_chain_ca_length_close": 18
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_close_004.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_close_004.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_single_close_004.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_001",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_001.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_001.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_001.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_002",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_002.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_002.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_002.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_003",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_003.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_003.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_003.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_004",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_004.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_004.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_004.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_005",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_005.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_005.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_005.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_006",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_006.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_006.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_006.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_007",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_007.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_007.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_007.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_008",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_008.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_008.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_008.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_009",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_009.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_009.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_009.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_010",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_010.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_010.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_010.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_011",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_011.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_011.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_011.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_012",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_012.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_012.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_012.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_013",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_013.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_013.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_013.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_014",
+            "rows": 25,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_014.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_014.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_014.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_multi_select_015",
+            "rows": 6,
+            "bucket_counts": {
+              "multi_chain_needs_selection": 6
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_015.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_multi_select_015.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_multi_select_015.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_single_mismatch_001",
+            "rows": 25,
+            "bucket_counts": {
+              "single_chain_ca_length_mismatch": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_mismatch_001.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_mismatch_001.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_single_mismatch_001.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_single_mismatch_002",
+            "rows": 25,
+            "bucket_counts": {
+              "single_chain_ca_length_mismatch": 25
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_mismatch_002.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_mismatch_002.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_single_mismatch_002.chain_mapping.draft.jsonl"
+          },
+          {
+            "packet_id": "structure_chain_single_mismatch_003",
+            "rows": 1,
+            "bucket_counts": {
+              "single_chain_ca_length_mismatch": 1
+            },
+            "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_mismatch_003.jsonl",
+            "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_review_packets/structure_chain_single_mismatch_003.md",
+            "decision_draft": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_mapping_decision_drafts/structure_chain_single_mismatch_003.chain_mapping.draft.jsonl"
+          }
+        ],
+        "chain_mapping_decision_rows": 34,
+        "valid_chain_mapping_decision_rows": 34,
+        "invalid_chain_mapping_decision_rows": 0,
+        "reviewed_chain_mapping_rows": 34,
+        "usable_for_coordinate_features": 34
+      },
+      "blockers": [
+        "chain mapping and sequence-to-structure numbering still require review before model-quality claims"
+      ],
+      "next_commands": [
+        "review datasets/curation/structure_chain_review_packets/*.md",
+        "append reviewed rows to datasets/curation/structure_chain_mapping_decisions.jsonl",
+        "python3 scripts/run_safe_training_pipeline.py"
+      ]
+    },
+    {
+      "stream": "domain_intervals",
+      "status": "partial_ready",
+      "ready": false,
+      "current": {
+        "rows": 1942,
+        "invalid_interval_rows": 2,
+        "usable_for_position_features": 1785,
+        "queued_rows": 1942,
+        "invalid_rows": 1942,
+        "decision_rows": 1787,
+        "decision_coverage": 0.9202,
+        "curated_rows": 1787,
+        "invalid_decision_rows": 0,
+        "interpro_evidence_rows": 1942,
+        "interpro_exact_pfam_interval_rows": 1940,
+        "interpro_generated_decisions": 0,
+        "interpro_program_reviewed_decisions": 1785,
+        "interpro_merged_decision_rows": 1787,
+        "interpro_raw_unresolved_rows": 155,
+        "interpro_unresolved_rows": 0,
+        "consistency_snapshot": {
+          "status": "blocked",
+          "policy": "feature readiness does not authorize supervised training or model claims",
+          "totals": {
+            "evidence": 1942,
+            "single_interval_usable": 1785,
+            "multi_occurrence_usable": 155,
+            "unresolved": 2
+          },
+          "source_reports": {
+            "evidence": "reports/domain_interpro_evidence_report.json",
+            "decisions": "reports/domain_interval_interpro_decision_report.json",
+            "applied": "reports/domain_interval_apply_report.json",
+            "sidecar": "reports/domain_multi_occurrence_feature_report.json"
+          },
+          "allowed_feature_scopes": [
+            "single_interval_plus_sidecar"
+          ],
+          "consistency": {
+            "ok": true,
+            "errors": []
+          }
+        },
+        "interpro_review_packet_rows": 0,
+        "interpro_unresolved_bucket_counts": {},
+        "multi_occurrence_feature_rows": 155,
+        "multi_occurrence_invalid_rows": 0,
+        "multi_occurrence_ready_for_feature_use": true
+      },
+      "blockers": [],
+      "next_commands": [
+        "edit datasets/curation/domain_interval_decisions.jsonl with reviewed intervals",
+        "python3 scripts/run_safe_training_pipeline.py",
+        "python3 scripts/enrich_supervised_mutation_features.py"
+      ]
+    },
+    {
+      "stream": "msa_conservation",
+      "status": "ready",
+      "ready": true,
+      "current": {
+        "targets": 158,
+        "present": 158,
+        "missing": 0,
+        "ready": true,
+        "source": "trusted_cache_validated",
+        "manifest_exists": true,
+        "fasta_ready": 158,
+        "executor_status": "available",
+        "available_executors": [
+          {
+            "name": "configured_mmseqs2_local_binary",
+            "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/MMseqs2/bin/mmseqs"
+          }
+        ],
+        "planned_jobs": 158,
+        "ready_jobs": 158,
+        "blocked_jobs": 0,
+        "cache_validation_ready": true,
+        "cache_validation_valid_rows": 158,
+        "cache_validation_invalid_rows": 0,
+        "cache_validation_manifest_errors": [],
+        "runtime_ready": true,
+        "selected_runtime": "local_binary",
+        "runtime_blockers": [
+          "docker daemon not reachable or not running"
+        ],
+        "docker_daemon_ready": false,
+        "trusted_cache_ready": true,
+        "runtime_command_rows": 3,
+        "ready_runtime_commands": 1,
+        "blocked_runtime_commands": 2,
+        "homolog_database_ready": true,
+        "foreign_tool_status_counts": {
+          "ready_for_local_evaluation": 2,
+          "not_installed": 4,
+          "blocked_by_runtime_or_data": 2,
+          "blocked_by_license_review": 1,
+          "blocked_by_license": 2
+        },
+        "foreign_tools_ready_for_local_evaluation": 2
+      },
+      "blockers": [
+        "docker daemon not reachable or not running"
+      ],
+      "next_commands": [
+        "install/configure MMseqs2 or trusted MSA cache",
+        "rerun python3 scripts/build_msa_input_fastas.py",
+        "rerun python3 scripts/run_safe_training_pipeline.py"
+      ]
+    },
+    {
+      "stream": "kwb_experiment_feedback",
+      "status": "blocked",
+      "ready": false,
+      "current": {
+        "feedback_feature_rows": 1,
+        "local_feedback_rows": 7,
+        "reviewed_numbered_rows": 7,
+        "validated_rows": 7,
+        "training_eligible_rows": 7,
+        "candidate_source_files": 308,
+        "top_candidate_sources": [
+          {
+            "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI酶工程平台三层架构_交付包_v2_20260827/01_科学策略层/酶性质改造策略总纲_v2_20260825.md",
+            "relative_path": "AI酶工程平台三层架构_交付包_v2_20260827/01_科学策略层/酶性质改造策略总纲_v2_20260825.md",
+            "extension": ".md",
+            "size_bytes": 35945,
+            "keyword_hits": [
+              "activity",
+              "assay",
+              "expression",
+              "mutation",
+              "ph",
+              "screening",
+              "stability",
+              "substrate",
+              "tm",
+              "实验",
+              "底物",
+              "活性",
+              "温度",
+              "热稳定",
+              "稳定",
+              "突变",
+              "转化率",
+              "酶"
+            ],
+            "candidate_score": 180,
+            "status": "candidate_needs_manual_review",
+            "policy": "source discovery only; not validated feedback and not training data"
+          },
+          {
+            "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/docs/designs/2026-08-18-enzyme-platform-benchmark-roadmap.md",
+            "relative_path": "docs/designs/2026-08-18-enzyme-platform-benchmark-roadmap.md",
+            "extension": ".md",
+            "size_bytes": 13260,
+            "keyword_hits": [
+              "activity",
+              "assay",
+              "ddg",
+              "expression",
+              "mutation",
+              "ph",
+              "stability",
+              "substrate",
+              "tm",
+              "实验",
+              "底物",
+              "活性",
+              "温度",
+              "热稳定",
+              "稳定",
+              "突变",
+              "酶"
+            ],
+            "candidate_score": 170,
+            "status": "candidate_needs_manual_review",
+            "policy": "source discovery only; not validated feedback and not training data"
+          },
+          {
+            "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI酶工程平台三层架构_交付包_v2_20260827/03_执行控制层/enzyme-property-workflow-router/references/activity_workflow.md",
+            "relative_path": "AI酶工程平台三层架构_交付包_v2_20260827/03_执行控制层/enzyme-property-workflow-router/references/activity_workflow.md",
+            "extension": ".md",
+            "size_bytes": 14679,
+            "keyword_hits": [
+              "activity",
+              "assay",
+              "ddg",
+              "mutant",
+              "mutation",
+              "ph",
+              "stability",
+              "substrate",
+              "实验",
+              "底物",
+              "活性",
+              "温度",
+              "稳定",
+              "突变",
+              "转化率",
+              "酶"
+            ],
+            "candidate_score": 160,
+            "status": "candidate_needs_manual_review",
+            "policy": "source discovery only; not validated feedback and not training data"
+          },
+          {
+            "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/实验数据/2026_08_27_酶改造突变体库-湿实验数据/文献挖掘-数据获取任务说明书/木聚糖酶AI数据建设任务说明书_v1.md",
+            "relative_path": "实验数据/2026_08_27_酶改造突变体库-湿实验数据/文献挖掘-数据获取任务说明书/木聚糖酶AI数据建设任务说明书_v1.md",
+            "extension": ".md",
+            "size_bytes": 8613,
+            "keyword_hits": [
+              "activity",
+              "assay",
+              "expression",
+              "mutant",
+              "mutation",
+              "ph",
+              "screening",
+              "stability",
+              "substrate",
+              "tm",
+              "实验",
+              "底物",
+              "活性",
+              "稳定",
+              "突变",
+              "酶"
+            ],
+            "candidate_score": 160,
+            "status": "candidate_needs_manual_review",
+            "policy": "source discovery only; not validated feedback and not training data"
+          },
+          {
+            "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/实验数据/2026_08_27_酶改造突变体库-湿实验数据/文献挖掘-数据获取任务说明书/植酸酶AI数据建设任务说明书_v1.md",
+            "relative_path": "实验数据/2026_08_27_酶改造突变体库-湿实验数据/文献挖掘-数据获取任务说明书/植酸酶AI数据建设任务说明书_v1.md",
+            "extension": ".md",
+            "size_bytes": 8396,
+            "keyword_hits": [
+              "activity",
+              "assay",
+              "expression",
+              "mutant",
+              "mutation",
+              "ph",
+              "screening",
+              "stability",
+              "substrate",
+              "tm",
+              "实验",
+              "底物",
+              "活性",
+              "稳定",
+              "突变",
+              "酶"
+            ],
+            "candidate_score": 160,
+            "status": "candidate_needs_manual_review",
+            "policy": "source discovery only; not validated feedback and not training data"
+          }
+        ],
+        "source_review_packets": 17,
+        "source_review_packet_rows": 308,
+        "source_review_bucket_counts": {
+          "historical_feedback_candidate": 4,
+          "historical_session_candidate": 31,
+          "assay_protocol_reference": 5,
+          "manual_feedback_triage": 75,
+          "fixture_or_reference": 27,
+          "development_or_noise": 56,
+          "low_signal_candidate": 110
+        },
+        "plate_review_packet_rows": 110,
+        "plate_feedback_draft_rows": 110,
+        "approved_for_plate_intake_rows": 0,
+        "plate_intake_rows": 0,
+        "plate_training_eligible_rows": 0
+      },
+      "blockers": [
+        "real experiment feedback table not connected locally"
+      ],
+      "next_commands": [
+        "review datasets/feedback/source_review_packets/*.md",
+        "write only genuine numbered wet-lab rows to datasets/feedback/experiment_feedback.local.jsonl",
+        "python3 scripts/validate_experiment_feedback_intake.py"
+      ]
+    },
+    {
+      "stream": "model_training",
+      "status": "blocked",
+      "ready": false,
+      "current": {
+        "safe_for_training_pipeline": false,
+        "safe_for_model_claim": false,
+        "quality_score": 84.0,
+        "multitask_status": "blocked",
+        "multitask_missing_heads": [
+          "mutation_rank",
+          "stability",
+          "activity_risk",
+          "substrate_fit",
+          "assay_success"
+        ],
+        "active_learning_ready": false,
+        "active_learning_draft_rows": 0,
+        "active_learning_experiment_submission_allowed": false,
+        "head_model_card_status_heads": 5,
+        "head_model_card_ready_heads": 0,
+        "benchmark_acquisition_plan_rows": 15,
+        "benchmark_scorecards_ready": 0
+      },
+      "blockers": [
+        "mutation label numbering/provenance integrity is below supervised claim threshold",
+        "supervised pipeline is ready, but current non-leaky baseline is below model-quality threshold",
+        "multi-task head labels are incomplete for the five-head model",
+        "structure chain mapping still needs 475 human-reviewed rows",
+        "experiment feedback has 7 reviewed rows but is not training-authorized",
+        "need structure/pocket/conservation/family features and real KWB wet-lab feedback before claiming predictive quality",
+        "five-head model is not training-ready",
+        "head-level benchmark scorecards are not ready",
+        "plate-level feedback intake has no eligible rows",
+        "human approval workflow is not configured",
+        "budget and assay capacity are not approved",
+        "biosecurity/order gate is not approved",
+        "customer delivery gate is blocked"
+      ],
+      "next_commands": [
+        "python3 scripts/run_safe_training_pipeline.py",
+        "train GBDT/neural heads only after strict rows >=100 and feature cache ready"
+      ]
+    },
+    {
+      "stream": "governance_release",
+      "status": "blocked",
+      "ready": false,
+      "current": {
+        "governance_ready": false,
+        "governance_blockers": [
+          "external data source commercial/redistribution review is incomplete",
+          "external data source registry validation is not ready",
+          "verified external data/tool customer-delivery authorization scope is not ready",
+          "head-level benchmark matrix is not ready for model claims",
+          "biosecurity/order approval is not ready",
+          "sequence IP/FTO decisions are not ready for customer delivery",
+          "master readiness board is blocked for model claim"
+        ],
+        "benchmark_ready_for_model_claim": false,
+        "sequence_ip_packet_rows": 3,
+        "sequence_ip_fto_decision_rows": 0,
+        "sequence_ip_fto_valid_decision_rows": 0,
+        "reviewed_fto_rows": 0,
+        "sequence_ip_fto_ready_for_delivery": false,
+        "biosecurity_ready_for_ordering": false,
+        "order_ready_outputs_detected": 0,
+        "biosecurity_screening_draft_rows": 3,
+        "biosecurity_decision_rows": 0,
+        "biosecurity_valid_decision_rows": 0,
+        "biosecurity_approved_for_ordering_rows": 0,
+        "biosecurity_decision_ready_for_ordering": false,
+        "customer_delivery_ready": false,
+        "customer_delivery_blockers": [
+          "data_license_clearance",
+          "tool_license_clearance",
+          "verified_component_customer_delivery_scope",
+          "ip_fto_review",
+          "biosecurity_approval",
+          "human_delivery_approval",
+          "allowed_claims_review",
+          "benchmark_scorecards"
+        ],
+        "local_release_ready": false,
+        "local_release_guard_coverage_success": true,
+        "local_release_guard_coverage_failures": 0,
+        "claim_promotion_decision_validation_success": true,
+        "claim_promotion_decision_validation_failures": 0,
+        "claim_promotion_template_rows": 9,
+        "claim_promotion_template_matches_expected_contract": true,
+        "claim_promotion_target_claim_rows": 9,
+        "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+        "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+        "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+        "claim_promotion_target_claim_contract_requirement_complete": true,
+        "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+        "claim_promotion_target_claim_contract_requirement_evidence_complete": true,
+        "claim_promotion_required_evidence_artifact_count": 3,
+        "claim_promotion_required_evidence_artifacts": [
+          "reports/claim_readiness_matrix.json",
+          "reports/local_release_manifest.json",
+          "reports/master_readiness_board.json"
+        ],
+        "claim_promotion_required_validation_report_count": 6,
+        "claim_promotion_required_validation_reports": [
+          "reports/claim_readiness_matrix.json",
+          "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+          "reports/claim_readiness_policy_anchor_validation_report.json",
+          "reports/local_release_guard_coverage_validation_report.json",
+          "reports/local_release_manifest.json",
+          "reports/master_readiness_board_validation_report.json"
+        ],
+        "claim_promotion_decision_rows": 0,
+        "claim_promotion_approved_rows": 0,
+        "claim_promotion_missing_decisions": 9,
+        "claim_promotion_decision_success": false,
+        "claim_promotion_validation_failures": 0,
+        "human_target_projection_gap_report_valid": true,
+        "human_target_projection_runtime_manifest_valid": true,
+        "human_target_projection_runtime_receipts_valid": true,
+        "human_target_projection_blocked_source_index_valid": true,
+        "human_target_projection_blocked_split_manifests_valid": true,
+        "human_target_projection_unlock_checklist_valid": true,
+        "human_target_projection_unlock_report_valid": true,
+        "blocked_capabilities": [
+          "model_quality_claim",
+          "customer_delivery",
+          "approved_for_ordering",
+          "IP/FTO conclusion",
+          "external tool production use",
+          "advanced feature cache execution"
+        ],
+        "parallel_execution_status": "all_local_workstreams_started",
+        "parallel_execution_workstreams": 6,
+        "external_data_registry_ready": false,
+        "external_data_ready_sources": 0,
+        "license_review_packet_rows": 19,
+        "license_review_decision_rows": 3,
+        "license_review_valid_decision_rows": 3,
+        "license_review_training_approved_rows": 0,
+        "license_review_local_eval_approved_rows": 3,
+        "license_review_delivery_approved_rows": 0,
+        "license_review_ready_for_delivery": false,
+        "operator_review_action_rows": 6,
+        "operator_review_decision_rows": 0,
+        "operator_review_valid_decision_rows": 0,
+        "operator_review_completed_rows": 0,
+        "operator_review_all_actions_completed": false,
+        "operator_review_status_ready": false,
+        "operator_review_status_blockers": [
+          "external data/tool license decisions are incomplete",
+          "biosecurity screening decisions are incomplete",
+          "workstream acceptance gates are incomplete",
+          "operator review action queue is not completed"
+        ],
+        "accepted_workstreams": 0,
+        "total_acceptance_gates": 6,
+        "workstream_acceptance_decision_rows": 1,
+        "workstream_human_accepted_streams": 0,
+        "workstream_all_human_accepted": false
+      },
+      "blockers": [
+        "external data source commercial/redistribution review is incomplete",
+        "external data source registry validation is not ready",
+        "verified external data/tool customer-delivery authorization scope is not ready",
+        "head-level benchmark matrix is not ready for model claims",
+        "biosecurity/order approval is not ready",
+        "sequence IP/FTO decisions are not ready for customer delivery",
+        "master readiness board is blocked for model claim",
+        "data_license_clearance",
+        "tool_license_clearance",
+        "verified_component_customer_delivery_scope",
+        "ip_fto_review",
+        "biosecurity_approval",
+        "human_delivery_approval",
+        "allowed_claims_review",
+        "benchmark_scorecards",
+        "workstream acceptance gates are not complete",
+        "local release remains an internal review manifest only"
+      ],
+      "next_commands": [
+        "complete external data/tool license review",
+        "complete IP/FTO and biosecurity human review before any customer sequence package",
+        "rerun python3 scripts/run_safe_training_pipeline.py"
+      ]
+    },
+    {
+      "stream": "platform_integration",
+      "status": "local_gate_passed",
+      "ready": false,
+      "current": {
+        "backend_contract": true,
+        "adapter_stub": true,
+        "runtime_panel_design": true,
+        "structure_workflow_gate": true,
+        "workflow_gate_assertions": {
+          "uploaded_structure_precedes_model": true,
+          "unverified_numbering_blocks_structure_analysis": true,
+          "sequence_only_waits_for_prediction": true,
+          "stale_task_refs_ignored": true,
+          "task_ids_turn_scoped": true
+        },
+        "local_adapter": true,
+        "local_adapter_assertions": {
+          "uploaded_structure_calls_kwb_without_esmfold": true,
+          "unverified_numbering_blocks_kwb": true,
+          "sequence_only_returns_pending_without_prediction": true,
+          "sequence_only_can_call_kwb_after_prediction": true,
+          "tool_events_match_contract_shape": true
+        },
+        "external_tool_contract": true,
+        "external_tool_adapter_schema": true,
+        "foreign_tool_registry": true,
+        "foreign_tool_readiness": {
+          "ready_for_local_evaluation": 2,
+          "not_installed": 4,
+          "blocked_by_runtime_or_data": 2,
+          "blocked_by_license_review": 1,
+          "blocked_by_license": 2
+        }
+      },
+      "blockers": [
+        "production platform integration is not authorized; local gate only"
+      ],
+      "next_commands": [
+        "keep local-only until explicit server update instruction"
+      ]
+    }
+  ],
+  "ready_streams": 1,
+  "partial_ready_streams": 3,
+  "total_streams": 8,
+  "recommended_order": [
+    "numbering_curation",
+    "structure_cache",
+    "domain_intervals",
+    "kwb_experiment_feedback",
+    "msa_conservation",
+    "model_training",
+    "governance_release",
+    "platform_integration"
+  ]
+}

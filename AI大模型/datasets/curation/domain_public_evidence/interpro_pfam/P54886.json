@@ -1,0 +1,73 @@
+{
+  "accession": "P54886",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00171",
+        "name": "Aldehyde dehydrogenase family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR015590",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p54886",
+          "protein_length": 795,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 363,
+                  "end": 625,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00171",
+              "score": 5.3e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00696",
+        "name": "Amino acid kinase family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001048",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p54886",
+          "protein_length": 795,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 71,
+                  "end": 329,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00696",
+              "score": 4.2e-38
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

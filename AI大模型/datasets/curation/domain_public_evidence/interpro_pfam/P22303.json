@@ -1,0 +1,73 @@
+{
+  "accession": "P22303",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00135",
+        "name": "Carboxylesterase family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002018",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p22303",
+          "protein_length": 614,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 39,
+                  "end": 563,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00135",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08674",
+        "name": "Acetylcholinesterase tetramerisation domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014788",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p22303",
+          "protein_length": 614,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 578,
+                  "end": 611,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF08674",
+              "score": 3.5e-16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

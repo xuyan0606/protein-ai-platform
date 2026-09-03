@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kwb-advanced-feature-cache-manifest.schema.json",
+  "title": "KWB advanced feature cache manifest",
+  "type": "object",
+  "required": [
+    "manifest_id",
+    "version",
+    "local_only",
+    "feature_families",
+    "cache_roots",
+    "status"
+  ],
+  "properties": {
+    "manifest_id": {"type": "string"},
+    "version": {"type": "string"},
+    "local_only": {"type": "boolean", "const": true},
+    "feature_families": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["family_id", "adapter_ids", "cache_root", "status"],
+        "properties": {
+          "family_id": {"type": "string"},
+          "adapter_ids": {"type": "array", "items": {"type": "string"}},
+          "cache_root": {"type": "string"},
+          "expected_artifacts": {"type": "array", "items": {"type": "string"}},
+          "status": {"type": "string"}
+        }
+      }
+    },
+    "cache_roots": {"type": "object"},
+    "status": {"type": "string"}
+  }
+}

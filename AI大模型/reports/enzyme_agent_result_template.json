@@ -1,0 +1,96 @@
+{
+  "result_id": "enzyme_agent_result_template_20260731_p168",
+  "created_at": "2026-09-03T07:35:25.534242+00:00",
+  "local_only": true,
+  "source_plan_id": "enzyme_resource_retrieval_plan_20260731_p167",
+  "request_class": "enzyme_mutation_analysis_result_template_fail_closed",
+  "selected_variants": [],
+  "property_predictions": [
+    {
+      "head": "mutation_rank",
+      "status": "blocked_no_claim_eligible_training_rows",
+      "safe_to_rank_for_customer": false
+    },
+    {
+      "head": "stability",
+      "status": "proxy_ddg_available_but_not_training_label",
+      "safe_to_rank_for_customer": false
+    },
+    {
+      "head": "activity_risk",
+      "status": "blocked_no_authorized_numeric_wet_lab_feedback",
+      "safe_to_rank_for_customer": false
+    },
+    {
+      "head": "substrate_fit",
+      "status": "blocked_pending_reviewed_structure_and_substrate_evidence",
+      "safe_to_rank_for_customer": false
+    },
+    {
+      "head": "assay_success",
+      "status": "blocked_no_training_eligible_plate_feedback",
+      "safe_to_rank_for_customer": false
+    }
+  ],
+  "ddg_results": [
+    {
+      "backend_family": "ThermoMPNN_proxy",
+      "ready": true,
+      "negative_ddg_is_stabilizing": true,
+      "usable_for": "manual_review_support_only",
+      "safe_for_model_claim": false
+    },
+    {
+      "backend_family": "Rosetta/PyRosetta/FoldX_physics",
+      "ready": true,
+      "negative_ddg_is_stabilizing": true,
+      "usable_for": "local_noncommercial_runtime_feature_manual_review_only",
+      "safe_for_model_claim": false
+    }
+  ],
+  "evidence_summary": {
+    "reviewed_numbering_rows": 4,
+    "reviewed_structure_chain_mapping_rows": 34,
+    "claim_eligible_training_rows": 0,
+    "strict_msa_site_feature_rows": 0,
+    "wet_lab_authorization_rows": 8,
+    "wet_lab_preflight_rows": 8,
+    "benchmark_score_cache_ready": false,
+    "claim_matrix_blocked_claims": 10,
+    "resource_plan_validation_success": true,
+    "resource_plan_blocked_actions": 5,
+    "resource_plan_forbidden_actions": 1,
+    "local_release_ready": false
+  },
+  "manual_review_required": true,
+  "experimental_plan": {
+    "status": "blocked_pending_review",
+    "allowed_next_step": "Use this template to display blocked evidence and prepare manual numbering, wet-lab authorization, benchmark, or ddG runtime review; do not execute training import.",
+    "blocked_reason": "claim_eligible_training_rows_below_100;reviewed_numbering_rows_below_75"
+  },
+  "forbidden_claims": [
+    "model_quality_claim",
+    "customer_delivery",
+    "approved_for_ordering",
+    "release_ready",
+    "training_import",
+    "safe_for_model_claim",
+    "pyrosetta_physics_ddg_training_or_release_claim",
+    "rosetta_or_foldx_physics_ddg_integrated",
+    "reviewed_numbering_complete"
+  ],
+  "artifact_refs": [
+    "schemas/enzyme_agent_result.schema.json",
+    "reports/enzyme_resource_retrieval_plan_report.json",
+    "reports/enzyme_resource_retrieval_plan_validation_report.json",
+    "reports/label_provenance_audit_report.json",
+    "reports/strict_msa_site_feature_report.json",
+    "reports/claim_readiness_matrix.json",
+    "reports/local_release_manifest.json",
+    "reports/ddg_backend_readiness_report.json"
+  ],
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Fail-closed output contract for future enzyme agent recommendations. No selected variant may be treated as Go, training import, model-quality claim, customer delivery, ordering approval, or release approval from this template."
+}

@@ -1,0 +1,124 @@
+{
+  "accession": "P41226",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00899",
+        "name": "ThiF family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000594",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p41226",
+          "protein_length": 1012,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 15,
+                  "end": 381,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00899",
+              "score": 2.4e-22
+            },
+            {
+              "fragments": [
+                {
+                  "start": 415,
+                  "end": 604,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 844,
+                  "end": 889,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": true,
+              "model": "PF00899",
+              "score": 6.1e-56
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09358",
+        "name": "Ubiquitin fold domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR018965",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p41226",
+          "protein_length": 1012,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 914,
+                  "end": 1007,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09358",
+              "score": 9.5e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF10585",
+        "name": "Ubiquitin-activating enzyme, SCCH domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019572",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p41226",
+          "protein_length": 1012,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 605,
+                  "end": 843,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF10585",
+              "score": 1.6e-73
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

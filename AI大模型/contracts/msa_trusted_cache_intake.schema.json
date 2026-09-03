@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kwb-msa-trusted-cache-intake.schema.json",
+  "title": "KWB trusted MSA/conservation cache intake row",
+  "type": "object",
+  "required": [
+    "uniprot_id",
+    "sequence_length",
+    "source",
+    "source_database",
+    "database_version",
+    "msa_path",
+    "msa_sha256",
+    "conservation_feature_path",
+    "conservation_sha256",
+    "reviewer",
+    "reviewed_at"
+  ],
+  "properties": {
+    "uniprot_id": {"type": "string"},
+    "sequence_length": {"type": "integer", "minimum": 1},
+    "source": {"type": "string", "minLength": 1},
+    "source_database": {"type": "string", "minLength": 1},
+    "database_version": {"type": "string", "minLength": 1},
+    "msa_path": {"type": "string", "minLength": 1},
+    "msa_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+    "conservation_feature_path": {"type": "string", "minLength": 1},
+    "conservation_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+    "reviewer": {"type": "string", "minLength": 1},
+    "reviewed_at": {"type": "string", "minLength": 1},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": true
+}

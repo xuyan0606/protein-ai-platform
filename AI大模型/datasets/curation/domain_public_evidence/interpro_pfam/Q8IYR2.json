@@ -1,0 +1,78 @@
+{
+  "accession": "Q8IYR2",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00856",
+        "name": "SET domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001214",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iyr2",
+          "protein_length": 804,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 244,
+                  "end": 295,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 336,
+                  "end": 574,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": false,
+              "model": "PF00856",
+              "score": 9e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01753",
+        "name": "MYND finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002893",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iyr2",
+          "protein_length": 804,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 296,
+                  "end": 335,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01753",
+              "score": 5.9e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

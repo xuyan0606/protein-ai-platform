@@ -1,0 +1,73 @@
+{
+  "accession": "P50747",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02237",
+        "name": "Biotin protein ligase C terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003142",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p50747",
+          "protein_length": 726,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 669,
+                  "end": 716,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF02237",
+              "score": 4.2e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03099",
+        "name": "Biotin/lipoate A/B protein ligase family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004143",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p50747",
+          "protein_length": 726,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 472,
+                  "end": 603,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03099",
+              "score": 2.3e-32
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

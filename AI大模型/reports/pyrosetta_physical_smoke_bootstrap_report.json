@@ -1,0 +1,90 @@
+{
+  "backend": "pyrosetta",
+  "backend_config_enabled": true,
+  "config": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/config/ddg_backend.local.json",
+  "created_at": "2026-09-03T07:34:40.767295+00:00",
+  "ddg_protocol_executed": true,
+  "ddg_table": {
+    "backend": "pyrosetta",
+    "ddg_units": "REU",
+    "negative_ddg_is_stabilizing": true,
+    "protocol": "minimal_scorefxn_single_mutation_smoke",
+    "rows": [
+      {
+        "chain_id": "A",
+        "ddg_reu": -1.884713732593724,
+        "manual_review_required": true,
+        "mutant": "A",
+        "mutant_score_reu": 47.775395418161466,
+        "mutation": "T10A",
+        "pdb_position": 10,
+        "pose_index": 34,
+        "structure_id": "10MH",
+        "training_label": false,
+        "wild_score_reu": 49.66010915075519,
+        "wild_type": "T"
+      }
+    ],
+    "runtime_smoke_only_not_training_label": true
+  },
+  "error": null,
+  "install_probe": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/pyrosetta_local_install_probe_report.json",
+  "license_local_evaluation_approved": true,
+  "license_report": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/external_license_review_decision_validation_report.json",
+  "local_only": true,
+  "mutation": {
+    "chain_id": "A",
+    "mutant": "A",
+    "mutation": "T10A",
+    "mutation_position": 10,
+    "scope": "runtime_smoke_only_not_training_label",
+    "wild_type": "T"
+  },
+  "physical_smoke_passed": true,
+  "policy": "PyRosetta runtime smoke is computational physics evidence only. It is not a wet-lab label, not training-import eligible, not model-claim ready, and not release-ready.",
+  "pyrosetta_init_executed": true,
+  "release_ready": false,
+  "required_artifacts": [
+    "parameters.json",
+    "input_structure.sha256",
+    "mutation_list.json",
+    "ddg_table.json",
+    "runtime.log"
+  ],
+  "runtime": {
+    "added_sys_paths": [
+      "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/PyRosetta/python"
+    ],
+    "init_options": "-mute all",
+    "install_path": "cache/external/PyRosetta/python",
+    "pyrosetta_file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/PyRosetta/python/pyrosetta/__init__.py",
+    "pyrosetta_init_executed": true,
+    "pyrosetta_version": null,
+    "python_executable": "/Library/Developer/CommandLineTools/usr/bin/python3"
+  },
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "smoke_artifact_paths": [
+    "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/ddg_table.json",
+    "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/input_structure.sha256",
+    "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/mutation_list.json",
+    "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/parameters.json",
+    "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/runtime.log"
+  ],
+  "smoke_artifact_sha256": {
+    "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/ddg_table.json": "6078bf9f94cc630f9043a6646291d9bc07f2179d9570060da58cbd273adc1de1",
+    "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/input_structure.sha256": "b952195ae30be5b063582bff5c6d0e7ce6e3ebab552aba0d12602c4fdbe90d7f",
+    "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/mutation_list.json": "5c5d41642db71584354e694f422498c0f292f304cbe8952f750197b6aec7b76e",
+    "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/parameters.json": "4af73daa6a1cb5ad05f1e33a4b97077ed2825e35a65861e5a411bd75080d735c",
+    "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/runtime.log": "10d77c6b3a45a3600f159fb851c393e3111180e898a8265cf5578e5efb906ea8"
+  },
+  "smoke_output_dir": "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap",
+  "status": "completed",
+  "structure": {
+    "chain_id": "A",
+    "sequence_to_structure_mapping_status": "exact_sequence_match",
+    "structure_id": "10MH",
+    "structure_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/structures/pdb/10mh.pdb",
+    "structure_sha256": "9ec1d5f03fb4f979798bdf919834e6330f95f51dbb312a5c7c4088899f1e822e"
+  }
+}

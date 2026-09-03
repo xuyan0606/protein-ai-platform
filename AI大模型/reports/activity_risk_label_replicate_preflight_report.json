@@ -1,0 +1,33 @@
+{
+  "activity_risk_label_rows_created": 0,
+  "created_at": "2026-09-03T07:32:22.896226+00:00",
+  "decision_template_output": "datasets/feedback/activity_risk_label_replicate_decisions.template.jsonl",
+  "decision_template_rows": 6,
+  "formal_decision_rows": 0,
+  "local_only": true,
+  "policy": "Preflight and template only. The builder does not write formal activity_risk labels, does not infer replicates, and does not change benchmark, training, model-claim or release gates.",
+  "preflight_output": "datasets/feedback/activity_risk_label_replicate_preflight.jsonl",
+  "preflight_rows": 6,
+  "proposed_label_counts": {
+    "low_activity_risk_candidate": 3,
+    "watch_activity_risk_candidate": 3
+  },
+  "ready_for_training_import": false,
+  "ready_for_training_import_rows": 0,
+  "release_ready": false,
+  "replicate_rows_counted_for_training": 0,
+  "replicate_status_counts": {
+    "explicit_replicate_missing": 6
+  },
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "source_feedback": "datasets/feedback/experiment_feedback.local.jsonl",
+  "source_numeric_activity_rows": 6,
+  "training_import_written_rows": 0,
+  "validator_command": "python3 scripts/validate_activity_risk_label_replicate_preflight.py",
+  "variant_count": 2,
+  "variant_counts": {
+    "D105N": 3,
+    "S265T": 3
+  }
+}

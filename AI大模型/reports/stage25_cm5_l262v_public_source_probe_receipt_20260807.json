@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "mode": "stage25_cm5_l262v_public_source_probe_receipt",
+  "stage": 25,
+  "pmid": "42235695",
+  "doi": "10.1016/j.biortech.2026.135069",
+  "probed_at": "2026-08-07",
+  "probe_rows": 4,
+  "public_source_artifact_rows": 0,
+  "slot_artifact_rows": 0,
+  "metadata_only_rows": 3,
+  "zenodo_archive_only_rows": 1,
+  "probes": [
+    {
+      "probe_id": "europe_pmc_search",
+      "endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:42235695&format=json",
+      "http_status": 200,
+      "pmcid": null,
+      "is_open_access": "N",
+      "fulltext_url_present": false,
+      "result_class": "metadata_only",
+      "slot_artifact_rows": 0
+    },
+    {
+      "probe_id": "pubmed_summary",
+      "endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=42235695&retmode=json",
+      "http_status": 200,
+      "pmcid": null,
+      "is_open_access": null,
+      "fulltext_url_present": false,
+      "result_class": "metadata_only",
+      "slot_artifact_rows": 0
+    },
+    {
+      "probe_id": "crossref_work",
+      "endpoint": "https://api.crossref.org/works/10.1016%2Fj.biortech.2026.135069",
+      "http_status": 200,
+      "pmcid": null,
+      "is_open_access": null,
+      "fulltext_url_present": false,
+      "result_class": "metadata_only",
+      "slot_artifact_rows": 0
+    },
+    {
+      "probe_id": "zenodo_record",
+      "endpoint": "https://zenodo.org/api/records/19733678",
+      "http_status": 200,
+      "pmcid": null,
+      "is_open_access": null,
+      "fulltext_url_present": false,
+      "result_class": "already_audited_archive_only",
+      "slot_artifact_rows": 0,
+      "public_file_rows": 1,
+      "archive_filename": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase.zip",
+      "archive_size_bytes": 49144286,
+      "archive_md5": "d30dcf8029567cbc792c156d0d8f9bfc"
+    }
+  ],
+  "external_sqlite_mutated": false,
+  "formal_decision_rows_written": 0,
+  "apply_executed": false,
+  "export_safe_released": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Public metadata probes only. Europe PMC, PubMed, Crossref metadata and Zenodo archive discovery do not supply a raw trace, quality-bearing independent CM5 resequencing, complete construct record, or sequence/PDB version reconciliation. No paywall bypass or publisher content endpoint was requested."
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q9BYF1",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01401",
+        "name": "Angiotensin-converting enzyme",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001548",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9byf1",
+          "protein_length": 805,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 21,
+                  "end": 606,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01401",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16959",
+        "name": "Renal amino acid transporter",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR031588",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9byf1",
+          "protein_length": 805,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 617,
+                  "end": 770,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16959",
+              "score": 1.9e-69
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

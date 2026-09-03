@@ -1,0 +1,107 @@
+{
+  "accession": "Q9Y508",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF05605",
+        "name": "Drought induced 19 protein (Di19), zinc-binding",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR008598",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y508",
+          "protein_length": 228,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 140,
+                  "end": 200,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF05605",
+              "score": 1.2e-12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13445",
+        "name": "RING-type zinc-finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR027370",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y508",
+          "protein_length": 228,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 29,
+                  "end": 64,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13445",
+              "score": 4.7e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18574",
+        "name": "C2HC Zing finger domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR034734",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y508",
+          "protein_length": 228,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 85,
+                  "end": 117,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18574",
+              "score": 1.3e-12
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

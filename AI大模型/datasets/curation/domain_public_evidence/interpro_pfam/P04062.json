@@ -1,0 +1,73 @@
+{
+  "accession": "P04062",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02055",
+        "name": "Glycosyl hydrolase family 30 TIM-barrel domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR033453",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p04062",
+          "protein_length": 536,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 117,
+                  "end": 466,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02055",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17189",
+        "name": "Glycosyl hydrolase family 30 beta sandwich domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR033452",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p04062",
+          "protein_length": 536,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 469,
+                  "end": 531,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17189",
+              "score": 7e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

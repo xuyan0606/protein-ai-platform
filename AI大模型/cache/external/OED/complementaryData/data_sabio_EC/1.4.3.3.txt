@@ -1,0 +1,692 @@
+EntryID	Substrate	Product	EnzymeType	PubMedID	Organism	UniprotID	ECNumber	pH	Temperature	parameter.type	parameter.associatedSpecies	parameter.startValue	parameter.endValue	parameter.standardDeviation	parameter.unit
+1596	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	concentration	D-Alanine	0.0025	0.025	-	M
+1596	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	concentration	O2	5.0E-5	5.0E-4	-	M
+1596	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	O2	1.0E-4		-	M
+1596	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	kcat		12.7		-	s^(-1)
+1596	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	D-Alanine	0.0023		-	M
+1597	O2;H2O;D-Proline	2-Oxopentanoate;NH3;H2O2	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	D-Proline	0.0095		-	M
+1597	O2;H2O;D-Proline	2-Oxopentanoate;NH3;H2O2	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	kcat		87.2		-	s^(-1)
+1597	O2;H2O;D-Proline	2-Oxopentanoate;NH3;H2O2	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	O2	0.00151		-	M
+1598	O2;H2O;D-Methionine	H2O2;NH3;4-Methylthio-2-oxobutanoate	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	D-Methionine	0.03		-	M
+1598	O2;H2O;D-Methionine	H2O2;NH3;4-Methylthio-2-oxobutanoate	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	O2	0.0042		-	M
+1598	O2;H2O;D-Methionine	H2O2;NH3;4-Methylthio-2-oxobutanoate	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	kcat		143.0		-	s^(-1)
+1599	H2O;O2;D-Phenylalanine	NH3;H2O2;Phenylpyruvate	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	D-Phenylalanine	0.0123		-	M
+1599	H2O;O2;D-Phenylalanine	NH3;H2O2;Phenylpyruvate	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	O2	8.3E-4		-	M
+1599	H2O;O2;D-Phenylalanine	NH3;H2O2;Phenylpyruvate	wildtype	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	kcat		55.9		-	s^(-1)
+1600	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	mutant Y224F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	O2	2.9E-4		-	M
+1600	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	mutant Y224F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	D-Phenylalanine	0.0075		-	M
+1600	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	mutant Y224F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	kcat		48.8		-	s^(-1)
+1601	D-Methionine;H2O;O2	NH3;4-Methylthio-2-oxobutanoate;H2O2	mutant Y224F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	D-Methionine	0.0156		-	M
+1601	D-Methionine;H2O;O2	NH3;4-Methylthio-2-oxobutanoate;H2O2	mutant Y224F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	kcat		92.0		-	s^(-1)
+1601	D-Methionine;H2O;O2	NH3;4-Methylthio-2-oxobutanoate;H2O2	mutant Y224F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	O2	0.00197		-	M
+1602	O2;D-Proline;H2O	H2O2;2-Oxopentanoate;NH3	mutant Y224F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	O2	0.00135		-	M
+1602	O2;D-Proline;H2O	H2O2;2-Oxopentanoate;NH3	mutant Y224F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	kcat		83.7		-	s^(-1)
+1602	O2;D-Proline;H2O	H2O2;2-Oxopentanoate;NH3	mutant Y224F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	D-Proline	0.0091		-	M
+1603	D-Alanine;H2O;O2	H2O2;NH3;Pyruvate	mutant Y228F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	O2	5.0E-5		-	M
+1603	D-Alanine;H2O;O2	H2O2;NH3;Pyruvate	mutant Y228F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	D-Alanine	0.027		-	M
+1603	D-Alanine;H2O;O2	H2O2;NH3;Pyruvate	mutant Y228F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	kcat		5.0		-	s^(-1)
+1604	H2O;D-Alanine;O2	Pyruvate;H2O2;NH3	mutant Y224F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	O2	1.2E-4		-	M
+1604	H2O;D-Alanine;O2	Pyruvate;H2O2;NH3	mutant Y224F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	D-Alanine	0.0028		-	M
+1604	H2O;D-Alanine;O2	Pyruvate;H2O2;NH3	mutant Y224F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	kcat		11.6		-	s^(-1)
+1605	O2;H2O;D-Proline	NH3;H2O2;2-Oxopentanoate	mutant Y228F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	O2	3.4E-4		-	M
+1605	O2;H2O;D-Proline	NH3;H2O2;2-Oxopentanoate	mutant Y228F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	D-Proline	0.0122		-	M
+1605	O2;H2O;D-Proline	NH3;H2O2;2-Oxopentanoate	mutant Y228F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	kcat		11.7		-	s^(-1)
+1606	D-Methionine;H2O;O2	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant Y228F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	kcat		47.5		-	s^(-1)
+1606	D-Methionine;H2O;O2	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant Y228F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	O2	0.0021		-	M
+1606	D-Methionine;H2O;O2	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant Y228F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	D-Methionine	0.005		-	M
+1607	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	mutant Y228F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	kcat		7.1		-	s^(-1)
+1607	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	mutant Y228F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	O2	2.0E-4		-	M
+1607	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	mutant Y228F	7989339	Sus scrofa	P00371	1.4.3.3	8.5	25.0	Km	D-Phenylalanine	0.0183		-	M
+7648	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Alanine	7833.333		-	M^(-1)*s^(-1)
+7648	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7648	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	D-Alanine	0.0501		-	M
+7648	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7648	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		8.5		-	s^(-1)
+7648	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Alanine	0.0011		-	M
+7649	D-Alanine;H2O;O2	H2O2;NH3;Pyruvate	mutant hybrid DXO	16751595	Sus scrofa		1.4.3.3	8.3	25.0	Km	D-Alanine	0.045		-	M
+7649	D-Alanine;H2O;O2	H2O2;NH3;Pyruvate	mutant hybrid DXO	16751595	Sus scrofa		1.4.3.3	8.3	25.0	concentration	D-Alanine	0.0501		-	M
+7649	D-Alanine;H2O;O2	H2O2;NH3;Pyruvate	mutant hybrid DXO	16751595	Sus scrofa		1.4.3.3	8.3	25.0	concentration	unknown compound	3.72E-5		-	M
+7649	D-Alanine;H2O;O2	H2O2;NH3;Pyruvate	mutant hybrid DXO	16751595	Sus scrofa		1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7649	D-Alanine;H2O;O2	H2O2;NH3;Pyruvate	mutant hybrid DXO	16751595	Sus scrofa		1.4.3.3	8.3	25.0	kcat		0.8833333		-	s^(-1)
+7649	D-Alanine;H2O;O2	H2O2;NH3;Pyruvate	mutant hybrid DXO	16751595	Sus scrofa		1.4.3.3	8.3	25.0	kcat/Km	D-Alanine	20.0		-	M^(-1)*s^(-1)
+7650	O2;D-Arginine;H2O	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7650	O2;D-Arginine;H2O	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.166667		-	s^(-1)
+7650	O2;D-Arginine;H2O	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7650	O2;D-Arginine;H2O	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Arginine	283.3333		-	M^(-1)*s^(-1)
+7650	O2;D-Arginine;H2O	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Arginine	0.012		-	M
+7651	O2;L-Aspartate;H2O	H2O2;Oxaloacetate;NH3	mutant hybrid DXO	16751595	Sus scrofa		1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7651	O2;L-Aspartate;H2O	H2O2;Oxaloacetate;NH3	mutant hybrid DXO	16751595	Sus scrofa		1.4.3.3	8.3	25.0	concentration	L-Aspartate	0.0455		-	M
+7651	O2;L-Aspartate;H2O	H2O2;Oxaloacetate;NH3	mutant hybrid DXO	16751595	Sus scrofa		1.4.3.3	8.3	25.0	concentration	unknown compound	3.72E-5		-	M
+7651	O2;L-Aspartate;H2O	H2O2;Oxaloacetate;NH3	mutant hybrid DXO	16751595	Sus scrofa		1.4.3.3	8.3	25.0	Km	L-Aspartate	0.026		-	M
+7651	O2;L-Aspartate;H2O	H2O2;Oxaloacetate;NH3	mutant hybrid DXO	16751595	Sus scrofa		1.4.3.3	8.3	25.0	kcat/Km	L-Aspartate	18.33333		-	M^(-1)*s^(-1)
+7651	O2;L-Aspartate;H2O	H2O2;Oxaloacetate;NH3	mutant hybrid DXO	16751595	Sus scrofa		1.4.3.3	8.3	25.0	kcat		0.5		-	s^(-1)
+7653	D-Arginine;O2;H2O	5-Guanidino-2-oxopentanoate;H2O2;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7653	D-Arginine;O2;H2O	5-Guanidino-2-oxopentanoate;H2O2;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.5		-	s^(-1)
+7653	D-Arginine;O2;H2O	5-Guanidino-2-oxopentanoate;H2O2;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7653	D-Arginine;O2;H2O	5-Guanidino-2-oxopentanoate;H2O2;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Arginine	0.013		-	M
+7654	O2;H2O;D-Lysine	H2O2;NH3;6-Amino-2-oxohexanoate	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7654	O2;H2O;D-Lysine	H2O2;NH3;6-Amino-2-oxohexanoate	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		0.8		-	s^(-1)
+7654	O2;H2O;D-Lysine	H2O2;NH3;6-Amino-2-oxohexanoate	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7654	O2;H2O;D-Lysine	H2O2;NH3;6-Amino-2-oxohexanoate	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Lysine	0.01		-	M
+7655	D-Methionine;O2;H2O	4-Methylthio-2-oxobutanoate;H2O2;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Methionine	6.5E-4		-	M
+7655	D-Methionine;O2;H2O	4-Methylthio-2-oxobutanoate;H2O2;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7655	D-Methionine;O2;H2O	4-Methylthio-2-oxobutanoate;H2O2;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		6.833333		-	s^(-1)
+7655	D-Methionine;O2;H2O	4-Methylthio-2-oxobutanoate;H2O2;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7656	H2O;O2;D-Phenylalanine	H2O2;Phenylpyruvate;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7656	H2O;O2;D-Phenylalanine	H2O2;Phenylpyruvate;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		16.66667		-	s^(-1)
+7656	H2O;O2;D-Phenylalanine	H2O2;Phenylpyruvate;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7656	H2O;O2;D-Phenylalanine	H2O2;Phenylpyruvate;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Phenylalanine	0.0014		-	M
+7657	O2;H2O;D-Proline	NH3;2-Oxopentanoate;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7657	O2;H2O;D-Proline	NH3;2-Oxopentanoate;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		10.33333		-	s^(-1)
+7657	O2;H2O;D-Proline	NH3;2-Oxopentanoate;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7657	O2;H2O;D-Proline	NH3;2-Oxopentanoate;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Proline	5.6E-4		-	M
+7658	O2;H2O;D-Valine	NH3;alpha-Ketovaline;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Valine	6.3E-4		-	M
+7658	O2;H2O;D-Valine	NH3;alpha-Ketovaline;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7658	O2;H2O;D-Valine	NH3;alpha-Ketovaline;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7658	O2;H2O;D-Valine	NH3;alpha-Ketovaline;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		2.5		-	s^(-1)
+7659	O2;H2O;D-Alanine	H2O2;Pyruvate;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7659	O2;H2O;D-Alanine	H2O2;Pyruvate;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		6.5		-	s^(-1)
+7659	O2;H2O;D-Alanine	H2O2;Pyruvate;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7659	O2;H2O;D-Alanine	H2O2;Pyruvate;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Alanine	7.7E-4		-	M
+7659	O2;H2O;D-Alanine	H2O2;Pyruvate;NH3	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	D-Alanine	0.0501		-	M
+7660	O2;H2O;D-Serine	3-Hydroxypyruvate;NH3;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7660	O2;H2O;D-Serine	3-Hydroxypyruvate;NH3;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.0		-	s^(-1)
+7660	O2;H2O;D-Serine	3-Hydroxypyruvate;NH3;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7660	O2;H2O;D-Serine	3-Hydroxypyruvate;NH3;H2O2	wildtype	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Serine	0.0033		-	M
+7661	D-Arginine;O2;H2O	5-Guanidino-2-oxopentanoate;H2O2;NH3	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7661	D-Arginine;O2;H2O	5-Guanidino-2-oxopentanoate;H2O2;NH3	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Arginine	0.003		-	M
+7661	D-Arginine;O2;H2O	5-Guanidino-2-oxopentanoate;H2O2;NH3	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		4.0		-	s^(-1)
+7661	D-Arginine;O2;H2O	5-Guanidino-2-oxopentanoate;H2O2;NH3	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7662	O2;H2O;D-Lysine	H2O2;NH3;6-Amino-2-oxohexanoate	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7662	O2;H2O;D-Lysine	H2O2;NH3;6-Amino-2-oxohexanoate	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.333333		-	s^(-1)
+7662	O2;H2O;D-Lysine	H2O2;NH3;6-Amino-2-oxohexanoate	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7662	O2;H2O;D-Lysine	H2O2;NH3;6-Amino-2-oxohexanoate	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Lysine	0.014		-	M
+7663	H2O;D-Methionine;O2	NH3;4-Methylthio-2-oxobutanoate;H2O2	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7663	H2O;D-Methionine;O2	NH3;4-Methylthio-2-oxobutanoate;H2O2	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7663	H2O;D-Methionine;O2	NH3;4-Methylthio-2-oxobutanoate;H2O2	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		10.5		-	s^(-1)
+7663	H2O;D-Methionine;O2	NH3;4-Methylthio-2-oxobutanoate;H2O2	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Methionine	6.7E-4		-	M
+7664	H2O;O2;D-Phenylalanine	NH3;Phenylpyruvate;H2O2	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		53.33333		-	s^(-1)
+7664	H2O;O2;D-Phenylalanine	NH3;Phenylpyruvate;H2O2	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Phenylalanine	0.0014		-	M
+7664	H2O;O2;D-Phenylalanine	NH3;Phenylpyruvate;H2O2	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7664	H2O;O2;D-Phenylalanine	NH3;Phenylpyruvate;H2O2	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7665	O2;D-Proline;H2O	2-Oxopentanoate;H2O2;NH3	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		4.333333		-	s^(-1)
+7665	O2;D-Proline;H2O	2-Oxopentanoate;H2O2;NH3	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7665	O2;D-Proline;H2O	2-Oxopentanoate;H2O2;NH3	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7665	O2;D-Proline;H2O	2-Oxopentanoate;H2O2;NH3	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Proline	0.0041		-	M
+7666	D-Valine;H2O;O2	NH3;H2O2;alpha-Ketovaline	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7666	D-Valine;H2O;O2	NH3;H2O2;alpha-Ketovaline	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Valine	0.0031		-	M
+7666	D-Valine;H2O;O2	NH3;H2O2;alpha-Ketovaline	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7666	D-Valine;H2O;O2	NH3;H2O2;alpha-Ketovaline	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		1.05		-	s^(-1)
+7667	H2O;D-Alanine;O2	H2O2;Pyruvate;NH3	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.0		-	s^(-1)
+7667	H2O;D-Alanine;O2	H2O2;Pyruvate;NH3	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7667	H2O;D-Alanine;O2	H2O2;Pyruvate;NH3	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Alanine	0.044		-	M
+7667	H2O;D-Alanine;O2	H2O2;Pyruvate;NH3	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7667	H2O;D-Alanine;O2	H2O2;Pyruvate;NH3	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	D-Alanine	0.0501		-	M
+7668	D-Serine;O2;H2O	NH3;H2O2;3-Hydroxypyruvate	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		2.166667		-	s^(-1)
+7668	D-Serine;O2;H2O	NH3;H2O2;3-Hydroxypyruvate	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7668	D-Serine;O2;H2O	NH3;H2O2;3-Hydroxypyruvate	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Serine	0.25		-	M
+7668	D-Serine;O2;H2O	NH3;H2O2;3-Hydroxypyruvate	mutant 220D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7669	D-Arginine;H2O;O2	H2O2;5-Guanidino-2-oxopentanoate;NH3	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		7.5		-	s^(-1)
+7669	D-Arginine;H2O;O2	H2O2;5-Guanidino-2-oxopentanoate;NH3	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7669	D-Arginine;H2O;O2	H2O2;5-Guanidino-2-oxopentanoate;NH3	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Arginine	0.003		-	M
+7669	D-Arginine;H2O;O2	H2O2;5-Guanidino-2-oxopentanoate;NH3	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7670	O2;D-Lysine;H2O	H2O2;NH3;6-Amino-2-oxohexanoate	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7670	O2;D-Lysine;H2O	H2O2;NH3;6-Amino-2-oxohexanoate	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Lysine	0.02		-	M
+7670	O2;D-Lysine;H2O	H2O2;NH3;6-Amino-2-oxohexanoate	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		5.0		-	s^(-1)
+7670	O2;D-Lysine;H2O	H2O2;NH3;6-Amino-2-oxohexanoate	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7671	O2;H2O;D-Methionine	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Methionine	6.7E-4		-	M
+7671	O2;H2O;D-Methionine	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		9.0		-	s^(-1)
+7671	O2;H2O;D-Methionine	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7671	O2;H2O;D-Methionine	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7672	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Phenylalanine	7.7E-4		-	M
+7672	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7672	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7672	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		13.0		-	s^(-1)
+7673	H2O;O2;D-Proline	NH3;H2O2;2-Oxopentanoate	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Proline	0.0077		-	M
+7673	H2O;O2;D-Proline	NH3;H2O2;2-Oxopentanoate	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.833333		-	s^(-1)
+7673	H2O;O2;D-Proline	NH3;H2O2;2-Oxopentanoate	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7673	H2O;O2;D-Proline	NH3;H2O2;2-Oxopentanoate	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7674	H2O;D-Valine;O2	alpha-Ketovaline;NH3;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		0.75		-	s^(-1)
+7674	H2O;D-Valine;O2	alpha-Ketovaline;NH3;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7674	H2O;D-Valine;O2	alpha-Ketovaline;NH3;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Valine	0.0037		-	M
+7674	H2O;D-Valine;O2	alpha-Ketovaline;NH3;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7675	O2;D-Alanine;H2O	NH3;Pyruvate;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	D-Alanine	0.0501		-	M
+7675	O2;D-Alanine;H2O	NH3;Pyruvate;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7675	O2;D-Alanine;H2O	NH3;Pyruvate;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Alanine	0.046		-	M
+7675	O2;D-Alanine;H2O	NH3;Pyruvate;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7675	O2;D-Alanine;H2O	NH3;Pyruvate;H2O2	mutant 221D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		1.416667		-	s^(-1)
+7676	D-Arginine;H2O;O2	NH3;H2O2;5-Guanidino-2-oxopentanoate	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7676	D-Arginine;H2O;O2	NH3;H2O2;5-Guanidino-2-oxopentanoate	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		4.0		-	s^(-1)
+7676	D-Arginine;H2O;O2	NH3;H2O2;5-Guanidino-2-oxopentanoate	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Arginine	0.0017		-	M
+7676	D-Arginine;H2O;O2	NH3;H2O2;5-Guanidino-2-oxopentanoate	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7677	O2;H2O;D-Lysine	NH3;6-Amino-2-oxohexanoate;H2O2	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		5.0		-	s^(-1)
+7677	O2;H2O;D-Lysine	NH3;6-Amino-2-oxohexanoate;H2O2	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Lysine	0.02		-	M
+7677	O2;H2O;D-Lysine	NH3;6-Amino-2-oxohexanoate;H2O2	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7677	O2;H2O;D-Lysine	NH3;6-Amino-2-oxohexanoate;H2O2	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7678	D-Methionine;O2;H2O	4-Methylthio-2-oxobutanoate;H2O2;NH3	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7678	D-Methionine;O2;H2O	4-Methylthio-2-oxobutanoate;H2O2;NH3	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7678	D-Methionine;O2;H2O	4-Methylthio-2-oxobutanoate;H2O2;NH3	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Methionine	6.1E-4		-	M
+7678	D-Methionine;O2;H2O	4-Methylthio-2-oxobutanoate;H2O2;NH3	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		2.5		-	s^(-1)
+7679	D-Phenylalanine;H2O;O2	H2O2;Phenylpyruvate;NH3	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Phenylalanine	5.7E-4		-	M
+7679	D-Phenylalanine;H2O;O2	H2O2;Phenylpyruvate;NH3	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.5		-	s^(-1)
+7679	D-Phenylalanine;H2O;O2	H2O2;Phenylpyruvate;NH3	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7679	D-Phenylalanine;H2O;O2	H2O2;Phenylpyruvate;NH3	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7680	H2O;D-Proline;O2	H2O2;NH3;2-Oxopentanoate	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7680	H2O;D-Proline;O2	H2O2;NH3;2-Oxopentanoate	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7680	H2O;D-Proline;O2	H2O2;NH3;2-Oxopentanoate	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.5		-	s^(-1)
+7680	H2O;D-Proline;O2	H2O2;NH3;2-Oxopentanoate	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Proline	0.022		-	M
+7681	O2;H2O;D-Valine	alpha-Ketovaline;NH3;H2O2	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Valine	0.0051		-	M
+7681	O2;H2O;D-Valine	alpha-Ketovaline;NH3;H2O2	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		0.25		-	s^(-1)
+7681	O2;H2O;D-Valine	alpha-Ketovaline;NH3;H2O2	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7681	O2;H2O;D-Valine	alpha-Ketovaline;NH3;H2O2	mutant 222D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7682	H2O;D-Arginine;O2	H2O2;5-Guanidino-2-oxopentanoate;NH3	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Arginine	0.0059		-	M
+7682	H2O;D-Arginine;O2	H2O2;5-Guanidino-2-oxopentanoate;NH3	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7682	H2O;D-Arginine;O2	H2O2;5-Guanidino-2-oxopentanoate;NH3	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		1.833333		-	s^(-1)
+7682	H2O;D-Arginine;O2	H2O2;5-Guanidino-2-oxopentanoate;NH3	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7683	H2O;D-Lysine;O2	6-Amino-2-oxohexanoate;H2O2;NH3	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Lysine	0.02		-	M
+7683	H2O;D-Lysine;O2	6-Amino-2-oxohexanoate;H2O2;NH3	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7683	H2O;D-Lysine;O2	6-Amino-2-oxohexanoate;H2O2;NH3	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.0		-	s^(-1)
+7683	H2O;D-Lysine;O2	6-Amino-2-oxohexanoate;H2O2;NH3	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7684	H2O;O2;D-Methionine	4-Methylthio-2-oxobutanoate;H2O2;NH3	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7684	H2O;O2;D-Methionine	4-Methylthio-2-oxobutanoate;H2O2;NH3	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Methionine	7.7E-4		-	M
+7684	H2O;O2;D-Methionine	4-Methylthio-2-oxobutanoate;H2O2;NH3	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		1.333333		-	s^(-1)
+7684	H2O;O2;D-Methionine	4-Methylthio-2-oxobutanoate;H2O2;NH3	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7685	D-Phenylalanine;O2;H2O	Phenylpyruvate;NH3;H2O2	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Phenylalanine	0.0013		-	M
+7685	D-Phenylalanine;O2;H2O	Phenylpyruvate;NH3;H2O2	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7685	D-Phenylalanine;O2;H2O	Phenylpyruvate;NH3;H2O2	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7685	D-Phenylalanine;O2;H2O	Phenylpyruvate;NH3;H2O2	mutant 223D224G	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.0		-	s^(-1)
+7686	D-Arginine;H2O;O2	H2O2;5-Guanidino-2-oxopentanoate;NH3	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		2.0		-	s^(-1)
+7686	D-Arginine;H2O;O2	H2O2;5-Guanidino-2-oxopentanoate;NH3	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7686	D-Arginine;H2O;O2	H2O2;5-Guanidino-2-oxopentanoate;NH3	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Arginine	0.0051		-	M
+7686	D-Arginine;H2O;O2	H2O2;5-Guanidino-2-oxopentanoate;NH3	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7687	O2;H2O;D-Lysine	NH3;H2O2;6-Amino-2-oxohexanoate	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7687	O2;H2O;D-Lysine	NH3;H2O2;6-Amino-2-oxohexanoate	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		2.333333		-	s^(-1)
+7687	O2;H2O;D-Lysine	NH3;H2O2;6-Amino-2-oxohexanoate	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Lysine	0.018		-	M
+7687	O2;H2O;D-Lysine	NH3;H2O2;6-Amino-2-oxohexanoate	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7688	D-Methionine;O2;H2O	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Methionine	7.7E-4		-	M
+7688	D-Methionine;O2;H2O	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7688	D-Methionine;O2;H2O	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7688	D-Methionine;O2;H2O	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		1.383333		-	s^(-1)
+7689	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7689	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.166667		-	s^(-1)
+7689	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Phenylalanine	0.001		-	M
+7689	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7690	H2O;D-Proline;O2	NH3;2-Oxopentanoate;H2O2	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Proline	0.029		-	M
+7690	H2O;D-Proline;O2	NH3;2-Oxopentanoate;H2O2	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+7690	H2O;D-Proline;O2	NH3;2-Oxopentanoate;H2O2	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7690	H2O;D-Proline;O2	NH3;2-Oxopentanoate;H2O2	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		1.666667		-	s^(-1)
+7691	D-Valine;O2;H2O	H2O2;alpha-Ketovaline;NH3	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		0.4333333		-	s^(-1)
+7691	D-Valine;O2;H2O	H2O2;alpha-Ketovaline;NH3	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Valine	0.022		-	M
+7691	D-Valine;O2;H2O	H2O2;alpha-Ketovaline;NH3	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+7691	D-Valine;O2;H2O	H2O2;alpha-Ketovaline;NH3	mutant 224D	16751595	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	unknown compound	3.85E-5		-	M
+12045	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12045	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12045	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		6.6		-	s^(-1)
+12045	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Alanine	8600.0		-	M^(-1)*s^(-1)
+12045	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Alanine	7.7E-4		-	M
+12046	D-Proline;H2O;O2	H2O2;2-Oxopentanoate;NH3	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Proline	30000.0		-	M^(-1)*s^(-1)
+12046	D-Proline;H2O;O2	H2O2;2-Oxopentanoate;NH3	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Proline	3.3E-4		-	M
+12046	D-Proline;H2O;O2	H2O2;2-Oxopentanoate;NH3	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12046	D-Proline;H2O;O2	H2O2;2-Oxopentanoate;NH3	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		9.8		-	s^(-1)
+12046	D-Proline;H2O;O2	H2O2;2-Oxopentanoate;NH3	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12047	D-Arginine;H2O;O2	H2O2;NH3;5-Guanidino-2-oxopentanoate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Arginine	0.0117		-	M
+12047	D-Arginine;H2O;O2	H2O2;NH3;5-Guanidino-2-oxopentanoate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12047	D-Arginine;H2O;O2	H2O2;NH3;5-Guanidino-2-oxopentanoate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12047	D-Arginine;H2O;O2	H2O2;NH3;5-Guanidino-2-oxopentanoate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Arginine	270.0		-	M^(-1)*s^(-1)
+12047	D-Arginine;H2O;O2	H2O2;NH3;5-Guanidino-2-oxopentanoate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.2		-	s^(-1)
+12048	H2O;O2;D-Serine	3-Hydroxypyruvate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12048	H2O;O2;D-Serine	3-Hydroxypyruvate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Serine	860.0		-	M^(-1)*s^(-1)
+12048	H2O;O2;D-Serine	3-Hydroxypyruvate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.1		-	s^(-1)
+12048	H2O;O2;D-Serine	3-Hydroxypyruvate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12048	H2O;O2;D-Serine	3-Hydroxypyruvate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Serine	0.0036		-	M
+12049	O2;H2O;D-Isoleucine	3-Methyl-2-oxopentanoate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		4.8		-	s^(-1)
+12049	O2;H2O;D-Isoleucine	3-Methyl-2-oxopentanoate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Isoleucine	0.0013		-	M
+12049	O2;H2O;D-Isoleucine	3-Methyl-2-oxopentanoate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12049	O2;H2O;D-Isoleucine	3-Methyl-2-oxopentanoate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12049	O2;H2O;D-Isoleucine	3-Methyl-2-oxopentanoate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Isoleucine	3700.0		-	M^(-1)*s^(-1)
+12050	D-Methionine;O2;H2O	H2O2;NH3;4-Methylthio-2-oxobutanoate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Methionine	1.4E-4		-	M
+12050	D-Methionine;O2;H2O	H2O2;NH3;4-Methylthio-2-oxobutanoate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		6.5		-	s^(-1)
+12050	D-Methionine;O2;H2O	H2O2;NH3;4-Methylthio-2-oxobutanoate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12050	D-Methionine;O2;H2O	H2O2;NH3;4-Methylthio-2-oxobutanoate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Methionine	46000.0		-	M^(-1)*s^(-1)
+12050	D-Methionine;O2;H2O	H2O2;NH3;4-Methylthio-2-oxobutanoate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12051	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12051	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		4.9		-	s^(-1)
+12051	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Alanine	20.0		-	M^(-1)*s^(-1)
+12051	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12051	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Alanine	0.25		-	M
+12052	D-Proline;O2;H2O	H2O2;2-Oxopentanoate;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Proline	0.0109		-	M
+12052	D-Proline;O2;H2O	H2O2;2-Oxopentanoate;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12052	D-Proline;O2;H2O	H2O2;2-Oxopentanoate;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		4.1		-	s^(-1)
+12052	D-Proline;O2;H2O	H2O2;2-Oxopentanoate;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Proline	380.0		-	M^(-1)*s^(-1)
+12052	D-Proline;O2;H2O	H2O2;2-Oxopentanoate;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12053	H2O;D-Arginine;O2	NH3;H2O2;5-Guanidino-2-oxopentanoate	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		3.8		-	s^(-1)
+12053	H2O;D-Arginine;O2	NH3;H2O2;5-Guanidino-2-oxopentanoate	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Arginine	0.0143		-	M
+12053	H2O;D-Arginine;O2	NH3;H2O2;5-Guanidino-2-oxopentanoate	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Arginine	270.0		-	M^(-1)*s^(-1)
+12053	H2O;D-Arginine;O2	NH3;H2O2;5-Guanidino-2-oxopentanoate	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12053	H2O;D-Arginine;O2	NH3;H2O2;5-Guanidino-2-oxopentanoate	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12054	O2;D-Serine;H2O	3-Hydroxypyruvate;H2O2;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Serine	0.0227		-	M
+12054	O2;D-Serine;H2O	3-Hydroxypyruvate;H2O2;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Serine	3.0		-	M^(-1)*s^(-1)
+12054	O2;D-Serine;H2O	3-Hydroxypyruvate;H2O2;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12054	O2;D-Serine;H2O	3-Hydroxypyruvate;H2O2;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12054	O2;D-Serine;H2O	3-Hydroxypyruvate;H2O2;NH3	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		0.75		-	s^(-1)
+12055	O2;H2O;D-Isoleucine	3-Methyl-2-oxopentanoate;NH3;H2O2	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		0.63		-	s^(-1)
+12055	O2;H2O;D-Isoleucine	3-Methyl-2-oxopentanoate;NH3;H2O2	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Isoleucine	0.0083		-	M
+12055	O2;H2O;D-Isoleucine	3-Methyl-2-oxopentanoate;NH3;H2O2	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12055	O2;H2O;D-Isoleucine	3-Methyl-2-oxopentanoate;NH3;H2O2	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12055	O2;H2O;D-Isoleucine	3-Methyl-2-oxopentanoate;NH3;H2O2	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Isoleucine	80.0		-	M^(-1)*s^(-1)
+12056	O2;D-Methionine;H2O	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12056	O2;D-Methionine;H2O	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Methionine	2200.0		-	M^(-1)*s^(-1)
+12056	O2;D-Methionine;H2O	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		4.35		-	s^(-1)
+12056	O2;D-Methionine;H2O	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Methionine	0.002		-	M
+12056	O2;D-Methionine;H2O	4-Methylthio-2-oxobutanoate;NH3;H2O2	mutant G313A	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12057	O2;H2O;D-Alanine	H2O2;NH3;Pyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12057	O2;H2O;D-Alanine	H2O2;NH3;Pyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Alanine	0.0011		-	M
+12057	O2;H2O;D-Alanine	H2O2;NH3;Pyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Alanine	7700.0		-	M^(-1)*s^(-1)
+12057	O2;H2O;D-Alanine	H2O2;NH3;Pyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12057	O2;H2O;D-Alanine	H2O2;NH3;Pyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		8.5		-	s^(-1)
+12058	O2;H2O;D-Proline	2-Oxopentanoate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Proline	19000.0		-	M^(-1)*s^(-1)
+12058	O2;H2O;D-Proline	2-Oxopentanoate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12058	O2;H2O;D-Proline	2-Oxopentanoate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12058	O2;H2O;D-Proline	2-Oxopentanoate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Proline	0.0011		-	M
+12058	O2;H2O;D-Proline	2-Oxopentanoate;NH3;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		21.0		-	s^(-1)
+12059	H2O;O2;D-Serine	H2O2;NH3;3-Hydroxypyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Serine	0.0048		-	M
+12059	H2O;O2;D-Serine	H2O2;NH3;3-Hydroxypyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		2.7		-	s^(-1)
+12059	H2O;O2;D-Serine	H2O2;NH3;3-Hydroxypyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12059	H2O;O2;D-Serine	H2O2;NH3;3-Hydroxypyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Serine	560.0		-	M^(-1)*s^(-1)
+12059	H2O;O2;D-Serine	H2O2;NH3;3-Hydroxypyruvate	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12060	H2O;O2;D-Valine	H2O2;NH3;alpha-Ketovaline	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Valine	3700.0		-	M^(-1)*s^(-1)
+12060	H2O;O2;D-Valine	H2O2;NH3;alpha-Ketovaline	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12060	H2O;O2;D-Valine	H2O2;NH3;alpha-Ketovaline	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		2.5		-	s^(-1)
+12060	H2O;O2;D-Valine	H2O2;NH3;alpha-Ketovaline	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12060	H2O;O2;D-Valine	H2O2;NH3;alpha-Ketovaline	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Valine	6.7E-4		-	M
+12061	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Phenylalanine	0.0014		-	M
+12061	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12061	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12061	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		17.0		-	s^(-1)
+12061	D-Phenylalanine;H2O;O2	NH3;Phenylpyruvate;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Phenylalanine	12000.0		-	M^(-1)*s^(-1)
+12062	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Alanine	920.0		-	M^(-1)*s^(-1)
+12062	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12062	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Alanine	0.001		-	M
+12062	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12062	O2;D-Alanine;H2O	Pyruvate;H2O2;NH3	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		0.92		-	s^(-1)
+12063	D-Proline;H2O;O2	NH3;H2O2;2-Oxopentanoate	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Proline	8100.0		-	M^(-1)*s^(-1)
+12063	D-Proline;H2O;O2	NH3;H2O2;2-Oxopentanoate	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12063	D-Proline;H2O;O2	NH3;H2O2;2-Oxopentanoate	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Proline	0.0012		-	M
+12063	D-Proline;H2O;O2	NH3;H2O2;2-Oxopentanoate	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		9.7		-	s^(-1)
+12063	D-Proline;H2O;O2	NH3;H2O2;2-Oxopentanoate	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12064	H2O;O2;D-Serine	3-Hydroxypyruvate;H2O2;NH3	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Serine	0.0208		-	M
+12064	H2O;O2;D-Serine	3-Hydroxypyruvate;H2O2;NH3	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		1.8		-	s^(-1)
+12064	H2O;O2;D-Serine	3-Hydroxypyruvate;H2O2;NH3	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12064	H2O;O2;D-Serine	3-Hydroxypyruvate;H2O2;NH3	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12064	H2O;O2;D-Serine	3-Hydroxypyruvate;H2O2;NH3	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Serine	90.0		-	M^(-1)*s^(-1)
+12065	O2;D-Valine;H2O	NH3;H2O2;alpha-Ketovaline	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12065	O2;D-Valine;H2O	NH3;H2O2;alpha-Ketovaline	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Valine	0.0043		-	M
+12065	O2;D-Valine;H2O	NH3;H2O2;alpha-Ketovaline	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Valine	210.0		-	M^(-1)*s^(-1)
+12065	O2;D-Valine;H2O	NH3;H2O2;alpha-Ketovaline	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		0.9		-	s^(-1)
+12065	O2;D-Valine;H2O	NH3;H2O2;alpha-Ketovaline	mutant T317	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12066	O2;H2O;D-Phenylalanine	NH3;Phenylpyruvate;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	O2	2.4E-4		-	M
+12066	O2;H2O;D-Phenylalanine	NH3;Phenylpyruvate;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	Km	D-Phenylalanine	0.0091		-	M
+12066	O2;H2O;D-Phenylalanine	NH3;Phenylpyruvate;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat/Km	D-Phenylalanine	260.0		-	M^(-1)*s^(-1)
+12066	O2;H2O;D-Phenylalanine	NH3;Phenylpyruvate;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	concentration	FAD	2.0E-5		-	M
+12066	O2;H2O;D-Phenylalanine	NH3;Phenylpyruvate;H2O2	wildtype	11754736	Sus scrofa	P00371	1.4.3.3	8.3	25.0	kcat		2.4		-	s^(-1)
+12334	D-Aspartate;H2O;O2	H2O2;Oxaloacetate;NH3	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Aspartate	0.018		-	M
+12334	D-Aspartate;H2O;O2	H2O2;Oxaloacetate;NH3	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		0.4833333		-	s^(-1)
+12334	D-Aspartate;H2O;O2	H2O2;Oxaloacetate;NH3	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Aspartate	26.66667		-	M^(-1)*s^(-1)
+12334	D-Aspartate;H2O;O2	H2O2;Oxaloacetate;NH3	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12335	H2O;D-Aspartate;O2	Oxaloacetate;H2O2;NH3	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12335	H2O;D-Aspartate;O2	Oxaloacetate;H2O2;NH3	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Aspartate	1966.667		-	M^(-1)*s^(-1)
+12335	H2O;D-Aspartate;O2	Oxaloacetate;H2O2;NH3	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		3.916667		-	s^(-1)
+12335	H2O;D-Aspartate;O2	Oxaloacetate;H2O2;NH3	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Aspartate	0.002		-	M
+12336	D-Glutamate;H2O;O2	H2O2;NH3;2-Oxoglutarate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Glutamate	13.33333		-	M^(-1)*s^(-1)
+12336	D-Glutamate;H2O;O2	H2O2;NH3;2-Oxoglutarate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12336	D-Glutamate;H2O;O2	H2O2;NH3;2-Oxoglutarate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Glutamate	0.0773		-	M
+12336	D-Glutamate;H2O;O2	H2O2;NH3;2-Oxoglutarate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		1.0		-	s^(-1)
+12337	O2;H2O;D-Glutamate	2-Oxoglutarate;H2O2;NH3	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Glutamate	0.033		-	M
+12337	O2;H2O;D-Glutamate	2-Oxoglutarate;H2O2;NH3	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Glutamate	491.6667		-	M^(-1)*s^(-1)
+12337	O2;H2O;D-Glutamate	2-Oxoglutarate;H2O2;NH3	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12337	O2;H2O;D-Glutamate	2-Oxoglutarate;H2O2;NH3	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		16.25		-	s^(-1)
+12338	N-Methyl-D-aspartic acid;O2;H2O	Oxaloacetate;Methylamine;H2O2	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	N-Methyl-D-aspartic acid	733.3333		-	M^(-1)*s^(-1)
+12338	N-Methyl-D-aspartic acid;O2;H2O	Oxaloacetate;Methylamine;H2O2	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12338	N-Methyl-D-aspartic acid;O2;H2O	Oxaloacetate;Methylamine;H2O2	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	N-Methyl-D-aspartic acid	0.018		-	M
+12338	N-Methyl-D-aspartic acid;O2;H2O	Oxaloacetate;Methylamine;H2O2	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		1.316667		-	s^(-1)
+12339	O2;H2O;D-Alanine	H2O2;NH3;Pyruvate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Alanine	8.0E-4		-	M
+12339	O2;H2O;D-Alanine	H2O2;NH3;Pyruvate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		83.33333		-	s^(-1)
+12339	O2;H2O;D-Alanine	H2O2;NH3;Pyruvate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12339	O2;H2O;D-Alanine	H2O2;NH3;Pyruvate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Alanine	101666.7		-	M^(-1)*s^(-1)
+12340	O2;D-Alanine;H2O	NH3;Pyruvate;H2O2	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Alanine	0.0178		-	M
+12340	O2;D-Alanine;H2O	NH3;Pyruvate;H2O2	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		10.5		-	s^(-1)
+12340	O2;D-Alanine;H2O	NH3;Pyruvate;H2O2	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Alanine	590.0		-	M^(-1)*s^(-1)
+12340	O2;D-Alanine;H2O	NH3;Pyruvate;H2O2	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12341	D-Proline;O2	1-Pyrroline-2-carboxylate;H2O2	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		77.33333		-	s^(-1)
+12341	D-Proline;O2	1-Pyrroline-2-carboxylate;H2O2	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12341	D-Proline;O2	1-Pyrroline-2-carboxylate;H2O2	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Proline	3600.0		-	M^(-1)*s^(-1)
+12341	D-Proline;O2	1-Pyrroline-2-carboxylate;H2O2	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Proline	0.0215		-	M
+12342	O2;D-Proline	H2O2;1-Pyrroline-2-carboxylate	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Proline	1.28		-	M
+12342	O2;D-Proline	H2O2;1-Pyrroline-2-carboxylate	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		26.91667		-	s^(-1)
+12342	O2;D-Proline	H2O2;1-Pyrroline-2-carboxylate	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12342	O2;D-Proline	H2O2;1-Pyrroline-2-carboxylate	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Proline	21.66667		-	M^(-1)*s^(-1)
+12343	O2;D-Asparagine;H2O	H2O2;NH3;2-Oxosuccinamate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		21.66667		-	s^(-1)
+12343	O2;D-Asparagine;H2O	H2O2;NH3;2-Oxosuccinamate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Asparagine	1500.0		-	M^(-1)*s^(-1)
+12343	O2;D-Asparagine;H2O	H2O2;NH3;2-Oxosuccinamate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Asparagine	0.0144		-	M
+12343	O2;D-Asparagine;H2O	H2O2;NH3;2-Oxosuccinamate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12344	H2O;O2;D-Asparagine	NH3;2-Oxosuccinamate;H2O2	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12344	H2O;O2;D-Asparagine	NH3;2-Oxosuccinamate;H2O2	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Asparagine	0.011		-	M
+12344	H2O;O2;D-Asparagine	NH3;2-Oxosuccinamate;H2O2	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Asparagine	160.0		-	M^(-1)*s^(-1)
+12344	H2O;O2;D-Asparagine	NH3;2-Oxosuccinamate;H2O2	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		1.766667		-	s^(-1)
+12345	H2O;D-Glutamine;O2	H2O2;NH3;2-Oxoglutaramate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12345	H2O;D-Glutamine;O2	H2O2;NH3;2-Oxoglutaramate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Glutamine	4116.667		-	M^(-1)*s^(-1)
+12345	H2O;D-Glutamine;O2	H2O2;NH3;2-Oxoglutaramate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		18.91667		-	s^(-1)
+12345	H2O;D-Glutamine;O2	H2O2;NH3;2-Oxoglutaramate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Glutamine	0.0046		-	M
+12346	H2O;O2;D-Glutamine	2-Oxoglutaramate;H2O2;NH3	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		4.833333		-	s^(-1)
+12346	H2O;O2;D-Glutamine	2-Oxoglutaramate;H2O2;NH3	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12346	H2O;O2;D-Glutamine	2-Oxoglutaramate;H2O2;NH3	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Glutamine	0.0038		-	M
+12346	H2O;O2;D-Glutamine	2-Oxoglutaramate;H2O2;NH3	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Glutamine	1283.333		-	M^(-1)*s^(-1)
+12347	D-Methionine;O2;H2O	NH3;H2O2;4-Methylthio-2-oxobutanoate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		76.66667		-	s^(-1)
+12347	D-Methionine;O2;H2O	NH3;H2O2;4-Methylthio-2-oxobutanoate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Methionine	2.0E-4		-	M
+12347	D-Methionine;O2;H2O	NH3;H2O2;4-Methylthio-2-oxobutanoate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Methionine	425000.0		-	M^(-1)*s^(-1)
+12347	D-Methionine;O2;H2O	NH3;H2O2;4-Methylthio-2-oxobutanoate	wildtype	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12348	D-Methionine;H2O;O2	NH3;H2O2;4-Methylthio-2-oxobutanoate	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12348	D-Methionine;H2O;O2	NH3;H2O2;4-Methylthio-2-oxobutanoate	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Methionine	7583.333		-	M^(-1)*s^(-1)
+12348	D-Methionine;H2O;O2	NH3;H2O2;4-Methylthio-2-oxobutanoate	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		11.33333		-	s^(-1)
+12348	D-Methionine;H2O;O2	NH3;H2O2;4-Methylthio-2-oxobutanoate	mutant M213R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Methionine	0.0015		-	M
+12349	D-Aspartate;O2;H2O	H2O2;Oxaloacetate;NH3	mutant M213R/Y238R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12349	D-Aspartate;O2;H2O	H2O2;Oxaloacetate;NH3	mutant M213R/Y238R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Aspartate	0.028		-	M
+12349	D-Aspartate;O2;H2O	H2O2;Oxaloacetate;NH3	mutant M213R/Y238R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Aspartate	975.0		-	M^(-1)*s^(-1)
+12349	D-Aspartate;O2;H2O	H2O2;Oxaloacetate;NH3	mutant M213R/Y238R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		27.75		-	s^(-1)
+12350	D-Alanine;O2;H2O	Pyruvate;H2O2;NH3	mutant M213R/Y238R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Alanine	0.0458		-	M
+12350	D-Alanine;O2;H2O	Pyruvate;H2O2;NH3	mutant M213R/Y238R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+12350	D-Alanine;O2;H2O	Pyruvate;H2O2;NH3	mutant M213R/Y238R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		4.633333		-	s^(-1)
+12350	D-Alanine;O2;H2O	Pyruvate;H2O2;NH3	mutant M213R/Y238R	12021281	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat/Km	D-Alanine	101.6667		-	M^(-1)*s^(-1)
+12410	H2O;O2;D-Proline	NH3;2-Oxopentanoate;H2O2	wildtype	1670580	Rattus norvegicus	O35078	1.4.3.3	7.8	37.0	Km	D-Proline	0.0103		2.7E-3	M
+12410	H2O;O2;D-Proline	NH3;2-Oxopentanoate;H2O2	wildtype	1670580	Rattus norvegicus	O35078	1.4.3.3	7.8	37.0	concentration	D-Proline	0.0	0.04	-	M
+14333	H2O;D-Alanine;O2	H2O2;NH3;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat/Km	D-Alanine	836000.0		-	M^(-1)*s^(-1)
+14333	H2O;D-Alanine;O2	H2O2;NH3;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	D-Alanine			-	-
+14333	H2O;D-Alanine;O2	H2O2;NH3;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Vmax		0.004866667		-	mol*s^(-1)*g^(-1)
+14333	H2O;D-Alanine;O2	H2O2;NH3;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Km	D-Alanine	2.27E-4		-	M
+14333	H2O;D-Alanine;O2	H2O2;NH3;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat		190.0		-	s^(-1)
+14334	D-Valine;H2O;O2	alpha-Ketovaline;H2O2;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat		170.0		-	s^(-1)
+14334	D-Valine;H2O;O2	alpha-Ketovaline;H2O2;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Km	D-Valine	2.63E-4		-	M
+14334	D-Valine;H2O;O2	alpha-Ketovaline;H2O2;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	D-Valine			-	-
+14334	D-Valine;H2O;O2	alpha-Ketovaline;H2O2;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat/Km	D-Valine	648000.0		-	M^(-1)*s^(-1)
+14334	D-Valine;H2O;O2	alpha-Ketovaline;H2O2;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Vmax		0.004366667		-	mol*s^(-1)*g^(-1)
+14335	O2;D-Proline;H2O	2-Oxopentanoate;NH3;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Km	D-Proline	0.00113		-	M
+14335	O2;D-Proline;H2O	2-Oxopentanoate;NH3;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Vmax		0.00365		-	mol*s^(-1)*g^(-1)
+14335	O2;D-Proline;H2O	2-Oxopentanoate;NH3;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat		142.0		-	s^(-1)
+14335	O2;D-Proline;H2O	2-Oxopentanoate;NH3;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	D-Proline			-	-
+14335	O2;D-Proline;H2O	2-Oxopentanoate;NH3;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat/Km	D-Proline	126000.0		-	M^(-1)*s^(-1)
+14336	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat/Km	D-Phenylalanine	333000.0		-	M^(-1)*s^(-1)
+14336	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Vmax		0.00305		-	mol*s^(-1)*g^(-1)
+14336	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	D-Phenylalanine			-	-
+14336	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat		119.0		-	s^(-1)
+14336	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Km	D-Phenylalanine	3.57E-4		-	M
+14337	H2O;D-Tyrosine;O2	NH3;3-(4-Hydroxyphenyl)pyruvate;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	D-Tyrosine			-	-
+14337	H2O;D-Tyrosine;O2	NH3;3-(4-Hydroxyphenyl)pyruvate;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat/Km	D-Tyrosine	518000.0		-	M^(-1)*s^(-1)
+14337	H2O;D-Tyrosine;O2	NH3;3-(4-Hydroxyphenyl)pyruvate;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Vmax		0.003		-	mol*s^(-1)*g^(-1)
+14337	H2O;D-Tyrosine;O2	NH3;3-(4-Hydroxyphenyl)pyruvate;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat		117.0		-	s^(-1)
+14337	H2O;D-Tyrosine;O2	NH3;3-(4-Hydroxyphenyl)pyruvate;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Km	D-Tyrosine	2.26E-4		-	M
+14338	H2O;O2;D-Leucine	4-Methyl-2-oxopentanoate;H2O2;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Km	D-Leucine	0.0065		-	M
+14338	H2O;O2;D-Leucine	4-Methyl-2-oxopentanoate;H2O2;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	D-Leucine			-	-
+14338	H2O;O2;D-Leucine	4-Methyl-2-oxopentanoate;H2O2;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat		116.0		-	s^(-1)
+14338	H2O;O2;D-Leucine	4-Methyl-2-oxopentanoate;H2O2;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Vmax		0.002983333		-	mol*s^(-1)*g^(-1)
+14338	H2O;O2;D-Leucine	4-Methyl-2-oxopentanoate;H2O2;NH3	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat/Km	D-Leucine	17900.0		-	M^(-1)*s^(-1)
+14339	D-Isoleucine;O2;H2O	NH3;3-Methyl-2-oxopentanoate;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat/Km	D-Isoleucine	72200.0		-	M^(-1)*s^(-1)
+14339	D-Isoleucine;O2;H2O	NH3;3-Methyl-2-oxopentanoate;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat		76.7		-	s^(-1)
+14339	D-Isoleucine;O2;H2O	NH3;3-Methyl-2-oxopentanoate;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Vmax		0.001966667		-	mol*s^(-1)*g^(-1)
+14339	D-Isoleucine;O2;H2O	NH3;3-Methyl-2-oxopentanoate;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Km	D-Isoleucine	0.00106		-	M
+14339	D-Isoleucine;O2;H2O	NH3;3-Methyl-2-oxopentanoate;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	D-Isoleucine			-	-
+14340	H2O;D-Lysine;O2	6-Amino-2-oxohexanoate;NH3;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Vmax		0.001083333		-	mol*s^(-1)*g^(-1)
+14340	H2O;D-Lysine;O2	6-Amino-2-oxohexanoate;NH3;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat		42.3		-	s^(-1)
+14340	H2O;D-Lysine;O2	6-Amino-2-oxohexanoate;NH3;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Km	D-Lysine	4.25E-4		-	M
+14340	H2O;D-Lysine;O2	6-Amino-2-oxohexanoate;NH3;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat/Km	D-Lysine	99400.0		-	M^(-1)*s^(-1)
+14340	H2O;D-Lysine;O2	6-Amino-2-oxohexanoate;NH3;H2O2	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	D-Lysine			-	-
+14341	O2;D-Serine;H2O	H2O2;NH3;3-Hydroxypyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Km	D-Serine	9.09E-4		-	M
+14341	O2;D-Serine;H2O	H2O2;NH3;3-Hydroxypyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	D-Serine			-	-
+14341	O2;D-Serine;H2O	H2O2;NH3;3-Hydroxypyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat		34.5		-	s^(-1)
+14341	O2;D-Serine;H2O	H2O2;NH3;3-Hydroxypyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Vmax		8.833333E-4		-	mol*s^(-1)*g^(-1)
+14341	O2;D-Serine;H2O	H2O2;NH3;3-Hydroxypyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	kcat/Km	D-Serine	37900.0		-	M^(-1)*s^(-1)
+14342	H2O;O2;D-Alanine	NH3;H2O2;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	Creatine	1.0E-4	0.075	-	M
+14342	H2O;O2;D-Alanine	NH3;H2O2;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Ki	Creatine	0.0051		-	M
+14342	H2O;O2;D-Alanine	NH3;H2O2;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	D-Alanine	0.001	0.01	-	M
+14343	O2;D-Alanine;H2O	NH3;H2O2;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Ki	p-Chloromercuribenzoate	0.006		-	M
+14343	O2;D-Alanine;H2O	NH3;H2O2;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	D-Alanine	0.001	0.01	-	M
+14343	O2;D-Alanine;H2O	NH3;H2O2;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	p-Chloromercuribenzoate	1.0E-4	0.075	-	M
+14344	O2;D-Alanine;H2O	H2O2;NH3;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	D-Alanine	0.001	0.01	-	M
+14344	O2;D-Alanine;H2O	H2O2;NH3;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	Ki	Benzoate	0.0125		-	M
+14344	O2;D-Alanine;H2O	H2O2;NH3;Pyruvate	wildtype	15694590	Cyprinus carpio	Q6TGN2	1.4.3.3	8.0	37.0	concentration	Benzoate	1.0E-4	0.075	-	M
+17329	O2;H2O;D-Alanine	Pyruvate;NH3;H2O2	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	Km	D-Alanine	0.00172		-	M
+17329	O2;H2O;D-Alanine	Pyruvate;NH3;H2O2	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	D-Alanine	0.0	0.04	-	M
+17329	O2;H2O;D-Alanine	Pyruvate;NH3;H2O2	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat		3.63		-	s^(-1)
+17329	O2;H2O;D-Alanine	Pyruvate;NH3;H2O2	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat/Km	D-Alanine	2113.0		-	M^(-1)*s^(-1)
+17329	O2;H2O;D-Alanine	Pyruvate;NH3;H2O2	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	Vmax		9.016847E-5		-	katal*g^(-1)
+17330	H2O;D-Methionine;O2	4-Methylthio-2-oxobutanoate;NH3;H2O2	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	Vmax		1.238358E-4		-	katal*g^(-1)
+17330	H2O;D-Methionine;O2	4-Methylthio-2-oxobutanoate;NH3;H2O2	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat/Km	D-Methionine	4082.0		-	M^(-1)*s^(-1)
+17330	H2O;D-Methionine;O2	4-Methylthio-2-oxobutanoate;NH3;H2O2	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat		4.98		-	s^(-1)
+17330	H2O;D-Methionine;O2	4-Methylthio-2-oxobutanoate;NH3;H2O2	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	D-Methionine	0.0	0.04	-	M
+17330	H2O;D-Methionine;O2	4-Methylthio-2-oxobutanoate;NH3;H2O2	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	Km	D-Methionine	0.00122		-	M
+17331	O2;D-Arginine;H2O	NH3;H2O2;5-Guanidino-2-oxopentanoate	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	Km	D-Arginine	1.1E-4		-	M
+17331	O2;D-Arginine;H2O	NH3;H2O2;5-Guanidino-2-oxopentanoate	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat		1.69		-	s^(-1)
+17331	O2;D-Arginine;H2O	NH3;H2O2;5-Guanidino-2-oxopentanoate	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat/Km	D-Arginine	15394.0		-	M^(-1)*s^(-1)
+17331	O2;D-Arginine;H2O	NH3;H2O2;5-Guanidino-2-oxopentanoate	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	D-Arginine	0.0	0.04	-	M
+17331	O2;D-Arginine;H2O	NH3;H2O2;5-Guanidino-2-oxopentanoate	wildtype Y69Ap	17140416	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	Vmax		4.200084E-5		-	katal*g^(-1)
+29344	O2;H2O;D-Alanine	NH3;H2O2;Pyruvate	wildtype	10821840	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		350.0		-	s^(-1)
+29344	O2;H2O;D-Alanine	NH3;H2O2;Pyruvate	wildtype	10821840	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Alanine	0.0026		-	M
+29344	O2;H2O;D-Alanine	NH3;H2O2;Pyruvate	wildtype	10821840	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	O2	0.0023		-	M
+29345	D-Alanine;O2;H2O	Pyruvate;H2O2;NH3	mutant R285K	10821840	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		0.8		-	s^(-1)
+29345	D-Alanine;O2;H2O	Pyruvate;H2O2;NH3	mutant R285K	10821840	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Alanine	0.8		-	M
+29345	D-Alanine;O2;H2O	Pyruvate;H2O2;NH3	mutant R285K	10821840	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	O2	6.0E-5		-	M
+29346	H2O;D-Alanine;O2	Pyruvate;NH3;H2O2	mutant R285A	10821840	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	O2	8.0E-5		-	M
+29346	H2O;D-Alanine;O2	Pyruvate;NH3;H2O2	mutant R285A	10821840	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		0.05		-	s^(-1)
+29346	H2O;D-Alanine;O2	Pyruvate;NH3;H2O2	mutant R285A	10821840	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Alanine	0.31		-	M
+29497	O2;D-Alanine;H2O	H2O2;Pyruvate;NH3	wildtype	11130179	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Alanine	0.0026		-	M
+29497	O2;D-Alanine;H2O	H2O2;Pyruvate;NH3	wildtype	11130179	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	O2	0.0023		-	M
+29497	O2;D-Alanine;H2O	H2O2;Pyruvate;NH3	wildtype	11130179	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		350.0		-	s^(-1)
+33317	O2;D-Alanine;H2O	H2O2;NH3;Pyruvate	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	unknown	D-Alanine	0.0026		-	M
+33317	O2;D-Alanine;H2O	H2O2;NH3;Pyruvate	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	unknown				-	-
+33317	O2;D-Alanine;H2O	H2O2;NH3;Pyruvate	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	concentration	O2			-	-
+33317	O2;D-Alanine;H2O	H2O2;NH3;Pyruvate	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	concentration	D-Alanine			-	-
+33317	O2;D-Alanine;H2O	H2O2;NH3;Pyruvate	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	unknown	O2	0.0023		-	M
+33317	O2;D-Alanine;H2O	H2O2;NH3;Pyruvate	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	kcat		345.0		-	s^(-1)
+33317	O2;D-Alanine;H2O	H2O2;NH3;Pyruvate	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	unknown				-	-
+33318	D-Valine;H2O;O2	H2O2;alpha-Ketovaline;NH3	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	unknown				-	-
+33318	D-Valine;H2O;O2	H2O2;alpha-Ketovaline;NH3	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	unknown				-	-
+33318	D-Valine;H2O;O2	H2O2;alpha-Ketovaline;NH3	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	concentration	D-Valine			-	-
+33318	D-Valine;H2O;O2	H2O2;alpha-Ketovaline;NH3	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	unknown	O2	8.0E-4		-	M
+33318	D-Valine;H2O;O2	H2O2;alpha-Ketovaline;NH3	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	concentration	O2			-	-
+33318	D-Valine;H2O;O2	H2O2;alpha-Ketovaline;NH3	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	unknown	D-Valine	0.0039		-	M
+33318	D-Valine;H2O;O2	H2O2;alpha-Ketovaline;NH3	wildtype	8100225	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	-	kcat		28.8		-	s^(-1)
+33319	D-Valine;O2;H2O	H2O2;NH3;alpha-Ketovaline	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	unknown	O2	7.0E-4		-	M
+33319	D-Valine;O2;H2O	H2O2;NH3;alpha-Ketovaline	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	unknown				-	-
+33319	D-Valine;O2;H2O	H2O2;NH3;alpha-Ketovaline	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	concentration	D-Valine			-	-
+33319	D-Valine;O2;H2O	H2O2;NH3;alpha-Ketovaline	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	unknown				-	-
+33319	D-Valine;O2;H2O	H2O2;NH3;alpha-Ketovaline	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	kcat		42.0		-	s^(-1)
+33319	D-Valine;O2;H2O	H2O2;NH3;alpha-Ketovaline	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	unknown	D-Valine	0.0031		-	M
+33319	D-Valine;O2;H2O	H2O2;NH3;alpha-Ketovaline	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	concentration	O2			-	-
+33320	D-Alanine;H2O;O2	Pyruvate;H2O2;NH3	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	concentration	O2			-	-
+33320	D-Alanine;H2O;O2	Pyruvate;H2O2;NH3	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	unknown	D-Alanine	0.0041		-	M
+33320	D-Alanine;H2O;O2	Pyruvate;H2O2;NH3	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	unknown				-	-
+33320	D-Alanine;H2O;O2	Pyruvate;H2O2;NH3	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	kcat		52.5		-	s^(-1)
+33320	D-Alanine;H2O;O2	Pyruvate;H2O2;NH3	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	concentration	D-Alanine			-	-
+33320	D-Alanine;H2O;O2	Pyruvate;H2O2;NH3	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	unknown				-	-
+33320	D-Alanine;H2O;O2	Pyruvate;H2O2;NH3	wildtype	8100225	Trigonopsis variabilis	Q99042	1.4.3.3	8.5	-	unknown	O2	8.0E-4		-	M
+34503	D-Tryptophan;H2O;O2	H2O2;Indolepyruvate;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34503	D-Tryptophan;H2O;O2	H2O2;Indolepyruvate;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	D-Tryptophan	2.850057		-	katal*M^(-1)*g^(-1)
+34503	D-Tryptophan;H2O;O2	H2O2;Indolepyruvate;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Tryptophan	3.0E-4		-	M
+34503	D-Tryptophan;H2O;O2	H2O2;Indolepyruvate;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		8.566838E-4		-	katal*g^(-1)
+34504	D-Tryptophan;H2O;O2	Indolepyruvate;NH3;H2O2	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	D-Tryptophan	3.800076		-	katal*M^(-1)*g^(-1)
+34504	D-Tryptophan;H2O;O2	Indolepyruvate;NH3;H2O2	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Tryptophan	2.0E-4		-	M
+34504	D-Tryptophan;H2O;O2	Indolepyruvate;NH3;H2O2	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34504	D-Tryptophan;H2O;O2	Indolepyruvate;NH3;H2O2	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		7.600152E-4		-	katal*g^(-1)
+34505	H2O;D-Alanine;O2	H2O2;Pyruvate;NH3	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	D-Alanine	0.0	0.028	-	M
+34505	H2O;D-Alanine;O2	H2O2;Pyruvate;NH3	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		6.283459E-4		-	katal*g^(-1)
+34505	H2O;D-Alanine;O2	H2O2;Pyruvate;NH3	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	D-Alanine	1.566698		-	katal*M^(-1)*g^(-1)
+34505	H2O;D-Alanine;O2	H2O2;Pyruvate;NH3	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Alanine	4.0E-4		-	M
+34505	H2O;D-Alanine;O2	H2O2;Pyruvate;NH3	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34506	H2O;D-Alanine;O2	NH3;H2O2;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	D-Alanine	1.566698		-	katal*M^(-1)*g^(-1)
+34506	H2O;D-Alanine;O2	NH3;H2O2;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		6.233458E-4		-	katal*g^(-1)
+34506	H2O;D-Alanine;O2	NH3;H2O2;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	D-Alanine	0.0	0.028	-	M
+34506	H2O;D-Alanine;O2	NH3;H2O2;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34506	H2O;D-Alanine;O2	NH3;H2O2;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Alanine	4.0E-4		-	M
+34507	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	unknown	D-Alanine	6.5E-5		-	M*s
+34507	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	unknown		1.1E-8		-	M^2*s
+34507	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34507	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Alanine	0.0078		-	M
+34507	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	kcat		120.0		-	s^(-1)
+34507	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	D-Alanine	0.0	0.028	-	M
+34507	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	unknown	O2	7.9E-6		-	M*s
+34507	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	unknown compound			-	-
+34507	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	O2	9.6E-4		-	M
+34508	O2;Cephalosporin C;H2O	7-(5-Carboxyl-5-oxopentanyl)-aminocephalosporinate;H2O2;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	Cephalosporin C	0.0019		-	M
+34508	O2;Cephalosporin C;H2O	7-(5-Carboxyl-5-oxopentanyl)-aminocephalosporinate;H2O2;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		1.966706E-4		-	katal*g^(-1)
+34508	O2;Cephalosporin C;H2O	7-(5-Carboxyl-5-oxopentanyl)-aminocephalosporinate;H2O2;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	Cephalosporin C	0.1033354		-	katal*M^(-1)*g^(-1)
+34508	O2;Cephalosporin C;H2O	7-(5-Carboxyl-5-oxopentanyl)-aminocephalosporinate;H2O2;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34509	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	-	-	kcat		125.0		-	s^(-1)
+34509	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	-	-	Km	D-Alanine	0.0075		-	M
+34509	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	-	-	concentration	unknown compound			-	-
+34509	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	-	-	concentration	O2	2.53E-4		-	M
+34509	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	-	-	unknown		1.1E-8		-	M^2*s
+34509	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	-	-	unknown	O2	5.2E-6		-	M*s
+34509	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	-	-	unknown	D-Alanine	9.5E-5		-	M*s
+34509	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	-	-	concentration	D-Alanine	0.028		-	M
+34509	H2O;O2;D-Alanine	H2O2;NH3;Pyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	-	-	Km	O2	2.6E-4		-	M
+34510	D-Phenylalanine;H2O;O2	H2O2;NH3;Phenylpyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	D-Phenylalanine	11.25022		-	katal*M^(-1)*g^(-1)
+34510	D-Phenylalanine;H2O;O2	H2O2;NH3;Phenylpyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34510	D-Phenylalanine;H2O;O2	H2O2;NH3;Phenylpyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		4.50009E-4		-	katal*g^(-1)
+34510	D-Phenylalanine;H2O;O2	H2O2;NH3;Phenylpyruvate	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Phenylalanine	4.0E-5		-	M
+34511	D-Phenylalanine;H2O;O2	Phenylpyruvate;H2O2;NH3	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Phenylalanine	7.0E-5		-	M
+34511	D-Phenylalanine;H2O;O2	Phenylpyruvate;H2O2;NH3	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34511	D-Phenylalanine;H2O;O2	Phenylpyruvate;H2O2;NH3	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	D-Phenylalanine	7.883491		-	katal*M^(-1)*g^(-1)
+34511	D-Phenylalanine;H2O;O2	Phenylpyruvate;H2O2;NH3	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		5.516777E-4		-	katal*g^(-1)
+34512	H2O;D-Proline;O2	2-Oxopentanoate;H2O2;NH3	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	D-Proline	0.0516677		-	katal*M^(-1)*g^(-1)
+34512	H2O;D-Proline;O2	2-Oxopentanoate;H2O2;NH3	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34512	H2O;D-Proline;O2	2-Oxopentanoate;H2O2;NH3	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		6.350127E-4		-	katal*g^(-1)
+34512	H2O;D-Proline;O2	2-Oxopentanoate;H2O2;NH3	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Proline	0.0123		-	M
+34513	O2;D-Proline;H2O	H2O2;2-Oxopentanoate;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	D-Proline	0.1316693		-	katal*M^(-1)*g^(-1)
+34513	O2;D-Proline;H2O	H2O2;2-Oxopentanoate;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Proline	0.0135		-	M
+34513	O2;D-Proline;H2O	H2O2;2-Oxopentanoate;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34513	O2;D-Proline;H2O	H2O2;2-Oxopentanoate;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		0.001768369		-	katal*g^(-1)
+34514	H2O;O2;D-Serine	H2O2;3-Hydroxypyruvate;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Serine	0.0017		-	M
+34514	H2O;O2;D-Serine	H2O2;3-Hydroxypyruvate;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		6.783469E-4		-	katal*g^(-1)
+34514	H2O;O2;D-Serine	H2O2;3-Hydroxypyruvate;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	D-Serine	0.400008		-	katal*M^(-1)*g^(-1)
+34514	H2O;O2;D-Serine	H2O2;3-Hydroxypyruvate;NH3	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34515	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	wildtype	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34515	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	wildtype	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	D-Alanine	2.533384		-	katal*M^(-1)*g^(-1)
+34515	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	wildtype	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		0.002033374		-	katal*g^(-1)
+34515	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	wildtype	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Alanine	8.0E-4		-	M
+34515	D-Alanine;O2;H2O	H2O2;NH3;Pyruvate	wildtype	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	D-Alanine	0.0	0.028	-	M
+34516	H2O;O2;Cephalosporin C	NH3;7-(5-Carboxyl-5-oxopentanyl)-aminocephalosporinate;H2O2	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		3.616739E-4		-	katal*g^(-1)
+34516	H2O;O2;Cephalosporin C	NH3;7-(5-Carboxyl-5-oxopentanyl)-aminocephalosporinate;H2O2	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34516	H2O;O2;Cephalosporin C	NH3;7-(5-Carboxyl-5-oxopentanyl)-aminocephalosporinate;H2O2	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	Cephalosporin C	0.0019		-	M
+34516	H2O;O2;Cephalosporin C	NH3;7-(5-Carboxyl-5-oxopentanyl)-aminocephalosporinate;H2O2	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	Cephalosporin C	0.1900038		-	katal*M^(-1)*g^(-1)
+34517	O2;D-Valine;H2O	NH3;H2O2;alpha-Ketovaline	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		7.100142E-4		-	katal*g^(-1)
+34517	O2;D-Valine;H2O	NH3;H2O2;alpha-Ketovaline	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34517	O2;D-Valine;H2O	NH3;H2O2;alpha-Ketovaline	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	D-Valine	0.116669		-	katal*M^(-1)*g^(-1)
+34517	O2;D-Valine;H2O	NH3;H2O2;alpha-Ketovaline	mutant Y238S	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Valine	0.0061		-	M
+34518	D-Valine;O2;H2O	alpha-Ketovaline;NH3;H2O2	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	concentration	O2	2.53E-4		-	M
+34518	D-Valine;O2;H2O	alpha-Ketovaline;NH3;H2O2	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax		0.001041688		-	katal*g^(-1)
+34518	D-Valine;O2;H2O	alpha-Ketovaline;NH3;H2O2	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Km	D-Valine	0.006		-	M
+34518	D-Valine;O2;H2O	alpha-Ketovaline;NH3;H2O2	mutant Y238F	12354107	Rhodosporidium toruloides	P80324	1.4.3.3	8.5	25.0	Vmax/Km	D-Valine	0.1700034		-	katal*M^(-1)*g^(-1)
+61039	O2;(R)-1-Phenylethylamine;H2O	NH3;Acetophenone;H2O2	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	kcat		88.1		4.2E0	s^(-1)
+61039	O2;(R)-1-Phenylethylamine;H2O	NH3;Acetophenone;H2O2	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	concentration	(R)-1-Phenylethylamine	0.005	0.1	-	M
+61039	O2;(R)-1-Phenylethylamine;H2O	NH3;Acetophenone;H2O2	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	concentration	FAD	1.0E-5		-	M
+61039	O2;(R)-1-Phenylethylamine;H2O	NH3;Acetophenone;H2O2	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	concentration	O2	5.0E-5	0.001	-	M
+61039	O2;(R)-1-Phenylethylamine;H2O	NH3;Acetophenone;H2O2	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	concentration	unknown compound	5.0E-8		-	M
+61040	H2O;(R)-1-Phenylethylamine;O2	NH3;H2O2;Acetophenone	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	Km	(R)-1-Phenylethylamine	0.0147		4E-4	M
+61040	H2O;(R)-1-Phenylethylamine;O2	NH3;H2O2;Acetophenone	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	kcat/Km	(R)-1-Phenylethylamine	2560.0		5E1	M^(-1)*s^(-1)
+61040	H2O;(R)-1-Phenylethylamine;O2	NH3;H2O2;Acetophenone	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	concentration	unknown compound	5.0E-8		-	M
+61040	H2O;(R)-1-Phenylethylamine;O2	NH3;H2O2;Acetophenone	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	concentration	(R)-1-Phenylethylamine	0.005	0.05	-	M
+61040	H2O;(R)-1-Phenylethylamine;O2	NH3;H2O2;Acetophenone	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	concentration	O2	2.5E-4		-	M
+61040	H2O;(R)-1-Phenylethylamine;O2	NH3;H2O2;Acetophenone	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	concentration	FAD	1.0E-5		-	M
+61040	H2O;(R)-1-Phenylethylamine;O2	NH3;H2O2;Acetophenone	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	kcat		37.6		5E-1	s^(-1)
+61041	(R)-1-Phenylethylamine;O2;H2O	Acetophenone;NH3;H2O2	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	Km	O2	1.2E-4		2.2E-5	M
+61041	(R)-1-Phenylethylamine;O2;H2O	Acetophenone;NH3;H2O2	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	kcat		61.9		2.7E0	s^(-1)
+61041	(R)-1-Phenylethylamine;O2;H2O	Acetophenone;NH3;H2O2	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	concentration	unknown compound	5.0E-8		-	M
+61041	(R)-1-Phenylethylamine;O2;H2O	Acetophenone;NH3;H2O2	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	concentration	FAD	1.0E-5		-	M
+61041	(R)-1-Phenylethylamine;O2;H2O	Acetophenone;NH3;H2O2	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	concentration	O2	7.9E-5	0.00124	-	M
+61041	(R)-1-Phenylethylamine;O2;H2O	Acetophenone;NH3;H2O2	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	kcat/Km	O2	520000.0		8E4	M^(-1)*s^(-1)
+61041	(R)-1-Phenylethylamine;O2;H2O	Acetophenone;NH3;H2O2	mutant Y228L/R283G		Sus scrofa	P00371	1.4.3.3	8.6	25.0	concentration	(R)-1-Phenylethylamine	0.1		-	M
+62944	H2O;D-Alanine;O2	Pyruvate;NH3;H2O2	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	unknown compound	2.7E-4	0.067	-	mg/ml
+62944	H2O;D-Alanine;O2	Pyruvate;NH3;H2O2	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	FAD	6.0E-5		-	M
+62944	H2O;D-Alanine;O2	Pyruvate;NH3;H2O2	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	D-Alanine	0.001	0.04	-	M
+62944	H2O;D-Alanine;O2	Pyruvate;NH3;H2O2	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	Km	D-Alanine	0.00689		7.5E-4	M
+62944	H2O;D-Alanine;O2	Pyruvate;NH3;H2O2	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat		14.9		5E-1	s^(-1)
+62944	H2O;D-Alanine;O2	Pyruvate;NH3;H2O2	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat/Km	D-Alanine	2165.0		-	M^(-1)*s^(-1)
+62945	O2;D-Alanine;H2O	NH3;H2O2;Pyruvate	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	FAD	6.0E-5		-	M
+62945	O2;D-Alanine;H2O	NH3;H2O2;Pyruvate	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	kcat		3.66		4E-2	s^(-1)
+62945	O2;D-Alanine;H2O	NH3;H2O2;Pyruvate	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	Km	D-Alanine	0.00108		6E-5	M
+62945	O2;D-Alanine;H2O	NH3;H2O2;Pyruvate	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	kcat/Km	D-Alanine	3390.0		-	M^(-1)*s^(-1)
+62945	O2;D-Alanine;H2O	NH3;H2O2;Pyruvate	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	D-Alanine	0.001	0.04	-	M
+62945	O2;D-Alanine;H2O	NH3;H2O2;Pyruvate	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	unknown compound	2.7E-4	0.067	-	mg/ml
+62946	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	FAD	6.0E-5		-	M
+62946	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat/Km	D-Phenylalanine	9215.0		-	M^(-1)*s^(-1)
+62946	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	unknown compound	2.7E-4	0.067	-	mg/ml
+62946	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	D-Phenylalanine	0.001	0.02	-	M
+62946	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat		25.1		5E-1	s^(-1)
+62946	H2O;D-Phenylalanine;O2	H2O2;Phenylpyruvate;NH3	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	Km	D-Phenylalanine	0.00272		1.8E-4	M
+62947	O2;D-Phenylalanine;H2O	NH3;H2O2;Phenylpyruvate	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	FAD	6.0E-5		-	M
+62947	O2;D-Phenylalanine;H2O	NH3;H2O2;Phenylpyruvate	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	kcat/Km	D-Phenylalanine	3823.0		-	M^(-1)*s^(-1)
+62947	O2;D-Phenylalanine;H2O	NH3;H2O2;Phenylpyruvate	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	Km	D-Phenylalanine	0.00259		2.1E-4	M
+62947	O2;D-Phenylalanine;H2O	NH3;H2O2;Phenylpyruvate	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	kcat		9.89		2.2E-1	s^(-1)
+62947	O2;D-Phenylalanine;H2O	NH3;H2O2;Phenylpyruvate	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	unknown compound	2.7E-4	0.067	-	mg/ml
+62947	O2;D-Phenylalanine;H2O	NH3;H2O2;Phenylpyruvate	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	D-Phenylalanine	0.001	0.02	-	M
+62948	D-Serine;O2;H2O	NH3;H2O2;3-Hydroxypyruvate	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	D-Serine	0.002	0.08	-	M
+62948	D-Serine;O2;H2O	NH3;H2O2;3-Hydroxypyruvate	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	Km	D-Serine	0.02		4E-4	M
+62948	D-Serine;O2;H2O	NH3;H2O2;3-Hydroxypyruvate	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat/Km	D-Serine	75.0		-	M^(-1)*s^(-1)
+62948	D-Serine;O2;H2O	NH3;H2O2;3-Hydroxypyruvate	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	FAD	6.0E-5		-	M
+62948	D-Serine;O2;H2O	NH3;H2O2;3-Hydroxypyruvate	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	unknown compound	2.7E-4	0.067	-	mg/ml
+62948	D-Serine;O2;H2O	NH3;H2O2;3-Hydroxypyruvate	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat		1.51		1E-2	s^(-1)
+62949	D-Serine;O2;H2O	3-Hydroxypyruvate;H2O2;NH3	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	FAD	6.0E-5		-	M
+62949	D-Serine;O2;H2O	3-Hydroxypyruvate;H2O2;NH3	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	Km	D-Serine	0.00642		8.8E-4	M
+62949	D-Serine;O2;H2O	3-Hydroxypyruvate;H2O2;NH3	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	kcat		1.23		5E-2	s^(-1)
+62949	D-Serine;O2;H2O	3-Hydroxypyruvate;H2O2;NH3	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	unknown compound	2.7E-4	0.067	-	mg/ml
+62949	D-Serine;O2;H2O	3-Hydroxypyruvate;H2O2;NH3	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	kcat/Km	D-Serine	191.0		-	M^(-1)*s^(-1)
+62949	D-Serine;O2;H2O	3-Hydroxypyruvate;H2O2;NH3	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	D-Serine	0.002	0.08	-	M
+62950	O2;D-Arginine;H2O	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat/Km	D-Arginine	2802.0		-	M^(-1)*s^(-1)
+62950	O2;D-Arginine;H2O	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	unknown compound	2.7E-4	0.067	-	mg/ml
+62950	O2;D-Arginine;H2O	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	FAD	6.0E-5		-	M
+62950	O2;D-Arginine;H2O	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat		2.83		1.8E-1	s^(-1)
+62950	O2;D-Arginine;H2O	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	Km	D-Arginine	0.00101		1.8E-4	M
+62950	O2;D-Arginine;H2O	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	D-Arginine	2.0E-4	0.08	-	M
+62951	H2O;O2;D-Arginine	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	D-Arginine	2.0E-4	0.08	-	M
+62951	H2O;O2;D-Arginine	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	FAD	6.0E-5		-	M
+62951	H2O;O2;D-Arginine	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	kcat/Km	D-Arginine	65.0		-	M^(-1)*s^(-1)
+62951	H2O;O2;D-Arginine	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	unknown compound	2.7E-4	0.067	-	mg/ml
+62951	H2O;O2;D-Arginine	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	kcat		0.34		1E-2	s^(-1)
+62951	H2O;O2;D-Arginine	5-Guanidino-2-oxopentanoate;NH3;H2O2	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	Km	D-Arginine	0.00517		3.9E-4	M
+62952	H2O;O2;D-Histidine	1H-Imidazol-4-yl(oxo)acetic acid;H2O2;NH3	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	D-Histidine	0.001	0.04	-	M
+62952	H2O;O2;D-Histidine	1H-Imidazol-4-yl(oxo)acetic acid;H2O2;NH3	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	unknown compound	2.7E-4	0.067	-	mg/ml
+62952	H2O;O2;D-Histidine	1H-Imidazol-4-yl(oxo)acetic acid;H2O2;NH3	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat/Km	D-Histidine	521.0		-	M^(-1)*s^(-1)
+62952	H2O;O2;D-Histidine	1H-Imidazol-4-yl(oxo)acetic acid;H2O2;NH3	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	kcat		1.51		2E-2	s^(-1)
+62952	H2O;O2;D-Histidine	1H-Imidazol-4-yl(oxo)acetic acid;H2O2;NH3	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	Km	D-Histidine	0.00289		1.3E-4	M
+62952	H2O;O2;D-Histidine	1H-Imidazol-4-yl(oxo)acetic acid;H2O2;NH3	wildtype DAO, N-terminally His-tagged	20564561	Caenorhabditis elegans	Q95XG9	1.4.3.3	8.3	37.0	concentration	FAD	6.0E-5		-	M
+62953	H2O;O2;D-Histidine	H2O2;NH3;1H-Imidazol-4-yl(oxo)acetic acid	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	kcat/Km	D-Histidine	162.0		-	M^(-1)*s^(-1)
+62953	H2O;O2;D-Histidine	H2O2;NH3;1H-Imidazol-4-yl(oxo)acetic acid	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	Km	D-Histidine	0.00418		5.4E-4	M
+62953	H2O;O2;D-Histidine	H2O2;NH3;1H-Imidazol-4-yl(oxo)acetic acid	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	FAD	6.0E-5		-	M
+62953	H2O;O2;D-Histidine	H2O2;NH3;1H-Imidazol-4-yl(oxo)acetic acid	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	kcat		0.68		2E-2	s^(-1)
+62953	H2O;O2;D-Histidine	H2O2;NH3;1H-Imidazol-4-yl(oxo)acetic acid	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	unknown compound	2.7E-4	0.067	-	mg/ml
+62953	H2O;O2;D-Histidine	H2O2;NH3;1H-Imidazol-4-yl(oxo)acetic acid	wildtype hDAO, N-terminally His-tagged	20564561	Homo sapiens	P14920	1.4.3.3	8.3	37.0	concentration	D-Histidine	0.001	0.04	-	M
+63043	O2;H2O;D-Dopa	3,4-Dihydroxyphenylpyruvate;H2O2;NH3	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	kcat/Km	D-Dopa	14000.0		-	M^(-1)*s^(-1)
+63043	O2;H2O;D-Dopa	3,4-Dihydroxyphenylpyruvate;H2O2;NH3	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	concentration	unknown compound	0.0028		-	mg/ml
+63043	O2;H2O;D-Dopa	3,4-Dihydroxyphenylpyruvate;H2O2;NH3	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	Km	D-Dopa	0.0015		-	M
+63043	O2;H2O;D-Dopa	3,4-Dihydroxyphenylpyruvate;H2O2;NH3	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	concentration	D-Dopa	0.0	0.1	-	M
+63043	O2;H2O;D-Dopa	3,4-Dihydroxyphenylpyruvate;H2O2;NH3	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	concentration	FAD	5.0E-5		-	M
+63043	O2;H2O;D-Dopa	3,4-Dihydroxyphenylpyruvate;H2O2;NH3	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	kcat		21.66667		-	s^(-1)
+63044	D-Serine;O2;H2O	H2O2;NH3;3-Hydroxypyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	kcat		4.0		-	s^(-1)
+63044	D-Serine;O2;H2O	H2O2;NH3;3-Hydroxypyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	kcat/Km	D-Serine	1000.0		-	M^(-1)*s^(-1)
+63044	D-Serine;O2;H2O	H2O2;NH3;3-Hydroxypyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	concentration	FAD	5.0E-5		-	M
+63044	D-Serine;O2;H2O	H2O2;NH3;3-Hydroxypyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	concentration	D-Serine	0.0	0.1	-	M
+63044	D-Serine;O2;H2O	H2O2;NH3;3-Hydroxypyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	Km	D-Serine	0.0039		-	M
+63044	D-Serine;O2;H2O	H2O2;NH3;3-Hydroxypyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	concentration	unknown compound	0.0028		-	mg/ml
+63045	D-Phenylalanine;H2O;O2	H2O2;NH3;Phenylpyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	concentration	FAD	5.0E-5		-	M
+63045	D-Phenylalanine;H2O;O2	H2O2;NH3;Phenylpyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	concentration	unknown compound	0.0028		-	mg/ml
+63045	D-Phenylalanine;H2O;O2	H2O2;NH3;Phenylpyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	kcat		15.5		-	s^(-1)
+63045	D-Phenylalanine;H2O;O2	H2O2;NH3;Phenylpyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	kcat/Km	D-Phenylalanine	13000.0		-	M^(-1)*s^(-1)
+63045	D-Phenylalanine;H2O;O2	H2O2;NH3;Phenylpyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	Km	D-Phenylalanine	0.0012		-	M
+63046	H2O;D-Tyrosine;O2	H2O2;NH3;3-(4-Hydroxyphenyl)pyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	Km	D-Tyrosine	0.0011		-	M
+63046	H2O;D-Tyrosine;O2	H2O2;NH3;3-(4-Hydroxyphenyl)pyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	concentration	FAD	5.0E-5		-	M
+63046	H2O;D-Tyrosine;O2	H2O2;NH3;3-(4-Hydroxyphenyl)pyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	kcat		14.83333		-	s^(-1)
+63046	H2O;D-Tyrosine;O2	H2O2;NH3;3-(4-Hydroxyphenyl)pyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	kcat/Km	D-Tyrosine	13000.0		-	M^(-1)*s^(-1)
+63046	H2O;D-Tyrosine;O2	H2O2;NH3;3-(4-Hydroxyphenyl)pyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	concentration	unknown compound	0.0028		-	mg/ml
+63047	D-Dopa;H2O;O2	H2O2;NH3;3,4-Dihydroxyphenylpyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	concentration	unknown compound	0.0028		-	mg/ml
+63047	D-Dopa;H2O;O2	H2O2;NH3;3,4-Dihydroxyphenylpyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	Ki	D-Dopa	5.0E-4		-	M
+63047	D-Dopa;H2O;O2	H2O2;NH3;3,4-Dihydroxyphenylpyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	concentration	FAD	5.0E-5		-	M
+63047	D-Dopa;H2O;O2	H2O2;NH3;3,4-Dihydroxyphenylpyruvate	wildtype	17303072	Homo sapiens	P14920	1.4.3.3	8.3	25.0	concentration	D-Dopa	0.0	0.1	-	M

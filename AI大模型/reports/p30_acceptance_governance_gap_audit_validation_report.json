@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-09-03T07:33:55.475723+00:00",
+  "local_only": true,
+  "success": true,
+  "audit_rows": 31,
+  "gap_type_counts": {
+    "biosecurity_ordering_decision": 3,
+    "external_license_or_customer_delivery_decision": 16,
+    "external_license_verification": 3,
+    "sequence_ip_fto_delivery_decision": 3,
+    "workstream_human_acceptance": 6
+  },
+  "failures": [],
+  "customer_delivery_ready": false,
+  "biosecurity_ready_for_ordering": false,
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "policy": "Validation only. P30 acceptance and governance gaps remain blocking and do not authorize delivery or release."
+}

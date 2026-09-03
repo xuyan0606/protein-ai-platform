@@ -68,27 +68,32 @@ async def list_conversations(
     current_user: dict = Depends(get_current_user),
 ):
     """List conversations for the authenticated user."""
+    message_counts = (
+        select(
+            Message.conversation_id.label("conversation_id"),
+            func.count(Message.id).label("message_count"),
+        )
+        .group_by(Message.conversation_id)
+        .subquery()
+    )
+
     result = await db.execute(
-        select(Conversation)
+        select(
+            Conversation,
+            func.coalesce(message_counts.c.message_count, 0).label("message_count"),
+        )
+        .outerjoin(message_counts, message_counts.c.conversation_id == Conversation.id)
         .where(Conversation.user_id == current_user["id"])
         .order_by(Conversation.updated_at.desc())
     )
-    conversations = result.scalars().all()
     out = []
-    for c in conversations:
-        # Count messages with a lightweight query
-        count_result = await db.execute(
-            select(func.count()).select_from(Message).where(
-                Message.conversation_id == c.id
-            )
-        )
-        msg_count = count_result.scalar() or 0
+    for conversation, message_count in result.all():
         out.append(ConversationOut(
-            id=c.id,
-            title=c.title,
-            created_at=c.created_at.isoformat() if c.created_at else None,
-            updated_at=c.updated_at.isoformat() if c.updated_at else None,
-            message_count=msg_count,
+            id=conversation.id,
+            title=conversation.title,
+            created_at=conversation.created_at.isoformat() if conversation.created_at else None,
+            updated_at=conversation.updated_at.isoformat() if conversation.updated_at else None,
+            message_count=int(message_count or 0),
         ))
     return out
 

@@ -1,0 +1,109 @@
+{
+  "accession": "P58215",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00530",
+        "name": "Scavenger receptor cysteine-rich domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001190",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p58215",
+          "protein_length": 753,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 52,
+                  "end": 145,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00530",
+              "score": 3.7e-26
+            },
+            {
+              "fragments": [
+                {
+                  "start": 185,
+                  "end": 281,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00530",
+              "score": 3e-11
+            },
+            {
+              "fragments": [
+                {
+                  "start": 311,
+                  "end": 407,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00530",
+              "score": 1.7e-26
+            },
+            {
+              "fragments": [
+                {
+                  "start": 421,
+                  "end": 525,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00530",
+              "score": 2.2e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01186",
+        "name": "Lysyl oxidase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001695",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p58215",
+          "protein_length": 753,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 530,
+                  "end": 727,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01186",
+              "score": 9.9e-99
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

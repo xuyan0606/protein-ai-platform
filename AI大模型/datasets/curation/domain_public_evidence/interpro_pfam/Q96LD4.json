@@ -1,0 +1,107 @@
+{
+  "accession": "Q96LD4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00643",
+        "name": "B-box zinc finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000315",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96ld4",
+          "protein_length": 638,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 178,
+                  "end": 217,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00643",
+              "score": 2e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13445",
+        "name": "RING-type zinc-finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR027370",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96ld4",
+          "protein_length": 638,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 9,
+                  "end": 37,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13445",
+              "score": 1.8e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25600",
+        "name": "TRIM protein coiled-coil region",
+        "source_database": "pfam",
+        "type": "coiled_coil",
+        "integrated": "IPR058030",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96ld4",
+          "protein_length": 638,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 246,
+                  "end": 375,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF25600",
+              "score": 1.2e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

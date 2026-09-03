@@ -1,0 +1,73 @@
+{
+  "accession": "A6NDG6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF13242",
+        "name": "HAD-hyrolase-like",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "a6ndg6",
+          "protein_length": 321,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 233,
+                  "end": 314,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13242",
+              "score": 1.7e-15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13344",
+        "name": "Haloacid dehalogenase-like hydrolase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006357",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "a6ndg6",
+          "protein_length": 321,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 31,
+                  "end": 138,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13344",
+              "score": 7.4e-24
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

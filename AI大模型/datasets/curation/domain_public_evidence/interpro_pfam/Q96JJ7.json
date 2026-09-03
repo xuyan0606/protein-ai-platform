@@ -1,0 +1,73 @@
+{
+  "accession": "Q96JJ7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00085",
+        "name": "Thioredoxin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013766",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96jj7",
+          "protein_length": 454,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 32,
+                  "end": 126,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00085",
+              "score": 8.1e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13848",
+        "name": "Thioredoxin-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96jj7",
+          "protein_length": 454,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 160,
+                  "end": 338,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF13848",
+              "score": 7.9e-23
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

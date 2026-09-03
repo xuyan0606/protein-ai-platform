@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kwb-advanced-model-prediction.schema.json",
+  "title": "KWB advanced model prediction",
+  "type": "object",
+  "required": ["model", "status", "candidates", "evidence_summary", "policy"],
+  "properties": {
+    "model": {
+      "type": "object",
+      "required": ["name", "version", "architecture"],
+      "properties": {
+        "name": {"const": "KWB-EnzymeDesigner"},
+        "version": {"type": "string"},
+        "architecture": {"type": "string"}
+      }
+    },
+    "status": {"type": "string"},
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "mutation",
+          "heads",
+          "pareto_rank",
+          "uncertainty",
+          "decision",
+          "risk_flags"
+        ],
+        "properties": {
+          "mutation": {"type": "string"},
+          "heads": {"type": "object"},
+          "pareto_rank": {"type": "integer"},
+          "uncertainty": {"type": "object"},
+          "decision": {"type": "string", "enum": ["go", "watch", "no_go"]},
+          "risk_flags": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "evidence_summary": {"type": "object"},
+    "policy": {"type": "string"}
+  }
+}

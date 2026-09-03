@@ -1,0 +1,97 @@
+{
+  "accession": "Q7Z410",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00057",
+        "name": "Low-density lipoprotein receptor domain class A",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR002172",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q7z410",
+          "protein_length": 1059,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 153,
+                  "end": 189,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00057",
+              "score": 0.0019
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00089",
+        "name": "Trypsin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001254",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q7z410",
+          "protein_length": 1059,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 203,
+                  "end": 431,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00089",
+              "score": 3.6e-65
+            },
+            {
+              "fragments": [
+                {
+                  "start": 504,
+                  "end": 731,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00089",
+              "score": 3.5e-61
+            },
+            {
+              "fragments": [
+                {
+                  "start": 827,
+                  "end": 1053,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00089",
+              "score": 1.1e-59
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

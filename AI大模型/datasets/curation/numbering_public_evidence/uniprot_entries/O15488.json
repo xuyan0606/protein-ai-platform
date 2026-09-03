@@ -1,0 +1,5044 @@
+{
+  "entryType": "UniProtKB reviewed (Swiss-Prot)",
+  "primaryAccession": "O15488",
+  "secondaryAccessions": [
+    "B7WNN6",
+    "O15485",
+    "O15486",
+    "O15487",
+    "O15489",
+    "O15490"
+  ],
+  "uniProtkbId": "GLYG2_HUMAN",
+  "entryAudit": {
+    "firstPublicDate": "2000-05-30",
+    "lastAnnotationUpdateDate": "2026-06-10",
+    "lastSequenceUpdateDate": "2007-03-20",
+    "entryVersion": 213,
+    "sequenceVersion": 2
+  },
+  "annotationScore": 5.0,
+  "organism": {
+    "scientificName": "Homo sapiens",
+    "commonName": "Human",
+    "taxonId": 9606,
+    "lineage": [
+      "Eukaryota",
+      "Metazoa",
+      "Chordata",
+      "Craniata",
+      "Vertebrata",
+      "Euteleostomi",
+      "Mammalia",
+      "Eutheria",
+      "Euarchontoglires",
+      "Primates",
+      "Haplorrhini",
+      "Catarrhini",
+      "Hominidae",
+      "Homo"
+    ]
+  },
+  "proteinExistence": "1: Evidence at protein level",
+  "proteinDescription": {
+    "recommendedName": {
+      "fullName": {
+        "value": "Glycogenin-2"
+      },
+      "shortNames": [
+        {
+          "value": "GN-2"
+        },
+        {
+          "value": "GN2"
+        }
+      ],
+      "ecNumbers": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "9346895"
+            },
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "9857012"
+            }
+          ],
+          "value": "2.4.1.186"
+        }
+      ]
+    }
+  },
+  "genes": [
+    {
+      "geneName": {
+        "value": "GYG2"
+      }
+    }
+  ],
+  "comments": [
+    {
+      "texts": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "9346895"
+            },
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "9857012"
+            }
+          ],
+          "value": "Glycogenin participates in the glycogen biosynthetic process along with glycogen synthase and glycogen branching enzyme. It catalyzes the formation of a short alpha (1,4)-glucosyl chain covalently attached via a glucose 1-O-tyrosyl linkage to internal tyrosine residues and these chains act as primers for the elongation reaction catalyzed by glycogen synthase"
+        }
+      ],
+      "commentType": "FUNCTION"
+    },
+    {
+      "commentType": "CATALYTIC ACTIVITY",
+      "reaction": {
+        "name": "L-tyrosyl-[glycogenin] + UDP-alpha-D-glucose = alpha-D-glucosyl-L-tyrosyl-[glycogenin] + UDP + H(+)",
+        "reactionCrossReferences": [
+          {
+            "database": "Rhea",
+            "id": "RHEA:23360"
+          },
+          {
+            "database": "Rhea",
+            "id": "RHEA-COMP:14604"
+          },
+          {
+            "database": "Rhea",
+            "id": "RHEA-COMP:14605"
+          },
+          {
+            "database": "ChEBI",
+            "id": "CHEBI:15378"
+          },
+          {
+            "database": "ChEBI",
+            "id": "CHEBI:46858"
+          },
+          {
+            "database": "ChEBI",
+            "id": "CHEBI:58223"
+          },
+          {
+            "database": "ChEBI",
+            "id": "CHEBI:58885"
+          },
+          {
+            "database": "ChEBI",
+            "id": "CHEBI:140573"
+          }
+        ],
+        "ecNumber": "2.4.1.186",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "9346895"
+          },
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "9857012"
+          }
+        ]
+      },
+      "physiologicalReactions": [
+        {
+          "directionType": "left-to-right",
+          "reactionCrossReference": {
+            "database": "Rhea",
+            "id": "RHEA:23361"
+          },
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "9346895"
+            },
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "9857012"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commentType": "CATALYTIC ACTIVITY",
+      "reaction": {
+        "name": "[1,4-alpha-D-glucosyl](n)-L-tyrosyl-[glycogenin] + UDP-alpha-D-glucose = [1,4-alpha-D-glucosyl](n+1)-L-tyrosyl-[glycogenin] + UDP + H(+)",
+        "reactionCrossReferences": [
+          {
+            "database": "Rhea",
+            "id": "RHEA:56560"
+          },
+          {
+            "database": "Rhea",
+            "id": "RHEA-COMP:14606"
+          },
+          {
+            "database": "Rhea",
+            "id": "RHEA-COMP:14607"
+          },
+          {
+            "database": "ChEBI",
+            "id": "CHEBI:15378"
+          },
+          {
+            "database": "ChEBI",
+            "id": "CHEBI:58223"
+          },
+          {
+            "database": "ChEBI",
+            "id": "CHEBI:58885"
+          },
+          {
+            "database": "ChEBI",
+            "id": "CHEBI:140574"
+          }
+        ],
+        "ecNumber": "2.4.1.186",
+        "evidences": [
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "9346895"
+          },
+          {
+            "evidenceCode": "ECO:0000269",
+            "source": "PubMed",
+            "id": "9857012"
+          }
+        ]
+      },
+      "physiologicalReactions": [
+        {
+          "directionType": "left-to-right",
+          "reactionCrossReference": {
+            "database": "Rhea",
+            "id": "RHEA:56561"
+          },
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "9346895"
+            },
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "9857012"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commentType": "COFACTOR",
+      "cofactors": [
+        {
+          "name": "Mn(2+)",
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000250",
+              "source": "UniProtKB",
+              "id": "P46976"
+            }
+          ],
+          "cofactorCrossReference": {
+            "database": "ChEBI",
+            "id": "CHEBI:29035"
+          }
+        }
+      ]
+    },
+    {
+      "texts": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "9346895"
+            },
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "9857012"
+            }
+          ],
+          "value": "Glycan biosynthesis; glycogen biosynthesis"
+        }
+      ],
+      "commentType": "PATHWAY"
+    },
+    {
+      "texts": [
+        {
+          "value": "Homodimer, tightly complexed to glycogen synthase"
+        }
+      ],
+      "commentType": "SUBUNIT"
+    },
+    {
+      "commentType": "INTERACTION",
+      "interactions": [
+        {
+          "interactantOne": {
+            "uniProtKBAccession": "O15488",
+            "intActId": "EBI-752192"
+          },
+          "interactantTwo": {
+            "uniProtKBAccession": "P13807",
+            "geneName": "GYS1",
+            "intActId": "EBI-740553"
+          },
+          "numberOfExperiments": 6,
+          "organismDiffer": false
+        }
+      ]
+    },
+    {
+      "commentType": "SUBCELLULAR LOCATION",
+      "note": {
+        "texts": [
+          {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000250",
+                "source": "UniProtKB",
+                "id": "C4R941"
+              },
+              {
+                "evidenceCode": "ECO:0000250",
+                "source": "UniProtKB",
+                "id": "P13280"
+              }
+            ],
+            "value": "Localizes to glycogen granules (glycosomes) in the cytoplasm (By similarity). Cytosolic localization is dependent on the actin cytoskeleton (By similarity)"
+          }
+        ]
+      },
+      "subcellularLocations": [
+        {
+          "location": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000250",
+                "source": "UniProtKB",
+                "id": "P13280"
+              }
+            ],
+            "value": "Cytoplasm",
+            "id": "SL-0086"
+          }
+        },
+        {
+          "location": {
+            "evidences": [
+              {
+                "evidenceCode": "ECO:0000250",
+                "source": "UniProtKB",
+                "id": "P13280"
+              }
+            ],
+            "value": "Nucleus",
+            "id": "SL-0191"
+          }
+        }
+      ]
+    },
+    {
+      "commentType": "ALTERNATIVE PRODUCTS",
+      "events": [
+        "Alternative splicing"
+      ],
+      "isoforms": [
+        {
+          "name": {
+            "value": "Alpha"
+          },
+          "isoformIds": [
+            "O15488-1"
+          ],
+          "isoformSequenceStatus": "Displayed"
+        },
+        {
+          "name": {
+            "value": "Beta"
+          },
+          "isoformIds": [
+            "O15488-2"
+          ],
+          "sequenceIds": [
+            "VSP_001770"
+          ],
+          "isoformSequenceStatus": "Described"
+        },
+        {
+          "name": {
+            "value": "Gamma"
+          },
+          "isoformIds": [
+            "O15488-3"
+          ],
+          "sequenceIds": [
+            "VSP_001771"
+          ],
+          "isoformSequenceStatus": "Described"
+        },
+        {
+          "name": {
+            "value": "Delta"
+          },
+          "isoformIds": [
+            "O15488-4"
+          ],
+          "sequenceIds": [
+            "VSP_001772"
+          ],
+          "isoformSequenceStatus": "Described"
+        },
+        {
+          "name": {
+            "value": "Epsilon"
+          },
+          "isoformIds": [
+            "O15488-5"
+          ],
+          "sequenceIds": [
+            "VSP_001773"
+          ],
+          "isoformSequenceStatus": "Described"
+        },
+        {
+          "name": {
+            "value": "Zeta"
+          },
+          "isoformIds": [
+            "O15488-6"
+          ],
+          "sequenceIds": [
+            "VSP_001774"
+          ],
+          "isoformSequenceStatus": "Described"
+        }
+      ],
+      "note": {
+        "texts": [
+          {
+            "value": "Additional isoforms seem to exist."
+          }
+        ]
+      }
+    },
+    {
+      "texts": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "9346895"
+            },
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "9857012"
+            }
+          ],
+          "value": "Detected in liver (at protein level) (PubMed:9857012). Expressed preferentially in liver, heart, and pancreas (PubMed:9346895)"
+        }
+      ],
+      "commentType": "TISSUE SPECIFICITY"
+    },
+    {
+      "texts": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000269",
+              "source": "PubMed",
+              "id": "9857012"
+            }
+          ],
+          "value": "Self-glycosylated by the transfer of glucose residues from UDP-glucose to itself, forming an alpha-1,4-glycan of around 10 residues attached to Tyr-228"
+        }
+      ],
+      "commentType": "PTM"
+    },
+    {
+      "commentType": "MASS SPECTROMETRY",
+      "method": "MALDI",
+      "molWeight": 55211.89,
+      "molWeightError": 0.0,
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000269",
+          "source": "PubMed",
+          "id": "11840567"
+        }
+      ]
+    },
+    {
+      "texts": [
+        {
+          "evidences": [
+            {
+              "evidenceCode": "ECO:0000305"
+            }
+          ],
+          "value": "Belongs to the glycosyltransferase 8 family. Glycogenin subfamily"
+        }
+      ],
+      "commentType": "SIMILARITY"
+    }
+  ],
+  "features": [
+    {
+      "type": "Chain",
+      "location": {
+        "start": {
+          "value": 1,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 501,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "Glycogenin-2",
+      "featureId": "PRO_0000215180"
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 42,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 42,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58223"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP",
+        "id": "ChEBI:CHEBI:58223"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 42,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 42,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 44,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 44,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58223"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP",
+        "id": "ChEBI:CHEBI:58223"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 44,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 44,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 45,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 45,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58223"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP",
+        "id": "ChEBI:CHEBI:58223"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 45,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 45,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P13280"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 48,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 48,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58223"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP",
+        "id": "ChEBI:CHEBI:58223"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 48,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 48,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 110,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 110,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58223"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP",
+        "id": "ChEBI:CHEBI:58223"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 110,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 110,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 119,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 119,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 135,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 135,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:29035"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "Mn(2+)",
+        "id": "ChEBI:CHEBI:29035"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 135,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 135,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58223"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P13280"
+        }
+      ],
+      "ligand": {
+        "name": "UDP",
+        "id": "ChEBI:CHEBI:58223"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 135,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 135,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 136,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 136,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58223"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP",
+        "id": "ChEBI:CHEBI:58223"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 136,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 136,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 137,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 137,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:29035"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "Mn(2+)",
+        "id": "ChEBI:CHEBI:29035"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 137,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 137,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58223"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP",
+        "id": "ChEBI:CHEBI:58223"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 137,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 137,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 166,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 166,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 167,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 167,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 193,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 193,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 196,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 196,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 197,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 197,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 245,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 245,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:29035"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "Mn(2+)",
+        "id": "ChEBI:CHEBI:29035"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 245,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 245,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58223"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P13280"
+        }
+      ],
+      "ligand": {
+        "name": "UDP",
+        "id": "ChEBI:CHEBI:58223"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 248,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 248,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58223"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP",
+        "id": "ChEBI:CHEBI:58223"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 248,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 248,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 251,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 251,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58223"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP",
+        "id": "ChEBI:CHEBI:58223"
+      }
+    },
+    {
+      "type": "Binding site",
+      "location": {
+        "start": {
+          "value": 251,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 251,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "featureCrossReferences": [
+        {
+          "database": "ChEBI",
+          "id": "CHEBI:58885"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P46976"
+        }
+      ],
+      "ligand": {
+        "name": "UDP-alpha-D-glucose",
+        "id": "ChEBI:CHEBI:58885"
+      }
+    },
+    {
+      "type": "Site",
+      "location": {
+        "start": {
+          "value": 119,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 119,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "Important for catalytic activity",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000250",
+          "source": "UniProtKB",
+          "id": "P13280"
+        }
+      ]
+    },
+    {
+      "type": "Modified residue",
+      "location": {
+        "start": {
+          "value": 368,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 368,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "Phosphoserine",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007744",
+          "source": "PubMed",
+          "id": "24275569"
+        }
+      ]
+    },
+    {
+      "type": "Modified residue",
+      "location": {
+        "start": {
+          "value": 399,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 399,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "Phosphoserine",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007744",
+          "source": "PubMed",
+          "id": "24275569"
+        }
+      ]
+    },
+    {
+      "type": "Modified residue",
+      "location": {
+        "start": {
+          "value": 459,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 459,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "Phosphoserine",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007744",
+          "source": "PubMed",
+          "id": "24275569"
+        }
+      ]
+    },
+    {
+      "type": "Glycosylation",
+      "location": {
+        "start": {
+          "value": 228,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 228,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "O-linked (Glc...) tyrosine",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000269",
+          "source": "PubMed",
+          "id": "9857012"
+        }
+      ],
+      "featureId": ""
+    },
+    {
+      "type": "Alternative sequence",
+      "location": {
+        "start": {
+          "value": 3,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 42,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "in isoform Gamma",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000305"
+        }
+      ],
+      "featureId": "VSP_001771",
+      "alternativeSequence": {}
+    },
+    {
+      "type": "Alternative sequence",
+      "location": {
+        "start": {
+          "value": 3,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 33,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "in isoform Beta",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000303",
+          "source": "PubMed",
+          "id": "15489334"
+        }
+      ],
+      "featureId": "VSP_001770",
+      "alternativeSequence": {}
+    },
+    {
+      "type": "Alternative sequence",
+      "location": {
+        "start": {
+          "value": 378,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 448,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "in isoform Delta",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000305"
+        }
+      ],
+      "featureId": "VSP_001772",
+      "alternativeSequence": {}
+    },
+    {
+      "type": "Alternative sequence",
+      "location": {
+        "start": {
+          "value": 407,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 501,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "in isoform Epsilon",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000305"
+        }
+      ],
+      "featureId": "VSP_001773",
+      "alternativeSequence": {}
+    },
+    {
+      "type": "Alternative sequence",
+      "location": {
+        "start": {
+          "value": 413,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 448,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "in isoform Zeta",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000305"
+        }
+      ],
+      "featureId": "VSP_001774",
+      "alternativeSequence": {}
+    },
+    {
+      "type": "Natural variant",
+      "location": {
+        "start": {
+          "value": 7,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 7,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "in dbSNP:rs11797037",
+      "featureCrossReferences": [
+        {
+          "database": "dbSNP",
+          "id": "rs11797037"
+        }
+      ],
+      "featureId": "VAR_053110",
+      "alternativeSequence": {
+        "originalSequence": "H",
+        "alternativeSequences": [
+          "Y"
+        ]
+      }
+    },
+    {
+      "type": "Natural variant",
+      "location": {
+        "start": {
+          "value": 194,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 194,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "found in a renal cell carcinoma case; somatic mutation; dbSNP:rs200824650",
+      "featureCrossReferences": [
+        {
+          "database": "dbSNP",
+          "id": "rs200824650"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000269",
+          "source": "PubMed",
+          "id": "21248752"
+        }
+      ],
+      "featureId": "VAR_064717",
+      "alternativeSequence": {
+        "originalSequence": "G",
+        "alternativeSequences": [
+          "R"
+        ]
+      }
+    },
+    {
+      "type": "Natural variant",
+      "location": {
+        "start": {
+          "value": 270,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 270,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "in dbSNP:rs2306734",
+      "featureCrossReferences": [
+        {
+          "database": "dbSNP",
+          "id": "rs2306734"
+        }
+      ],
+      "featureId": "VAR_010401",
+      "alternativeSequence": {
+        "originalSequence": "A",
+        "alternativeSequences": [
+          "V"
+        ]
+      }
+    },
+    {
+      "type": "Natural variant",
+      "location": {
+        "start": {
+          "value": 313,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 313,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "in dbSNP:rs2306735",
+      "featureCrossReferences": [
+        {
+          "database": "dbSNP",
+          "id": "rs2306735"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000269",
+          "source": "PubMed",
+          "id": "15489334"
+        }
+      ],
+      "featureId": "VAR_024457",
+      "alternativeSequence": {
+        "originalSequence": "H",
+        "alternativeSequences": [
+          "R"
+        ]
+      }
+    },
+    {
+      "type": "Natural variant",
+      "location": {
+        "start": {
+          "value": 373,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 373,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "in dbSNP:rs17330993",
+      "featureCrossReferences": [
+        {
+          "database": "dbSNP",
+          "id": "rs17330993"
+        }
+      ],
+      "featureId": "VAR_031224",
+      "alternativeSequence": {
+        "originalSequence": "R",
+        "alternativeSequences": [
+          "C"
+        ]
+      }
+    },
+    {
+      "type": "Mutagenesis",
+      "location": {
+        "start": {
+          "value": 228,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 228,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "Loss of autoglucosylation.",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000269",
+          "source": "PubMed",
+          "id": "9857012"
+        }
+      ],
+      "alternativeSequence": {
+        "originalSequence": "Y",
+        "alternativeSequences": [
+          "F"
+        ]
+      }
+    },
+    {
+      "type": "Mutagenesis",
+      "location": {
+        "start": {
+          "value": 230,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 230,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "No loss of activity.",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000269",
+          "source": "PubMed",
+          "id": "9857012"
+        }
+      ],
+      "alternativeSequence": {
+        "originalSequence": "Y",
+        "alternativeSequences": [
+          "F"
+        ]
+      }
+    },
+    {
+      "type": "Sequence conflict",
+      "location": {
+        "start": {
+          "value": 413,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 413,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "in Ref. 1; AAB84378",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000305"
+        }
+      ],
+      "alternativeSequence": {}
+    },
+    {
+      "type": "Sequence conflict",
+      "location": {
+        "start": {
+          "value": 462,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 464,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "in Ref. 1; AAB84376",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000305"
+        }
+      ],
+      "alternativeSequence": {
+        "originalSequence": "EKV",
+        "alternativeSequences": [
+          "AGI"
+        ]
+      }
+    },
+    {
+      "type": "Beta strand",
+      "location": {
+        "start": {
+          "value": 37,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 43,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Turn",
+      "location": {
+        "start": {
+          "value": 46,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 48,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 49,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 61,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Beta strand",
+      "location": {
+        "start": {
+          "value": 66,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 72,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 78,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 84,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Turn",
+      "location": {
+        "start": {
+          "value": 85,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 87,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Beta strand",
+      "location": {
+        "start": {
+          "value": 89,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 93,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 101,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 109,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 111,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 113,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 114,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 120,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 121,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 124,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Beta strand",
+      "location": {
+        "start": {
+          "value": 128,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 134,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Beta strand",
+      "location": {
+        "start": {
+          "value": 138,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 140,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 145,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 149,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Beta strand",
+      "location": {
+        "start": {
+          "value": 152,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 157,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Beta strand",
+      "location": {
+        "start": {
+          "value": 159,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 161,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Beta strand",
+      "location": {
+        "start": {
+          "value": 164,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 172,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 176,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 189,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 196,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 203,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Turn",
+      "location": {
+        "start": {
+          "value": 204,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 209,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 212,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 214,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 218,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 220,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Turn",
+      "location": {
+        "start": {
+          "value": 225,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 227,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 232,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 237,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 238,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 240,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Beta strand",
+      "location": {
+        "start": {
+          "value": 242,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 245,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 252,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 254,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 277,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 286,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 287,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 291,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 292,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 298,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 471,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 476,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "8Z0A"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 477,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 479,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "8Z0A"
+        }
+      ]
+    },
+    {
+      "type": "Beta strand",
+      "location": {
+        "start": {
+          "value": 483,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 485,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "8Z0A"
+        }
+      ]
+    },
+    {
+      "type": "Helix",
+      "location": {
+        "start": {
+          "value": 489,
+          "modifier": "EXACT"
+        },
+        "end": {
+          "value": 498,
+          "modifier": "EXACT"
+        }
+      },
+      "description": "",
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007829",
+          "source": "PDB",
+          "id": "8Z0A"
+        }
+      ]
+    }
+  ],
+  "keywords": [
+    {
+      "id": "KW-0002",
+      "category": "Technical term",
+      "name": "3D-structure"
+    },
+    {
+      "id": "KW-0025",
+      "category": "Coding sequence diversity",
+      "name": "Alternative splicing"
+    },
+    {
+      "id": "KW-0963",
+      "category": "Cellular component",
+      "name": "Cytoplasm"
+    },
+    {
+      "id": "KW-0320",
+      "category": "Biological process",
+      "name": "Glycogen biosynthesis"
+    },
+    {
+      "id": "KW-0325",
+      "category": "PTM",
+      "name": "Glycoprotein"
+    },
+    {
+      "id": "KW-0464",
+      "category": "Ligand",
+      "name": "Manganese"
+    },
+    {
+      "id": "KW-0479",
+      "category": "Ligand",
+      "name": "Metal-binding"
+    },
+    {
+      "id": "KW-0539",
+      "category": "Cellular component",
+      "name": "Nucleus"
+    },
+    {
+      "id": "KW-0597",
+      "category": "PTM",
+      "name": "Phosphoprotein"
+    },
+    {
+      "id": "KW-1267",
+      "category": "Technical term",
+      "name": "Proteomics identification"
+    },
+    {
+      "id": "KW-1185",
+      "category": "Technical term",
+      "name": "Reference proteome"
+    },
+    {
+      "id": "KW-0808",
+      "category": "Molecular function",
+      "name": "Transferase"
+    }
+  ],
+  "references": [
+    {
+      "referenceNumber": 1,
+      "citation": {
+        "id": "9346895",
+        "citationType": "journal article",
+        "authors": [
+          "Mu J.",
+          "Skurat A.V.",
+          "Roach P.J."
+        ],
+        "citationCrossReferences": [
+          {
+            "database": "PubMed",
+            "id": "9346895"
+          },
+          {
+            "database": "DOI",
+            "id": "10.1074/jbc.272.44.27589"
+          }
+        ],
+        "title": "Glycogenin-2, a novel self-glucosylating protein involved in liver glycogen biosynthesis.",
+        "publicationDate": "1997",
+        "journal": "J. Biol. Chem.",
+        "firstPage": "27589",
+        "lastPage": "27597",
+        "volume": "272"
+      },
+      "referencePositions": [
+        "NUCLEOTIDE SEQUENCE [MRNA]",
+        "ALTERNATIVE SPLICING",
+        "CATALYTIC ACTIVITY",
+        "FUNCTION",
+        "PATHWAY",
+        "TISSUE SPECIFICITY"
+      ],
+      "referenceComments": [
+        {
+          "value": "Liver",
+          "type": "TISSUE"
+        }
+      ]
+    },
+    {
+      "referenceNumber": 2,
+      "citation": {
+        "id": "10721716",
+        "citationType": "journal article",
+        "authors": [
+          "Zhai L.",
+          "Mu J.",
+          "Zong H.",
+          "DePaoli-Roach A.A.",
+          "Roach P.J."
+        ],
+        "citationCrossReferences": [
+          {
+            "database": "PubMed",
+            "id": "10721716"
+          },
+          {
+            "database": "DOI",
+            "id": "10.1016/s0378-1119(99)00520-x"
+          }
+        ],
+        "title": "Structure and chromosomal localization of the human glycogenin-2 gene GYG2.",
+        "publicationDate": "2000",
+        "journal": "Gene",
+        "firstPage": "229",
+        "lastPage": "235",
+        "volume": "242"
+      },
+      "referencePositions": [
+        "NUCLEOTIDE SEQUENCE [GENOMIC DNA]"
+      ]
+    },
+    {
+      "referenceNumber": 3,
+      "citation": {
+        "id": "15772651",
+        "citationType": "journal article",
+        "authors": [
+          "Ross M.T.",
+          "Grafham D.V.",
+          "Coffey A.J.",
+          "Scherer S.",
+          "McLay K.",
+          "Muzny D.",
+          "Platzer M.",
+          "Howell G.R.",
+          "Burrows C.",
+          "Bird C.P.",
+          "Frankish A.",
+          "Lovell F.L.",
+          "Howe K.L.",
+          "Ashurst J.L.",
+          "Fulton R.S.",
+          "Sudbrak R.",
+          "Wen G.",
+          "Jones M.C.",
+          "Hurles M.E.",
+          "Andrews T.D.",
+          "Scott C.E.",
+          "Searle S.",
+          "Ramser J.",
+          "Whittaker A.",
+          "Deadman R.",
+          "Carter N.P.",
+          "Hunt S.E.",
+          "Chen R.",
+          "Cree A.",
+          "Gunaratne P.",
+          "Havlak P.",
+          "Hodgson A.",
+          "Metzker M.L.",
+          "Richards S.",
+          "Scott G.",
+          "Steffen D.",
+          "Sodergren E.",
+          "Wheeler D.A.",
+          "Worley K.C.",
+          "Ainscough R.",
+          "Ambrose K.D.",
+          "Ansari-Lari M.A.",
+          "Aradhya S.",
+          "Ashwell R.I.",
+          "Babbage A.K.",
+          "Bagguley C.L.",
+          "Ballabio A.",
+          "Banerjee R.",
+          "Barker G.E.",
+          "Barlow K.F.",
+          "Barrett I.P.",
+          "Bates K.N.",
+          "Beare D.M.",
+          "Beasley H.",
+          "Beasley O.",
+          "Beck A.",
+          "Bethel G.",
+          "Blechschmidt K.",
+          "Brady N.",
+          "Bray-Allen S.",
+          "Bridgeman A.M.",
+          "Brown A.J.",
+          "Brown M.J.",
+          "Bonnin D.",
+          "Bruford E.A.",
+          "Buhay C.",
+          "Burch P.",
+          "Burford D.",
+          "Burgess J.",
+          "Burrill W.",
+          "Burton J.",
+          "Bye J.M.",
+          "Carder C.",
+          "Carrel L.",
+          "Chako J.",
+          "Chapman J.C.",
+          "Chavez D.",
+          "Chen E.",
+          "Chen G.",
+          "Chen Y.",
+          "Chen Z.",
+          "Chinault C.",
+          "Ciccodicola A.",
+          "Clark S.Y.",
+          "Clarke G.",
+          "Clee C.M.",
+          "Clegg S.",
+          "Clerc-Blankenburg K.",
+          "Clifford K.",
+          "Cobley V.",
+          "Cole C.G.",
+          "Conquer J.S.",
+          "Corby N.",
+          "Connor R.E.",
+          "David R.",
+          "Davies J.",
+          "Davis C.",
+          "Davis J.",
+          "Delgado O.",
+          "Deshazo D.",
+          "Dhami P.",
+          "Ding Y.",
+          "Dinh H.",
+          "Dodsworth S.",
+          "Draper H.",
+          "Dugan-Rocha S.",
+          "Dunham A.",
+          "Dunn M.",
+          "Durbin K.J.",
+          "Dutta I.",
+          "Eades T.",
+          "Ellwood M.",
+          "Emery-Cohen A.",
+          "Errington H.",
+          "Evans K.L.",
+          "Faulkner L.",
+          "Francis F.",
+          "Frankland J.",
+          "Fraser A.E.",
+          "Galgoczy P.",
+          "Gilbert J.",
+          "Gill R.",
+          "Gloeckner G.",
+          "Gregory S.G.",
+          "Gribble S.",
+          "Griffiths C.",
+          "Grocock R.",
+          "Gu Y.",
+          "Gwilliam R.",
+          "Hamilton C.",
+          "Hart E.A.",
+          "Hawes A.",
+          "Heath P.D.",
+          "Heitmann K.",
+          "Hennig S.",
+          "Hernandez J.",
+          "Hinzmann B.",
+          "Ho S.",
+          "Hoffs M.",
+          "Howden P.J.",
+          "Huckle E.J.",
+          "Hume J.",
+          "Hunt P.J.",
+          "Hunt A.R.",
+          "Isherwood J.",
+          "Jacob L.",
+          "Johnson D.",
+          "Jones S.",
+          "de Jong P.J.",
+          "Joseph S.S.",
+          "Keenan S.",
+          "Kelly S.",
+          "Kershaw J.K.",
+          "Khan Z.",
+          "Kioschis P.",
+          "Klages S.",
+          "Knights A.J.",
+          "Kosiura A.",
+          "Kovar-Smith C.",
+          "Laird G.K.",
+          "Langford C.",
+          "Lawlor S.",
+          "Leversha M.",
+          "Lewis L.",
+          "Liu W.",
+          "Lloyd C.",
+          "Lloyd D.M.",
+          "Loulseged H.",
+          "Loveland J.E.",
+          "Lovell J.D.",
+          "Lozado R.",
+          "Lu J.",
+          "Lyne R.",
+          "Ma J.",
+          "Maheshwari M.",
+          "Matthews L.H.",
+          "McDowall J.",
+          "McLaren S.",
+          "McMurray A.",
+          "Meidl P.",
+          "Meitinger T.",
+          "Milne S.",
+          "Miner G.",
+          "Mistry S.L.",
+          "Morgan M.",
+          "Morris S.",
+          "Mueller I.",
+          "Mullikin J.C.",
+          "Nguyen N.",
+          "Nordsiek G.",
+          "Nyakatura G.",
+          "O'dell C.N.",
+          "Okwuonu G.",
+          "Palmer S.",
+          "Pandian R.",
+          "Parker D.",
+          "Parrish J.",
+          "Pasternak S.",
+          "Patel D.",
+          "Pearce A.V.",
+          "Pearson D.M.",
+          "Pelan S.E.",
+          "Perez L.",
+          "Porter K.M.",
+          "Ramsey Y.",
+          "Reichwald K.",
+          "Rhodes S.",
+          "Ridler K.A.",
+          "Schlessinger D.",
+          "Schueler M.G.",
+          "Sehra H.K.",
+          "Shaw-Smith C.",
+          "Shen H.",
+          "Sheridan E.M.",
+          "Shownkeen R.",
+          "Skuce C.D.",
+          "Smith M.L.",
+          "Sotheran E.C.",
+          "Steingruber H.E.",
+          "Steward C.A.",
+          "Storey R.",
+          "Swann R.M.",
+          "Swarbreck D.",
+          "Tabor P.E.",
+          "Taudien S.",
+          "Taylor T.",
+          "Teague B.",
+          "Thomas K.",
+          "Thorpe A.",
+          "Timms K.",
+          "Tracey A.",
+          "Trevanion S.",
+          "Tromans A.C.",
+          "d'Urso M.",
+          "Verduzco D.",
+          "Villasana D.",
+          "Waldron L.",
+          "Wall M.",
+          "Wang Q.",
+          "Warren J.",
+          "Warry G.L.",
+          "Wei X.",
+          "West A.",
+          "Whitehead S.L.",
+          "Whiteley M.N.",
+          "Wilkinson J.E.",
+          "Willey D.L.",
+          "Williams G.",
+          "Williams L.",
+          "Williamson A.",
+          "Williamson H.",
+          "Wilming L.",
+          "Woodmansey R.L.",
+          "Wray P.W.",
+          "Yen J.",
+          "Zhang J.",
+          "Zhou J.",
+          "Zoghbi H.",
+          "Zorilla S.",
+          "Buck D.",
+          "Reinhardt R.",
+          "Poustka A.",
+          "Rosenthal A.",
+          "Lehrach H.",
+          "Meindl A.",
+          "Minx P.J.",
+          "Hillier L.W.",
+          "Willard H.F.",
+          "Wilson R.K.",
+          "Waterston R.H.",
+          "Rice C.M.",
+          "Vaudin M.",
+          "Coulson A.",
+          "Nelson D.L.",
+          "Weinstock G.",
+          "Sulston J.E.",
+          "Durbin R.M.",
+          "Hubbard T.",
+          "Gibbs R.A.",
+          "Beck S.",
+          "Rogers J.",
+          "Bentley D.R."
+        ],
+        "citationCrossReferences": [
+          {
+            "database": "PubMed",
+            "id": "15772651"
+          },
+          {
+            "database": "DOI",
+            "id": "10.1038/nature03440"
+          }
+        ],
+        "title": "The DNA sequence of the human X chromosome.",
+        "publicationDate": "2005",
+        "journal": "Nature",
+        "firstPage": "325",
+        "lastPage": "337",
+        "volume": "434"
+      },
+      "referencePositions": [
+        "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+      ]
+    },
+    {
+      "referenceNumber": 4,
+      "citation": {
+        "id": "15489334",
+        "citationType": "journal article",
+        "authoringGroup": [
+          "The MGC Project Team"
+        ],
+        "citationCrossReferences": [
+          {
+            "database": "PubMed",
+            "id": "15489334"
+          },
+          {
+            "database": "DOI",
+            "id": "10.1101/gr.2596504"
+          }
+        ],
+        "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+        "publicationDate": "2004",
+        "journal": "Genome Res.",
+        "firstPage": "2121",
+        "lastPage": "2127",
+        "volume": "14"
+      },
+      "referencePositions": [
+        "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA] (ISOFORM BETA)",
+        "VARIANT ARG-313"
+      ],
+      "referenceComments": [
+        {
+          "value": "Skin",
+          "type": "TISSUE"
+        }
+      ]
+    },
+    {
+      "referenceNumber": 5,
+      "citation": {
+        "id": "9857012",
+        "citationType": "journal article",
+        "authors": [
+          "Mu J.",
+          "Roach P.J."
+        ],
+        "citationCrossReferences": [
+          {
+            "database": "PubMed",
+            "id": "9857012"
+          },
+          {
+            "database": "DOI",
+            "id": "10.1074/jbc.273.52.34850"
+          }
+        ],
+        "title": "Characterization of human glycogenin-2, a self-glucosylating initiator of liver glycogen metabolism.",
+        "publicationDate": "1998",
+        "journal": "J. Biol. Chem.",
+        "firstPage": "34850",
+        "lastPage": "34856",
+        "volume": "273"
+      },
+      "referencePositions": [
+        "GLYCOSYLATION AT TYR-228",
+        "MUTAGENESIS OF TYR-228 AND TYR-230",
+        "CATALYTIC ACTIVITY",
+        "PATHWAY",
+        "FUNCTION",
+        "TISSUE SPECIFICITY"
+      ]
+    },
+    {
+      "referenceNumber": 6,
+      "citation": {
+        "id": "11840567",
+        "citationType": "journal article",
+        "authors": [
+          "Harris R.A.",
+          "Yang A.",
+          "Stein R.C.",
+          "Lucy K.",
+          "Brusten L.",
+          "Herath A.",
+          "Parekh R.",
+          "Waterfield M.D.",
+          "O'Hare M.J.",
+          "Neville M.A.",
+          "Page M.J.",
+          "Zvelebil M.J."
+        ],
+        "citationCrossReferences": [
+          {
+            "database": "PubMed",
+            "id": "11840567"
+          },
+          {
+            "database": "DOI",
+            "id": "10.1002/1615-9861(200202)2:2<212::aid-prot212>3.0.co;2-h"
+          }
+        ],
+        "title": "Cluster analysis of an extensive human breast cancer cell line protein expression map database.",
+        "publicationDate": "2002",
+        "journal": "Proteomics",
+        "firstPage": "212",
+        "lastPage": "223",
+        "volume": "2"
+      },
+      "referencePositions": [
+        "MASS SPECTROMETRY"
+      ],
+      "referenceComments": [
+        {
+          "value": "Mammary cancer",
+          "type": "TISSUE"
+        }
+      ]
+    },
+    {
+      "referenceNumber": 7,
+      "citation": {
+        "id": "24275569",
+        "citationType": "journal article",
+        "authors": [
+          "Bian Y.",
+          "Song C.",
+          "Cheng K.",
+          "Dong M.",
+          "Wang F.",
+          "Huang J.",
+          "Sun D.",
+          "Wang L.",
+          "Ye M.",
+          "Zou H."
+        ],
+        "citationCrossReferences": [
+          {
+            "database": "PubMed",
+            "id": "24275569"
+          },
+          {
+            "database": "DOI",
+            "id": "10.1016/j.jprot.2013.11.014"
+          }
+        ],
+        "title": "An enzyme assisted RP-RPLC approach for in-depth analysis of human liver phosphoproteome.",
+        "publicationDate": "2014",
+        "journal": "J. Proteomics",
+        "firstPage": "253",
+        "lastPage": "262",
+        "volume": "96"
+      },
+      "referencePositions": [
+        "PHOSPHORYLATION [LARGE SCALE ANALYSIS] AT SER-368; SER-399 AND SER-459",
+        "IDENTIFICATION BY MASS SPECTROMETRY [LARGE SCALE ANALYSIS]"
+      ],
+      "referenceComments": [
+        {
+          "value": "Liver",
+          "type": "TISSUE"
+        }
+      ]
+    },
+    {
+      "referenceNumber": 8,
+      "citation": {
+        "id": "CI-3VBMPSR8FHL01",
+        "citationType": "submission",
+        "authors": [
+          "Fairhead M.",
+          "Strain-Damerell C.",
+          "Krojer T.",
+          "Froese D.S.",
+          "Kopec J.",
+          "Nowak R.",
+          "Burgess-Brown N.",
+          "von Delft F.",
+          "Arrowsmith C.",
+          "Edwards A.",
+          "Bountra C.",
+          "Yue W.W."
+        ],
+        "title": "Crystal Structure of Human Glycogenin-2 Catalytic Domain.",
+        "publicationDate": "DEC-2014",
+        "submissionDatabase": "PDB data bank"
+      },
+      "referencePositions": [
+        "X-RAY CRYSTALLOGRAPHY (1.93 ANGSTROMS) OF 35-300"
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0007744",
+          "source": "PDB",
+          "id": "4UEG"
+        }
+      ]
+    },
+    {
+      "referenceNumber": 9,
+      "citation": {
+        "id": "21248752",
+        "citationType": "journal article",
+        "authors": [
+          "Varela I.",
+          "Tarpey P.",
+          "Raine K.",
+          "Huang D.",
+          "Ong C.K.",
+          "Stephens P.",
+          "Davies H.",
+          "Jones D.",
+          "Lin M.L.",
+          "Teague J.",
+          "Bignell G.",
+          "Butler A.",
+          "Cho J.",
+          "Dalgliesh G.L.",
+          "Galappaththige D.",
+          "Greenman C.",
+          "Hardy C.",
+          "Jia M.",
+          "Latimer C.",
+          "Lau K.W.",
+          "Marshall J.",
+          "McLaren S.",
+          "Menzies A.",
+          "Mudie L.",
+          "Stebbings L.",
+          "Largaespada D.A.",
+          "Wessels L.F.A.",
+          "Richard S.",
+          "Kahnoski R.J.",
+          "Anema J.",
+          "Tuveson D.A.",
+          "Perez-Mancera P.A.",
+          "Mustonen V.",
+          "Fischer A.",
+          "Adams D.J.",
+          "Rust A.",
+          "Chan-On W.",
+          "Subimerb C.",
+          "Dykema K.",
+          "Furge K.",
+          "Campbell P.J.",
+          "Teh B.T.",
+          "Stratton M.R.",
+          "Futreal P.A."
+        ],
+        "citationCrossReferences": [
+          {
+            "database": "PubMed",
+            "id": "21248752"
+          },
+          {
+            "database": "DOI",
+            "id": "10.1038/nature09639"
+          }
+        ],
+        "title": "Exome sequencing identifies frequent mutation of the SWI/SNF complex gene PBRM1 in renal carcinoma.",
+        "publicationDate": "2011",
+        "journal": "Nature",
+        "firstPage": "539",
+        "lastPage": "542",
+        "volume": "469"
+      },
+      "referencePositions": [
+        "VARIANT ARG-194"
+      ]
+    }
+  ],
+  "uniProtKBCrossReferences": [
+    {
+      "database": "EMBL",
+      "id": "U94362",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAB84377.1"
+        },
+        {
+          "key": "Status",
+          "value": "-"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "mRNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "U94363",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAB84378.1"
+        },
+        {
+          "key": "Status",
+          "value": "-"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "mRNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "U94364",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAB84379.1"
+        },
+        {
+          "key": "Status",
+          "value": "-"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "mRNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "U94357",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAB84373.1"
+        },
+        {
+          "key": "Status",
+          "value": "-"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "mRNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "U94358",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAB84374.1"
+        },
+        {
+          "key": "Status",
+          "value": "-"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "mRNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "U94360",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAB84375.1"
+        },
+        {
+          "key": "Status",
+          "value": "-"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "mRNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "U94361",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAB84376.1"
+        },
+        {
+          "key": "Status",
+          "value": "-"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "mRNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "AF179624",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAF61855.1"
+        },
+        {
+          "key": "Status",
+          "value": "-"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "AF179615",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAF61855.1"
+        },
+        {
+          "key": "Status",
+          "value": "JOINED"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "AF179616",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAF61855.1"
+        },
+        {
+          "key": "Status",
+          "value": "JOINED"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "AF179617",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAF61855.1"
+        },
+        {
+          "key": "Status",
+          "value": "JOINED"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "AF179618",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAF61855.1"
+        },
+        {
+          "key": "Status",
+          "value": "JOINED"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "AF179619",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAF61855.1"
+        },
+        {
+          "key": "Status",
+          "value": "JOINED"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "AF179620",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAF61855.1"
+        },
+        {
+          "key": "Status",
+          "value": "JOINED"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "AF179621",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAF61855.1"
+        },
+        {
+          "key": "Status",
+          "value": "JOINED"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "AF179622",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAF61855.1"
+        },
+        {
+          "key": "Status",
+          "value": "JOINED"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "AF179623",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAF61855.1"
+        },
+        {
+          "key": "Status",
+          "value": "JOINED"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "AC138085",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "-"
+        },
+        {
+          "key": "Status",
+          "value": "NOT_ANNOTATED_CDS"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "Genomic_DNA"
+        }
+      ]
+    },
+    {
+      "database": "EMBL",
+      "id": "BC023152",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "AAH23152.1"
+        },
+        {
+          "key": "Status",
+          "value": "-"
+        },
+        {
+          "key": "MoleculeType",
+          "value": "mRNA"
+        }
+      ]
+    },
+    {
+      "database": "CCDS",
+      "id": "CCDS14121.1",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ],
+      "isoformId": "O15488-1"
+    },
+    {
+      "database": "CCDS",
+      "id": "CCDS48074.1",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ],
+      "isoformId": "O15488-2"
+    },
+    {
+      "database": "CCDS",
+      "id": "CCDS55365.1",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ],
+      "isoformId": "O15488-4"
+    },
+    {
+      "database": "RefSeq",
+      "id": "NP_001073324.1",
+      "properties": [
+        {
+          "key": "NucleotideSequenceId",
+          "value": "NM_001079855.2"
+        }
+      ],
+      "isoformId": "O15488-2"
+    },
+    {
+      "database": "RefSeq",
+      "id": "NP_001171631.1",
+      "properties": [
+        {
+          "key": "NucleotideSequenceId",
+          "value": "NM_001184702.1"
+        }
+      ]
+    },
+    {
+      "database": "RefSeq",
+      "id": "NP_001171632.1",
+      "properties": [
+        {
+          "key": "NucleotideSequenceId",
+          "value": "NM_001184703.2"
+        }
+      ],
+      "isoformId": "O15488-4"
+    },
+    {
+      "database": "RefSeq",
+      "id": "NP_001171633.1",
+      "properties": [
+        {
+          "key": "NucleotideSequenceId",
+          "value": "NM_001184704.1"
+        }
+      ]
+    },
+    {
+      "database": "RefSeq",
+      "id": "NP_003909.2",
+      "properties": [
+        {
+          "key": "NucleotideSequenceId",
+          "value": "NM_003918.3"
+        }
+      ],
+      "isoformId": "O15488-1"
+    },
+    {
+      "database": "RefSeq",
+      "id": "XP_011543902.1",
+      "properties": [
+        {
+          "key": "NucleotideSequenceId",
+          "value": "XM_011545600.3"
+        }
+      ],
+      "isoformId": "O15488-2"
+    },
+    {
+      "database": "RefSeq",
+      "id": "XP_016885416.1",
+      "properties": [
+        {
+          "key": "NucleotideSequenceId",
+          "value": "XM_017029927.2"
+        }
+      ],
+      "isoformId": "O15488-1"
+    },
+    {
+      "database": "RefSeq",
+      "id": "XP_016885417.1",
+      "properties": [
+        {
+          "key": "NucleotideSequenceId",
+          "value": "XM_017029928.2"
+        }
+      ],
+      "isoformId": "O15488-1"
+    },
+    {
+      "database": "RefSeq",
+      "id": "XP_047298565.1",
+      "properties": [
+        {
+          "key": "NucleotideSequenceId",
+          "value": "XM_047442609.1"
+        }
+      ],
+      "isoformId": "O15488-2"
+    },
+    {
+      "database": "RefSeq",
+      "id": "XP_047298568.1",
+      "properties": [
+        {
+          "key": "NucleotideSequenceId",
+          "value": "XM_047442612.1"
+        }
+      ],
+      "isoformId": "O15488-4"
+    },
+    {
+      "database": "PDB",
+      "id": "4UEG",
+      "properties": [
+        {
+          "key": "Method",
+          "value": "X-ray"
+        },
+        {
+          "key": "Resolution",
+          "value": "1.93 A"
+        },
+        {
+          "key": "Chains",
+          "value": "A/B=35-300"
+        }
+      ]
+    },
+    {
+      "database": "PDB",
+      "id": "8Z0A",
+      "properties": [
+        {
+          "key": "Method",
+          "value": "EM"
+        },
+        {
+          "key": "Resolution",
+          "value": "2.84 A"
+        },
+        {
+          "key": "Chains",
+          "value": "E/F/G/H=1-501"
+        }
+      ]
+    },
+    {
+      "database": "PDBsum",
+      "id": "4UEG",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "PDBsum",
+      "id": "8Z0A",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "AlphaFoldDB",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "EMDB",
+      "id": "EMD-39700",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "SMR",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "BioGRID",
+      "id": "114422",
+      "properties": [
+        {
+          "key": "Interactions",
+          "value": "30"
+        }
+      ]
+    },
+    {
+      "database": "ComplexPortal",
+      "id": "CPX-26493",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "Glycogen synthase-glycogenin complex, GYG2-GYS1 variant"
+        }
+      ]
+    },
+    {
+      "database": "ComplexPortal",
+      "id": "CPX-26494",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "Glycogen synthase-glycogenin complex, GYG2-GYS2 variant"
+        }
+      ]
+    },
+    {
+      "database": "FunCoup",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Number of interactors",
+          "value": "523"
+        }
+      ]
+    },
+    {
+      "database": "IntAct",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Interactions",
+          "value": "27"
+        }
+      ]
+    },
+    {
+      "database": "NDEx",
+      "id": "IQUERY-CP-GYG2",
+      "properties": [
+        {
+          "key": "Evidences",
+          "value": "3 NDEx IQuery Curated Pathways"
+        }
+      ]
+    },
+    {
+      "database": "STRING",
+      "id": "9606.ENSP00000370555",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "CAZy",
+      "id": "GT8",
+      "properties": [
+        {
+          "key": "FamilyName",
+          "value": "Glycosyltransferase Family 8"
+        }
+      ]
+    },
+    {
+      "database": "GlyCosmos",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "glycosylation",
+          "value": "1 site, No reported glycans"
+        }
+      ]
+    },
+    {
+      "database": "GlyGen",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "glycosylation",
+          "value": "1 site"
+        }
+      ]
+    },
+    {
+      "database": "iPTMnet",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "PhosphoSitePlus",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "BioMuta",
+      "id": "GYG2",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "jPOST",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "MassIVE",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "PaxDb",
+      "id": "9606-ENSP00000370555",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "PeptideAtlas",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "ProteomicsDB",
+      "id": "48689",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ],
+      "isoformId": "O15488-1"
+    },
+    {
+      "database": "ProteomicsDB",
+      "id": "48690",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ],
+      "isoformId": "O15488-2"
+    },
+    {
+      "database": "ProteomicsDB",
+      "id": "48691",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ],
+      "isoformId": "O15488-3"
+    },
+    {
+      "database": "ProteomicsDB",
+      "id": "48692",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ],
+      "isoformId": "O15488-4"
+    },
+    {
+      "database": "ProteomicsDB",
+      "id": "48693",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ],
+      "isoformId": "O15488-5"
+    },
+    {
+      "database": "ProteomicsDB",
+      "id": "48694",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ],
+      "isoformId": "O15488-6"
+    },
+    {
+      "database": "Pumba",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "Antibodypedia",
+      "id": "486",
+      "properties": [
+        {
+          "key": "antibodies",
+          "value": "173 antibodies from 26 providers"
+        }
+      ]
+    },
+    {
+      "database": "DNASU",
+      "id": "8908",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "Ensembl",
+      "id": "ENST00000353656.10",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ENSP00000487294.1"
+        },
+        {
+          "key": "GeneId",
+          "value": "ENSG00000056998.22"
+        }
+      ],
+      "isoformId": "O15488-4"
+    },
+    {
+      "database": "Ensembl",
+      "id": "ENST00000381163.7",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ENSP00000370555.3"
+        },
+        {
+          "key": "GeneId",
+          "value": "ENSG00000056998.22"
+        }
+      ],
+      "isoformId": "O15488-1"
+    },
+    {
+      "database": "Ensembl",
+      "id": "ENST00000398806.8",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ENSP00000381786.3"
+        },
+        {
+          "key": "GeneId",
+          "value": "ENSG00000056998.22"
+        }
+      ],
+      "isoformId": "O15488-2"
+    },
+    {
+      "database": "Ensembl",
+      "id": "ENST00000868643.1",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ENSP00000538702.1"
+        },
+        {
+          "key": "GeneId",
+          "value": "ENSG00000056998.22"
+        }
+      ],
+      "isoformId": "O15488-3"
+    },
+    {
+      "database": "Ensembl",
+      "id": "ENST00000868646.1",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ENSP00000538705.1"
+        },
+        {
+          "key": "GeneId",
+          "value": "ENSG00000056998.22"
+        }
+      ],
+      "isoformId": "O15488-2"
+    },
+    {
+      "database": "Ensembl",
+      "id": "ENST00000868648.1",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ENSP00000538707.1"
+        },
+        {
+          "key": "GeneId",
+          "value": "ENSG00000056998.22"
+        }
+      ],
+      "isoformId": "O15488-2"
+    },
+    {
+      "database": "Ensembl",
+      "id": "ENST00000922784.1",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ENSP00000592843.1"
+        },
+        {
+          "key": "GeneId",
+          "value": "ENSG00000056998.22"
+        }
+      ],
+      "isoformId": "O15488-2"
+    },
+    {
+      "database": "Ensembl",
+      "id": "ENST00000922794.1",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ENSP00000592853.1"
+        },
+        {
+          "key": "GeneId",
+          "value": "ENSG00000056998.22"
+        }
+      ],
+      "isoformId": "O15488-2"
+    },
+    {
+      "database": "Ensembl",
+      "id": "ENST00000922799.1",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ENSP00000592858.1"
+        },
+        {
+          "key": "GeneId",
+          "value": "ENSG00000056998.22"
+        }
+      ],
+      "isoformId": "O15488-2"
+    },
+    {
+      "database": "Ensembl",
+      "id": "ENST00000958336.1",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ENSP00000628395.1"
+        },
+        {
+          "key": "GeneId",
+          "value": "ENSG00000056998.22"
+        }
+      ],
+      "isoformId": "O15488-2"
+    },
+    {
+      "database": "Ensembl",
+      "id": "ENST00000958341.1",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ENSP00000628400.1"
+        },
+        {
+          "key": "GeneId",
+          "value": "ENSG00000056998.22"
+        }
+      ],
+      "isoformId": "O15488-3"
+    },
+    {
+      "database": "Ensembl",
+      "id": "ENST00000958345.1",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ENSP00000628404.1"
+        },
+        {
+          "key": "GeneId",
+          "value": "ENSG00000056998.22"
+        }
+      ],
+      "isoformId": "O15488-1"
+    },
+    {
+      "database": "GeneID",
+      "id": "8908",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "KEGG",
+      "id": "hsa:8908",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "MANE-Select",
+      "id": "ENST00000398806.8",
+      "properties": [
+        {
+          "key": "ProteinId",
+          "value": "ENSP00000381786.3"
+        },
+        {
+          "key": "RefSeqNucleotideId",
+          "value": "NM_001079855.2"
+        },
+        {
+          "key": "RefSeqProteinId",
+          "value": "NP_001073324.1"
+        }
+      ],
+      "isoformId": "O15488-2"
+    },
+    {
+      "database": "UCSC",
+      "id": "uc004cqs.2",
+      "properties": [
+        {
+          "key": "OrganismName",
+          "value": "human"
+        }
+      ],
+      "isoformId": "O15488-1"
+    },
+    {
+      "database": "AGR",
+      "id": "HGNC:4700",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "ClinPGx",
+      "id": "PA29078",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "CTD",
+      "id": "8908",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "DisGeNET",
+      "id": "8908",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "GeneCards",
+      "id": "GYG2",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "HGNC",
+      "id": "HGNC:4700",
+      "properties": [
+        {
+          "key": "GeneName",
+          "value": "GYG2"
+        }
+      ]
+    },
+    {
+      "database": "HPA",
+      "id": "ENSG00000056998",
+      "properties": [
+        {
+          "key": "ExpressionPatterns",
+          "value": "Tissue enhanced (adipose tissue, breast)"
+        }
+      ]
+    },
+    {
+      "database": "MalaCards",
+      "id": "GYG2",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "MIM",
+      "id": "300198",
+      "properties": [
+        {
+          "key": "Type",
+          "value": "gene"
+        }
+      ]
+    },
+    {
+      "database": "OpenTargets",
+      "id": "ENSG00000056998",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "VEuPathDB",
+      "id": "HostDB:ENSG00000056998",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "eggNOG",
+      "id": "KOG1950",
+      "properties": [
+        {
+          "key": "ToxonomicScope",
+          "value": "Eukaryota"
+        }
+      ]
+    },
+    {
+      "database": "GeneTree",
+      "id": "ENSGT00940000161628",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "InParanoid",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "OMA",
+      "id": "NDTYCQG",
+      "properties": [
+        {
+          "key": "Fingerprint",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "OrthoDB",
+      "id": "2014201at2759",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "PAN-GO",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Number of GO annotations",
+          "value": "2 GO annotations based on evolutionary models"
+        }
+      ]
+    },
+    {
+      "database": "PhylomeDB",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "BioCyc",
+      "id": "MetaCyc:HS00703-MONOMER",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "BRENDA",
+      "id": "2.4.1.186",
+      "properties": [
+        {
+          "key": "OrganismId",
+          "value": "2681"
+        }
+      ]
+    },
+    {
+      "database": "PathwayCommons",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "Reactome",
+      "id": "R-HSA-3322077",
+      "properties": [
+        {
+          "key": "PathwayName",
+          "value": "Glycogen synthesis"
+        }
+      ]
+    },
+    {
+      "database": "Reactome",
+      "id": "R-HSA-3858516",
+      "properties": [
+        {
+          "key": "PathwayName",
+          "value": "Glycogen storage disease type 0 (liver GYS2)"
+        }
+      ]
+    },
+    {
+      "database": "Reactome",
+      "id": "R-HSA-3878781",
+      "properties": [
+        {
+          "key": "PathwayName",
+          "value": "Glycogen storage disease type IV (GBE1)"
+        }
+      ]
+    },
+    {
+      "database": "Reactome",
+      "id": "R-HSA-70221",
+      "properties": [
+        {
+          "key": "PathwayName",
+          "value": "Glycogen breakdown (glycogenolysis)"
+        }
+      ]
+    },
+    {
+      "database": "SignaLink",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "UniPathway",
+      "id": "UPA00164",
+      "properties": [
+        {
+          "key": "RectionId",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "Agora",
+      "id": "ENSG00000056998",
+      "properties": [
+        {
+          "key": "NominatedTarget",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "BioGRID-ORCS",
+      "id": "8908",
+      "properties": [
+        {
+          "key": "hits",
+          "value": "12 hits in 783 CRISPR screens"
+        }
+      ]
+    },
+    {
+      "database": "ChiTaRS",
+      "id": "GYG2",
+      "properties": [
+        {
+          "key": "OrganismName",
+          "value": "human"
+        }
+      ]
+    },
+    {
+      "database": "EvolutionaryTrace",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "GenomeRNAi",
+      "id": "8908",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "Pharos",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "DevelopmentLevel",
+          "value": "Tbio"
+        }
+      ]
+    },
+    {
+      "database": "PRO",
+      "id": "PR:O15488",
+      "properties": [
+        {
+          "key": "Description",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "database": "Proteomes",
+      "id": "UP000005640",
+      "properties": [
+        {
+          "key": "Component",
+          "value": "Chromosome X"
+        }
+      ]
+    },
+    {
+      "database": "RNAct",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "moleculeType",
+          "value": "protein"
+        }
+      ]
+    },
+    {
+      "database": "Bgee",
+      "id": "ENSG00000056998",
+      "properties": [
+        {
+          "key": "ExpressionPatterns",
+          "value": "Expressed in adipose tissue and 129 other cell types or tissues"
+        }
+      ]
+    },
+    {
+      "database": "ExpressionAtlas",
+      "id": "O15488",
+      "properties": [
+        {
+          "key": "ExpressionPatterns",
+          "value": "baseline and differential"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0005737",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "C:cytoplasm"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "ISS:UniProtKB"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0005829",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "C:cytosol"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "TAS:Reactome"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0005634",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "C:nucleus"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "IEA:UniProtKB-SubCell"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0008466",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "F:glycogenin glucosyltransferase activity"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "IDA:UniProtKB"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000314",
+          "source": "PubMed",
+          "id": "9857012"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0046872",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "F:metal ion binding"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "IEA:UniProtKB-KW"
+        }
+      ]
+    },
+    {
+      "database": "GO",
+      "id": "GO:0005978",
+      "properties": [
+        {
+          "key": "GoTerm",
+          "value": "P:glycogen biosynthetic process"
+        },
+        {
+          "key": "GoEvidenceType",
+          "value": "IDA:UniProtKB"
+        }
+      ],
+      "evidences": [
+        {
+          "evidenceCode": "ECO:0000314",
+          "source": "PubMed",
+          "id": "9857012"
+        }
+      ]
+    },
+    {
+      "database": "CDD",
+      "id": "cd02537",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "GT8_Glycogenin"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "FunFam",
+      "id": "3.90.550.10:FF:000025",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "Glycogenin-1 isoform 1"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "Gene3D",
+      "id": "3.90.550.10",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "Spore Coat Polysaccharide Biosynthesis Protein SpsA, Chain A"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR002495",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "Glyco_trans_8"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR050587",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "GNT1/Glycosyltrans_8"
+        }
+      ]
+    },
+    {
+      "database": "InterPro",
+      "id": "IPR029044",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "Nucleotide-diphossugar_trans"
+        }
+      ]
+    },
+    {
+      "database": "PANTHER",
+      "id": "PTHR11183",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "GLYCOGENIN SUBFAMILY MEMBER"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "Pfam",
+      "id": "PF01501",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "Glyco_transf_8"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "database": "SUPFAM",
+      "id": "SSF53448",
+      "properties": [
+        {
+          "key": "EntryName",
+          "value": "Nucleotide-diphospho-sugar transferases"
+        },
+        {
+          "key": "MatchStatus",
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "sequence": {
+    "value": "MSETEFHHGAQAGLELLRSSNSPTSASQSAGMTVTDQAFVTLATNDIYCQGALVLGQSLRRHRLTRKLVVLITPQVSSLLRVILSKVFDEVIEVNLIDSADYIHLAFLKRPELGLTLTKLHCWTLTHYSKCVFLDADTLVLSNVDELFDRGEFSAAPDPGWPDCFNSGVFVFQPSLHTHKLLLQHAMEHGSFDGADQGLLNSFFRNWSTTDIHKHLPFIYNLSSNTMYTYSPAFKQFGSSAKVVHFLGSMKPWNYKYNPQSGSVLEQGSASSSQHQAAFLHLWWTVYQNNVLPLYKSVQAGEARASPGHTLCHSDVGGPCADSASGVGEPCENSTPSAGVPCANSPLGSNQPAQGLPEPTQIVDETLSLPEGRRSEDMIACPETETPAVITCDPLSQPSPQPADFTETETILQPANKVESVSSEETFEPSQELPAEALRDPSLQDALEVDLAVSVSQISIEEKVKELSPEEERRKWEEGRIDYMGKDAFARIQEKLDRFLQ",
+    "length": 501,
+    "molWeight": 55184,
+    "crc64": "8488A09D6E564693",
+    "md5": "8259ED82D25652D4B04D2F2BE214B506"
+  },
+  "extraAttributes": {
+    "countByCommentType": {
+      "FUNCTION": 1,
+      "CATALYTIC ACTIVITY": 2,
+      "COFACTOR": 1,
+      "PATHWAY": 1,
+      "SUBUNIT": 1,
+      "INTERACTION": 1,
+      "SUBCELLULAR LOCATION": 1,
+      "ALTERNATIVE PRODUCTS": 6,
+      "TISSUE SPECIFICITY": 1,
+      "PTM": 1,
+      "MASS SPECTROMETRY": 1,
+      "SIMILARITY": 1
+    },
+    "countByFeatureType": {
+      "Chain": 1,
+      "Binding site": 30,
+      "Site": 1,
+      "Modified residue": 3,
+      "Glycosylation": 1,
+      "Alternative sequence": 5,
+      "Natural variant": 5,
+      "Mutagenesis": 2,
+      "Sequence conflict": 2,
+      "Beta strand": 10,
+      "Turn": 4,
+      "Helix": 20
+    },
+    "uniParcId": "UPI000049E10B"
+  }
+}

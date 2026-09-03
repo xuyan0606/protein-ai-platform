@@ -1,0 +1,107 @@
+{
+  "accession": "Q9UHB4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00175",
+        "name": "Oxidoreductase NAD-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001433",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uhb4",
+          "protein_length": 597,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 455,
+                  "end": 559,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00175",
+              "score": 1.2e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00258",
+        "name": "Flavodoxin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR008254",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uhb4",
+          "protein_length": 597,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 8,
+                  "end": 145,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00258",
+              "score": 4.1e-32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00667",
+        "name": "FAD binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003097",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uhb4",
+          "protein_length": 597,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 203,
+                  "end": 421,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00667",
+              "score": 1.4e-41
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q6P4F1",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00852",
+        "name": "Glycosyltransferase family 10 (fucosyltransferase) C-term",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR055270",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6p4f1",
+          "protein_length": 479,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 213,
+                  "end": 362,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00852",
+              "score": 3.8e-33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17039",
+        "name": "Fucosyltransferase, N-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR031481",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6p4f1",
+          "protein_length": 479,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 83,
+                  "end": 180,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17039",
+              "score": 2.7e-08
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

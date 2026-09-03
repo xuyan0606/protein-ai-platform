@@ -1,0 +1,115 @@
+{
+  "created_at": "2026-08-17T06:27:27.840699+00:00",
+  "destructive_actions": "not_executed",
+  "files": [
+    {
+      "bytes": 5113,
+      "exists": true,
+      "label": "operator_packet",
+      "path": "docs/manuals/release-operator-packet-2026-08-17.md",
+      "sha256": "77b45f8e7a728366b48e57502c461fdc7b2ed8a6f943a3e1e3dc984d9b757270"
+    },
+    {
+      "bytes": 3654,
+      "exists": true,
+      "label": "handoff",
+      "path": "docs/manuals/release-handoff-2026-08-17.md",
+      "sha256": "ba3e9592d0308c7d1fd7e32f57b03164f11d76f3fc0444c00445371046f67150"
+    },
+    {
+      "bytes": 806,
+      "exists": true,
+      "label": "manual_gate_inputs_template",
+      "path": "docs/manuals/release-manual-gate-inputs.template.json",
+      "sha256": "8757a0cb475add16eeac4ed3aa985e9f4b34aa82d998497313f1ba52b58f3ab7"
+    },
+    {
+      "bytes": 8102,
+      "exists": true,
+      "label": "manual_gate_input_validator",
+      "path": "scripts/validate_release_manual_gate_inputs.py",
+      "sha256": "49321d60bb059d86d6baaf3abe96f98e76b736fc7a94b57c33fa992ad7c6a06b"
+    },
+    {
+      "bytes": 4364,
+      "exists": true,
+      "label": "manual_gate_evidence_template",
+      "path": "docs/manuals/release-manual-gate-evidence-template.md",
+      "sha256": "af865357bb25c11b0ef3c5a3c84a5c5762d54789339ad5e8c8fcf947115bb94a"
+    },
+    {
+      "bytes": 2589,
+      "exists": true,
+      "label": "manual_gate_evidence_inputs_template",
+      "path": "docs/manuals/release-manual-gate-evidence-inputs.template.json",
+      "sha256": "3a5127d8506358ba0191842076b1f35e362ceb77910776e98514178dda73e19c"
+    },
+    {
+      "bytes": 3074,
+      "exists": true,
+      "label": "manual_gate_evidence_schema",
+      "path": "docs/manuals/release-manual-gate-evidence.schema.json",
+      "sha256": "aa099034b413e564b2f490a7b258188d364fe607a05d8ecd492e3ca354faf4cf"
+    },
+    {
+      "bytes": 3189,
+      "exists": true,
+      "label": "manual_gate_evidence_example",
+      "path": "docs/manuals/release-manual-gate-evidence.example.json",
+      "sha256": "5e7894656b5d444ed7488bb1355fbc380a2657df983941eaedb64afe8907e7fb"
+    },
+    {
+      "bytes": 13073,
+      "exists": true,
+      "label": "manual_gate_evidence_validator",
+      "path": "scripts/validate_release_manual_gate_evidence.py",
+      "sha256": "ac37c26e2eaebee285a3baab19040fd8113e17a3a0037ed8f3cd2c9f18647c7a"
+    },
+    {
+      "bytes": 9295,
+      "exists": true,
+      "label": "go_no_go_summary_builder",
+      "path": "scripts/build_release_go_no_go_summary.py",
+      "sha256": "548f415fd7059431a8c0ea85a3f6266fd0f8d8a44ba8412cd925cbb1d390be49"
+    },
+    {
+      "bytes": 2971,
+      "exists": true,
+      "label": "worktree_manifest_builder",
+      "path": "scripts/build_release_worktree_manifest.py",
+      "sha256": "656b0e83f2d6824e65211dac0f966d629b422634e3be1f8f7d38049b179d52b5"
+    },
+    {
+      "bytes": 5777,
+      "exists": true,
+      "label": "external_infrastructure_checklist",
+      "path": "docs/manuals/external-infrastructure-acceptance-checklist.md",
+      "sha256": "401dbd644384937fa7b1e5fba9c3374e77e8839256d4ebaceec21b4eab76ef30"
+    },
+    {
+      "bytes": 8932,
+      "exists": true,
+      "label": "productization_acceptance_manual",
+      "path": "docs/manuals/productization-acceptance-manual.md",
+      "sha256": "f39e1944ed77aa1847f5fc6ddef4d8114168d654bacf84a62cafb103339e0f5c"
+    }
+  ],
+  "mode": "read_only_release_operator_packet_manifest",
+  "network_io": "not_executed",
+  "release_status": {
+    "blocked": 0,
+    "enhanced_release_acceptance": "passed-with-manual-gates",
+    "failed": 0,
+    "local_automated_gates": "passed",
+    "manual_required": 3,
+    "next_decision": "operator must provide manual gate inputs, execute external drills, archive evidence, then decide go/no-go/defer",
+    "production_deployed": false,
+    "skipped": 0
+  },
+  "secrets_printed": false,
+  "summary": {
+    "file_count": 13,
+    "missing_files": [],
+    "status": "ready-for-operator-review"
+  }
+}

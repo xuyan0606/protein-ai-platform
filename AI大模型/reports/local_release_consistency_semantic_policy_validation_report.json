@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "mode": "local_release_consistency_semantic_policy_validation",
+  "created_at": "2026-09-03T07:35:32.509133+00:00",
+  "success": true,
+  "policy_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_consistency_semantic_policy.py",
+  "policy_script_sha256": "54471244ab5ab9ebe06ec342d2764aeec5db62fa1262b1103b9cec32a6fe0f25",
+  "contract_module_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/local_release_consistency_receipt_contract.py",
+  "contract_module_sha256": "0a2b4ba770cf353e954338a188a76d62f4c47a08ba8bdaa49fe5031fbcde5ead",
+  "policy_output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/local_release_consistency_semantic_policy_validation_report.json",
+  "policy_lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.local_release_consistency_semantic_policy.lock",
+  "policy_lock_acquired": true,
+  "policy_atomic_commit": true,
+  "expected_contract_version": "local-release-consistency-semantic-input-v1",
+  "expected_input_roles": [
+    "release",
+    "data_lake",
+    "live_integrity",
+    "contract_policy",
+    "semantic_policy"
+  ],
+  "expected_data_lake_semantic_excluded_paths": [
+    "reports/local_release_consistency_receipt_current_regression_report.json",
+    "reports/local_release_consistency_receipt_current_validation_report.json",
+    "reports/local_release_safety_guard_links_current_regression_report.json",
+    "reports/local_release_safety_guard_links_current_validation_report.json"
+  ],
+  "expected_release_summary_normalized_fields": [
+    "data_lake_live_content_integrity_release_input_contract_sha256",
+    "data_lake_live_content_integrity_release_input_artifact_rows",
+    "data_lake_live_content_integrity_release_input_excluded_paths"
+  ],
+  "expected_live_normalized_fields": [
+    "release_input_contract_sha256",
+    "release_input_artifact_rows",
+    "release_input_excluded_paths"
+  ],
+  "expected_release_summary_excluded_fields": [
+    "local_release_consistency_receipt_current_failures",
+    "local_release_consistency_receipt_current_regression_failed_rows",
+    "local_release_consistency_receipt_current_regression_success",
+    "local_release_consistency_receipt_current_success",
+    "local_release_fail_closed_consistency_artifact_count",
+    "local_release_fail_closed_consistency_failures",
+    "local_release_fail_closed_consistency_lock_acquired",
+    "local_release_fail_closed_consistency_receipt_atomic_commit",
+    "local_release_fail_closed_consistency_release_ready",
+    "local_release_fail_closed_consistency_success",
+    "local_release_safety_guard_link_count",
+    "local_release_safety_guard_link_failures",
+    "local_release_safety_guard_link_success"
+  ],
+  "expected_live_projection_fields": [
+    "success",
+    "failure_count",
+    "local_only",
+    "validated_root",
+    "validated_manifest_path",
+    "release_input_contract_version",
+    "release_input_contract_sha256",
+    "release_input_artifact_rows",
+    "release_input_excluded_paths",
+    "artifact_rows",
+    "strict_verified_rows",
+    "volatile_existence_only_rows",
+    "configured_volatile_existence_only_paths",
+    "volatile_existence_only_paths",
+    "missing_rows",
+    "unsafe_path_rows",
+    "size_mismatch_rows",
+    "sha256_mismatch_rows",
+    "row_mismatch_rows",
+    "safe_for_model_claim",
+    "release_ready"
+  ],
+  "expected_contract_policy_projection_fields": [
+    "success",
+    "failure_count",
+    "contract_module_path",
+    "contract_module_sha256",
+    "expected_contract_version",
+    "expected_excluded_paths",
+    "expected_test_vector_sha256",
+    "safe_for_model_claim",
+    "release_ready"
+  ],
+  "expected_canonical_policy_sha256": "908529c757d0b821deeeb069712685f22f1945c52301aefddf96d54a4daedcd6",
+  "expected_test_vector_sha256": "baba614dc34a232dd161c1e7ba464ef7bd59376839298002d36243e272299977",
+  "expected_shared_contract_test_vector_sha256": "7dc168d07300a6322cf5c4f8a6e118cec842e7dbcf5269e0f53823a8b21bdfd1",
+  "observed_policy_payload": {
+    "contract_version": "local-release-consistency-semantic-input-v1",
+    "input_roles": [
+      "release",
+      "data_lake",
+      "live_integrity",
+      "contract_policy",
+      "semantic_policy"
+    ],
+    "data_lake_semantic_excluded_paths": [
+      "reports/local_release_consistency_receipt_current_regression_report.json",
+      "reports/local_release_consistency_receipt_current_validation_report.json",
+      "reports/local_release_safety_guard_links_current_regression_report.json",
+      "reports/local_release_safety_guard_links_current_validation_report.json"
+    ],
+    "release_summary_normalized_fields": [
+      "data_lake_live_content_integrity_release_input_contract_sha256",
+      "data_lake_live_content_integrity_release_input_artifact_rows",
+      "data_lake_live_content_integrity_release_input_excluded_paths"
+    ],
+    "live_normalized_fields": [
+      "release_input_contract_sha256",
+      "release_input_artifact_rows",
+      "release_input_excluded_paths"
+    ],
+    "release_summary_excluded_fields": [
+      "local_release_consistency_receipt_current_failures",
+      "local_release_consistency_receipt_current_regression_failed_rows",
+      "local_release_consistency_receipt_current_regression_success",
+      "local_release_consistency_receipt_current_success",
+      "local_release_fail_closed_consistency_artifact_count",
+      "local_release_fail_closed_consistency_failures",
+      "local_release_fail_closed_consistency_lock_acquired",
+      "local_release_fail_closed_consistency_receipt_atomic_commit",
+      "local_release_fail_closed_consistency_release_ready",
+      "local_release_fail_closed_consistency_success",
+      "local_release_safety_guard_link_count",
+      "local_release_safety_guard_link_failures",
+      "local_release_safety_guard_link_success"
+    ],
+    "live_projection_fields": [
+      "success",
+      "failure_count",
+      "local_only",
+      "validated_root",
+      "validated_manifest_path",
+      "release_input_contract_version",
+      "release_input_contract_sha256",
+      "release_input_artifact_rows",
+      "release_input_excluded_paths",
+      "artifact_rows",
+      "strict_verified_rows",
+      "volatile_existence_only_rows",
+      "configured_volatile_existence_only_paths",
+      "volatile_existence_only_paths",
+      "missing_rows",
+      "unsafe_path_rows",
+      "size_mismatch_rows",
+      "sha256_mismatch_rows",
+      "row_mismatch_rows",
+      "safe_for_model_claim",
+      "release_ready"
+    ],
+    "contract_policy_projection_fields": [
+      "success",
+      "failure_count",
+      "contract_module_path",
+      "contract_module_sha256",
+      "expected_contract_version",
+      "expected_excluded_paths",
+      "expected_test_vector_sha256",
+      "safe_for_model_claim",
+      "release_ready"
+    ]
+  },
+  "observed_canonical_policy_sha256": "908529c757d0b821deeeb069712685f22f1945c52301aefddf96d54a4daedcd6",
+  "observed_test_vector_sha256": "baba614dc34a232dd161c1e7ba464ef7bd59376839298002d36243e272299977",
+  "observed_shared_contract_test_vector_sha256": "7dc168d07300a6322cf5c4f8a6e118cec842e7dbcf5269e0f53823a8b21bdfd1",
+  "failure_count": 0,
+  "failures": [],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "The independent anchor pins semantic exclusions and projection field sets; it never grants model or release readiness."
+}

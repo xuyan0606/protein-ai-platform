@@ -9,24 +9,23 @@ interface Props {
 }
 
 export function SearchDialog({ open, onClose }: Props) {
+  if (!open) return null
+  return <SearchDialogContent onClose={onClose} />
+}
+
+function SearchDialogContent({ onClose }: { onClose: () => void }) {
   const { t } = useTranslation()
   const conversations = useChatStore((s) => s.conversations)
   const selectConversation = useChatStore((s) => s.selectConversation)
   const inputRef = useRef<HTMLInputElement>(null)
   const [query, setQuery] = useState('')
 
-  // Focus input and reset query when opened
   useEffect(() => {
-    if (open) {
-      setQuery('')
-      // Small delay to ensure the input is rendered
-      requestAnimationFrame(() => inputRef.current?.focus())
-    }
-  }, [open])
+    const frame = requestAnimationFrame(() => inputRef.current?.focus())
+    return () => cancelAnimationFrame(frame)
+  }, [])
 
-  // Close on Escape (handled by keydown)
   useEffect(() => {
-    if (!open) return
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose()
@@ -34,7 +33,7 @@ export function SearchDialog({ open, onClose }: Props) {
     }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
-  }, [open, onClose])
+  }, [onClose])
 
   const filtered = query.trim()
     ? conversations.filter((c) =>
@@ -46,8 +45,6 @@ export function SearchDialog({ open, onClose }: Props) {
     selectConversation(id)
     onClose()
   }
-
-  if (!open) return null
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh]">

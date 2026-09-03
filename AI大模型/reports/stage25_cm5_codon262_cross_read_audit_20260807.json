@@ -1,0 +1,279 @@
+{
+  "alignment_method": {
+    "extend_gap_score": -1.0,
+    "match_score": 2.0,
+    "mismatch_score": -1.0,
+    "mode": "local",
+    "open_gap_score": -5.0,
+    "orientation_selection": "higher forward/reverse-complement score"
+  },
+  "all_best_orientations_forward": true,
+  "apply_executed": false,
+  "biopython_version": "1.87",
+  "cm5_gtg_rows": 1,
+  "cm5_single_read_outlier": true,
+  "complete_composition_unambiguous": false,
+  "covered_rows": 9,
+  "cross_read_consensus_supports_wt_leu262": true,
+  "discrepancy_resolved": false,
+  "export_safe_released": false,
+  "external_sqlite_mutated": false,
+  "formal_decision_rows_written": 0,
+  "gtg_rows": 1,
+  "mode": "stage25_cm5_codon262_cross_read_audit",
+  "non_cm5_ttg_rows": 8,
+  "not_covered_rows": 2,
+  "other_codon_rows": 0,
+  "policy": "Read-only cross-read audit only. Eight TTG reads and one CM5 GTG read support an outlier hypothesis but do not resolve sequencing quality, construct composition, reviewed extraction, SQLite apply, model claims, customer delivery, or release.",
+  "read_rows": 11,
+  "reads": [
+    {
+      "alignment_score": 1703.0,
+      "amino_acid_262": "V",
+      "basename": "CM5 (L15R_S45T_K85P_K231R).seq",
+      "codon_262": "GTG",
+      "covers_wt_codon_262": true,
+      "crc32": "14c90bd7",
+      "is_cm5_read": true,
+      "member": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase/Sequencing data/CM5 (L15R_S45T_K85P_K231R).seq",
+      "orientation": "forward",
+      "query_codon_span_zero_based": [
+        843,
+        846
+      ],
+      "sha256": "6244f5f36d7b1b5d5c2bef40dc3264db8b7a8ab895b973612ef715db86f8463e",
+      "size_bytes": 951,
+      "target_span_zero_based": [
+        0,
+        887
+      ]
+    },
+    {
+      "alignment_score": 1575.0,
+      "amino_acid_262": "L",
+      "basename": "E70Q_T201D.seq",
+      "codon_262": "TTG",
+      "covers_wt_codon_262": true,
+      "crc32": "604e51c8",
+      "is_cm5_read": false,
+      "member": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase/Sequencing data/E70Q_T201D.seq",
+      "orientation": "forward",
+      "query_codon_span_zero_based": [
+        857,
+        860
+      ],
+      "sha256": "284020519d89c25fffb05143e31b4e01d6688568f4d75a3ffff82be297386f0f",
+      "size_bytes": 869,
+      "target_span_zero_based": [
+        0,
+        795
+      ]
+    },
+    {
+      "alignment_score": 1545.0,
+      "amino_acid_262": null,
+      "basename": "K85P_K170Y.seq",
+      "codon_262": null,
+      "covers_wt_codon_262": false,
+      "crc32": "751b1f7f",
+      "is_cm5_read": false,
+      "member": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase/Sequencing data/K85P_K170Y.seq",
+      "orientation": "forward",
+      "query_codon_span_zero_based": null,
+      "sha256": "f61f2e670e1009cc4276f6dcfef9be2147dffaf223adb0c3d943243b90e67bac",
+      "size_bytes": 859,
+      "target_span_zero_based": [
+        0,
+        780
+      ]
+    },
+    {
+      "alignment_score": 1553.0,
+      "amino_acid_262": "L",
+      "basename": "K85P_K231R.seq",
+      "codon_262": "TTG",
+      "covers_wt_codon_262": true,
+      "crc32": "1f4361a6",
+      "is_cm5_read": false,
+      "member": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase/Sequencing data/K85P_K231R.seq",
+      "orientation": "forward",
+      "query_codon_span_zero_based": [
+        859,
+        862
+      ],
+      "sha256": "a0b74fcb63753a4f98a915cc9f8ec7cb9043e2123811c1d31663d2a3682f93b7",
+      "size_bytes": 869,
+      "target_span_zero_based": [
+        0,
+        793
+      ]
+    },
+    {
+      "alignment_score": 627.0,
+      "amino_acid_262": null,
+      "basename": "K85P_K431T_F.seq",
+      "codon_262": null,
+      "covers_wt_codon_262": false,
+      "crc32": "f1a8f545",
+      "is_cm5_read": false,
+      "member": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase/Sequencing data/K85P_K431T_F.seq",
+      "orientation": "forward",
+      "query_codon_span_zero_based": null,
+      "sha256": "1311820ae5ad879c959701c627892c105da3c3cc2a30dcc084498688b5aee951",
+      "size_bytes": 757,
+      "target_span_zero_based": [
+        1261,
+        1605
+      ]
+    },
+    {
+      "alignment_score": 1569.0,
+      "amino_acid_262": "L",
+      "basename": "K85P_K431T_R.seq",
+      "codon_262": "TTG",
+      "covers_wt_codon_262": true,
+      "crc32": "c6f4cf84",
+      "is_cm5_read": false,
+      "member": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase/Sequencing data/K85P_K431T_R.seq",
+      "orientation": "forward",
+      "query_codon_span_zero_based": [
+        853,
+        856
+      ],
+      "sha256": "3d0c305dd40c41ba15c985260ede5ef9794b17cfb0840effd04461975531ffa9",
+      "size_bytes": 859,
+      "target_span_zero_based": [
+        0,
+        789
+      ]
+    },
+    {
+      "alignment_score": 1573.0,
+      "amino_acid_262": "L",
+      "basename": "L15R_S45T.seq",
+      "codon_262": "TTG",
+      "covers_wt_codon_262": true,
+      "crc32": "fb700633",
+      "is_cm5_read": false,
+      "member": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase/Sequencing data/L15R_S45T.seq",
+      "orientation": "forward",
+      "query_codon_span_zero_based": [
+        858,
+        861
+      ],
+      "sha256": "93d42c2d4e2d57c25ab17524972ffb668de41e4547d7852df3098457b7256421",
+      "size_bytes": 869,
+      "target_span_zero_based": [
+        0,
+        794
+      ]
+    },
+    {
+      "alignment_score": 1788.0,
+      "amino_acid_262": "L",
+      "basename": "L15R_S45T_K85P_K231Q_K280S.seq",
+      "codon_262": "TTG",
+      "covers_wt_codon_262": true,
+      "crc32": "a38d1e37",
+      "is_cm5_read": false,
+      "member": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase/Sequencing data/L15R_S45T_K85P_K231Q_K280S.seq",
+      "orientation": "forward",
+      "query_codon_span_zero_based": [
+        844,
+        847
+      ],
+      "sha256": "21d3a533da7029942f63d189b990c612e9281fc471857020c421c72403421cb2",
+      "size_bytes": 993,
+      "target_span_zero_based": [
+        0,
+        928
+      ]
+    },
+    {
+      "alignment_score": 1800.0,
+      "amino_acid_262": "L",
+      "basename": "L15R_S45T_K85P_K231R_K280S.seq",
+      "codon_262": "TTG",
+      "covers_wt_codon_262": true,
+      "crc32": "d94d3be8",
+      "is_cm5_read": false,
+      "member": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase/Sequencing data/L15R_S45T_K85P_K231R_K280S.seq",
+      "orientation": "forward",
+      "query_codon_span_zero_based": [
+        844,
+        847
+      ],
+      "sha256": "73c3a4f3851cc0e0c92aed932d026ff057a485aeeae6ab801fe148fdfb7d4244",
+      "size_bytes": 992,
+      "target_span_zero_based": [
+        0,
+        930
+      ]
+    },
+    {
+      "alignment_score": 1790.0,
+      "amino_acid_262": "L",
+      "basename": "L15R_S45T_K85P_K231V.seq",
+      "codon_262": "TTG",
+      "covers_wt_codon_262": true,
+      "crc32": "da38bd74",
+      "is_cm5_read": false,
+      "member": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase/Sequencing data/L15R_S45T_K85P_K231V.seq",
+      "orientation": "forward",
+      "query_codon_span_zero_based": [
+        844,
+        847
+      ],
+      "sha256": "f845e0b8e54edd39144ab56316138eed13272349e7fc07a9ca9aafda0072a454",
+      "size_bytes": 1018,
+      "target_span_zero_based": [
+        0,
+        953
+      ]
+    },
+    {
+      "alignment_score": 1629.0,
+      "amino_acid_262": "L",
+      "basename": "S45T_N113K_D167K.seq",
+      "codon_262": "TTG",
+      "covers_wt_codon_262": true,
+      "crc32": "ac412bff",
+      "is_cm5_read": false,
+      "member": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase/Sequencing data/S45T_N113K_D167K.seq",
+      "orientation": "forward",
+      "query_codon_span_zero_based": [
+        860,
+        863
+      ],
+      "sha256": "c00fcff668dc988d4bdda68e413c35b85ac1858b73cc865536d2ba0f7d3ec728",
+      "size_bytes": 899,
+      "target_span_zero_based": [
+        0,
+        822
+      ]
+    }
+  ],
+  "ready_for_sqlite_apply": false,
+  "release_ready": false,
+  "reviewed_extraction_completed": false,
+  "reviewer_decision_written": false,
+  "safe_for_model_claim": false,
+  "schema_version": 1,
+  "source_zip": "datasets/source_drops/stage25/42235695/zenodo_19733678/zenodo_19733678_author_data_package.zip",
+  "source_zip_sha256": "800808cfccdac71a600e6550c5d1e5821b2729687a02af9a1a4300c452ac93c6",
+  "stage": 25,
+  "ttg_rows": 8,
+  "wt_codon_262": "TTG",
+  "wt_codon_262_span_zero_based": [
+    783,
+    786
+  ],
+  "wt_crl1_interval_zero_based": [
+    363,
+    1968
+  ],
+  "wt_crl1_length_nt": 1605,
+  "wt_plasmid_length_nt": 2059,
+  "wt_snapgene_member": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase/Sequencing data/Candida rugosa lipase_WT.dna",
+  "wt_snapgene_sha256": "ca76a27e9a349249ad169286ee9c271822037406b8d2cbde3db4fd14efb081b4"
+}

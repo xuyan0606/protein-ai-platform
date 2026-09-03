@@ -1,0 +1,90 @@
+{
+  "status": "blocked",
+  "strict_rows": 0,
+  "audited_rows": 500,
+  "source_counts": {
+    "strict_supervised_rows": 0,
+    "audited_training_rows": 500,
+    "activity_risk_training_import_jsonl_rows": 6,
+    "activity_risk_training_import_label_rows": 6,
+    "activity_risk_training_import_validation_report_rows": 6
+  },
+  "source_consistency": {
+    "activity_risk_training_import": {
+      "validation_report_present": true,
+      "validation_success": true,
+      "jsonl_label_rows": 6,
+      "validation_report_rows": 6,
+      "training_execution_allowed": false,
+      "consistent": true
+    }
+  },
+  "heads": {
+    "mutation_rank": {
+      "label_fields": [
+        "label_decision"
+      ],
+      "rows": 0,
+      "minimum_rows": 100,
+      "ready": false
+    },
+    "stability": {
+      "label_fields": [
+        "label_stability_delta_tm_c",
+        "label_ddg"
+      ],
+      "rows": 0,
+      "minimum_rows": 100,
+      "ready": false
+    },
+    "activity_risk": {
+      "label_fields": [
+        "activity_relative_to_wt",
+        "activity_risk_label"
+      ],
+      "rows": 6,
+      "minimum_rows": 100,
+      "source_rows": {
+        "audited_training_table_label_rows": 0,
+        "training_import_label_rows": 6,
+        "training_import_jsonl_rows": 6,
+        "training_import_validation_report_rows": 6
+      },
+      "training_import_validation_success": true,
+      "training_import_source_consistent": true,
+      "training_execution_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "ready": false
+    },
+    "substrate_fit": {
+      "label_fields": [
+        "substrate_fit_label"
+      ],
+      "rows": 0,
+      "minimum_rows": 100,
+      "ready": false
+    },
+    "assay_success": {
+      "label_fields": [
+        "assay_success"
+      ],
+      "rows": 0,
+      "minimum_rows": 100,
+      "ready": false
+    }
+  },
+  "missing_head_labels": [
+    "mutation_rank",
+    "stability",
+    "activity_risk",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "scaffold": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/prototype/kwb_enzyme_designer_multitask_scaffold.json",
+  "ready_head_count": 0,
+  "training_execution_allowed": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "fail closed; this report never converts missing labels into synthetic supervision"
+}

@@ -1,0 +1,21 @@
+{
+  "local_only": true,
+  "ready": false,
+  "draft_file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/active_learning_trial_drafts.jsonl",
+  "draft_rows": 0,
+  "candidate_generation_allowed": false,
+  "experiment_submission_allowed": false,
+  "human_approval_required": true,
+  "model_status": "blocked",
+  "benchmark_ready_for_model_claim": false,
+  "blockers": [
+    "five-head model is not training-ready",
+    "head-level benchmark scorecards are not ready",
+    "plate-level feedback intake has no eligible rows",
+    "human approval workflow is not configured",
+    "budget and assay capacity are not approved",
+    "biosecurity/order gate is not approved",
+    "customer delivery gate is blocked"
+  ],
+  "policy": "active learning can rank human-reviewed candidates only after data, benchmark, approval, budget, and biosecurity gates pass"
+}

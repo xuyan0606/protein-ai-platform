@@ -1,0 +1,73 @@
+{
+  "accession": "P98066",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00193",
+        "name": "Extracellular link domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000538",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p98066",
+          "protein_length": 277,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 36,
+                  "end": 128,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00193",
+              "score": 4.3e-28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00431",
+        "name": "CUB domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000859",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p98066",
+          "protein_length": 277,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 135,
+                  "end": 244,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00431",
+              "score": 1.5e-33
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

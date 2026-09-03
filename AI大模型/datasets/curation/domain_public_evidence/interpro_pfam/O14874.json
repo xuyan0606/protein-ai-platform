@@ -1,0 +1,73 @@
+{
+  "accession": "O14874",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02518",
+        "name": "Histidine kinase-, DNA gyrase B-, and HSP90-like ATPase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003594",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14874",
+          "protein_length": 412,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 268,
+                  "end": 401,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02518",
+              "score": 1.2e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF10436",
+        "name": "Mitochondrial branched-chain alpha-ketoacid dehydrogenase kinase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR018955",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14874",
+          "protein_length": 412,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 70,
+                  "end": 222,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10436",
+              "score": 1.5e-45
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

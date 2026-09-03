@@ -1,12 +1,52 @@
+import { useShallow } from 'zustand/react/shallow'
 import { useChatStore, AgentState, ToolCall } from '@/stores/chat'
 import { useAuthStore } from '@/stores/auth'
+import { api, authFetch, isUnauthorizedError } from '@/lib/api'
+
+export type AnalysisDepth = 'fast' | 'standard' | 'deep'
+export type AgentControl = 'plan_only' | 'execute_confirmed' | 'revise_plan'
+export interface ConfirmedStrategyCheckpoint {
+  confirmed_plan: AgentState['plan']
+  strategy_signature?: string | null
+  task_fingerprint?: string | null
+}
+
+let activeStreamController: AbortController | null = null
+let activeStopRequested = false
+
+export function stopActiveChatStream() {
+  if (!activeStreamController) return
+  activeStopRequested = true
+  activeStreamController.abort()
+}
 
 export function useChatStream() {
-  const { addMessage, updateLastAssistant, addToolCall, updateToolCall, setStreaming, setAgentState } =
-    useChatStore()
+  const { addMessage, updateLastAssistant, setStreaming, upsertConversationSnapshot } =
+    useChatStore(useShallow((s) => ({
+      addMessage: s.addMessage,
+      updateLastAssistant: s.updateLastAssistant,
+      setStreaming: s.setStreaming,
+      upsertConversationSnapshot: s.upsertConversationSnapshot,
+    })))
 
-  const sendMessage = async (content: string, conversationId?: string, projectId?: string, files?: Array<{name?: string; objectName?: string; downloadUrl?: string; analysisData?: unknown}>) => {
+  const sendMessage = async (
+    content: string,
+    conversationId?: string,
+    projectId?: string,
+    files?: Array<{name?: string; objectName?: string; downloadUrl?: string; analysisData?: unknown}>,
+    analysisDepth: AnalysisDepth = 'standard',
+    agentControl: AgentControl = 'plan_only',
+    checkpoint?: ConfirmedStrategyCheckpoint
+  ) => {
+    // Zustand updates synchronously. This closes the render-gap where a rapid
+    // second click/Enter could start another request before React re-rendered.
+    if (useChatStore.getState().streaming) return
+    const initialConversationId = conversationId ?? useChatStore.getState().currentId ?? undefined
     setStreaming(true)
+    let streamFinished = false
+    const controller = new AbortController()
+    activeStreamController = controller
+    activeStopRequested = false
 
     // Add placeholder assistant message
     addMessage({
@@ -17,8 +57,6 @@ export function useChatStream() {
     })
 
     try {
-      const token = localStorage.getItem('token')
-
       // Build history from last 10 messages (role + content only)
       const store = useChatStore.getState()
       const history: { role: string; content: string }[] = store.messages
@@ -29,11 +67,10 @@ export function useChatStream() {
 
       const selectedModel = useChatStore.getState().selectedModel
 
-      const response = await fetch('/api/chat/stream', {
+      const response = await authFetch('/api/chat/stream', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           message: files && files.length > 0
@@ -50,7 +87,11 @@ export function useChatStream() {
           project_id: projectId || null,
           history,
           model: selectedModel,
+          analysis_depth: analysisDepth,
+          agent_control: agentControl,
+          ...(agentControl === 'execute_confirmed' && checkpoint ? checkpoint : {}),
         }),
+        signal: controller.signal,
       })
 
       if (response.status === 401) {
@@ -58,10 +99,11 @@ export function useChatStream() {
         updateLastAssistant({
           content: 'Session expired. Please log in again.',
         })
+        streamFinished = true
         return
       }
 
-      if (!response.ok) throw new Error('Stream connection failed')
+      if (!response.ok) throw new Error(`Stream connection failed (${response.status})`)
 
       const reader = response.body?.getReader()
       if (!reader) throw new Error('No reader')
@@ -69,74 +111,155 @@ export function useChatStream() {
       const decoder = new TextDecoder()
       let buffer = ''
 
+      const processDataLine = (line: string) => {
+        if (!line.startsWith('data: ')) return
+
+        try {
+          const data = JSON.parse(line.slice(6))
+
+          // Handle done event — persist conversation_id
+          if (data.type === 'done' && data.conversation_id) {
+            localStorage.setItem('currentConversationId', String(data.conversation_id))
+            upsertConversationSnapshot(String(data.conversation_id))
+          }
+
+          // Handle title event — update sidebar in real time
+          if (data.type === 'title' && data.conversation_id && data.title) {
+            useChatStore.getState().updateConversationTitle(
+              String(data.conversation_id), data.title
+            )
+            upsertConversationSnapshot(String(data.conversation_id), data.title)
+          }
+
+          // Handle published event — report auto-published to wiki
+          if (data.type === 'published') {
+            useChatStore.setState({ lastPublishedFile: {
+              file_id: data.file_id,
+              filename: data.filename,
+              wiki_url: data.wiki_url,
+            }})
+          }
+
+          handleSSEEvent(data)
+          if (data.type === 'done' || data.type === 'error') {
+            streamFinished = true
+          }
+        } catch {
+          // Partial chunk or incomplete JSON — append as raw text
+          const text = line.slice(6)
+          if (text.trim() && !text.trim().startsWith('{')) {
+            const store = useChatStore.getState()
+            const msgs = store.messages
+            if (msgs.length > 0) {
+              store.updateLastAssistant({
+                content: (msgs[msgs.length - 1]?.content || '') + text,
+              })
+            }
+          }
+        }
+      }
+
       while (true) {
         const { done, value } = await reader.read()
-        if (done) break
+        if (done) {
+          buffer += decoder.decode()
+          break
+        }
 
         buffer += decoder.decode(value, { stream: true })
         const lines = buffer.split('\n')
         buffer = lines.pop() || ''
 
         for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            try {
-              const data = JSON.parse(line.slice(6))
+          processDataLine(line)
+        }
 
-              // Handle done event — persist conversation_id
-              if (data.type === 'done' && data.conversation_id) {
-                localStorage.setItem('currentConversationId', String(data.conversation_id))
-                useChatStore.setState({ currentId: String(data.conversation_id) })
-              }
+      }
 
-              // Handle title event — update sidebar in real time
-              if (data.type === 'title' && data.conversation_id && data.title) {
-                useChatStore.getState().updateConversationTitle(
-                  String(data.conversation_id), data.title
-                )
-              }
-
-              // Handle published event — report auto-published to wiki
-              if (data.type === 'published') {
-                useChatStore.setState({ lastPublishedFile: {
-                  file_id: data.file_id,
-                  filename: data.filename,
-                  wiki_url: data.wiki_url,
-                }})
-              }
-
-              handleSSEEvent(data)
-            } catch {
-              // Partial chunk or incomplete JSON — append as raw text
-              const text = line.slice(6)
-              if (text.trim() && !text.trim().startsWith('{')) {
-                const store = useChatStore.getState()
-                const msgs = store.messages
-                if (msgs.length > 0) {
-                  store.updateLastAssistant({
-                    content: (msgs[msgs.length - 1]?.content || '') + text,
-                  })
-                }
-              }
-            }
-          }
+      if (!streamFinished && buffer.trim()) {
+        for (const line of buffer.split('\n')) {
+          processDataLine(line.trimEnd())
         }
       }
     } catch (err) {
+      const store = useChatStore.getState()
+      const lastMsg = store.messages[store.messages.length - 1]
+      const existingContent = lastMsg?.content?.trim() || ''
+      const hasToolCalls = Boolean(lastMsg?.toolCalls && lastMsg.toolCalls.length > 0)
+      const rawMessage = err instanceof Error ? err.message : 'Connection failed'
+      const stoppedByUser = activeStopRequested || (err instanceof DOMException && err.name === 'AbortError')
+      if (stoppedByUser) {
+        streamFinished = true
+        updateLastAssistant({
+          content: `${existingContent}\n\n已停止执行。`.trim(),
+        })
+        return
+      }
+      const isNetworkLike = rawMessage.toLowerCase().includes('network')
+        || rawMessage.toLowerCase().includes('fetch')
+        || rawMessage.toLowerCase().includes('connection')
+        || rawMessage.toLowerCase().includes('reader')
+      const message = isNetworkLike
+        ? '服务暂不可用，请稍后重试。已保留当前收到的分析结果。'
+        : `服务暂不可用，请稍后重试。(${rawMessage})`
       updateLastAssistant({
-        content: `Error: ${err instanceof Error ? err.message : 'Connection failed'}`,
+        content: existingContent || hasToolCalls ? `${existingContent}\n\n${message}`.trim() : message,
       })
     } finally {
+      if (activeStreamController === controller) {
+        activeStreamController = null
+        activeStopRequested = false
+      }
+      const currentConversationId = useChatStore.getState().currentId
+      if (currentConversationId) {
+        useChatStore.getState().upsertConversationSnapshot(currentConversationId)
+      }
       setStreaming(false)
-      // Refresh conversations list from backend after streaming completes
+      if (currentConversationId) {
+        try {
+          const [history, memory] = await Promise.all([
+            api.getStrategyCheckpointHistory(currentConversationId),
+            api.getRecentStrategyMemory({ conversationId: currentConversationId, limit: 10 }),
+          ])
+          if (useChatStore.getState().currentId === currentConversationId) {
+            useChatStore.setState({
+              strategyCheckpointHistory: history.records || [],
+              recentStrategyMemory: memory.records || [],
+              recentStrategyMemoryScope: memory.scope || null,
+              recentStrategyMemoryLoading: false,
+              recentStrategyMemoryError: null,
+            })
+          }
+        } catch (err) {
+          if (isUnauthorizedError(err)) {
+            useAuthStore.getState().logout()
+          } else if (useChatStore.getState().currentId === currentConversationId) {
+            useChatStore.setState({
+              recentStrategyMemory: [],
+              recentStrategyMemoryScope: null,
+              recentStrategyMemoryLoading: false,
+              recentStrategyMemoryError: err instanceof Error ? err.message : '策略记忆暂时不可用',
+            })
+          }
+        }
+      }
+      // Refresh sidebar summaries after streaming completes, but avoid
+      // replacing the current message list with a full conversation reload.
       try {
-        await useChatStore.getState().syncConversations()
-      } catch {
+        if (!initialConversationId && streamFinished) {
+          await new Promise((resolve) => setTimeout(resolve, 300))
+          await useChatStore.getState().syncConversations()
+        }
+      } catch (err) {
+        if (isUnauthorizedError(err)) {
+          useAuthStore.getState().logout()
+        }
         // Silently ignore refresh errors
       }
     }
   }
 
-  return { sendMessage }
+  return { sendMessage, stopStreaming: stopActiveChatStream }
 }
 
 interface SSEEvent {
@@ -156,11 +279,16 @@ interface SSEEvent {
     tool: string
     status: string
     result_preview?: string
+    raw_result?: string
     error?: string
     duration?: number
   }>
   research_notes?: string
   waiting_for?: string | null
+  strategy_signature?: string | null
+  task_fingerprint?: string | null
+  next_action?: string | null
+  artifacts?: Record<string, unknown>
   tool_call?: { id: string; name: string }
   tool_update?: { id: string; status: string; duration?: number; error?: string }
   thinking?: string
@@ -176,10 +304,12 @@ function handleSSEEvent(data: SSEEvent) {
 
   switch (data.type) {
     case 'state': {
+      const plan = Array.isArray(data.plan) ? data.plan : []
+      const stepResults = Array.isArray(data.step_results) ? data.step_results : []
       // Full agent state snapshot (VenusFactory2 pattern)
-      setAgentState({
+      store.setAgentState({
         stage: (data.stage as AgentState['stage']) || 'router',
-        plan: (data.plan || []).map((p) => ({
+        plan: plan.map((p) => ({
           id: p.id,
           tool_name: p.tool_name,
           description: p.description,
@@ -187,13 +317,17 @@ function handleSSEEvent(data: SSEEvent) {
           status: p.status as AgentState['plan'][0]['status'],
         })),
         current_step: data.current_step || 0,
-        step_results: data.step_results || [],
+        step_results: stepResults,
         research_notes: data.research_notes || '',
         waiting_for: data.waiting_for || null,
+        strategy_signature: data.strategy_signature || null,
+        task_fingerprint: data.task_fingerprint || null,
+        next_action: data.next_action || null,
+        artifacts: data.artifacts || {},
       })
 
       // Sync tool calls from plan steps so ToolCallCard shows in the chat
-      if (data.plan && data.plan.length > 0) {
+      if (plan.length > 0) {
         const msgs = store.messages
         const last = msgs[msgs.length - 1]
         if (last && last.role === 'assistant') {
@@ -201,7 +335,7 @@ function handleSSEEvent(data: SSEEvent) {
           // Build a map of existing tool calls by id
           const byId = new Map(existing.map((tc) => [tc.id, tc]))
 
-          for (const step of data.plan) {
+          for (const step of plan) {
             const tcId = `plan-${step.id}`
             const existingTc = byId.get(tcId)
 
@@ -225,19 +359,20 @@ function handleSSEEvent(data: SSEEvent) {
       }
 
       // Link step_results to tool calls for result preview / PDB visualization
-      if (data.step_results) {
+      if (stepResults.length > 0) {
         const msgs = store.messages
         const last = msgs[msgs.length - 1]
         if (last?.toolCalls) {
-          for (const sr of data.step_results) {
-            // Use step number to find matching tool call by plan index
-            const planStep = data.plan?.find((p) => p.id === sr.step)
+          for (const sr of stepResults) {
             const tcId = `plan-${sr.step}`
             const match = last.toolCalls.find(
-              (tc) => tc.id === tcId && tc.status === 'completed' && !tc.resultPreview
+              (tc) => tc.id === tcId && (tc.status === 'completed' || tc.status === 'submitted')
             )
-            if (match && sr.result_preview) {
-              store.updateToolCall(tcId, { resultPreview: sr.result_preview })
+            if (match && (sr.result_preview || sr.raw_result)) {
+              store.updateToolCall(tcId, {
+                ...(sr.result_preview ? { resultPreview: sr.result_preview } : {}),
+                ...(sr.raw_result ? { rawResult: sr.raw_result } : {}),
+              })
             }
           }
         }
@@ -267,7 +402,7 @@ function handleSSEEvent(data: SSEEvent) {
     case 'tool_update':
       if (data.tool_update) {
         store.updateToolCall(data.tool_update.id, {
-          status: data.tool_update.status as 'running' | 'completed' | 'failed',
+          status: data.tool_update.status as ToolCall['status'],
           duration: data.tool_update.duration,
           error: data.tool_update.error,
         })
@@ -296,8 +431,4 @@ function handleSSEEvent(data: SSEEvent) {
       })
       break
   }
-}
-
-function setAgentState(state: AgentState) {
-  useChatStore.getState().setAgentState(state)
 }

@@ -180,6 +180,73 @@ class ResearchMultitaskTrainingTests(unittest.TestCase):
             )
             self.assertFalse(payload["safe_for_model_claim"])
 
+    def test_heterogeneous_explicit_features_align_by_field_name(self):
+        source_rows = [
+            {
+                "head": "activity_risk",
+                "label_value": "low",
+                "group_id": "g1",
+                "features": {"position": 105.0, "ph": 4.8},
+            },
+            {
+                "head": "activity_risk",
+                "label_value": "watch",
+                "group_id": "g2",
+                "features": {"ph": 6.0, "safe_structure_score": 0.4},
+            },
+        ]
+        normalized, _unknown = MODULE.normalize_rows(source_rows)
+        schema = MODULE.align_feature_rows(normalized)
+
+        self.assertEqual(schema, ["ph", "position", "safe_structure_score"])
+        self.assertEqual(normalized[0]["features"], [4.8, 105.0, 0.0])
+        self.assertEqual(normalized[1]["features"], [6.0, 0.0, 0.4])
+        self.assertTrue(all(row["feature_schema"] == schema for row in normalized))
+
+    def test_default_group_identity_does_not_merge_same_mutation_across_proteins(self):
+        first = {
+            "project_id": "project-a",
+            "enzyme_id": "enzyme-a",
+            "mutation": "D105N",
+        }
+        second = {
+            "project_id": "project-b",
+            "enzyme_id": "enzyme-b",
+            "mutation": "D105N",
+        }
+        self.assertNotEqual(MODULE.row_group(first), MODULE.row_group(second))
+        self.assertEqual(
+            MODULE.row_group({**first, "group_id": "reviewed-group"}),
+            "reviewed-group",
+        )
+
+    def test_receipt_and_checkpoint_bind_training_input_manifest(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            checkpoint = Path(tmp) / "smoke.pt"
+            result = MODULE.run_training(
+                rows_for("activity_risk", 6),
+                mode="smoke",
+                checkpoint_path=checkpoint,
+                epochs=1,
+            )
+
+            manifest = result["training_input_manifest"]
+            self.assertEqual(manifest["schema_version"], "kwb_five_head_training_input_v1")
+            self.assertEqual(manifest["normalized_label_row_count"], 6)
+            self.assertEqual(manifest["head_label_rows"]["activity_risk"], 6)
+            self.assertEqual(len(manifest["canonical_rows_sha256"]), 64)
+            self.assertEqual(len(result["training_input_manifest_sha256"]), 64)
+            self.assertEqual(result["checkpoint_receipt"]["sha256"], result["checkpoint_sha256"])
+            self.assertGreater(result["checkpoint_receipt"]["size_bytes"], 0)
+
+            import torch
+
+            payload = torch.load(checkpoint, map_location="cpu", weights_only=False)
+            self.assertEqual(
+                payload["training_input_manifest_sha256"],
+                result["training_input_manifest_sha256"],
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

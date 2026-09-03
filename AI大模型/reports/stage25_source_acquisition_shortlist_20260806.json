@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-06",
+  "mode": "stage25_source_acquisition_shortlist",
+  "stage": 25,
+  "paper_rows": 4,
+  "required_file_rows": 8,
+  "paper_ready_rows": 0,
+  "ready_for_sqlite_apply_rows": 0,
+  "rows": [
+    {
+      "pmid": "39743673",
+      "doi": "10.1021/acs.jafc.4c10256",
+      "title": "Improving the Thermal Stability of GH11 Xylanase XynASP through Cord Region Engineering",
+      "primary_pages_found": [
+        "https://pubmed.ncbi.nlm.nih.gov/39743673/",
+        "https://pubs.acs.org/doi/10.1021/acs.jafc.4c10256"
+      ],
+      "secondary_pages_found": [],
+      "evidence_level": "primary_metadata_plus_abstract_only",
+      "importer_decision": "web_search_receipt_only_until_local_si_or_fulltext",
+      "required_files": [
+        {
+          "required_file_kind": "acs_supporting_information",
+          "expected_local_path": "datasets/source_drops/stage25/39743673/jf4c10256_si_001.doc",
+          "exists": true
+        },
+        {
+          "required_file_kind": "article_fulltext_or_vor_pdf",
+          "expected_local_path": "datasets/source_drops/stage25/39743673/10.1021_acs.jafc.4c10256_fulltext.pdf",
+          "exists": false
+        }
+      ],
+      "search_findings": [
+        "ACS metadata page lists free Supporting Information file jf4c10256_si_001.doc and describes Tables S1-S2/Figures S1-S10.",
+        "Direct local download remains blocked by publisher HTTP 403 in prior breakthrough receipt.",
+        "ResearchGate page reports no full-text available and only offers author-request flow; 科研通 shows a literature-help record with a pending uploaded PDF, not a validated source file in this workspace.",
+        "DSM4 mutation composition remains not locally source-table verified."
+      ]
+    },
+    {
+      "pmid": "42134585",
+      "doi": "10.1016/j.biortech.2026.134883",
+      "title": "Computationally assisted combinatorial rational design of xylanase with improved thermostability and catalytic performance for lignocellulosic biomass hydrolysis",
+      "primary_pages_found": [
+        "https://pubmed.ncbi.nlm.nih.gov/42134585/",
+        "https://www.sciencedirect.com/science/article/pii/S096085242600965X"
+      ],
+      "secondary_pages_found": [],
+      "evidence_level": "primary_abstract_only",
+      "importer_decision": "non_exportable_variant_draft_only_until_fulltext_source_locator",
+      "required_files": [
+        {
+          "required_file_kind": "article_fulltext_or_vor_pdf",
+          "expected_local_path": "datasets/source_drops/stage25/42134585/10.1016_j.biortech.2026.134883_fulltext.pdf",
+          "exists": false
+        },
+        {
+          "required_file_kind": "source_table_or_supplement",
+          "expected_local_path": "datasets/source_drops/stage25/42134585/source_table_or_supplement_for_9K-XynB2",
+          "exists": false
+        }
+      ],
+      "search_findings": [
+        "ScienceDirect abstract confirms variant 9K-XynB2 (HFBI-A52C/T205C-F31Y/A50F/A143P).",
+        "ScienceDirect public preview exposes article metadata, highlights, abstract and partial Materials/Introduction text, but no source table/SI file was available through public search.",
+        "ResearchGate and 科研通 pages did not provide a locally usable fulltext/source-table file; ResearchGate only offers request-full-text flow.",
+        "Source tables, WT absolute baselines, units, assay conditions and locators remain unavailable locally."
+      ]
+    },
+    {
+      "pmid": "42235695",
+      "doi": "10.1016/j.biortech.2026.135069",
+      "title": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase",
+      "primary_pages_found": [
+        "https://pubmed.ncbi.nlm.nih.gov/42235695/",
+        "https://www.sciencedirect.com/science/article/abs/pii/S096085242601151X"
+      ],
+      "secondary_pages_found": [
+        "https://b.460.net.cn/a/581563.html"
+      ],
+      "evidence_level": "primary_abstract_plus_secondary_lead",
+      "importer_decision": "secondary_residue_lead_only_do_not_apply_until_primary_source_locator",
+      "required_files": [
+        {
+          "required_file_kind": "article_fulltext_or_vor_pdf",
+          "expected_local_path": "datasets/source_drops/stage25/42235695/10.1016_j.biortech.2026.135069_fulltext.pdf",
+          "exists": false
+        },
+        {
+          "required_file_kind": "source_table_or_supplement",
+          "expected_local_path": "datasets/source_drops/stage25/42235695/CM5_variant_and_process_source_locator",
+          "exists": false
+        }
+      ],
+      "search_findings": [
+        "ScienceDirect abstract confirms CM5 performance metrics but does not disclose exact substitutions.",
+        "A Nanjing Tech University news repost reports CM5 as L15R/S45T/K85P/K231R and includes figure-level summaries.",
+        "ResearchGate page reports no full-text available and only offers author-request flow.",
+        "The secondary page is not a citable source-table substitute; exact residues remain pending primary fulltext/source locator review."
+      ]
+    },
+    {
+      "pmid": "42248057",
+      "doi": "10.1016/j.enzmictec.2026.110921",
+      "title": "Discovery and characterization of a thermostable CALB-type lipase for efficient ethyl hexanoate synthesis in aqueous systems",
+      "primary_pages_found": [
+        "https://pubmed.ncbi.nlm.nih.gov/42248057/",
+        "https://www.sciencedirect.com/science/article/abs/pii/S0141022926001043"
+      ],
+      "secondary_pages_found": [],
+      "evidence_level": "primary_abstract_only",
+      "importer_decision": "benchmark_source_only_no_variant",
+      "required_files": [
+        {
+          "required_file_kind": "article_fulltext_or_vor_pdf",
+          "expected_local_path": "datasets/source_drops/stage25/42248057/10.1016_j.enzmictec.2026.110921_fulltext.pdf",
+          "exists": false
+        },
+        {
+          "required_file_kind": "source_table_or_supplement",
+          "expected_local_path": "datasets/source_drops/stage25/42248057/XyEst_rXyEst_benchmark_source_locator",
+          "exists": false
+        }
+      ],
+      "search_findings": [
+        "ScienceDirect public preview exposes highlights, abstract, Introduction, Strains/plasmids and bioinformatic-mining text for XyEst/rXyEst.",
+        "ResearchGate page does not provide a locally usable fulltext/source-table file.",
+        "ScienceDirect abstract/highlights confirm XyEst/rXyEst characterization and no mutation-engineering payload.",
+        "This remains source-enzyme/benchmark-only, not variant importer material."
+      ]
+    }
+  ],
+  "external_sqlite_mutated": false,
+  "apply_executed": false,
+  "formal_decision_rows_written": 0,
+  "export_safe_released": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Operator shortlist only. Public links, directory targets, and file presence do not replace reviewed source locators, formal decisions, SQLite apply approval, benchmark intake, model claims, customer delivery, or release."
+}

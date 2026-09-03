@@ -1,0 +1,73 @@
+{
+  "accession": "P13798",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00326",
+        "name": "Prolyl oligopeptidase family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001375",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p13798",
+          "protein_length": 732,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 523,
+                  "end": 731,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00326",
+              "score": 5.2e-31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19283",
+        "name": "Acylamino-acid-releasing enzyme, N-terminal domain",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR045550",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p13798",
+          "protein_length": 732,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 46,
+                  "end": 458,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF19283",
+              "score": 7.3e-52
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

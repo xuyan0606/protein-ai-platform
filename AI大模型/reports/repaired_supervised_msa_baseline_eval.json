@@ -1,0 +1,36 @@
+{
+  "model": "KWB-EnzymeDesigner-supervised-mutation-baseline",
+  "version": "0.4.0-centroid-baseline",
+  "status": "blocked_empty_train_split",
+  "rows": 0,
+  "features": 0,
+  "selected_strategy": null,
+  "splits": {
+    "train": {
+      "split": "train",
+      "rows": 0,
+      "accuracy": null,
+      "label_distribution": {},
+      "confusion": {},
+      "records": []
+    },
+    "validation": {
+      "split": "validation",
+      "rows": 0,
+      "accuracy": null,
+      "label_distribution": {},
+      "confusion": {},
+      "records": []
+    },
+    "test": {
+      "split": "test",
+      "rows": 0,
+      "accuracy": null,
+      "label_distribution": {},
+      "confusion": {},
+      "records": []
+    }
+  },
+  "safe_for_model_claim": false,
+  "policy": "Training is skipped when no train rows exist; no synthetic fallback labels are created."
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q14534",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF08491",
+        "name": "Squalene epoxidase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR013698",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q14534",
+          "protein_length": 574,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 277,
+                  "end": 548,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08491",
+              "score": 2.6e-114
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13450",
+        "name": "NAD(P)-binding Rossmann-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q14534",
+          "protein_length": 574,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 128,
+                  "end": 154,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13450",
+              "score": 0.36
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

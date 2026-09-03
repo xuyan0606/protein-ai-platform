@@ -1,0 +1,39 @@
+{
+  "accession": "P33121",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00501",
+        "name": "AMP-binding enzyme",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000873",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p33121",
+          "protein_length": 698,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 116,
+                  "end": 520,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00501",
+              "score": 5.4e-90
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

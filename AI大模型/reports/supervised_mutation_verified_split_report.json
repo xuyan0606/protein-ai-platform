@@ -1,0 +1,128 @@
+{
+  "rows": 25,
+  "groups": 23,
+  "split_group_counts": {
+    "train": 18,
+    "validation": 4,
+    "test": 1
+  },
+  "split_row_counts": {
+    "train": 20,
+    "validation": 4,
+    "test": 1
+  },
+  "label_distribution_by_split": {
+    "train": {
+      "go": 7,
+      "watch": 7,
+      "no_go": 6
+    },
+    "validation": {
+      "no_go": 2,
+      "watch": 2
+    },
+    "test": {
+      "go": 1
+    }
+  },
+  "group_leakage": [],
+  "assignments": {
+    "uniprot:O00762": "train",
+    "uniprot:O14933": "train",
+    "uniprot:O15488": "train",
+    "uniprot:O15541": "train",
+    "uniprot:O43598": "train",
+    "uniprot:O75319": "validation",
+    "uniprot:O94768": "train",
+    "uniprot:O95342": "train",
+    "uniprot:O95622": "validation",
+    "uniprot:O95881": "train",
+    "uniprot:P00505": "validation",
+    "uniprot:P04062": "train",
+    "uniprot:P04179": "train",
+    "uniprot:P08519": "train",
+    "uniprot:P09936": "train",
+    "uniprot:P14735": "train",
+    "uniprot:P15170": "train",
+    "uniprot:P17050": "test",
+    "uniprot:P18440": "train",
+    "uniprot:P18858": "train",
+    "uniprot:P19835": "train",
+    "uniprot:P21128": "validation",
+    "uniprot:P21439": "train"
+  },
+  "group_label_profiles": {
+    "uniprot:O00762": {
+      "go": 1
+    },
+    "uniprot:O14933": {
+      "watch": 1,
+      "go": 1
+    },
+    "uniprot:O15488": {
+      "go": 1
+    },
+    "uniprot:O15541": {
+      "no_go": 1
+    },
+    "uniprot:O43598": {
+      "watch": 1,
+      "go": 1
+    },
+    "uniprot:O75319": {
+      "no_go": 1
+    },
+    "uniprot:O94768": {
+      "no_go": 1
+    },
+    "uniprot:O95342": {
+      "no_go": 1
+    },
+    "uniprot:O95622": {
+      "watch": 1
+    },
+    "uniprot:O95881": {
+      "watch": 1
+    },
+    "uniprot:P00505": {
+      "no_go": 1
+    },
+    "uniprot:P04062": {
+      "watch": 1
+    },
+    "uniprot:P04179": {
+      "no_go": 1
+    },
+    "uniprot:P08519": {
+      "go": 1
+    },
+    "uniprot:P09936": {
+      "go": 1
+    },
+    "uniprot:P14735": {
+      "go": 1
+    },
+    "uniprot:P15170": {
+      "watch": 1
+    },
+    "uniprot:P17050": {
+      "go": 1
+    },
+    "uniprot:P18440": {
+      "watch": 1
+    },
+    "uniprot:P18858": {
+      "no_go": 1
+    },
+    "uniprot:P19835": {
+      "watch": 1
+    },
+    "uniprot:P21128": {
+      "watch": 1
+    },
+    "uniprot:P21439": {
+      "no_go": 1
+    }
+  },
+  "split_rule": "sha256(group_key) with 70/15/15 train/validation/test buckets"
+}

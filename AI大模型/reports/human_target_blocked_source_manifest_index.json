@@ -1,0 +1,51 @@
+{
+  "created_at": "2026-09-03T07:33:59.721629+00:00",
+  "local_only": true,
+  "source_manifest_index": [
+    {
+      "source_id": "hpa_expression",
+      "path": "human_target_sources/hpa_expression_source_manifest.json",
+      "status": "blocked",
+      "blocked_reason": "source_manifest_or_runtime_receipt_missing"
+    },
+    {
+      "source_id": "gtex_expression",
+      "path": "human_target_sources/gtex_expression_source_manifest.json",
+      "status": "blocked",
+      "blocked_reason": "source_manifest_or_runtime_receipt_missing"
+    },
+    {
+      "source_id": "reactome_pathway",
+      "path": "human_target_sources/reactome_pathway_source_manifest.json",
+      "status": "blocked",
+      "blocked_reason": "source_manifest_or_runtime_receipt_missing"
+    },
+    {
+      "source_id": "ligand_receptor_graph",
+      "path": "human_target_sources/ligand_receptor_graph_source_manifest.json",
+      "status": "blocked",
+      "blocked_reason": "source_manifest_or_runtime_receipt_missing"
+    },
+    {
+      "source_id": "anarci_imgt_runtime",
+      "path": "human_target_sources/anarci_imgt_runtime_manifest.json",
+      "status": "blocked",
+      "blocked_reason": "required_runtime_executable_missing"
+    },
+    {
+      "source_id": "human_germline_db",
+      "path": "human_target_sources/human_germline_db_source_manifest.json",
+      "status": "blocked",
+      "blocked_reason": "source_manifest_or_runtime_receipt_missing"
+    },
+    {
+      "source_id": "sabdab_oas_reference",
+      "path": "human_target_sources/sabdab_oas_reference_source_manifest.json",
+      "status": "blocked",
+      "blocked_reason": "source_manifest_or_runtime_receipt_missing"
+    }
+  ],
+  "blocked_sources": 7,
+  "ready_sources": 0,
+  "policy": "Split manifests are still blocked and only isolate each source/runtime receipt for separate audit."
+}

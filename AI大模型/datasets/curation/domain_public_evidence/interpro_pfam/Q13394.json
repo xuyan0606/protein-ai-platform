@@ -1,0 +1,73 @@
+{
+  "accession": "Q13394",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03281",
+        "name": "Mab-21 protein nucleotidyltransferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR046903",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13394",
+          "protein_length": 359,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 62,
+                  "end": 241,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03281",
+              "score": 2e-40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF20266",
+        "name": "Mab-21 protein HhH/H2TH-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR046906",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13394",
+          "protein_length": 359,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 246,
+                  "end": 343,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF20266",
+              "score": 4.2e-26
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q8NBU5",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00004",
+        "name": "ATPase family associated with various cellular activities (AAA)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003959",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8nbu5",
+          "protein_length": 361,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 129,
+                  "end": 257,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00004",
+              "score": 4.8e-33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17862",
+        "name": "AAA+ lid domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041569",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8nbu5",
+          "protein_length": 361,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 282,
+                  "end": 323,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17862",
+              "score": 2.9e-10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

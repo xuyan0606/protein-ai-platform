@@ -1,0 +1,73 @@
+{
+  "accession": "Q6IN84",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00588",
+        "name": "SpoU rRNA Methylase family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001537",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6in84",
+          "protein_length": 353,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 146,
+                  "end": 301,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00588",
+              "score": 1.7e-25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08032",
+        "name": "RNA 2'-O ribose methyltransferase substrate binding",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013123",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6in84",
+          "protein_length": 353,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 51,
+                  "end": 128,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08032",
+              "score": 2e-11
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

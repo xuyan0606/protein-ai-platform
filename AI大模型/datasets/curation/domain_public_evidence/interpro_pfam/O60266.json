@@ -1,0 +1,85 @@
+{
+  "accession": "O60266",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00211",
+        "name": "Adenylate and Guanylate cyclase catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001054",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60266",
+          "protein_length": 1144,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 310,
+                  "end": 472,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00211",
+              "score": 2.1e-57
+            },
+            {
+              "fragments": [
+                {
+                  "start": 915,
+                  "end": 1121,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00211",
+              "score": 2.5e-60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16214",
+        "name": "Adenylyl cyclase N-terminal extracellular and transmembrane region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR032628",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60266",
+          "protein_length": 1144,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 42,
+                  "end": 297,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16214",
+              "score": 2.9e-28
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

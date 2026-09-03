@@ -18,6 +18,7 @@ from typing import Any
 
 from app.core.config import settings
 from app.tools.registry import ToolRegistry
+from app.tools.tool_capability_contract import merge_capability_contract
 
 # ---------------------------------------------------------------------------
 # Amino-acid property tables (for binding-site prediction)
@@ -417,7 +418,12 @@ async def diffdock_docking(
     dG_norm = (affinity["predicted_dG_kcal_per_mol"] + 14) / 14  # 0 to 1
     docking_score = round(dG_norm * 100, 1)
 
-    return {
+    boundary = (
+        "This result is not report-grade DiffDock inference unless model version, "
+        "pose ensemble, confidence outputs, 3D ligand provenance, and runtime logs are attached. "
+        "Do not interpret proxy score as Kd or binding energy."
+    )
+    return merge_capability_contract({
         "docking_score": docking_score,
         "docking_score_interpretation": (
             "excellent" if docking_score >= 80 else
@@ -428,12 +434,23 @@ async def diffdock_docking(
         "predicted_affinity": affinity,
         "binding_site": binding_site,
         "ligand_properties": ligand_props,
-        "model": "Simplified Docking (MVP)",
+        "is_real_inference": False,
+        "evidence_level": "DESIGN_HYPOTHESIS",
+        "report_boundary": boundary,
         "note": (
             "MVP uses simplified molecular docking scoring. "
             "For production accuracy, connect to DiffDock GPU inference API."
         ),
-    }
+    },
+        capability_status="proxy",
+        model="DiffDock-style proxy",
+        version="proxy-mvp",
+        checkpoint_or_weight=None,
+        input_payload={"ligand_smiles": smiles, "protein_pdb": pdb},
+        runtime=None,
+        scientific_boundary=boundary,
+        failure_reason=None,
+    )
 
 
 # ===================================================================

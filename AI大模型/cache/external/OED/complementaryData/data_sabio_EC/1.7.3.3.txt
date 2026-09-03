@@ -1,0 +1,47 @@
+EntryID	Substrate	Product	EnzymeType	PubMedID	Organism	UniprotID	ECNumber	pH	Temperature	parameter.type	parameter.associatedSpecies	parameter.startValue	parameter.endValue	parameter.standardDeviation	parameter.unit
+5341	H2O;Urate;O2	5-Hydroxyisourate;H2O2	wildtype	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	kcat		3.26		1.2E-1	s^(-1)
+5341	H2O;Urate;O2	5-Hydroxyisourate;H2O2	wildtype	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	Km	Urate	2.4E-5		5E-6	M
+5341	H2O;Urate;O2	5-Hydroxyisourate;H2O2	wildtype	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	kcat/Km	Urate	97000.0		1.5E4	M^(-1)*s^(-1)
+5341	H2O;Urate;O2	5-Hydroxyisourate;H2O2	wildtype	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	concentration	Urate	0.0	1.0E-4	-	M
+5342	H2O;Urate;O2	5-Hydroxyisourate;H2O2	mutant D70A	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	kcat		2.1		6E-2	s^(-1)
+5342	H2O;Urate;O2	5-Hydroxyisourate;H2O2	mutant D70A	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	concentration	Urate	0.0	1.0E-4	-	M
+5342	H2O;Urate;O2	5-Hydroxyisourate;H2O2	mutant D70A	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	kcat/Km	Urate	75000.0		8E3	M^(-1)*s^(-1)
+5342	H2O;Urate;O2	5-Hydroxyisourate;H2O2	mutant D70A	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	Km	Urate	2.8E-5		3E-6	M
+5343	Urate;H2O;O2	H2O2;5-Hydroxyisourate	mutant T69A	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	kcat		0.099		3E-3	s^(-1)
+5343	Urate;H2O;O2	H2O2;5-Hydroxyisourate	mutant T69A	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	concentration	Urate	0.0	1.0E-4	-	M
+5343	Urate;H2O;O2	H2O2;5-Hydroxyisourate	mutant T69A	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	kcat/Km	Urate	5800000.0		5E1	M^(-1)*s^(-1)
+5343	Urate;H2O;O2	H2O2;5-Hydroxyisourate	mutant T69A	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	Km	Urate	1.7E-4		1.3E-5	M
+5344	Urate;H2O;O2	H2O2;5-Hydroxyisourate	mutant K9M	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	kcat		0.0135		3E-4	s^(-1)
+5344	Urate;H2O;O2	H2O2;5-Hydroxyisourate	mutant K9M	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	Km	Urate	5.1E-5		4E-6	M
+5344	Urate;H2O;O2	H2O2;5-Hydroxyisourate	mutant K9M	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	kcat/Km	Urate	2600000.0		2E1	M^(-1)*s^(-1)
+5344	Urate;H2O;O2	H2O2;5-Hydroxyisourate	mutant K9M	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	concentration	Urate	0.0	1.0E-4	-	M
+5345	O2;Urate;H2O	H2O2;5-Hydroxyisourate	mutant T69V	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	kcat/Km	Urate	1900000.0		2E0	M^(-1)*s^(-1)
+5345	O2;Urate;H2O	H2O2;5-Hydroxyisourate	mutant T69V	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	kcat		0.0198		6E-4	s^(-1)
+5345	O2;Urate;H2O	H2O2;5-Hydroxyisourate	mutant T69V	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	concentration	Urate	0.0	1.0E-4	-	M
+5345	O2;Urate;H2O	H2O2;5-Hydroxyisourate	mutant T69V	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	Km	Urate	0.00105		1.2E-4	M
+5346	O2;H2O;Urate	H2O2;5-Hydroxyisourate	mutant T69A/K9M	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	kcat		0.036		4E-4	s^(-1)
+5346	O2;H2O;Urate	H2O2;5-Hydroxyisourate	mutant T69A/K9M	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	concentration	Urate	0.0	1.0E-4	-	M
+5346	O2;H2O;Urate	H2O2;5-Hydroxyisourate	mutant T69A/K9M	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	kcat/Km	Urate	6600000.0		3E0	M^(-1)*s^(-1)
+5346	O2;H2O;Urate	H2O2;5-Hydroxyisourate	mutant T69A/K9M	12680763	Bacillus subtilis	O32141	1.7.3.3	8.0	-	Km	Urate	5.47E-4		2.8E-5	M
+43511	O2;H2O;Urate	5-Hydroxyisourate;H2O2	wildtype	6685457	Glycine max		1.7.3.3	9.5	22.0	Km	Urate	1.0E-5		1E-6	M
+43511	O2;H2O;Urate	5-Hydroxyisourate;H2O2	wildtype	6685457	Glycine max		1.7.3.3	9.5	22.0	Km	O2	3.1E-5		5E-6	M
+43511	O2;H2O;Urate	5-Hydroxyisourate;H2O2	wildtype	6685457	Glycine max		1.7.3.3	9.5	22.0	concentration	O2	3.0E-5	2.0E-4	-	M
+43511	O2;H2O;Urate	5-Hydroxyisourate;H2O2	wildtype	6685457	Glycine max		1.7.3.3	9.5	22.0	concentration	Urate	1.4E-5	1.0E-4	-	M
+43512	Urate;H2O;O2	H2O2;5-Hydroxyisourate	wildtype	6685457	Glycine max		1.7.3.3	9.5	22.0	concentration	O2	2.5E-4		-	M
+43512	Urate;H2O;O2	H2O2;5-Hydroxyisourate	wildtype	6685457	Glycine max		1.7.3.3	9.5	22.0	concentration	Xanthine	0.0	3.0E-5	-	M
+43512	Urate;H2O;O2	H2O2;5-Hydroxyisourate	wildtype	6685457	Glycine max		1.7.3.3	9.5	22.0	Ki	Xanthine	1.0E-5		-	M
+43512	Urate;H2O;O2	H2O2;5-Hydroxyisourate	wildtype	6685457	Glycine max		1.7.3.3	9.5	22.0	concentration	Urate	1.6E-5	1.0E-4	-	M
+70213	O2;Urate;H2O	H2O2;5-Hydroxyisourate	wildtype	20675295	Lysobacter sp. T-15		1.7.3.3	7.0	37.0	Vmax/Km	Urate	6.15		-	l*g^(-1)*s^(-1)
+70213	O2;Urate;H2O	H2O2;5-Hydroxyisourate	wildtype	20675295	Lysobacter sp. T-15		1.7.3.3	7.0	37.0	Vmax		0.002216667		-	mol*s^(-1)*g^(-1)
+70213	O2;Urate;H2O	H2O2;5-Hydroxyisourate	wildtype	20675295	Lysobacter sp. T-15		1.7.3.3	7.0	37.0	concentration	Urate	5.0E-5	0.001	-	M
+70213	O2;Urate;H2O	H2O2;5-Hydroxyisourate	wildtype	20675295	Lysobacter sp. T-15		1.7.3.3	7.0	37.0	Km	Urate	3.6E-4		-	M
+70214	Urate;O2;H2O	5-Hydroxyisourate;H2O2	wildtype	20675295	Arthrobacter globiformis	D0VWQ1	1.7.3.3	7.0	37.0	Vmax		4.0E-4		-	mol*s^(-1)*g^(-1)
+70214	Urate;O2;H2O	5-Hydroxyisourate;H2O2	wildtype	20675295	Arthrobacter globiformis	D0VWQ1	1.7.3.3	7.0	37.0	Km	Urate	7.0E-5		-	M
+70214	Urate;O2;H2O	5-Hydroxyisourate;H2O2	wildtype	20675295	Arthrobacter globiformis	D0VWQ1	1.7.3.3	7.0	37.0	concentration	Urate	5.0E-5	0.001	-	M
+70214	Urate;O2;H2O	5-Hydroxyisourate;H2O2	wildtype	20675295	Arthrobacter globiformis	D0VWQ1	1.7.3.3	7.0	37.0	Vmax/Km	Urate	5.716667		-	l*g^(-1)*s^(-1)
+70217	H2O;O2;Urate	H2O2;5-Hydroxyisourate	wildtype	20675295	Lysobacter sp. T-15		1.7.3.3	7.0	37.0	concentration	NaCl	0.0	0.2	-	M
+70217	H2O;O2;Urate	H2O2;5-Hydroxyisourate	wildtype	20675295	Lysobacter sp. T-15		1.7.3.3	7.0	37.0	Ki	NaCl	0.2		-	M
+70217	H2O;O2;Urate	H2O2;5-Hydroxyisourate	wildtype	20675295	Lysobacter sp. T-15		1.7.3.3	7.0	37.0	concentration	Urate	5.0E-5	0.001	-	M
+70218	Urate;H2O;O2	H2O2;5-Hydroxyisourate	wildtype	20675295	Arthrobacter globiformis	D0VWQ1	1.7.3.3	7.0	37.0	concentration	NaCl	0.0	0.2	-	M
+70218	Urate;H2O;O2	H2O2;5-Hydroxyisourate	wildtype	20675295	Arthrobacter globiformis	D0VWQ1	1.7.3.3	7.0	37.0	concentration	Urate	5.0E-5	0.001	-	M
+70218	Urate;H2O;O2	H2O2;5-Hydroxyisourate	wildtype	20675295	Arthrobacter globiformis	D0VWQ1	1.7.3.3	7.0	37.0	Ki	NaCl	0.0057		-	M

@@ -1,0 +1,73 @@
+{
+  "accession": "Q6UWP7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01553",
+        "name": "Acyltransferase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002123",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6uwp7",
+          "protein_length": 414,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 104,
+                  "end": 260,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01553",
+              "score": 3.3e-15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16076",
+        "name": "Acyltransferase C-terminus",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR032098",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6uwp7",
+          "protein_length": 414,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 271,
+                  "end": 343,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16076",
+              "score": 1.8e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB MSA Conservation Manifest",
+  "type": "object",
+  "required": ["local_only", "targets", "status"],
+  "properties": {
+    "local_only": { "const": true },
+    "status": {
+      "type": "string",
+      "enum": ["not_configured", "pending", "ready", "failed"]
+    },
+    "source": {
+      "type": "string",
+      "enum": ["local_msa_cache", "precomputed_embeddings", "hmmer_jackhmmer", "not_configured"]
+    },
+    "targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["uniprot_id", "status"],
+        "properties": {
+          "uniprot_id": { "type": "string" },
+          "sequence_length": { "type": "integer" },
+          "msa_path": { "type": ["string", "null"] },
+          "conservation_feature_path": { "type": ["string", "null"] },
+          "status": {
+            "type": "string",
+            "enum": ["missing", "pending", "present", "invalid"]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

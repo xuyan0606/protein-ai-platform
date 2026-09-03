@@ -1,0 +1,73 @@
+{
+  "accession": "O75191",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00370",
+        "name": "FGGY family of carbohydrate kinases, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR018484",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75191",
+          "protein_length": 536,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 132,
+                  "end": 287,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00370",
+              "score": 1.1e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02782",
+        "name": "FGGY family of carbohydrate kinases, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR018485",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75191",
+          "protein_length": 536,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 296,
+                  "end": 479,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02782",
+              "score": 1.8e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

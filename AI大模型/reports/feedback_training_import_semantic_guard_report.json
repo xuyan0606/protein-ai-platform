@@ -1,0 +1,53 @@
+{
+  "created_at": "2026-09-03T07:34:43.033616+00:00",
+  "local_only": true,
+  "checked_reports": {
+    "experiment_feedback_intake_validation": "reports/experiment_feedback_intake_validation_report.json",
+    "wet_lab_mutant_library_feedback_authorization_validation": "reports/wet_lab_mutant_library_feedback_authorization_validation_report.json",
+    "wet_lab_mutant_library_feedback_preflight": "reports/wet_lab_mutant_library_feedback_preflight_report.json",
+    "wet_lab_mutant_library_feedback_intake_apply_plan": "reports/wet_lab_mutant_library_feedback_intake_apply_plan_report.json",
+    "safe_training_entrypoint_check": "reports/safe_training_entrypoint_check.json",
+    "label_provenance_audit": "reports/label_provenance_audit_report.json"
+  },
+  "missing_reports": [],
+  "semantic_rows": {
+    "qualitative_feedback_eligible": 1,
+    "numeric_training_import_eligible": 6,
+    "strict_supervised_rows": 0,
+    "claim_eligible_rows": 0
+  },
+  "qualitative_feedback_eligible": 1,
+  "numeric_training_import_eligible": 6,
+  "strict_supervised_rows": 0,
+  "claim_eligible_rows": 0,
+  "eligibility_flags": {
+    "qualitative_feedback_eligible": true,
+    "numeric_training_import_eligible": true,
+    "strict_supervised_rows": false,
+    "claim_eligible_rows": false
+  },
+  "source_report_support": {
+    "experiment_feedback_qualitative_training_eligible_rows": 1,
+    "experiment_feedback_numeric_training_eligible_rows": 6,
+    "wet_lab_ready_for_training_import_rows": {
+      "authorization_ready_for_training_import_rows": 0,
+      "preflight_ready_for_training_import_rows": 0,
+      "apply_plan_ready_for_training_import_rows": 0
+    },
+    "wet_lab_claim_eligible_rows_now": {
+      "authorization_claim_eligible_rows_now": 0,
+      "preflight_claim_eligible_rows_now": 0,
+      "apply_plan_claim_eligible_rows_now": 0
+    },
+    "safe_training_entrypoint_rows": 0,
+    "safe_training_entrypoint_claim_eligible_rows": 0,
+    "label_provenance_strict_rows": 0,
+    "label_provenance_claim_eligible_rows": 0
+  },
+  "consistency_failures": [],
+  "safe_for_training_import": true,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "success": true,
+  "policy": "qualitative_feedback_eligible is not a supervised label import allowance. numeric_training_import_eligible requires numeric source support; strict_supervised_rows and claim_eligible_rows must be supported by safe_training_entrypoint_check and label_provenance_audit. This guard is read-only and never writes datasets/feedback or training labels."
+}

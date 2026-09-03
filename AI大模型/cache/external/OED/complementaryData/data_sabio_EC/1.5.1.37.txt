@@ -1,0 +1,17 @@
+EntryID	Substrate	Product	EnzymeType	PubMedID	Organism	UniprotID	ECNumber	pH	Temperature	parameter.type	parameter.associatedSpecies	parameter.startValue	parameter.endValue	parameter.standardDeviation	parameter.unit
+51082	FAD;H+;NADH	NAD+;FADH2	wildtype	10922365	Saccharomyces cerevisiae	P39676	1.5.1.37	7.8	37.0	concentration	FAD	2.0E-5		-	M
+51082	FAD;H+;NADH	NAD+;FADH2	wildtype	10922365	Saccharomyces cerevisiae	P39676	1.5.1.37	7.8	37.0	concentration	NADH	1.0E-4		-	M
+51082	FAD;H+;NADH	NAD+;FADH2	wildtype	10922365	Saccharomyces cerevisiae	P39676	1.5.1.37	7.8	37.0	kcat		0.09		-	s^(-1)
+51092	NADH;FAD;H+	FADH2;NAD+	wildtype	10922365	Cupriavidus necator	P39662	1.5.1.37	7.8	37.0	concentration	NADH	1.0E-4		-	M
+51092	NADH;FAD;H+	FADH2;NAD+	wildtype	10922365	Cupriavidus necator	P39662	1.5.1.37	7.8	37.0	kcat		0.05		-	s^(-1)
+51092	NADH;FAD;H+	FADH2;NAD+	wildtype	10922365	Cupriavidus necator	P39662	1.5.1.37	7.8	37.0	concentration	FAD	2.0E-5		-	M
+51102	FAD;NADH;H+	NAD+;FADH2	wildtype	10922365	Escherichia coli	P24232	1.5.1.37	7.8	37.0	concentration	NADH	1.0E-4		-	M
+51102	FAD;NADH;H+	NAD+;FADH2	wildtype	10922365	Escherichia coli	P24232	1.5.1.37	7.8	37.0	concentration	FAD	2.0E-5		-	M
+51102	FAD;NADH;H+	NAD+;FADH2	wildtype	10922365	Escherichia coli	P24232	1.5.1.37	7.8	37.0	kcat		0.07		-	s^(-1)
+73997	H+;NADH;FAD	NAD+;FADH2	wildtype TftC	19915006	Burkholderia cepacia	O87008	1.5.1.37	-	-	concentration	NADH	2.5E-5	2.0E-4	-	M
+73997	H+;NADH;FAD	NAD+;FADH2	wildtype TftC	19915006	Burkholderia cepacia	O87008	1.5.1.37	-	-	Vmax		0.002005		1.283333E-4	mol*s^(-1)*g^(-1)
+73997	H+;NADH;FAD	NAD+;FADH2	wildtype TftC	19915006	Burkholderia cepacia	O87008	1.5.1.37	-	-	Km	NADH	4.53E-5		4.5E-6	M
+73998	FAD;H+;NADH	NAD+;FADH2	wildtype TftC	19915006	Burkholderia cepacia	O87008	1.5.1.37	-	-	Km	FAD	2.0E-6		3E-7	M
+73998	FAD;H+;NADH	NAD+;FADH2	wildtype TftC	19915006	Burkholderia cepacia	O87008	1.5.1.37	-	-	Vmax		0.002005		1.283333E-4	mol*s^(-1)*g^(-1)
+73998	FAD;H+;NADH	NAD+;FADH2	wildtype TftC	19915006	Burkholderia cepacia	O87008	1.5.1.37	-	-	concentration	FAD	1.0E-6	8.0E-6	-	M
+73999	NADH:FAD oxidoreductase;FAD	Enzyme-FAD complex	wildtype	19915006	Burkholderia cepacia	O87008	1.5.1.37	-	25.0	Kd	FAD	1.8E-6		1E-7	M

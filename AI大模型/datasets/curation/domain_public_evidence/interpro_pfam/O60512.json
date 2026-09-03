@@ -1,0 +1,73 @@
+{
+  "accession": "O60512",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02709",
+        "name": "N-terminal domain of galactosyltransferase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR027791",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60512",
+          "protein_length": 393,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 215,
+                  "end": 292,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02709",
+              "score": 4.3e-27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13733",
+        "name": "N-terminal region of glycosyl transferase group 7",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR027995",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60512",
+          "protein_length": 393,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 77,
+                  "end": 210,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13733",
+              "score": 1.1e-55
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

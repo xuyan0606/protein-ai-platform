@@ -1,4 +1,4 @@
-"""MinIO / S3-compatible object storage with local-filesystem fallback.
+"""S3-compatible object storage with local-filesystem fallback.
 
 In production (Docker):    MinIO at minio:9000
 In development (no Docker): local ./storage/ directory
@@ -8,9 +8,8 @@ from __future__ import annotations
 
 import io
 import logging
-import os
+from urllib.parse import quote
 import uuid
-from datetime import timedelta
 from pathlib import Path
 
 from app.core.config import settings
@@ -22,8 +21,16 @@ _fallback = False  # True if we fell back to local storage
 _local_root: Path | None = None
 
 
+def _public_download_url(object_name: str, filename: str | None = None) -> str:
+    """Return a browser-safe download URL via the backend API."""
+    url = f"/api/files/{object_name}/download"
+    if filename:
+        return f"{url}?filename={quote(filename)}"
+    return url
+
+
 def _get_minio_client():
-    """Try to connect to MinIO. Returns client or raises on failure."""
+    """Try to connect to an S3-compatible object store. Returns client or raises on failure."""
     global _client, _fallback
     if _client is not None:
         return _client
@@ -36,11 +43,12 @@ def _get_minio_client():
             settings.MINIO_ENDPOINT,
             access_key=settings.MINIO_ACCESS_KEY,
             secret_key=settings.MINIO_SECRET_KEY,
-            secure=False,
+            secure=settings.MINIO_SECURE,
+            region=settings.MINIO_REGION or None,
         )
         # Quick connectivity check
         client.list_buckets()
-        logger.info("Connected to MinIO at %s", settings.MINIO_ENDPOINT)
+        logger.info("Connected to object storage endpoint %s", settings.MINIO_ENDPOINT)
         _client = client
         _fallback = False
         return client
@@ -56,6 +64,27 @@ def _get_local_root() -> Path:
         _local_root = Path(settings.STORAGE_LOCAL_PATH)
         _local_root.mkdir(parents=True, exist_ok=True)
     return _local_root
+
+
+def _mark_minio_runtime_unavailable(operation: str, error: Exception) -> None:
+    global _fallback
+    _fallback = True
+    logger.warning("MinIO %s failed (%s), using local filesystem fallback", operation, error)
+
+
+def _is_missing_object_error(error: Exception) -> bool:
+    return getattr(error, "code", None) == "NoSuchKey"
+
+
+def _local_path_for(object_name: str) -> Path:
+    return _get_local_root() / object_name
+
+
+def _save_local_file(object_name: str, data: bytes) -> None:
+    local_path = _local_path_for(object_name)
+    local_path.parent.mkdir(parents=True, exist_ok=True)
+    local_path.write_bytes(data)
+    logger.info("Local file saved: %s (%d bytes)", local_path, len(data))
 
 
 def _ensure_bucket(client, bucket: str) -> None:
@@ -82,7 +111,6 @@ async def upload_file(
     client = _get_minio_client()
 
     if client is not None:
-        from minio.error import S3Error
         try:
             _ensure_bucket(client, settings.MINIO_BUCKET)
             client.put_object(
@@ -92,53 +120,50 @@ async def upload_file(
                 length=size,
                 content_type=content_type,
             )
-            presigned = client.presigned_get_object(
-                settings.MINIO_BUCKET, object_name,
-                expires=timedelta(hours=24),
-            )
             return {
                 "object_name": object_name,
                 "bucket": settings.MINIO_BUCKET,
                 "size": size,
-                "download_url": presigned,
+                "download_url": _public_download_url(object_name),
                 "storage": "minio",
             }
-        except S3Error as e:
-            logger.exception("MinIO upload failed")
-            raise RuntimeError(f"Storage upload failed: {e}") from e
+        except Exception as e:
+            _mark_minio_runtime_unavailable("upload", e)
 
     # Local filesystem fallback
-    local_path = _get_local_root() / object_name
-    local_path.parent.mkdir(parents=True, exist_ok=True)
-    local_path.write_bytes(data)
-    logger.info("Local file saved: %s (%d bytes)", local_path, size)
+    _save_local_file(object_name, data)
 
     return {
         "object_name": object_name,
         "bucket": "local",
         "size": size,
-        "download_url": f"/api/files/{object_name}/download",
+        "download_url": _public_download_url(object_name),
         "storage": "local",
     }
 
 
 async def download_file(object_name: str) -> bytes:
     """Download file content."""
-    client = _get_minio_client() if not _fallback else None
+    # Always give the configured object store a chance. A single missing key
+    # or transient operation error must not permanently poison this process
+    # into reading unrelated objects from the local fallback directory.
+    client = _get_minio_client()
 
     if client is not None:
-        from minio.error import S3Error
         try:
             response = client.get_object(settings.MINIO_BUCKET, object_name)
             data = response.read()
             response.close()
             response.release_conn()
             return data
-        except S3Error as e:
-            raise RuntimeError(f"Storage download failed: {e}") from e
+        except Exception as e:
+            if _is_missing_object_error(e):
+                logger.warning("Object not found in object storage: %s", object_name)
+            else:
+                _mark_minio_runtime_unavailable("download", e)
 
     # Local filesystem fallback
-    local_path = _get_local_root() / object_name
+    local_path = _local_path_for(object_name)
     if not local_path.exists():
         raise RuntimeError(f"File not found: {object_name}")
     return local_path.read_bytes()
@@ -146,20 +171,19 @@ async def download_file(object_name: str) -> bytes:
 
 async def delete_file(object_name: str) -> bool:
     """Delete a file. Returns True if deleted."""
-    client = _get_minio_client() if not _fallback else None
+    client = _get_minio_client()
 
     if client is not None:
-        from minio.error import S3Error
         try:
             client.remove_object(settings.MINIO_BUCKET, object_name)
             return True
-        except S3Error as e:
-            if e.code == "NoSuchKey":
+        except Exception as e:
+            if _is_missing_object_error(e):
                 return False
-            raise RuntimeError(f"Storage delete failed: {e}") from e
+            _mark_minio_runtime_unavailable("delete", e)
 
     # Local filesystem fallback
-    local_path = _get_local_root() / object_name
+    local_path = _local_path_for(object_name)
     if local_path.exists():
         local_path.unlink()
         return True
@@ -167,17 +191,8 @@ async def delete_file(object_name: str) -> bool:
 
 
 async def get_presigned_url(object_name: str, expires_hours: int = 24) -> str:
-    """Generate a download URL."""
-    client = _get_minio_client() if not _fallback else None
-
-    if client is not None:
-        return client.presigned_get_object(
-            settings.MINIO_BUCKET, object_name,
-            expires=timedelta(hours=expires_hours),
-        )
-
-    # Local filesystem: return API download endpoint
-    return f"/api/files/{object_name}/download"
+    """Generate a browser-safe download URL."""
+    return _public_download_url(object_name)
 
 def is_minio_available() -> bool:
     """Check if MinIO is connected."""

@@ -1,0 +1,141 @@
+{
+  "accession": "P14735",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00675",
+        "name": "Insulinase (Peptidase family M16)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR011765",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p14735",
+          "protein_length": 1019,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 74,
+                  "end": 212,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00675",
+              "score": 8.6e-43
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05193",
+        "name": "Peptidase M16 inactive domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007863",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p14735",
+          "protein_length": 1019,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 238,
+                  "end": 416,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05193",
+              "score": 2.5e-30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16187",
+        "name": "Middle or third domain of peptidase_M16",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR032632",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p14735",
+          "protein_length": 1019,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 422,
+                  "end": 702,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16187",
+              "score": 4.3e-103
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22456",
+        "name": "PQQ synthase PqqF-like, C-terminal lobe domain 4",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR054734",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p14735",
+          "protein_length": 1019,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 810,
+                  "end": 908,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22456",
+              "score": 4.6e-23
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

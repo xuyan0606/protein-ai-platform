@@ -1,0 +1,73 @@
+{
+  "accession": "Q6ZNB7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04116",
+        "name": "Fatty acid hydroxylase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006694",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6znb7",
+          "protein_length": 445,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 119,
+                  "end": 249,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF04116",
+              "score": 1.5e-25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF24858",
+        "name": "Alkylglycerol monooxygenase C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR056853",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6znb7",
+          "protein_length": 445,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 335,
+                  "end": 422,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF24858",
+              "score": 7.2e-33
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

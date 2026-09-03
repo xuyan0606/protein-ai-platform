@@ -1,0 +1,73 @@
+{
+  "accession": "Q9UBZ4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03372",
+        "name": "Endonuclease/Exonuclease/phosphatase family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR005135",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ubz4",
+          "protein_length": 518,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 5,
+                  "end": 304,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03372",
+              "score": 2.6e-22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF06839",
+        "name": "GRF zinc finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR010666",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ubz4",
+          "protein_length": 518,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 467,
+                  "end": 515,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF06839",
+              "score": 5.1e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

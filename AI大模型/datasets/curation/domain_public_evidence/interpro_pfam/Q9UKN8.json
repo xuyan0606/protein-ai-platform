@@ -1,0 +1,107 @@
+{
+  "accession": "Q9UKN8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF12657",
+        "name": "Transcription factor IIIC subunit delta bet-propeller domain",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR024761",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ukn8",
+          "protein_length": 822,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 72,
+                  "end": 516,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF12657",
+              "score": 4.8e-128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12660",
+        "name": "Putative zinc-finger of transcription factor IIIC complex",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR024764",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ukn8",
+          "protein_length": 822,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 738,
+                  "end": 789,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF12660",
+              "score": 3.4e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19336",
+        "name": "Domain of unknown function (DUF5921)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR045803",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ukn8",
+          "protein_length": 822,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 517,
+                  "end": 594,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF19336",
+              "score": 7.5e-39
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

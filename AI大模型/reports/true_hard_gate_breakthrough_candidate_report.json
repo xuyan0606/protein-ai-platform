@@ -1,0 +1,27 @@
+{
+  "created_at": "2026-09-03T07:33:45.436434+00:00",
+  "curation_applied": false,
+  "feedback_intake_written": false,
+  "formal_decisions_written": 0,
+  "local_only": true,
+  "numbering": {
+    "draft_rows": 475,
+    "output": "datasets/curation/numbering_deterministic_reject_decisions.review_draft.jsonl",
+    "real_breakthrough_after_human_confirmation": "numbering rejected rows increase after validate/apply"
+  },
+  "policy": "Review drafts only; do not count as reviewed decisions until a human confirms and copies into formal input files.",
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "status": "review_required",
+  "structure": {
+    "draft_rows": 9,
+    "output": "datasets/curation/structure_chain_mapping_dbref_decisions.review_draft.jsonl",
+    "real_breakthrough_after_human_confirmation": "reviewed structure chain mappings and graph rows increase after validate/apply/build"
+  },
+  "training_rows_written": 0,
+  "wet_lab": {
+    "draft_rows": 12,
+    "output": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.review_draft.jsonl",
+    "real_breakthrough_after_human_confirmation": "authorized rows and preflight rows increase after validate/preflight"
+  }
+}

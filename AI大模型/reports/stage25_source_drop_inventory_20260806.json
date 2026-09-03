@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-06",
+  "mode": "stage25_source_drop_inventory",
+  "stage": 25,
+  "source_drop_root": "datasets/source_drops/stage25",
+  "manifest_source_rows": 8,
+  "unique_expected_file_path_rows": 8,
+  "duplicate_expected_file_paths": [],
+  "inventory_generated_from_manifest": true,
+  "directory_rows": 4,
+  "existing_directory_rows": 4,
+  "expected_file_rows": 8,
+  "present_expected_file_rows": 1,
+  "missing_expected_file_rows": 7,
+  "ready_for_extraction_rows": 0,
+  "ready_for_sqlite_apply_rows": 0,
+  "directory_inventory": [
+    {
+      "pmid": "39743673",
+      "path": "datasets/source_drops/stage25/39743673",
+      "exists": true,
+      "file_count": 1
+    },
+    {
+      "pmid": "42134585",
+      "path": "datasets/source_drops/stage25/42134585",
+      "exists": true,
+      "file_count": 0
+    },
+    {
+      "pmid": "42235695",
+      "path": "datasets/source_drops/stage25/42235695",
+      "exists": true,
+      "file_count": 0
+    },
+    {
+      "pmid": "42248057",
+      "path": "datasets/source_drops/stage25/42248057",
+      "exists": true,
+      "file_count": 0
+    }
+  ],
+  "expected_files": [
+    {
+      "source_id": "stage25_source_39743673_si",
+      "pmid": "39743673",
+      "doi": "10.1021/acs.jafc.4c10256",
+      "required_file_kind": "acs_supporting_information",
+      "expected_local_path": "datasets/source_drops/stage25/39743673/jf4c10256_si_001.doc",
+      "exists": true,
+      "size_bytes": 40073728,
+      "sha256": "586d17cbe843a1b199d9485f7a90980bb66227a4f6bf33ad3fd5fdd68e03b7c6"
+    },
+    {
+      "source_id": "stage25_source_39743673_fulltext",
+      "pmid": "39743673",
+      "doi": "10.1021/acs.jafc.4c10256",
+      "required_file_kind": "article_fulltext_or_vor_pdf",
+      "expected_local_path": "datasets/source_drops/stage25/39743673/10.1021_acs.jafc.4c10256_fulltext.pdf",
+      "exists": false,
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "source_id": "stage25_source_42134585_fulltext",
+      "pmid": "42134585",
+      "doi": "10.1016/j.biortech.2026.134883",
+      "required_file_kind": "article_fulltext_or_vor_pdf",
+      "expected_local_path": "datasets/source_drops/stage25/42134585/10.1016_j.biortech.2026.134883_fulltext.pdf",
+      "exists": false,
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "source_id": "stage25_source_42134585_source_table",
+      "pmid": "42134585",
+      "doi": "10.1016/j.biortech.2026.134883",
+      "required_file_kind": "source_table_or_supplement",
+      "expected_local_path": "datasets/source_drops/stage25/42134585/source_table_or_supplement_for_9K-XynB2",
+      "exists": false,
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "source_id": "stage25_source_42235695_fulltext",
+      "pmid": "42235695",
+      "doi": "10.1016/j.biortech.2026.135069",
+      "required_file_kind": "article_fulltext_or_vor_pdf",
+      "expected_local_path": "datasets/source_drops/stage25/42235695/10.1016_j.biortech.2026.135069_fulltext.pdf",
+      "exists": false,
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "source_id": "stage25_source_42235695_source_table",
+      "pmid": "42235695",
+      "doi": "10.1016/j.biortech.2026.135069",
+      "required_file_kind": "source_table_or_supplement",
+      "expected_local_path": "datasets/source_drops/stage25/42235695/CM5_variant_and_process_source_locator",
+      "exists": false,
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "source_id": "stage25_source_42248057_fulltext",
+      "pmid": "42248057",
+      "doi": "10.1016/j.enzmictec.2026.110921",
+      "required_file_kind": "article_fulltext_or_vor_pdf",
+      "expected_local_path": "datasets/source_drops/stage25/42248057/10.1016_j.enzmictec.2026.110921_fulltext.pdf",
+      "exists": false,
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "source_id": "stage25_source_42248057_source_table",
+      "pmid": "42248057",
+      "doi": "10.1016/j.enzmictec.2026.110921",
+      "required_file_kind": "source_table_or_supplement",
+      "expected_local_path": "datasets/source_drops/stage25/42248057/XyEst_rXyEst_benchmark_source_locator",
+      "exists": false,
+      "size_bytes": null,
+      "sha256": null
+    }
+  ],
+  "external_sqlite_mutated": false,
+  "apply_executed": false,
+  "formal_decision_rows_written": 0,
+  "export_safe_released": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Directory inventory only. File presence and hashes do not approve source locators, formal decisions, SQLite apply, benchmark intake, model claims, customer delivery, or release."
+}

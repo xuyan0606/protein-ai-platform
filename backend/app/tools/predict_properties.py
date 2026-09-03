@@ -433,6 +433,13 @@ def predict_properties(
     if "disorder" in requested:
         result["disorder"] = _iupred_disorder(seq)
 
+    result["capability_status"] = "physicochemical_baseline"
+    result["evidence_level"] = "BACKGROUND_BASELINE"
+    result["report_boundary"] = (
+        "理化性质是由输入序列计算得到的背景基线；instability index、GRAVY、pI、二级结构/"
+        "无序倾向不能单独证明热稳定性、比活力、酶身份或突变增益，需 Tm/半衰期/残余活性/"
+        "动力学实验验证。"
+    )
     result["sequence_preview"] = seq[:60] + ("..." if len(seq) > 60 else "")
     return result
 

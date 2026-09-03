@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type KeyboardEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useShallow } from 'zustand/react/shallow'
 import { useChatStore } from '@/stores/chat'
 import { useUIStore } from '@/stores/ui'
-import { Plus, Search, Trash2, MessageSquare } from 'lucide-react'
+import { useAuthStore } from '@/stores/auth'
+import { BrandLogo } from '@/components/BrandLogo'
+import { Check, Pencil, Plus, Trash2, MessageSquare, X } from 'lucide-react'
 
 function SkeletonRow() {
   return (
@@ -22,17 +25,28 @@ export function ConversationList() {
     syncConversations,
     syncNewConversation,
     syncDeleteConversation,
-  } = useChatStore()
+    syncRenameConversation,
+  } = useChatStore(useShallow((s) => ({
+    conversations: s.conversations,
+    currentId: s.currentId,
+    setCurrentId: s.setCurrentId,
+    syncConversations: s.syncConversations,
+    syncNewConversation: s.syncNewConversation,
+    syncDeleteConversation: s.syncDeleteConversation,
+    syncRenameConversation: s.syncRenameConversation,
+  })))
+  const user = useAuthStore((s) => s.user)
   const conversationsLoading = useUIStore((s) => s.conversationsLoading)
-  const [search, setSearch] = useState('')
+  const [editingId, setEditingId] = useState<string | null>(null)
+  const [editingTitle, setEditingTitle] = useState('')
 
-  // Fetch conversations on mount only if the store is empty
-  // (restoreSession in ChatLayout already loads them — this is a fallback)
+  // Fetch conversations for the active user. Do not rely on existing store
+  // contents because a browser may switch between platform accounts.
   useEffect(() => {
-    if (conversations.length === 0) {
-      syncConversations()
+    if (user?.id) {
+      void syncConversations()
     }
-  }, [syncConversations, conversations.length])
+  }, [user?.id, syncConversations])
 
   const handleNewConversation = async () => {
     await syncNewConversation()
@@ -46,76 +60,168 @@ export function ConversationList() {
     await syncDeleteConversation(id)
   }
 
-  const filtered = conversations.filter((c) =>
-    c.title.toLowerCase().includes(search.toLowerCase())
-  )
+  const startRename = (id: string, title: string) => {
+    setEditingId(id)
+    setEditingTitle(title)
+  }
+
+  const cancelRename = () => {
+    setEditingId(null)
+    setEditingTitle('')
+  }
+
+  const submitRename = async () => {
+    if (!editingId) return
+    const title = editingTitle.trim()
+    if (!title) return
+    await syncRenameConversation(editingId, title)
+    cancelRename()
+  }
+
+  const handleRenameKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      event.preventDefault()
+      void submitRename()
+    }
+    if (event.key === 'Escape') {
+      event.preventDefault()
+      cancelRename()
+    }
+  }
+
+  const formatDate = (timestamp: number) =>
+    new Intl.DateTimeFormat(undefined, {
+      month: 'short',
+      day: 'numeric',
+    }).format(new Date(timestamp))
 
   return (
-    <div className="flex flex-col h-full">
-      {/* New chat button */}
-      <div className="p-3">
+    <div className="flex h-full flex-col">
+      <div className="border-b border-border/70 px-5 py-5">
+        <div className="flex items-center justify-between">
+          <BrandLogo size="sm" imageClassName="h-auto w-[132px]" />
+        </div>
+        <div className="mt-4 flex items-center justify-between gap-3">
+          <h2 className="text-lg font-semibold leading-none">Conversations</h2>
+          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Workspace</span>
+        </div>
+      </div>
+
+      <div className="p-4 pb-3">
         <button
           onClick={handleNewConversation}
-          className="w-full flex items-center gap-2 px-3 py-2 rounded-lg border border-border hover:bg-secondary text-sm transition-colors"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl border border-primary/20 bg-primary px-3 py-3 text-sm font-medium text-primary-foreground shadow-[0_16px_40px_rgba(37,99,235,0.24)] transition-all hover:-translate-y-0.5 hover:bg-primary/92"
         >
           <Plus className="w-4 h-4" />
           {t('sidebar.newChat')}
         </button>
       </div>
 
-      {/* Search */}
-      <div className="px-3 pb-2">
-        <div className="relative">
-          <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
-          <input
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder={t('sidebar.search')}
-            className="w-full pl-8 pr-3 py-1.5 text-xs bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-ring"
-          />
-        </div>
-      </div>
-
       {/* Conversation list */}
-      <div className="flex-1 overflow-y-auto px-2">
-        {conversationsLoading ? (
+      <div className="flex-1 overflow-y-auto px-3 pb-4">
+        {conversationsLoading && conversations.length === 0 ? (
           <div className="space-y-1 pt-1">
             {Array.from({ length: 5 }).map((_, i) => (
               <SkeletonRow key={i} />
             ))}
           </div>
         ) : (
-          filtered.map((conv) => (
-            <div
-              key={conv.id}
-              onClick={() => handleSelectConversation(conv.id)}
-              className={`group flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer text-sm transition-colors ${
-                conv.id === currentId
-                  ? 'bg-secondary text-foreground'
-                  : 'text-muted-foreground hover:bg-secondary/50 hover:text-foreground'
-              }`}
-            >
-              <MessageSquare className="w-4 h-4 shrink-0" />
-              <span className="truncate flex-1">{conv.title}</span>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  handleDeleteConversation(conv.id)
+          <div className="space-y-2">
+            {conversations.map((conv) => (
+              <div
+                key={conv.id}
+                onClick={() => {
+                  if (editingId !== conv.id) void handleSelectConversation(conv.id)
                 }}
-                className="opacity-0 group-hover:opacity-100 p-1 rounded hover:bg-background transition-all"
+                className={`group cursor-pointer rounded-[22px] border px-3.5 py-3 text-sm transition-all ${
+                  conv.id === currentId
+                    ? 'border-primary/20 bg-primary/10 text-foreground shadow-[0_14px_34px_rgba(37,99,235,0.12)]'
+                    : 'border-transparent bg-transparent text-muted-foreground hover:border-border/80 hover:bg-card/80 hover:text-foreground'
+                }`}
               >
-                <Trash2 className="w-3.5 h-3.5 text-muted-foreground" />
-              </button>
-            </div>
-          ))
+                <div className="flex items-start gap-3">
+                  <div className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl border ${
+                    conv.id === currentId
+                      ? 'border-primary/20 bg-primary/10 text-primary'
+                      : 'border-border/80 bg-background/90 text-muted-foreground'
+                  }`}>
+                    <MessageSquare className="h-4 w-4" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-start justify-between gap-2">
+                      {editingId === conv.id ? (
+                        <input
+                          value={editingTitle}
+                          autoFocus
+                          onClick={(e) => e.stopPropagation()}
+                          onChange={(event) => setEditingTitle(event.target.value)}
+                          onKeyDown={handleRenameKeyDown}
+                          className="min-w-0 flex-1 rounded-xl border border-border/80 bg-background px-2 py-1 text-sm font-medium leading-5 outline-none focus:border-primary"
+                        />
+                      ) : (
+                        <span className="line-clamp-2 font-medium leading-6">{conv.title}</span>
+                      )}
+                      <div className="flex shrink-0 items-center gap-0.5 opacity-0 transition-all group-hover:opacity-100">
+                        {editingId === conv.id ? (
+                          <>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                void submitRename()
+                              }}
+                              className="rounded-xl p-1.5 transition-all hover:bg-background/80"
+                              title="保存名称"
+                            >
+                              <Check className="h-3.5 w-3.5 text-emerald-600" />
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                cancelRename()
+                              }}
+                              className="rounded-xl p-1.5 transition-all hover:bg-background/80"
+                              title="取消"
+                            >
+                              <X className="h-3.5 w-3.5 text-muted-foreground" />
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                startRename(conv.id, conv.title)
+                              }}
+                              className="rounded-xl p-1.5 transition-all hover:bg-background/80"
+                              title="重命名"
+                            >
+                              <Pencil className="h-3.5 w-3.5 text-muted-foreground" />
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                void handleDeleteConversation(conv.id)
+                              }}
+                              className="rounded-xl p-1.5 transition-all hover:bg-background/80"
+                              title="删除"
+                            >
+                              <Trash2 className="h-3.5 w-3.5 text-muted-foreground" />
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                    <div className="mt-2 flex items-center gap-2 text-[11px] text-muted-foreground">
+                      <span>{formatDate(conv.createdAt)}</span>
+                      <span className="h-1 w-1 rounded-full bg-muted-foreground/50" />
+                      <span>{conv.messageCount} msgs</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         )}
-      </div>
-
-      {/* Footer */}
-      <div className="p-3 border-t border-border">
-        <div className="text-[11px] text-muted-foreground text-center">
-          {t('sidebar.conversations', { count: conversations.length })}
-        </div>
       </div>
     </div>
   )

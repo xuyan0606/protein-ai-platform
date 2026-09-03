@@ -1,0 +1,73 @@
+{
+  "accession": "Q8N159",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00696",
+        "name": "Amino acid kinase family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001048",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n159",
+          "protein_length": 534,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 188,
+                  "end": 306,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00696",
+              "score": 0.017
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04768",
+        "name": "NAT, N-acetyltransferase, of N-acetylglutamate synthase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006855",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n159",
+          "protein_length": 534,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 379,
+                  "end": 519,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04768",
+              "score": 1.3e-38
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

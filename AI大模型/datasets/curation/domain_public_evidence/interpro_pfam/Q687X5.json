@@ -1,0 +1,73 @@
+{
+  "accession": "Q687X5",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01794",
+        "name": "Ferric reductase like transmembrane component",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013130",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q687x5",
+          "protein_length": 459,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 249,
+                  "end": 394,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF01794",
+              "score": 3.8e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03807",
+        "name": "NADP oxidoreductase coenzyme F420-dependent",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR028939",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q687x5",
+          "protein_length": 459,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 21,
+                  "end": 107,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03807",
+              "score": 3.8e-11
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

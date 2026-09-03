@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "mode": "stage25_post_source_drop_rerun_validation_current_regression",
+  "success": true,
+  "isolated_fixture": true,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_stage25_post_source_drop_rerun_validation_current_regression_20260810.py",
+  "regression_script_sha256": "1d16b7860ee18fc463fb6d8331a4aa7282cc6341797f37005c49fd6a3cd26174",
+  "case_count": 11,
+  "passed_case_count": 11,
+  "failed_case_count": 0,
+  "real_inputs_mutated": false,
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case": "fixture_control",
+      "passed": true,
+      "returncode": 0,
+      "failure_count": 0
+    },
+    {
+      "case": "recorded_receipt_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "receipt_sha256_current",
+      "observed_checks": [
+        "receipt_sha256_current"
+      ]
+    },
+    {
+      "case": "live_receipt_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "receipt_sha256_current",
+      "observed_checks": [
+        "receipt_sha256_current"
+      ]
+    },
+    {
+      "case": "recorded_validator_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "validator_script_sha256_current",
+      "observed_checks": [
+        "validator_script_sha256_current"
+      ]
+    },
+    {
+      "case": "live_validator_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "validator_script_sha256_current",
+      "observed_checks": [
+        "validator_script_sha256_current"
+      ]
+    },
+    {
+      "case": "receipt_path_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "receipt_path_current",
+      "observed_checks": [
+        "receipt_path_current"
+      ]
+    },
+    {
+      "case": "validator_path_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "validator_script_path_current",
+      "observed_checks": [
+        "validator_script_path_current"
+      ]
+    },
+    {
+      "case": "validation_output_path_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "validation_output_path_canonical",
+      "observed_checks": [
+        "validation_output_path_canonical"
+      ]
+    },
+    {
+      "case": "validation_lock_path_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "validation_lock_path_canonical",
+      "observed_checks": [
+        "validation_lock_path_canonical"
+      ]
+    },
+    {
+      "case": "validation_atomic_commit_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "validation_atomic_commit",
+      "observed_checks": [
+        "validation_atomic_commit"
+      ]
+    },
+    {
+      "case": "validation_success_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "validation_success",
+      "observed_checks": [
+        "validation_success"
+      ]
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

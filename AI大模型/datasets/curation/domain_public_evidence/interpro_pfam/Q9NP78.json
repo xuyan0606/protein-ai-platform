@@ -1,0 +1,73 @@
+{
+  "accession": "Q9NP78",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00005",
+        "name": "ABC transporter",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003439",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9np78",
+          "protein_length": 766,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 522,
+                  "end": 671,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00005",
+              "score": 8.7e-29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00664",
+        "name": "ABC transporter transmembrane region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR011527",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9np78",
+          "protein_length": 766,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 190,
+                  "end": 454,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00664",
+              "score": 1.7e-57
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

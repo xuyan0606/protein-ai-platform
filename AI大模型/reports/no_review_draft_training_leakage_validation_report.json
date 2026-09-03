@@ -1,0 +1,67 @@
+{
+  "created_at": "2026-09-03T07:33:53.476315+00:00",
+  "local_only": true,
+  "success": true,
+  "scanned_files": {
+    "strict_supervised_training": {
+      "path": "datasets/curated/enzyme_mutation_supervised_repaired_verified.jsonl",
+      "exists": true,
+      "rows": 0,
+      "leak_row_count": 0
+    },
+    "claim_eligible_supervised": {
+      "path": "datasets/curated/enzyme_mutation_supervised_claim_eligible.jsonl",
+      "exists": true,
+      "rows": 0,
+      "leak_row_count": 0
+    },
+    "strict_msa_site_features": {
+      "path": "datasets/curated/enzyme_mutation_strict_msa_site_features.jsonl",
+      "exists": true,
+      "rows": 0,
+      "leak_row_count": 0
+    },
+    "wet_lab_feedback_preflight": {
+      "path": "datasets/feedback/wet_lab_mutant_library_feedback_preflight.jsonl",
+      "exists": true,
+      "rows": 8,
+      "leak_row_count": 0
+    },
+    "wet_lab_feedback_apply_plan": {
+      "path": "datasets/feedback/wet_lab_mutant_library_feedback_intake_apply_plan.jsonl",
+      "exists": true,
+      "rows": 8,
+      "leak_row_count": 0
+    },
+    "fireprot_reviewed_import_candidates": {
+      "path": "datasets/curation/fireprot_reviewed_import_candidates.jsonl",
+      "exists": true,
+      "rows": 0,
+      "leak_row_count": 0
+    }
+  },
+  "checked_reports": {
+    "review_draft_formal_boundary": "reports/review_draft_formal_boundary_validation_report.json",
+    "repaired_supervised": "reports/repaired_supervised_table_report.json",
+    "label_provenance": "reports/label_provenance_audit_report.json",
+    "strict_msa": "reports/strict_msa_site_feature_report.json",
+    "wet_lab_preflight": "reports/wet_lab_mutant_library_feedback_preflight_report.json",
+    "wet_lab_apply_plan": "reports/wet_lab_mutant_library_feedback_intake_apply_plan_report.json",
+    "fireprot_reviewed_import": "reports/fireprot_reviewed_import_candidate_report.json"
+  },
+  "strict_rows": 0,
+  "claim_eligible_rows": 0,
+  "strict_msa_site_feature_rows": 0,
+  "wet_lab_preflight_ready_rows": 0,
+  "wet_lab_applied_rows": 0,
+  "fireprot_ready_for_training_import_rows": 0,
+  "review_draft_rows": 514,
+  "formal_decision_rows": 46,
+  "draft_rows_counted_as_formal_decisions": 0,
+  "failures": [],
+  "safe_for_training_pipeline": true,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "No .review_draft artifact may feed strict supervised rows, claim-eligible rows, MSA strict rows, wet-lab preflight/apply rows, or external reviewed import rows. Non-zero training intake requires formal human-reviewed gates first."
+}

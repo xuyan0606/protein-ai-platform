@@ -1,0 +1,165 @@
+{
+  "accession": "Q9HB75",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00531",
+        "name": "Death domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000488",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hb75",
+          "protein_length": 910,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 799,
+                  "end": 871,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00531",
+              "score": 2e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00791",
+        "name": "ZU5 domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000906",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hb75",
+          "protein_length": 910,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 325,
+                  "end": 415,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00791",
+              "score": 4.7e-05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 461,
+                  "end": 537,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00791",
+              "score": 0.0009
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF10461",
+        "name": "Peptidase S68",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR019502",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hb75",
+          "protein_length": 910,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 421,
+                  "end": 453,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF10461",
+              "score": 1.4e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13855",
+        "name": "Leucine rich repeat",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR001611",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hb75",
+          "protein_length": 910,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 126,
+                  "end": 183,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13855",
+              "score": 3.9e-05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 195,
+                  "end": 252,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13855",
+              "score": 3.8e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

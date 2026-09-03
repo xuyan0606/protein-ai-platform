@@ -1,0 +1,66 @@
+{
+  "local_only": true,
+  "policy": "Rosetta/PyRosetta/FoldX ddG may run only after license, runtime, reviewed structure mapping, mutation-list and artifact checksum gates pass.",
+  "negative_ddg_is_stabilizing": true,
+  "thresholds_kcal_mol": {
+    "stabilizing": { "max": -1.0, "decision": "stabilizing_hypothesis" },
+    "near_neutral_manual_review": { "min": -1.0, "max": 1.0, "decision": "manual_review" },
+    "destabilizing_watch": { "min": 1.0, "max": 2.0, "decision": "watch" },
+    "destabilizing_no_go": { "min": 2.0, "decision": "no_go" }
+  },
+  "backend_priority": ["rosetta", "pyrosetta", "foldx", "thermompnn"],
+  "backends": {
+    "rosetta": {
+      "enabled": false,
+      "tool_id": "rosetta",
+      "command_template": [
+        "{cartesian_ddg}",
+        "-s", "{input_pdb}",
+        "-ddg::mut_file", "{mutation_file}",
+        "-ddg::iterations", "{iterations}",
+        "-out:path:all", "{output_dir}"
+      ],
+      "required_parameters": ["input_pdb", "mutation_file", "iterations", "output_dir"],
+      "default_parameters": { "iterations": 3 }
+    },
+    "pyrosetta": {
+      "enabled": false,
+      "tool_id": "pyrosetta",
+      "python_module": "pyrosetta",
+      "required_parameters": ["input_pdb", "mutation_list", "protocol_name", "output_dir"],
+      "default_parameters": { "protocol_name": "future_pyrosetta_ddg_protocol" }
+    },
+    "foldx": {
+      "enabled": false,
+      "tool_id": "foldx",
+      "command_template": [
+        "{foldx}",
+        "--command=BuildModel",
+        "--pdb={input_pdb_name}",
+        "--mutant-file={mutation_file}",
+        "--output-dir={output_dir}"
+      ],
+      "required_parameters": ["input_pdb", "input_pdb_name", "mutation_file", "output_dir"],
+      "default_parameters": {}
+    },
+    "thermompnn": {
+      "enabled": true,
+      "tool_id": "thermompnn",
+      "proxy_only": true,
+      "required_parameters": ["input_pdb", "mutation_list", "output_dir"],
+      "default_parameters": {}
+    }
+  },
+  "artifact_requirements": [
+    "parameters.json",
+    "input_structure.sha256",
+    "mutation_list.json",
+    "ddg_table.json",
+    "runtime.log"
+  ],
+  "forbidden_claims": [
+    "Rosetta/PyRosetta/FoldX ddG executed",
+    "ddG prediction is a wet-lab stability label",
+    "positive ddG is stabilizing"
+  ]
+}

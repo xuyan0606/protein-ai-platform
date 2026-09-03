@@ -1,0 +1,107 @@
+{
+  "accession": "Q9H7Z6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01853",
+        "name": "MOZ/SAS family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002717",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h7z6",
+          "protein_length": 458,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 234,
+                  "end": 442,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01853",
+              "score": 1.5e-96
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF11717",
+        "name": "RNA binding activity-knot of a chromodomain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR025995",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h7z6",
+          "protein_length": 458,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 55,
+                  "end": 110,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF11717",
+              "score": 1.3e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17772",
+        "name": "MYST family zinc finger domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040706",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h7z6",
+          "protein_length": 458,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 176,
+                  "end": 230,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17772",
+              "score": 2.3e-20
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

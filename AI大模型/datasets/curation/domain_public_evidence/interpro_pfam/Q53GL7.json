@@ -1,0 +1,153 @@
+{
+  "accession": "Q53GL7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00644",
+        "name": "Poly(ADP-ribose) polymerase catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012317",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q53gl7",
+          "protein_length": 1025,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 829,
+                  "end": 952,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00644",
+              "score": 1.1e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23085",
+        "name": "PARP14, third RRM domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q53gl7",
+          "protein_length": 1025,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 13,
+                  "end": 82,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF23085",
+              "score": 0.0014
+            },
+            {
+              "fragments": [
+                {
+                  "start": 182,
+                  "end": 251,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF23085",
+              "score": 1.5e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF27824",
+        "name": "Protein mono-ADP-ribosyltransferase PARP10, KH-domain type I",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR060445",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q53gl7",
+          "protein_length": 1025,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 731,
+                  "end": 790,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF27824",
+              "score": 6.1e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF29969",
+        "name": "PARP10, first KH-domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR062103",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q53gl7",
+          "protein_length": 1025,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 444,
+                  "end": 508,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF29969",
+              "score": 6e-27
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

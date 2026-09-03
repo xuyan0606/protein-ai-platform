@@ -1,0 +1,107 @@
+{
+  "accession": "Q9UJ83",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00205",
+        "name": "Thiamine pyrophosphate enzyme, central domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012000",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uj83",
+          "protein_length": 578,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 205,
+                  "end": 332,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00205",
+              "score": 1.6e-31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02775",
+        "name": "Thiamine pyrophosphate enzyme, C-terminal TPP binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011766",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uj83",
+          "protein_length": 578,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 401,
+                  "end": 557,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02775",
+              "score": 6.4e-22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02776",
+        "name": "Thiamine pyrophosphate enzyme, N-terminal TPP binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012001",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uj83",
+          "protein_length": 578,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 15,
+                  "end": 128,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02776",
+              "score": 2.1e-28
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

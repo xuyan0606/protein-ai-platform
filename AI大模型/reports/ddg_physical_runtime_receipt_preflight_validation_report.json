@@ -1,0 +1,18 @@
+{
+  "approved_runtime_receipt_rows": 2,
+  "backends": [
+    "rosetta",
+    "pyrosetta",
+    "foldx"
+  ],
+  "created_at": "2026-09-03T07:33:45.204736+00:00",
+  "failures": [],
+  "local_only": true,
+  "markdown_matches_report_and_rows": true,
+  "physical_ddg_lane_capability_status": "blocked",
+  "physics_ddg_ready": false,
+  "policy": "Physical ddG runtime preflight is evidence-only. It must fail if any Rosetta/PyRosetta/FoldX backend becomes ready without license/install/config/probe/smoke/runtime receipt evidence.",
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "success": true
+}

@@ -70,34 +70,54 @@ def run_training(base: Path) -> dict[str, Any]:
                     "execution_contract": str(execution_path),
                 }
             else:
-                core = run_training_core(
-                    load_jsonl(dataset),
-                    mode="research",
-                    checkpoint_path=reports / "kwb_enzyme_designer_production.checkpoint.pt",
+                manifest_path = reports / "five_head_training_input_manifest.json"
+                manifest = _load(manifest_path)
+                dataset_sha256 = _sha256(dataset)
+                manifest_valid = (
+                    manifest.get("schema_version") == "kwb_five_head_training_input_manifest_v1"
+                    and manifest.get("ready_for_training_execution") is True
+                    and manifest.get("dataset_sha256") == dataset_sha256
                 )
-                if (
-                    core.get("training_executed") is not True
-                    or set(core.get("trained_heads") or []) != set(EXPECTED_HEADS)
-                ):
+                if not manifest_valid:
                     result = {
-                        "status": "blocked_training_core_rejected_dataset",
+                        "status": "blocked_missing_or_invalid_training_input_manifest",
                         "training_executed": False,
                         "blockers": [
-                            "training core did not accept all five heads at production thresholds"
+                            "training input manifest is missing, not ready, or does not match the dataset SHA-256"
                         ],
-                        "core_receipt": core,
+                        "training_input_manifest": str(manifest_path),
                     }
                 else:
-                    result = {
-                        **core,
-                        "status": "completed_production_training",
-                        "artifact_kind": "production_five_head_checkpoint",
-                        "dataset": str(dataset),
-                        "dataset_sha256": _sha256(dataset),
-                        "safe_for_model_claim": False,
-                        "release_ready": False,
-                        "requires_post_training_validation": True,
-                    }
+                    core = run_training_core(
+                        load_jsonl(dataset),
+                        mode="research",
+                        checkpoint_path=reports / "kwb_enzyme_designer_production.checkpoint.pt",
+                    )
+                    if (
+                        core.get("training_executed") is not True
+                        or set(core.get("trained_heads") or []) != set(EXPECTED_HEADS)
+                    ):
+                        result = {
+                            "status": "blocked_training_core_rejected_dataset",
+                            "training_executed": False,
+                            "blockers": [
+                                "training core did not accept all five heads at production thresholds"
+                            ],
+                            "core_receipt": core,
+                        }
+                    else:
+                        result = {
+                            **core,
+                            "status": "completed_production_training",
+                            "artifact_kind": "production_five_head_checkpoint",
+                            "dataset": str(dataset),
+                            "dataset_sha256": dataset_sha256,
+                            "training_input_manifest": str(manifest_path),
+                            "training_input_manifest_sha256": _sha256(manifest_path),
+                            "safe_for_model_claim": False,
+                            "release_ready": False,
+                            "requires_post_training_validation": True,
+                        }
     result.update({
         "created_at": datetime.now(timezone.utc).isoformat(),
         "gate_report": str(gate_path),

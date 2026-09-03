@@ -1,0 +1,69 @@
+{
+  "example_only": true,
+  "mode": "release_manual_gate_evidence_example_not_real_evidence",
+  "release": {
+    "release_date": "2026-08-17",
+    "release_owner": "release-owner",
+    "reviewer": "release-reviewer",
+    "business_owner": "business-owner",
+    "maintenance_window_id": "MW-EXAMPLE-001",
+    "release_package": "dist/packages/protein-ai-platform-EXAMPLE.tar.gz",
+    "release_package_sha256_evidence": "docs/manuals/drill-records/example/package.sha256.txt",
+    "database_backup": "backups/protein_ai_EXAMPLE.dump",
+    "database_backup_sha256_evidence": "docs/manuals/drill-records/example/backup.sha256.txt",
+    "evidence_archive_dir": "docs/manuals/drill-records/example-release/"
+  },
+  "release_acceptance": {
+    "status": "passed",
+    "failed": 0,
+    "blocked": 0,
+    "manual_required": 0,
+    "skipped": 0,
+    "json_output_path": "docs/manuals/drill-records/example/release-acceptance.json"
+  },
+  "gates": {
+    "production_rollback_drill_gate": {
+      "status": "passed",
+      "maintenance_window_id": "MW-EXAMPLE-001",
+      "authorization_evidence_path": "docs/manuals/drill-records/example/maintenance-approval.md",
+      "rollback_plan_path": "docs/manuals/drill-records/example/rollback-plan.json",
+      "restore_drill_path": "docs/manuals/drill-records/example/restore-drill.txt",
+      "backup_verify_path": "docs/manuals/drill-records/example/backup-verify.txt",
+      "pg_restore_list_path": "docs/manuals/drill-records/example/pg-restore-list.txt",
+      "conclusion": "passed"
+    },
+    "offsite_backup_restore_drill_gate": {
+      "status": "passed",
+      "backup_target": "oss://redacted-example/protein_ai_EXAMPLE.dump",
+      "restore_target": "staging-independent-restore-db-example",
+      "copy_evidence_path": "docs/manuals/drill-records/example/offsite-copy.txt",
+      "checksum_evidence_path": "docs/manuals/drill-records/example/offsite-sha256.txt",
+      "restore_evidence_path": "docs/manuals/drill-records/example/offsite-restore.txt",
+      "application_readonly_smoke_path": "docs/manuals/drill-records/example/offsite-smoke.txt",
+      "conclusion": "passed"
+    },
+    "external_storage_restore_validation_gate": {
+      "status": "passed",
+      "backup_ref": "oss-snapshot-EXAMPLE",
+      "restore_target": "oss://shadow-restore-example/protein-ai/",
+      "shadow_restore_evidence_path": "docs/manuals/drill-records/example/shadow-restore.txt",
+      "sample_object_read_evidence_path": "docs/manuals/drill-records/example/sample-read.txt",
+      "application_readonly_smoke_path": "docs/manuals/drill-records/example/storage-smoke.txt",
+      "production_path_switched": false,
+      "conclusion": "passed"
+    }
+  },
+  "decision": {
+    "automatic_failed_zero": true,
+    "automatic_blocked_zero": true,
+    "maintenance_evidence_complete": true,
+    "offsite_restore_evidence_complete": true,
+    "external_storage_evidence_complete": true,
+    "rollback_path_ready": true,
+    "approvals_complete": true,
+    "final_decision": "defer",
+    "release_owner_signature": "release-owner / EXAMPLE",
+    "reviewer_signature": "release-reviewer / EXAMPLE",
+    "business_owner_signature": "business-owner / EXAMPLE"
+  }
+}

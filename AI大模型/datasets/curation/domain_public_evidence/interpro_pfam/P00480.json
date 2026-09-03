@@ -1,0 +1,73 @@
+{
+  "accession": "P00480",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00185",
+        "name": "Aspartate/ornithine carbamoyltransferase, Asp/Orn binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006131",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p00480",
+          "protein_length": 354,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 187,
+                  "end": 340,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00185",
+              "score": 5.6e-49
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02729",
+        "name": "Aspartate/ornithine carbamoyltransferase, carbamoyl-P binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006132",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p00480",
+          "protein_length": 354,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 40,
+                  "end": 181,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02729",
+              "score": 5.7e-41
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

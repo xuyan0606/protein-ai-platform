@@ -1,0 +1,74 @@
+{
+  "created_at": "2026-07-31T00:00:00+08:00",
+  "local_only": true,
+  "source_project": "charlesxu90/ProteinMCP",
+    "source_urls": [
+        "https://github.com/charlesxu90/ProteinMCP",
+        "https://raw.githubusercontent.com/charlesxu90/ProteinMCP/main/README.md",
+        "https://raw.githubusercontent.com/charlesxu90/ProteinMCP/main/tool-mcps/README.md",
+        "https://doi.org/10.1002/pro.70547",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC13140703/",
+        "https://doi.org/10.64898/2026.03.11.711149"
+    ],
+    "source_audit": {
+        "temporary_download_succeeded": true,
+        "source_audit_completed": true,
+        "source_code_retained": false,
+        "download_zip_sha256": "50e3c4b37bcddb798ba1b5430b3117f1f9bf2d08fec62cc8a1204f25ea02328f",
+        "extracted_file_count": 93,
+        "license_file_detected": "MIT License",
+        "audited_paths": [
+            "README.md",
+            "docs/architecture.md",
+            "tool-mcps/README.md",
+            "src/mcp_cli.py",
+            "src/skill_cli.py",
+            "src/mcp/mcp.py",
+            "src/mcp/mcp_manager.py",
+            "src/mcp/install_mcp.py",
+            "src/mcp/status_cache.py",
+            "src/mcp/create_mcp.py",
+            "src/mcp/mcp_creator.py",
+            "src/skill/skill.py",
+            "src/skill/skill_manager.py",
+            "src/skill/configs.yaml",
+            "workflow-skills/fitness_modeling.md",
+            "mcp-skills/mcp_creation_validator.md",
+            "src/prompts/step6_wrap_mcp_prompt.md",
+            "src/prompts/step7_test_integration_prompt.md",
+            "src/prompts/step8_create_readme_prompt.md"
+        ]
+    },
+    "borrowable_patterns": [
+        "MCP tool lifecycle registry",
+        "workflow skill abstraction for repeatable protein-engineering flows",
+        "multi-model fitness comparison workflow",
+        "automatic MCP wrapper staging with strong fail-closed review",
+        "tool catalog as controlled radar instead of uncontrolled installation",
+        "status cache with TTL and file locking for slow runtime probes",
+        "sync-vs-submit API split for long-running protein jobs",
+        "separate install/probe/register phases before agent exposure"
+    ],
+    "recommended_kwb_phases": [
+        "R1 ProteinMCP-inspired tool lifecycle registry",
+        "R2 ProteinMCP-inspired workflow skills",
+        "R3 MCP wrapper staging gate",
+        "R4 fitness-model family comparison contract"
+    ],
+    "source_level_risk_findings": [
+        "pmcp create is an 8-step agentic wrapper pipeline and must be limited to sandboxed staging in KWB",
+        "run_claude_with_streaming invokes Claude Code CLI with --dangerously-skip-permissions, so KWB must not copy that execution policy into production workflows",
+        "Docker/GPU MCP definitions are useful as registry examples but require license, runtime, checksum, smoke, and explicit authorization before use",
+        "workflow skill installation as Markdown is useful, but KWB skills must produce receipts and validators rather than directly changing reviewed decisions or training labels"
+    ],
+    "forbidden_shortcuts": [
+        "do not treat MCP installation as production approval",
+        "do not treat workflow execution as model-quality evidence",
+        "do not treat PLM/MSA fitness scores as wet-lab labels",
+    "do not let MCP tools write formal reviewed decisions or training imports"
+  ],
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Research summary only. It does not install ProteinMCP, enable external MCP tools, import labels, approve model claims, or release production functionality."
+}

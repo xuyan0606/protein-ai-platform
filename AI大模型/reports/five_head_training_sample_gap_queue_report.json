@@ -1,0 +1,54 @@
+{
+  "blocked_heads": [
+    "mutation_rank",
+    "stability",
+    "activity_risk",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "candidate_heads": [
+    "stability",
+    "activity_risk"
+  ],
+  "candidate_source_pool_rows": 5182,
+  "created_at": "2026-09-03T07:32:22.798777+00:00",
+  "current_group_count_total": 2,
+  "current_label_rows": 6,
+  "current_replicate_count_total": 0,
+  "expected_heads": [
+    "mutation_rank",
+    "stability",
+    "activity_risk",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "feature_rows_counted_as_labels": 0,
+  "feature_rows_observed": 210,
+  "formal_decision_written_rows": 0,
+  "heads_with_current_labels": [
+    "activity_risk"
+  ],
+  "local_only": true,
+  "missing_groups_total": 48,
+  "missing_label_rows_total": 494,
+  "missing_replicates_total": 15,
+  "model_or_release_flags_changed_rows": 0,
+  "observed_formal_decision_rows": 6,
+  "output_jsonl": "datasets/governance/five_head_training_sample_gap_queue.jsonl",
+  "parse_errors": {
+    "activity_risk_formal_label_decisions": [],
+    "fireprot_mapping_candidates": [],
+    "fireprot_reviewed_import_candidates": [],
+    "threshold_report": [],
+    "validated_feature_index": [],
+    "wet_lab_authorization_gap_actions": [],
+    "wet_lab_candidates": []
+  },
+  "policy": "Machine-executable gap queue only. It quantifies missing samples, independent groups, and explicit replicates. It never infers labels or replicates, never writes formal decisions, and never opens training/model/release gates.",
+  "queue_rows": 5,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "status": "blocked",
+  "training_import_written_rows": 0
+}

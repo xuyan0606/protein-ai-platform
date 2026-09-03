@@ -1,0 +1,73 @@
+{
+  "accession": "P56597",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00334",
+        "name": "Nucleoside diphosphate kinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR034907",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p56597",
+          "protein_length": 212,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 13,
+                  "end": 145,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00334",
+              "score": 1.3e-34
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05186",
+        "name": "Dpy-30 motif",
+        "source_database": "pfam",
+        "type": "conserved_site",
+        "integrated": "IPR007858",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p56597",
+          "protein_length": 212,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 157,
+                  "end": 197,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05186",
+              "score": 2.5e-16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

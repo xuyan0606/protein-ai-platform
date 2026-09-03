@@ -1,0 +1,19 @@
+{
+  "deterministic_input_candidate_rows": 7,
+  "input_rows": 25,
+  "ligand_or_nonprotein_context_rows": 21,
+  "mapping_status_counts": {
+    "blocked": 7,
+    "blocked_ambiguous_multiple_chains": 11,
+    "deterministic_input_candidate": 7
+  },
+  "output": "datasets/features/verified_mutation_structure_mapping_candidates.jsonl",
+  "output_rows": 25,
+  "partial_domain_context_rows": 5,
+  "policy": "Deterministic input candidate only. It is not a human reviewed numbering decision, not a wet-lab label, and not training-import or model-claim eligible.",
+  "pose_position_rows": 7,
+  "pyrosetta_init_executed": true,
+  "safe_for_model_claim": false,
+  "source_executed_structure_mismatch_rows": 3,
+  "structure_hash_mismatch_rows": 0
+}

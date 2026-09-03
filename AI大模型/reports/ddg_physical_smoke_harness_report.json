@@ -1,0 +1,175 @@
+{
+  "approved_runtime_receipt_rows": 2,
+  "backends": [
+    {
+      "approved_runtime_receipt_present": true,
+      "artifact_contract": {
+        "artifact_sha256_required": true,
+        "output_root": "cache/advanced_features/ddg_physical_smoke/rosetta",
+        "required_artifacts": [
+          "parameters.json",
+          "input_structure.sha256",
+          "mutation_list.json",
+          "ddg_table.json",
+          "runtime.log"
+        ]
+      },
+      "backend": "rosetta",
+      "backend_ready_for_execution_from_readiness": false,
+      "can_execute_physical_smoke_now": false,
+      "created_at": "2026-09-03T07:32:13.392010+00:00",
+      "ddg_job_executed": true,
+      "execute_attempted": false,
+      "execute_requested": false,
+      "execution_blockers": [
+        "ddg_execution_plan_has_no_ready_rows",
+        "reviewed structure/mutation data gate not ready for this backend"
+      ],
+      "executor_contract_status": "implemented",
+      "harness_id": "P205-ddg-physical-smoke-harness-rosetta",
+      "physical_smoke_passed": true,
+      "policy": "Harness contract plus receipt artifact recognition. Runtime smoke artifacts can be recognized from an approved receipt even when no training execution plan is ready.",
+      "ready_plan_rows": 0,
+      "receipt_smoke_artifact_errors": [],
+      "receipt_smoke_artifact_present": true,
+      "release_ready": false,
+      "runtime_receipt_id": "ddg-runtime-receipt-rosetta-20260802-10mh-t10a-v3",
+      "safe_for_model_claim": false,
+      "safe_for_training_import": false,
+      "smoke_artifact_sha256": {
+        "cache/advanced_features/ddg_physical_smoke/rosetta/10MH_A_T10A_cartesian_smoke_v3_repeat2/ddg_table.json": "742435a1c3559a57255720ad3cea576168c8cb624aba49e3b6e505705f4c238a",
+        "cache/advanced_features/ddg_physical_smoke/rosetta/10MH_A_T10A_cartesian_smoke_v3_repeat2/input_structure.sha256": "b952195ae30be5b063582bff5c6d0e7ce6e3ebab552aba0d12602c4fdbe90d7f",
+        "cache/advanced_features/ddg_physical_smoke/rosetta/10MH_A_T10A_cartesian_smoke_v3_repeat2/mutation_list.json": "f6f0136b409f19b3aa9018fa2d36e660f0642433bc09b595670824844049cd3b",
+        "cache/advanced_features/ddg_physical_smoke/rosetta/10MH_A_T10A_cartesian_smoke_v3_repeat2/parameters.json": "dc66e236aa253b6d86e91cee841d95c4d8f70603ed8d7e53f7067f817ee8bca1",
+        "cache/advanced_features/ddg_physical_smoke/rosetta/10MH_A_T10A_cartesian_smoke_v3_repeat2/runtime.log": "d07cc038e0bf4839108aed59b5e0dcc5eb0a03f45b2f4645b80781f4240d920a"
+      },
+      "smoke_output_dir": "cache/advanced_features/ddg_physical_smoke/rosetta/10MH_A_T10A_cartesian_smoke_v3_repeat2",
+      "supported_execution_modes": [
+        "plan_only",
+        "execute_after_approved_runtime_receipt"
+      ],
+      "thermompnn_proxy_allowed": false
+    },
+    {
+      "approved_runtime_receipt_present": true,
+      "artifact_contract": {
+        "artifact_sha256_required": true,
+        "output_root": "cache/advanced_features/ddg_physical_smoke/pyrosetta",
+        "required_artifacts": [
+          "parameters.json",
+          "input_structure.sha256",
+          "mutation_list.json",
+          "ddg_table.json",
+          "runtime.log"
+        ]
+      },
+      "backend": "pyrosetta",
+      "backend_ready_for_execution_from_readiness": true,
+      "can_execute_physical_smoke_now": false,
+      "created_at": "2026-09-03T07:32:13.392010+00:00",
+      "ddg_job_executed": true,
+      "execute_attempted": false,
+      "execute_requested": false,
+      "execution_blockers": [
+        "ddg_execution_plan_has_no_ready_rows"
+      ],
+      "executor_contract_status": "implemented",
+      "harness_id": "P205-ddg-physical-smoke-harness-pyrosetta",
+      "physical_smoke_passed": true,
+      "policy": "Harness contract plus receipt artifact recognition. Runtime smoke artifacts can be recognized from an approved receipt even when no training execution plan is ready.",
+      "ready_plan_rows": 0,
+      "receipt_smoke_artifact_errors": [],
+      "receipt_smoke_artifact_present": true,
+      "release_ready": false,
+      "runtime_receipt_id": "ddg-runtime-receipt-pyrosetta-20260801-10mh-t10a",
+      "safe_for_model_claim": false,
+      "safe_for_training_import": false,
+      "smoke_artifact_sha256": {
+        "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/ddg_table.json": "6078bf9f94cc630f9043a6646291d9bc07f2179d9570060da58cbd273adc1de1",
+        "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/input_structure.sha256": "b952195ae30be5b063582bff5c6d0e7ce6e3ebab552aba0d12602c4fdbe90d7f",
+        "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/mutation_list.json": "5c5d41642db71584354e694f422498c0f292f304cbe8952f750197b6aec7b76e",
+        "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/parameters.json": "4af73daa6a1cb5ad05f1e33a4b97077ed2825e35a65861e5a411bd75080d735c",
+        "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/runtime.log": "10d77c6b3a45a3600f159fb851c393e3111180e898a8265cf5578e5efb906ea8"
+      },
+      "smoke_output_dir": "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap",
+      "supported_execution_modes": [
+        "plan_only",
+        "execute_after_approved_runtime_receipt"
+      ],
+      "thermompnn_proxy_allowed": false
+    },
+    {
+      "approved_runtime_receipt_present": false,
+      "artifact_contract": {
+        "artifact_sha256_required": true,
+        "output_root": "cache/advanced_features/ddg_physical_smoke/foldx",
+        "required_artifacts": [
+          "parameters.json",
+          "input_structure.sha256",
+          "mutation_list.json",
+          "ddg_table.json",
+          "runtime.log"
+        ]
+      },
+      "backend": "foldx",
+      "backend_ready_for_execution_from_readiness": false,
+      "can_execute_physical_smoke_now": false,
+      "created_at": "2026-09-03T07:32:13.392010+00:00",
+      "ddg_job_executed": false,
+      "execute_attempted": false,
+      "execute_requested": false,
+      "execution_blockers": [
+        "approved_runtime_receipt_row_missing",
+        "approved_runtime_receipt_status_missing",
+        "ddg_execution_plan_has_no_ready_rows",
+        "reviewed structure/mutation data gate not ready for this backend"
+      ],
+      "executor_contract_status": "implemented",
+      "harness_id": "P205-ddg-physical-smoke-harness-foldx",
+      "physical_smoke_passed": false,
+      "policy": "Harness contract plus receipt artifact recognition. Runtime smoke artifacts can be recognized from an approved receipt even when no training execution plan is ready.",
+      "ready_plan_rows": 0,
+      "release_ready": false,
+      "safe_for_model_claim": false,
+      "safe_for_training_import": false,
+      "supported_execution_modes": [
+        "plan_only",
+        "execute_after_approved_runtime_receipt"
+      ],
+      "thermompnn_proxy_allowed": false
+    }
+  ],
+  "can_execute_physical_smoke_now_rows": 0,
+  "created_at": "2026-09-03T07:32:13.392010+00:00",
+  "ddg_job_executed_rows": 2,
+  "executable_ddg_backend_ready": true,
+  "execute_attempted_rows": 0,
+  "execute_requested": false,
+  "executor_contract_implemented_rows": 3,
+  "harness_contract_rows": 3,
+  "inputs": {
+    "config": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/config/ddg_backend.local.json",
+    "execution_plan": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/ddg_backend_execution_plan.jsonl",
+    "readiness": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/ddg_backend_readiness_report.json",
+    "receipt_report": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/ddg_backend_runtime_receipt_validation_report.json",
+    "receipt_status": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/ddg_backend_runtime_receipt_status.jsonl",
+    "runtime_receipts": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/ddg_backend_runtime_receipts.local.jsonl"
+  },
+  "license_install_runtime_blocker_rows": 3,
+  "local_only": true,
+  "outputs": {
+    "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/ddg_physical_smoke_harness_plan.jsonl",
+    "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/ddg_physical_smoke_harness.md",
+    "report": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/ddg_physical_smoke_harness_report.json"
+  },
+  "physical_smoke_passed_rows": 2,
+  "physics_ddg_ready": true,
+  "policy": "Physical ddG smoke harness is implemented. It recognizes checksumed approved runtime-receipt artifacts, while training/model/release gates remain false.",
+  "ready_execution_plan_rows": 0,
+  "release_ready": false,
+  "runtime_receipt_status_rows": 2,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "task_id": "P205",
+  "thermompnn_proxy_allowed_rows": 0
+}

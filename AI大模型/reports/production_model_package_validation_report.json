@@ -1,0 +1,19 @@
+{
+  "status": "blocked_invalid",
+  "production_model_artifact": false,
+  "artifact_count": 0,
+  "failures": [
+    "schema_version must be production_model_package_v1",
+    "model name and version are required",
+    "inference_entrypoint: artifact path is missing or outside package root",
+    "inference_entrypoint symbol is required",
+    "at least one neural weight artifact is required",
+    "feature_contract: evidence reference is required",
+    "training: evidence reference is required",
+    "evaluation: evidence reference is required",
+    "release: evidence reference is required"
+  ],
+  "manifest": "reports/production_model_package_manifest.json",
+  "model": {},
+  "policy": "A production package must contain hash-verified neural weights, an inference entrypoint, and hash-verified feature/training/evaluation/release evidence. Validation does not authorize release by itself."
+}

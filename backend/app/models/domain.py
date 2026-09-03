@@ -20,7 +20,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from app.models.base import Base
+from app.models.base import Base, utcnow_naive
 
 
 # =============================================================================
@@ -73,8 +73,8 @@ class EnzymeRecord(Base):
     is_reviewed: Mapped[bool] = mapped_column(Boolean, default=False)   # Swiss-Prot vs TrEMBL
     source_db: Mapped[str] = mapped_column(String(50), default="uniprot")
     source_version: Mapped[str | None] = mapped_column(String(20), nullable=True)
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
-    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow_naive)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow_naive, onupdate=utcnow_naive)
 
     # Relationships
     ec_numbers: Mapped[list[EnzymeECLink]] = relationship("EnzymeECLink", back_populates="enzyme", cascade="all, delete-orphan")
@@ -85,6 +85,9 @@ class EnzymeRecord(Base):
     stability_records: Mapped[list[StabilityRecord]] = relationship("StabilityRecord", back_populates="enzyme", cascade="all, delete-orphan")
     evolution_entries: Mapped[list[DirectedEvolutionEntry]] = relationship("DirectedEvolutionEntry", back_populates="enzyme", cascade="all, delete-orphan")
     xrefs: Mapped[list[DatabaseCrossRef]] = relationship("DatabaseCrossRef", back_populates="enzyme", cascade="all, delete-orphan")
+    interpro_links: Mapped[list[EnzymeInterProLink]] = relationship("EnzymeInterProLink", back_populates="enzyme", cascade="all, delete-orphan")
+    catalytic_sites: Mapped[list[CatalyticSite]] = relationship("CatalyticSite", back_populates="enzyme", cascade="all, delete-orphan")
+    signal_peptide_predictions: Mapped[list[SignalPeptidePrediction]] = relationship("SignalPeptidePrediction", back_populates="enzyme", cascade="all, delete-orphan")
 
     __table_args__ = (
         Index("ix_enzyme_seq_len", "seq_length"),
@@ -152,6 +155,44 @@ class DomainArchitecture(Base):
 
     __table_args__ = (
         UniqueConstraint("enzyme_id", "domain_id", "start_pos", name="uq_domain_arch"),
+    )
+
+
+# =============================================================================
+# 4b. InterPro entries — integrated family/domain/site annotation
+# =============================================================================
+class InterProEntry(Base):
+    __tablename__ = "interpro_entries"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    interpro_id: Mapped[str] = mapped_column(String(32), unique=True, nullable=False, index=True)
+    entry_type: Mapped[str | None] = mapped_column(String(32), nullable=True)  # family/domain/repeat/site
+    name: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    source_db: Mapped[str | None] = mapped_column(String(32), nullable=True)   # interpro/pfam/prosite
+    go_terms: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    metadata_json: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+
+    enzyme_links: Mapped[list[EnzymeInterProLink]] = relationship("EnzymeInterProLink", back_populates="interpro_entry")
+
+
+class EnzymeInterProLink(Base):
+    __tablename__ = "enzyme_interpro_links"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    enzyme_id: Mapped[int] = mapped_column(Integer, ForeignKey("enzyme_records.id", ondelete="CASCADE"), nullable=False)
+    interpro_entry_id: Mapped[int] = mapped_column(Integer, ForeignKey("interpro_entries.id", ondelete="CASCADE"), nullable=False)
+    start_pos: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    end_pos: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    score: Mapped[float | None] = mapped_column(Float, nullable=True)
+    evidence: Mapped[str | None] = mapped_column(String(32), nullable=True)  # curated/predicted/imported
+
+    enzyme: Mapped[EnzymeRecord] = relationship("EnzymeRecord", back_populates="interpro_links")
+    interpro_entry: Mapped[InterProEntry] = relationship("InterProEntry", back_populates="enzyme_links")
+
+    __table_args__ = (
+        UniqueConstraint("enzyme_id", "interpro_entry_id", "start_pos", "end_pos", name="uq_enzyme_interpro_region"),
+        Index("ix_enzyme_interpro_enzyme", "enzyme_id"),
     )
 
 
@@ -249,6 +290,46 @@ class StabilityRecord(Base):
 
 
 # =============================================================================
+# 8b. Catalytic sites — curated catalytic residues / mechanism metadata
+# =============================================================================
+class CatalyticSite(Base):
+    __tablename__ = "catalytic_sites"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    enzyme_id: Mapped[int] = mapped_column(Integer, ForeignKey("enzyme_records.id", ondelete="CASCADE"), nullable=False)
+    source: Mapped[str] = mapped_column(String(32), nullable=False, default="mcsa")
+    mechanism_name: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    reaction_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+    evidence_json: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+
+    enzyme: Mapped[EnzymeRecord] = relationship("EnzymeRecord", back_populates="catalytic_sites")
+    residues: Mapped[list[CatalyticResidue]] = relationship("CatalyticResidue", back_populates="site", cascade="all, delete-orphan")
+
+    __table_args__ = (
+        Index("ix_catalytic_site_enzyme", "enzyme_id"),
+    )
+
+
+class CatalyticResidue(Base):
+    __tablename__ = "catalytic_residues"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    site_id: Mapped[int] = mapped_column(Integer, ForeignKey("catalytic_sites.id", ondelete="CASCADE"), nullable=False)
+    residue_pos: Mapped[int] = mapped_column(Integer, nullable=False)
+    residue_aa: Mapped[str | None] = mapped_column(String(4), nullable=True)
+    role: Mapped[str | None] = mapped_column(String(64), nullable=True)  # nucleophile / acid-base / metal-binding
+    confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
+    pdb_chain: Mapped[str | None] = mapped_column(String(8), nullable=True)
+    pdb_residue_no: Mapped[str | None] = mapped_column(String(16), nullable=True)
+
+    site: Mapped[CatalyticSite] = relationship("CatalyticSite", back_populates="residues")
+
+    __table_args__ = (
+        Index("ix_catalytic_residue_pos", "residue_pos"),
+    )
+
+
+# =============================================================================
 # 9. Substrate compounds — PubChem chemical data
 # =============================================================================
 class SubstrateCompound(Base):
@@ -271,7 +352,7 @@ class SubstrateCompound(Base):
     fingerprint_fp2: Mapped[bytes | None] = mapped_column(nullable=True)  # RDKit fingerprint
 
     source_db: Mapped[str] = mapped_column(String(20), default="pubchem")
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow_naive)
 
 
 # =============================================================================
@@ -341,6 +422,28 @@ class DatabaseCrossRef(Base):
         UniqueConstraint("enzyme_id", "source_db", name="uq_xref_enzyme_db"),
         Index("ix_xref_db", "source_db"),
         Index("ix_xref_source_id", "source_id"),
+    )
+
+
+# =============================================================================
+# 13. Signal peptide predictions — secretion feasibility annotations
+# =============================================================================
+class SignalPeptidePrediction(Base):
+    __tablename__ = "signal_peptide_predictions"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    enzyme_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("enzyme_records.id", ondelete="CASCADE"), nullable=True)
+    sequence_hash: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
+    has_signal: Mapped[bool | None] = mapped_column(Boolean, nullable=True)
+    cleavage_site: Mapped[str | None] = mapped_column(String(32), nullable=True)
+    model_name: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    raw_json: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow_naive)
+
+    enzyme: Mapped[EnzymeRecord | None] = relationship("EnzymeRecord", back_populates="signal_peptide_predictions")
+
+    __table_args__ = (
+        Index("ix_signal_peptide_enzyme", "enzyme_id"),
     )
 
 

@@ -1,0 +1,27 @@
+{
+  "report_id": "structure_feature_model_contract_validation_report",
+  "created_at": "2026-09-03T07:31:16.753078+00:00",
+  "local_only": true,
+  "success": true,
+  "status": "passed_fail_closed",
+  "checked_report": "reports/structure_feature_model_contract_report.json",
+  "checked_sources": {
+    "reviewed_graph_index": "datasets/features/reviewed_structure_graph_features.jsonl",
+    "reviewed_structure_graph_feature_report": "reports/reviewed_structure_graph_feature_report.json",
+    "structure_chain_mapping_decisions": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+    "structure_coordinate_feature_report": "reports/structure_coordinate_feature_report.json"
+  },
+  "coordinate_manifest_rows": 500,
+  "coordinate_rows_parsed": 500,
+  "coordinate_parse_failures": 0,
+  "reviewed_graph_rows": 34,
+  "formal_chain_mapping_decision_rows": 34,
+  "model_consumable_reviewed_graph_rows": 34,
+  "unreviewed_coordinate_rows_excluded_from_reviewed_graph": 466,
+  "training_label_source": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "warnings": [],
+  "failures": [],
+  "policy": "Fail-closed validator for reviewed-chain structure graph consumption: model consumable rows must be formal reviewed graph input features only, never labels or release/model claims."
+}

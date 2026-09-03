@@ -1,0 +1,73 @@
+{
+  "accession": "P06733",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00113",
+        "name": "Enolase, C-terminal TIM barrel domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR020810",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p06733",
+          "protein_length": 434,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 143,
+                  "end": 430,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00113",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03952",
+        "name": "Enolase, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR020811",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p06733",
+          "protein_length": 434,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 3,
+                  "end": 134,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03952",
+              "score": 1e-55
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

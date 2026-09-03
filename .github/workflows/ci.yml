@@ -42,6 +42,7 @@ jobs:
       - name: Run tests
         env:
           USE_SQLITE: "true"
+          TEST_DATABASE_URL: "sqlite+aiosqlite:///./test_protein_ai_ci_${{ github.run_id }}_${{ github.job }}.db"
         run: |
           python -m pytest tests/ -x -v --tb=short \
             --cov=app --cov-report=term-missing --cov-report=xml

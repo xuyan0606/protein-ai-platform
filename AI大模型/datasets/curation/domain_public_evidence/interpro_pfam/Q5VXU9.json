@@ -1,0 +1,107 @@
+{
+  "accession": "Q5VXU9",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF17825",
+        "name": "SHOC1 ATPase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR063559",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5vxu9",
+          "protein_length": 1444,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 570,
+                  "end": 845,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF17825",
+              "score": 2.6e-128
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF29906",
+        "name": "SHOC1 PDDEXK domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR063560",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5vxu9",
+          "protein_length": 1444,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 865,
+                  "end": 1019,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF29906",
+              "score": 1e-62
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF29917",
+        "name": "SHOC1 helix-hairpin-helix tandem",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR063284",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5vxu9",
+          "protein_length": 1444,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1039,
+                  "end": 1101,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF29917",
+              "score": 1.6e-28
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

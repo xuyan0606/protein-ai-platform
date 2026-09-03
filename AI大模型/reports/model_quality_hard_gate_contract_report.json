@@ -1,0 +1,165 @@
+{
+  "created_at": "2026-09-03T07:33:56.493667+00:00",
+  "local_only": true,
+  "success": true,
+  "checked_reports": {
+    "p183_training_label_import_contract": "reports/training_label_import_contract_report.json",
+    "p184_wet_lab_feedback_authorization_contract": "reports/wet_lab_feedback_authorization_contract_report.json",
+    "p185_ddg_model_consumption_contract": "reports/ddg_model_consumption_contract_report.json",
+    "benchmark_coverage_dashboard_validation": "reports/benchmark_coverage_dashboard_validation_report.json",
+    "advanced_model_feature_contract_validation": "reports/advanced_model_feature_contract_validation_report.json",
+    "local_release_manifest": "reports/local_release_manifest.json",
+    "claim_readiness_matrix": "reports/claim_readiness_matrix.json"
+  },
+  "current_state": {
+    "training_import_eligible_rows": 6,
+    "training_import_written_rows": 6,
+    "wetlab_authorized_rows": 8,
+    "wetlab_preflight_rows": 8,
+    "wetlab_import_rows": 0,
+    "physics_ddg_ready": false,
+    "benchmark_ready_for_model_claim": false,
+    "feature_inputs_ready": 210,
+    "feature_inputs_minimum_required": 183,
+    "feature_inputs_input_only": true,
+    "model_quality_ready": false,
+    "safe_for_model_claim": false,
+    "release_ready": false
+  },
+  "source_state": {
+    "training_import_eligible_rows": 6,
+    "training_import_eligible_label_sources": 1,
+    "training_import_written_rows": 6,
+    "wetlab_authorized_rows": 8,
+    "wetlab_preflight_rows": 8,
+    "wetlab_import_rows": 0,
+    "wetlab_candidate_rows": 445,
+    "wetlab_numeric_training_candidate_rows": 12,
+    "wetlab_claim_eligible_rows_now": 0,
+    "physics_ddg_ready": false,
+    "executable_ddg_backend_ready": false,
+    "benchmark_ready_for_model_claim": false,
+    "benchmark_rows": 15,
+    "feature_inputs_ready": 210,
+    "feature_inputs_minimum_required": 183,
+    "feature_inputs_input_only": true,
+    "feature_inputs_source_supported": true,
+    "feature_inputs_model_input_only_feature_refs": 210,
+    "feature_inputs_training_label_source_feature_refs": 0,
+    "model_quality_ready": false,
+    "safe_for_model_claim": false,
+    "release_ready": false,
+    "local_release_master_status": "blocked_for_model_claim",
+    "claim_matrix_model_quality_claim_ready": false,
+    "claim_matrix_model_quality_claim_allowed": false
+  },
+  "hard_gates": [
+    {
+      "gate_id": "training_import_eligible_rows",
+      "observed": 6,
+      "expected": ">0",
+      "unlocked": true,
+      "source_supported": true,
+      "source_ref": "reports/training_label_import_contract_report.json"
+    },
+    {
+      "gate_id": "wetlab_authorized_rows",
+      "observed": 8,
+      "expected": ">0",
+      "unlocked": true,
+      "source_supported": true,
+      "source_ref": "reports/wet_lab_feedback_authorization_contract_report.json"
+    },
+    {
+      "gate_id": "wetlab_preflight_rows",
+      "observed": 8,
+      "expected": ">0",
+      "unlocked": true,
+      "source_supported": true,
+      "source_ref": "reports/wet_lab_feedback_authorization_contract_report.json"
+    },
+    {
+      "gate_id": "wetlab_import_rows",
+      "observed": 0,
+      "expected": 0,
+      "unlocked": false,
+      "source_supported": true,
+      "source_ref": "reports/wet_lab_feedback_authorization_contract_report.json"
+    },
+    {
+      "gate_id": "physics_ddg_ready",
+      "observed": false,
+      "expected": false,
+      "unlocked": false,
+      "source_supported": true,
+      "source_ref": "reports/ddg_model_consumption_contract_report.json",
+      "notes": "The full Rosetta/PyRosetta/FoldX physical ddG lane remains blocked; PyRosetta smoke is computational feature evidence only."
+    },
+    {
+      "gate_id": "benchmark_ready_for_model_claim",
+      "observed": false,
+      "expected": false,
+      "unlocked": false,
+      "source_supported": true,
+      "source_ref": "reports/benchmark_coverage_dashboard_validation_report.json"
+    },
+    {
+      "gate_id": "feature_inputs_ready",
+      "observed": 210,
+      "expected": ">=183",
+      "unlocked": false,
+      "source_supported": true,
+      "source_ref": "reports/advanced_model_feature_contract_validation_report.json",
+      "notes": "input-only model features do not authorize model claims."
+    },
+    {
+      "gate_id": "model_quality_ready",
+      "observed": false,
+      "expected": false,
+      "unlocked": false,
+      "source_supported": true,
+      "source_ref": "reports/claim_readiness_matrix.json"
+    },
+    {
+      "gate_id": "safe_for_model_claim",
+      "observed": false,
+      "expected": false,
+      "unlocked": false,
+      "source_supported": true,
+      "source_ref": "reports/claim_readiness_matrix.json"
+    },
+    {
+      "gate_id": "release_ready",
+      "observed": false,
+      "expected": false,
+      "unlocked": false,
+      "source_supported": true,
+      "source_ref": "reports/local_release_manifest.json"
+    }
+  ],
+  "negative_protection_checks": {
+    "training_import_eligible_rows_source_supported": true,
+    "wetlab_authorized_preflight_source_supported": true,
+    "physics_ddg_ready_fail_closed": true,
+    "benchmark_ready_for_model_claim_false": true,
+    "feature_inputs_model_input_only": true,
+    "feature_inputs_source_supported": true,
+    "model_quality_ready_false": true,
+    "safe_for_model_claim_false": true,
+    "release_ready_false": true
+  },
+  "training_import_eligible_rows": 6,
+  "training_import_written_rows": 6,
+  "wetlab_authorized_rows": 8,
+  "wetlab_preflight_rows": 8,
+  "wetlab_import_rows": 0,
+  "physics_ddg_ready": false,
+  "benchmark_ready_for_model_claim": false,
+  "feature_inputs_ready": 210,
+  "feature_inputs_minimum_required": 183,
+  "feature_inputs_input_only": true,
+  "model_quality_ready": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Fail-closed aggregate for the model-quality hard gate. Training import, wet-lab authorization, physics ddG runtime, benchmark claim readiness, feature-input consumption, model-quality readiness, model claim safety, and release readiness remain closed unless the source reports explicitly support an unlock."
+}

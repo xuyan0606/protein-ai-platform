@@ -1,0 +1,57 @@
+{
+  "created_at": "2026-09-03T07:33:59.576516+00:00",
+  "local_only": true,
+  "product_lines": {
+    "human_target_intelligence": {
+      "status": "schema_only_contracts_present_no_runtime",
+      "schema_only_contracts_present": [
+        "HumanProteinProfile",
+        "ExpressionSafetyProfile",
+        "PathwayRelation",
+        "OffTargetRisk"
+      ],
+      "missing_schema_contracts": [],
+      "missing_runtime_or_source_contracts": [
+        "HPA/GTEx expression source manifest",
+        "Reactome/GO pathway source manifest",
+        "ligand-receptor evidence graph",
+        "OffTargetRisk execution contract"
+      ]
+    },
+    "antibody_humanization": {
+      "status": "schema_only_contracts_present_no_runtime",
+      "schema_only_contracts_present": [
+        "AntibodyChainProfile",
+        "GermlineMatch",
+        "HumanizationProposal",
+        "DevelopabilityProfile"
+      ],
+      "missing_schema_contracts": [],
+      "missing_runtime_or_source_contracts": [
+        "ANARCI/IMGT runtime receipt",
+        "human germline database manifest",
+        "numbered VH/VL residue mapping artifact",
+        "humanization proposal validation report"
+      ]
+    }
+  },
+  "backend_schema_contracts": {
+    "AntibodyChainProfile": true,
+    "DevelopabilityProfile": true,
+    "EpitopeSimilarity": true,
+    "ExpressionSafetyProfile": true,
+    "ExtracellularAccessibility": true,
+    "GermlineMatch": true,
+    "HumanProteinProfile": true,
+    "HumanizationProposal": true,
+    "OffTargetRisk": true,
+    "PathwayRelation": true
+  },
+  "gate_snapshot": {
+    "bio_specialty_input_gate_present": false,
+    "scientific_claim_gate_present": false,
+    "bio_specialty_ready": null,
+    "scientific_claim_gate_status": null
+  },
+  "policy": "Schema-only contracts may be present, but this report does not imply real source retrieval, target intelligence, antibody numbering, humanization, model claim, or release readiness."
+}

@@ -1,0 +1,107 @@
+{
+  "accession": "Q9NVV4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03828",
+        "name": "Cid1 family poly A polymerase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002058",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nvv4",
+          "protein_length": 582,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 440,
+                  "end": 483,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03828",
+              "score": 0.012
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17797",
+        "name": "RL domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041252",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nvv4",
+          "protein_length": 582,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 63,
+                  "end": 131,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF17797",
+              "score": 5.6e-33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22600",
+        "name": "Poly(A) RNA polymerase, mitochondrial-like, central palm domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR054708",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nvv4",
+          "protein_length": 582,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 186,
+                  "end": 344,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22600",
+              "score": 1.6e-36
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

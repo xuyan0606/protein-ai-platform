@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB Plate-Level Experiment Feedback Record",
+  "type": "object",
+  "required": [
+    "plate_id",
+    "well_id",
+    "variant_id",
+    "sample_batch",
+    "assay_type",
+    "replicate",
+    "raw_signal",
+    "qc_flag",
+    "instrument",
+    "protocol_version",
+    "operator",
+    "recorded_at"
+  ],
+  "properties": {
+    "plate_id": { "type": "string", "minLength": 1 },
+    "well_id": { "type": "string", "pattern": "^[A-Za-z][0-9]{1,2}$" },
+    "variant_id": { "type": "string", "minLength": 1 },
+    "parent_sequence_hash": { "type": ["string", "null"] },
+    "mutation_set": { "type": "array", "items": { "type": "string" } },
+    "sample_batch": { "type": "string", "minLength": 1 },
+    "substrate_smiles": { "type": ["string", "null"] },
+    "temperature_c": { "type": ["number", "null"] },
+    "ph": { "type": ["number", "null"], "minimum": 0, "maximum": 14 },
+    "assay_type": {
+      "type": "string",
+      "enum": ["expression", "purification", "activity", "stability", "substrate_fit", "combined"]
+    },
+    "replicate": { "type": "integer", "minimum": 1 },
+    "raw_signal": { "type": ["number", "null"] },
+    "normalized_activity": { "type": ["number", "null"] },
+    "qc_flag": {
+      "type": "string",
+      "enum": ["pass", "warning", "fail", "not_reviewed"]
+    },
+    "instrument": { "type": "string", "minLength": 1 },
+    "protocol_version": { "type": "string", "minLength": 1 },
+    "operator": { "type": "string", "minLength": 1 },
+    "raw_data_uri": { "type": ["string", "null"] },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "review_status": {
+      "type": "string",
+      "enum": ["draft", "reviewed", "rejected"]
+    }
+  },
+  "additionalProperties": false
+}

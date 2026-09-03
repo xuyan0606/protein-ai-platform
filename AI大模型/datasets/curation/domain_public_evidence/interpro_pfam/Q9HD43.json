@@ -1,0 +1,133 @@
+{
+  "accession": "Q9HD43",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00041",
+        "name": "Fibronectin type III domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003961",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hd43",
+          "protein_length": 1115,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 33,
+                  "end": 105,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00041",
+              "score": 1.6e-05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 121,
+                  "end": 196,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00041",
+              "score": 4.8e-05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 210,
+                  "end": 283,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00041",
+              "score": 6.1e-06
+            },
+            {
+              "fragments": [
+                {
+                  "start": 299,
+                  "end": 379,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00041",
+              "score": 1.2e-05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 388,
+                  "end": 467,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00041",
+              "score": 1.8e-05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 568,
+                  "end": 651,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00041",
+              "score": 9.4e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00102",
+        "name": "Protein-tyrosine phosphatase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000242",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hd43",
+          "protein_length": 1115,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 844,
+                  "end": 1077,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00102",
+              "score": 2.5e-77
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

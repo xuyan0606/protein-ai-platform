@@ -1,0 +1,28 @@
+{
+  "created_at": "2026-09-03T07:32:03.598074+00:00",
+  "local_only": true,
+  "source_coverage_rows": 875,
+  "source_coverage_report_rows": 875,
+  "source_coverage_validation_success": true,
+  "source_missing_group_count_by_head": {
+    "mutation_rank": 0,
+    "stability": 0,
+    "activity_risk": 17,
+    "substrate_fit": 0,
+    "assay_success": 17
+  },
+  "gap_count": 34,
+  "gap_count_by_head": {
+    "activity_risk": 17,
+    "assay_success": 17
+  },
+  "gap_jsonl": "datasets/features/feature_coverage_gap_queue.jsonl",
+  "training_label_source_rows": 0,
+  "feature_rows_counted_as_labels": 0,
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "policy": "Feature coverage gap queue is local remediation planning only. It keeps all model and release gates closed and does not create training labels."
+}

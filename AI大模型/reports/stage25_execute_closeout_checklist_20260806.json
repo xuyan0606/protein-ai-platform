@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-06",
+  "mode": "stage25_execute_closeout_checklist",
+  "stage": 25,
+  "proposal_rows": 4,
+  "checklist_item_rows": 24,
+  "closed_item_rows": 0,
+  "closeout_ready_rows": 0,
+  "proposals": [
+    {
+      "proposal_id": "LIP_CAND_20260805_003",
+      "family": "lipase",
+      "doi": "10.1016/j.biortech.2026.135069",
+      "pmid": "42235695",
+      "stable_proposal_id": "LIP_PAPER_2cda9260",
+      "current_evidence_level": "abstract_only",
+      "source_access_gap": "ScienceDirect/PubMed abstract only; source table/figure and exact residue substitutions unavailable in current evidence set",
+      "required_before_apply": [
+        "CM5 exact residue substitutions",
+        "Candida rugosa lipase WT baseline",
+        "separate mutation effects from immobilization/process metrics",
+        "absolute values, units and assay conditions",
+        "source table/figure/supplement locator",
+        "evidence that process/immobilization metrics are not imported as residue-level variant measurements"
+      ],
+      "next_action": "obtain full text and separate mutation evidence from immobilization/process evidence before family importer",
+      "blocker_count": 6,
+      "checks": [
+        "approved_for_family_importer",
+        "human_review_status",
+        "intake_approval",
+        "paper_pdf",
+        "payload_draft",
+        "source_locators"
+      ],
+      "closeout_ready": false
+    },
+    {
+      "proposal_id": "LIP_CAND_20260805_004",
+      "family": "lipase",
+      "doi": "10.1016/j.enzmictec.2026.110921",
+      "pmid": "42248057",
+      "stable_proposal_id": "LIP_PAPER_05f2ba60",
+      "current_evidence_level": "abstract_only",
+      "source_access_gap": "ScienceDirect abstract/highlights only; source table/figure not available in current evidence set",
+      "required_before_apply": [
+        "confirm whether full text contains engineered variants",
+        "if no variants, keep benchmark/source-only and do not create variant/measurement importer payload",
+        "source table/figure locator for benchmark characterization if later curated"
+      ],
+      "next_action": "keep benchmark/source-only unless full text proves engineered variant data",
+      "blocker_count": 6,
+      "checks": [
+        "approved_for_family_importer",
+        "human_review_status",
+        "intake_approval",
+        "paper_pdf",
+        "payload_draft",
+        "source_locators"
+      ],
+      "closeout_ready": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_001",
+      "family": "xylanase",
+      "doi": "10.1021/acs.jafc.4c10256",
+      "pmid": "39743673",
+      "stable_proposal_id": "XYN_PAPER_829e8778",
+      "current_evidence_level": "metadata_only+abstract_only",
+      "source_access_gap": "ACS Supporting Information asset identified as jf4c10256_si_001.doc, but direct download returned HTTP 403 in this run; SI extraction and DSM4 source locator remain pending",
+      "required_before_apply": [
+        "DSM4 residue-level mutation composition",
+        "WT XynASP absolute baseline",
+        "mutant absolute values and fold changes",
+        "assay substrate, pH, temperature, incubation time",
+        "source table/figure/supplement locator",
+        "approved_for_family_importer allowlist with stable identity fields"
+      ],
+      "next_action": "obtain and parse ACS SI jf4c10256_si_001.doc before family-specific dry-run importer",
+      "blocker_count": 6,
+      "checks": [
+        "approved_for_family_importer",
+        "human_review_status",
+        "intake_approval",
+        "paper_pdf",
+        "payload_draft",
+        "source_locators"
+      ],
+      "closeout_ready": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_002",
+      "family": "xylanase",
+      "doi": "10.1016/j.biortech.2026.134883",
+      "pmid": "42134585",
+      "stable_proposal_id": "XYN_PAPER_f8a5a0d6",
+      "current_evidence_level": "abstract_only",
+      "source_access_gap": "no PMC/open full text; ScienceDirect full text/source table not available in current evidence set",
+      "required_before_apply": [
+        "full-text source table/figure confirming variant composition",
+        "WT or parent 9K-XynB baseline",
+        "mutant absolute values for half-life, kcat/Km, secretion/activity",
+        "units, temperature, pH, substrate and fermentation context",
+        "source locator for each measurement",
+        "measurement_draft entries with variant_name, metric, value/fold_change, unit, condition, evidence_level and confidence"
+      ],
+      "next_action": "obtain full text and measurement source locator before export-safe variant or measurement payload",
+      "blocker_count": 6,
+      "checks": [
+        "approved_for_family_importer",
+        "human_review_status",
+        "intake_approval",
+        "paper_pdf",
+        "payload_draft",
+        "source_locators"
+      ],
+      "closeout_ready": false
+    }
+  ],
+  "checklist_items": [
+    {
+      "proposal_id": "LIP_CAND_20260805_003",
+      "check": "approved_for_family_importer",
+      "closeout_action": "Record explicit family-importer approval for this proposal.",
+      "closed": false
+    },
+    {
+      "proposal_id": "LIP_CAND_20260805_003",
+      "check": "human_review_status",
+      "closeout_action": "Set review_status to approved_for_family_importer only after source locators and payload drafts are reviewed.",
+      "closed": false
+    },
+    {
+      "proposal_id": "LIP_CAND_20260805_003",
+      "check": "intake_approval",
+      "closeout_action": "Mark intake approved only after file hash, source locator and reviewer package checks pass.",
+      "closed": false
+    },
+    {
+      "proposal_id": "LIP_CAND_20260805_003",
+      "check": "paper_pdf",
+      "closeout_action": "Place legally obtained full text or supplementary files in the approved local intake path.",
+      "closed": false
+    },
+    {
+      "proposal_id": "LIP_CAND_20260805_003",
+      "check": "payload_draft",
+      "closeout_action": "Fill reviewed variant and/or measurement payload drafts with values, units, conditions and evidence levels.",
+      "closed": false
+    },
+    {
+      "proposal_id": "LIP_CAND_20260805_003",
+      "check": "source_locators",
+      "closeout_action": "Provide source table/figure/supplement locators for every imported identity and measurement claim.",
+      "closed": false
+    },
+    {
+      "proposal_id": "LIP_CAND_20260805_004",
+      "check": "approved_for_family_importer",
+      "closeout_action": "Record explicit family-importer approval for this proposal.",
+      "closed": false
+    },
+    {
+      "proposal_id": "LIP_CAND_20260805_004",
+      "check": "human_review_status",
+      "closeout_action": "Set review_status to approved_for_family_importer only after source locators and payload drafts are reviewed.",
+      "closed": false
+    },
+    {
+      "proposal_id": "LIP_CAND_20260805_004",
+      "check": "intake_approval",
+      "closeout_action": "Mark intake approved only after file hash, source locator and reviewer package checks pass.",
+      "closed": false
+    },
+    {
+      "proposal_id": "LIP_CAND_20260805_004",
+      "check": "paper_pdf",
+      "closeout_action": "Place legally obtained full text or supplementary files in the approved local intake path.",
+      "closed": false
+    },
+    {
+      "proposal_id": "LIP_CAND_20260805_004",
+      "check": "payload_draft",
+      "closeout_action": "Fill reviewed variant and/or measurement payload drafts with values, units, conditions and evidence levels.",
+      "closed": false
+    },
+    {
+      "proposal_id": "LIP_CAND_20260805_004",
+      "check": "source_locators",
+      "closeout_action": "Provide source table/figure/supplement locators for every imported identity and measurement claim.",
+      "closed": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_001",
+      "check": "approved_for_family_importer",
+      "closeout_action": "Record explicit family-importer approval for this proposal.",
+      "closed": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_001",
+      "check": "human_review_status",
+      "closeout_action": "Set review_status to approved_for_family_importer only after source locators and payload drafts are reviewed.",
+      "closed": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_001",
+      "check": "intake_approval",
+      "closeout_action": "Mark intake approved only after file hash, source locator and reviewer package checks pass.",
+      "closed": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_001",
+      "check": "paper_pdf",
+      "closeout_action": "Place legally obtained full text or supplementary files in the approved local intake path.",
+      "closed": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_001",
+      "check": "payload_draft",
+      "closeout_action": "Fill reviewed variant and/or measurement payload drafts with values, units, conditions and evidence levels.",
+      "closed": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_001",
+      "check": "source_locators",
+      "closeout_action": "Provide source table/figure/supplement locators for every imported identity and measurement claim.",
+      "closed": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_002",
+      "check": "approved_for_family_importer",
+      "closeout_action": "Record explicit family-importer approval for this proposal.",
+      "closed": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_002",
+      "check": "human_review_status",
+      "closeout_action": "Set review_status to approved_for_family_importer only after source locators and payload drafts are reviewed.",
+      "closed": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_002",
+      "check": "intake_approval",
+      "closeout_action": "Mark intake approved only after file hash, source locator and reviewer package checks pass.",
+      "closed": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_002",
+      "check": "paper_pdf",
+      "closeout_action": "Place legally obtained full text or supplementary files in the approved local intake path.",
+      "closed": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_002",
+      "check": "payload_draft",
+      "closeout_action": "Fill reviewed variant and/or measurement payload drafts with values, units, conditions and evidence levels.",
+      "closed": false
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_002",
+      "check": "source_locators",
+      "closeout_action": "Provide source table/figure/supplement locators for every imported identity and measurement claim.",
+      "closed": false
+    }
+  ],
+  "external_sqlite_mutated": false,
+  "formal_decision_rows_written": 0,
+  "apply_executed": false,
+  "export_safe_released": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

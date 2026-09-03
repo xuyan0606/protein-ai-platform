@@ -1,0 +1,15 @@
+{
+  "local_only": true,
+  "success": true,
+  "builder_contract": "scripts/build_tool_lane_evidence_pack.py",
+  "report_matches_current_builder_projection": true,
+  "receipts_match_current_builder_projection": true,
+  "lanes": 8,
+  "receipts": 8,
+  "expected_lanes": 8,
+  "expected_receipts": 8,
+  "proxy_lanes_blocked": 4,
+  "ready_lanes": 0,
+  "failures": [],
+  "policy": "Validation proves the lane pack is local-signal only. It does not establish real inference, docking, or dynamics execution."
+}

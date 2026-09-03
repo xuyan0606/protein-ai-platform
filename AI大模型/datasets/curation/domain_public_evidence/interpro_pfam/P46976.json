@@ -1,0 +1,51 @@
+{
+  "accession": "P46976",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01501",
+        "name": "Glycosyl transferase family 8",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002495",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p46976",
+          "protein_length": 350,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 7,
+                  "end": 116,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01501",
+              "score": 0.0033
+            },
+            {
+              "fragments": [
+                {
+                  "start": 118,
+                  "end": 222,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01501",
+              "score": 0.0033
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "accession": "O76050",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF07177",
+        "name": "Neuralized",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006573",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o76050",
+          "protein_length": 574,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 65,
+                  "end": 217,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07177",
+              "score": 1.9e-35
+            },
+            {
+              "fragments": [
+                {
+                  "start": 296,
+                  "end": 447,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07177",
+              "score": 3.6e-36
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13920",
+        "name": "Zinc finger, C3HC4 type (RING finger)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o76050",
+          "protein_length": 574,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 519,
+                  "end": 566,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13920",
+              "score": 4.4e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

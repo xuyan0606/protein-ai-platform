@@ -1,0 +1,73 @@
+{
+  "accession": "O14657",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF06309",
+        "name": "Torsin",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR010448",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14657",
+          "protein_length": 336,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 51,
+                  "end": 176,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF06309",
+              "score": 1.3e-45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21376",
+        "name": "Torsin-1A, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049337",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14657",
+          "protein_length": 336,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 279,
+                  "end": 335,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF21376",
+              "score": 7.5e-29
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

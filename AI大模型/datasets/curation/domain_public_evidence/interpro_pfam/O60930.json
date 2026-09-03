@@ -1,0 +1,73 @@
+{
+  "accession": "O60930",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00075",
+        "name": "RNase H",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002156",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60930",
+          "protein_length": 286,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 140,
+                  "end": 281,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00075",
+              "score": 1.9e-39
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01693",
+        "name": "Ribonuclease H1 N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011320",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60930",
+          "protein_length": 286,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 28,
+                  "end": 71,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01693",
+              "score": 5.9e-17
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

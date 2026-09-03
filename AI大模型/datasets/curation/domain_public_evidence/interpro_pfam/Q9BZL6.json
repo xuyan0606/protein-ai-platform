@@ -1,0 +1,153 @@
+{
+  "accession": "Q9BZL6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00069",
+        "name": "Protein kinase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000719",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bzl6",
+          "protein_length": 878,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 555,
+                  "end": 807,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00069",
+              "score": 6.3e-67
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00130",
+        "name": "Phorbol esters/diacylglycerol binding domain (C1 domain)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002219",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bzl6",
+          "protein_length": 878,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 139,
+                  "end": 189,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00130",
+              "score": 3.5e-11
+            },
+            {
+              "fragments": [
+                {
+                  "start": 265,
+                  "end": 314,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00130",
+              "score": 1.5e-11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00169",
+        "name": "PH domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001849",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bzl6",
+          "protein_length": 878,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 400,
+                  "end": 473,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00169",
+              "score": 0.049
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25525",
+        "name": "Serine/threonine-protein kinase D1-like, ubiquitin-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057764",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bzl6",
+          "protein_length": 878,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 45,
+                  "end": 127,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25525",
+              "score": 4.3e-27
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

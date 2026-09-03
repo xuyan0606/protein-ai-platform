@@ -1,0 +1,73 @@
+{
+  "accession": "Q9H040",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF10263",
+        "name": "SprT-like family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006640",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h040",
+          "protein_length": 489,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 45,
+                  "end": 153,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10263",
+              "score": 1.5e-30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22934",
+        "name": "Spartan-like zinc binding domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR055220",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h040",
+          "protein_length": 489,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 164,
+                  "end": 211,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22934",
+              "score": 2.6e-22
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "id": "meta_capability_boundary",
+    "message": "这个模型现在的能力边界是什么？有没有文献依据，会不会胡编？",
+    "expected_route": "general",
+    "expect_clarification": false,
+    "required_tools": [],
+    "forbidden_tools": ["sequence_search"]
+  },
+  {
+    "id": "missing_thermostability_task",
+    "message": "帮我改造这个酶提高耐热性，但我只给你一句需求。",
+    "expected_route": "analyze",
+    "expect_clarification": true,
+    "required_tools": [],
+    "forbidden_tools": ["sequence_search", "mutation_priority_score"]
+  },
+  {
+    "id": "experiment_plan_without_sequence",
+    "message": "请设计实验方案验证这个酶的耐热性",
+    "expected_route": "analyze",
+    "expect_clarification": true,
+    "required_tools": [],
+    "forbidden_tools": ["sequence_search", "rfdiffusion_design"]
+  },
+  {
+    "id": "targetless_binder_design",
+    "message": "Design a binder",
+    "expected_route": "design",
+    "expect_clarification": true,
+    "required_tools": [],
+    "forbidden_tools": ["sequence_search", "rfdiffusion_design"]
+  },
+  {
+    "id": "named_structure_lookup",
+    "message": "Analyze the structure of EGFR",
+    "expected_route": "research",
+    "expect_clarification": false,
+    "required_tools": ["sequence_search"],
+    "forbidden_tools": ["rfdiffusion_design"]
+  },
+  {
+    "id": "named_literature_lookup",
+    "message": "查一下 EGFR 相关文献证据",
+    "expected_route": "research",
+    "expect_clarification": false,
+    "required_tools": ["sequence_search"],
+    "forbidden_tools": ["rfdiffusion_design"]
+  },
+  {
+    "id": "complete_sequence_thermostability",
+    "message": "提高这个酶的热稳定性 MKTVRQERLKSIVRILERSKEPVQGAQLPVKELQLPGCHPNPIRALLDSSEGDLSFDADSTIIRRMEE",
+    "expected_route": "analyze",
+    "expect_clarification": false,
+    "required_tools": ["predict_properties", "mutation_priority_score"],
+    "forbidden_tools": ["sequence_search"]
+  },
+  {
+    "id": "wetlab_feedback_with_sequence",
+    "message": "这个酶 D223G 湿实验显示活性上升但热稳定性下降，请基于反馈设计补偿突变 MKTVRQERLKSIVRILERSKEPVQGAQLPVKELQLPGCHPNPIRALLDSSEGDLSFDADSTIIRRMEE",
+    "expected_route": "analyze",
+    "expect_clarification": false,
+    "required_tools": ["predict_properties", "mutation_priority_score"],
+    "forbidden_tools": ["sequence_search"]
+  },
+  {
+    "id": "residue_numbering_without_structure",
+    "message": "把 D223G 映射到结构高亮，编号体系不确定",
+    "expected_route": "analyze",
+    "expect_clarification": true,
+    "required_tools": [],
+    "forbidden_tools": ["sequence_search", "residue_mapping_sifts"]
+  },
+  {
+    "id": "epistasis_without_sequence_or_structure",
+    "message": "评估 D223G 和 A280V 能不能组合，缺少结构距离和单突变实验数据",
+    "expected_route": "analyze",
+    "expect_clarification": true,
+    "required_tools": [],
+    "forbidden_tools": ["sequence_search", "mutation_epistasis_check"]
+  },
+  {
+    "id": "uploaded_pdb_md_request",
+    "message": "请基于上传结构做快速稳定性分析 object_name: uploads/demo/query.pdb",
+    "expected_route": "research",
+    "expect_clarification": false,
+    "required_tools": [],
+    "forbidden_tools": ["sequence_search"]
+  }
+]

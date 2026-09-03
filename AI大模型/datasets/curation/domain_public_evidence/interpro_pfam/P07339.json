@@ -1,0 +1,73 @@
+{
+  "accession": "P07339",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00026",
+        "name": "Eukaryotic aspartyl protease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR033121",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07339",
+          "protein_length": 412,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 78,
+                  "end": 409,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00026",
+              "score": 2.6e-115
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07966",
+        "name": "A1 Propeptide",
+        "source_database": "pfam",
+        "type": "conserved_site",
+        "integrated": "IPR012848",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07339",
+          "protein_length": 412,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 23,
+                  "end": 49,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07966",
+              "score": 4.9e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

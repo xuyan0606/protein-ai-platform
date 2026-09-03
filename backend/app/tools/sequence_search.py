@@ -15,6 +15,14 @@ from typing import Any
 import httpx
 
 from app.core.config import settings
+from app.services.evidence_source_status import evidence_source_status
+from app.services.ncbi_api import (
+    NCBIRateLimitError,
+    ncbi_evidence_details,
+    ncbi_request_params,
+    rate_limit_from_response,
+)
+from app.services.tool_cache import get_cached_result, set_cached_result
 from app.tools.registry import ToolRegistry
 
 # ---------------------------------------------------------------------------
@@ -30,6 +38,9 @@ BLAST_POLL_INITIAL = 3.0   # seconds
 BLAST_POLL_MAX = 60.0      # seconds
 BLAST_POLL_BACKOFF = 1.5    # multiplier per attempt
 BLAST_MAX_ATTEMPTS = 30     # ~12 minutes total max
+BLAST_POLL_BUDGET_SECONDS = max(BLAST_POLL_INITIAL, float(settings.BLAST_POLL_BUDGET_SECONDS or 45.0))
+BLAST_HTTP_READ_TIMEOUT_SECONDS = max(10.0, float(settings.BLAST_HTTP_READ_TIMEOUT_SECONDS or 60.0))
+UNIPROT_TIMEOUT_SECONDS = max(5.0, float(settings.UNIPROT_SEARCH_TIMEOUT_SECONDS or 12.0))
 
 _AA_SET = set("ACDEFGHIKLMNPQRSTVWY")
 BLAST_MIN_SEQUENCE_LENGTH = 30  # BLAST not useful for very short peptides
@@ -57,7 +68,9 @@ class BlastClient:
 
     async def _get_client(self) -> httpx.AsyncClient:
         if self._client is None:
-            self._client = httpx.AsyncClient(timeout=httpx.Timeout(120.0))
+            self._client = httpx.AsyncClient(
+                timeout=httpx.Timeout(connect=10.0, read=BLAST_HTTP_READ_TIMEOUT_SECONDS, write=10.0, pool=10.0)
+            )
         return self._client
 
     async def search(
@@ -71,7 +84,7 @@ class BlastClient:
         client = await self._get_client()
 
         # Submit job
-        params: dict[str, str] = {
+        params = ncbi_request_params("blast", {
             "CMD": "Put",
             "PROGRAM": program,
             "DATABASE": database,
@@ -80,13 +93,16 @@ class BlastClient:
             "HITLIST_SIZE": str(max_results),
             "ALIGNMENTS": str(max_results),
             "DESCRIPTIONS": str(max_results),
-        }
-
-        # Add API key if configured
-        if settings.NCBI_API_KEY:
-            params["NCBI_API_KEY"] = settings.NCBI_API_KEY
+        })
 
         resp = await client.post(BLAST_URL, data=params)
+        rate_limit_error = rate_limit_from_response(
+            resp,
+            source="ncbi_blast",
+            message="NCBI BLAST submission returned HTTP 429",
+        )
+        if rate_limit_error:
+            raise rate_limit_error
         resp.raise_for_status()
 
         # Extract RID and RTOE from response
@@ -97,10 +113,11 @@ class BlastClient:
         if rid_start == -1:
             # Check if we hit rate limit
             if "Message ID#24" in text or "limit" in text.lower():
-                retry_after = resp.headers.get("Retry-After", "30")
-                raise RuntimeError(
-                    f"RATE_LIMITED: NCBI rate limit reached. Retry after {retry_after}s. "
-                    "Consider using an NCBI API key for higher limits."
+                raise NCBIRateLimitError(
+                    source="ncbi_blast",
+                    retry_after=resp.headers.get("Retry-After"),
+                    status_code=resp.status_code,
+                    message="NCBI BLAST rate-limit response",
                 )
             raise RuntimeError(
                 f"BLAST_FAILED: Could not extract RID from response. "
@@ -116,15 +133,26 @@ class BlastClient:
 
         # Poll for results
         delay = BLAST_POLL_INITIAL
+        sleep_budget = 0.0
         for attempt in range(1, BLAST_MAX_ATTEMPTS + 1):
+            if sleep_budget + delay > BLAST_POLL_BUDGET_SECONDS:
+                break
             await asyncio.sleep(delay)
+            sleep_budget += delay
 
-            poll_params: dict[str, str] = {
+            poll_params = ncbi_request_params("blast", {
                 "CMD": "Get",
                 "RID": rid,
                 "FORMAT_TYPE": "XML",
-            }
+            })
             poll_resp = await client.get(BLAST_URL, params=poll_params)
+            rate_limit_error = rate_limit_from_response(
+                poll_resp,
+                source="ncbi_blast",
+                message="NCBI BLAST polling returned HTTP 429",
+            )
+            if rate_limit_error:
+                raise rate_limit_error
 
             text = poll_resp.text
             if "Status=WAITING" in text or "Status=READY" not in text:
@@ -138,7 +166,7 @@ class BlastClient:
 
         raise TimeoutError(
             f"BLAST_TIMEOUT: Job RID={rid} did not complete "
-            f"within {BLAST_MAX_ATTEMPTS} polling attempts (~{BLAST_MAX_ATTEMPTS * BLAST_POLL_MAX}s). "
+            f"within {round(sleep_budget, 1)}s poll budget. "
             "Try a shorter query sequence or check NCBI BLAST status."
         )
 
@@ -245,7 +273,7 @@ class UniProtClient:
     async def _get_client(self) -> httpx.AsyncClient:
         if self._client is None:
             self._client = httpx.AsyncClient(
-                timeout=httpx.Timeout(30.0),
+                timeout=httpx.Timeout(UNIPROT_TIMEOUT_SECONDS),
                 base_url=settings.UNIPROT_BASE_URL,
             )
         return self._client
@@ -366,6 +394,25 @@ async def sequence_search(
     if not query_clean:
         raise ValueError("EMPTY_QUERY: query must not be empty")
 
+    cache_params = {
+        "query": query_clean,
+        "database": database,
+        "max_results": max_results,
+    }
+    cached = await get_cached_result("sequence_search", cache_params)
+    if cached is not None:
+        previous_source = cached.get("evidence_source") if isinstance(cached.get("evidence_source"), dict) else None
+        cached["evidence_source"] = evidence_source_status(
+            source=str(previous_source.get("source") if previous_source else "sequence_search"),
+            status="degraded",
+            mode="cache_hit",
+            live_query_executed=False,
+            endpoint=str(previous_source.get("endpoint") if previous_source else ""),
+            reason="Returned cached sequence search result; no live external query executed in this request.",
+            details={"previous_evidence_source": previous_source} if previous_source else None,
+        )
+        return cached
+
     is_sequence = _is_amino_acid_sequence(query_clean)
     # Skip BLAST for very short peptides — not enough information content
     if is_sequence and len(query_clean.replace(" ", "").replace("\n", "").replace("\t", "")) < BLAST_MIN_SEQUENCE_LENGTH:
@@ -385,10 +432,83 @@ async def sequence_search(
                 program=program,
                 max_results=max_results,
             )
+        except (httpx.HTTPError, RuntimeError, TimeoutError) as exc:
+            stale = await get_cached_result("sequence_search", cache_params, allow_stale=True)
+            if stale is not None:
+                stale["status"] = "stale_cache"
+                stale["warning"] = f"BLAST live query unavailable; returned cached result. Cause: {exc}"
+                stale.setdefault("cache", {})
+                stale["cache"]["stale"] = True
+                previous_source = stale.get("evidence_source") if isinstance(stale.get("evidence_source"), dict) else None
+                stale["evidence_source"] = evidence_source_status(
+                    source="NCBI BLAST",
+                    status="degraded",
+                    mode="stale_cache_after_live_failure",
+                    live_query_executed=False,
+                    endpoint=BLAST_URL,
+                    reason="RATE_LIMITED" if isinstance(exc, NCBIRateLimitError) else (
+                        f"Live BLAST query failed; returned stale cache. Cause: {exc}"
+                    ),
+                    details=ncbi_evidence_details(
+                        "blast",
+                        extra={"previous_evidence_source": previous_source} if previous_source else None,
+                        retry_after_by_source=(
+                            {exc.source: exc.retry_after}
+                            if isinstance(exc, NCBIRateLimitError) and exc.retry_after
+                            else None
+                        ),
+                        error=exc.as_details() if isinstance(exc, NCBIRateLimitError) else None,
+                    ),
+                )
+                return stale
+            error_code = "RATE_LIMITED" if isinstance(exc, NCBIRateLimitError) else "BLAST_DEGRADED"
+            degraded = {
+                "query": query_clean[:80] + ("..." if len(query_clean) > 80 else ""),
+                "query_type": "sequence",
+                "query_length": len(query_clean),
+                "database": database,
+                "program": program,
+                "results_count": 0,
+                "results": [],
+                "status": "degraded",
+                "warning": (
+                    f"BLAST request rate limited: {exc}"
+                    if isinstance(exc, NCBIRateLimitError)
+                    else f"BLAST request failed: {exc}"
+                ),
+                "error_code": error_code,
+                "cache": {"hit": False, "stale": False},
+                "evidence_source": evidence_source_status(
+                    source="NCBI BLAST",
+                    status="degraded",
+                    mode="live_query_failed",
+                    live_query_executed=False,
+                    endpoint=BLAST_URL,
+                    reason="RATE_LIMITED" if isinstance(exc, NCBIRateLimitError) else str(exc),
+                    details=ncbi_evidence_details(
+                        "blast",
+                        extra={"attempted_live_query": True, "database": blast_db, "program": program},
+                        retry_after_by_source=(
+                            {exc.source: exc.retry_after}
+                            if isinstance(exc, NCBIRateLimitError) and exc.retry_after
+                            else None
+                        ),
+                        error=exc.as_details() if isinstance(exc, NCBIRateLimitError) else None,
+                    ),
+                ),
+            }
+            await set_cached_result(
+                "sequence_search",
+                cache_params,
+                degraded,
+                ttl_seconds=120,
+                stale_ttl_seconds=300,
+            )
+            return degraded
         finally:
             await blast.close()
 
-        return {
+        payload = {
             "query": query_clean[:80] + ("..." if len(query_clean) > 80 else ""),
             "query_type": "sequence",
             "query_length": len(query_clean),
@@ -396,13 +516,74 @@ async def sequence_search(
             "program": program,
             "results_count": len(hits),
             "results": hits,
+            "status": "completed",
+            "cache": {"hit": False, "stale": False},
+            "evidence_source": evidence_source_status(
+                source="NCBI BLAST",
+                status="live",
+                mode="ncbi_blast_rest",
+                live_query_executed=True,
+                endpoint=BLAST_URL,
+                details=ncbi_evidence_details(
+                    "blast",
+                    extra={"database": blast_db, "program": program, "max_results": max_results},
+                ),
+            ),
         }
+        await set_cached_result("sequence_search", cache_params, payload)
+        return payload
 
     else:
         # UniProt keyword / accession search
         uniprot = UniProtClient()
         try:
             hits = await uniprot.search(query=query_clean, max_results=max_results)
+        except (httpx.HTTPError, RuntimeError) as exc:
+            stale = await get_cached_result("sequence_search", cache_params, allow_stale=True)
+            if stale is not None:
+                stale["status"] = "stale_cache"
+                stale["warning"] = f"UniProt live query unavailable; returned cached result. Cause: {exc}"
+                stale.setdefault("cache", {})
+                stale["cache"]["stale"] = True
+                previous_source = stale.get("evidence_source") if isinstance(stale.get("evidence_source"), dict) else None
+                stale["evidence_source"] = evidence_source_status(
+                    source="UniProt REST",
+                    status="degraded",
+                    mode="stale_cache_after_live_failure",
+                    live_query_executed=False,
+                    endpoint=UNIPROT_SEARCH_URL,
+                    reason=f"Live UniProt query failed; returned stale cache. Cause: {exc}",
+                    details={"previous_evidence_source": previous_source} if previous_source else None,
+                )
+                return stale
+            degraded = {
+                "query": query_clean,
+                "query_type": "keyword",
+                "database": database,
+                "results_count": 0,
+                "results": [],
+                "status": "degraded",
+                "warning": f"UniProt request failed: {exc}",
+                "error_code": "UNIPROT_DEGRADED",
+                "cache": {"hit": False, "stale": False},
+                "evidence_source": evidence_source_status(
+                    source="UniProt REST",
+                    status="degraded",
+                    mode="live_query_failed",
+                    live_query_executed=False,
+                    endpoint=UNIPROT_SEARCH_URL,
+                    reason=str(exc),
+                    details={"attempted_live_query": True, "database": database},
+                ),
+            }
+            await set_cached_result(
+                "sequence_search",
+                cache_params,
+                degraded,
+                ttl_seconds=120,
+                stale_ttl_seconds=300,
+            )
+            return degraded
         finally:
             await uniprot.close()
 
@@ -424,7 +605,7 @@ async def sequence_search(
                 await blast.close()
 
             if blast_hits:
-                return {
+                payload = {
                     "query": query_clean[:80] + ("..." if len(query_clean) > 80 else ""),
                     "query_type": "sequence",
                     "query_length": len(query_clean),
@@ -432,15 +613,42 @@ async def sequence_search(
                     "program": "blastp",
                     "results_count": len(blast_hits),
                     "results": blast_hits,
+                    "status": "completed",
+                    "cache": {"hit": False, "stale": False},
+                    "evidence_source": evidence_source_status(
+                        source="NCBI BLAST",
+                        status="live",
+                        mode="ncbi_blast_rest_fallback",
+                        live_query_executed=True,
+                        endpoint=BLAST_URL,
+                        details=ncbi_evidence_details(
+                            "blast",
+                            extra={"database": "swissprot", "program": "blastp", "max_results": max_results},
+                        ),
+                    ),
                 }
+                await set_cached_result("sequence_search", cache_params, payload)
+                return payload
 
-        return {
+        payload = {
             "query": query_clean,
             "query_type": "keyword",
             "database": database,
             "results_count": len(hits),
             "results": hits,
+            "status": "completed",
+            "cache": {"hit": False, "stale": False},
+            "evidence_source": evidence_source_status(
+                source="UniProt REST",
+                status="live",
+                mode="uniprotkb_search_rest",
+                live_query_executed=True,
+                endpoint=UNIPROT_SEARCH_URL,
+                details={"database": database, "max_results": max_results},
+            ),
         }
+        await set_cached_result("sequence_search", cache_params, payload)
+        return payload
 
 
 # ===================================================================

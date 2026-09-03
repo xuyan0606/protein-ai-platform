@@ -1,0 +1,22 @@
+{
+  "accepted_for_local_benchmark_cache_intake": true,
+  "benchmark_name": "ThermoMPNN comparison",
+  "created_at": "2026-09-03T07:32:23.856466+00:00",
+  "dataset": "cache/advanced_features/benchmarks/thermompnn_comparison_venus15b_smoke/dataset.jsonl",
+  "dataset_rows": 4,
+  "dataset_version": "thermompnn-venus15b-smoke-comparison-v0.1-local-2026-08-03",
+  "head": "stability",
+  "intake": "datasets/benchmark/benchmark_score_cache_intake.local.jsonl",
+  "leakage_check_status": "passed",
+  "local_only": true,
+  "metric_report": "cache/advanced_features/benchmarks/thermompnn_comparison_venus15b_smoke/metric_report.json",
+  "policy": "Real local benchmark artifact for ThermoMPNN comparison plumbing only; no training/model/release gate is opened.",
+  "quality_status": "sample_limited_proxy_comparison_only",
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "scorecard": "cache/advanced_features/benchmarks/thermompnn_comparison_venus15b_smoke/scorecard.json",
+  "source_local_report": "reports/thermompnn_local_source_report.json",
+  "source_smoke_report": "reports/thermompnn_venus15b_smoke_report.json",
+  "split_definition": "cache/advanced_features/benchmarks/thermompnn_comparison_venus15b_smoke/split_definition.json"
+}

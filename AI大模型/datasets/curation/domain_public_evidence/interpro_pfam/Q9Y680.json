@@ -1,0 +1,73 @@
+{
+  "accession": "Q9Y680",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00254",
+        "name": "FKBP-type peptidyl-prolyl cis-trans isomerase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001179",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y680",
+          "protein_length": 222,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 46,
+                  "end": 141,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00254",
+              "score": 1.4e-27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13202",
+        "name": "EF hand",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002048",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y680",
+          "protein_length": 222,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 194,
+                  "end": 214,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13202",
+              "score": 0.98
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "rows": 500,
+  "groups": 145,
+  "label_distribution": {
+    "go": 161,
+    "no_go": 158,
+    "watch": 181
+  },
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curated/enzyme_mutation_training_table.jsonl",
+  "leakage_guard": "label_stability_delta_tm_c and label_ddg are retained as metadata and must not be used as training features"
+}

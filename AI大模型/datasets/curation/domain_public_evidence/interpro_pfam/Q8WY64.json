@@ -1,0 +1,141 @@
+{
+  "accession": "Q8WY64",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00373",
+        "name": "FERM central domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019748",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wy64",
+          "protein_length": 445,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 84,
+                  "end": 190,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00373",
+              "score": 2.7e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09379",
+        "name": "FERM N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR018979",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wy64",
+          "protein_length": 445,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 5,
+                  "end": 67,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09379",
+              "score": 2.4e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09380",
+        "name": "FERM C-terminal PH-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR018980",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wy64",
+          "protein_length": 445,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 194,
+                  "end": 278,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09380",
+              "score": 0.006
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13920",
+        "name": "Zinc finger, C3HC4 type (RING finger)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wy64",
+          "protein_length": 445,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 384,
+                  "end": 428,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13920",
+              "score": 8.7e-08
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

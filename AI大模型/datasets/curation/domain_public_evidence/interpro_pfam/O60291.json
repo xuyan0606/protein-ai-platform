@@ -1,0 +1,73 @@
+{
+  "accession": "O60291",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF13920",
+        "name": "Zinc finger, C3HC4 type (RING finger)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60291",
+          "protein_length": 552,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 275,
+                  "end": 320,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13920",
+              "score": 3.6e-11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF26192",
+        "name": "RNF157-like N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR058981",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60291",
+          "protein_length": 552,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 88,
+                  "end": 248,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF26192",
+              "score": 1.7e-12
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

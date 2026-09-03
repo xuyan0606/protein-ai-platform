@@ -1,0 +1,25 @@
+{
+  "completion_ready_rows": 0,
+  "contract_valid": true,
+  "created_at": "2026-09-03T07:33:45.154344+00:00",
+  "expected_packet_rows": 12,
+  "failure_count": 0,
+  "failures": [],
+  "inputs": {
+    "wet_lab_head_authorization_gap_plan_report": "reports/wet_lab_head_authorization_gap_plan_report.json"
+  },
+  "local_only": true,
+  "markdown": "reports/wet_lab_hard_gate_operator_packets.md",
+  "markdown_matches_current_packets": true,
+  "output": "reports/wet_lab_hard_gate_operator_packet_validation_report.json",
+  "packet_report": "reports/wet_lab_hard_gate_operator_packet_report.json",
+  "packet_rows": 12,
+  "packets": "datasets/feedback/wet_lab_hard_gate_operator_packets.jsonl",
+  "policy": "Validation only. Passing means wet-lab hard-gate packets are current and fail-closed, not approved.",
+  "release_ready": false,
+  "report_matches_current_packets": true,
+  "safe_for_feedback_intake": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "status": "blocked"
+}

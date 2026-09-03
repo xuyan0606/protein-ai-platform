@@ -1,0 +1,47 @@
+{
+  "blocked_heads": [
+    "mutation_rank",
+    "stability",
+    "activity_risk",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "checked_gap_actions_jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/five_head_training_gap_actions.jsonl",
+  "checked_report": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/five_head_training_gap_plan_report.json",
+  "created_at": "2026-09-03T07:32:22.465379+00:00",
+  "expected_heads": [
+    "mutation_rank",
+    "stability",
+    "activity_risk",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "expected_signals": {
+    "feature_rows_excluded_from_labels": 210,
+    "fireprot_mapping_candidate_rows": 5067,
+    "fireprot_reviewed_import_candidate_rows": 0,
+    "plate_feedback_ready_for_intake_rows": 0,
+    "wet_lab_authorization_worklist_rows": 12,
+    "wet_lab_authorized_rows": 8,
+    "wet_lab_candidate_rows": 445,
+    "wet_lab_numeric_activity_rows": 6,
+    "wet_lab_numeric_candidate_rows": 6,
+    "wet_lab_numeric_stability_rows": 0
+  },
+  "failures": [],
+  "gap_action_heads": [
+    "mutation_rank",
+    "stability",
+    "activity_risk",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "gap_action_jsonl_rows": 5,
+  "local_only": true,
+  "policy": "Fail-closed validation for five-head gap planning; no labels, approvals, training, or claims are created.",
+  "ready_heads": 0,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "success": true
+}

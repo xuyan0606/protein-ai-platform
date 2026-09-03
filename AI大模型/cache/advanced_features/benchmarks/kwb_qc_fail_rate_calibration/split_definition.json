@@ -1,0 +1,23 @@
+{
+  "benchmark_name": "QC fail-rate calibration",
+  "created_at": "2026-09-03T07:33:37.289663+00:00",
+  "future_training_exclusion_required": true,
+  "head": "assay_success",
+  "leakage_basis": "Batch summaries derive only from the existing evaluation-only replicate consistency cache and are excluded from training labels.",
+  "leakage_check_status": "passed",
+  "local_only": true,
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "split_strategy": "evaluation_only_batch_grouped_no_training",
+  "test_record_ids": [
+    "kwb_4g_qc_fail_rate_calibration::1",
+    "kwb_4g_qc_fail_rate_calibration::2",
+    "kwb_4g_qc_fail_rate_calibration::3",
+    "kwb_4g_qc_fail_rate_calibration::4",
+    "kwb_4g_qc_fail_rate_calibration::5"
+  ],
+  "test_rows": 5,
+  "train_rows": 0,
+  "validation_rows": 0
+}

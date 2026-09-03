@@ -1,0 +1,73 @@
+{
+  "accession": "O94923",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF06662",
+        "name": "D-glucuronyl C5-epimerase C-terminus",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR010598",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94923",
+          "protein_length": 617,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 416,
+                  "end": 607,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF06662",
+              "score": 3.2e-70
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21174",
+        "name": "D-glucuronyl C5-epimerase, beta-sandwich domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR059154",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94923",
+          "protein_length": 617,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 268,
+                  "end": 388,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF21174",
+              "score": 5.2e-39
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

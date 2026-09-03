@@ -1,0 +1,107 @@
+{
+  "accession": "Q14697",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01055",
+        "name": "Glycosyl hydrolases family 31 TIM-barrel domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000322",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q14697",
+          "protein_length": 944,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 387,
+                  "end": 714,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01055",
+              "score": 1.8e-121
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13802",
+        "name": "Glycosyl hydrolase 31 N-terminal galactose mutarotase-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR025887",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q14697",
+          "protein_length": 944,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 89,
+                  "end": 324,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13802",
+              "score": 3.9e-42
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21365",
+        "name": "Glycosyl hydrolase family 31 C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR048395",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q14697",
+          "protein_length": 944,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 722,
+                  "end": 810,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF21365",
+              "score": 7.1e-24
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

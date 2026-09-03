@@ -1,0 +1,23 @@
+{
+  "artifacts": {
+    "strict_decisions": "datasets/curation/kwb_venus15b_strict_holdout_review_decisions.jsonl",
+    "strict_packets": "datasets/curation/kwb_venus15b_strict_holdout_review_packets.jsonl",
+    "strict_template": "datasets/curation/kwb_venus15b_strict_holdout_review_decisions.template.jsonl",
+    "substrate_decisions": "datasets/curation/substrate_identity_review_decisions.jsonl",
+    "substrate_packets": "datasets/curation/substrate_identity_review_packets.jsonl",
+    "substrate_template": "datasets/curation/substrate_identity_review_decisions.template.jsonl"
+  },
+  "created_at": "2026-09-03T07:32:23.529359+00:00",
+  "policy": "Packets are real source-traced review work, but no formal human decision is inferred.",
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "strict_candidate_rows": 3,
+  "strict_formal_decision_rows": 0,
+  "strict_holdout_rows_written": 0,
+  "strict_packet_rows": 3,
+  "substrate_candidate_rows": 9,
+  "substrate_fit_training_rows_written": 0,
+  "substrate_formal_decision_rows": 0,
+  "substrate_packet_rows": 9,
+  "training_import_written_rows": 0
+}

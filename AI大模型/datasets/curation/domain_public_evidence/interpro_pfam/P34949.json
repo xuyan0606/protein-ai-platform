@@ -1,0 +1,107 @@
+{
+  "accession": "P34949",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01238",
+        "name": "Phosphomannose isomerase type I C-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR046456",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p34949",
+          "protein_length": 423,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 337,
+                  "end": 381,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01238",
+              "score": 2.8e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF20511",
+        "name": "Phosphomannose isomerase type I, catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR046457",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p34949",
+          "protein_length": 423,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 6,
+                  "end": 154,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF20511",
+              "score": 2.3e-59
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF20512",
+        "name": "Phosphomannose isomerase type I, helical insertion domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR046458",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p34949",
+          "protein_length": 423,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 170,
+                  "end": 257,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF20512",
+              "score": 5.2e-28
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

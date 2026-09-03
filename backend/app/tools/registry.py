@@ -6,9 +6,12 @@ Inspired by:
 - deepagents: middleware-compatible tool schema
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from typing import Any, Callable
 from enum import Enum
+import inspect
 
 
 class ErrorReason(str, Enum):
@@ -116,6 +119,7 @@ class ToolRegistry:
         annotations: dict | None = None,
     ):
         """Register a tool with full metadata and error contracts."""
+        effective_is_async = is_async or inspect.iscoroutinefunction(handler)
         tool_errors = []
         if errors:
             for e in errors:
@@ -131,7 +135,7 @@ class ToolRegistry:
             description=description,
             parameters=parameters,
             handler=handler,
-            is_async=is_async,
+            is_async=effective_is_async,
             category=category,
             errors=tool_errors,
             timeout_seconds=timeout_seconds,
@@ -145,42 +149,103 @@ class ToolRegistry:
 
     # ---- Discovery ----
 
+    # All tool modules to load.  Each entry is (module_path, label).
+    # Label is optional — defaults to module name.
+    _TOOL_MODULES: list[str] = [
+        "app.tools.predict_properties",
+        "app.tools.sequence_search",
+        "app.tools.esmfold_folding",
+        "app.tools.mutation_scan",
+        "app.tools.blast_search",
+        "app.tools.alphafold_folding",
+        "app.tools.alphafold2_folding",
+        "app.tools.diffdock_docking",
+        "app.tools.proteinmpnn_design",
+        "app.tools.rfdiffusion_design",
+        "app.tools.esm2_predict",
+        "app.tools.esm3_generate",
+        "app.tools.ligandmpnn_design",
+        "app.tools.esm1v_predict",
+        "app.tools.rosettafold_folding",
+        "app.tools.rosettafold_allatom",
+        "app.tools.rosetta_ddg",
+        "app.tools.boltz1_predict",
+        "app.tools.ligand_preprocess",
+        "app.tools.esm_if1_design",
+        "app.tools.progen2_generate",
+        "app.tools.evodiff_generate",
+        "app.tools.chroma_design",
+        "app.tools.soluble_mpnn_design",
+        "app.tools.gromacs_md",
+        "app.tools.enzyme_identity_profile",
+        "app.tools.mutation_priority_score",
+        "app.tools.kwb_enzyme_designer",
+        "app.tools.protein_benchmark",
+        "app.tools.protssn_score",
+        "app.tools.enzyme_function",
+        "app.tools.kcat_predict",
+        "app.tools.data_lookup",
+        "app.tools.wt_baseline_registry",
+        "app.tools.annotation_bundle",
+        "app.tools.interpro_annotation",
+        "app.tools.interpro_live_lookup",
+        "app.tools.interproscan_sequence_submit",
+        "app.tools.literature_live_search",
+        "app.tools.external_connectivity_check",
+        "app.tools.catalytic_site_lookup",
+        "app.tools.signal_peptide_predict",
+        "app.tools.residue_mapping_sifts",
+        "app.tools.structure_search_foldseek",
+        "app.tools.site_structure_function_features",
+        "app.tools.pocket_residue_lookup",
+        "app.tools.mutation_epistasis_check",
+        "app.tools.feedback_iteration_planner",
+        "app.tools.residue_numbering_gate",
+        "app.tools.scientific_claim_gate",
+        "app.tools.enzyme_objective_module_plan",
+        "app.tools.tool_capability_audit",
+        "app.tools.bio_specialty_input_gate",
+        "app.tools.external_research_evidence",
+    ]
+
     @classmethod
     def discover(cls):
-        """Import all tool modules to trigger @register_tool decorators."""
-        import concurrent.futures
+        """Import all tool modules with per-module error handling.
 
-        import app.tools.predict_properties  # noqa
-        import app.tools.sequence_search  # noqa
-        import app.tools.esmfold_folding  # noqa
-        import app.tools.mutation_scan  # noqa
-        import app.tools.blast_search  # noqa
-        import app.tools.alphafold_folding  # noqa
-        import app.tools.alphafold2_folding  # noqa
-        import app.tools.diffdock_docking  # noqa
-        import app.tools.proteinmpnn_design  # noqa
-        import app.tools.rfdiffusion_design  # noqa
-        import app.tools.esm2_predict  # noqa
-        import app.tools.esm3_generate  # noqa
-        import app.tools.ligandmpnn_design  # noqa
-        import app.tools.esm1v_predict  # noqa
-        import app.tools.rosettafold_folding  # noqa
-        import app.tools.rosettafold_allatom  # noqa
-        import app.tools.boltz1_predict  # noqa
-        import app.tools.esm_if1_design  # noqa
-        import app.tools.progen2_generate  # noqa
-        import app.tools.evodiff_generate  # noqa
-        import app.tools.chroma_design  # noqa
-        import app.tools.soluble_mpnn_design  # noqa
-        import app.tools.gromacs_md  # noqa
-        import app.tools.mutation_priority_score  # noqa
-        import app.tools.protein_benchmark  # noqa
-        import app.tools.protssn_score  # noqa
-        import app.tools.enzyme_function  # noqa
-        import app.tools.kcat_predict  # noqa
-        import app.tools.data_lookup  # noqa
+        Each import is wrapped in try/except so one broken module (missing
+        dependency, network timeout at module level, etc.) never blocks the
+        rest.  Failed tools are clearly logged and simply skipped.
+        """
+        import importlib
+        import logging
+        import time
+
+        _log = logging.getLogger(__name__)
+
+        ok = 0
+        failed = 0
+
+        for mod in cls._TOOL_MODULES:
+            name = mod.rsplit(".", 1)[-1]
+            start = time.monotonic()
+            try:
+                importlib.import_module(mod)
+                elapsed = time.monotonic() - start
+                _log.debug("Tool '%s' loaded (%.1fs)", name, elapsed)
+                ok += 1
+            except ImportError as e:
+                elapsed = time.monotonic() - start
+                _log.warning("Tool '%s' skipped — ImportError (%.1fs): %s", name, elapsed, e)
+                failed += 1
+            except Exception as e:
+                elapsed = time.monotonic() - start
+                _log.warning("Tool '%s' skipped — %s (%.1fs): %s", name, type(e).__name__, elapsed, e)
+                failed += 1
+
+        _log.info("Tools: %d loaded, %d skipped", ok, failed)
 
         if cls._executor is None:
+            import concurrent.futures
             cls._executor = concurrent.futures.ThreadPoolExecutor(max_workers=4)
 
     @classmethod
@@ -228,7 +293,7 @@ class ToolRegistry:
     # ---- Execution ----
 
     @classmethod
-    async def execute(cls, name: str, params: dict) -> Any:
+    async def execute(cls, name: str, params: dict, *, internal_params: dict[str, Any] | None = None) -> Any:
         """Execute a tool with error handling and timeout."""
         # Resolve alias
         canonical = cls._aliases.get(name, name)
@@ -260,6 +325,12 @@ class ToolRegistry:
                         filtered[r] = params[r]
             else:
                 filtered = params
+
+            if internal_params:
+                signature = inspect.signature(tool.handler)
+                for key, value in internal_params.items():
+                    if key in signature.parameters:
+                        filtered[key] = value
 
             if tool.is_async:
                 result = await asyncio.wait_for(

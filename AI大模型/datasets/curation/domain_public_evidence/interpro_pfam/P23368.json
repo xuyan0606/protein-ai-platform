@@ -1,0 +1,73 @@
+{
+  "accession": "P23368",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00390",
+        "name": "Malic enzyme, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012301",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p23368",
+          "protein_length": 584,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 89,
+                  "end": 270,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00390",
+              "score": 5.9e-75
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03949",
+        "name": "Malic enzyme, NAD binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012302",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p23368",
+          "protein_length": 584,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 280,
+                  "end": 534,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03949",
+              "score": 2.6e-94
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

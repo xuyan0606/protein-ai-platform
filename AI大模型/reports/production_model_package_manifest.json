@@ -1,0 +1,17 @@
+{
+  "status": "blocked_pending_production_gate",
+  "production_model_artifact": false,
+  "artifacts": [],
+  "blockers": [
+    "requires >=100 strict and claim-eligible real supervised rows",
+    "requires all five model heads ready",
+    "master readiness board is not fully ready",
+    "structure chain review remains incomplete",
+    "wet-lab feedback is not training-authorized",
+    "training readiness does not permit a model-quality claim",
+    "hash-verified production model package is missing or invalid",
+    "completed production multi-task training receipt is missing",
+    "release manifest is not release-ready",
+    "production execution/deployment is not authorized"
+  ]
+}

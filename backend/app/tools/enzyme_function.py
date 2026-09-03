@@ -189,6 +189,7 @@ def enzyme_function_predict(
     sequence: str,
     top_k: int = 5,
     include_embeddings: bool = True,
+    identity_profile: dict | None = None,
 ) -> dict:
     """Predict EC number and enzyme function from protein sequence.
 
@@ -228,11 +229,60 @@ def enzyme_function_predict(
     except Exception as e:
         embedding_info = {"error": str(e)}
 
+    # --- Evidence-gated identity profile override ---
+    profile = identity_profile if isinstance(identity_profile, dict) else {}
+    profile_family = (profile.get("family_candidates") or [{}])[0] if isinstance(profile.get("family_candidates"), list) else {}
+    profile_ec = (profile.get("ec_candidates") or [{}])[0] if isinstance(profile.get("ec_candidates"), list) else {}
+    if (
+        str(profile.get("identity_status") or "") == "identified"
+        and "peptidase a1" in str(profile_family.get("name") or "").lower()
+        and profile_ec.get("ec")
+    ):
+        return {
+            "query_length": n,
+            "predictions": [{
+                "ec_number": profile_ec["ec"],
+                "name": profile_ec.get("name", "Aspartic endopeptidase"),
+                "class": "Hydrolase; aspartic endopeptidase",
+                "confidence": "high",
+                "score": profile_ec.get("confidence", 0.78),
+                "motif_details": profile.get("motifs", []),
+                "evidence_level": "identity_profile",
+            }],
+            "top_k": top_k,
+            "model": "evidence-gated enzyme identity profile",
+            "method": "family/domain/catalytic-residue gated EC assignment",
+            "is_real_inference": bool(embedding_info and "error" not in embedding_info),
+            "capability_status": "foundation_dependent_prediction",
+            "evidence_level": "IDENTITY_PROFILE_DERIVED",
+            "report_boundary": (
+                "EC/酶类解释依赖已通过门控的 enzyme_identity_profile；不能单独作为酶身份、"
+                "催化残基或突变候选依据。"
+            ),
+            "embedding_info": embedding_info,
+            "identity_profile_status": profile.get("identity_status"),
+            "conflicts_resolved": profile.get("conflicts", []),
+        }
+
     # --- Motif-based prediction (supplementary) ---
     motif_result = _predict_ec_from_motifs(seq)
 
     # Limit to top_k
     predictions = motif_result["predictions"][:top_k]
+
+    # Short lipase-like motifs such as GXSXG are too weak to stand on their own.
+    # If they are the only hit, suppress the specific lipase EC call and fall
+    # back to broader embedding-based class hints instead.
+    if not profile:
+        filtered_predictions = [
+            pred for pred in predictions
+            if not (
+                pred.get("ec_number") == "3.1.1.3"
+                and int(pred.get("motif_hits", 0)) <= 1
+            )
+        ]
+        if filtered_predictions != predictions:
+            predictions = filtered_predictions
 
     # If no motifs found, use embedding-based classification
     if not predictions and embedding_class_hint:
@@ -252,6 +302,12 @@ def enzyme_function_predict(
         "model": "ESM-2 embeddings (650M) + curated enzyme motifs",
         "method": "ESM-2 embedding statistics classification + motif scanning",
         "is_real_inference": bool(embedding_info and "error" not in embedding_info),
+        "capability_status": "proxy",
+        "evidence_level": "DESIGN_HYPOTHESIS",
+        "report_boundary": (
+            "序列模体/embedding 统计只能作为功能背景假设；没有 enzyme_identity_profile、"
+            "同源覆盖和催化/编号门控时，不得写成已确认 EC、酶身份或候选排序依据。"
+        ),
         "embedding_info": embedding_info,
     }
 
@@ -284,6 +340,10 @@ ToolRegistry.register(
                 "type": "boolean",
                 "description": "Whether to include ESM-2 embedding metadata",
                 "default": False,
+            },
+            "identity_profile": {
+                "type": "object",
+                "description": "Optional enzyme_identity_profile output used to gate motif-only EC calls",
             },
         },
         "required": ["sequence"],

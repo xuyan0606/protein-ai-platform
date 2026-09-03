@@ -1,0 +1,73 @@
+{
+  "accession": "Q3LXA3",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02733",
+        "name": "Dak1 domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR004006",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q3lxa3",
+          "protein_length": 575,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 20,
+                  "end": 334,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02733",
+              "score": 3.6e-107
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02734",
+        "name": "DAK2 domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR004007",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q3lxa3",
+          "protein_length": 575,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 398,
+                  "end": 570,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02734",
+              "score": 1.1e-46
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

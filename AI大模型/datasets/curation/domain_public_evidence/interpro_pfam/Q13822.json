@@ -1,0 +1,119 @@
+{
+  "accession": "Q13822",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01033",
+        "name": "Somatomedin B domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001212",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13822",
+          "protein_length": 863,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 58,
+                  "end": 96,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01033",
+              "score": 1e-05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 101,
+                  "end": 141,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01033",
+              "score": 4.2e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01223",
+        "name": "DNA/RNA non-specific endonuclease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001604",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13822",
+          "protein_length": 863,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 612,
+                  "end": 844,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01223",
+              "score": 9.7e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01663",
+        "name": "Type I phosphodiesterase / nucleotide pyrophosphatase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002591",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13822",
+          "protein_length": 863,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 166,
+                  "end": 478,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01663",
+              "score": 6.3e-91
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

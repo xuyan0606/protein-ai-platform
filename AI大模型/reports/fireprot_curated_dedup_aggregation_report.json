@@ -1,0 +1,32 @@
+{
+  "aggregation_value_candidate_groups": 2124,
+  "automated_checks_passed": true,
+  "candidate_rows": 5067,
+  "claim_eligible_rows_now": 0,
+  "created_at": "2026-09-03T07:33:50.429070+00:00",
+  "dedup_policy_approved": false,
+  "duplicate_mutation_key_count": 2133,
+  "duplicate_source_rows": 4295,
+  "exact_label_repeat_groups": 2122,
+  "groups_with_missing_numeric_label": 0,
+  "heterogeneous_assay_signature_groups": 9,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/fireprot_curated_kwb_schema_mapping_candidates.jsonl",
+  "input_sha256": "3cce6de8f86bcce7d31004d6edc9c2ee5c4c8eabdb83e3c974c4389c09220ee2",
+  "local_only": true,
+  "manual_review_required_groups": 2133,
+  "non_duplicate_source_rows": 772,
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/fireprot_curated_dedup_aggregation_candidates.jsonl",
+  "policy": "This artifact proposes no approved labels. Same-condition medians are review candidates only; heterogeneous assay records remain separate.",
+  "ready_for_training_import_rows": 0,
+  "remaining_blockers": [
+    "human_dedup_policy_approval_missing",
+    "human_selection_or_aggregation_receipts_missing",
+    "license_scope_not_selected",
+    "reviewed_numbering_not_complete",
+    "formal_supervised_import_not_authorized"
+  ],
+  "safe_for_model_claim": false,
+  "same_assay_signature_groups": 2124,
+  "source_split_overlap_groups": 2133,
+  "unique_mutation_keys": 2905
+}

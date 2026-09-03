@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-09-03T07:34:46.741625+00:00",
+  "success": true,
+  "case_rows": 4,
+  "passed_rows": 4,
+  "failed_rows": 0,
+  "real_inputs_mutated": false,
+  "results": [
+    {
+      "case_id": "audit_rows_drift",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 6
+    },
+    {
+      "case_id": "local_artifact_rows_drift",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 6
+    },
+    {
+      "case_id": "automatic_promotion_forged",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 6
+    },
+    {
+      "case_id": "promotion_validation_forged_false",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 7
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Regression mutates temporary release copies only; canonical release and promotion reports must remain byte-identical."
+}

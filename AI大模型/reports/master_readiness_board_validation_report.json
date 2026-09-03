@@ -1,0 +1,23 @@
+{
+  "checked_board": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/master_readiness_board.json",
+  "created_at": "2026-09-03T07:34:02.005866+00:00",
+  "expected_streams": [
+    "numbering_curation",
+    "structure_cache",
+    "domain_intervals",
+    "msa_conservation",
+    "kwb_experiment_feedback",
+    "model_training",
+    "governance_release",
+    "platform_integration"
+  ],
+  "failures": [],
+  "local_only": true,
+  "overall_status": "blocked_for_model_claim",
+  "policy": "Fail-closed validation for the master readiness board; no stream is promoted and no model/release gate is opened.",
+  "ready_streams": 1,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "success": true,
+  "total_streams": 8
+}

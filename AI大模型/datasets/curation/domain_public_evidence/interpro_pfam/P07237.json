@@ -1,0 +1,85 @@
+{
+  "accession": "P07237",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00085",
+        "name": "Thioredoxin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013766",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07237",
+          "protein_length": 508,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 26,
+                  "end": 131,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00085",
+              "score": 7e-29
+            },
+            {
+              "fragments": [
+                {
+                  "start": 369,
+                  "end": 471,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00085",
+              "score": 3.6e-22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13848",
+        "name": "Thioredoxin-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07237",
+          "protein_length": 508,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 161,
+                  "end": 344,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13848",
+              "score": 1.8e-38
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

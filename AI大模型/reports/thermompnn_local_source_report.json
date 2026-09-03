@@ -1,0 +1,98 @@
+{
+  "created_at": "2026-09-03T07:32:08.040480+00:00",
+  "local_only": true,
+  "source_dir": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/ThermoMPNN",
+  "source_present": true,
+  "git_commit": "2b04fd370e399911b1fa5848112cc9013f084110",
+  "file_count": 60,
+  "required_files": [
+    "README.md",
+    "LICENSE",
+    "environment.yaml",
+    "local.yaml",
+    "analysis/custom_inference.py",
+    "analysis/SSM.py",
+    "analysis/thermompnn_benchmarking.py",
+    "models/thermoMPNN_default.pt",
+    "examples/2OCJ.pdb"
+  ],
+  "missing_required_files": [],
+  "source_ready": true,
+  "license_type": "MIT",
+  "license_ready": true,
+  "license_file": "cache/external/ThermoMPNN/LICENSE",
+  "readme_present": true,
+  "inference_entry_ready": true,
+  "model_weight_ready": true,
+  "model_weight_rows": [
+    {
+      "path": "models/thermoMPNN_default.pt",
+      "size_bytes": 38894003,
+      "sha256": "af449118ccfb4e34971d802321907ed82a8a035ae80f055bf8fc56009a4a838a"
+    },
+    {
+      "path": "vanilla_model_weights/v_48_002.pt",
+      "size_bytes": 6681301,
+      "sha256": "925f2ca1007bf9b02e0e7f420ff00eb91f50fcc2722f64b42e644ae95adaa131"
+    },
+    {
+      "path": "vanilla_model_weights/v_48_010.pt",
+      "size_bytes": 6681301,
+      "sha256": "db866fae956a28661f926053d630610c55e9fc4bc03922f2aeeb98a37435ccce"
+    },
+    {
+      "path": "vanilla_model_weights/v_48_020.pt",
+      "size_bytes": 6681301,
+      "sha256": "c9cb4a671d79604111231f8dbfc7c590e06f1197453b7a6854ac6661a642f5bd"
+    },
+    {
+      "path": "vanilla_model_weights/v_48_030.pt",
+      "size_bytes": 6681301,
+      "sha256": "c34b7bfb38418ea30989fda3314f4781ac4e3920f9825731cf555f1fed44ac66"
+    }
+  ],
+  "runtime_modules": {
+    "torch": true,
+    "pandas": true,
+    "numpy": true,
+    "tqdm": true,
+    "omegaconf": true,
+    "Bio": true,
+    "pytorch_lightning": true,
+    "torchmetrics": true,
+    "wandb": true,
+    "joblib": true
+  },
+  "runtime_python": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/.venv-thermompnn/bin/python",
+  "runtime_modules_current_python": {
+    "torch": true,
+    "pandas": true,
+    "numpy": true,
+    "tqdm": false,
+    "omegaconf": false,
+    "Bio": false,
+    "pytorch_lightning": false,
+    "torchmetrics": false,
+    "wandb": false,
+    "joblib": false
+  },
+  "runtime_modules_venv": {
+    "torch": true,
+    "pandas": true,
+    "numpy": true,
+    "tqdm": true,
+    "omegaconf": true,
+    "Bio": true,
+    "pytorch_lightning": true,
+    "torchmetrics": true,
+    "wandb": true,
+    "joblib": true
+  },
+  "runtime_dependency_ready": true,
+  "missing_runtime_modules": [],
+  "ready_for_local_inference": true,
+  "ready_as_ddg_proxy_backend": true,
+  "source_license_model_ready": true,
+  "safe_for_model_claim": false,
+  "policy": "ThermoMPNN is a predicted stability/ddG-proxy backend; it is not a wet-lab stability label and not Rosetta/FoldX physics ddG."
+}

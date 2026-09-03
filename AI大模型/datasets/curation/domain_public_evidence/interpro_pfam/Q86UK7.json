@@ -1,0 +1,141 @@
+{
+  "accession": "Q86UK7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF23202",
+        "name": "ZNF598 PAH domain",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR057634",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86uk7",
+          "protein_length": 904,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 755,
+                  "end": 833,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF23202",
+              "score": 8.3e-23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23208",
+        "name": "ZNF598 C2H2 zinc finger domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR059042",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86uk7",
+          "protein_length": 904,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 861,
+                  "end": 894,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF23208",
+              "score": 1.3e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23230",
+        "name": "C2H2-type zinc finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR056437",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86uk7",
+          "protein_length": 904,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 213,
+                  "end": 266,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF23230",
+              "score": 0.003
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25447",
+        "name": "ZNF598 RING finger domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86uk7",
+          "protein_length": 904,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 27,
+                  "end": 113,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25447",
+              "score": 2.7e-43
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

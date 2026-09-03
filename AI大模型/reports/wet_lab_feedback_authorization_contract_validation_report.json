@@ -1,0 +1,76 @@
+{
+  "apply_plan_jsonl_rows": 8,
+  "apply_plan_rows": 8,
+  "authorization_jsonl_rows": 8,
+  "authorization_rows": 8,
+  "authorized_rows": 8,
+  "candidate_jsonl_rows": 445,
+  "candidate_rows": 445,
+  "checked_report": "reports/wet_lab_feedback_authorization_contract_report.json",
+  "checked_source_jsonl": {
+    "apply_plan_rows": "datasets/feedback/wet_lab_mutant_library_feedback_intake_apply_plan.jsonl",
+    "authorization_rows": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+    "candidate_rows": "datasets/feedback/wet_lab_mutant_library_feedback_candidates.jsonl",
+    "duplicate_audit_rows": "datasets/feedback/wet_lab_feedback_apply_duplicate_audit.jsonl",
+    "preflight_rows": "datasets/feedback/wet_lab_mutant_library_feedback_preflight.jsonl"
+  },
+  "checked_source_reports": {
+    "apply_plan_report": "reports/wet_lab_mutant_library_feedback_intake_apply_plan_report.json",
+    "authorization_report": "reports/wet_lab_mutant_library_feedback_authorization_validation_report.json",
+    "candidate_report": "reports/wet_lab_mutant_library_feedback_candidate_report.json",
+    "duplicate_audit_report": "reports/wet_lab_feedback_apply_duplicate_audit_report.json",
+    "duplicate_audit_validation_report": "reports/wet_lab_feedback_apply_duplicate_audit_validation_report.json",
+    "preflight_report": "reports/wet_lab_mutant_library_feedback_preflight_report.json",
+    "semantic_guard_report": "reports/feedback_training_import_semantic_guard_report.json"
+  },
+  "claim_eligible_rows_now": 0,
+  "created_at": "2026-09-03T07:32:18.703061+00:00",
+  "current_state": {
+    "apply_plan_rows": 8,
+    "authorization_rows": 8,
+    "authorized_rows": 8,
+    "claim_eligible_rows_now": 0,
+    "numeric_training_candidate_rows": 12,
+    "preflight_rows": 8,
+    "ready_for_training_import_rows": 0,
+    "wet_lab_candidate_rows": 445
+  },
+  "duplicate_audit_already_represented_rows": 6,
+  "duplicate_audit_new_feedback_only_rows": 2,
+  "duplicate_audit_safe_to_append_rows": 0,
+  "duplicate_audit_training_import_rows": 0,
+  "failures": [],
+  "jsonl_invalid_row_counts": {
+    "apply_plan_rows": 0,
+    "authorization_rows": 0,
+    "candidate_rows": 0,
+    "duplicate_audit_rows": 0,
+    "preflight_rows": 0
+  },
+  "jsonl_row_counts": {
+    "apply_plan_rows": 8,
+    "authorization_rows": 8,
+    "candidate_rows": 445,
+    "duplicate_audit_rows": 8,
+    "preflight_rows": 8
+  },
+  "local_only": true,
+  "negative_protection_checks": {
+    "apply_plan_not_greater_than_authorized": true,
+    "authorizations_are_explicit_rows": true,
+    "duplicate_audit_blocks_reappend": true,
+    "numeric_candidates_not_counted_as_authorized": true,
+    "positive_ready_claim_or_release_flags_fail_validation": true,
+    "preflight_not_greater_than_authorized": true
+  },
+  "numeric_training_candidate_rows": 12,
+  "policy": "Fail-closed validation: candidate presence and numeric candidate counts never authorize consumption. Any positive ready_for_training_import, claim_eligible, safe_for_model_claim, or release_ready signal, any preflight/apply count above authorized rows, or any authorization count unsupported by actual authorization rows fails validation.",
+  "preflight_jsonl_rows": 8,
+  "preflight_rows": 8,
+  "ready_for_training_import_rows": 0,
+  "release_ready": false,
+  "report_id": "wet_lab_feedback_authorization_contract_validation_report",
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "success": true
+}

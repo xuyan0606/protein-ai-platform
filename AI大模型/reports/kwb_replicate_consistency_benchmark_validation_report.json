@@ -1,0 +1,19 @@
+{
+  "benchmark_name": "replicate consistency",
+  "created_at": "2026-09-03T07:33:37.262882+00:00",
+  "dataset": "cache/advanced_features/benchmarks/kwb_4g_replicate_consistency/dataset.jsonl",
+  "dataset_rows": 23,
+  "failures": [],
+  "intake_row_present": true,
+  "local_only": true,
+  "metric_report": "cache/advanced_features/benchmarks/kwb_4g_replicate_consistency/metric_report.json",
+  "policy": "Evaluation-only replicate consistency benchmark. It validates local benchmark plumbing and assay repeatability summaries, not assay_success training labels or model quality.",
+  "quality_status": "internal_replicate_consistency_cache_ready_not_model_claim",
+  "raw_measurement_rows_used": 315,
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "scorecard": "cache/advanced_features/benchmarks/kwb_4g_replicate_consistency/scorecard.json",
+  "split_definition": "cache/advanced_features/benchmarks/kwb_4g_replicate_consistency/split_definition.json",
+  "success": true
+}

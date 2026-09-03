@@ -1,0 +1,146 @@
+#!/usr/bin/env python3
+"""Validate the P485 next-unlock blocker matrix gap audit."""
+
+from __future__ import annotations
+
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+
+
+AI_ROOT = Path(__file__).resolve().parents[1]
+BLOCKER_MATRIX = AI_ROOT / "reports" / "next_unlock_blocker_matrix.json"
+BLOCKERS = AI_ROOT / "datasets" / "governance" / "next_unlock_blockers.jsonl"
+P484_REPORT = AI_ROOT / "reports" / "p484_next_unlock_operator_navigation_gap_audit_report.json"
+P484_VALIDATION = AI_ROOT / "reports" / "p484_next_unlock_operator_navigation_gap_audit_validation_report.json"
+EXECUTION_VALIDATION = AI_ROOT / "reports" / "next_unlock_execution_validation_report.json"
+LOCAL_RELEASE = AI_ROOT / "reports" / "local_release_manifest.json"
+CLAIM_MATRIX = AI_ROOT / "reports" / "claim_readiness_matrix.json"
+AUDIT = AI_ROOT / "datasets" / "governance" / "p485_next_unlock_blocker_matrix_gap_audit.jsonl"
+REPORT = AI_ROOT / "reports" / "p485_next_unlock_blocker_matrix_gap_audit_report.json"
+OUT = AI_ROOT / "reports" / "p485_next_unlock_blocker_matrix_gap_audit_validation_report.json"
+
+
+def load_json(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+    value = json.loads(path.read_text(encoding="utf-8"))
+    return value if isinstance(value, dict) else {}
+
+
+def load_jsonl(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+
+def fail_if(condition: bool, failures: list[dict[str, Any]], check: str, observed: Any, expected: Any) -> None:
+    if condition:
+        failures.append({"check": check, "observed": observed, "expected": expected})
+
+
+def main() -> int:
+    matrix = load_json(BLOCKER_MATRIX)
+    p484_report = load_json(P484_REPORT)
+    p484_validation = load_json(P484_VALIDATION)
+    execution_validation = load_json(EXECUTION_VALIDATION)
+    local_release = load_json(LOCAL_RELEASE)
+    claim_matrix = load_json(CLAIM_MATRIX)
+    blockers = [row for row in load_jsonl(BLOCKERS) if isinstance(row, dict)]
+    audit_rows = load_jsonl(AUDIT)
+    report = load_json(REPORT)
+    expected_rows = len(blockers) + 1
+    open_blocker_rows = sum(1 for row in blockers if row.get("status") == "open")
+    blockers_by_id = {row.get("blocker_id"): row for row in blockers}
+    failures: list[dict[str, Any]] = []
+
+    fail_if(len(audit_rows) != expected_rows, failures, "audit_rows_expected", len(audit_rows), expected_rows)
+    fail_if(report.get("audit_rows") != expected_rows, failures, "report_audit_rows_expected", report.get("audit_rows"), expected_rows)
+    fail_if(report.get("blocker_audit_rows") != len(blockers), failures, "blocker_audit_rows_bound", report.get("blocker_audit_rows"), len(blockers))
+    fail_if(report.get("summary_audit_rows") != 1, failures, "summary_audit_rows_one", report.get("summary_audit_rows"), 1)
+    fail_if(report.get("open_blocker_rows") != open_blocker_rows, failures, "open_blocker_rows_bound", report.get("open_blocker_rows"), open_blocker_rows)
+    fail_if(report.get("blocker_rows") != matrix.get("blocker_rows"), failures, "blocker_rows_bound", report.get("blocker_rows"), matrix.get("blocker_rows"))
+    fail_if(report.get("critical_blockers") != matrix.get("critical_blockers"), failures, "critical_blockers_bound", report.get("critical_blockers"), matrix.get("critical_blockers"))
+    fail_if(report.get("high_blockers") != matrix.get("high_blockers"), failures, "high_blockers_bound", report.get("high_blockers"), matrix.get("high_blockers"))
+    fail_if(report.get("medium_blockers") != matrix.get("medium_blockers"), failures, "medium_blockers_bound", report.get("medium_blockers"), matrix.get("medium_blockers"))
+    fail_if(report.get("blocked_actions") != matrix.get("blocked_actions"), failures, "blocked_actions_bound", report.get("blocked_actions"), matrix.get("blocked_actions"))
+    fail_if(report.get("completion_ready_actions") != matrix.get("completion_ready_actions"), failures, "completion_ready_actions_bound", report.get("completion_ready_actions"), matrix.get("completion_ready_actions"))
+    fail_if(report.get("p484_open_item_rows") != p484_report.get("open_item_rows"), failures, "p484_open_item_rows_bound", report.get("p484_open_item_rows"), p484_report.get("open_item_rows"))
+    fail_if(report.get("p484_validation_success") is not True, failures, "p484_validation_success_true", report.get("p484_validation_success"), True)
+    fail_if(p484_validation.get("success") is not True, failures, "source_p484_validation_success_true", p484_validation.get("success"), True)
+    fail_if(report.get("execution_validation_blocked_actions") != execution_validation.get("blocked_actions"), failures, "execution_validation_blocked_actions_bound", report.get("execution_validation_blocked_actions"), execution_validation.get("blocked_actions"))
+    fail_if(report.get("local_release_ready") is not False, failures, "local_release_ready_false", report.get("local_release_ready"), False)
+    fail_if(local_release.get("release_ready") is not False, failures, "source_local_release_ready_false", local_release.get("release_ready"), False)
+    fail_if(report.get("claims_blocked") != claim_matrix.get("claims_blocked"), failures, "claims_blocked_bound", report.get("claims_blocked"), claim_matrix.get("claims_blocked"))
+    fail_if(matrix.get("blocker_rows") != len(blockers), failures, "source_blocker_rows_bound", matrix.get("blocker_rows"), len(blockers))
+    fail_if(matrix.get("blocked_actions") != execution_validation.get("blocked_actions"), failures, "source_blocked_actions_match_validation", matrix.get("blocked_actions"), execution_validation.get("blocked_actions"))
+    fail_if(matrix.get("completion_ready_actions") != execution_validation.get("completion_ready_actions"), failures, "source_ready_actions_match_validation", matrix.get("completion_ready_actions"), execution_validation.get("completion_ready_actions"))
+    fail_if(open_blocker_rows != len(blockers), failures, "all_blocker_rows_open", open_blocker_rows, len(blockers))
+
+    seen_blockers: list[Any] = []
+    seen_types: list[Any] = []
+    for idx, row in enumerate(audit_rows):
+        gap_type = row.get("gap_type")
+        seen_types.append(gap_type)
+        fail_if(gap_type not in {"next_unlock_blocker_matrix_gap", "next_unlock_blocker_matrix_summary_gap"}, failures, "gap_type_allowed", {"index": idx, "observed": gap_type}, "allowed P485 gap type")
+        for field in ("training_import_allowed", "safe_for_training_import", "safe_for_model_claim", "customer_delivery_ready", "release_ready", "production_execution_allowed", "completion_ready"):
+            fail_if(row.get(field) is not False, failures, f"row_{field}_false", {"index": idx, "observed": row.get(field)}, False)
+        if gap_type == "next_unlock_blocker_matrix_gap":
+            blocker_id = row.get("blocker_id")
+            seen_blockers.append(blocker_id)
+            source = blockers_by_id.get(blocker_id, {})
+            fail_if(blocker_id not in blockers_by_id, failures, "blocker_known", {"index": idx, "observed": blocker_id}, sorted(blockers_by_id))
+            fail_if(row.get("action_id") != source.get("action_id"), failures, "blocker_action_id_bound", {"index": idx, "observed": row.get("action_id")}, source.get("action_id"))
+            fail_if(row.get("stage_id") != source.get("stage_id"), failures, "blocker_stage_id_bound", {"index": idx, "observed": row.get("stage_id")}, source.get("stage_id"))
+            fail_if(row.get("workstream") != source.get("workstream"), failures, "blocker_workstream_bound", {"index": idx, "observed": row.get("workstream")}, source.get("workstream"))
+            fail_if(row.get("severity") != source.get("severity"), failures, "blocker_severity_bound", {"index": idx, "observed": row.get("severity")}, source.get("severity"))
+            fail_if(row.get("source_status") != source.get("status"), failures, "blocker_status_bound", {"index": idx, "observed": row.get("source_status")}, source.get("status"))
+            fail_if(source.get("status") != "open", failures, "source_blocker_status_open", {"index": idx, "observed": source.get("status")}, "open")
+        if gap_type == "next_unlock_blocker_matrix_summary_gap":
+            fail_if(row.get("open_blocker_rows") != open_blocker_rows, failures, "summary_open_blocker_rows_bound", row.get("open_blocker_rows"), open_blocker_rows)
+            fail_if(row.get("blocker_rows") != matrix.get("blocker_rows"), failures, "summary_blocker_rows_bound", row.get("blocker_rows"), matrix.get("blocker_rows"))
+            fail_if(row.get("critical_blockers") != matrix.get("critical_blockers"), failures, "summary_critical_blockers_bound", row.get("critical_blockers"), matrix.get("critical_blockers"))
+            fail_if(row.get("high_blockers") != matrix.get("high_blockers"), failures, "summary_high_blockers_bound", row.get("high_blockers"), matrix.get("high_blockers"))
+            fail_if(row.get("medium_blockers") != matrix.get("medium_blockers"), failures, "summary_medium_blockers_bound", row.get("medium_blockers"), matrix.get("medium_blockers"))
+
+    fail_if(sorted(seen_blockers) != sorted(blockers_by_id), failures, "blockers_exactly_covered", sorted(seen_blockers), sorted(blockers_by_id))
+    fail_if(seen_types.count("next_unlock_blocker_matrix_gap") != len(blockers), failures, "blocker_gap_type_count", seen_types.count("next_unlock_blocker_matrix_gap"), len(blockers))
+    fail_if(seen_types.count("next_unlock_blocker_matrix_summary_gap") != 1, failures, "summary_type_count", seen_types.count("next_unlock_blocker_matrix_summary_gap"), 1)
+    for field in ("training_import_allowed", "safe_for_training_import", "safe_for_model_claim", "customer_delivery_ready", "release_ready", "production_execution_allowed"):
+        fail_if(report.get(field) is not False, failures, f"report_{field}_false", report.get(field), False)
+
+    result = {
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "local_only": True,
+        "success": not failures,
+        "audit_rows": len(audit_rows),
+        "blocker_audit_rows": len(blockers),
+        "open_blocker_rows": open_blocker_rows,
+        "critical_blockers": matrix.get("critical_blockers"),
+        "high_blockers": matrix.get("high_blockers"),
+        "medium_blockers": matrix.get("medium_blockers"),
+        "failures": failures,
+        "training_import_allowed": False,
+        "safe_for_training_import": False,
+        "safe_for_model_claim": False,
+        "customer_delivery_ready": False,
+        "release_ready": False,
+        "production_execution_allowed": False,
+        "policy": "Validation only. Blocker matrix gaps do not authorize training, claims, delivery, release, ordering, or production execution.",
+    }
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps({
+        "success": result["success"],
+        "audit_rows": result["audit_rows"],
+        "blocker_audit_rows": result["blocker_audit_rows"],
+        "open_blocker_rows": result["open_blocker_rows"],
+        "failures": len(failures),
+        "output": str(OUT),
+    }, ensure_ascii=False))
+    return 0 if result["success"] else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,11 @@
+{"case_id": "positive_current_receipted_execution_gate", "description": "Current receipted execution gate must validate.", "expected_valid": true, "mutations": []}
+{"case_id": "bad_executed_action_missing_receipt", "description": "Mutated execution receipt gate state must be rejected.", "expected_valid": false, "mutations": ["bad_executed_action_missing_receipt"]}
+{"case_id": "bad_unexpected_receipt_without_execution", "description": "Mutated execution receipt gate state must be rejected.", "expected_valid": false, "mutations": ["bad_unexpected_receipt_without_execution"]}
+{"case_id": "bad_receipt_model_claim_true", "description": "Mutated execution receipt gate state must be rejected.", "expected_valid": false, "mutations": ["bad_receipt_model_claim_true"]}
+{"case_id": "bad_receipt_training_import_true", "description": "Mutated execution receipt gate state must be rejected.", "expected_valid": false, "mutations": ["bad_receipt_training_import_true"]}
+{"case_id": "bad_receipt_release_ready_true", "description": "Mutated execution receipt gate state must be rejected.", "expected_valid": false, "mutations": ["bad_receipt_release_ready_true"]}
+{"case_id": "bad_executed_passed_without_output_artifacts", "description": "Mutated execution receipt gate state must be rejected.", "expected_valid": false, "mutations": ["bad_executed_passed_without_output_artifacts"]}
+{"case_id": "bad_executed_passed_without_validator_artifacts", "description": "Mutated execution receipt gate state must be rejected.", "expected_valid": false, "mutations": ["bad_executed_passed_without_validator_artifacts"]}
+{"case_id": "bad_report_safe_for_execution_claim_true", "description": "Mutated execution receipt gate state must be rejected.", "expected_valid": false, "mutations": ["bad_report_safe_for_execution_claim_true"]}
+{"case_id": "bad_report_model_claim_true", "description": "Mutated execution receipt gate state must be rejected.", "expected_valid": false, "mutations": ["bad_report_model_claim_true"]}
+{"case_id": "bad_receipt_missing_required_field", "description": "Mutated execution receipt gate state must be rejected.", "expected_valid": false, "mutations": ["bad_receipt_missing_required_field"]}

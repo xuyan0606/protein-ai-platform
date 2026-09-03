@@ -1,0 +1,784 @@
+{
+  "local_only": true,
+  "worklist": "datasets/curation/structure_chain_mapping_worklist.jsonl",
+  "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+  "validation_report": "reports/structure_chain_mapping_decision_validation_report.json",
+  "apply_report": "reports/structure_chain_mapping_apply_report.json",
+  "worklist_rows": 500,
+  "decision_rows": 25,
+  "valid_decision_rows": 25,
+  "invalid_decision_rows": 0,
+  "reviewed_chain_mapping_rows": 25,
+  "usable_for_coordinate_features": 25,
+  "remaining_unreviewed_rows": 475,
+  "remaining_by_review_bucket": {
+    "single_chain_ca_length_close": 78,
+    "multi_chain_needs_selection": 346,
+    "single_chain_ca_length_mismatch": 51
+  },
+  "remaining_by_evidence_tier": {
+    "single_chain_reviewed_uniprot_length_close": 78,
+    "multi_chain_selection_required": 344,
+    "strict_evidence_ready_for_human_decision": 9,
+    "manual_review_required": 44
+  },
+  "remaining_by_packet_id": {
+    "structure_chain_single_close_001": 11,
+    "structure_chain_single_close_002": 25,
+    "structure_chain_single_close_003": 25,
+    "structure_chain_single_close_004": 17,
+    "structure_chain_multi_select_001": 17,
+    "structure_chain_multi_select_002": 25,
+    "structure_chain_multi_select_003": 24,
+    "structure_chain_multi_select_004": 25,
+    "structure_chain_multi_select_005": 24,
+    "structure_chain_multi_select_006": 25,
+    "structure_chain_multi_select_007": 25,
+    "structure_chain_multi_select_008": 25,
+    "structure_chain_multi_select_009": 25,
+    "structure_chain_multi_select_010": 25,
+    "structure_chain_multi_select_011": 25,
+    "structure_chain_multi_select_012": 25,
+    "structure_chain_multi_select_013": 25,
+    "structure_chain_multi_select_014": 25,
+    "structure_chain_multi_select_015": 6,
+    "structure_chain_single_mismatch_001": 25,
+    "structure_chain_single_mismatch_002": 25,
+    "structure_chain_single_mismatch_003": 1
+  },
+  "missing_packet_rows": 0,
+  "strict_evidence_total_rows": 13,
+  "strict_evidence_already_decided_rows": 4,
+  "strict_evidence_remaining_rows": 9,
+  "strict_evidence_remaining_structure_ids": [
+    "10GH",
+    "11AP",
+    "121P",
+    "135L",
+    "13FO",
+    "16PK",
+    "193L",
+    "194L",
+    "1A3H"
+  ],
+  "next_review_queue": [
+    {
+      "structure_id": "13FO",
+      "canonical_uniprot_id": "Q9WXZ2",
+      "protein_name": "tRNA N6-adenosine threonylcarbamoyltransferase",
+      "review_rank": 211,
+      "review_bucket": "multi_chain_needs_selection",
+      "evidence_tier": "strict_evidence_ready_for_human_decision",
+      "packet_id": "structure_chain_multi_select_005",
+      "suggested_selected_chain_id": "D",
+      "strict_evidence_sources": [
+        "dbref_interval"
+      ],
+      "chain_count": 4,
+      "parsed_chain_ids": [
+        "B",
+        "D",
+        "T",
+        "X"
+      ],
+      "db_chain_ids": [
+        "D"
+      ],
+      "resolution": null,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "10GH",
+      "canonical_uniprot_id": "Q78DX7",
+      "protein_name": "Proto-oncogene tyrosine-protein kinase ROS",
+      "review_rank": 251,
+      "review_bucket": "multi_chain_needs_selection",
+      "evidence_tier": "strict_evidence_ready_for_human_decision",
+      "packet_id": "structure_chain_multi_select_007",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [
+        "dbref_interval"
+      ],
+      "chain_count": 6,
+      "parsed_chain_ids": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": null,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "135L",
+      "canonical_uniprot_id": "P00703",
+      "protein_name": "Lysozyme C",
+      "review_rank": 453,
+      "review_bucket": "single_chain_ca_length_mismatch",
+      "evidence_tier": "strict_evidence_ready_for_human_decision",
+      "packet_id": "structure_chain_single_mismatch_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [
+        "dbref_interval"
+      ],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.3,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "193L",
+      "canonical_uniprot_id": "P00698",
+      "protein_name": "Lysozyme C",
+      "review_rank": 454,
+      "review_bucket": "single_chain_ca_length_mismatch",
+      "evidence_tier": "strict_evidence_ready_for_human_decision",
+      "packet_id": "structure_chain_single_mismatch_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [
+        "dbref_interval"
+      ],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.33,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "194L",
+      "canonical_uniprot_id": "P00698",
+      "protein_name": "Lysozyme C",
+      "review_rank": 455,
+      "review_bucket": "single_chain_ca_length_mismatch",
+      "evidence_tier": "strict_evidence_ready_for_human_decision",
+      "packet_id": "structure_chain_single_mismatch_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [
+        "dbref_interval"
+      ],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.4,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "121P",
+      "canonical_uniprot_id": "P01112",
+      "protein_name": "GTPase HRas",
+      "review_rank": 458,
+      "review_bucket": "single_chain_ca_length_mismatch",
+      "evidence_tier": "strict_evidence_ready_for_human_decision",
+      "packet_id": "structure_chain_single_mismatch_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [
+        "dbref_interval"
+      ],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.54,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "16PK",
+      "canonical_uniprot_id": "P07378",
+      "protein_name": "Phosphoglycerate kinase, glycosomal",
+      "review_rank": 460,
+      "review_bucket": "single_chain_ca_length_mismatch",
+      "evidence_tier": "strict_evidence_ready_for_human_decision",
+      "packet_id": "structure_chain_single_mismatch_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [
+        "dbref_interval"
+      ],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.6,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "11AP",
+      "canonical_uniprot_id": "O70348",
+      "protein_name": "Decapping and exoribonuclease protein",
+      "review_rank": 463,
+      "review_bucket": "single_chain_ca_length_mismatch",
+      "evidence_tier": "strict_evidence_ready_for_human_decision",
+      "packet_id": "structure_chain_single_mismatch_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [
+        "dbref_interval"
+      ],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.8,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "1A3H",
+      "canonical_uniprot_id": "O85465",
+      "protein_name": "Endoglucanase 5A",
+      "review_rank": 470,
+      "review_bucket": "single_chain_ca_length_mismatch",
+      "evidence_tier": "strict_evidence_ready_for_human_decision",
+      "packet_id": "structure_chain_single_mismatch_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [
+        "dbref_interval"
+      ],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.57,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "172L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 7,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.9,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "152L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 9,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 2.0,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "189L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 14,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 2.5,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "149L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 15,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 2.6,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "170L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 16,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 2.6,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "104M",
+      "canonical_uniprot_id": "P02185",
+      "protein_name": "Myoglobin",
+      "review_rank": 18,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.71,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "102L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 19,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.74,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "105M",
+      "canonical_uniprot_id": "P02185",
+      "protein_name": "Myoglobin",
+      "review_rank": 20,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 2.02,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "119L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 23,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.65,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "110L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 24,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.7,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "128L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 25,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_001",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.7,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "129L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 26,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_002",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.7,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "130L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 27,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_002",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.7,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "131L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 28,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_002",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.7,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "138L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 29,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_002",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.7,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    },
+    {
+      "structure_id": "139L",
+      "canonical_uniprot_id": "P00720",
+      "protein_name": "Endolysin",
+      "review_rank": 30,
+      "review_bucket": "single_chain_ca_length_close",
+      "evidence_tier": "single_chain_reviewed_uniprot_length_close",
+      "packet_id": "structure_chain_single_close_002",
+      "suggested_selected_chain_id": "A",
+      "strict_evidence_sources": [],
+      "chain_count": 1,
+      "parsed_chain_ids": [
+        "A"
+      ],
+      "db_chain_ids": [
+        "A"
+      ],
+      "resolution": 1.7,
+      "required_human_checks": [
+        "confirm biological chain for this UniProt accession",
+        "confirm sequence-to-structure residue numbering and missing residue ranges",
+        "confirm insertion codes, engineered tags, ligands, and hetero residues before using distances",
+        "write reviewed chain mapping only after source confirmation"
+      ],
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "policy": "review priority only; not a reviewed chain mapping decision"
+    }
+  ],
+  "completion_ready": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "blockers": [
+    "remaining_structure_chain_mapping_rows_require_reviewed_decisions",
+    "strict_evidence_candidates_still_require_explicit_human_decisions"
+  ],
+  "next_actions": [
+    "Review the strict_evidence_remaining_structure_ids first and append explicit set_chain_mapping or reject_structure rows only after human confirmation.",
+    "Then continue packet-based review for single_chain_reviewed_uniprot_length_close rows before multi-chain selection rows.",
+    "Run validate_structure_chain_mapping_decisions.py and apply_structure_chain_mapping_decisions.py after any reviewed decision edit."
+  ],
+  "outputs": {
+    "report": "reports/structure_chain_mapping_backlog_readiness_report.json",
+    "markdown": "reports/structure_chain_mapping_backlog_readiness.md"
+  },
+  "policy": "Audit-only backlog readiness. Strict evidence prioritizes human review but does not create reviewed decisions, coordinate claims, training labels, release readiness, or model-quality claims."
+}

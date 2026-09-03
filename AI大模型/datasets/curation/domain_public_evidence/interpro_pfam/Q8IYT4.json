@@ -1,0 +1,107 @@
+{
+  "accession": "Q8IYT4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00004",
+        "name": "ATPase family associated with various cellular activities (AAA)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003959",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iyt4",
+          "protein_length": 538,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 290,
+                  "end": 421,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00004",
+              "score": 1.5e-32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08513",
+        "name": "LisH",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006594",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iyt4",
+          "protein_length": 538,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 27,
+                  "end": 53,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08513",
+              "score": 0.13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17862",
+        "name": "AAA+ lid domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041569",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iyt4",
+          "protein_length": 538,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 453,
+                  "end": 490,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17862",
+              "score": 1.2e-08
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

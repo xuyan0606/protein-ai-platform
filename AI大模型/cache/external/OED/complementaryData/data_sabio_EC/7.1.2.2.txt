@@ -1,0 +1,71 @@
+EntryID	Substrate	Product	EnzymeType	PubMedID	Organism	UniprotID	ECNumber	pH	Temperature	parameter.type	parameter.associatedSpecies	parameter.startValue	parameter.endValue	parameter.standardDeviation	parameter.unit
+2139	ATP;H2O	ADP;Phosphate	wildtype F1-ATPase	15716957	Bacillus PS3	P07677 P09219	7.1.2.2	7.0	-	concentration	ATP	2.0E-4	0.002	-	M
+2139	ATP;H2O	ADP;Phosphate	wildtype F1-ATPase	15716957	Bacillus PS3	P07677 P09219	7.1.2.2	7.0	-	Vmax		4.5		-	Hz
+2139	ATP;H2O	ADP;Phosphate	wildtype F1-ATPase	15716957	Bacillus PS3	P07677 P09219	7.1.2.2	7.0	-	Km	ATP	3.3E-6		-	M
+2140	ATP;H2O	Phosphate;ADP	wildtype F1-ATPase	15716957	Bacillus PS3	P09219 P07677	7.1.2.2	7.0	-	concentration	ATP	2.0E-4	0.002	-	M
+2140	ATP;H2O	Phosphate;ADP	wildtype F1-ATPase	15716957	Bacillus PS3	P09219 P07677	7.1.2.2	7.0	-	Vmax		4.9		-	Hz
+2140	ATP;H2O	Phosphate;ADP	wildtype F1-ATPase	15716957	Bacillus PS3	P09219 P07677	7.1.2.2	7.0	-	Km	ATP	2.1E-6		-	M
+6614	H+;ATP;H2O	ADP;Phosphate;H+	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	Kd	ATP	5.5E-5		-	M
+6614	H+;ATP;H2O	ADP;Phosphate;H+	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	kcat		300.0		-	s^(-1)
+6614	H+;ATP;H2O	ADP;Phosphate;H+	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	concentration	H+	4.0E-4		-	M
+6614	H+;ATP;H2O	ADP;Phosphate;H+	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	Km	ATP	5.5E-5		-	M
+6614	H+;ATP;H2O	ADP;Phosphate;H+	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	concentration	ATP	5.0E-7	0.02	-	M
+6614	H+;ATP;H2O	ADP;Phosphate;H+	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	concentration	unknown compound	1.8E-9	7.2E-9	-	M
+6615	ATP;H+;H2O	ADP;H+;Phosphate	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	concentration	unknown compound	2.0E-8	3.0E-8	-	M
+6615	ATP;H+;H2O	ADP;H+;Phosphate	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	Kd	ADP	1.63E-5		2E-7	M
+6615	ATP;H+;H2O	ADP;H+;Phosphate	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	Kd	ADP	1.0E-8		2E-9	M
+6615	ATP;H+;H2O	ADP;H+;Phosphate	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	concentration	ADP	2.0E-8	0.01	-	M
+6615	ATP;H+;H2O	ADP;H+;Phosphate	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	Kd	ADP	2.2E-5		3E-8	M
+6616	ATP;H2O;H+	H+;Phosphate;ADP	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	Kd	ATP	1.0E-6		-	M
+6616	ATP;H2O;H+	H+;Phosphate;ADP	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	concentration	unknown compound	5.0E-9		-	M
+6616	ATP;H2O;H+	H+;Phosphate;ADP	mutant beta-Y345W	15640141	Saccharomyces cerevisiae		7.1.2.2	6.5	25.0	concentration	ATP	1.0E-6		-	M
+49981	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Streptococcus mutans	P95784 P95785 P95783 P95787 P95789 P95788 P95786 P95790	7.1.2.2	6.0	37.0	IC50	F-	0.003		-	M
+49981	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Streptococcus mutans	P95784 P95785 P95783 P95787 P95789 P95788 P95786 P95790	7.1.2.2	6.0	37.0	concentration	F-	0.0	0.02	-	M
+49981	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Streptococcus mutans	P95784 P95785 P95783 P95787 P95789 P95788 P95786 P95790	7.1.2.2	6.0	37.0	concentration	ATP	0.005		-	M
+49982	H2O;ATP	Phosphate;ADP	wildtype F0F1	2889674	Streptococcus milleri		7.1.2.2	-	37.0	concentration	F-	0.0	0.02	-	M
+49982	H2O;ATP	Phosphate;ADP	wildtype F0F1	2889674	Streptococcus milleri		7.1.2.2	-	37.0	IC50	F-	0.004		-	M
+49982	H2O;ATP	Phosphate;ADP	wildtype F0F1	2889674	Streptococcus milleri		7.1.2.2	-	37.0	concentration	ATP	0.005		-	M
+49983	H2O;ATP	Phosphate;ADP	wildtype F0F1	2889674	Streptococcus sanguis		7.1.2.2	7.5	37.0	IC50	F-	0.005		-	M
+49983	H2O;ATP	Phosphate;ADP	wildtype F0F1	2889674	Streptococcus sanguis		7.1.2.2	7.5	37.0	concentration	ATP	0.005		-	M
+49983	H2O;ATP	Phosphate;ADP	wildtype F0F1	2889674	Streptococcus sanguis		7.1.2.2	7.5	37.0	concentration	F-	0.0	0.02	-	M
+49984	ATP;H2O	ADP;Phosphate	wildtype F0F1	2889674	Lactococcus lactis		7.1.2.2	-	37.0	concentration	ATP	0.005		-	M
+49984	ATP;H2O	ADP;Phosphate	wildtype F0F1	2889674	Lactococcus lactis		7.1.2.2	-	37.0	concentration	F-	0.0	0.02	-	M
+49984	ATP;H2O	ADP;Phosphate	wildtype F0F1	2889674	Lactococcus lactis		7.1.2.2	-	37.0	IC50	F-	0.005		-	M
+49985	H2O;ATP	ADP;Phosphate	wildtype F0F1	2889674	Streptococcus salivarius		7.1.2.2	-	37.0	IC50	F-	0.01		-	M
+49985	H2O;ATP	ADP;Phosphate	wildtype F0F1	2889674	Streptococcus salivarius		7.1.2.2	-	37.0	concentration	F-	0.0	0.02	-	M
+49985	H2O;ATP	ADP;Phosphate	wildtype F0F1	2889674	Streptococcus salivarius		7.1.2.2	-	37.0	concentration	ATP	0.005		-	M
+49986	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Enterococcus faecium		7.1.2.2	7.0	37.0	IC50	F-	0.012		-	M
+49986	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Enterococcus faecium		7.1.2.2	7.0	37.0	concentration	ATP	0.005		-	M
+49986	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Enterococcus faecium		7.1.2.2	7.0	37.0	concentration	F-	0.0	0.02	-	M
+49987	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Bacillus megaterium		7.1.2.2	-	37.0	concentration	F-	0.0	0.02	-	M
+49987	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Bacillus megaterium		7.1.2.2	-	37.0	concentration	ATP	0.005		-	M
+49987	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Bacillus megaterium		7.1.2.2	-	37.0	IC50	F-	0.02		-	M
+49988	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Lactobacillus casei		7.1.2.2	6.5	37.0	concentration	ATP	0.005		-	M
+49988	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Lactobacillus casei		7.1.2.2	6.5	37.0	concentration	F-	0.0	0.02	-	M
+49988	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Lactobacillus casei		7.1.2.2	6.5	37.0	IC50	F-	0.025		-	M
+49989	ATP;H2O	ADP;Phosphate	wildtype F0F1	2889674	Streptococcus mutans	P95784 P95785 P95783 P95787 P95789 P95788 P95786 P95790	7.1.2.2	6.0	37.0	concentration	F-	0.001		-	M
+49989	ATP;H2O	ADP;Phosphate	wildtype F0F1	2889674	Streptococcus mutans	P95784 P95785 P95783 P95787 P95789 P95788 P95786 P95790	7.1.2.2	6.0	37.0	Vmax		3.5E-6		-	mol*s^(-1)*g^(-1)
+49989	ATP;H2O	ADP;Phosphate	wildtype F0F1	2889674	Streptococcus mutans	P95784 P95785 P95783 P95787 P95789 P95788 P95786 P95790	7.1.2.2	6.0	37.0	concentration	ATP	2.0E-4	0.01	-	M
+49989	ATP;H2O	ADP;Phosphate	wildtype F0F1	2889674	Streptococcus mutans	P95784 P95785 P95783 P95787 P95789 P95788 P95786 P95790	7.1.2.2	6.0	37.0	Km	ATP	3.0E-4		-	M
+49990	H2O;ATP	ADP;Phosphate	wildtype F0F1	2889674	Streptococcus mutans	P95784 P95785 P95783 P95787 P95789 P95788 P95786 P95790	7.1.2.2	6.0	37.0	concentration	ATP	2.0E-4	0.01	-	M
+49990	H2O;ATP	ADP;Phosphate	wildtype F0F1	2889674	Streptococcus mutans	P95784 P95785 P95783 P95787 P95789 P95788 P95786 P95790	7.1.2.2	6.0	37.0	Vmax		5.5E-6		-	mol*s^(-1)*g^(-1)
+49990	H2O;ATP	ADP;Phosphate	wildtype F0F1	2889674	Streptococcus mutans	P95784 P95785 P95783 P95787 P95789 P95788 P95786 P95790	7.1.2.2	6.0	37.0	Km	ATP	3.8E-4		-	M
+49991	H2O;ATP	ADP;Phosphate	wildtype F0F1	2889674	Lactobacillus casei		7.1.2.2	6.5	37.0	concentration	F-	0.005		-	M
+49991	H2O;ATP	ADP;Phosphate	wildtype F0F1	2889674	Lactobacillus casei		7.1.2.2	6.5	37.0	Km	ATP	3.9E-4		-	M
+49991	H2O;ATP	ADP;Phosphate	wildtype F0F1	2889674	Lactobacillus casei		7.1.2.2	6.5	37.0	Vmax		4.0E-6		-	mol*s^(-1)*g^(-1)
+49991	H2O;ATP	ADP;Phosphate	wildtype F0F1	2889674	Lactobacillus casei		7.1.2.2	6.5	37.0	concentration	ATP	2.0E-4	0.01	-	M
+49992	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Lactobacillus casei		7.1.2.2	6.5	37.0	Km	ATP	7.6E-4		-	M
+49992	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Lactobacillus casei		7.1.2.2	6.5	37.0	Vmax		1.666667E-5		-	mol*s^(-1)*g^(-1)
+49992	ATP;H2O	Phosphate;ADP	wildtype F0F1	2889674	Lactobacillus casei		7.1.2.2	6.5	37.0	concentration	ATP	2.0E-4	0.01	-	M
+53002	ATP;H2O	ADP;Phosphate	wildtype	2888751	Bacillus subtilis	P37808 P37809 P37810 P37811 P37812 P37808	7.1.2.2	8.0	37.0	concentration	ATP	0.0	0.005	-	M
+53002	ATP;H2O	ADP;Phosphate	wildtype	2888751	Bacillus subtilis	P37808 P37809 P37810 P37811 P37812 P37808	7.1.2.2	8.0	37.0	Km	ATP	7.7E-4		1E-4	M
+53002	ATP;H2O	ADP;Phosphate	wildtype	2888751	Bacillus subtilis	P37808 P37809 P37810 P37811 P37812 P37808	7.1.2.2	8.0	37.0	Vmax		0.001808333		1.316667E-4	mol*s^(-1)*g^(-1)
+53002	ATP;H2O	ADP;Phosphate	wildtype	2888751	Bacillus subtilis	P37808 P37809 P37810 P37811 P37812 P37808	7.1.2.2	8.0	37.0	concentration	Mg2+	0.0025		-	M
+53002	ATP;H2O	ADP;Phosphate	wildtype	2888751	Bacillus subtilis	P37808 P37809 P37810 P37811 P37812 P37808	7.1.2.2	8.0	37.0	concentration	N-Octyl-beta-D-glucoside	0.03		-	M
+53002	ATP;H2O	ADP;Phosphate	wildtype	2888751	Bacillus subtilis	P37808 P37809 P37810 P37811 P37812 P37808	7.1.2.2	8.0	37.0	Vmax/Km	ATP	2.348333		-	l*g^(-1)*s^(-1)
+53003	H2O;ATP	ADP;Phosphate	mutant AG2A, uncoupler-resistant	2888751	Bacillus subtilis	P37808 P37809 P37810 P37811 P37812 P37808	7.1.2.2	8.0	37.0	concentration	Mg2+	0.0025		-	M
+53003	H2O;ATP	ADP;Phosphate	mutant AG2A, uncoupler-resistant	2888751	Bacillus subtilis	P37808 P37809 P37810 P37811 P37812 P37808	7.1.2.2	8.0	37.0	Vmax/Km	ATP	2.143333		-	l*g^(-1)*s^(-1)
+53003	H2O;ATP	ADP;Phosphate	mutant AG2A, uncoupler-resistant	2888751	Bacillus subtilis	P37808 P37809 P37810 P37811 P37812 P37808	7.1.2.2	8.0	37.0	Vmax		0.002036667		1.05E-4	mol*s^(-1)*g^(-1)
+53003	H2O;ATP	ADP;Phosphate	mutant AG2A, uncoupler-resistant	2888751	Bacillus subtilis	P37808 P37809 P37810 P37811 P37812 P37808	7.1.2.2	8.0	37.0	concentration	ATP	0.0	0.005	-	M
+53003	H2O;ATP	ADP;Phosphate	mutant AG2A, uncoupler-resistant	2888751	Bacillus subtilis	P37808 P37809 P37810 P37811 P37812 P37808	7.1.2.2	8.0	37.0	concentration	N-Octyl-beta-D-glucoside	0.03		-	M
+53003	H2O;ATP	ADP;Phosphate	mutant AG2A, uncoupler-resistant	2888751	Bacillus subtilis	P37808 P37809 P37810 P37811 P37812 P37808	7.1.2.2	8.0	37.0	Km	ATP	9.5E-4		9E-5	M

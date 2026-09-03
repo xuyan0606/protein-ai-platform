@@ -1,0 +1,141 @@
+{
+  "accession": "Q5JRX3",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00675",
+        "name": "Insulinase (Peptidase family M16)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR011765",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5jrx3",
+          "protein_length": 1037,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 96,
+                  "end": 177,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00675",
+              "score": 0.039
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05193",
+        "name": "Peptidase M16 inactive domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007863",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5jrx3",
+          "protein_length": 1037,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 245,
+                  "end": 429,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05193",
+              "score": 5.6e-25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08367",
+        "name": "Peptidase M16C associated",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR013578",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5jrx3",
+          "protein_length": 1037,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 504,
+                  "end": 752,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08367",
+              "score": 1.7e-83
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22516",
+        "name": "PreP C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR055130",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5jrx3",
+          "protein_length": 1037,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 856,
+                  "end": 1001,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22516",
+              "score": 3e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

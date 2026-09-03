@@ -1,0 +1,73 @@
+{
+  "accession": "O95155",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04564",
+        "name": "U-box domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003613",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95155",
+          "protein_length": 1302,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1228,
+                  "end": 1299,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04564",
+              "score": 1.4e-26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF10408",
+        "name": "Ubiquitin elongating factor core",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR019474",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95155",
+          "protein_length": 1302,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 591,
+                  "end": 1212,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF10408",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

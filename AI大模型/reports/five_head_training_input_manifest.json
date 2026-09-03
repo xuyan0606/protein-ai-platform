@@ -1,0 +1,65 @@
+{
+  "all_heads_meet_thresholds": false,
+  "created_at": "2026-09-03T08:00:27.168503+00:00",
+  "dataset_sha256": "65a219a12c6f62fb6a3b8e320a14a6e574e7825a407965e06f31214d6344838b",
+  "exact_feature_join_policy": "exact non-empty uniprot_id only",
+  "exact_feature_join_rows": 0,
+  "feature_index": {
+    "model_consumable_rows": 210,
+    "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/features/validated_feature_index.jsonl",
+    "present": true,
+    "sha256": "d3214356ca69f700849f0baefd69db2d4ffee5179d6c68bab83a0bfe24fae12f"
+  },
+  "feature_rows_counted_as_labels": 0,
+  "head_stats": {
+    "activity_risk": {
+      "explicit_replicate_count": 0,
+      "group_count": 2,
+      "label_rows": 6,
+      "thresholds_met": false
+    },
+    "assay_success": {
+      "explicit_replicate_count": 0,
+      "group_count": 0,
+      "label_rows": 0,
+      "thresholds_met": false
+    },
+    "mutation_rank": {
+      "explicit_replicate_count": 0,
+      "group_count": 0,
+      "label_rows": 0,
+      "thresholds_met": false
+    },
+    "stability": {
+      "explicit_replicate_count": 0,
+      "group_count": 0,
+      "label_rows": 0,
+      "thresholds_met": false
+    },
+    "substrate_fit": {
+      "explicit_replicate_count": 0,
+      "group_count": 0,
+      "label_rows": 0,
+      "thresholds_met": false
+    }
+  },
+  "joined_feature_families": [],
+  "label_rows": 6,
+  "local_only": true,
+  "policy": "Only formally imported label rows are counted. Features join only by exact protein identity and never become labels. Manifest readiness does not authorize a model claim or release.",
+  "ready_for_training_execution": false,
+  "rejected_rows": 0,
+  "release_ready": false,
+  "rows_without_exact_feature_join": 6,
+  "safe_for_model_claim": false,
+  "schema_version": "kwb_five_head_training_input_manifest_v1",
+  "source_artifacts": [
+    {
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/training/activity_risk_training_import_labels.jsonl",
+      "present": true,
+      "rows": 6,
+      "sha256": "65a219a12c6f62fb6a3b8e320a14a6e574e7825a407965e06f31214d6344838b"
+    }
+  ],
+  "source_rows": 6
+}

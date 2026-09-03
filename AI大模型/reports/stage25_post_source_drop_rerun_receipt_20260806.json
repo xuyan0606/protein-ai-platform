@@ -1,0 +1,850 @@
+{
+  "schema_version": 2,
+  "created_at": "2026-08-06",
+  "mode": "stage25_post_source_drop_rerun_receipt",
+  "stage": 25,
+  "rerun_ready": true,
+  "command_rows": 62,
+  "unique_command_name_rows": 62,
+  "duplicate_command_names": [],
+  "command_names": [
+    "validate_legal_fulltext_intake",
+    "validate_source_locator_review_queue",
+    "extract_fulltext_evidence_draft",
+    "build_stage25_reviewer_package",
+    "validate_source_drop_manifest",
+    "build_source_drop_inventory",
+    "validate_source_drop_inventory",
+    "validate_source_acquisition_receipts",
+    "validate_source_extraction_candidates",
+    "validate_source_extraction_candidate_reviewer_packet",
+    "validate_source_extraction_reviewer_closure_checklist",
+    "build_cm5_codon262_cross_read_audit",
+    "validate_cm5_codon262_cross_read_audit",
+    "build_cm5_codon262_sequence_quality_evidence_audit",
+    "validate_cm5_codon262_sequence_quality_evidence_audit",
+    "build_cm5_l262v_discrepancy_adjudication_packet",
+    "validate_cm5_l262v_discrepancy_adjudication_packet",
+    "build_cm5_l262v_adjudication_evidence_intake",
+    "validate_cm5_l262v_adjudication_evidence_intake",
+    "validate_cm5_l262v_public_source_probe_receipt",
+    "build_cm5_l262v_external_evidence_request_packet",
+    "validate_cm5_l262v_external_evidence_request_packet",
+    "validate_cm5_l262v_external_evidence_receipts",
+    "validate_cm5_l262v_external_evidence_reviews",
+    "validate_cm5_l262v_adjudication_decision_intake",
+    "test_cm5_l262v_adjudication_review_binding",
+    "test_cm5_l262v_adjudication_review_binding_tamper",
+    "test_cm5_l262v_adjudication_evidence_path_safety",
+    "test_cm5_l262v_adjudication_upstream_review_provenance",
+    "test_cm5_l262v_adjudication_upstream_packet_provenance",
+    "build_cm5_l262v_external_request_message_drafts",
+    "validate_cm5_l262v_external_request_message_drafts",
+    "validate_cm5_l262v_external_request_authorizations",
+    "build_cm5_l262v_external_request_send_guard",
+    "validate_cm5_l262v_external_request_send_guard",
+    "test_cm5_l262v_external_request_authorization_safety",
+    "build_literature_web_search_receipt",
+    "validate_literature_web_search_receipt",
+    "build_source_acquisition_shortlist",
+    "validate_source_acquisition_shortlist",
+    "build_source_drop_extraction_readiness_candidate",
+    "validate_source_drop_extraction_readiness_candidate",
+    "validate_reviewed_extraction_output_drafts",
+    "build_family_apply_transaction_plan",
+    "validate_family_apply_transaction_plan",
+    "build_paper_only_apply_plan",
+    "validate_paper_only_apply_plan",
+    "validate_proposal_set_consistency",
+    "build_sqlite_backup_preflight",
+    "validate_sqlite_backup_preflight",
+    "build_stage25_fail_closed_summary",
+    "validate_operator_docs_sync_contract_policy",
+    "sync_operator_docs_dynamic_status",
+    "validate_operator_docs_marker_regression",
+    "validate_operator_docs_marker_regression_current",
+    "validate_operator_docs_marker_regression_current_regression",
+    "validate_operator_docs_marker_regression_atomicity",
+    "validate_operator_docs_sync_current_receipt",
+    "build_data_lake_manifest",
+    "build_local_release_manifest",
+    "validate_local_release_manifest_fail_closed_consistency",
+    "run_full_stage25_validation_chain"
+  ],
+  "command_contract_schema_version": 1,
+  "command_contract_sha256": "2276ec5232a321909d1d9005838c0223a8cf6c0b63980da4454c0415eaa9e183",
+  "builder_contract_version": "stage25-post-source-drop-rerun-receipt-v2",
+  "builder_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/build_stage25_post_source_drop_rerun_receipt_20260806.py",
+  "builder_script_sha256": "f5cc5a80da77a8ababb9fbb4f78d5c6c844070fadba682ccbe90dd78132d795e",
+  "output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_post_source_drop_rerun_receipt_20260806.json",
+  "lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.stage25_post_source_drop_rerun_receipt.lock",
+  "lock_acquired": true,
+  "receipt_atomic_commit": true,
+  "sqlite_write_command_rows": 0,
+  "commands": [
+    {
+      "step": 1,
+      "name": "validate_legal_fulltext_intake",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "validate_fulltext_intake_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库/fulltext_intake_validation_report_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 2,
+      "name": "validate_source_locator_review_queue",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "validate_fulltext_source_locator_review_queue_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库/fulltext_source_locator_review_queue_validation_report_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 3,
+      "name": "extract_fulltext_evidence_draft",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "extract_fulltext_evidence_draft_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库/fulltext_evidence_draft_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 4,
+      "name": "build_stage25_reviewer_package",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "build_stage25_reviewer_package_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库/stage25_reviewer_package_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 5,
+      "name": "validate_source_drop_manifest",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_source_drop_manifest_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_source_drop_manifest_validation_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 6,
+      "name": "build_source_drop_inventory",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/build_stage25_source_drop_inventory_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_source_drop_inventory_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 7,
+      "name": "validate_source_drop_inventory",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_source_drop_inventory_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_source_drop_inventory_validation_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 8,
+      "name": "validate_source_acquisition_receipts",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_source_acquisition_receipts_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_source_acquisition_receipts_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 9,
+      "name": "validate_source_extraction_candidates",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_source_extraction_candidates_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_source_extraction_candidate_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 10,
+      "name": "validate_source_extraction_candidate_reviewer_packet",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_source_extraction_candidate_reviewer_packet_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_source_extraction_candidate_reviewer_packet_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 11,
+      "name": "validate_source_extraction_reviewer_closure_checklist",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_source_extraction_reviewer_closure_checklist_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_source_extraction_reviewer_closure_checklist_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 12,
+      "name": "build_cm5_codon262_cross_read_audit",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+        "scripts/build_stage25_cm5_codon262_cross_read_audit_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_codon262_cross_read_audit_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 13,
+      "name": "validate_cm5_codon262_cross_read_audit",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_cm5_codon262_cross_read_audit_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_codon262_cross_read_audit_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 14,
+      "name": "build_cm5_codon262_sequence_quality_evidence_audit",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/build_stage25_cm5_codon262_sequence_quality_evidence_audit_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_codon262_sequence_quality_evidence_audit_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 15,
+      "name": "validate_cm5_codon262_sequence_quality_evidence_audit",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_cm5_codon262_sequence_quality_evidence_audit_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_codon262_sequence_quality_evidence_audit_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 16,
+      "name": "build_cm5_l262v_discrepancy_adjudication_packet",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/build_stage25_cm5_l262v_discrepancy_adjudication_packet_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/stage25_cm5_l262v_discrepancy_adjudication_packet_20260807.jsonl",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 17,
+      "name": "validate_cm5_l262v_discrepancy_adjudication_packet",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_cm5_l262v_discrepancy_adjudication_packet_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_discrepancy_adjudication_packet_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 18,
+      "name": "build_cm5_l262v_adjudication_evidence_intake",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/build_stage25_cm5_l262v_adjudication_evidence_intake_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/stage25_cm5_l262v_adjudication_evidence_intake_20260807.jsonl",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 19,
+      "name": "validate_cm5_l262v_adjudication_evidence_intake",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_cm5_l262v_adjudication_evidence_intake_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_adjudication_evidence_intake_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 20,
+      "name": "validate_cm5_l262v_public_source_probe_receipt",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_cm5_l262v_public_source_probe_receipt_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_public_source_probe_receipt_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 21,
+      "name": "build_cm5_l262v_external_evidence_request_packet",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/build_stage25_cm5_l262v_external_evidence_request_packet_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/stage25_cm5_l262v_external_evidence_request_packet_20260807.jsonl",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 22,
+      "name": "validate_cm5_l262v_external_evidence_request_packet",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_cm5_l262v_external_evidence_request_packet_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_external_evidence_request_packet_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 23,
+      "name": "validate_cm5_l262v_external_evidence_receipts",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_cm5_l262v_external_evidence_receipts_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_external_evidence_receipt_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 24,
+      "name": "validate_cm5_l262v_external_evidence_reviews",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_cm5_l262v_external_evidence_reviews_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_external_evidence_review_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 25,
+      "name": "validate_cm5_l262v_adjudication_decision_intake",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_cm5_l262v_adjudication_decision_intake_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_adjudication_decision_intake_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 26,
+      "name": "test_cm5_l262v_adjudication_review_binding",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/test_stage25_cm5_l262v_adjudication_review_binding_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_adjudication_review_binding_regression_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 27,
+      "name": "test_cm5_l262v_adjudication_review_binding_tamper",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/test_stage25_cm5_l262v_adjudication_review_binding_tamper_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_adjudication_review_binding_tamper_regression_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 28,
+      "name": "test_cm5_l262v_adjudication_evidence_path_safety",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/test_stage25_cm5_l262v_adjudication_evidence_path_safety_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_adjudication_evidence_path_safety_regression_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 29,
+      "name": "test_cm5_l262v_adjudication_upstream_review_provenance",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/test_stage25_cm5_l262v_adjudication_upstream_review_provenance_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_adjudication_upstream_review_provenance_regression_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 30,
+      "name": "test_cm5_l262v_adjudication_upstream_packet_provenance",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/test_stage25_cm5_l262v_adjudication_upstream_packet_provenance_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_adjudication_upstream_packet_provenance_regression_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 31,
+      "name": "build_cm5_l262v_external_request_message_drafts",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/build_stage25_cm5_l262v_external_request_message_drafts_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/stage25_cm5_l262v_external_request_message_drafts_20260807.jsonl",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 32,
+      "name": "validate_cm5_l262v_external_request_message_drafts",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_cm5_l262v_external_request_message_drafts_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_external_request_message_drafts_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 33,
+      "name": "validate_cm5_l262v_external_request_authorizations",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_cm5_l262v_external_request_authorizations_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_external_request_authorization_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 34,
+      "name": "build_cm5_l262v_external_request_send_guard",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/build_stage25_cm5_l262v_external_request_send_guard_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_external_request_send_guard_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 35,
+      "name": "validate_cm5_l262v_external_request_send_guard",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_cm5_l262v_external_request_send_guard_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_external_request_send_guard_validation_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 36,
+      "name": "test_cm5_l262v_external_request_authorization_safety",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/test_stage25_cm5_l262v_external_request_authorization_safety_20260807.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_cm5_l262v_external_request_authorization_safety_regression_20260807.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 37,
+      "name": "build_literature_web_search_receipt",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/build_stage25_literature_web_search_receipt_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_literature_web_search_receipt_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 38,
+      "name": "validate_literature_web_search_receipt",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_literature_web_search_receipt_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_literature_web_search_receipt_validation_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 39,
+      "name": "build_source_acquisition_shortlist",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/build_stage25_source_acquisition_shortlist_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_source_acquisition_shortlist_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 40,
+      "name": "validate_source_acquisition_shortlist",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_source_acquisition_shortlist_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_source_acquisition_shortlist_validation_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 41,
+      "name": "build_source_drop_extraction_readiness_candidate",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/build_stage25_source_drop_extraction_readiness_candidate_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/stage25_source_drop_extraction_readiness_candidates_20260806.jsonl",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 42,
+      "name": "validate_source_drop_extraction_readiness_candidate",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_source_drop_extraction_readiness_candidates_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_source_drop_extraction_readiness_candidate_validation_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 43,
+      "name": "validate_reviewed_extraction_output_drafts",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_reviewed_extraction_output_drafts_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_reviewed_extraction_output_draft_validation_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 44,
+      "name": "build_family_apply_transaction_plan",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/build_stage25_family_apply_transaction_plan_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_family_apply_transaction_plan_validation_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 45,
+      "name": "validate_family_apply_transaction_plan",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_family_apply_transaction_plans_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_family_apply_transaction_plan_validation_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 46,
+      "name": "build_paper_only_apply_plan",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "new_paper_candidates_dry_run_importer_20260805.py",
+        "--paper-only-apply-dry-run",
+        "--apply-plan",
+        "stage25_paper_only_apply_plan_20260806.json"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库/stage25_paper_only_apply_plan_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 47,
+      "name": "validate_paper_only_apply_plan",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "validate_stage25_paper_only_apply_plan_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库/stage25_paper_only_apply_plan_validation_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 48,
+      "name": "validate_proposal_set_consistency",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "validate_new_paper_proposal_set_consistency_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库/new_paper_proposal_set_consistency_validation_report_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 49,
+      "name": "build_sqlite_backup_preflight",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "build_stage25_sqlite_backup_preflight_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库/stage25_sqlite_backup_preflight_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 50,
+      "name": "validate_sqlite_backup_preflight",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "validate_stage25_sqlite_backup_preflight_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库/stage25_sqlite_backup_preflight_validation_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 51,
+      "name": "build_stage25_fail_closed_summary",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "build_new_paper_stage25_fail_closed_validation_summary_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库/new_paper_stage25_fail_closed_validation_summary_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 52,
+      "name": "validate_operator_docs_sync_contract_policy",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_operator_docs_sync_contract_policy.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_operator_docs_sync_contract_policy_validation_report.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 53,
+      "name": "sync_operator_docs_dynamic_status",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/sync_stage25_operator_docs_dynamic_status.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_operator_docs_dynamic_status_sync_report.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 54,
+      "name": "validate_operator_docs_marker_regression",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_operator_docs_dynamic_status_sync_regression.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_operator_docs_dynamic_status_sync_regression_report.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "name": "validate_operator_docs_marker_regression_current",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_operator_docs_dynamic_status_sync_regression_current.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_operator_docs_dynamic_status_sync_regression_current_validation_report.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true,
+      "step": 55
+    },
+    {
+      "name": "validate_operator_docs_marker_regression_current_regression",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_operator_docs_dynamic_status_sync_regression_current_regression.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_operator_docs_dynamic_status_sync_regression_current_regression_report.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true,
+      "step": 56
+    },
+    {
+      "name": "validate_operator_docs_marker_regression_atomicity",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_operator_docs_dynamic_status_sync_regression_atomicity_regression.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_operator_docs_dynamic_status_sync_regression_atomicity_regression_report.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true,
+      "step": 57
+    },
+    {
+      "name": "validate_operator_docs_sync_current_receipt",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage25_operator_docs_sync_current_receipt.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_operator_docs_sync_current_receipt_validation_report.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true,
+      "step": 58
+    },
+    {
+      "step": 59,
+      "name": "build_data_lake_manifest",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/build_data_lake_manifest.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/data_lake_manifest.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 60,
+      "name": "build_local_release_manifest",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/build_local_release_manifest.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/local_release_manifest.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 61,
+      "name": "validate_local_release_manifest_fail_closed_consistency",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_local_release_manifest_fail_closed_consistency.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/local_release_manifest_fail_closed_consistency_validation_report.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    },
+    {
+      "step": 62,
+      "name": "run_full_stage25_validation_chain",
+      "cwd": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "cmd": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/run_stage25_fail_closed_validation_20260806.py"
+      ],
+      "expected_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_fail_closed_validation_run_report_20260806.json",
+      "writes_sqlite": false,
+      "blocks_apply_until_passed": true
+    }
+  ],
+  "rerun_trigger": "Run after legally obtained files are placed in 酶数据库/incoming/fulltext or canonical AI大模型 source-drop paths.",
+  "completion_condition": "All commands return success; source evidence validators may then mark reviewed extraction and transaction plans ready.",
+  "policy": "rerun_ready means the exact non-SQLite command recipe is available. It does not mean source evidence, reviewed extraction, or SQLite apply is ready.",
+  "commands_executed": false,
+  "commands_executed_rows": 0,
+  "source_drop_event_receipted": false,
+  "outputs_freshness_verified": false,
+  "rerun_completion_receipted": false,
+  "source_evidence_ready": false,
+  "ready_for_reviewed_extraction": false,
+  "ready_for_sqlite_apply": false,
+  "external_sqlite_mutated": false,
+  "formal_decision_rows_written": 0,
+  "apply_executed": false,
+  "export_safe_released": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

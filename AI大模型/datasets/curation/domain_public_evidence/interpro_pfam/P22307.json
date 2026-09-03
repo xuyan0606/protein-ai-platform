@@ -1,0 +1,107 @@
+{
+  "accession": "P22307",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00108",
+        "name": "Thiolase, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR020616",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p22307",
+          "protein_length": 547,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 14,
+                  "end": 239,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00108",
+              "score": 1e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02036",
+        "name": "SCP-2 sterol transfer family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003033",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p22307",
+          "protein_length": 547,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 437,
+                  "end": 538,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02036",
+              "score": 3.5e-28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22691",
+        "name": "Thiolase C-terminal domain-like",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR055140",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p22307",
+          "protein_length": 547,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 278,
+                  "end": 394,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22691",
+              "score": 6.3e-33
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

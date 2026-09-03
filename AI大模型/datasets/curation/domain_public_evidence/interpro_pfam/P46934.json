@@ -1,0 +1,109 @@
+{
+  "accession": "P46934",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00397",
+        "name": "WW domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001202",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p46934",
+          "protein_length": 1319,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 612,
+                  "end": 641,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00397",
+              "score": 8.8e-08
+            },
+            {
+              "fragments": [
+                {
+                  "start": 769,
+                  "end": 798,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00397",
+              "score": 3.4e-08
+            },
+            {
+              "fragments": [
+                {
+                  "start": 842,
+                  "end": 871,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00397",
+              "score": 1.7e-08
+            },
+            {
+              "fragments": [
+                {
+                  "start": 894,
+                  "end": 923,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00397",
+              "score": 3.2e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00632",
+        "name": "HECT-domain (ubiquitin-transferase)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000569",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p46934",
+          "protein_length": 1319,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1014,
+                  "end": 1316,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00632",
+              "score": 7.1e-102
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "accession": "Q9H3M9",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02099",
+        "name": "Josephin",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR006155",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h3m9",
+          "protein_length": 355,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 9,
+                  "end": 166,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02099",
+              "score": 5.3e-55
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02809",
+        "name": "Ubiquitin interaction motif",
+        "source_database": "pfam",
+        "type": "conserved_site",
+        "integrated": "IPR003903",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h3m9",
+          "protein_length": 355,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 224,
+                  "end": 239,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02809",
+              "score": 0.27
+            },
+            {
+              "fragments": [
+                {
+                  "start": 243,
+                  "end": 257,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02809",
+              "score": 21000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16619",
+        "name": "Unstructured region C-term to UIM in Ataxin3",
+        "source_database": "pfam",
+        "type": "disordered",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h3m9",
+          "protein_length": 355,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 261,
+                  "end": 324,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16619",
+              "score": 1.4e-22
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

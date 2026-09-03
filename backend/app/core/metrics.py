@@ -7,8 +7,11 @@ and error rates at /api/metrics (scraped by Prometheus).
 from __future__ import annotations
 
 import time
+from collections import Counter as PyCounter
+from collections import deque
 from typing import Awaitable, Callable
 
+from app.core.config import settings
 from prometheus_client import Counter, Gauge, Histogram, generate_latest
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
@@ -66,6 +69,54 @@ llm_request_duration_seconds = Histogram(
     buckets=(0.1, 0.5, 1.0, 2.5, 5.0, 10.0, 30.0, 60.0),
 )
 
+_RECENT_HTTP_REQUESTS: deque[dict[str, object]] = deque(maxlen=500)
+
+
+def _group_endpoint(path: str) -> str:
+    if path.startswith("/api/"):
+        parts = path.split("/")
+        return "/".join(p if not p.isdigit() and len(p) < 36 else "{param}" for p in parts)
+    return path
+
+
+def record_http_request(method: str, path: str, status_code: int, duration_seconds: float) -> None:
+    endpoint = _group_endpoint(path)
+    _RECENT_HTTP_REQUESTS.append(
+        {
+            "method": method,
+            "endpoint": endpoint,
+            "status": int(status_code),
+            "duration_seconds": round(float(duration_seconds), 4),
+            "is_slow": float(duration_seconds) >= settings.OPS_SLOW_REQUEST_THRESHOLD_SECONDS,
+            "recorded_at": time.time(),
+        }
+    )
+
+
+def http_request_snapshot() -> dict[str, object]:
+    requests = list(_RECENT_HTTP_REQUESTS)
+    total = len(requests)
+    slow = [item for item in requests if item.get("is_slow")]
+    errors = [item for item in requests if int(item.get("status") or 0) >= 500]
+    statuses = PyCounter(str(item.get("status") or "unknown") for item in requests)
+    endpoints = PyCounter(str(item.get("endpoint") or "unknown") for item in requests)
+    durations = [float(item.get("duration_seconds") or 0) for item in requests]
+    return {
+        "window_size": _RECENT_HTTP_REQUESTS.maxlen,
+        "sample_count": total,
+        "slow_threshold_seconds": settings.OPS_SLOW_REQUEST_THRESHOLD_SECONDS,
+        "slow_count": len(slow),
+        "error_count": len(errors),
+        "status_counts": dict(statuses),
+        "top_endpoints": [{"endpoint": endpoint, "count": count} for endpoint, count in endpoints.most_common(8)],
+        "duration": {
+            "max_seconds": max(durations) if durations else None,
+            "mean_seconds": round(sum(durations) / len(durations), 4) if durations else None,
+        },
+        "recent_slow": slow[-10:],
+        "recent_errors": errors[-10:],
+    }
+
 
 class MetricsMiddleware(BaseHTTPMiddleware):
     """Track every HTTP request with method/endpoint/status and latency."""
@@ -77,15 +128,7 @@ class MetricsMiddleware(BaseHTTPMiddleware):
         response = await call_next(request)
         duration = time.monotonic() - start
 
-        endpoint = request.url.path
-        if endpoint.startswith("/api/"):
-            # Group dynamic path segments like /api/conversations/42 → /api/conversations/{id}
-            parts = endpoint.split("/")
-            grouped = "/".join(
-                p if not p.isdigit() and len(p) < 36 else "{param}" for p in parts
-            )
-        else:
-            grouped = endpoint
+        grouped = _group_endpoint(request.url.path)
 
         http_requests_total.labels(
             method=request.method, endpoint=grouped, status=str(response.status_code)
@@ -93,6 +136,7 @@ class MetricsMiddleware(BaseHTTPMiddleware):
         http_request_duration_seconds.labels(
             method=request.method, endpoint=grouped
         ).observe(duration)
+        record_http_request(request.method, request.url.path, response.status_code, duration)
 
         return response
 

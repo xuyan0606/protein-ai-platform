@@ -1,0 +1,73 @@
+{
+  "accession": "Q13526",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00397",
+        "name": "WW domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001202",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13526",
+          "protein_length": 163,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 7,
+                  "end": 37,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00397",
+              "score": 5.4e-12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00639",
+        "name": "PPIC-type PPIASE domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000297",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13526",
+          "protein_length": 163,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 59,
+                  "end": 162,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00639",
+              "score": 7.9e-19
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

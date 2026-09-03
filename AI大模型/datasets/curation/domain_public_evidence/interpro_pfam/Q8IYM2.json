@@ -1,0 +1,107 @@
+{
+  "accession": "Q8IYM2",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04326",
+        "name": "Schlafen, AlbA_2",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007421",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iym2",
+          "protein_length": 578,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 200,
+                  "end": 325,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04326",
+              "score": 6e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17057",
+        "name": "Poxviridae B3 protein",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR031450",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iym2",
+          "protein_length": 578,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 82,
+                  "end": 198,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17057",
+              "score": 5.4e-43
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21026",
+        "name": "Schlafen, GTPase-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR048729",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iym2",
+          "protein_length": 578,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 387,
+                  "end": 523,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF21026",
+              "score": 5.7e-57
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

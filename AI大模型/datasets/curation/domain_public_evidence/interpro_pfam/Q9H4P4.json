@@ -1,0 +1,73 @@
+{
+  "accession": "Q9H4P4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF08941",
+        "name": "USP8 interacting",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015036",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h4p4",
+          "protein_length": 317,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 137,
+                  "end": 315,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF08941",
+              "score": 1.9e-82
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13923",
+        "name": "Zinc finger, C3HC4 type (RING finger)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001841",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h4p4",
+          "protein_length": 317,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 18,
+                  "end": 55,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13923",
+              "score": 4.6e-06
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

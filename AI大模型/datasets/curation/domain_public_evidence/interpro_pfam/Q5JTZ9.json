@@ -1,0 +1,73 @@
+{
+  "accession": "Q5JTZ9",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01411",
+        "name": "tRNA synthetases class II (A)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR018164",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5jtz9",
+          "protein_length": 985,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 42,
+                  "end": 623,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01411",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07973",
+        "name": "Threonyl and Alanyl tRNA synthetase second additional domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012947",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5jtz9",
+          "protein_length": 985,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 721,
+                  "end": 778,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07973",
+              "score": 0.0039
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "accession": "O60942",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00782",
+        "name": "Dual specificity phosphatase, catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000340",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60942",
+          "protein_length": 597,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 58,
+                  "end": 172,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00782",
+              "score": 2.5e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01331",
+        "name": "mRNA capping enzyme, catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001339",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60942",
+          "protein_length": 597,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 234,
+                  "end": 462,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01331",
+              "score": 8.6e-94
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03919",
+        "name": "mRNA capping enzyme, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013846",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60942",
+          "protein_length": 597,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 465,
+                  "end": 558,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03919",
+              "score": 2.2e-16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

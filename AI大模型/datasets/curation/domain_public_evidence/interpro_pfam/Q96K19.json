@@ -1,0 +1,73 @@
+{
+  "accession": "Q96K19",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF06803",
+        "name": "Protein of unknown function (DUF1232)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR010652",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96k19",
+          "protein_length": 258,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 203,
+                  "end": 239,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF06803",
+              "score": 3e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13445",
+        "name": "RING-type zinc-finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR027370",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96k19",
+          "protein_length": 258,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 87,
+                  "end": 127,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13445",
+              "score": 6.7e-06
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

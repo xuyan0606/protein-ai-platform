@@ -1,0 +1,73 @@
+{
+  "accession": "Q9BQ83",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01541",
+        "name": "GIY-YIG catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000305",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bq83",
+          "protein_length": 275,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 14,
+                  "end": 91,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01541",
+              "score": 9.2e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21202",
+        "name": "Structure-specific endonuclease subunit SLX1, C-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR048749",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bq83",
+          "protein_length": 275,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 186,
+                  "end": 248,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF21202",
+              "score": 9.1e-16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

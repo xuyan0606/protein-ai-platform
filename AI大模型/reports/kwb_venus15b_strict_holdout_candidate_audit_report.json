@@ -1,0 +1,25 @@
+{
+  "blocker_counts": {
+    "formal_review_and_strict_import_authorization_missing": 3
+  },
+  "candidate_variant_rows": 3,
+  "candidate_variants": [
+    "D105N",
+    "E331Q",
+    "S265T"
+  ],
+  "created_at": "2026-09-03T07:32:22.955106+00:00",
+  "formal_reviewed_decision_rows": 0,
+  "local_only": true,
+  "parent_sequence_length": 486,
+  "pdb_chain_a_residue_count": 486,
+  "policy": "The Venus-15B sequence/PDB cross-check is complete, but formal data authorization and strict supervised import remain separate gates.",
+  "project_id": "15B",
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "selected_numeric_candidate_rows": 12,
+  "sequence_pdb_exact_match": true,
+  "strict_candidate_artifact": "cache/advanced_features/benchmarks/kwb_venus15b_strict_holdout_candidate/dataset.jsonl",
+  "strict_holdout_rows_written": 0,
+  "training_import_written_rows": 0
+}

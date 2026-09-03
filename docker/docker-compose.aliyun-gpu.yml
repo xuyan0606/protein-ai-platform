@@ -1,0 +1,122 @@
+services:
+  md-worker:
+    image: protein-ai-backend:aliyun
+    platform: linux/amd64
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    command:
+      [
+        "celery",
+        "-A",
+        "app.services.scheduler",
+        "worker",
+        "--loglevel=info",
+        "--queues=md_cpu",
+        "--concurrency=${CELERY_MD_WORKER_CONCURRENCY:-1}"
+      ]
+    env_file:
+      - .env
+      - .env.deploy-data
+      - .env.aliyun.gpu
+    environment:
+      HOME: /app
+      DEPLOY_DATA_ROOT: /app/deploy_data
+      DATABASE_URL: ${ALIYUN_APP_DATABASE_URL}
+      REDIS_HOST: ${ALIYUN_REDIS_HOST}
+      REDIS_PORT: ${ALIYUN_REDIS_PORT:-6379}
+      REDIS_DB: ${ALIYUN_REDIS_APP_DB:-0}
+      REDIS_USERNAME: ${ALIYUN_REDIS_USERNAME:-}
+      REDIS_PASSWORD: ${ALIYUN_REDIS_PASSWORD:-}
+      REDIS_URL: ${ALIYUN_REDIS_APP_URL:-}
+      MINIO_ENDPOINT: ${ALIYUN_OSS_ENDPOINT}
+      MINIO_ACCESS_KEY: ${ALIYUN_OSS_ACCESS_KEY_ID}
+      MINIO_SECRET_KEY: ${ALIYUN_OSS_ACCESS_KEY_SECRET}
+      MINIO_BUCKET: ${ALIYUN_OSS_BUCKET}
+      MINIO_SECURE: ${ALIYUN_OSS_SECURE:-true}
+      MINIO_REGION: ${ALIYUN_OSS_REGION}
+      FOLDSEEK_BINARY: ${FOLDSEEK_BINARY:-/usr/local/bin/foldseek}
+    volumes:
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+      - md_scratch:/app/storage
+    networks:
+      - app_network
+    gpus: ${GPU_DEVICE_REQUEST:-all}
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.services.scheduler", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  ligand-worker:
+    image: protein-ai-ligand-worker:aliyun
+    platform: linux/amd64
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.ligand-worker.aliyun
+    command:
+      [
+        "celery",
+        "-A",
+        "app.services.scheduler",
+        "worker",
+        "--loglevel=info",
+        "--queues=ligand_cpu",
+        "--concurrency=${CELERY_LIGAND_WORKER_CONCURRENCY:-1}"
+      ]
+    env_file:
+      - .env
+      - .env.deploy-data
+      - .env.aliyun.gpu
+    environment:
+      HOME: /app
+      DEPLOY_DATA_ROOT: /app/deploy_data
+      DATABASE_URL: ${ALIYUN_APP_DATABASE_URL}
+      REDIS_HOST: ${ALIYUN_REDIS_HOST}
+      REDIS_PORT: ${ALIYUN_REDIS_PORT:-6379}
+      REDIS_DB: ${ALIYUN_REDIS_APP_DB:-0}
+      REDIS_USERNAME: ${ALIYUN_REDIS_USERNAME:-}
+      REDIS_PASSWORD: ${ALIYUN_REDIS_PASSWORD:-}
+      REDIS_URL: ${ALIYUN_REDIS_APP_URL:-}
+      MINIO_ENDPOINT: ${ALIYUN_OSS_ENDPOINT}
+      MINIO_ACCESS_KEY: ${ALIYUN_OSS_ACCESS_KEY_ID}
+      MINIO_SECRET_KEY: ${ALIYUN_OSS_ACCESS_KEY_SECRET}
+      MINIO_BUCKET: ${ALIYUN_OSS_BUCKET}
+      MINIO_SECURE: ${ALIYUN_OSS_SECURE:-true}
+      MINIO_REGION: ${ALIYUN_OSS_REGION}
+      GROMACS_BIN: ${GROMACS_BIN:-gmx}
+      AMBERHOME: ${AMBERHOME:-/opt/ambertools}
+      LIGAND_RUNTIME_BOUNDARY: ligand_worker_only
+      LIGAND_RUNTIME_CHECK: /usr/local/bin/ligand-runtime-check
+    volumes:
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+      - ligand_scratch:/app/storage
+    networks:
+      - app_network
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.services.scheduler", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+volumes:
+  md_scratch:
+  ligand_scratch:
+
+networks:
+  app_network:
+    driver: bridge

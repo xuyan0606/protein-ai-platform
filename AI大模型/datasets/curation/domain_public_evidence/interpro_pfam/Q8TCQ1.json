@@ -1,0 +1,73 @@
+{
+  "accession": "Q8TCQ1",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF12906",
+        "name": "RING-variant domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011016",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8tcq1",
+          "protein_length": 289,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 80,
+                  "end": 126,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12906",
+              "score": 7.3e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF31018",
+        "name": "MARCH E3 ligase transmembrane and C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR063693",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8tcq1",
+          "protein_length": 289,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 151,
+                  "end": 234,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF31018",
+              "score": 1.7e-44
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

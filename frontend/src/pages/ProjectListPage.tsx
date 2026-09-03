@@ -1,35 +1,71 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FolderKanban, Plus, Trash2, ChevronRight, Dna, Loader2 } from 'lucide-react'
-import { api } from '@/lib/api'
+import { Activity, FolderKanban, Plus, Trash2, ChevronRight, Dna, Loader2 } from 'lucide-react'
+import { api, type ProjectListItem } from '@/lib/api'
 
-interface ProjectItem {
-  id: string
-  name: string
-  description?: string
-  sequence_count: number
-  created_at: string
-  updated_at: string
+type ProjectDbtlListStatus = {
+  status: string
+  learning_status: string
+  next_round_status: string
+  next_round_structural_distance_source?: string
+  next_round_combination_evidence_status?: string
+  p4_status?: string
+  p4_blocked_gate_count?: number
 }
 
 export function ProjectListPage() {
   const navigate = useNavigate()
-  const [projects, setProjects] = useState<ProjectItem[]>([])
+  const [projects, setProjects] = useState<ProjectListItem[]>([])
   const [loading, setLoading] = useState(true)
   const [showCreate, setShowCreate] = useState(false)
   const [name, setName] = useState('')
   const [desc, setDesc] = useState('')
   const [creating, setCreating] = useState(false)
+  const [dbtlStatus, setDbtlStatus] = useState<Record<string, ProjectDbtlListStatus>>({})
 
   const fetchProjects = async () => {
     try {
       setLoading(true)
       const data = await api.getProjects()
       setProjects(data)
+      setDbtlStatus({})
+      void Promise.allSettled(
+        data.map(async (project) => {
+          const trace = await api.getProjectDbtlTrace(project.id)
+          return [
+            project.id,
+            {
+              status: trace.trace_summary.status,
+              learning_status: trace.trace_summary.learning_status,
+              next_round_status: trace.trace_summary.next_round_status,
+              next_round_structural_distance_source: trace.trace_summary.next_round_structural_distance_source,
+              next_round_combination_evidence_status: trace.trace_summary.next_round_combination_evidence_status,
+              p4_status: trace.trace_summary.p4_closed_loop_readiness?.status,
+              p4_blocked_gate_count: trace.trace_summary.p4_closed_loop_readiness?.blocked_gates?.length,
+            },
+          ] as const
+        })
+      ).then((settled) => {
+        const nextStatus: Record<string, ProjectDbtlListStatus> = {}
+        for (const item of settled) {
+          if (item.status === 'fulfilled') {
+            nextStatus[item.value[0]] = item.value[1]
+          }
+        }
+        setDbtlStatus(nextStatus)
+      })
     } catch { /* ignore */ } finally { setLoading(false) }
   }
 
-  useEffect(() => { fetchProjects() }, [])
+  useEffect(() => {
+    let cancelled = false
+    queueMicrotask(() => {
+      if (!cancelled) void fetchProjects()
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   const handleCreate = async () => {
     if (!name.trim()) return
@@ -131,15 +167,40 @@ export function ProjectListPage() {
                   )}
                   <div className="flex items-center gap-3 mt-1.5 text-[10px] text-muted-foreground">
                     <span>{proj.sequence_count} sequences</span>
+                    <span className="rounded-full bg-secondary px-1.5 py-0.5 uppercase tracking-wide">{proj.access_role}</span>
+                    {dbtlStatus[proj.id] && (
+                      <span
+                        className="inline-flex items-center gap-1 rounded-full bg-secondary px-1.5 py-0.5"
+                        title={[
+                          `Learning: ${dbtlStatus[proj.id].learning_status}`,
+                          `next round: ${dbtlStatus[proj.id].next_round_status}`,
+                          `distance source: ${dbtlStatus[proj.id].next_round_structural_distance_source || 'none'}`,
+                          `combination evidence: ${dbtlStatus[proj.id].next_round_combination_evidence_status || 'unknown'}`,
+                          `P4: ${dbtlStatus[proj.id].p4_status || 'unknown'}`,
+                          `P4 blocked gates: ${dbtlStatus[proj.id].p4_blocked_gate_count ?? 'unknown'}`,
+                        ].join('; ')}
+                      >
+                        <Activity className="w-2.5 h-2.5" />
+                        DBTL {dbtlStatus[proj.id].status}
+                        {dbtlStatus[proj.id].next_round_combination_evidence_status
+                          ? ` · combo ${dbtlStatus[proj.id].next_round_combination_evidence_status}`
+                          : ''}
+                        {dbtlStatus[proj.id].p4_status
+                          ? ` · P4 ${dbtlStatus[proj.id].p4_status}`
+                          : ''}
+                      </span>
+                    )}
                     <span>{new Date(proj.updated_at).toLocaleDateString()}</span>
                   </div>
                 </div>
-                <button
-                  onClick={(e) => { e.stopPropagation(); handleDelete(proj.id) }}
-                  className="p-2 rounded-md hover:bg-red-500/10 text-muted-foreground hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
+                {(proj.permissions?.['project.delete'] ?? proj.access_role === 'owner') && (
+                  <button
+                    onClick={(e) => { e.stopPropagation(); handleDelete(proj.id) }}
+                    className="p-2 rounded-md hover:bg-red-500/10 text-muted-foreground hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                )}
                 <ChevronRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-all" />
               </div>
             ))}

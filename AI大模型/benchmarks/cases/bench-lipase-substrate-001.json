@@ -1,0 +1,55 @@
+{
+  "case_id": "bench-lipase-substrate-001",
+  "title": "Lipase substrate-fit task should use ligand and pocket evidence",
+  "input": {
+    "message": "脂肪酶底物选择性改造：希望提高对 pNP-palmitate 的活性，结构和底物 SDF 都已上传。",
+    "history_context": [
+      {
+        "role": "user",
+        "content": "object_name: uploads/user_2/lipase.pdb"
+      },
+      {
+        "role": "user",
+        "content": "ligand_sdf_object: uploads/user_2/pnp_palmitate.sdf"
+      }
+    ],
+    "attachments": [
+      {
+        "type": "pdb",
+        "object_name": "uploads/user_2/lipase.pdb"
+      },
+      {
+        "type": "sdf",
+        "object_name": "uploads/user_2/pnp_palmitate.sdf"
+      }
+    ]
+  },
+  "expected_workflow": [
+    "parse_uploaded_structure",
+    "residue_numbering_gate",
+    "annotation_bundle",
+    "ligand_preprocess",
+    "kwb_enzyme_designer"
+  ],
+  "must_have": [
+    "use substrate and pocket evidence when available",
+    "flag docking or ligand-preprocess absence as uncertainty",
+    "protect catalytic triad and oxyanion hole residues"
+  ],
+  "must_not_have": [
+    "treat docking score as experimental activity",
+    "recommend pocket-core mutation without risk flag",
+    "ignore ligand SDF input"
+  ],
+  "expected_output": {
+    "sections": [
+      "Substrate objective",
+      "Ligand evidence",
+      "Pocket risk",
+      "Candidate mutations",
+      "Assay plan"
+    ]
+  },
+  "scoring_profile": "default"
+}
+

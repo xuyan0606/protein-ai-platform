@@ -1,0 +1,107 @@
+{
+  "accession": "Q96P11",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01189",
+        "name": "16S rRNA methyltransferase RsmB/F",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049560",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96p11",
+          "protein_length": 429,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 219,
+                  "end": 421,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01189",
+              "score": 3.2e-24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21148",
+        "name": "NOL1/NOP2/Sun domain family member 5, ferredoxin-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049561",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96p11",
+          "protein_length": 429,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 134,
+                  "end": 211,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF21148",
+              "score": 2.3e-32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21153",
+        "name": "NOL1/NOP2/Sun domain family member 5, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR048889",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96p11",
+          "protein_length": 429,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 34,
+                  "end": 122,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF21153",
+              "score": 3.9e-30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

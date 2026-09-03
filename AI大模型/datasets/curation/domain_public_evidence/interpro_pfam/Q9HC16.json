@@ -1,0 +1,51 @@
+{
+  "accession": "Q9HC16",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF18782",
+        "name": "APOBEC3, cytosine deaminase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR059136",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hc16",
+          "protein_length": 384,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 10,
+                  "end": 193,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18782",
+              "score": 9.6e-65
+            },
+            {
+              "fragments": [
+                {
+                  "start": 196,
+                  "end": 379,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18782",
+              "score": 8.3e-70
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

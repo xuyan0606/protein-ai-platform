@@ -1,0 +1,63 @@
+{
+  "all_operator_packets_valid": true,
+  "completion_ready_rows": 0,
+  "coverage": {
+    "actual_packet_rows": 21,
+    "actual_total_covered_rows": 471,
+    "duplicate_open_record_ids": [],
+    "duplicate_semantic_conflict_record_ids": [],
+    "expected_open_numbering_rows": 471,
+    "expected_open_packet_rows": 21,
+    "expected_packet_rows": 21,
+    "expected_semantic_conflict_rows": 0,
+    "expected_total_covered_rows": 471,
+    "missing_open_record_ids": [],
+    "missing_semantic_conflict_record_ids": [],
+    "open_numbering_records_covered": true,
+    "open_packet_record_rows": 471,
+    "operator_queue_open_numbering_rows": 471,
+    "operator_queue_semantic_conflict_rows": 0,
+    "semantic_conflict_queue_rows": 0,
+    "semantic_conflict_records_covered": true,
+    "semantic_packet_record_rows": 0,
+    "unexpected_open_record_ids": [],
+    "unexpected_semantic_conflict_record_ids": []
+  },
+  "created_at": "2026-09-03T07:33:45.314317+00:00",
+  "curation_apply_by_packet_rows": 0,
+  "decision_written_by_packet_rows": 0,
+  "error_counts": {},
+  "expected_operator_packet_rows": 21,
+  "global_errors": [],
+  "inputs": {
+    "label_provenance_audit_report": "reports/label_provenance_audit_report.json",
+    "numbering_decision_semantic_conflict_queue": "datasets/curation/numbering_decision_semantic_conflict_queue.jsonl",
+    "numbering_review_operator_queue": "reports/numbering_review_operator_queue.json",
+    "packet_report": "reports/numbering_hard_gate_operator_packet_report.json",
+    "packets": "datasets/governance/numbering_hard_gate_operator_packets.jsonl"
+  },
+  "invalid_rows": 0,
+  "label_import_by_packet_rows": 0,
+  "local_only": true,
+  "manifest_update_allowed_rows": 0,
+  "operator_packet_rows": 21,
+  "outputs": {
+    "report": "reports/numbering_hard_gate_operator_packet_validation_report.json",
+    "status": "datasets/governance/numbering_hard_gate_operator_packet_status.jsonl"
+  },
+  "packet_status_counts": {
+    "open_blocked": 21
+  },
+  "packet_type_counts": {
+    "open_numbering_batch": 21
+  },
+  "policy": "Validator/status only. It validates fail-closed operator-packet integrity and coverage; it does not create curation decisions, apply curation, import labels, run training, update manifests, approve model claims, or approve release readiness.",
+  "release_ready": false,
+  "release_ready_rows": 0,
+  "requires_human_input_rows": 21,
+  "safe_for_model_claim": false,
+  "safe_for_model_claim_rows": 0,
+  "safe_pipeline_integration_allowed_rows": 0,
+  "training_unlocked_rows": 0,
+  "valid_rows": 21
+}

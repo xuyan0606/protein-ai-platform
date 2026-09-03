@@ -1,0 +1,28 @@
+{
+  "created_at": "2026-09-03T07:34:01.839319+00:00",
+  "local_only": true,
+  "success": true,
+  "audit_rows": 9,
+  "blocker_audit_rows": 8,
+  "ready": false,
+  "blockers": [
+    "data_license_clearance",
+    "tool_license_clearance",
+    "verified_component_customer_delivery_scope",
+    "ip_fto_review",
+    "biosecurity_approval",
+    "human_delivery_approval",
+    "allowed_claims_review",
+    "benchmark_scorecards"
+  ],
+  "passed_checks": 2,
+  "failed_checks": 8,
+  "failures": [],
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "customer_delivery_ready": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "policy": "Validation only. Customer delivery readiness gaps do not authorize customer delivery, claims, release, production execution, or training import."
+}

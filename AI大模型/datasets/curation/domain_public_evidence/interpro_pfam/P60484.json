@@ -1,0 +1,73 @@
+{
+  "accession": "P60484",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF10409",
+        "name": "C2 domain of PTEN tumour-suppressor protein",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014020",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p60484",
+          "protein_length": 403,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 189,
+                  "end": 348,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10409",
+              "score": 1.7e-35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22785",
+        "name": "Polymorphic toxin system, DSP-PTPase phosphatase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p60484",
+          "protein_length": 403,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 67,
+                  "end": 143,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22785",
+              "score": 6.9e-06
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

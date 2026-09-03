@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB Structure Cache Manifest",
+  "type": "object",
+  "required": ["local_only", "cache_roots", "entries"],
+  "properties": {
+    "local_only": { "const": true },
+    "cache_roots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "path", "read_only"],
+        "properties": {
+          "name": { "type": "string" },
+          "path": { "type": "string" },
+          "read_only": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["structure_id", "source", "expected_path", "status"],
+        "properties": {
+          "structure_id": { "type": "string" },
+          "source": {
+            "type": "string",
+            "enum": ["pdb", "alphafold", "esmfold", "uploaded"]
+          },
+          "expected_path": { "type": "string" },
+          "sha256": { "type": ["string", "null"] },
+          "status": {
+            "type": "string",
+            "enum": ["missing", "present", "invalid", "pending"]
+          },
+          "chain_mapping_required": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

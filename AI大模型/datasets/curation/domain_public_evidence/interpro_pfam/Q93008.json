@@ -1,0 +1,141 @@
+{
+  "accession": "Q93008",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00443",
+        "name": "Ubiquitin carboxyl-terminal hydrolase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001394",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q93008",
+          "protein_length": 2554,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1557,
+                  "end": 1953,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00443",
+              "score": 5.2e-55
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12030",
+        "name": "Domain of unknown function (DUF3517)",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR021905",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q93008",
+          "protein_length": 2554,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 2098,
+                  "end": 2453,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF12030",
+              "score": 3.3e-96
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22900",
+        "name": "Ubiquitin carboxyl-terminal hydrolases, Ubiquitin-like 1",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR055176",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q93008",
+          "protein_length": 2554,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 881,
+                  "end": 967,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF22900",
+              "score": 8.1e-31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25010",
+        "name": "UBP24/USP9X/USP9Y ARM repeat",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR056850",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q93008",
+          "protein_length": 2554,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 329,
+                  "end": 748,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF25010",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

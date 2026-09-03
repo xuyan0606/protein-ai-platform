@@ -1,0 +1,163 @@
+{
+  "accession": "Q92995",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00443",
+        "name": "Ubiquitin carboxyl-terminal hydrolase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001394",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92995",
+          "protein_length": 863,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 336,
+                  "end": 652,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 691,
+                  "end": 728,
+                  "dc-status": "NC_TERMINAL_DISC"
+                },
+                {
+                  "start": 765,
+                  "end": 858,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": false,
+              "model": "PF00443",
+              "score": 1.7e-53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00627",
+        "name": "UBA/TS-N domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015940",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92995",
+          "protein_length": 863,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 653,
+                  "end": 690,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00627",
+              "score": 1.1e-05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 729,
+                  "end": 764,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00627",
+              "score": 1.4e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02148",
+        "name": "Zn-finger in ubiquitin-hydrolases and other protein",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001607",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92995",
+          "protein_length": 863,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 211,
+                  "end": 283,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02148",
+              "score": 8.8e-12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17807",
+        "name": "Variant UBP zinc finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041432",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92995",
+          "protein_length": 863,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 35,
+                  "end": 97,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17807",
+              "score": 6.2e-23
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

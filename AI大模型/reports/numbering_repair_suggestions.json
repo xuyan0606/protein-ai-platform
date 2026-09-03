@@ -1,0 +1,1680 @@
+{
+  "rows": 500,
+  "exact_match": 25,
+  "mismatch_count": 475,
+  "window": 20,
+  "mismatches_with_no_local_match": 109,
+  "nearest_offset_counts": {
+    "1": 26,
+    "-2": 23,
+    "-3": 23,
+    "2": 19,
+    "-1": 19,
+    "-5": 18,
+    "4": 18,
+    "3": 17,
+    "-9": 16,
+    "-4": 13,
+    "-11": 11,
+    "9": 11,
+    "5": 10,
+    "6": 10,
+    "8": 10,
+    "16": 9,
+    "-7": 8,
+    "7": 8,
+    "14": 7,
+    "-8": 7
+  },
+  "suggestions_sample": [
+    {
+      "record_id": "stability:1",
+      "uniprot_id": "P19835",
+      "mutation": "F18A",
+      "reported_position": 18,
+      "reported_wild_type": "F",
+      "current_sequence_residue": "A",
+      "nearest_matches_within_window": [
+        {
+          "position": 32,
+          "offset": 14
+        }
+      ]
+    },
+    {
+      "record_id": "stability:2",
+      "uniprot_id": "P19835",
+      "mutation": "Y120F",
+      "reported_position": 120,
+      "reported_wild_type": "Y",
+      "current_sequence_residue": "V",
+      "nearest_matches_within_window": [
+        {
+          "position": 125,
+          "offset": 5
+        },
+        {
+          "position": 102,
+          "offset": -18
+        }
+      ]
+    },
+    {
+      "record_id": "stability:3",
+      "uniprot_id": "P19835",
+      "mutation": "W85L",
+      "reported_position": 85,
+      "reported_wild_type": "W",
+      "current_sequence_residue": "L",
+      "nearest_matches_within_window": [
+        {
+          "position": 71,
+          "offset": -14
+        }
+      ]
+    },
+    {
+      "record_id": "stability:4",
+      "uniprot_id": "P19835",
+      "mutation": "R45K",
+      "reported_position": 45,
+      "reported_wild_type": "R",
+      "current_sequence_residue": "D",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:5",
+      "uniprot_id": "P19835",
+      "mutation": "D67N",
+      "reported_position": 67,
+      "reported_wild_type": "D",
+      "current_sequence_residue": "P",
+      "nearest_matches_within_window": [
+        {
+          "position": 48,
+          "offset": -19
+        }
+      ]
+    },
+    {
+      "record_id": "stability:6",
+      "uniprot_id": "P19835",
+      "mutation": "A102G",
+      "reported_position": 102,
+      "reported_wild_type": "A",
+      "current_sequence_residue": "Y",
+      "nearest_matches_within_window": [
+        {
+          "position": 87,
+          "offset": -15
+        }
+      ]
+    },
+    {
+      "record_id": "stability:7",
+      "uniprot_id": "P19835",
+      "mutation": "S45T",
+      "reported_position": 45,
+      "reported_wild_type": "S",
+      "current_sequence_residue": "D",
+      "nearest_matches_within_window": [
+        {
+          "position": 46,
+          "offset": 1
+        }
+      ]
+    },
+    {
+      "record_id": "stability:8",
+      "uniprot_id": "A1L3X0",
+      "mutation": "Y274M",
+      "reported_position": 274,
+      "reported_wild_type": "Y",
+      "current_sequence_residue": "G",
+      "nearest_matches_within_window": [
+        {
+          "position": 261,
+          "offset": -13
+        },
+        {
+          "position": 258,
+          "offset": -16
+        }
+      ]
+    },
+    {
+      "record_id": "stability:9",
+      "uniprot_id": "A1L3X0",
+      "mutation": "A213V",
+      "reported_position": 213,
+      "reported_wild_type": "A",
+      "current_sequence_residue": "V",
+      "nearest_matches_within_window": [
+        {
+          "position": 219,
+          "offset": 6
+        },
+        {
+          "position": 196,
+          "offset": -17
+        }
+      ]
+    },
+    {
+      "record_id": "stability:10",
+      "uniprot_id": "A2RUC4",
+      "mutation": "G74L",
+      "reported_position": 74,
+      "reported_wild_type": "G",
+      "current_sequence_residue": "N",
+      "nearest_matches_within_window": [
+        {
+          "position": 54,
+          "offset": -20
+        }
+      ]
+    },
+    {
+      "record_id": "stability:11",
+      "uniprot_id": "A2RUC4",
+      "mutation": "G167A",
+      "reported_position": 167,
+      "reported_wild_type": "G",
+      "current_sequence_residue": "L",
+      "nearest_matches_within_window": [
+        {
+          "position": 173,
+          "offset": 6
+        },
+        {
+          "position": 154,
+          "offset": -13
+        }
+      ]
+    },
+    {
+      "record_id": "stability:12",
+      "uniprot_id": "A2RUC4",
+      "mutation": "K166Q",
+      "reported_position": 166,
+      "reported_wild_type": "K",
+      "current_sequence_residue": "N",
+      "nearest_matches_within_window": [
+        {
+          "position": 174,
+          "offset": 8
+        },
+        {
+          "position": 175,
+          "offset": 9
+        }
+      ]
+    },
+    {
+      "record_id": "stability:13",
+      "uniprot_id": "A2RUC4",
+      "mutation": "W306I",
+      "reported_position": 306,
+      "reported_wild_type": "W",
+      "current_sequence_residue": "Q",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:14",
+      "uniprot_id": "O00329",
+      "mutation": "V952Q",
+      "reported_position": 952,
+      "reported_wild_type": "V",
+      "current_sequence_residue": "K",
+      "nearest_matches_within_window": [
+        {
+          "position": 941,
+          "offset": -11
+        },
+        {
+          "position": 939,
+          "offset": -13
+        }
+      ]
+    },
+    {
+      "record_id": "stability:15",
+      "uniprot_id": "O00329",
+      "mutation": "I208W",
+      "reported_position": 208,
+      "reported_wild_type": "I",
+      "current_sequence_residue": "S",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:16",
+      "uniprot_id": "O00329",
+      "mutation": "H1025F",
+      "reported_position": 1025,
+      "reported_wild_type": "H",
+      "current_sequence_residue": "E",
+      "nearest_matches_within_window": [
+        {
+          "position": 1014,
+          "offset": -11
+        },
+        {
+          "position": 1036,
+          "offset": 11
+        }
+      ]
+    },
+    {
+      "record_id": "stability:17",
+      "uniprot_id": "O00329",
+      "mutation": "A86S",
+      "reported_position": 86,
+      "reported_wild_type": "A",
+      "current_sequence_residue": "Q",
+      "nearest_matches_within_window": [
+        {
+          "position": 77,
+          "offset": -9
+        },
+        {
+          "position": 103,
+          "offset": 17
+        },
+        {
+          "position": 67,
+          "offset": -19
+        }
+      ]
+    },
+    {
+      "record_id": "stability:18",
+      "uniprot_id": "O00444",
+      "mutation": "K613Q",
+      "reported_position": 613,
+      "reported_wild_type": "K",
+      "current_sequence_residue": "I",
+      "nearest_matches_within_window": [
+        {
+          "position": 608,
+          "offset": -5
+        },
+        {
+          "position": 607,
+          "offset": -6
+        },
+        {
+          "position": 605,
+          "offset": -8
+        },
+        {
+          "position": 625,
+          "offset": 12
+        },
+        {
+          "position": 600,
+          "offset": -13
+        }
+      ]
+    },
+    {
+      "record_id": "stability:19",
+      "uniprot_id": "O00444",
+      "mutation": "V757Y",
+      "reported_position": 757,
+      "reported_wild_type": "V",
+      "current_sequence_residue": "E",
+      "nearest_matches_within_window": [
+        {
+          "position": 758,
+          "offset": 1
+        },
+        {
+          "position": 742,
+          "offset": -15
+        }
+      ]
+    },
+    {
+      "record_id": "stability:20",
+      "uniprot_id": "O00444",
+      "mutation": "Q287H",
+      "reported_position": 287,
+      "reported_wild_type": "Q",
+      "current_sequence_residue": "H",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:21",
+      "uniprot_id": "O00444",
+      "mutation": "R771K",
+      "reported_position": 771,
+      "reported_wild_type": "R",
+      "current_sequence_residue": "H",
+      "nearest_matches_within_window": [
+        {
+          "position": 777,
+          "offset": 6
+        },
+        {
+          "position": 791,
+          "offset": 20
+        }
+      ]
+    },
+    {
+      "record_id": "stability:22",
+      "uniprot_id": "O00487",
+      "mutation": "F9A",
+      "reported_position": 9,
+      "reported_wild_type": "F",
+      "current_sequence_residue": "G",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:23",
+      "uniprot_id": "O00487",
+      "mutation": "P251W",
+      "reported_position": 251,
+      "reported_wild_type": "P",
+      "current_sequence_residue": "L",
+      "nearest_matches_within_window": [
+        {
+          "position": 267,
+          "offset": 16
+        }
+      ]
+    },
+    {
+      "record_id": "stability:24",
+      "uniprot_id": "O00487",
+      "mutation": "N64Q",
+      "reported_position": 64,
+      "reported_wild_type": "N",
+      "current_sequence_residue": "D",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:25",
+      "uniprot_id": "O00487",
+      "mutation": "H190S",
+      "reported_position": 190,
+      "reported_wild_type": "H",
+      "current_sequence_residue": "Q",
+      "nearest_matches_within_window": [
+        {
+          "position": 194,
+          "offset": 4
+        },
+        {
+          "position": 183,
+          "offset": -7
+        },
+        {
+          "position": 199,
+          "offset": 9
+        },
+        {
+          "position": 172,
+          "offset": -18
+        }
+      ]
+    },
+    {
+      "record_id": "stability:26",
+      "uniprot_id": "O00506",
+      "mutation": "I414K",
+      "reported_position": 414,
+      "reported_wild_type": "I",
+      "current_sequence_residue": "R",
+      "nearest_matches_within_window": [
+        {
+          "position": 400,
+          "offset": -14
+        }
+      ]
+    },
+    {
+      "record_id": "stability:27",
+      "uniprot_id": "O00506",
+      "mutation": "Y362H",
+      "reported_position": 362,
+      "reported_wild_type": "Y",
+      "current_sequence_residue": "V",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:28",
+      "uniprot_id": "O00506",
+      "mutation": "S257G",
+      "reported_position": 257,
+      "reported_wild_type": "S",
+      "current_sequence_residue": "F",
+      "nearest_matches_within_window": [
+        {
+          "position": 240,
+          "offset": -17
+        }
+      ]
+    },
+    {
+      "record_id": "stability:29",
+      "uniprot_id": "O00506",
+      "mutation": "D66G",
+      "reported_position": 66,
+      "reported_wild_type": "D",
+      "current_sequence_residue": "E",
+      "nearest_matches_within_window": [
+        {
+          "position": 62,
+          "offset": -4
+        },
+        {
+          "position": 58,
+          "offset": -8
+        },
+        {
+          "position": 74,
+          "offset": 8
+        },
+        {
+          "position": 52,
+          "offset": -14
+        }
+      ]
+    },
+    {
+      "record_id": "stability:30",
+      "uniprot_id": "O00746",
+      "mutation": "V178K",
+      "reported_position": 178,
+      "reported_wild_type": "V",
+      "current_sequence_residue": "G",
+      "nearest_matches_within_window": [
+        {
+          "position": 173,
+          "offset": -5
+        }
+      ]
+    },
+    {
+      "record_id": "stability:31",
+      "uniprot_id": "O00746",
+      "mutation": "C167N",
+      "reported_position": 167,
+      "reported_wild_type": "C",
+      "current_sequence_residue": "F",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:32",
+      "uniprot_id": "O00762",
+      "mutation": "N127V",
+      "reported_position": 127,
+      "reported_wild_type": "N",
+      "current_sequence_residue": "D",
+      "nearest_matches_within_window": [
+        {
+          "position": 112,
+          "offset": -15
+        },
+        {
+          "position": 143,
+          "offset": 16
+        }
+      ]
+    },
+    {
+      "record_id": "stability:33",
+      "uniprot_id": "O00762",
+      "mutation": "R137M",
+      "reported_position": 137,
+      "reported_wild_type": "R",
+      "current_sequence_residue": "S",
+      "nearest_matches_within_window": [
+        {
+          "position": 129,
+          "offset": -8
+        }
+      ]
+    },
+    {
+      "record_id": "stability:35",
+      "uniprot_id": "O00762",
+      "mutation": "E161A",
+      "reported_position": 161,
+      "reported_wild_type": "E",
+      "current_sequence_residue": "A",
+      "nearest_matches_within_window": [
+        {
+          "position": 154,
+          "offset": -7
+        },
+        {
+          "position": 168,
+          "offset": 7
+        },
+        {
+          "position": 178,
+          "offset": 17
+        },
+        {
+          "position": 141,
+          "offset": -20
+        }
+      ]
+    },
+    {
+      "record_id": "stability:36",
+      "uniprot_id": "O00762",
+      "mutation": "S28I",
+      "reported_position": 28,
+      "reported_wild_type": "S",
+      "current_sequence_residue": "R",
+      "nearest_matches_within_window": [
+        {
+          "position": 23,
+          "offset": -5
+        },
+        {
+          "position": 12,
+          "offset": -16
+        },
+        {
+          "position": 45,
+          "offset": 17
+        }
+      ]
+    },
+    {
+      "record_id": "stability:37",
+      "uniprot_id": "O14744",
+      "mutation": "R98Y",
+      "reported_position": 98,
+      "reported_wild_type": "R",
+      "current_sequence_residue": "K",
+      "nearest_matches_within_window": [
+        {
+          "position": 100,
+          "offset": 2
+        },
+        {
+          "position": 101,
+          "offset": 3
+        },
+        {
+          "position": 91,
+          "offset": -7
+        }
+      ]
+    },
+    {
+      "record_id": "stability:38",
+      "uniprot_id": "O14744",
+      "mutation": "F67C",
+      "reported_position": 67,
+      "reported_wild_type": "F",
+      "current_sequence_residue": "T",
+      "nearest_matches_within_window": [
+        {
+          "position": 54,
+          "offset": -13
+        },
+        {
+          "position": 50,
+          "offset": -17
+        }
+      ]
+    },
+    {
+      "record_id": "stability:39",
+      "uniprot_id": "O14744",
+      "mutation": "V58C",
+      "reported_position": 58,
+      "reported_wild_type": "V",
+      "current_sequence_residue": "P",
+      "nearest_matches_within_window": [
+        {
+          "position": 45,
+          "offset": -13
+        }
+      ]
+    },
+    {
+      "record_id": "stability:40",
+      "uniprot_id": "O14744",
+      "mutation": "R11P",
+      "reported_position": 11,
+      "reported_wild_type": "R",
+      "current_sequence_residue": "G",
+      "nearest_matches_within_window": [
+        {
+          "position": 13,
+          "offset": 2
+        },
+        {
+          "position": 18,
+          "offset": 7
+        }
+      ]
+    },
+    {
+      "record_id": "stability:41",
+      "uniprot_id": "O14744",
+      "mutation": "R27V",
+      "reported_position": 27,
+      "reported_wild_type": "R",
+      "current_sequence_residue": "A",
+      "nearest_matches_within_window": [
+        {
+          "position": 18,
+          "offset": -9
+        },
+        {
+          "position": 13,
+          "offset": -14
+        }
+      ]
+    },
+    {
+      "record_id": "stability:42",
+      "uniprot_id": "O14757",
+      "mutation": "H304Y",
+      "reported_position": 304,
+      "reported_wild_type": "H",
+      "current_sequence_residue": "N",
+      "nearest_matches_within_window": [
+        {
+          "position": 293,
+          "offset": -11
+        }
+      ]
+    },
+    {
+      "record_id": "stability:43",
+      "uniprot_id": "O14757",
+      "mutation": "R318G",
+      "reported_position": 318,
+      "reported_wild_type": "R",
+      "current_sequence_residue": "Q",
+      "nearest_matches_within_window": [
+        {
+          "position": 322,
+          "offset": 4
+        }
+      ]
+    },
+    {
+      "record_id": "stability:45",
+      "uniprot_id": "O14933",
+      "mutation": "L88P",
+      "reported_position": 88,
+      "reported_wild_type": "L",
+      "current_sequence_residue": "P",
+      "nearest_matches_within_window": [
+        {
+          "position": 87,
+          "offset": -1
+        },
+        {
+          "position": 105,
+          "offset": 17
+        },
+        {
+          "position": 108,
+          "offset": 20
+        }
+      ]
+    },
+    {
+      "record_id": "stability:46",
+      "uniprot_id": "O14933",
+      "mutation": "C144R",
+      "reported_position": 144,
+      "reported_wild_type": "C",
+      "current_sequence_residue": "T",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:48",
+      "uniprot_id": "O14933",
+      "mutation": "E42S",
+      "reported_position": 42,
+      "reported_wild_type": "E",
+      "current_sequence_residue": "D",
+      "nearest_matches_within_window": [
+        {
+          "position": 60,
+          "offset": 18
+        }
+      ]
+    },
+    {
+      "record_id": "stability:49",
+      "uniprot_id": "O14939",
+      "mutation": "I710S",
+      "reported_position": 710,
+      "reported_wild_type": "I",
+      "current_sequence_residue": "L",
+      "nearest_matches_within_window": [
+        {
+          "position": 717,
+          "offset": 7
+        },
+        {
+          "position": 702,
+          "offset": -8
+        },
+        {
+          "position": 699,
+          "offset": -11
+        },
+        {
+          "position": 691,
+          "offset": -19
+        }
+      ]
+    },
+    {
+      "record_id": "stability:50",
+      "uniprot_id": "O14939",
+      "mutation": "A189P",
+      "reported_position": 189,
+      "reported_wild_type": "A",
+      "current_sequence_residue": "L",
+      "nearest_matches_within_window": [
+        {
+          "position": 184,
+          "offset": -5
+        }
+      ]
+    },
+    {
+      "record_id": "stability:51",
+      "uniprot_id": "O14939",
+      "mutation": "H451Y",
+      "reported_position": 451,
+      "reported_wild_type": "H",
+      "current_sequence_residue": "V",
+      "nearest_matches_within_window": [
+        {
+          "position": 442,
+          "offset": -9
+        },
+        {
+          "position": 441,
+          "offset": -10
+        },
+        {
+          "position": 469,
+          "offset": 18
+        },
+        {
+          "position": 432,
+          "offset": -19
+        }
+      ]
+    },
+    {
+      "record_id": "stability:52",
+      "uniprot_id": "O15067",
+      "mutation": "K449G",
+      "reported_position": 449,
+      "reported_wild_type": "K",
+      "current_sequence_residue": "V",
+      "nearest_matches_within_window": [
+        {
+          "position": 451,
+          "offset": 2
+        },
+        {
+          "position": 440,
+          "offset": -9
+        }
+      ]
+    },
+    {
+      "record_id": "stability:53",
+      "uniprot_id": "O15067",
+      "mutation": "E537A",
+      "reported_position": 537,
+      "reported_wild_type": "E",
+      "current_sequence_residue": "I",
+      "nearest_matches_within_window": [
+        {
+          "position": 528,
+          "offset": -9
+        },
+        {
+          "position": 553,
+          "offset": 16
+        }
+      ]
+    },
+    {
+      "record_id": "stability:54",
+      "uniprot_id": "O15067",
+      "mutation": "I935P",
+      "reported_position": 935,
+      "reported_wild_type": "I",
+      "current_sequence_residue": "P",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:55",
+      "uniprot_id": "O15111",
+      "mutation": "F148I",
+      "reported_position": 148,
+      "reported_wild_type": "F",
+      "current_sequence_residue": "E",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:56",
+      "uniprot_id": "O15111",
+      "mutation": "I652C",
+      "reported_position": 652,
+      "reported_wild_type": "I",
+      "current_sequence_residue": "H",
+      "nearest_matches_within_window": [
+        {
+          "position": 650,
+          "offset": -2
+        },
+        {
+          "position": 656,
+          "offset": 4
+        },
+        {
+          "position": 632,
+          "offset": -20
+        }
+      ]
+    },
+    {
+      "record_id": "stability:57",
+      "uniprot_id": "O15269",
+      "mutation": "K28F",
+      "reported_position": 28,
+      "reported_wild_type": "K",
+      "current_sequence_residue": "E",
+      "nearest_matches_within_window": [
+        {
+          "position": 42,
+          "offset": 14
+        },
+        {
+          "position": 45,
+          "offset": 17
+        }
+      ]
+    },
+    {
+      "record_id": "stability:58",
+      "uniprot_id": "O15269",
+      "mutation": "S402D",
+      "reported_position": 402,
+      "reported_wild_type": "S",
+      "current_sequence_residue": "T",
+      "nearest_matches_within_window": [
+        {
+          "position": 401,
+          "offset": -1
+        },
+        {
+          "position": 404,
+          "offset": 2
+        },
+        {
+          "position": 391,
+          "offset": -11
+        },
+        {
+          "position": 389,
+          "offset": -13
+        }
+      ]
+    },
+    {
+      "record_id": "stability:59",
+      "uniprot_id": "O15269",
+      "mutation": "G238N",
+      "reported_position": 238,
+      "reported_wild_type": "G",
+      "current_sequence_residue": "T",
+      "nearest_matches_within_window": [
+        {
+          "position": 246,
+          "offset": 8
+        },
+        {
+          "position": 252,
+          "offset": 14
+        }
+      ]
+    },
+    {
+      "record_id": "stability:60",
+      "uniprot_id": "O15297",
+      "mutation": "C598I",
+      "reported_position": 598,
+      "reported_wild_type": "C",
+      "current_sequence_residue": "H",
+      "nearest_matches_within_window": [
+        {
+          "position": 603,
+          "offset": 5
+        },
+        {
+          "position": 605,
+          "offset": 7
+        }
+      ]
+    },
+    {
+      "record_id": "stability:61",
+      "uniprot_id": "O15297",
+      "mutation": "P436Y",
+      "reported_position": 436,
+      "reported_wild_type": "P",
+      "current_sequence_residue": "I",
+      "nearest_matches_within_window": [
+        {
+          "position": 437,
+          "offset": 1
+        },
+        {
+          "position": 428,
+          "offset": -8
+        },
+        {
+          "position": 426,
+          "offset": -10
+        },
+        {
+          "position": 418,
+          "offset": -18
+        },
+        {
+          "position": 417,
+          "offset": -19
+        }
+      ]
+    },
+    {
+      "record_id": "stability:62",
+      "uniprot_id": "O15297",
+      "mutation": "L87S",
+      "reported_position": 87,
+      "reported_wild_type": "L",
+      "current_sequence_residue": "A",
+      "nearest_matches_within_window": [
+        {
+          "position": 79,
+          "offset": -8
+        }
+      ]
+    },
+    {
+      "record_id": "stability:63",
+      "uniprot_id": "O15297",
+      "mutation": "Q345S",
+      "reported_position": 345,
+      "reported_wild_type": "Q",
+      "current_sequence_residue": "S",
+      "nearest_matches_within_window": [
+        {
+          "position": 344,
+          "offset": -1
+        },
+        {
+          "position": 332,
+          "offset": -13
+        },
+        {
+          "position": 330,
+          "offset": -15
+        },
+        {
+          "position": 360,
+          "offset": 15
+        }
+      ]
+    },
+    {
+      "record_id": "stability:64",
+      "uniprot_id": "O15297",
+      "mutation": "G26S",
+      "reported_position": 26,
+      "reported_wild_type": "G",
+      "current_sequence_residue": "Q",
+      "nearest_matches_within_window": [
+        {
+          "position": 17,
+          "offset": -9
+        },
+        {
+          "position": 16,
+          "offset": -10
+        },
+        {
+          "position": 8,
+          "offset": -18
+        }
+      ]
+    },
+    {
+      "record_id": "stability:65",
+      "uniprot_id": "O15484",
+      "mutation": "I284E",
+      "reported_position": 284,
+      "reported_wild_type": "I",
+      "current_sequence_residue": "N",
+      "nearest_matches_within_window": [
+        {
+          "position": 280,
+          "offset": -4
+        }
+      ]
+    },
+    {
+      "record_id": "stability:66",
+      "uniprot_id": "O15484",
+      "mutation": "K338M",
+      "reported_position": 338,
+      "reported_wild_type": "K",
+      "current_sequence_residue": "I",
+      "nearest_matches_within_window": [
+        {
+          "position": 339,
+          "offset": 1
+        },
+        {
+          "position": 352,
+          "offset": 14
+        }
+      ]
+    },
+    {
+      "record_id": "stability:67",
+      "uniprot_id": "O15488",
+      "mutation": "V438K",
+      "reported_position": 438,
+      "reported_wild_type": "V",
+      "current_sequence_residue": "L",
+      "nearest_matches_within_window": [
+        {
+          "position": 449,
+          "offset": 11
+        },
+        {
+          "position": 453,
+          "offset": 15
+        },
+        {
+          "position": 421,
+          "offset": -17
+        },
+        {
+          "position": 455,
+          "offset": 17
+        },
+        {
+          "position": 418,
+          "offset": -20
+        }
+      ]
+    },
+    {
+      "record_id": "stability:69",
+      "uniprot_id": "O15488",
+      "mutation": "H371T",
+      "reported_position": 371,
+      "reported_wild_type": "H",
+      "current_sequence_residue": "E",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:70",
+      "uniprot_id": "O15541",
+      "mutation": "M44H",
+      "reported_position": 44,
+      "reported_wild_type": "M",
+      "current_sequence_residue": "G",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:72",
+      "uniprot_id": "O15541",
+      "mutation": "M182I",
+      "reported_position": 182,
+      "reported_wild_type": "M",
+      "current_sequence_residue": "P",
+      "nearest_matches_within_window": [
+        {
+          "position": 177,
+          "offset": -5
+        },
+        {
+          "position": 170,
+          "offset": -12
+        },
+        {
+          "position": 163,
+          "offset": -19
+        }
+      ]
+    },
+    {
+      "record_id": "stability:73",
+      "uniprot_id": "O15541",
+      "mutation": "W12C",
+      "reported_position": 12,
+      "reported_wild_type": "W",
+      "current_sequence_residue": "D",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:74",
+      "uniprot_id": "O43143",
+      "mutation": "V66P",
+      "reported_position": 66,
+      "reported_wild_type": "V",
+      "current_sequence_residue": "N",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:75",
+      "uniprot_id": "O43143",
+      "mutation": "G96E",
+      "reported_position": 96,
+      "reported_wild_type": "G",
+      "current_sequence_residue": "H",
+      "nearest_matches_within_window": [
+        {
+          "position": 104,
+          "offset": 8
+        },
+        {
+          "position": 107,
+          "offset": 11
+        }
+      ]
+    },
+    {
+      "record_id": "stability:76",
+      "uniprot_id": "O43143",
+      "mutation": "D204Q",
+      "reported_position": 204,
+      "reported_wild_type": "D",
+      "current_sequence_residue": "R",
+      "nearest_matches_within_window": [
+        {
+          "position": 207,
+          "offset": 3
+        },
+        {
+          "position": 210,
+          "offset": 6
+        }
+      ]
+    },
+    {
+      "record_id": "stability:77",
+      "uniprot_id": "O43143",
+      "mutation": "T378A",
+      "reported_position": 378,
+      "reported_wild_type": "T",
+      "current_sequence_residue": "P",
+      "nearest_matches_within_window": [
+        {
+          "position": 391,
+          "offset": 13
+        }
+      ]
+    },
+    {
+      "record_id": "stability:78",
+      "uniprot_id": "O43143",
+      "mutation": "V133Q",
+      "reported_position": 133,
+      "reported_wild_type": "V",
+      "current_sequence_residue": "K",
+      "nearest_matches_within_window": [
+        {
+          "position": 139,
+          "offset": 6
+        },
+        {
+          "position": 151,
+          "offset": 18
+        }
+      ]
+    },
+    {
+      "record_id": "stability:79",
+      "uniprot_id": "O43323",
+      "mutation": "S364G",
+      "reported_position": 364,
+      "reported_wild_type": "S",
+      "current_sequence_residue": "H",
+      "nearest_matches_within_window": [
+        {
+          "position": 349,
+          "offset": -15
+        },
+        {
+          "position": 384,
+          "offset": 20
+        }
+      ]
+    },
+    {
+      "record_id": "stability:80",
+      "uniprot_id": "O43323",
+      "mutation": "R351K",
+      "reported_position": 351,
+      "reported_wild_type": "R",
+      "current_sequence_residue": "Q",
+      "nearest_matches_within_window": [
+        {
+          "position": 355,
+          "offset": 4
+        },
+        {
+          "position": 361,
+          "offset": 10
+        }
+      ]
+    },
+    {
+      "record_id": "stability:81",
+      "uniprot_id": "O43323",
+      "mutation": "T127M",
+      "reported_position": 127,
+      "reported_wild_type": "T",
+      "current_sequence_residue": "E",
+      "nearest_matches_within_window": [
+        {
+          "position": 126,
+          "offset": -1
+        }
+      ]
+    },
+    {
+      "record_id": "stability:82",
+      "uniprot_id": "O43323",
+      "mutation": "D378M",
+      "reported_position": 378,
+      "reported_wild_type": "D",
+      "current_sequence_residue": "T",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:83",
+      "uniprot_id": "O43323",
+      "mutation": "Q90I",
+      "reported_position": 90,
+      "reported_wild_type": "Q",
+      "current_sequence_residue": "E",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:84",
+      "uniprot_id": "O43464",
+      "mutation": "W358E",
+      "reported_position": 358,
+      "reported_wild_type": "W",
+      "current_sequence_residue": "Q",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:85",
+      "uniprot_id": "O43464",
+      "mutation": "L276D",
+      "reported_position": 276,
+      "reported_wild_type": "L",
+      "current_sequence_residue": "S",
+      "nearest_matches_within_window": [
+        {
+          "position": 285,
+          "offset": 9
+        },
+        {
+          "position": 266,
+          "offset": -10
+        },
+        {
+          "position": 287,
+          "offset": 11
+        }
+      ]
+    },
+    {
+      "record_id": "stability:86",
+      "uniprot_id": "O43464",
+      "mutation": "E284P",
+      "reported_position": 284,
+      "reported_wild_type": "E",
+      "current_sequence_residue": "D",
+      "nearest_matches_within_window": [
+        {
+          "position": 293,
+          "offset": 9
+        }
+      ]
+    },
+    {
+      "record_id": "stability:88",
+      "uniprot_id": "O43598",
+      "mutation": "H103Q",
+      "reported_position": 103,
+      "reported_wild_type": "H",
+      "current_sequence_residue": "Y",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:89",
+      "uniprot_id": "O43598",
+      "mutation": "S119R",
+      "reported_position": 119,
+      "reported_wild_type": "S",
+      "current_sequence_residue": "F",
+      "nearest_matches_within_window": [
+        {
+          "position": 123,
+          "offset": 4
+        },
+        {
+          "position": 128,
+          "offset": 9
+        },
+        {
+          "position": 138,
+          "offset": 19
+        }
+      ]
+    },
+    {
+      "record_id": "stability:91",
+      "uniprot_id": "O43897",
+      "mutation": "D173A",
+      "reported_position": 173,
+      "reported_wild_type": "D",
+      "current_sequence_residue": "S",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:92",
+      "uniprot_id": "O43897",
+      "mutation": "V36H",
+      "reported_position": 36,
+      "reported_wild_type": "V",
+      "current_sequence_residue": "T",
+      "nearest_matches_within_window": [
+        {
+          "position": 27,
+          "offset": -9
+        },
+        {
+          "position": 20,
+          "offset": -16
+        }
+      ]
+    },
+    {
+      "record_id": "stability:93",
+      "uniprot_id": "O43897",
+      "mutation": "R316C",
+      "reported_position": 316,
+      "reported_wild_type": "R",
+      "current_sequence_residue": "S",
+      "nearest_matches_within_window": [
+        {
+          "position": 317,
+          "offset": 1
+        },
+        {
+          "position": 323,
+          "offset": 7
+        },
+        {
+          "position": 306,
+          "offset": -10
+        },
+        {
+          "position": 329,
+          "offset": 13
+        },
+        {
+          "position": 301,
+          "offset": -15
+        }
+      ]
+    },
+    {
+      "record_id": "stability:94",
+      "uniprot_id": "O43897",
+      "mutation": "I931H",
+      "reported_position": 931,
+      "reported_wild_type": "I",
+      "current_sequence_residue": "L",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:95",
+      "uniprot_id": "O43897",
+      "mutation": "D686K",
+      "reported_position": 686,
+      "reported_wild_type": "D",
+      "current_sequence_residue": "S",
+      "nearest_matches_within_window": [
+        {
+          "position": 674,
+          "offset": -12
+        }
+      ]
+    },
+    {
+      "record_id": "stability:96",
+      "uniprot_id": "O60235",
+      "mutation": "M418N",
+      "reported_position": 418,
+      "reported_wild_type": "M",
+      "current_sequence_residue": "I",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:97",
+      "uniprot_id": "O60235",
+      "mutation": "H119E",
+      "reported_position": 119,
+      "reported_wild_type": "H",
+      "current_sequence_residue": "K",
+      "nearest_matches_within_window": [
+        {
+          "position": 101,
+          "offset": -18
+        }
+      ]
+    },
+    {
+      "record_id": "stability:98",
+      "uniprot_id": "O60264",
+      "mutation": "I940D",
+      "reported_position": 940,
+      "reported_wild_type": "I",
+      "current_sequence_residue": "G",
+      "nearest_matches_within_window": [
+        {
+          "position": 937,
+          "offset": -3
+        },
+        {
+          "position": 925,
+          "offset": -15
+        },
+        {
+          "position": 956,
+          "offset": 16
+        }
+      ]
+    },
+    {
+      "record_id": "stability:99",
+      "uniprot_id": "O60264",
+      "mutation": "Q448L",
+      "reported_position": 448,
+      "reported_wild_type": "Q",
+      "current_sequence_residue": "N",
+      "nearest_matches_within_window": [
+        {
+          "position": 452,
+          "offset": 4
+        }
+      ]
+    },
+    {
+      "record_id": "stability:100",
+      "uniprot_id": "O60264",
+      "mutation": "P665F",
+      "reported_position": 665,
+      "reported_wild_type": "P",
+      "current_sequence_residue": "K",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:101",
+      "uniprot_id": "O60307",
+      "mutation": "W1247R",
+      "reported_position": 1247,
+      "reported_wild_type": "W",
+      "current_sequence_residue": "E",
+      "nearest_matches_within_window": []
+    },
+    {
+      "record_id": "stability:102",
+      "uniprot_id": "O60307",
+      "mutation": "E1263M",
+      "reported_position": 1263,
+      "reported_wild_type": "E",
+      "current_sequence_residue": "F",
+      "nearest_matches_within_window": [
+        {
+          "position": 1267,
+          "offset": 4
+        },
+        {
+          "position": 1258,
+          "offset": -5
+        },
+        {
+          "position": 1271,
+          "offset": 8
+        },
+        {
+          "position": 1276,
+          "offset": 13
+        },
+        {
+          "position": 1247,
+          "offset": -16
+        }
+      ]
+    },
+    {
+      "record_id": "stability:103",
+      "uniprot_id": "O60502",
+      "mutation": "L511H",
+      "reported_position": 511,
+      "reported_wild_type": "L",
+      "current_sequence_residue": "S",
+      "nearest_matches_within_window": [
+        {
+          "position": 496,
+          "offset": -15
+        }
+      ]
+    },
+    {
+      "record_id": "stability:104",
+      "uniprot_id": "O60502",
+      "mutation": "M455F",
+      "reported_position": 455,
+      "reported_wild_type": "M",
+      "current_sequence_residue": "E",
+      "nearest_matches_within_window": [
+        {
+          "position": 465,
+          "offset": 10
+        },
+        {
+          "position": 467,
+          "offset": 12
+        },
+        {
+          "position": 438,
+          "offset": -17
+        }
+      ]
+    },
+    {
+      "record_id": "stability:105",
+      "uniprot_id": "O60502",
+      "mutation": "A769K",
+      "reported_position": 769,
+      "reported_wild_type": "A",
+      "current_sequence_residue": "V",
+      "nearest_matches_within_window": [
+        {
+          "position": 780,
+          "offset": 11
+        }
+      ]
+    },
+    {
+      "record_id": "stability:106",
+      "uniprot_id": "O60502",
+      "mutation": "I681K",
+      "reported_position": 681,
+      "reported_wild_type": "I",
+      "current_sequence_residue": "F",
+      "nearest_matches_within_window": [
+        {
+          "position": 673,
+          "offset": -8
+        },
+        {
+          "position": 695,
+          "offset": 14
+        }
+      ]
+    },
+    {
+      "record_id": "stability:107",
+      "uniprot_id": "O60678",
+      "mutation": "S67D",
+      "reported_position": 67,
+      "reported_wild_type": "S",
+      "current_sequence_residue": "C",
+      "nearest_matches_within_window": [
+        {
+          "position": 65,
+          "offset": -2
+        },
+        {
+          "position": 69,
+          "offset": 2
+        },
+        {
+          "position": 59,
+          "offset": -8
+        },
+        {
+          "position": 77,
+          "offset": 10
+        }
+      ]
+    }
+  ],
+  "interpretation": "If one offset dominates, a numbering offset repair may be possible. If offsets are diffuse or absent, labels likely need UniProt version/isoform/literature remapping."
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q96LW4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01896",
+        "name": "DNA primase small subunit",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002755",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96lw4",
+          "protein_length": 560,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 113,
+                  "end": 225,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01896",
+              "score": 1e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03121",
+        "name": "Herpesviridae UL52/UL70 DNA primase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96lw4",
+          "protein_length": 560,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 402,
+                  "end": 465,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03121",
+              "score": 4.4e-13
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

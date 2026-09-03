@@ -1,0 +1,109 @@
+{
+  "accession": "Q8TBB1",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00097",
+        "name": "Zinc finger, C3HC4 type (RING finger)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR018957",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8tbb1",
+          "protein_length": 728,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 41,
+                  "end": 77,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00097",
+              "score": 0.0038
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00595",
+        "name": "PDZ domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001478",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8tbb1",
+          "protein_length": 728,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 275,
+                  "end": 356,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00595",
+              "score": 8.6e-09
+            },
+            {
+              "fragments": [
+                {
+                  "start": 382,
+                  "end": 460,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00595",
+              "score": 1e-08
+            },
+            {
+              "fragments": [
+                {
+                  "start": 508,
+                  "end": 588,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00595",
+              "score": 3e-11
+            },
+            {
+              "fragments": [
+                {
+                  "start": 639,
+                  "end": 720,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00595",
+              "score": 9e-11
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

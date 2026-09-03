@@ -1,0 +1,84 @@
+{
+  "created_at": "2026-09-03T07:35:27.254472+00:00",
+  "local_only": true,
+  "success": true,
+  "case_rows": 6,
+  "passed_rows": 6,
+  "failed_rows": 0,
+  "rejected_negative_cases": 5,
+  "control_valid": true,
+  "real_inputs_mutated": false,
+  "cases": [
+    {
+      "case_id": "control_current_inputs_valid",
+      "expected_valid": true,
+      "observed_valid": true,
+      "passed": true,
+      "failure_count": 0,
+      "failure_checks": []
+    },
+    {
+      "case_id": "missing_coverage_blocker_rejected",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_count": 7,
+      "failure_checks": [
+        "coverage_blocker_ids_exact",
+        "blocker_id_sets_match",
+        "coverage_blocker_rows",
+        "blocker[stage25_model_release_claim].coverage_status_blocked",
+        "blocker[stage25_model_release_claim].coverage_complete_true",
+        "blocker[stage25_model_release_claim].current_receipt_exact",
+        "blocker[stage25_model_release_claim].closure_condition_exact"
+      ]
+    },
+    {
+      "case_id": "extra_activation_blocker_rejected",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_count": 3,
+      "failure_checks": [
+        "activation_blocker_ids_exact",
+        "blocker_id_sets_match",
+        "activation_rows"
+      ]
+    },
+    {
+      "case_id": "closure_completion_ready_drift_rejected",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_count": 2,
+      "failure_checks": [
+        "closure_completion_ready_rows_zero",
+        "blocker[stage25_new_paper_fulltext_source_table].closure_completion_ready_false"
+      ]
+    },
+    {
+      "case_id": "coverage_uncovered_blocker_rejected",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_count": 2,
+      "failure_checks": [
+        "coverage_uncovered_blockers_empty",
+        "blocker[stage25_new_paper_fulltext_source_table].coverage_complete_true"
+      ]
+    },
+    {
+      "case_id": "current_receipt_drift_rejected",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_count": 1,
+      "failure_checks": [
+        "blocker[stage25_new_paper_fulltext_source_table].current_receipt_exact"
+      ]
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Isolated fixtures verify the Stage 25 remaining-blocker cross-binding fails closed on missing, extra, completion-ready, uncovered and receipt-drift cases."
+}

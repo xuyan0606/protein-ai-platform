@@ -1,0 +1,11 @@
+{
+  "worklist_rows": 500,
+  "audit_rows": 500,
+  "status_counts": {
+    "requires_manual_review": 500
+  },
+  "strict_auto_promotable_rows": 0,
+  "strict_auto_promotable_structure_ids": [],
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/structure_chain_dbref_evidence_audit.jsonl",
+  "policy": "Strict DBREF interval promotable means the selected chain is backed by a same-UniProt DBREF interval and sequence differences are fully explained; it does not unlock mutation numbering, wet-lab labels, ddG, benchmark, production, or model-quality claims."
+}

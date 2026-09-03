@@ -1,0 +1,39 @@
+{
+  "accession": "O00217",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF12838",
+        "name": "4Fe-4S dicluster domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR017896",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00217",
+          "protein_length": 210,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 110,
+                  "end": 164,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12838",
+              "score": 9.3e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

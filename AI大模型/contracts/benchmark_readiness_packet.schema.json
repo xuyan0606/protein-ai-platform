@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kwb-benchmark-readiness-packet.schema.json",
+  "title": "KWB benchmark readiness packet",
+  "description": "Fail-closed local execution contract for one invalid benchmark coverage gap.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "packet_id",
+    "gap_id",
+    "execution_order",
+    "head",
+    "benchmark_name",
+    "status",
+    "source_snapshot",
+    "current_observation",
+    "acquisition_receipt",
+    "score_receipt",
+    "validation_receipt",
+    "required_operator_actions",
+    "completion_ready",
+    "requires_human_input",
+    "safe_for_training_import",
+    "benchmark_metric_claim_allowed",
+    "safe_for_model_claim",
+    "release_ready",
+    "policy"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "packet_id": {"type": "string", "minLength": 1},
+    "gap_id": {"type": "string", "minLength": 1},
+    "execution_order": {"type": "integer", "minimum": 1},
+    "head": {"type": "string", "minLength": 1},
+    "benchmark_name": {"type": "string", "minLength": 1},
+    "status": {"const": "blocked"},
+    "source_snapshot": {
+      "type": "object",
+      "required": ["inputs"],
+      "properties": {
+        "inputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "path", "exists", "sha256"],
+            "properties": {
+              "name": {"type": "string", "minLength": 1},
+              "path": {"type": "string", "minLength": 1},
+              "exists": {"type": "boolean"},
+              "sha256": {"type": "string"},
+              "size_bytes": {"type": ["integer", "null"], "minimum": 0}
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "current_observation": {
+      "type": "object",
+      "required": [
+        "matrix",
+        "acquisition",
+        "manifest",
+        "cache_validation",
+        "coverage_gap",
+        "gap_plan"
+      ],
+      "properties": {
+        "matrix": {"type": "object"},
+        "acquisition": {"type": "object"},
+        "manifest": {"type": "object"},
+        "cache_validation": {"type": "object"},
+        "coverage_gap": {"type": "object"},
+        "gap_plan": {"type": "object"},
+        "intake_candidate": {"type": ["object", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "acquisition_receipt": {"$ref": "#/$defs/receipt"},
+    "score_receipt": {"$ref": "#/$defs/receipt"},
+    "validation_receipt": {"$ref": "#/$defs/receipt"},
+    "required_operator_actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "completion_ready": {"const": false},
+    "requires_human_input": {"const": true},
+    "safe_for_training_import": {"const": false},
+    "benchmark_metric_claim_allowed": {"const": false},
+    "safe_for_model_claim": {"const": false},
+    "release_ready": {"const": false},
+    "policy": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "receipt": {
+      "type": "object",
+      "required": [
+        "receipt_id",
+        "receipt_type",
+        "status",
+        "action",
+        "required_outputs",
+        "operator_commands",
+        "receipt_input",
+        "completion_ready",
+        "no_fabricated_scores"
+      ],
+      "properties": {
+        "receipt_id": {"type": "string", "minLength": 1},
+        "receipt_type": {
+          "enum": ["acquisition", "score", "validation"]
+        },
+        "status": {"const": "blocked"},
+        "action": {"type": "string", "minLength": 1},
+        "required_outputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "operator_commands": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "receipt_input": {"type": ["object", "null"]},
+        "completion_ready": {"const": false},
+        "no_fabricated_scores": {"const": true}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

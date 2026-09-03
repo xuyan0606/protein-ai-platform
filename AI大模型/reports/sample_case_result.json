@@ -1,0 +1,61 @@
+{
+  "model": {
+    "name": "KWB-EnzymeDesigner",
+    "version": "0.1.0-rule-mvp",
+    "data_version": "local-dev"
+  },
+  "candidates": [
+    {
+      "mutation": "A42P",
+      "overall_score": 64.0,
+      "stability_score": 66.0,
+      "activity_risk_score": 58.0,
+      "substrate_fit_score": 64.0,
+      "assay_success_score": 77.0,
+      "confidence": 0.63,
+      "decision": "watch",
+      "rationale": "KWB private evidence is available; proline substitution may improve loop rigidity; near-pocket candidate requires substrate activity check.",
+      "risk_flags": [
+        "loop_rigidification",
+        "near_pocket",
+        "substrate_fit_uncertain"
+      ],
+      "evidence_refs": [
+        "kwb-private-demo-001",
+        "tool-catalytic-demo-001",
+        "tool-task-demo-numbering",
+        "tool-task-demo-mutation-priority"
+      ],
+      "next_experiment": "Test A42P as a single mutant under the stated assay condition before combination."
+    },
+    {
+      "mutation": "S153A",
+      "overall_score": 15,
+      "stability_score": 20,
+      "activity_risk_score": 0,
+      "substrate_fit_score": 20,
+      "assay_success_score": 10,
+      "confidence": 0.85,
+      "decision": "no_go",
+      "rationale": "Protected catalytic or active-site-core mutation; not suitable as a default engineering candidate.",
+      "risk_flags": [
+        "protected_catalytic"
+      ],
+      "evidence_refs": [
+        "kwb-private-demo-001",
+        "tool-catalytic-demo-001",
+        "tool-task-demo-numbering",
+        "tool-task-demo-mutation-priority"
+      ],
+      "next_experiment": "Do not advance this mutation unless a specialist override and rescue assay are approved."
+    }
+  ],
+  "evidence_summary": {
+    "kwb_private_records": 1,
+    "public_database_records": 1,
+    "structure_evidence": "uploaded_pdb_numbering_verified",
+    "sequence_level_only": false,
+    "requires_wet_lab_validation": true,
+    "structure_quality_flags": []
+  }
+}

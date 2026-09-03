@@ -18,6 +18,7 @@ import random
 from typing import Any
 
 from app.tools.registry import ToolRegistry
+from app.tools.tool_capability_contract import merge_capability_contract
 
 _AA_LIST = list("ACDEFGHIKLMNPQRSTVWY")
 
@@ -592,6 +593,10 @@ async def rfdiffusion_design(
     sym_info = _get_symmetry_info(sym)
     n_sub = _subunit_count(sym)
 
+    boundary = (
+        "This result is not report-grade RFdiffusion inference unless official checkpoint, "
+        "run_inference config, backbone PDB, TRB, trajectory, and runtime logs are attached."
+    )
     result = {
         "designs": designs,
         "parameters": {
@@ -606,7 +611,10 @@ async def rfdiffusion_design(
             "sheet_pct": ss_sheets,
         },
         "target_notes": target_notes.get(target, target_notes["general"]),
-        "method": "RFdiffusion (MVP geometric sampling with symmetry)",
+        "method": "RFdiffusion-style proxy (MVP geometric sampling with symmetry)",
+        "is_real_inference": False,
+        "evidence_level": "DESIGN_HYPOTHESIS",
+        "report_boundary": boundary,
     }
 
     # Include per-residue data for first design
@@ -622,7 +630,24 @@ async def rfdiffusion_design(
             "symmetry": d0["symmetry_result"],
         }
 
-    return result
+    return merge_capability_contract(
+        result,
+        capability_status="proxy",
+        model="RFdiffusion-style proxy",
+        version="proxy-mvp",
+        checkpoint_or_weight=None,
+        input_payload={
+            "length": length,
+            "num_designs": num_designs,
+            "target": target,
+            "ss_helices": ss_helices,
+            "ss_sheets": ss_sheets,
+            "symmetry_type": sym,
+        },
+        runtime=None,
+        scientific_boundary=boundary,
+        failure_reason=None,
+    )
 
 
 # Register
@@ -681,4 +706,5 @@ ToolRegistry.register(
         },
         "required": ["length"],
     },
+    is_async=True,
 )

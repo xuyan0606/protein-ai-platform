@@ -1,0 +1,107 @@
+{
+  "accession": "Q9Y5K1",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03533",
+        "name": "SPO11 homologue",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR004084",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y5k1",
+          "protein_length": 396,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 2,
+                  "end": 44,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF03533",
+              "score": 6.9e-23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04406",
+        "name": "Type IIB DNA topoisomerase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013049",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y5k1",
+          "protein_length": 396,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 109,
+                  "end": 170,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04406",
+              "score": 2.5e-20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21180",
+        "name": "Topoisomerase 6 subunit A/Spo11, Toprim domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR034136",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y5k1",
+          "protein_length": 396,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 219,
+                  "end": 390,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF21180",
+              "score": 2.1e-63
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

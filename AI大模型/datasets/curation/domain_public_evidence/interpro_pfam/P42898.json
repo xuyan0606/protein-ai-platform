@@ -1,0 +1,73 @@
+{
+  "accession": "P42898",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02219",
+        "name": "Methylenetetrahydrofolate reductase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003171",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p42898",
+          "protein_length": 656,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 48,
+                  "end": 337,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02219",
+              "score": 1.9e-118
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21895",
+        "name": "MTHFR, SAM-binding regulatory domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR053806",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p42898",
+          "protein_length": 656,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 344,
+                  "end": 644,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF21895",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q9NVS9",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01243",
+        "name": "Pyridoxamine 5'-phosphate oxidase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011576",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nvs9",
+          "protein_length": 261,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 75,
+                  "end": 194,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01243",
+              "score": 2.7e-23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF10590",
+        "name": "Pyridoxine 5'-phosphate oxidase C-terminal dimerisation region",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019576",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nvs9",
+          "protein_length": 261,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 206,
+                  "end": 261,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10590",
+              "score": 7.7e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

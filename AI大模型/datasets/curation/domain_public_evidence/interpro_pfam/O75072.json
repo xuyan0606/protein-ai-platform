@@ -1,0 +1,73 @@
+{
+  "accession": "O75072",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04991",
+        "name": "LicD/FKTN/FKRP, nucleotidyltransferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007074",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75072",
+          "protein_length": 461,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 292,
+                  "end": 413,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF04991",
+              "score": 3.3e-15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19737",
+        "name": "Fukutin N-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR045587",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75072",
+          "protein_length": 461,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1,
+                  "end": 278,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF19737",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

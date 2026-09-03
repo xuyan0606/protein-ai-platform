@@ -1,0 +1,107 @@
+{
+  "accession": "O14744",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF05185",
+        "name": "PRMT5 arginine-N-methyltransferase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR035075",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14744",
+          "protein_length": 637,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 297,
+                  "end": 464,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05185",
+              "score": 5.6e-71
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17285",
+        "name": "PRMT5 TIM barrel domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR035247",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14744",
+          "protein_length": 637,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 37,
+                  "end": 290,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17285",
+              "score": 2.4e-82
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17286",
+        "name": "PRMT5 oligomerisation domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR035248",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14744",
+          "protein_length": 637,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 467,
+                  "end": 635,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17286",
+              "score": 1.3e-62
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

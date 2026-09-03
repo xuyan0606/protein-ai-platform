@@ -1,0 +1,73 @@
+{
+  "accession": "Q07343",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00233",
+        "name": "3'5'-cyclic nucleotide phosphodiesterase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002073",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q07343",
+          "protein_length": 736,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 405,
+                  "end": 644,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00233",
+              "score": 1.9e-90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18100",
+        "name": "Phosphodiesterase 4 upstream conserved regions (UCR)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040844",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q07343",
+          "protein_length": 736,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 166,
+                  "end": 281,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF18100",
+              "score": 3.1e-56
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-09-03T07:34:02.933802+00:00",
+  "local_only": true,
+  "online_deployment": false,
+  "source_ledger": "datasets/governance/next_unlock_operator_work_ledger.jsonl",
+  "source_checklist_status": "datasets/governance/next_unlock_action_checklist_status.jsonl",
+  "source_remediation_queue": "datasets/governance/next_unlock_remediation_queue.jsonl",
+  "source_human_backlog": "datasets/governance/human_decision_backlog.jsonl",
+  "jsonl": "datasets/governance/next_unlock_operator_work_ledger_status.jsonl",
+  "ledger_rows": 8,
+  "validated_ledger_rows": 8,
+  "invalid_ledger_rows": 0,
+  "open_blocked_ledger_rows": 8,
+  "ready_for_local_operator_work_rows": 8,
+  "completion_ready_items": 0,
+  "requires_human_input_items": 8,
+  "linked_human_backlog_rows": 7,
+  "unlinked_human_backlog_rows": 1,
+  "total_backlog_missing_rows": 618,
+  "invalid_ledger_items": [],
+  "policy": "This validator confirms local operator work ledger semantics only. It does not create reviewed decisions, grant approvals, unlock claims, approve customer delivery, authorize deployment, sync files, or restart servers."
+}

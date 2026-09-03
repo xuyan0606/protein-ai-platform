@@ -1,0 +1,142 @@
+{
+  "created_at": "2026-09-03T07:35:00.814513+00:00",
+  "success": true,
+  "isolated_fixture": true,
+  "control_valid": true,
+  "raw_only_change_valid": true,
+  "case_rows": 18,
+  "passed_rows": 18,
+  "failed_rows": 0,
+  "real_inputs_mutated": false,
+  "results": [
+    {
+      "case_id": "local_release_consumed_field_drift",
+      "tamper_rejected": true,
+      "expected_check": "provenance_projection_current",
+      "expected_check_observed": true,
+      "failure_count": 3
+    },
+    {
+      "case_id": "data_lake_consumed_field_drift",
+      "tamper_rejected": true,
+      "expected_check": "provenance_projection_current",
+      "expected_check_observed": true,
+      "failure_count": 3
+    },
+    {
+      "case_id": "live_integrity_consumed_field_drift",
+      "tamper_rejected": true,
+      "expected_check": "provenance_projection_current",
+      "expected_check_observed": true,
+      "failure_count": 3
+    },
+    {
+      "case_id": "post_source_receipt_consumed_field_drift",
+      "tamper_rejected": true,
+      "expected_check": "provenance_projection_current",
+      "expected_check_observed": true,
+      "failure_count": 3
+    },
+    {
+      "case_id": "post_source_validation_consumed_field_drift",
+      "tamper_rejected": true,
+      "expected_check": "provenance_projection_current",
+      "expected_check_observed": true,
+      "failure_count": 3
+    },
+    {
+      "case_id": "post_source_dry_run_consumed_field_drift",
+      "tamper_rejected": true,
+      "expected_check": "provenance_projection_current",
+      "expected_check_observed": true,
+      "failure_count": 3
+    },
+    {
+      "case_id": "stale_sync_script_sha",
+      "tamper_rejected": true,
+      "expected_check": "provenance_file_sha_current",
+      "expected_check_observed": true,
+      "failure_count": 2
+    },
+    {
+      "case_id": "file_bound_source_report_sha_drift",
+      "tamper_rejected": true,
+      "expected_check": "provenance_file_sha_current",
+      "expected_check_observed": true,
+      "failure_count": 2
+    },
+    {
+      "case_id": "semantic_source_projection_drift",
+      "tamper_rejected": true,
+      "expected_check": "provenance_projection_current",
+      "expected_check_observed": true,
+      "failure_count": 2
+    },
+    {
+      "case_id": "semantic_projection_mode_drift",
+      "tamper_rejected": true,
+      "expected_check": "provenance_projection_contract_exact",
+      "expected_check_observed": true,
+      "failure_count": 2
+    },
+    {
+      "case_id": "semantic_projection_fields_drift",
+      "tamper_rejected": true,
+      "expected_check": "provenance_projection_contract_exact",
+      "expected_check_observed": true,
+      "failure_count": 2
+    },
+    {
+      "case_id": "semantic_projection_digest_drift",
+      "tamper_rejected": true,
+      "expected_check": "provenance_projection_sha_current",
+      "expected_check_observed": true,
+      "failure_count": 2
+    },
+    {
+      "case_id": "target_path_drift",
+      "tamper_rejected": true,
+      "expected_check": "observed_targets_exact",
+      "expected_check_observed": true,
+      "failure_count": 1
+    },
+    {
+      "case_id": "marker_set_drift",
+      "tamper_rejected": true,
+      "expected_check": "marker_specs_exact",
+      "expected_check_observed": true,
+      "failure_count": 1
+    },
+    {
+      "case_id": "lock_path_drift",
+      "tamper_rejected": true,
+      "expected_check": "lock_path_exact",
+      "expected_check_observed": true,
+      "failure_count": 1
+    },
+    {
+      "case_id": "output_path_drift",
+      "tamper_rejected": true,
+      "expected_check": "observed_output_path_exact",
+      "expected_check_observed": true,
+      "failure_count": 1
+    },
+    {
+      "case_id": "document_after_sha_drift",
+      "tamper_rejected": true,
+      "expected_check": "document_after_sha_current",
+      "expected_check_observed": true,
+      "failure_count": 1
+    },
+    {
+      "case_id": "provenance_digest_drift",
+      "tamper_rejected": true,
+      "expected_check": "provenance_digest_exact",
+      "expected_check_observed": true,
+      "failure_count": 1
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "The regression copies all contract inputs into temporary roots and never edits canonical documents, reports, or scripts."
+}

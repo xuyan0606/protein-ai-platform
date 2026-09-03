@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "mode": "claim_readiness_matrix_fail_closed_policy_current_regression",
+  "created_at": "2026-09-03T07:35:25.426272+00:00",
+  "local_only": true,
+  "success": true,
+  "case_count": 11,
+  "passed_case_count": 11,
+  "failed_rows": 0,
+  "real_inputs_mutated": false,
+  "cases": [
+    {
+      "case": "control_current_accepts",
+      "passed": true
+    },
+    {
+      "case": "stale_validator_sha",
+      "passed": true,
+      "observed_checks": [
+        "validator_sha256"
+      ],
+      "expected_check": "validator_sha256"
+    },
+    {
+      "case": "stale_builder_sha",
+      "passed": true,
+      "observed_checks": [
+        "builder_sha256"
+      ],
+      "expected_check": "builder_sha256"
+    },
+    {
+      "case": "stale_matrix_sha",
+      "passed": true,
+      "observed_checks": [
+        "claim_matrix_sha256"
+      ],
+      "expected_check": "claim_matrix_sha256"
+    },
+    {
+      "case": "output_path_drift",
+      "passed": true,
+      "observed_checks": [
+        "policy_output_path"
+      ],
+      "expected_check": "policy_output_path"
+    },
+    {
+      "case": "lock_path_drift",
+      "passed": true,
+      "observed_checks": [
+        "policy_lock_path"
+      ],
+      "expected_check": "policy_lock_path"
+    },
+    {
+      "case": "atomic_commit_false",
+      "passed": true,
+      "observed_checks": [
+        "policy_atomic_commit"
+      ],
+      "expected_check": "policy_atomic_commit"
+    },
+    {
+      "case": "source_parity_false",
+      "passed": true,
+      "observed_checks": [
+        "source_parity_success"
+      ],
+      "expected_check": "source_parity_success"
+    },
+    {
+      "case": "signer_replace_interruption_preserves_prior",
+      "passed": true
+    },
+    {
+      "case": "current_replace_interruption_preserves_prior",
+      "passed": true
+    },
+    {
+      "case": "signer_lock_timeout_and_recovery",
+      "passed": true
+    }
+  ],
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_claim_readiness_matrix_fail_closed_policy_current_regression.py",
+  "regression_script_sha256": "a286b2ff87cc40358831267e42f6a346612e03d2f27a47010cc9cf1c8326d10f",
+  "output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/claim_readiness_matrix_fail_closed_policy_current_regression_report.json",
+  "lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.claim_readiness_matrix_fail_closed_policy_current_regression.lock",
+  "lock_acquired": true,
+  "atomic_commit": true,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Isolated regression only; no claim, training, delivery, or release capability is granted."
+}

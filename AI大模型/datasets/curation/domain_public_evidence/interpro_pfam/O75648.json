@@ -1,0 +1,107 @@
+{
+  "accession": "O75648",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03054",
+        "name": "tRNA methyl transferase HUP domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75648",
+          "protein_length": 421,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 6,
+                  "end": 226,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03054",
+              "score": 8.6e-76
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF20258",
+        "name": "Aminomethyltransferase beta-barrel domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR046885",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75648",
+          "protein_length": 421,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 303,
+                  "end": 383,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF20258",
+              "score": 8.1e-22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF20259",
+        "name": "tRNA methyl transferase PRC-barrel domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR046884",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75648",
+          "protein_length": 421,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 230,
+                  "end": 292,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF20259",
+              "score": 4.7e-18
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q06609",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF08423",
+        "name": "Rad51",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013632",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q06609",
+          "protein_length": 339,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 95,
+                  "end": 337,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF08423",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14520",
+        "name": "SAM-like Helix-hairpin-helix tandem",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR060101",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q06609",
+          "protein_length": 339,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 32,
+                  "end": 79,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14520",
+              "score": 8e-06
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "accession": "P12821",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01401",
+        "name": "Angiotensin-converting enzyme",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001548",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p12821",
+          "protein_length": 1306,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 41,
+                  "end": 623,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01401",
+              "score": 0
+            },
+            {
+              "fragments": [
+                {
+                  "start": 644,
+                  "end": 1221,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF01401",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

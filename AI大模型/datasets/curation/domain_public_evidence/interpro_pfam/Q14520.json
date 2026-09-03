@@ -1,0 +1,119 @@
+{
+  "accession": "Q14520",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00008",
+        "name": "EGF-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000742",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q14520",
+          "protein_length": 560,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 77,
+                  "end": 106,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00008",
+              "score": 0.05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 154,
+                  "end": 185,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00008",
+              "score": 0.017
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00051",
+        "name": "Kringle domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000001",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q14520",
+          "protein_length": 560,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 194,
+                  "end": 276,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00051",
+              "score": 1.5e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00089",
+        "name": "Trypsin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001254",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q14520",
+          "protein_length": 560,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 314,
+                  "end": 550,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00089",
+              "score": 1.3e-57
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

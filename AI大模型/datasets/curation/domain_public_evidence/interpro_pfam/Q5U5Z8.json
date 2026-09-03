@@ -1,0 +1,73 @@
+{
+  "accession": "Q5U5Z8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00246",
+        "name": "Zinc carboxypeptidase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000834",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5u5z8",
+          "protein_length": 902,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 417,
+                  "end": 530,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00246",
+              "score": 2.1e-12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18027",
+        "name": "Cytosolic carboxypeptidase N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040626",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5u5z8",
+          "protein_length": 902,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 268,
+                  "end": 338,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18027",
+              "score": 1.8e-06
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

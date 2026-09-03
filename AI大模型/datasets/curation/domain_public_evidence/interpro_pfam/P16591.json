@@ -1,0 +1,107 @@
+{
+  "accession": "P16591",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00017",
+        "name": "SH2 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000980",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p16591",
+          "protein_length": 822,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 460,
+                  "end": 531,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00017",
+              "score": 1.1e-18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00611",
+        "name": "Fes/CIP4, and EFC/F-BAR homology domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001060",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p16591",
+          "protein_length": 822,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 11,
+                  "end": 85,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00611",
+              "score": 3.8e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07714",
+        "name": "Protein tyrosine and serine/threonine kinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001245",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p16591",
+          "protein_length": 822,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 565,
+                  "end": 814,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07714",
+              "score": 3.7e-97
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

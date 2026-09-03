@@ -1,0 +1,73 @@
+{
+  "accession": "Q96IY4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00246",
+        "name": "Zinc carboxypeptidase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000834",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96iy4",
+          "protein_length": 423,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 129,
+                  "end": 410,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00246",
+              "score": 4.4e-100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02244",
+        "name": "Carboxypeptidase activation peptide",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003146",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96iy4",
+          "protein_length": 423,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 32,
+                  "end": 105,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02244",
+              "score": 3.9e-12
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

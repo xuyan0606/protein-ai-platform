@@ -1,0 +1,73 @@
+{
+  "accession": "O94972",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00643",
+        "name": "B-box zinc finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000315",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94972",
+          "protein_length": 964,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 90,
+                  "end": 132,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00643",
+              "score": 7e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22486",
+        "name": "MATH domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002083",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94972",
+          "protein_length": 964,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 280,
+                  "end": 403,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22486",
+              "score": 1.3e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

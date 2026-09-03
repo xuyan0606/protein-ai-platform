@@ -1,0 +1,43 @@
+{
+  "all_queue_rows_valid": false,
+  "authorized_rows": 8,
+  "claim_eligible_rows_now": 0,
+  "completion_ready_rows": 0,
+  "created_at": "2026-09-03T07:32:18.158340+00:00",
+  "decision_present_rows": 8,
+  "duplicate_queue_rows": 0,
+  "error_counts": {
+    "authorized_rows_not_zero": 2,
+    "preflight_present_rows_not_zero": 2,
+    "receipt_validation_not_ready": 1
+  },
+  "execution_queue_rows": 3,
+  "expected_execution_queue_rows": 3,
+  "expected_review_order": [
+    "E331Q",
+    "D105N",
+    "S265T"
+  ],
+  "invalid_queue_rows": 2,
+  "local_only": true,
+  "missing_queue_rows": 0,
+  "open_blocked_queue_rows": 3,
+  "operator_receipt_rows": 12,
+  "policy": "Execution queue validation proves local review ordering only; it never authorizes rows, runs preflight, appends labels, or enables model claims.",
+  "preflight_present_rows": 8,
+  "queue_status_counts": {
+    "open_blocked_waiting_for_human_authorization": 3
+  },
+  "ready_for_feedback_intake_rows": 0,
+  "receipt_validation_all_rows_valid": false,
+  "requires_human_input_rows": 3,
+  "review_order": [
+    "E331Q",
+    "D105N",
+    "S265T"
+  ],
+  "safe_for_model_claim": false,
+  "status_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/wet_lab_mutant_library_feedback_authorization_execution_queue_status.jsonl",
+  "unexpected_queue_rows": 0,
+  "valid_queue_rows": 1
+}

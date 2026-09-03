@@ -1,0 +1,39 @@
+{
+  "accession": "A5PLL7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF10520",
+        "name": "Lipid desaturase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019547",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "a5pll7",
+          "protein_length": 270,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 85,
+                  "end": 261,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF10520",
+              "score": 1.5e-71
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

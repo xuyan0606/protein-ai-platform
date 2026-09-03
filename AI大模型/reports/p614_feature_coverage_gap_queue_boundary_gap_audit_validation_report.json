@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-09-03T07:35:08.056061+00:00",
+  "local_only": true,
+  "success": true,
+  "audit_rows": 1,
+  "summary_audit_rows": 1,
+  "failures": [],
+  "policy": "Validation only. P614 gap audit does not authorize training, claims, delivery, release, deployment, sync, restart, or production execution.",
+  "feature_coverage_gap_queue_boundary_audit_rows": 1,
+  "feature_coverage_gap_queue_gap_count": 34,
+  "feature_coverage_gap_queue_source_coverage_rows": 875,
+  "feature_coverage_gap_queue_training_label_source_rows": 0,
+  "feature_coverage_gap_queue_feature_rows_counted_as_labels": 0,
+  "feature_coverage_gap_queue_validation_success": true,
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "customer_delivery_ready": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "completion_ready": false
+}

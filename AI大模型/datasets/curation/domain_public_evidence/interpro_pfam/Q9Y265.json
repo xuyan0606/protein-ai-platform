@@ -1,0 +1,73 @@
+{
+  "accession": "Q9Y265",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF06068",
+        "name": "TIP49 P-loop domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR010339",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y265",
+          "protein_length": 456,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 14,
+                  "end": 368,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF06068",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17856",
+        "name": "TIP49 AAA-lid domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041048",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y265",
+          "protein_length": 456,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 374,
+                  "end": 439,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17856",
+              "score": 1.4e-23
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

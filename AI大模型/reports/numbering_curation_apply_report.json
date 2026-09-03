@@ -1,0 +1,16 @@
+{
+  "input_rows": 500,
+  "decision_rows": 4,
+  "active_decision_rows": 4,
+  "inactive_decision_rows": 0,
+  "active_queue_rows": 475,
+  "output_rows": 496,
+  "rejected_rows": 4,
+  "usable_as_supervised_label": 25,
+  "status_counts": {
+    "weak_evidence_needs_numbering_curation": 471,
+    "verified_supervised_label": 25
+  },
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curated/enzyme_mutation_training_table_repaired.jsonl",
+  "policy": "Only current numbering queue decisions are applied. Inactive historical decisions are ignored. Only map_to_canonical decisions with canonical fields can promote weak evidence into supervised labels."
+}

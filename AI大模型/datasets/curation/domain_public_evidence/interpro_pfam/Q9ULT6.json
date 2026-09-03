@@ -1,0 +1,73 @@
+{
+  "accession": "Q9ULT6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF13639",
+        "name": "Ring finger domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001841",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ult6",
+          "protein_length": 936,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 292,
+                  "end": 334,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13639",
+              "score": 1.1e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18212",
+        "name": "ZNRF-3 Ectodomain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040700",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ult6",
+          "protein_length": 936,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 101,
+                  "end": 208,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18212",
+              "score": 4.3e-45
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

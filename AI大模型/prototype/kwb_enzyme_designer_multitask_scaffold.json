@@ -1,0 +1,50 @@
+{
+  "model": "KWB-EnzymeDesigner",
+  "version": "0.2.0-multitask-scaffold",
+  "status": "scaffold_only",
+  "heads": {
+    "mutation_rank": {
+      "objective": "multi_task_prediction",
+      "label_fields": [
+        "label_decision"
+      ],
+      "requires_verified_numbering": true,
+      "requires_structure_features_for_structure_claims": true
+    },
+    "stability": {
+      "objective": "multi_task_prediction",
+      "label_fields": [
+        "label_stability_delta_tm_c",
+        "label_ddg"
+      ],
+      "requires_verified_numbering": true,
+      "requires_structure_features_for_structure_claims": true
+    },
+    "activity_risk": {
+      "objective": "multi_task_prediction",
+      "label_fields": [
+        "activity_relative_to_wt",
+        "activity_risk_label"
+      ],
+      "requires_verified_numbering": true,
+      "requires_structure_features_for_structure_claims": true
+    },
+    "substrate_fit": {
+      "objective": "multi_task_prediction",
+      "label_fields": [
+        "substrate_fit_label"
+      ],
+      "requires_verified_numbering": true,
+      "requires_structure_features_for_structure_claims": true
+    },
+    "assay_success": {
+      "objective": "multi_task_prediction",
+      "label_fields": [
+        "assay_success"
+      ],
+      "requires_verified_numbering": true,
+      "requires_structure_features_for_structure_claims": true
+    }
+  },
+  "data_policy": "do not train or claim predictive quality until every required head meets its threshold"
+}

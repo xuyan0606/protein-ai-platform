@@ -1,0 +1,73 @@
+{
+  "accession": "Q16836",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00725",
+        "name": "3-hydroxyacyl-CoA dehydrogenase, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006108",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q16836",
+          "protein_length": 314,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 216,
+                  "end": 313,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00725",
+              "score": 7.2e-31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02737",
+        "name": "3-hydroxyacyl-CoA dehydrogenase, NAD binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006176",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q16836",
+          "protein_length": 314,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 29,
+                  "end": 214,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02737",
+              "score": 1.9e-59
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

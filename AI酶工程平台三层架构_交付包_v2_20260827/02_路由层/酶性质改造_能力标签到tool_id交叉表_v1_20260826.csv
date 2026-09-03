@@ -1,0 +1,14 @@
+﻿strategy_id,property,能力标签(recommended_tool_label),映射注册tool_id,映射状态,处理建议,备注
+STAB-CONSENSUS-01,stability,"MSA/PSSM",(退化为输入物homolog_msa;无独立MSA/PSSM调用工具),待接入(高优先级),"补专用MSA/PSSM工具，或正式将homolog_msa定为该步调用工具并配合sequence_search/blast_search",PROSS/FireProt等共识/祖先序列策略核心依赖MSA
+STAB-CONSENSUS-01,stability,"homology search","sequence_search; blast_search; lookup_protein",已映射,保留,与platform_tool_catalog一致
+STAB-CONSENSUS-01,stability,"structure mapping",residue_mapping_sifts,已映射,保留,与platform_tool_catalog一致
+STAB-CONSENSUS-01,stability,"stability scoring","mutation_priority_score; mutation_scan; rosetta_ddg; get_stability_data",已映射,保留,多工具覆盖评分/排序/能量/数据
+STAB-ENERGY-01,stability,"Rosetta 能量评估",rosetta_ddg(已注册),已映射,"rosetta_ddg为唯一独立ΔΔG评估来源;FoldX按用户决策不接入(免商业授权);原双ΔΔG交叉验证由mutation_scan(筛选)+rosetta_ddg(精验)替代",Rosetta已注册,无需FoldX
+STAB-ENERGY-01,stability,"结构可视化",(人工ChimeraX复核，不建平台工具),人工复核(不建工具),"定义为人工步骤，研究员本地ChimeraX判读突变/活性位点;不建平台工具",非计算关键，人工复核即可
+STAB-ENERGY-01,stability,"突变后结构复核","esmfold_folding; rosettafold_folding; structure_search_foldseek; residue_mapping_sifts",已映射,保留,与platform_tool_catalog一致
+STAB-FLEX-01,stability,"MD/RMSF",gromacs_md,已映射,保留,需真实runtime产物
+STAB-FLEX-01,stability,"二级结构分析",(已被现有工具输出覆盖),已覆盖(引用现有输出),"不必新增独立工具;predict_properties(Chou-Fasman)/alphafold2_folding/esm_if1_design(DSSP)已覆盖二级结构",功能由折叠/性质预测工具顺带输出
+STAB-FLEX-01,stability,"结构邻域筛选","protssn_score; mutation_priority_score",已映射,保留,与platform_tool_catalog一致
+ACT-COMPLEX-01,activity,"LigandMPNN 类复合物设计",ligandmpnn_design,已映射,保留,与platform_tool_catalog一致
+ACT-COMPLEX-01,activity,"结构预测和复合物复核","esmfold_folding; alphafold_folding; boltz1_predict; structure_search_foldseek",已映射,保留,与platform_tool_catalog一致
+ACT-COMPLEX-01,activity,"实验反馈迭代",feedback_iteration_planner,已映射,保留,与platform_tool_catalog一致

@@ -1,0 +1,85 @@
+{
+  "accession": "Q9HC96",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00648",
+        "name": "Calpain family cysteine protease",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001300",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hc96",
+          "protein_length": 672,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 14,
+                  "end": 317,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00648",
+              "score": 2.2e-73
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01067",
+        "name": "Calpain large subunit, domain III",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022682",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hc96",
+          "protein_length": 672,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 344,
+                  "end": 486,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01067",
+              "score": 9.7e-15
+            },
+            {
+              "fragments": [
+                {
+                  "start": 520,
+                  "end": 642,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01067",
+              "score": 8.8e-12
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

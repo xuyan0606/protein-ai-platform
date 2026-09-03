@@ -1,0 +1,975 @@
+{
+  "actions": [
+    {
+      "acquisition_configured_benchmarks": 1,
+      "action_id": "five_head_benchmark_gap::mutation_rank",
+      "allowed_use": "benchmark evaluation gap planning only",
+      "benchmarks_requiring_acquisition_configuration": [
+        "ProteinGym",
+        "KWB strict mutation holdout"
+      ],
+      "benchmarks_requiring_download_or_cache": [
+        "KWB strict mutation holdout"
+      ],
+      "benchmarks_requiring_human_acceptance": [
+        "ProteinGym",
+        "KWB strict mutation holdout"
+      ],
+      "benchmarks_requiring_license_authorization": [
+        "KWB strict mutation holdout"
+      ],
+      "blocking_reasons": [
+        "acquisition_status:not_configured",
+        "benchmark_status_not_present"
+      ],
+      "cache_validated_benchmarks": 2,
+      "forbidden_use": "Do not download data, approve a benchmark, treat benchmark data as KWB wet-lab labels, run a model claim, or release a model.",
+      "head": "mutation_rank",
+      "metric_claim_allowed": false,
+      "missing_acquisition_configuration_benchmarks": 2,
+      "missing_benchmarks": [
+        "KWB strict mutation holdout"
+      ],
+      "missing_cache_validation_benchmarks": 1,
+      "next_action": "Record only locally available benchmark artifacts through the existing acquisition, license-review, leakage-check, scorecard, and cache-validation workflow; require human acceptance before any metric claim, then rerun this read-only gap plan.",
+      "not_claimable_metrics": [
+        "mutation-rank benchmark scorecard",
+        "mutation ranking quality or Spearman/AUROC claim"
+      ],
+      "priority": "P0",
+      "release_ready": false,
+      "required_acceptance_artifacts": [
+        "configured_acquisition_plan_row",
+        "local_dataset_uri",
+        "dataset_checksum",
+        "license_review_status",
+        "split_or_leakage_check_status",
+        "scorecard_uri",
+        "metric_report_uri",
+        "cache_validation_record",
+        "human_acceptance_receipt"
+      ],
+      "required_benchmarks": 3,
+      "safe_for_model_claim": false,
+      "status": "open_blocked"
+    },
+    {
+      "acquisition_configured_benchmarks": 3,
+      "action_id": "five_head_benchmark_gap::stability",
+      "allowed_use": "benchmark evaluation gap planning only",
+      "benchmarks_requiring_acquisition_configuration": [],
+      "benchmarks_requiring_download_or_cache": [],
+      "benchmarks_requiring_human_acceptance": [],
+      "benchmarks_requiring_license_authorization": [],
+      "blocking_reasons": [],
+      "cache_validated_benchmarks": 3,
+      "forbidden_use": "Do not download data, approve a benchmark, treat benchmark data as KWB wet-lab labels, run a model claim, or release a model.",
+      "head": "stability",
+      "metric_claim_allowed": false,
+      "missing_acquisition_configuration_benchmarks": 0,
+      "missing_benchmarks": [],
+      "missing_cache_validation_benchmarks": 0,
+      "next_action": "Record only locally available benchmark artifacts through the existing acquisition, license-review, leakage-check, scorecard, and cache-validation workflow; require human acceptance before any metric claim, then rerun this read-only gap plan.",
+      "not_claimable_metrics": [
+        "stability benchmark scorecard",
+        "deltaTm/ddG stability prediction quality claim"
+      ],
+      "priority": "P0",
+      "release_ready": false,
+      "required_acceptance_artifacts": [
+        "configured_acquisition_plan_row",
+        "local_dataset_uri",
+        "dataset_checksum",
+        "license_review_status",
+        "split_or_leakage_check_status",
+        "scorecard_uri",
+        "metric_report_uri",
+        "cache_validation_record",
+        "human_acceptance_receipt"
+      ],
+      "required_benchmarks": 3,
+      "safe_for_model_claim": false,
+      "status": "open_blocked"
+    },
+    {
+      "acquisition_configured_benchmarks": 3,
+      "action_id": "five_head_benchmark_gap::activity_risk",
+      "allowed_use": "benchmark evaluation gap planning only",
+      "benchmarks_requiring_acquisition_configuration": [],
+      "benchmarks_requiring_download_or_cache": [],
+      "benchmarks_requiring_human_acceptance": [],
+      "benchmarks_requiring_license_authorization": [],
+      "blocking_reasons": [],
+      "cache_validated_benchmarks": 3,
+      "forbidden_use": "Do not download data, approve a benchmark, treat benchmark data as KWB wet-lab labels, run a model claim, or release a model.",
+      "head": "activity_risk",
+      "metric_claim_allowed": false,
+      "missing_acquisition_configuration_benchmarks": 0,
+      "missing_benchmarks": [],
+      "missing_cache_validation_benchmarks": 0,
+      "next_action": "Record only locally available benchmark artifacts through the existing acquisition, license-review, leakage-check, scorecard, and cache-validation workflow; require human acceptance before any metric claim, then rerun this read-only gap plan.",
+      "not_claimable_metrics": [
+        "activity-risk benchmark scorecard",
+        "activity retention or activity-risk calibration claim"
+      ],
+      "priority": "P0",
+      "release_ready": false,
+      "required_acceptance_artifacts": [
+        "configured_acquisition_plan_row",
+        "local_dataset_uri",
+        "dataset_checksum",
+        "license_review_status",
+        "split_or_leakage_check_status",
+        "scorecard_uri",
+        "metric_report_uri",
+        "cache_validation_record",
+        "human_acceptance_receipt"
+      ],
+      "required_benchmarks": 3,
+      "safe_for_model_claim": false,
+      "status": "open_blocked"
+    },
+    {
+      "acquisition_configured_benchmarks": 2,
+      "action_id": "five_head_benchmark_gap::substrate_fit",
+      "allowed_use": "benchmark evaluation gap planning only",
+      "benchmarks_requiring_acquisition_configuration": [
+        "reviewed substrate identity set"
+      ],
+      "benchmarks_requiring_download_or_cache": [
+        "reviewed substrate identity set"
+      ],
+      "benchmarks_requiring_human_acceptance": [
+        "reviewed substrate identity set"
+      ],
+      "benchmarks_requiring_license_authorization": [
+        "reviewed substrate identity set"
+      ],
+      "blocking_reasons": [
+        "acquisition_status:not_configured",
+        "benchmark_status_not_present"
+      ],
+      "cache_validated_benchmarks": 2,
+      "forbidden_use": "Do not download data, approve a benchmark, treat benchmark data as KWB wet-lab labels, run a model claim, or release a model.",
+      "head": "substrate_fit",
+      "metric_claim_allowed": false,
+      "missing_acquisition_configuration_benchmarks": 1,
+      "missing_benchmarks": [
+        "reviewed substrate identity set"
+      ],
+      "missing_cache_validation_benchmarks": 1,
+      "next_action": "Record only locally available benchmark artifacts through the existing acquisition, license-review, leakage-check, scorecard, and cache-validation workflow; require human acceptance before any metric claim, then rerun this read-only gap plan.",
+      "not_claimable_metrics": [
+        "substrate-fit benchmark scorecard",
+        "substrate affinity, pose, or fit quality claim"
+      ],
+      "priority": "P0",
+      "release_ready": false,
+      "required_acceptance_artifacts": [
+        "configured_acquisition_plan_row",
+        "local_dataset_uri",
+        "dataset_checksum",
+        "license_review_status",
+        "split_or_leakage_check_status",
+        "scorecard_uri",
+        "metric_report_uri",
+        "cache_validation_record",
+        "human_acceptance_receipt"
+      ],
+      "required_benchmarks": 3,
+      "safe_for_model_claim": false,
+      "status": "open_blocked"
+    },
+    {
+      "acquisition_configured_benchmarks": 3,
+      "action_id": "five_head_benchmark_gap::assay_success",
+      "allowed_use": "benchmark evaluation gap planning only",
+      "benchmarks_requiring_acquisition_configuration": [],
+      "benchmarks_requiring_download_or_cache": [],
+      "benchmarks_requiring_human_acceptance": [],
+      "benchmarks_requiring_license_authorization": [],
+      "blocking_reasons": [],
+      "cache_validated_benchmarks": 3,
+      "forbidden_use": "Do not download data, approve a benchmark, treat benchmark data as KWB wet-lab labels, run a model claim, or release a model.",
+      "head": "assay_success",
+      "metric_claim_allowed": false,
+      "missing_acquisition_configuration_benchmarks": 0,
+      "missing_benchmarks": [],
+      "missing_cache_validation_benchmarks": 0,
+      "next_action": "Record only locally available benchmark artifacts through the existing acquisition, license-review, leakage-check, scorecard, and cache-validation workflow; require human acceptance before any metric claim, then rerun this read-only gap plan.",
+      "not_claimable_metrics": [
+        "assay-success benchmark scorecard",
+        "plate/QC success-rate prediction quality claim"
+      ],
+      "priority": "P0",
+      "release_ready": false,
+      "required_acceptance_artifacts": [
+        "configured_acquisition_plan_row",
+        "local_dataset_uri",
+        "dataset_checksum",
+        "license_review_status",
+        "split_or_leakage_check_status",
+        "scorecard_uri",
+        "metric_report_uri",
+        "cache_validation_record",
+        "human_acceptance_receipt"
+      ],
+      "required_benchmarks": 3,
+      "safe_for_model_claim": false,
+      "status": "open_blocked"
+    }
+  ],
+  "created_at": "2026-09-03T07:33:53.767723+00:00",
+  "heads": [
+    {
+      "acquisition_configuration_coverage": 0.3333,
+      "acquisition_configured_benchmarks": 1,
+      "benchmark_rows": [
+        {
+          "acquisition_configured": false,
+          "acquisition_plan_status": "not_configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "ProteinGym",
+          "blockers": [
+            "acquisition_status:not_configured"
+          ],
+          "cache_validation_errors": [],
+          "cache_validation_valid": true,
+          "checksum_present": true,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "passed",
+          "license_review_status": "approved_for_benchmark_only",
+          "local_dataset_uri": "cache/advanced_features/benchmarks/proteingym_dms_substitutions_spearman/dataset.jsonl",
+          "manifest_status": "present",
+          "metric_report_uri": "cache/advanced_features/benchmarks/proteingym_dms_substitutions_spearman/metric_report.json",
+          "required_operator_actions": [
+            "configure_acquisition_plan_row",
+            "human_acceptance_before_metric_claim"
+          ],
+          "requires_acquisition_configuration": true,
+          "requires_download_or_cache": false,
+          "requires_human_acceptance": true,
+          "requires_leakage_check": false,
+          "requires_license_authorization": false,
+          "requires_scorecard_artifacts": false,
+          "scorecard_status": "ready",
+          "scorecard_uri": "cache/advanced_features/benchmarks/proteingym_dms_substitutions_spearman/scorecard.json",
+          "status": "blocked"
+        },
+        {
+          "acquisition_configured": true,
+          "acquisition_plan_status": "configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "FLIP/FLIP2-style protein/family/time split",
+          "blockers": [],
+          "cache_validation_errors": [],
+          "cache_validation_valid": true,
+          "checksum_present": true,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "passed",
+          "license_review_status": "approved_for_benchmark_only",
+          "local_dataset_uri": "cache/advanced_features/benchmarks/flip2_amylase_by_mutation/dataset.jsonl",
+          "manifest_status": "present",
+          "metric_report_uri": "cache/advanced_features/benchmarks/flip2_amylase_by_mutation/metric_report.json",
+          "required_operator_actions": [],
+          "requires_acquisition_configuration": false,
+          "requires_download_or_cache": false,
+          "requires_human_acceptance": false,
+          "requires_leakage_check": false,
+          "requires_license_authorization": false,
+          "requires_scorecard_artifacts": false,
+          "scorecard_status": "ready",
+          "scorecard_uri": "cache/advanced_features/benchmarks/flip2_amylase_by_mutation/scorecard.json",
+          "status": "ready"
+        },
+        {
+          "acquisition_configured": false,
+          "acquisition_plan_status": "not_configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "KWB strict mutation holdout",
+          "blockers": [
+            "acquisition_status:not_configured",
+            "benchmark_status_not_present"
+          ],
+          "cache_validation_errors": [
+            "benchmark_status_not_present"
+          ],
+          "cache_validation_valid": false,
+          "checksum_present": false,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "not_run",
+          "license_review_status": "not_reviewed",
+          "local_dataset_uri": null,
+          "manifest_status": "missing",
+          "metric_report_uri": null,
+          "required_operator_actions": [
+            "configure_acquisition_plan_row",
+            "download_or_register_local_benchmark_cache",
+            "complete_license_authorization",
+            "attach_scorecard_and_metric_artifacts",
+            "run_or_record_leakage_check",
+            "rerun_benchmark_cache_validation",
+            "human_acceptance_before_metric_claim"
+          ],
+          "requires_acquisition_configuration": true,
+          "requires_download_or_cache": true,
+          "requires_human_acceptance": true,
+          "requires_leakage_check": true,
+          "requires_license_authorization": true,
+          "requires_scorecard_artifacts": true,
+          "scorecard_status": "not_ready",
+          "scorecard_uri": null,
+          "status": "blocked"
+        }
+      ],
+      "benchmarks_requiring_acquisition_configuration": [
+        "ProteinGym",
+        "KWB strict mutation holdout"
+      ],
+      "benchmarks_requiring_download_or_cache": [
+        "KWB strict mutation holdout"
+      ],
+      "benchmarks_requiring_human_acceptance": [
+        "ProteinGym",
+        "KWB strict mutation holdout"
+      ],
+      "benchmarks_requiring_license_authorization": [
+        "KWB strict mutation holdout"
+      ],
+      "blockers": [
+        "acquisition_status:not_configured",
+        "benchmark_status_not_present"
+      ],
+      "cache_validated_benchmarks": 2,
+      "cache_validation_coverage": 0.6667,
+      "complete_scorecard": false,
+      "head": "mutation_rank",
+      "matrix_status": "blocked",
+      "metric_claim_allowed": false,
+      "missing_acquisition_configuration_benchmarks": 2,
+      "missing_acquisition_plan_benchmarks": 0,
+      "missing_cache_validation_benchmarks": 1,
+      "not_claimable_metrics": [
+        "mutation-rank benchmark scorecard",
+        "mutation ranking quality or Spearman/AUROC claim"
+      ],
+      "planned_benchmarks": 3,
+      "required_benchmarks": 3,
+      "safe_for_model_claim": false,
+      "status": "blocked",
+      "training_ready_from_matrix": false
+    },
+    {
+      "acquisition_configuration_coverage": 1.0,
+      "acquisition_configured_benchmarks": 3,
+      "benchmark_rows": [
+        {
+          "acquisition_configured": true,
+          "acquisition_plan_status": "configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "ThermoMPNN comparison",
+          "blockers": [],
+          "cache_validation_errors": [],
+          "cache_validation_valid": true,
+          "checksum_present": true,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "passed",
+          "license_review_status": "approved_for_benchmark_only",
+          "local_dataset_uri": "cache/advanced_features/benchmarks/thermompnn_comparison_venus15b_smoke/dataset.jsonl",
+          "manifest_status": "present",
+          "metric_report_uri": "cache/advanced_features/benchmarks/thermompnn_comparison_venus15b_smoke/metric_report.json",
+          "required_operator_actions": [],
+          "requires_acquisition_configuration": false,
+          "requires_download_or_cache": false,
+          "requires_human_acceptance": false,
+          "requires_leakage_check": false,
+          "requires_license_authorization": false,
+          "requires_scorecard_artifacts": false,
+          "scorecard_status": "ready",
+          "scorecard_uri": "cache/advanced_features/benchmarks/thermompnn_comparison_venus15b_smoke/scorecard.json",
+          "status": "ready"
+        },
+        {
+          "acquisition_configured": true,
+          "acquisition_plan_status": "configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "ATOM3D MSP",
+          "blockers": [],
+          "cache_validation_errors": [],
+          "cache_validation_valid": true,
+          "checksum_present": true,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "passed",
+          "license_review_status": "approved_for_benchmark_only",
+          "local_dataset_uri": "cache/advanced_features/benchmarks/atom3d_msp/dataset.jsonl",
+          "manifest_status": "present",
+          "metric_report_uri": "cache/advanced_features/benchmarks/atom3d_msp/metric_report.json",
+          "required_operator_actions": [],
+          "requires_acquisition_configuration": false,
+          "requires_download_or_cache": false,
+          "requires_human_acceptance": false,
+          "requires_leakage_check": false,
+          "requires_license_authorization": false,
+          "requires_scorecard_artifacts": false,
+          "scorecard_status": "ready",
+          "scorecard_uri": "cache/advanced_features/benchmarks/atom3d_msp/scorecard.json",
+          "status": "ready"
+        },
+        {
+          "acquisition_configured": true,
+          "acquisition_plan_status": "configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "FireProt/ProTherm reviewed stability set",
+          "blockers": [],
+          "cache_validation_errors": [],
+          "cache_validation_valid": true,
+          "checksum_present": true,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "passed",
+          "license_review_status": "approved_for_benchmark_only",
+          "local_dataset_uri": "cache/advanced_features/benchmarks/fireprot_protherm_reviewed_stability_set/dataset.jsonl",
+          "manifest_status": "present",
+          "metric_report_uri": "cache/advanced_features/benchmarks/fireprot_protherm_reviewed_stability_set/metric_report.json",
+          "required_operator_actions": [],
+          "requires_acquisition_configuration": false,
+          "requires_download_or_cache": false,
+          "requires_human_acceptance": false,
+          "requires_leakage_check": false,
+          "requires_license_authorization": false,
+          "requires_scorecard_artifacts": false,
+          "scorecard_status": "ready",
+          "scorecard_uri": "cache/advanced_features/benchmarks/fireprot_protherm_reviewed_stability_set/scorecard.json",
+          "status": "ready"
+        }
+      ],
+      "benchmarks_requiring_acquisition_configuration": [],
+      "benchmarks_requiring_download_or_cache": [],
+      "benchmarks_requiring_human_acceptance": [],
+      "benchmarks_requiring_license_authorization": [],
+      "blockers": [],
+      "cache_validated_benchmarks": 3,
+      "cache_validation_coverage": 1.0,
+      "complete_scorecard": true,
+      "head": "stability",
+      "matrix_status": "blocked",
+      "metric_claim_allowed": false,
+      "missing_acquisition_configuration_benchmarks": 0,
+      "missing_acquisition_plan_benchmarks": 0,
+      "missing_cache_validation_benchmarks": 0,
+      "not_claimable_metrics": [
+        "stability benchmark scorecard",
+        "deltaTm/ddG stability prediction quality claim"
+      ],
+      "planned_benchmarks": 3,
+      "required_benchmarks": 3,
+      "safe_for_model_claim": false,
+      "status": "ready",
+      "training_ready_from_matrix": false
+    },
+    {
+      "acquisition_configuration_coverage": 1.0,
+      "acquisition_configured_benchmarks": 3,
+      "benchmark_rows": [
+        {
+          "acquisition_configured": true,
+          "acquisition_plan_status": "configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "KWB activity numeric feedback smoke",
+          "blockers": [],
+          "cache_validation_errors": [],
+          "cache_validation_valid": true,
+          "checksum_present": true,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "passed",
+          "license_review_status": "approved_for_benchmark_only",
+          "local_dataset_uri": "cache/advanced_features/benchmarks/kwb_activity_numeric_feedback_smoke/dataset.jsonl",
+          "manifest_status": "present",
+          "metric_report_uri": "cache/advanced_features/benchmarks/kwb_activity_numeric_feedback_smoke/metric_report.json",
+          "required_operator_actions": [],
+          "requires_acquisition_configuration": false,
+          "requires_download_or_cache": false,
+          "requires_human_acceptance": false,
+          "requires_leakage_check": false,
+          "requires_license_authorization": false,
+          "requires_scorecard_artifacts": false,
+          "scorecard_status": "ready",
+          "scorecard_uri": "cache/advanced_features/benchmarks/kwb_activity_numeric_feedback_smoke/scorecard.json",
+          "status": "ready"
+        },
+        {
+          "acquisition_configured": true,
+          "acquisition_plan_status": "configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "KWB plate-level wet-lab feedback",
+          "blockers": [],
+          "cache_validation_errors": [],
+          "cache_validation_valid": true,
+          "checksum_present": true,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "passed",
+          "license_review_status": "approved_for_benchmark_only",
+          "local_dataset_uri": "cache/advanced_features/benchmarks/kwb_4g_activity_risk_plate_feedback/dataset.jsonl",
+          "manifest_status": "present",
+          "metric_report_uri": "cache/advanced_features/benchmarks/kwb_4g_activity_risk_plate_feedback/metric_report.json",
+          "required_operator_actions": [],
+          "requires_acquisition_configuration": false,
+          "requires_download_or_cache": false,
+          "requires_human_acceptance": false,
+          "requires_leakage_check": false,
+          "requires_license_authorization": false,
+          "requires_scorecard_artifacts": false,
+          "scorecard_status": "ready",
+          "scorecard_uri": "cache/advanced_features/benchmarks/kwb_4g_activity_risk_plate_feedback/scorecard.json",
+          "status": "ready"
+        },
+        {
+          "acquisition_configured": true,
+          "acquisition_plan_status": "configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "CatPred/GotEnzymes predicted reference only",
+          "blockers": [],
+          "cache_validation_errors": [],
+          "cache_validation_valid": true,
+          "checksum_present": true,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "passed",
+          "license_review_status": "approved_for_benchmark_only",
+          "local_dataset_uri": "cache/advanced_features/benchmarks/catpred_gotenzymes_predicted_reference_only/dataset.jsonl",
+          "manifest_status": "present",
+          "metric_report_uri": "cache/advanced_features/benchmarks/catpred_gotenzymes_predicted_reference_only/metric_report.json",
+          "required_operator_actions": [],
+          "requires_acquisition_configuration": false,
+          "requires_download_or_cache": false,
+          "requires_human_acceptance": false,
+          "requires_leakage_check": false,
+          "requires_license_authorization": false,
+          "requires_scorecard_artifacts": false,
+          "scorecard_status": "ready",
+          "scorecard_uri": "cache/advanced_features/benchmarks/catpred_gotenzymes_predicted_reference_only/scorecard.json",
+          "status": "ready"
+        }
+      ],
+      "benchmarks_requiring_acquisition_configuration": [],
+      "benchmarks_requiring_download_or_cache": [],
+      "benchmarks_requiring_human_acceptance": [],
+      "benchmarks_requiring_license_authorization": [],
+      "blockers": [],
+      "cache_validated_benchmarks": 3,
+      "cache_validation_coverage": 1.0,
+      "complete_scorecard": true,
+      "head": "activity_risk",
+      "matrix_status": "blocked",
+      "metric_claim_allowed": false,
+      "missing_acquisition_configuration_benchmarks": 0,
+      "missing_acquisition_plan_benchmarks": 0,
+      "missing_cache_validation_benchmarks": 0,
+      "not_claimable_metrics": [
+        "activity-risk benchmark scorecard",
+        "activity retention or activity-risk calibration claim"
+      ],
+      "planned_benchmarks": 3,
+      "required_benchmarks": 3,
+      "safe_for_model_claim": false,
+      "status": "ready",
+      "training_ready_from_matrix": false
+    },
+    {
+      "acquisition_configuration_coverage": 0.6667,
+      "acquisition_configured_benchmarks": 2,
+      "benchmark_rows": [
+        {
+          "acquisition_configured": true,
+          "acquisition_plan_status": "configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "PDBbind/CASF/D3R-style affinity or pose benchmark",
+          "blockers": [],
+          "cache_validation_errors": [],
+          "cache_validation_valid": true,
+          "checksum_present": true,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "passed",
+          "license_review_status": "approved_for_benchmark_only",
+          "local_dataset_uri": "cache/advanced_features/benchmarks/casf2016_affinity_reference/dataset.jsonl",
+          "manifest_status": "present",
+          "metric_report_uri": "cache/advanced_features/benchmarks/casf2016_affinity_reference/metric_report.json",
+          "required_operator_actions": [],
+          "requires_acquisition_configuration": false,
+          "requires_download_or_cache": false,
+          "requires_human_acceptance": false,
+          "requires_leakage_check": false,
+          "requires_license_authorization": false,
+          "requires_scorecard_artifacts": false,
+          "scorecard_status": "ready",
+          "scorecard_uri": "cache/advanced_features/benchmarks/casf2016_affinity_reference/scorecard.json",
+          "status": "ready"
+        },
+        {
+          "acquisition_configured": true,
+          "acquisition_plan_status": "configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "PoseBusters-style pose plausibility",
+          "blockers": [],
+          "cache_validation_errors": [],
+          "cache_validation_valid": true,
+          "checksum_present": true,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "passed",
+          "license_review_status": "approved_for_benchmark_only",
+          "local_dataset_uri": "cache/advanced_features/benchmarks/posebusters_style_pose_plausibility/dataset.jsonl",
+          "manifest_status": "present",
+          "metric_report_uri": "cache/advanced_features/benchmarks/posebusters_style_pose_plausibility/metric_report.json",
+          "required_operator_actions": [],
+          "requires_acquisition_configuration": false,
+          "requires_download_or_cache": false,
+          "requires_human_acceptance": false,
+          "requires_leakage_check": false,
+          "requires_license_authorization": false,
+          "requires_scorecard_artifacts": false,
+          "scorecard_status": "ready",
+          "scorecard_uri": "cache/advanced_features/benchmarks/posebusters_style_pose_plausibility/scorecard.json",
+          "status": "ready"
+        },
+        {
+          "acquisition_configured": false,
+          "acquisition_plan_status": "not_configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "reviewed substrate identity set",
+          "blockers": [
+            "acquisition_status:not_configured",
+            "benchmark_status_not_present"
+          ],
+          "cache_validation_errors": [
+            "benchmark_status_not_present"
+          ],
+          "cache_validation_valid": false,
+          "checksum_present": false,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "not_run",
+          "license_review_status": "not_reviewed",
+          "local_dataset_uri": null,
+          "manifest_status": "missing",
+          "metric_report_uri": null,
+          "required_operator_actions": [
+            "configure_acquisition_plan_row",
+            "download_or_register_local_benchmark_cache",
+            "complete_license_authorization",
+            "attach_scorecard_and_metric_artifacts",
+            "run_or_record_leakage_check",
+            "rerun_benchmark_cache_validation",
+            "human_acceptance_before_metric_claim"
+          ],
+          "requires_acquisition_configuration": true,
+          "requires_download_or_cache": true,
+          "requires_human_acceptance": true,
+          "requires_leakage_check": true,
+          "requires_license_authorization": true,
+          "requires_scorecard_artifacts": true,
+          "scorecard_status": "not_ready",
+          "scorecard_uri": null,
+          "status": "blocked"
+        }
+      ],
+      "benchmarks_requiring_acquisition_configuration": [
+        "reviewed substrate identity set"
+      ],
+      "benchmarks_requiring_download_or_cache": [
+        "reviewed substrate identity set"
+      ],
+      "benchmarks_requiring_human_acceptance": [
+        "reviewed substrate identity set"
+      ],
+      "benchmarks_requiring_license_authorization": [
+        "reviewed substrate identity set"
+      ],
+      "blockers": [
+        "acquisition_status:not_configured",
+        "benchmark_status_not_present"
+      ],
+      "cache_validated_benchmarks": 2,
+      "cache_validation_coverage": 0.6667,
+      "complete_scorecard": false,
+      "head": "substrate_fit",
+      "matrix_status": "blocked",
+      "metric_claim_allowed": false,
+      "missing_acquisition_configuration_benchmarks": 1,
+      "missing_acquisition_plan_benchmarks": 0,
+      "missing_cache_validation_benchmarks": 1,
+      "not_claimable_metrics": [
+        "substrate-fit benchmark scorecard",
+        "substrate affinity, pose, or fit quality claim"
+      ],
+      "planned_benchmarks": 3,
+      "required_benchmarks": 3,
+      "safe_for_model_claim": false,
+      "status": "blocked",
+      "training_ready_from_matrix": false
+    },
+    {
+      "acquisition_configuration_coverage": 1.0,
+      "acquisition_configured_benchmarks": 3,
+      "benchmark_rows": [
+        {
+          "acquisition_configured": true,
+          "acquisition_plan_status": "configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "KWB plate-level feedback",
+          "blockers": [],
+          "cache_validation_errors": [],
+          "cache_validation_valid": true,
+          "checksum_present": true,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "passed",
+          "license_review_status": "approved_for_benchmark_only",
+          "local_dataset_uri": "cache/advanced_features/benchmarks/kwb_4g_plate_level_feedback/dataset.jsonl",
+          "manifest_status": "present",
+          "metric_report_uri": "cache/advanced_features/benchmarks/kwb_4g_plate_level_feedback/metric_report.json",
+          "required_operator_actions": [],
+          "requires_acquisition_configuration": false,
+          "requires_download_or_cache": false,
+          "requires_human_acceptance": false,
+          "requires_leakage_check": false,
+          "requires_license_authorization": false,
+          "requires_scorecard_artifacts": false,
+          "scorecard_status": "ready",
+          "scorecard_uri": "cache/advanced_features/benchmarks/kwb_4g_plate_level_feedback/scorecard.json",
+          "status": "ready"
+        },
+        {
+          "acquisition_configured": true,
+          "acquisition_plan_status": "configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "replicate consistency",
+          "blockers": [],
+          "cache_validation_errors": [],
+          "cache_validation_valid": true,
+          "checksum_present": true,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "passed",
+          "license_review_status": "approved_for_benchmark_only",
+          "local_dataset_uri": "cache/advanced_features/benchmarks/kwb_4g_replicate_consistency/dataset.jsonl",
+          "manifest_status": "present",
+          "metric_report_uri": "cache/advanced_features/benchmarks/kwb_4g_replicate_consistency/metric_report.json",
+          "required_operator_actions": [],
+          "requires_acquisition_configuration": false,
+          "requires_download_or_cache": false,
+          "requires_human_acceptance": false,
+          "requires_leakage_check": false,
+          "requires_license_authorization": false,
+          "requires_scorecard_artifacts": false,
+          "scorecard_status": "ready",
+          "scorecard_uri": "cache/advanced_features/benchmarks/kwb_4g_replicate_consistency/scorecard.json",
+          "status": "ready"
+        },
+        {
+          "acquisition_configured": true,
+          "acquisition_plan_status": "configured",
+          "benchmark_metric_claim_allowed": false,
+          "benchmark_name": "QC fail-rate calibration",
+          "blockers": [],
+          "cache_validation_errors": [],
+          "cache_validation_valid": true,
+          "checksum_present": true,
+          "claim_gate": "blocked_until_cache_license_leakage_scorecard_and_human_acceptance_pass",
+          "leakage_check_status": "passed",
+          "license_review_status": "approved_for_benchmark_only",
+          "local_dataset_uri": "cache/advanced_features/benchmarks/kwb_qc_fail_rate_calibration/dataset.jsonl",
+          "manifest_status": "present",
+          "metric_report_uri": "cache/advanced_features/benchmarks/kwb_qc_fail_rate_calibration/metric_report.json",
+          "required_operator_actions": [],
+          "requires_acquisition_configuration": false,
+          "requires_download_or_cache": false,
+          "requires_human_acceptance": false,
+          "requires_leakage_check": false,
+          "requires_license_authorization": false,
+          "requires_scorecard_artifacts": false,
+          "scorecard_status": "ready",
+          "scorecard_uri": "cache/advanced_features/benchmarks/kwb_qc_fail_rate_calibration/scorecard.json",
+          "status": "ready"
+        }
+      ],
+      "benchmarks_requiring_acquisition_configuration": [],
+      "benchmarks_requiring_download_or_cache": [],
+      "benchmarks_requiring_human_acceptance": [],
+      "benchmarks_requiring_license_authorization": [],
+      "blockers": [],
+      "cache_validated_benchmarks": 3,
+      "cache_validation_coverage": 1.0,
+      "complete_scorecard": true,
+      "head": "assay_success",
+      "matrix_status": "blocked",
+      "metric_claim_allowed": false,
+      "missing_acquisition_configuration_benchmarks": 0,
+      "missing_acquisition_plan_benchmarks": 0,
+      "missing_cache_validation_benchmarks": 0,
+      "not_claimable_metrics": [
+        "assay-success benchmark scorecard",
+        "plate/QC success-rate prediction quality claim"
+      ],
+      "planned_benchmarks": 3,
+      "required_benchmarks": 3,
+      "safe_for_model_claim": false,
+      "status": "ready",
+      "training_ready_from_matrix": false
+    }
+  ],
+  "input_errors": [],
+  "inputs": {
+    "benchmark_acquisition_plan": "datasets/benchmark/benchmark_acquisition_plan.jsonl",
+    "benchmark_acquisition_plan_report": "reports/benchmark_acquisition_plan_report.json",
+    "benchmark_matrix_report": "reports/benchmark_matrix_report.json",
+    "benchmark_score_cache_manifest": "reports/benchmark_score_cache_manifest.json",
+    "benchmark_score_cache_validation_report": "reports/benchmark_score_cache_validation_report.json",
+    "claim_readiness_matrix": "reports/claim_readiness_matrix.json",
+    "multitask_training_readiness_report": "reports/multitask_training_readiness_report.json"
+  },
+  "local_only": true,
+  "not_claimable_model_metrics": [
+    {
+      "blocking_reasons": [
+        "acquisition_status:not_configured",
+        "benchmark dataset is not configured locally",
+        "benchmark_status_not_present",
+        "external predicted/reference data cannot substitute for wet-lab labels",
+        "head is not training-ready with reviewed labels",
+        "head_training_readiness_false"
+      ],
+      "head": "mutation_rank",
+      "metric_claim_allowed": false,
+      "not_claimable_metrics": [
+        "mutation-rank benchmark scorecard",
+        "mutation ranking quality or Spearman/AUROC claim"
+      ],
+      "safe_for_model_claim": false,
+      "source_claim_blockers": [
+        "model_quality_claim",
+        "five_head_training_run"
+      ]
+    },
+    {
+      "blocking_reasons": [
+        "benchmark dataset is not configured locally",
+        "external predicted/reference data cannot substitute for wet-lab labels",
+        "head is not training-ready with reviewed labels",
+        "head_training_readiness_false"
+      ],
+      "head": "stability",
+      "metric_claim_allowed": false,
+      "not_claimable_metrics": [
+        "stability benchmark scorecard",
+        "deltaTm/ddG stability prediction quality claim"
+      ],
+      "safe_for_model_claim": false,
+      "source_claim_blockers": [
+        "model_quality_claim",
+        "five_head_training_run"
+      ]
+    },
+    {
+      "blocking_reasons": [
+        "benchmark dataset is not configured locally",
+        "external predicted/reference data cannot substitute for wet-lab labels",
+        "head is not training-ready with reviewed labels",
+        "head_training_readiness_false"
+      ],
+      "head": "activity_risk",
+      "metric_claim_allowed": false,
+      "not_claimable_metrics": [
+        "activity-risk benchmark scorecard",
+        "activity retention or activity-risk calibration claim"
+      ],
+      "safe_for_model_claim": false,
+      "source_claim_blockers": [
+        "model_quality_claim",
+        "five_head_training_run"
+      ]
+    },
+    {
+      "blocking_reasons": [
+        "acquisition_status:not_configured",
+        "benchmark dataset is not configured locally",
+        "benchmark_status_not_present",
+        "external predicted/reference data cannot substitute for wet-lab labels",
+        "head is not training-ready with reviewed labels",
+        "head_training_readiness_false"
+      ],
+      "head": "substrate_fit",
+      "metric_claim_allowed": false,
+      "not_claimable_metrics": [
+        "substrate-fit benchmark scorecard",
+        "substrate affinity, pose, or fit quality claim"
+      ],
+      "safe_for_model_claim": false,
+      "source_claim_blockers": [
+        "model_quality_claim",
+        "five_head_training_run"
+      ]
+    },
+    {
+      "blocking_reasons": [
+        "benchmark dataset is not configured locally",
+        "external predicted/reference data cannot substitute for wet-lab labels",
+        "head is not training-ready with reviewed labels",
+        "head_training_readiness_false"
+      ],
+      "head": "assay_success",
+      "metric_claim_allowed": false,
+      "not_claimable_metrics": [
+        "assay-success benchmark scorecard",
+        "plate/QC success-rate prediction quality claim"
+      ],
+      "safe_for_model_claim": false,
+      "source_claim_blockers": [
+        "model_quality_claim",
+        "five_head_training_run"
+      ]
+    }
+  ],
+  "policy": "Fail closed: this benchmark gap plan remains blocked unless all five canonical heads have every required benchmark cache-validated, locally checksummed, license-reviewed, leakage-checked, human-accepted, and all source reports agree. It is an evaluation planning artifact only and never grants approval, a model claim, a training import, or release readiness.",
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "status": "blocked",
+  "summary": {
+    "acquisition_configuration_coverage": 0.8,
+    "benchmark_evaluation_coverage_complete": false,
+    "benchmarks_requiring_download_or_cache": 2,
+    "benchmarks_requiring_human_acceptance": 3,
+    "benchmarks_requiring_license_authorization": 2,
+    "blocked_claim_ids": [
+      "local_safe_training_pipeline",
+      "model_quality_claim",
+      "five_head_training_run",
+      "active_learning_experiment_submission",
+      "customer_sequence_package",
+      "approved_for_ordering",
+      "ip_fto_cleared",
+      "biosecurity_screened",
+      "external_tool_production_use",
+      "local_release_review_package"
+    ],
+    "cache_validated_benchmarks": 13,
+    "cache_validation_coverage": 0.8667,
+    "cache_validation_error_counts": {
+      "benchmark_status_not_present": 2
+    },
+    "configured_benchmarks": 12,
+    "heads_with_complete_scorecards": 3,
+    "heads_with_not_claimable_metrics": 5,
+    "missing_acquisition_configuration_benchmarks": 3,
+    "missing_acquisition_plan_benchmarks": 0,
+    "missing_cache_validation_benchmarks": 2,
+    "operator_action_counts": {
+      "attach_scorecard_and_metric_artifacts": 2,
+      "complete_license_authorization": 2,
+      "configure_acquisition_plan_row": 3,
+      "download_or_register_local_benchmark_cache": 2,
+      "human_acceptance_before_metric_claim": 3,
+      "rerun_benchmark_cache_validation": 2,
+      "run_or_record_leakage_check": 2
+    },
+    "planned_benchmarks": 15,
+    "required_benchmarks": 15,
+    "required_heads": 5,
+    "source_report_consistent": true
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB External Tool Adapter Result",
+  "type": "object",
+  "required": [
+    "tool_id",
+    "adapter_status",
+    "license_gate",
+    "evidence_level",
+    "inputs",
+    "outputs",
+    "limitations",
+    "local_only"
+  ],
+  "properties": {
+    "tool_id": { "type": "string" },
+    "adapter_status": {
+      "type": "string",
+      "enum": ["not_installed", "ready_for_local_evaluation", "blocked_by_license", "blocked_by_missing_inputs", "completed", "failed"]
+    },
+    "license_gate": {
+      "type": "string",
+      "enum": ["commercial_evaluation_allowed", "license_review_required", "non_commercial_or_restricted"]
+    },
+    "evidence_level": {
+      "type": "string",
+      "enum": ["sequence_only", "predicted_structure", "experimental_structure", "msa_supported", "wet_lab_supported", "benchmark_only"]
+    },
+    "inputs": { "type": "object" },
+    "outputs": { "type": "object" },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "local_only": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

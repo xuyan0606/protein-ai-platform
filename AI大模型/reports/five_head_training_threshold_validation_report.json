@@ -1,0 +1,39 @@
+{
+  "below_threshold_heads": [
+    "activity_risk"
+  ],
+  "blocked_heads": [
+    "mutation_rank",
+    "stability",
+    "activity_risk",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "candidate_heads": [],
+  "checked_report": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/five_head_training_threshold_report.json",
+  "created_at": "2026-09-03T07:32:22.681534+00:00",
+  "failures": [],
+  "local_only": true,
+  "policy": "Fail-closed validation. Candidate rows, numeric feedback, and feature rows cannot satisfy a head label threshold without the explicit head label contract.",
+  "ready_head_count": 0,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "source_counts": {
+    "activity_risk_formal_label_decision_rows": 6,
+    "activity_risk_training_import_label_rows": 6,
+    "fireprot_reviewed_import_rows": 0,
+    "numeric_feedback_rows": 6,
+    "plate_training_eligible_rows": 0,
+    "strict_supervised_rows": 0
+  },
+  "success": true,
+  "threshold_ready_heads": [],
+  "training_execution_allowed": false,
+  "zero_label_heads": [
+    "mutation_rank",
+    "stability",
+    "substrate_fit",
+    "assay_success"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "P19835",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00135",
+        "name": "Carboxylesterase family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002018",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p19835",
+          "protein_length": 753,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 26,
+                  "end": 542,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00135",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16058",
+        "name": "Mucin-like",
+        "source_database": "pfam",
+        "type": "disordered",
+        "integrated": "IPR032059",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p19835",
+          "protein_length": 753,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 617,
+                  "end": 708,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16058",
+              "score": 0.00015
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

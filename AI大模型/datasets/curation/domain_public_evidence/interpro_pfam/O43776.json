@@ -1,0 +1,107 @@
+{
+  "accession": "O43776",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00152",
+        "name": "tRNA synthetases class II (D, K and N)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004364",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43776",
+          "protein_length": 548,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 226,
+                  "end": 541,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00152",
+              "score": 5e-73
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01336",
+        "name": "OB-fold nucleic acid binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004365",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43776",
+          "protein_length": 548,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 128,
+                  "end": 207,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01336",
+              "score": 1.1e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF20917",
+        "name": "Asparaginal-tRNA synthetase, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR048952",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43776",
+          "protein_length": 548,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 21,
+                  "end": 110,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF20917",
+              "score": 2e-25
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

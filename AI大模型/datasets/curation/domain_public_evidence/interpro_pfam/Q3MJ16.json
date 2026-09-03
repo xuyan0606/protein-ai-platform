@@ -1,0 +1,107 @@
+{
+  "accession": "Q3MJ16",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00168",
+        "name": "C2 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000008",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q3mj16",
+          "protein_length": 868,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 69,
+                  "end": 169,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00168",
+              "score": 2.7e-15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01735",
+        "name": "Lysophospholipase catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002642",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q3mj16",
+          "protein_length": 868,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 374,
+                  "end": 612,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01735",
+              "score": 7.1e-30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18695",
+        "name": "Cytosolic phospholipases A2 C2-domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040723",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q3mj16",
+          "protein_length": 868,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 209,
+                  "end": 321,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF18695",
+              "score": 2.2e-29
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

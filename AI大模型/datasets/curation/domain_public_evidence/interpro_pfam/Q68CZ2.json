@@ -1,0 +1,107 @@
+{
+  "accession": "Q68CZ2",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00017",
+        "name": "SH2 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000980",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q68cz2",
+          "protein_length": 1445,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1172,
+                  "end": 1266,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00017",
+              "score": 1.9e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08416",
+        "name": "Phosphotyrosine-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013625",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q68cz2",
+          "protein_length": 1445,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1310,
+                  "end": 1444,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08416",
+              "score": 3.5e-38
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF10409",
+        "name": "C2 domain of PTEN tumour-suppressor protein",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014020",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q68cz2",
+          "protein_length": 1445,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 173,
+                  "end": 299,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10409",
+              "score": 2.4e-34
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

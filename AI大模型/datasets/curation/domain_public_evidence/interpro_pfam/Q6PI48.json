@@ -1,0 +1,112 @@
+{
+  "accession": "Q6PI48",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00152",
+        "name": "tRNA synthetases class II (D, K and N)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004364",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6pi48",
+          "protein_length": 645,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 167,
+                  "end": 356,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 453,
+                  "end": 606,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": false,
+              "model": "PF00152",
+              "score": 3.6e-101
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01336",
+        "name": "OB-fold nucleic acid binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004365",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6pi48",
+          "protein_length": 645,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 66,
+                  "end": 149,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01336",
+              "score": 2.2e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02938",
+        "name": "GAD domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR029351",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6pi48",
+          "protein_length": 645,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 357,
+                  "end": 452,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02938",
+              "score": 6.4e-10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

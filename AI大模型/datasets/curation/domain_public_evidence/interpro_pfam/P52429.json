@@ -1,0 +1,107 @@
+{
+  "accession": "P52429",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00130",
+        "name": "Phorbol esters/diacylglycerol binding domain (C1 domain)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002219",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p52429",
+          "protein_length": 567,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 60,
+                  "end": 109,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00130",
+              "score": 8.3e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00609",
+        "name": "Diacylglycerol kinase accessory domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000756",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p52429",
+          "protein_length": 567,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 369,
+                  "end": 524,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00609",
+              "score": 1.8e-48
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00781",
+        "name": "Diacylglycerol kinase catalytic domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001206",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p52429",
+          "protein_length": 567,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 220,
+                  "end": 329,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00781",
+              "score": 3.7e-19
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

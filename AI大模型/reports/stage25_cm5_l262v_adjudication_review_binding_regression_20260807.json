@@ -1,0 +1,39 @@
+{
+  "apply_executed": false,
+  "case_rows": 3,
+  "cases": [
+    {
+      "case_id": "accepted_review_binding",
+      "observed_return_code": 0,
+      "passed": true,
+      "review_bound_evidence_rows": 2,
+      "unreviewed_evidence_artifact_rows": 0
+    },
+    {
+      "accepted_review_failure_present": true,
+      "case_id": "unreviewed_raw_paths_rejected",
+      "observed_return_code": 1,
+      "passed": true,
+      "unreviewed_evidence_artifact_rows": 2
+    },
+    {
+      "case_id": "needs_more_info_without_evidence",
+      "needs_more_info_rows": 1,
+      "observed_return_code": 0,
+      "passed": true
+    }
+  ],
+  "discrepancy_resolved": false,
+  "external_sqlite_mutated": false,
+  "failed_rows": 0,
+  "formal_decision_rows_written": 0,
+  "mode": "stage25_cm5_l262v_adjudication_review_binding_regression",
+  "passed_rows": 3,
+  "policy": "Temporary isolated contract regression only. Synthetic accepted reviews do not alter real review, receipt, decision, or evidence inputs and do not adjudicate CM5 L262V.",
+  "real_decision_input_mutated": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "schema_version": 1,
+  "stage": 25,
+  "success": true
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q8IVL5",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF13640",
+        "name": "2OG-Fe(II) oxygenase superfamily",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR044862",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8ivl5",
+          "protein_length": 708,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 580,
+                  "end": 669,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13640",
+              "score": 9.2e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23557",
+        "name": "Leprecan family TPR-like repeat region",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR056585",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8ivl5",
+          "protein_length": 708,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 43,
+                  "end": 352,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF23557",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "artifact_paths": [
+    "cache/advanced_features/physical_ddg/pyrosetta/verified_mutations_v1/ddg_features.jsonl",
+    "cache/advanced_features/physical_ddg/pyrosetta/verified_mutations_v1/input_mapping.sha256",
+    "cache/advanced_features/physical_ddg/pyrosetta/verified_mutations_v1/parameters.json",
+    "cache/advanced_features/physical_ddg/pyrosetta/verified_mutations_v1/runtime.log"
+  ],
+  "artifact_sha256": {
+    "cache/advanced_features/physical_ddg/pyrosetta/verified_mutations_v1/ddg_features.jsonl": "a66bcba5b81caa6ba5971296423b663bfe06e684c7ffb1bdf236ca82f7a44d14",
+    "cache/advanced_features/physical_ddg/pyrosetta/verified_mutations_v1/input_mapping.sha256": "69040308d56af4d29aad438939bc47c6326648750f491d4df4cbaf763b7f09ce",
+    "cache/advanced_features/physical_ddg/pyrosetta/verified_mutations_v1/parameters.json": "946f686157477f241455635477025e8f7576f4bf19461b0fcf10b0536b991f35",
+    "cache/advanced_features/physical_ddg/pyrosetta/verified_mutations_v1/runtime.log": "860f7ef0f62a9c05ca02bb2cbaf29b6f2a2acdd58ee07650c956b5e290ac6e25"
+  },
+  "backend": "pyrosetta",
+  "candidate_input_rows": 29,
+  "computed_feature_rows": 29,
+  "constant_seed": true,
+  "created_at": "2026-09-03T07:31:59.776176+00:00",
+  "ddg_protocol_executed": true,
+  "ddg_units": "REU",
+  "errors": [],
+  "failed_candidate_rows": 0,
+  "multi_chain_context_rows": 22,
+  "negative_ddg_is_stabilizing": true,
+  "output": "datasets/features/pyrosetta_verified_mutation_ddg_features.jsonl",
+  "policy": "Computed PyRosetta ddG features only; no training-label, model-claim, or release promotion.",
+  "pyrosetta_init_executed": true,
+  "quality_gate": {
+    "ddg_abs_sanity_limit_reu": 20.0,
+    "policy": "Quality status is a fail-closed computational sanity classification. It is not a scientific validity claim, wet-lab label, or model-quality gate.",
+    "quality_blocked_rows": 11,
+    "quality_passed_rows": 18,
+    "total_score_sanity_limit_reu": 5000.0
+  },
+  "random_seed": 20260803,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false
+}

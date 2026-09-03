@@ -1,0 +1,78 @@
+{
+  "accession": "P48637",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03199",
+        "name": "Eukaryotic glutathione synthase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004887",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p48637",
+          "protein_length": 474,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 205,
+                  "end": 302,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03199",
+              "score": 2.5e-31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03917",
+        "name": "Eukaryotic glutathione synthase, ATP binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR005615",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p48637",
+          "protein_length": 474,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 13,
+                  "end": 204,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 303,
+                  "end": 472,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": false,
+              "model": "PF03917",
+              "score": 1.4e-121
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

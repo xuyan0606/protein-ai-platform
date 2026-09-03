@@ -1,0 +1,107 @@
+{
+  "accession": "O14830",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00149",
+        "name": "Calcineurin-like phosphoesterase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004843",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14830",
+          "protein_length": 753,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 174,
+                  "end": 316,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00149",
+              "score": 7.2e-18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08321",
+        "name": "PPP5 TPR repeat region",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR013235",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14830",
+          "protein_length": 753,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 83,
+                  "end": 162,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF08321",
+              "score": 4.2e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13499",
+        "name": "EF-hand domain pair",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002048",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14830",
+          "protein_length": 753,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 655,
+                  "end": 722,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13499",
+              "score": 3.9e-08
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "accession": "P54136",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00750",
+        "name": "tRNA synthetases class I (R), catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR035684",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p54136",
+          "protein_length": 660,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 174,
+                  "end": 520,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00750",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03485",
+        "name": "Arginyl tRNA synthetase N terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR005148",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p54136",
+          "protein_length": 660,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 79,
+                  "end": 166,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03485",
+              "score": 1.8e-19
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05746",
+        "name": "DALR anticodon binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR008909",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p54136",
+          "protein_length": 660,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 534,
+                  "end": 660,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05746",
+              "score": 2.5e-26
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

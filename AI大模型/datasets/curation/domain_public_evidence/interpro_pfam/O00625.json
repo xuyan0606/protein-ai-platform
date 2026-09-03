@@ -1,0 +1,73 @@
+{
+  "accession": "O00625",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02678",
+        "name": "Pirin",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR003829",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00625",
+          "protein_length": 290,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 22,
+                  "end": 118,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02678",
+              "score": 1.6e-26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05726",
+        "name": "Pirin C-terminal cupin domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR008778",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00625",
+          "protein_length": 290,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 171,
+                  "end": 277,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05726",
+              "score": 3.9e-30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

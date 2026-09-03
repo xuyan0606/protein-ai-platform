@@ -1,0 +1,119 @@
+{
+  "accession": "P40939",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00378",
+        "name": "Enoyl-CoA hydratase/isomerase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001753",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p40939",
+          "protein_length": 763,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 47,
+                  "end": 222,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00378",
+              "score": 1.3e-33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00725",
+        "name": "3-hydroxyacyl-CoA dehydrogenase, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006108",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p40939",
+          "protein_length": 763,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 544,
+                  "end": 639,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00725",
+              "score": 1.5e-22
+            },
+            {
+              "fragments": [
+                {
+                  "start": 676,
+                  "end": 755,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00725",
+              "score": 0.13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02737",
+        "name": "3-hydroxyacyl-CoA dehydrogenase, NAD binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006176",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p40939",
+          "protein_length": 763,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 364,
+                  "end": 541,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02737",
+              "score": 5.5e-52
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

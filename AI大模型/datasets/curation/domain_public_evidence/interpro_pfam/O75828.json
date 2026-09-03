@@ -1,0 +1,51 @@
+{
+  "accession": "O75828",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00106",
+        "name": "short chain dehydrogenase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002347",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75828",
+          "protein_length": 277,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 6,
+                  "end": 148,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00106",
+              "score": 2.1e-23
+            },
+            {
+              "fragments": [
+                {
+                  "start": 191,
+                  "end": 238,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00106",
+              "score": 0.0099
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

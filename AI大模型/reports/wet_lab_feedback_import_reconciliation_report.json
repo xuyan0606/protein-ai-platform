@@ -1,0 +1,53 @@
+{
+  "consistency_failures": [],
+  "counts": {
+    "claim_eligible_rows": 0,
+    "contract_training_import_eligible_rows": 6,
+    "duplicate_already_represented_rows": 6,
+    "duplicate_new_feedback_only_rows": 2,
+    "duplicate_safe_to_append_rows": 0,
+    "duplicate_training_import_from_apply_plan_rows": 0,
+    "local_feedback_numeric_training_eligible_rows": 6,
+    "model_quality_training_import_eligible_rows": 6,
+    "semantic_numeric_training_import_eligible_rows": 6,
+    "strict_supervised_rows": 0,
+    "wetlab_applied_rows": 0,
+    "wetlab_apply_plan_rows": 8,
+    "wetlab_authorized_rows": 8,
+    "wetlab_preflight_rows": 8,
+    "wetlab_ready_for_training_import_rows": 0
+  },
+  "created_at": "2026-09-03T07:33:56.126932+00:00",
+  "local_only": true,
+  "missing_sources": [],
+  "numeric_training_import_explanation": {
+    "apply_plan_training_rows": 0,
+    "local_feedback_numeric_rows": 6,
+    "numeric_training_import_eligible_rows": 6,
+    "source": "experiment_feedback.local numeric activity rows plus zero apply-plan training rows"
+  },
+  "numeric_training_import_source_supported": true,
+  "policy": "wet_lab import/apply counters and local numeric feedback counters are intentionally separate. This reconciliation is read-only and cannot authorize append, training execution, model claim, or release.",
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "source_reports": {
+    "apply_plan": "reports/wet_lab_mutant_library_feedback_intake_apply_plan_report.json",
+    "authorization": "reports/wet_lab_mutant_library_feedback_authorization_validation_report.json",
+    "duplicate_audit": "reports/wet_lab_feedback_apply_duplicate_audit_report.json",
+    "experiment_feedback": "reports/experiment_feedback_intake_validation_report.json",
+    "model_quality": "reports/model_quality_hard_gate_contract_report.json",
+    "preflight": "reports/wet_lab_mutant_library_feedback_preflight_report.json",
+    "semantic_guard": "reports/feedback_training_import_semantic_guard_report.json",
+    "training_import_contract": "reports/training_label_import_contract_report.json"
+  },
+  "success": true,
+  "wet_lab_import_rows_explanation": {
+    "wetlab_applied_rows": 0,
+    "why_zero": [
+      "apply_plan is read-only and never appends experiment_feedback.local.jsonl",
+      "duplicate audit found six activity rows already represented in local feedback",
+      "two remaining thermal-retention percent rows are feedback-only until a reviewed stability target rule exists"
+    ]
+  }
+}

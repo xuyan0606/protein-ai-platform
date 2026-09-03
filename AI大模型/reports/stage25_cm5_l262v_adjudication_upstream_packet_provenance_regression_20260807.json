@@ -1,0 +1,44 @@
+{
+  "allowed_decision_set_drift_rejected_rows": 1,
+  "apply_executed": false,
+  "case_rows": 3,
+  "cases": [
+    {
+      "case_id": "invalid_packet_validation_rejected",
+      "observed_return_code": 1,
+      "passed": true,
+      "upstream_packet_valid_failure_present": true
+    },
+    {
+      "case_id": "upstream_review_fields_nonempty_rejected",
+      "observed_return_code": 1,
+      "passed": true,
+      "upstream_review_fields_empty_failure_present": true
+    },
+    {
+      "allowed_decisions_match_packet_failure_present": true,
+      "case_id": "allowed_decision_set_drift_rejected",
+      "observed_return_code": 1,
+      "passed": true
+    }
+  ],
+  "discrepancy_resolved": false,
+  "external_sqlite_mutated": false,
+  "failed_rows": 0,
+  "formal_decision_rows_written": 0,
+  "invalid_packet_validation_rejected_rows": 1,
+  "mode": "stage25_cm5_l262v_adjudication_upstream_packet_provenance_regression",
+  "passed_rows": 3,
+  "policy": "Temporary isolated upstream packet-provenance regression only. No real packet, review, receipt, or decision input is modified and CM5 L262V is not adjudicated.",
+  "real_decision_input_mutated": false,
+  "real_packet_mutated": false,
+  "real_packet_validation_mutated": false,
+  "real_receipt_input_mutated": false,
+  "real_review_input_mutated": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "schema_version": 1,
+  "stage": 25,
+  "success": true,
+  "upstream_review_fields_nonempty_rejected_rows": 1
+}

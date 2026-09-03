@@ -1,0 +1,21 @@
+{
+  "benchmark_name": "KWB activity numeric feedback smoke",
+  "created_at": "2026-09-03T07:32:23.804840+00:00",
+  "future_training_exclusion_required": true,
+  "leakage_basis": "No training split is created by this smoke benchmark; future training must exclude these feedback IDs if this benchmark is used for model evaluation.",
+  "leakage_check_status": "passed",
+  "local_only": true,
+  "safe_for_model_claim": false,
+  "split_strategy": "evaluation_only_all_rows_no_training",
+  "test_feedback_ids": [
+    "wetlab-mutlib-15b-d105n-activity-abs-ph4-8",
+    "wetlab-mutlib-15b-d105n-activity-abs-ph6-0",
+    "wetlab-mutlib-15b-d105n-acid-retention-ph4-8-vs-ph6-0",
+    "wetlab-mutlib-15b-s265t-activity-abs-ph4-8",
+    "wetlab-mutlib-15b-s265t-activity-abs-ph6-0",
+    "wetlab-mutlib-15b-s265t-acid-retention-ph4-8-vs-ph6-0"
+  ],
+  "test_rows": 6,
+  "train_rows": 0,
+  "validation_rows": 0
+}

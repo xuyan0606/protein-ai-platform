@@ -1,0 +1,189 @@
+{
+  "created_at": "2026-09-03T07:34:43.961354+00:00",
+  "local_only": true,
+  "source_board": "reports/non_human_construction_board.json",
+  "receipts": "datasets/governance/non_human_ready_to_verify_receipts.jsonl",
+  "allowed_ready_to_verify_workstreams": [
+    "nhc_data_lake_cache_governance",
+    "nhc_ddg_physics_backend",
+    "nhc_msa_conservation_production",
+    "nhc_structure_gnn_features"
+  ],
+  "board_ready_to_verify_workstreams": [
+    "nhc_data_lake_cache_governance",
+    "nhc_ddg_physics_backend",
+    "nhc_structure_gnn_features"
+  ],
+  "receipt_rows": 3,
+  "command_rows": 8,
+  "verification_passed_workstreams": 3,
+  "verification_failed_workstreams": 0,
+  "blocked_workstreams_not_executed": true,
+  "all_commands_ok": true,
+  "all_evidence_ok": true,
+  "success": true,
+  "failures": [],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Only board started_ready_to_verify lanes within the allowlist are executed. Blocked lanes remain blocked; no external install, production sync, or model-quality claim is approved.",
+  "rows": [
+    {
+      "created_at": "2026-09-03T07:34:43.961354+00:00",
+      "local_only": true,
+      "workstream_id": "nhc_ddg_physics_backend",
+      "title": "Rosetta/PyRosetta/FoldX physics ddG backend",
+      "source_status": "started_ready_to_verify",
+      "verification_status": "verification_passed",
+      "commands_ok": true,
+      "evidence_ok": true,
+      "command_results": [
+        {
+          "command": "python3 scripts/build_ddg_backend_readiness.py",
+          "returncode": 0,
+          "ok": true,
+          "stdout": "{\"adapter_integrated\": true, \"ready_backend_count\": 2, \"executable_ddg_backend_ready\": true, \"proxy_ddg_backend_ready\": true, \"one_ddg_backend_ready\": true, \"output\": \"/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/ddg_backend_readiness_report.json\"}",
+          "stderr": ""
+        },
+        {
+          "command": "python3 scripts/build_ddg_backend_execution_plan.py",
+          "returncode": 0,
+          "ok": true,
+          "stdout": "{\"plan_rows\": 34, \"ready_rows\": 0, \"blocked_rows\": 34, \"selected_backend\": \"pyrosetta\", \"one_ddg_backend_ready\": true, \"output\": \"/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/ddg_backend_execution_plan_report.json\"}",
+          "stderr": ""
+        },
+        {
+          "command": "python3 scripts/validate_ddg_backend_operator_packets.py",
+          "returncode": 0,
+          "ok": true,
+          "stdout": "{\"status_rows\": 3, \"valid_status_rows\": 3, \"invalid_status_rows\": 0, \"ready_for_execution_now_rows\": 1, \"output\": \"/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/ddg_backend_operator_packet_validation_report.json\"}",
+          "stderr": ""
+        }
+      ],
+      "evidence": {
+        "evidence_type": "pyrosetta_physical_ddg_runtime_feature_receipt",
+        "checks": {
+          "executable_ddg_backend_ready": true,
+          "pyrosetta_runtime_receipt_approved": true,
+          "runtime_receipt_physics_fail_closed": true,
+          "pyrosetta_smoke_passed": true,
+          "pyrosetta_smoke_artifacts_complete": true,
+          "pyrosetta_operator_ready_for_execution": true,
+          "safe_for_model_claim_remains_false": true
+        },
+        "metrics": {
+          "ready_backend_count": 2,
+          "approved_runtime_rows": 2,
+          "pyrosetta_smoke_artifact_count": 5,
+          "operator_valid_rows": 3,
+          "operator_ready_for_execution_now_rows": 1
+        }
+      },
+      "completion_ready": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "blocked_lanes_executed": false,
+      "policy": "Receipt verifies local ready-to-verify commands and evidence only; it is not a model-quality, release, production, license, or ordering approval."
+    },
+    {
+      "created_at": "2026-09-03T07:34:43.961354+00:00",
+      "local_only": true,
+      "workstream_id": "nhc_structure_gnn_features",
+      "title": "Structure graph and GNN feature production",
+      "source_status": "started_ready_to_verify",
+      "verification_status": "verification_passed",
+      "commands_ok": true,
+      "evidence_ok": true,
+      "command_results": [
+        {
+          "command": "python3 scripts/build_reviewed_structure_graph_features.py",
+          "returncode": 0,
+          "ok": true,
+          "stdout": "{\"graph_rows\": 34, \"failure_rows\": 0, \"safe_for_model_claim\": false, \"output\": \"/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/reviewed_structure_graph_feature_report.json\"}",
+          "stderr": ""
+        },
+        {
+          "command": "python3 scripts/validate_reviewed_structure_graph_features.py",
+          "returncode": 0,
+          "ok": true,
+          "stdout": "{\"ready_for_coordinate_feature_use\": true, \"valid_rows\": 34, \"invalid_rows\": 0, \"safe_for_model_claim\": false, \"output\": \"/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/reviewed_structure_graph_validation_report.json\"}",
+          "stderr": ""
+        }
+      ],
+      "evidence": {
+        "evidence_type": "structure_graph_feature_receipt",
+        "checks": {
+          "reviewed_structure_graph_ready": true,
+          "valid_graph_rows_gt_0": true,
+          "invalid_graph_rows_eq_0": true,
+          "feature_table_exists": true,
+          "feature_table_rows_gt_0": true,
+          "safe_for_model_claim_remains_false": true
+        },
+        "metrics": {
+          "graph_rows": 34,
+          "valid_graph_rows": 34,
+          "feature_table_rows": 34
+        }
+      },
+      "completion_ready": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "blocked_lanes_executed": false,
+      "policy": "Receipt verifies local ready-to-verify commands and evidence only; it is not a model-quality, release, production, license, or ordering approval."
+    },
+    {
+      "created_at": "2026-09-03T07:34:43.961354+00:00",
+      "local_only": true,
+      "workstream_id": "nhc_data_lake_cache_governance",
+      "title": "Data lake, cache manifest and provenance governance",
+      "source_status": "started_ready_to_verify",
+      "verification_status": "verification_passed",
+      "commands_ok": true,
+      "evidence_ok": true,
+      "command_results": [
+        {
+          "command": "python3 scripts/build_data_lake_manifest.py",
+          "returncode": 0,
+          "ok": true,
+          "stdout": "{\"output\": \"/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/data_lake_manifest.json\", \"artifacts\": 2746, \"source_artifact_rows\": 2817, \"deduplicated_input_rows\": 71, \"duplicate_input_path_rows\": 71}",
+          "stderr": ""
+        },
+        {
+          "command": "python3 scripts/build_provenance_graph_report.py",
+          "returncode": 0,
+          "ok": true,
+          "stdout": "{\"entities\": 2746, \"activities\": 1019, \"output\": \"/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/provenance_graph_report.json\"}",
+          "stderr": ""
+        },
+        {
+          "command": "python3 scripts/build_governance_readiness.py",
+          "returncode": 0,
+          "ok": true,
+          "stdout": "{\"ready\": false, \"blockers\": 7, \"output\": \"/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/governance_readiness_report.json\"}",
+          "stderr": ""
+        }
+      ],
+      "evidence": {
+        "evidence_type": "data_governance_receipt",
+        "checks": {
+          "data_lake_manifest_has_no_non_p136_missing_artifacts": true,
+          "local_release_missing_artifacts_empty_or_only_current_outputs": true,
+          "provenance_ready": true,
+          "provenance_graph_exists": true,
+          "governance_report_exists": true,
+          "release_ready_remains_false": true
+        },
+        "metrics": {
+          "non_p136_missing_artifacts": 0,
+          "artifact_count": 2746,
+          "provenance_entity_count": 2746
+        }
+      },
+      "completion_ready": false,
+      "safe_for_model_claim": false,
+      "release_ready": false,
+      "blocked_lanes_executed": false,
+      "policy": "Receipt verifies local ready-to-verify commands and evidence only; it is not a model-quality, release, production, license, or ordering approval."
+    }
+  ]
+}

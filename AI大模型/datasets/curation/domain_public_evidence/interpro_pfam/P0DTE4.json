@@ -1,0 +1,51 @@
+{
+  "accession": "P0DTE4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00201",
+        "name": "UDP-glucoronosyl and UDP-glucosyl transferase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002213",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p0dte4",
+          "protein_length": 527,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 21,
+                  "end": 239,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00201",
+              "score": 8.5e-53
+            },
+            {
+              "fragments": [
+                {
+                  "start": 332,
+                  "end": 524,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00201",
+              "score": 3.6e-113
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-06",
+  "mode": "human_decision_reviewer_input_package",
+  "write_policy": "input_package_only; no_formal_decision_rows_written",
+  "source_report": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/human_decision_backlog_report.json",
+  "backlog_summary": {
+    "backlog_items": 11,
+    "open_items": 11,
+    "ready_items": 0,
+    "required_rows": 1225,
+    "completed_rows": 31,
+    "missing_rows": 1196
+  },
+  "items": [
+    {
+      "backlog_id": "human_decision_numbering_semantic_conflict_001",
+      "workstream": "numbering_semantic_conflict_resolution",
+      "priority": "P0",
+      "required_rows": 0,
+      "completed_rows": 0,
+      "missing_rows": 0,
+      "review_source": "datasets/curation/numbering_decision_semantic_conflict_queue.jsonl",
+      "decision_input": "datasets/curation/numbering_curation_decisions.jsonl",
+      "validator_report": "reports/numbering_decision_semantic_conflict_report.json",
+      "next_action": "Resolve each conflict by either converting the row to reject_label or rewriting notes so they no longer reject the label.",
+      "review_fields": [
+        "conflict_resolution",
+        "reject_label_or_rewrite",
+        "reviewer",
+        "evidence_refs"
+      ],
+      "formal_decision_rows_written": 0,
+      "review_status": "pending_human_input",
+      "release_ready": false,
+      "safe_for_model_claim": false
+    },
+    {
+      "backlog_id": "human_decision_numbering_001",
+      "workstream": "numbering_curation",
+      "priority": "P0",
+      "required_rows": 475,
+      "completed_rows": 4,
+      "missing_rows": 471,
+      "review_source": "datasets/curation/numbering_review_packets/",
+      "decision_input": "datasets/curation/numbering_curation_decisions.jsonl",
+      "validator_report": "reports/numbering_curation_validation_report.json",
+      "next_action": "Review numbering packets and append only verified canonical/isoform/literature mapping decisions.",
+      "review_fields": [
+        "canonical_or_isoform_mapping",
+        "literature_mapping",
+        "decision",
+        "evidence_refs"
+      ],
+      "formal_decision_rows_written": 0,
+      "review_status": "pending_human_input",
+      "release_ready": false,
+      "safe_for_model_claim": false
+    },
+    {
+      "backlog_id": "human_decision_structure_chain_001",
+      "workstream": "structure_chain_mapping",
+      "priority": "P0",
+      "required_rows": 500,
+      "completed_rows": 25,
+      "missing_rows": 475,
+      "review_source": "datasets/curation/structure_chain_review_packets/",
+      "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "validator_report": "reports/structure_chain_mapping_decision_validation_report.json",
+      "next_action": "Review chain packets and append decisions with biological chain, numbering basis, UniProt match, and confidence.",
+      "review_fields": [
+        "biological_chain",
+        "numbering_basis",
+        "uniprot_match",
+        "confidence",
+        "evidence_refs"
+      ],
+      "formal_decision_rows_written": 0,
+      "review_status": "pending_human_input",
+      "release_ready": false,
+      "safe_for_model_claim": false
+    },
+    {
+      "backlog_id": "human_decision_domain_occurrence_001",
+      "workstream": "domain_interval_occurrence_selection",
+      "priority": "P1",
+      "required_rows": 0,
+      "completed_rows": 2,
+      "missing_rows": 0,
+      "review_source": "datasets/curation/domain_interpro_review_packets/",
+      "decision_input": "datasets/curation/domain_interval_decisions.jsonl",
+      "validator_report": "reports/domain_interval_decision_validation_report.json",
+      "next_action": "Resolve multi-interval/no-exact Pfam rows by choosing the reviewed occurrence or keeping unresolved.",
+      "review_fields": [
+        "selected_occurrence",
+        "unresolved_reason",
+        "reviewer",
+        "evidence_refs"
+      ],
+      "formal_decision_rows_written": 0,
+      "review_status": "pending_human_input",
+      "release_ready": false,
+      "safe_for_model_claim": false
+    },
+    {
+      "backlog_id": "human_decision_feedback_source_001",
+      "workstream": "experiment_feedback_source_review",
+      "priority": "P0",
+      "required_rows": 163,
+      "completed_rows": 0,
+      "missing_rows": 163,
+      "review_source": "datasets/feedback/source_review_packets/",
+      "decision_input": "datasets/feedback/experiment_feedback_source_review_decisions.local.jsonl",
+      "validator_report": "reports/experiment_feedback_source_review_decision_validation_report.json",
+      "next_action": "Review source packets and approve only genuine wet-lab/historical sources for extraction before any schema transcription.",
+      "review_fields": [
+        "source_provenance",
+        "eligibility",
+        "reviewer",
+        "decision",
+        "evidence_refs"
+      ],
+      "formal_decision_rows_written": 0,
+      "review_status": "pending_human_input",
+      "release_ready": false,
+      "safe_for_model_claim": false
+    },
+    {
+      "backlog_id": "human_decision_plate_feedback_001",
+      "workstream": "plate_feedback_intake",
+      "priority": "P0",
+      "required_rows": 50,
+      "completed_rows": 0,
+      "missing_rows": 50,
+      "review_source": "datasets/feedback/plate_review_packets/feedback_plate_review_priority_001.jsonl",
+      "decision_input": "datasets/feedback/experiment_feedback_plate.local.jsonl",
+      "validator_report": "reports/experiment_feedback_plate_intake_validation_report.json",
+      "next_action": "Move reviewed, QC-classified plate/well rows into the local plate feedback intake file.",
+      "review_fields": [
+        "qc_status",
+        "numbering_status",
+        "training_eligibility",
+        "reviewer",
+        "evidence_refs"
+      ],
+      "formal_decision_rows_written": 0,
+      "review_status": "pending_human_input",
+      "release_ready": false,
+      "safe_for_model_claim": false
+    },
+    {
+      "backlog_id": "human_decision_license_001",
+      "workstream": "external_license_review",
+      "priority": "P0",
+      "required_rows": 19,
+      "completed_rows": 0,
+      "missing_rows": 19,
+      "review_source": "datasets/governance/external_license_review_packets.jsonl",
+      "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+      "validator_report": "reports/external_license_review_decision_validation_report.json",
+      "next_action": "Record explicit legal/license decisions for each external data source and foreign tool.",
+      "review_fields": [
+        "license_evidence",
+        "allowed_use",
+        "decision",
+        "reviewer",
+        "evidence_refs"
+      ],
+      "formal_decision_rows_written": 0,
+      "review_status": "pending_human_input",
+      "release_ready": false,
+      "safe_for_model_claim": false
+    },
+    {
+      "backlog_id": "human_decision_biosecurity_001",
+      "workstream": "biosecurity_screening",
+      "priority": "P0",
+      "required_rows": 3,
+      "completed_rows": 0,
+      "missing_rows": 3,
+      "review_source": "datasets/governance/biosecurity_screening_drafts.jsonl",
+      "decision_input": "datasets/governance/biosecurity_screening_decisions.jsonl",
+      "validator_report": "reports/biosecurity_screening_decision_validation_report.json",
+      "next_action": "Record screening provider/reference, customer/use approval, and human reviewer decision.",
+      "review_fields": [
+        "screening_provider",
+        "screening_reference",
+        "intended_use",
+        "ordering_decision",
+        "reviewer"
+      ],
+      "formal_decision_rows_written": 0,
+      "review_status": "pending_human_input",
+      "release_ready": false,
+      "safe_for_model_claim": false
+    },
+    {
+      "backlog_id": "human_decision_sequence_ip_fto_001",
+      "workstream": "sequence_ip_fto",
+      "priority": "P0",
+      "required_rows": 3,
+      "completed_rows": 0,
+      "missing_rows": 3,
+      "review_source": "datasets/curation/sequence_ip_review_packets/",
+      "decision_input": "datasets/governance/sequence_ip_fto_decisions.jsonl",
+      "validator_report": "reports/sequence_ip_fto_decision_validation_report.json",
+      "next_action": "Record prior-art evidence, jurisdictions, FTO decision, and delivery approval per sequence candidate.",
+      "review_fields": [
+        "prior_art_refs",
+        "jurisdictions",
+        "fto_decision",
+        "delivery_permission",
+        "reviewer"
+      ],
+      "formal_decision_rows_written": 0,
+      "review_status": "pending_human_input",
+      "release_ready": false,
+      "safe_for_model_claim": false
+    },
+    {
+      "backlog_id": "human_decision_workstream_acceptance_001",
+      "workstream": "workstream_acceptance",
+      "priority": "P1",
+      "required_rows": 6,
+      "completed_rows": 0,
+      "missing_rows": 6,
+      "review_source": "reports/workstream_acceptance_gates.json",
+      "decision_input": "datasets/governance/workstream_acceptance_decisions.jsonl",
+      "validator_report": "reports/workstream_acceptance_decision_validation_report.json",
+      "next_action": "Accept or reject each workstream with evidence artifacts and validation reports.",
+      "review_fields": [
+        "evidence_artifacts",
+        "accept_or_reject",
+        "reviewer",
+        "decision_timestamp"
+      ],
+      "formal_decision_rows_written": 0,
+      "review_status": "pending_human_input",
+      "release_ready": false,
+      "safe_for_model_claim": false
+    },
+    {
+      "backlog_id": "human_decision_operator_actions_001",
+      "workstream": "operator_review_actions",
+      "priority": "P1",
+      "required_rows": 6,
+      "completed_rows": 0,
+      "missing_rows": 6,
+      "review_source": "datasets/governance/operator_review_action_queue.jsonl",
+      "decision_input": "datasets/governance/operator_review_action_decisions.jsonl",
+      "validator_report": "reports/operator_review_action_decision_validation_report.json",
+      "next_action": "Mark operator actions complete only with referenced evidence artifacts and validation reports.",
+      "review_fields": [
+        "evidence_artifacts",
+        "action_decision",
+        "reviewer",
+        "decision_timestamp"
+      ],
+      "formal_decision_rows_written": 0,
+      "review_status": "pending_human_input",
+      "release_ready": false,
+      "safe_for_model_claim": false
+    }
+  ],
+  "formal_decision_rows_written": 0,
+  "release_flags": {
+    "release_ready": false,
+    "customer_delivery_ready": false,
+    "safe_for_model_claim": false
+  }
+}

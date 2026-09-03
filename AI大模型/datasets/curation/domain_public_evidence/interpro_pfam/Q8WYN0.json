@@ -1,0 +1,73 @@
+{
+  "accession": "Q8WYN0",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03416",
+        "name": "Peptidase C54 catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR046792",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wyn0",
+          "protein_length": 398,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 43,
+                  "end": 335,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03416",
+              "score": 5.3e-103
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF20166",
+        "name": "ATG4, F-type LIR motif",
+        "source_database": "pfam",
+        "type": "conserved_site",
+        "integrated": "IPR046793",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wyn0",
+          "protein_length": 398,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 369,
+                  "end": 396,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF20166",
+              "score": 1.9e-06
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

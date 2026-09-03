@@ -171,7 +171,7 @@ def score_mutations(sequence: str, mutations: list[str]) -> dict:
         if seq[pos - 1] != wt_aa:
             results.append({
                 "mutation": mut_str,
-                "error": f"Wild-type mismatch: expected {seq[pos-1]} at position {pos}, got {wt_aa}",
+                "error": f"Wild-type residue mismatch at {pos}: expected {seq[pos-1]}, got {wt_aa}",
             })
             continue
 

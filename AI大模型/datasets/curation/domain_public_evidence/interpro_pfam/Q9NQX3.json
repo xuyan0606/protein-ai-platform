@@ -1,0 +1,119 @@
+{
+  "accession": "Q9NQX3",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00994",
+        "name": "Probable molybdopterin binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001453",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nqx3",
+          "protein_length": 736,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 18,
+                  "end": 164,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00994",
+              "score": 1.8e-25
+            },
+            {
+              "fragments": [
+                {
+                  "start": 502,
+                  "end": 645,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00994",
+              "score": 1e-26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03453",
+        "name": "MoeA N-terminal region (domain I and II)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR005110",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nqx3",
+          "protein_length": 736,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 325,
+                  "end": 489,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03453",
+              "score": 3e-40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03454",
+        "name": "MoeA C-terminal region (domain IV)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR005111",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nqx3",
+          "protein_length": 736,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 658,
+                  "end": 732,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03454",
+              "score": 1.4e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

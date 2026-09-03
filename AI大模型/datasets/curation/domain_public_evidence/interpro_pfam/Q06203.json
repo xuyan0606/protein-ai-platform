@@ -1,0 +1,73 @@
+{
+  "accession": "Q06203",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00156",
+        "name": "Phosphoribosyl transferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000836",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q06203",
+          "protein_length": 517,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 376,
+                  "end": 417,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00156",
+              "score": 0.0083
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13537",
+        "name": "Glutamine amidotransferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR017932",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q06203",
+          "protein_length": 517,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 103,
+                  "end": 209,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13537",
+              "score": 5.3e-08
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

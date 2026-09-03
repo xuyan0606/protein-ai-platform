@@ -1,0 +1,128 @@
+{
+  "schema_version": 2,
+  "name": "alpha_amylase_live_seed",
+  "updated_at": "2026-07-06",
+  "data_version": "2026-07-06-alpha-amylase-seed",
+  "mode": "plan_only_seed",
+  "source_policy": "This manifest records the expected live data layer and reproducible commands only; large PDB, AlphaFold, SIFTS, annotation, and Foldseek assets are staged under deploy_data/ and are not downloaded by plan-only checks.",
+  "pdb_ids": [
+    "3BH4",
+    "1QHP",
+    "1QHO",
+    "1BLI",
+    "6TOY",
+    "1BAG"
+  ],
+  "uniprot_ids": [
+    "P00692",
+    "P19531",
+    "P00691",
+    "P06278",
+    "I3P686"
+  ],
+  "alphafold_structure_format": "cif",
+  "download_pae_json": true,
+  "required_live_components": [
+    "annotations",
+    "sifts",
+    "pdb",
+    "alphafold",
+    "foldseek",
+    "smoke_query"
+  ],
+  "expected_datasets": {
+    "pdb": {
+      "source": "RCSB PDB",
+      "expected_from": "pdb_ids",
+      "expected_count": 6,
+      "file_patterns": [
+        "<PDB_ID>.cif",
+        "<PDB_ID>.pdb"
+      ],
+      "plan_only_commands": [
+        "python3 scripts/download_rcsb_structures.py --ids 3BH4,1QHP,1QHO,1BLI,6TOY,1BAG --format cif --output deploy_data/pdb"
+      ]
+    },
+    "sifts": {
+      "source": "PDBe UniProt mappings / SIFTS-compatible residue mappings",
+      "expected_from": "pdb_ids",
+      "expected_count": 6,
+      "file_patterns": [
+        "<pdb_id>.json",
+        "<pdb_id>.csv",
+        "<pdb_id>.tsv"
+      ],
+      "plan_only_commands": [
+        "python3 scripts/download_sifts_mappings.py --ids 3BH4,1QHP,1QHO,1BLI,6TOY,1BAG --output deploy_data/sifts"
+      ]
+    },
+    "alphafold": {
+      "source": "AlphaFold DB",
+      "expected_from": "uniprot_ids",
+      "expected_count": 5,
+      "structure_format": "cif",
+      "download_pae_json": true,
+      "file_patterns": [
+        "AF-<UniProt>-F1-model_v*.cif",
+        "AF-<UniProt>-F1-predicted_aligned_error_v*.json",
+        "<UniProt>.json"
+      ],
+      "plan_only_commands": [
+        "python3 scripts/download_alphafold_models.py --ids P00692,P19531,P00691,P06278,I3P686 --structure-format cif --with-pae-json --output deploy_data/alphafold"
+      ]
+    },
+    "annotations": {
+      "source": "UniProt/InterPro plus curated M-CSA/SignalP-compatible exports",
+      "expected_from": "uniprot_ids",
+      "expected_count": 5,
+      "file_patterns": [
+        "metadata.json",
+        "base.json",
+        "interpro.json",
+        "mcsa.json",
+        "signalp.json"
+      ],
+      "plan_only_commands": [
+        "python3 scripts/download_real_annotations.py --ids P00692,P19531,P00691,P06278,I3P686 --output deploy_data/annotations"
+      ]
+    },
+    "foldseek": {
+      "source": "Local Foldseek indexes built from staged PDB and AlphaFold structures",
+      "depends_on": [
+        "pdb",
+        "alphafold"
+      ],
+      "expected_subdatabases": [
+        "pdb",
+        "alphafold"
+      ],
+      "file_patterns": [
+        "foldseek/pdb/protein_ai_pdb*",
+        "foldseek/alphafold/protein_ai_alphafold*"
+      ],
+      "plan_only_commands": [
+        "python3 scripts/build_foldseek_db.py --kind pdb --deploy-root deploy_data",
+        "python3 scripts/build_foldseek_db.py --kind alphafold --deploy-root deploy_data",
+        "python3 scripts/materialize_foldseek_links.py --root deploy_data/foldseek --dry-run"
+      ]
+    },
+    "smoke_query": {
+      "source": "Representative local query structure selected by the operator",
+      "file_patterns": [
+        "smoke/query.pdb"
+      ],
+      "plan_only_commands": [
+        "cp <representative-query.pdb> deploy_data/smoke/query.pdb"
+      ]
+    }
+  },
+  "dry_run_checks": [
+    "python3 scripts/run_deploy_data_update.py --plan-only --json",
+    "python3 scripts/check_deploy_data.py --plan-only --json"
+  ],
+  "next_actions": [
+    "Use plan-only checks on this machine; do not download large live datasets locally unless explicitly approved.",
+    "On a network-enabled data host, run the planned download/build commands, then copy or mount deploy_data into this project.",
+    "Run python3 scripts/check_deploy_data.py --require-live and backend/scripts/structure_smoke_readiness.py before treating the data layer as live-ready."
+  ]
+}

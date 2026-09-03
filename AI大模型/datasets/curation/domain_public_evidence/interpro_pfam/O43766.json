@@ -1,0 +1,73 @@
+{
+  "accession": "O43766",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04055",
+        "name": "Radical SAM superfamily",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007197",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43766",
+          "protein_length": 372,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 133,
+                  "end": 295,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04055",
+              "score": 3.3e-22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16881",
+        "name": "N-terminal domain of lipoyl synthase of Radical_SAM family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR031691",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43766",
+          "protein_length": 372,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 16,
+                  "end": 111,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16881",
+              "score": 4.4e-43
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

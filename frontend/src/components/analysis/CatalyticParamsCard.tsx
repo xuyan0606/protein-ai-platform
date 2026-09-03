@@ -1,6 +1,6 @@
 import { Zap, TrendingUp, Info } from 'lucide-react'
 
-interface CatalyticParamsData {
+export interface CatalyticParamsData {
   predicted_kcat_s1: number
   predicted_log10_kcat: number
   confidence_interval_log10: [number, number]
@@ -130,10 +130,4 @@ export function CatalyticParamsCard({ data }: { data: CatalyticParamsData }) {
       </div>
     </div>
   )
-}
-
-export function isCatalyticParamsResult(data: unknown): data is CatalyticParamsData {
-  if (!data || typeof data !== 'object') return false
-  const d = data as Record<string, unknown>
-  return 'predicted_kcat_s1' in d && 'enzyme_class' in d && 'contributing_factors' in d
 }

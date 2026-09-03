@@ -1,0 +1,495 @@
+EntryID	Substrate	Product	EnzymeType	PubMedID	Organism	UniprotID	ECNumber	pH	Temperature	parameter.type	parameter.associatedSpecies	parameter.startValue	parameter.endValue	parameter.standardDeviation	parameter.unit
+4754	L-Malate	Fumarate;H2O	wildtype	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	7.5	25.0	kcat/Km	L-Malate	430000.0		-	M^(-1)*s^(-1)
+4754	L-Malate	Fumarate;H2O	wildtype	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	7.5	25.0	kcat		129.0		-	s^(-1)
+4755	L-Malate	Fumarate;H2O	mutant k127D	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	7.5	25.0	kcat		180.0		-	s^(-1)
+4756	L-Malate	Fumarate;H2O	mutant R126A	14990798	Escherichia coli	Q8X769 P05042 Q8FHA7	4.2.1.2	7.5	25.0	kcat/Km	L-Malate	33000.0		-	M^(-1)*s^(-1)
+4756	L-Malate	Fumarate;H2O	mutant R126A	14990798	Escherichia coli	Q8X769 P05042 Q8FHA7	4.2.1.2	7.5	25.0	kcat		30.0		-	s^(-1)
+4757	L-Malate	Fumarate;H2O	mutant H129N	14990798	Escherichia coli	P05042 Q8FHA7 Q8X769	4.2.1.2	7.5	25.0	kcat		41.0		-	s^(-1)
+4757	L-Malate	Fumarate;H2O	mutant H129N	14990798	Escherichia coli	P05042 Q8FHA7 Q8X769	4.2.1.2	7.5	25.0	kcat/Km	L-Malate	600000.0		-	M^(-1)*s^(-1)
+4758	L-Malate	H2O;Fumarate	mutant R126A/H129N	14990798	Escherichia coli	Q8FHA7 P05042 Q8X769	4.2.1.2	7.5	25.0	kcat/Km	L-Malate	7500.0		-	M^(-1)*s^(-1)
+4758	L-Malate	H2O;Fumarate	mutant R126A/H129N	14990798	Escherichia coli	Q8FHA7 P05042 Q8X769	4.2.1.2	7.5	25.0	kcat		15.0		-	s^(-1)
+4759	L-Malate	Fumarate;H2O	wildtype	14990798	Escherichia coli	Q8FHA7 Q8X769 P05042	4.2.1.2	7.5	25.0	concentration	S-2,3-dicarboxyaziridine	8.0E-5		-	M
+4759	L-Malate	Fumarate;H2O	wildtype	14990798	Escherichia coli	Q8FHA7 Q8X769 P05042	4.2.1.2	7.5	25.0	concentration	L-Malate	3.0E-4	0.003	-	M
+4759	L-Malate	Fumarate;H2O	wildtype	14990798	Escherichia coli	Q8FHA7 Q8X769 P05042	4.2.1.2	7.5	25.0	Ki	S-2,3-dicarboxyaziridine	1.9E-5		-	M
+4760	L-Malate	H2O;Fumarate	mutant R126A/H129N	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	7.5	25.0	concentration	L-Malate	3.0E-4	0.003	-	M
+4760	L-Malate	H2O;Fumarate	mutant R126A/H129N	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	7.5	25.0	Ki	S-2,3-dicarboxyaziridine	0.0019		-	M
+4760	L-Malate	H2O;Fumarate	mutant R126A/H129N	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	7.5	25.0	concentration	S-2,3-dicarboxyaziridine	1.4E-4		-	M
+4761	H2O;Fumarate	L-Malate	wildtype	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	7.5	25.0	kcat		60.0		-	s^(-1)
+4761	H2O;Fumarate	L-Malate	wildtype	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	7.5	25.0	kcat/Km	Fumarate	600000.0		-	M^(-1)*s^(-1)
+4762	H2O;Fumarate	L-Malate	mutant R126A/H129N	14990798	Escherichia coli	Q8X769 P05042 Q8FHA7	4.2.1.2	7.5	25.0	kcat/Km	Fumarate	17000.0		-	M^(-1)*s^(-1)
+4762	H2O;Fumarate	L-Malate	mutant R126A/H129N	14990798	Escherichia coli	Q8X769 P05042 Q8FHA7	4.2.1.2	7.5	25.0	kcat		9.6		-	s^(-1)
+4763	H2O;Fumarate	L-Malate	mutant K127D	14990798	Escherichia coli	Q8FHA7 P05042 Q8X769	4.2.1.2	7.5	25.0	kcat/Km	Fumarate	750000.0		-	M^(-1)*s^(-1)
+4763	H2O;Fumarate	L-Malate	mutant K127D	14990798	Escherichia coli	Q8FHA7 P05042 Q8X769	4.2.1.2	7.5	25.0	kcat		68.0		-	s^(-1)
+4764	H2O;Fumarate	L-Malate	mutant R126A	14990798	Escherichia coli	Q8X769 P05042 Q8FHA7	4.2.1.2	7.5	25.0	kcat/Km	Fumarate	50000.0		-	M^(-1)*s^(-1)
+4764	H2O;Fumarate	L-Malate	mutant R126A	14990798	Escherichia coli	Q8X769 P05042 Q8FHA7	4.2.1.2	7.5	25.0	kcat		22.0		-	s^(-1)
+4765	H2O;Fumarate	L-Malate	mutant H129N	14990798	Escherichia coli	P05042 Q8FHA7 Q8X769	4.2.1.2	7.5	25.0	kcat		60.0		-	s^(-1)
+4765	H2O;Fumarate	L-Malate	mutant H129N	14990798	Escherichia coli	P05042 Q8FHA7 Q8X769	4.2.1.2	7.5	25.0	kcat/Km	Fumarate	600000.0		-	M^(-1)*s^(-1)
+4766	H2O;Fumarate	L-Malate	wildtype	14990798	Escherichia coli	Q8X769 P05042 Q8FHA7	4.2.1.2	7.5	25.0	concentration	Fumarate	2.0E-4	0.004	-	M
+4766	H2O;Fumarate	L-Malate	wildtype	14990798	Escherichia coli	Q8X769 P05042 Q8FHA7	4.2.1.2	7.5	25.0	Ki	meso-Tartrate	6.0E-7		-	M
+4766	H2O;Fumarate	L-Malate	wildtype	14990798	Escherichia coli	Q8X769 P05042 Q8FHA7	4.2.1.2	7.5	25.0	concentration	meso-Tartrate	0.001		-	M
+4767	Fumarate;H2O	L-Malate	mutant R126A/H129N	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	7.5	25.0	concentration	meso-Tartrate	0.1		-	M
+4767	Fumarate;H2O	L-Malate	mutant R126A/H129N	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	7.5	25.0	concentration	Fumarate	2.0E-4	0.004	-	M
+4767	Fumarate;H2O	L-Malate	mutant R126A/H129N	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	7.5	25.0	Ki	meso-Tartrate	1.0E-4		-	M
+4768	H2O;Fumarate	L-Malate	mutant H129N	14990798	Escherichia coli	P05042 Q8X769 Q8FHA7	4.2.1.2	7.5	25.0	concentration	meso-Tartrate	0.001		-	M
+4768	H2O;Fumarate	L-Malate	mutant H129N	14990798	Escherichia coli	P05042 Q8X769 Q8FHA7	4.2.1.2	7.5	25.0	Ki	meso-Tartrate	5.0E-6		-	M
+4768	H2O;Fumarate	L-Malate	mutant H129N	14990798	Escherichia coli	P05042 Q8X769 Q8FHA7	4.2.1.2	7.5	25.0	concentration	Fumarate	2.0E-4	0.004	-	M
+4769	Fumarate;H2O	L-Malate	mutant K127D	14990798	Escherichia coli	P05042 Q8FHA7 Q8X769	4.2.1.2	7.5	20.0	kcat		1.9		-	s^(-1)
+4769	Fumarate;H2O	L-Malate	mutant K127D	14990798	Escherichia coli	P05042 Q8FHA7 Q8X769	4.2.1.2	7.5	20.0	kcat/Km	Fumarate	1.0		-	M^(-1)*s^(-1)
+4770	L-Malate	Fumarate;H2O	wildtype	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	7.56	15.0	kcat/Km	Fumarate	1.0		-	M^(-1)*s^(-1)
+4770	L-Malate	Fumarate;H2O	wildtype	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	7.56	15.0	kcat		1.75		-	s^(-1)
+4771	L-Malate	H2O;Fumarate	mutant R126A/H129N	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	1.8	20.0	kcat/Km	Fumarate	1.6		-	M^(-1)*s^(-1)
+4771	L-Malate	H2O;Fumarate	mutant R126A/H129N	14990798	Escherichia coli	Q8X769 Q8FHA7 P05042	4.2.1.2	1.8	20.0	kcat		1.8		-	s^(-1)
+27939	H2O;Fumarate	L-Malate	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Km	Fumarate	1.3E-5		-	M
+27939	H2O;Fumarate	L-Malate	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Vmax		0.01250025		-	katal*g^(-1)
+27939	H2O;Fumarate	L-Malate	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Fumarate	5.0E-6	0.002	-	M
+27940	Fumarate;H2O	L-Malate	wildtype (adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Vmax		0.01201691		-	katal*g^(-1)
+27940	Fumarate;H2O	L-Malate	wildtype (adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Km	Fumarate	1.5E-5		-	M
+27940	Fumarate;H2O	L-Malate	wildtype (adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Fumarate	5.0E-6	0.002	-	M
+27941	H2O;Fumarate	L-Malate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Km	Fumarate	1.3E-5		-	M
+27941	H2O;Fumarate	L-Malate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Vmax		0.01216691		-	katal*g^(-1)
+27941	H2O;Fumarate	L-Malate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Fumarate	5.0E-6	0.002	-	M
+27942	Fumarate;H2O	L-Malate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Fumarate	5.0E-6	0.002	-	M
+27942	Fumarate;H2O	L-Malate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Vmax		0.01216691		-	katal*g^(-1)
+27942	Fumarate;H2O	L-Malate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Km	Fumarate	5.6E-4		-	M
+27942	Fumarate;H2O	L-Malate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Phosphate	0.001		-	M
+27943	Fumarate;H2O	L-Malate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Vmax		0.01216691		-	katal*g^(-1)
+27943	Fumarate;H2O	L-Malate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Fumarate	5.0E-6	0.002	-	M
+27943	Fumarate;H2O	L-Malate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Phosphate	0.01		-	M
+27943	Fumarate;H2O	L-Malate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Km	Fumarate	2.86E-4		-	M
+27944	L-Malate	H2O;Fumarate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Phosphate	0.01		-	M
+27944	L-Malate	H2O;Fumarate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	L-Malate	5.0E-5	0.005	-	M
+27944	L-Malate	H2O;Fumarate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Vmax		0.01216691		-	katal*g^(-1)
+27944	L-Malate	H2O;Fumarate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Km	L-Malate	6.0E-4		-	M
+27945	L-Malate	H2O;Fumarate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	L-Malate	5.0E-5	0.005	-	M
+27945	L-Malate	H2O;Fumarate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Km	L-Malate	1.4E-4		-	M
+27945	L-Malate	H2O;Fumarate	wildtype	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Vmax		0.01216691		-	katal*g^(-1)
+27946	H2O;Fumarate	L-Malate	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Km	Fumarate	5.6E-5		-	M
+27946	H2O;Fumarate	L-Malate	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Vmax		0.01250025		-	katal*g^(-1)
+27946	H2O;Fumarate	L-Malate	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Phosphate	0.001		-	M
+27946	H2O;Fumarate	L-Malate	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Fumarate	5.0E-6	0.002	-	M
+27947	H2O;Fumarate	L-Malate	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Phosphate	0.01		-	M
+27947	H2O;Fumarate	L-Malate	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Fumarate	5.0E-6	0.002	-	M
+27947	H2O;Fumarate	L-Malate	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Km	Fumarate	3.33E-4		-	M
+27947	H2O;Fumarate	L-Malate	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Vmax		0.01250025		-	katal*g^(-1)
+27948	H2O;Fumarate	L-Malate	wildtype (adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Km	Fumarate	3.33E-4		-	M
+27948	H2O;Fumarate	L-Malate	wildtype (adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Vmax		0.01201691		-	katal*g^(-1)
+27948	H2O;Fumarate	L-Malate	wildtype (adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Phosphate	0.01		-	M
+27948	H2O;Fumarate	L-Malate	wildtype (adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Fumarate	5.0E-6	0.002	-	M
+27949	Fumarate;H2O	L-Malate	wildtype (adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Km	Fumarate	6.2E-5		-	M
+27949	Fumarate;H2O	L-Malate	wildtype (adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Fumarate	5.0E-6	0.002	-	M
+27949	Fumarate;H2O	L-Malate	wildtype (adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Vmax		0.01201691		-	katal*g^(-1)
+27949	Fumarate;H2O	L-Malate	wildtype (adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Phosphate	0.001		-	M
+27950	L-Malate	Fumarate;H2O	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	L-Malate	5.0E-5	0.005	-	M
+27950	L-Malate	Fumarate;H2O	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Km	L-Malate	5.9E-4		-	M
+27950	L-Malate	Fumarate;H2O	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Vmax		0.01250025		-	katal*g^(-1)
+27950	L-Malate	Fumarate;H2O	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	Phosphate	0.01		-	M
+27951	L-Malate	Fumarate;H2O	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Vmax		0.01250025		-	katal*g^(-1)
+27951	L-Malate	Fumarate;H2O	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	concentration	L-Malate	5.0E-5	0.005	-	M
+27951	L-Malate	Fumarate;H2O	wildtype (non-adsorbed fraction)	7287666	Rattus norvegicus	P14408	4.2.1.2	7.3	30.0	Km	L-Malate	1.8E-4		-	M
+32612	L-Malate	Fumarate;H2O	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	6.5	75.0	Vmax		0.008533504		-	katal*g^(-1)
+32612	L-Malate	Fumarate;H2O	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	6.5	75.0	Km	L-Malate	1.2E-4		-	M
+32612	L-Malate	Fumarate;H2O	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	6.5	75.0	concentration	L-Malate	0.0	0.05	-	M
+32613	L-Malate	H2O;Fumarate	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	7.0	75.0	Km	L-Malate	3.3E-4		-	M
+32613	L-Malate	H2O;Fumarate	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	7.0	75.0	concentration	L-Malate	0.0	0.05	-	M
+32613	L-Malate	H2O;Fumarate	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	7.0	75.0	Vmax		0.01396695		-	katal*g^(-1)
+32614	L-Malate	H2O;Fumarate	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	7.5	75.0	Vmax		0.02233378		-	katal*g^(-1)
+32614	L-Malate	H2O;Fumarate	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	7.5	75.0	Km	L-Malate	0.001		-	M
+32614	L-Malate	H2O;Fumarate	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	7.5	75.0	concentration	L-Malate	0.0	0.05	-	M
+32615	L-Malate	H2O;Fumarate	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	6.5	75.0	concentration	L-Malate	0.0	0.05	-	M
+32615	L-Malate	H2O;Fumarate	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	6.5	75.0	Km	L-Malate	0.002		-	M
+32615	L-Malate	H2O;Fumarate	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	6.5	75.0	Vmax		0.00800016		-	katal*g^(-1)
+32616	L-Malate	Fumarate;H2O	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	7.5	75.0	Vmax		0.0200004		-	katal*g^(-1)
+32616	L-Malate	Fumarate;H2O	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	7.5	75.0	concentration	L-Malate	0.0	0.05	-	M
+32616	L-Malate	Fumarate;H2O	wildtype class II	9647666	Thermus thermophilus		4.2.1.2	7.5	75.0	Km	L-Malate	0.014		-	M
+35121	L-Malate	Fumarate;H2O	wildtype FUMA	3282546	Escherichia coli	P0AC33	4.2.1.2	-	25.0	concentration	L-Malate	3.3E-4	0.032	-	M
+35121	L-Malate	Fumarate;H2O	wildtype FUMA	3282546	Escherichia coli	P0AC33	4.2.1.2	-	25.0	Vmax		9.833333E-5		-	mol*s^(-1)*g^(-1)
+35121	L-Malate	Fumarate;H2O	wildtype FUMA	3282546	Escherichia coli	P0AC33	4.2.1.2	-	25.0	Km	L-Malate	0.0011		-	M
+35122	L-Malate	Fumarate;H2O	wildtype FUMB	3282546	Escherichia coli	P14407	4.2.1.2	-	25.0	Vmax		8.333333E-6		-	mol*s^(-1)*g^(-1)
+35122	L-Malate	Fumarate;H2O	wildtype FUMB	3282546	Escherichia coli	P14407	4.2.1.2	-	25.0	Km	L-Malate	6.3E-4		-	M
+35122	L-Malate	Fumarate;H2O	wildtype FUMB	3282546	Escherichia coli	P14407	4.2.1.2	-	25.0	concentration	L-Malate	3.3E-4	0.032	-	M
+35123	L-Malate	H2O;Fumarate	wildtype FUMC	3282546	Escherichia coli	P05042	4.2.1.2	-	25.0	concentration	L-Malate	3.3E-4	0.032	-	M
+35123	L-Malate	H2O;Fumarate	wildtype FUMC	3282546	Escherichia coli	P05042	4.2.1.2	-	25.0	Vmax		1.666667E-5		-	mol*s^(-1)*g^(-1)
+35123	L-Malate	H2O;Fumarate	wildtype FUMC	3282546	Escherichia coli	P05042	4.2.1.2	-	25.0	Km	L-Malate	0.00294		-	M
+35124	H2O;Fumarate	L-Malate	wildtype FUMA	3282546	Escherichia coli	P0AC33	4.2.1.2	-	25.0	Vmax		1.1E-4		-	mol*s^(-1)*g^(-1)
+35124	H2O;Fumarate	L-Malate	wildtype FUMA	3282546	Escherichia coli	P0AC33	4.2.1.2	-	25.0	Km	Fumarate	1.5E-4		-	M
+35124	H2O;Fumarate	L-Malate	wildtype FUMA	3282546	Escherichia coli	P0AC33	4.2.1.2	-	25.0	concentration	Fumarate	5.0E-5	6.6E-4	-	M
+35125	Fumarate;H2O	L-Malate	wildtype FUMB	3282546	Escherichia coli	P14407	4.2.1.2	-	25.0	Vmax		1.0E-5		-	mol*s^(-1)*g^(-1)
+35125	Fumarate;H2O	L-Malate	wildtype FUMB	3282546	Escherichia coli	P14407	4.2.1.2	-	25.0	concentration	Fumarate	5.0E-5	6.6E-4	-	M
+35125	Fumarate;H2O	L-Malate	wildtype FUMB	3282546	Escherichia coli	P14407	4.2.1.2	-	25.0	Km	Fumarate	0.0017		-	M
+35126	Fumarate;H2O	L-Malate	wildtype FUMC	3282546	Escherichia coli	P05042	4.2.1.2	-	25.0	Vmax		1.666667E-5		-	mol*s^(-1)*g^(-1)
+35126	Fumarate;H2O	L-Malate	wildtype FUMC	3282546	Escherichia coli	P05042	4.2.1.2	-	25.0	Km	Fumarate	3.9E-4		-	M
+35126	Fumarate;H2O	L-Malate	wildtype FUMC	3282546	Escherichia coli	P05042	4.2.1.2	-	25.0	concentration	Fumarate	5.0E-5	6.6E-4	-	M
+36028	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	concentration	Fumarate	0.0	0.01	-	M
+36028	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	kcat		720.0		-	s^(-1)
+36028	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	Km	Fumarate	0.0042		-	M
+36028	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	concentration	unknown compound			-	-
+36028	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	Keq		6.4		-	-
+36029	H2O;Fumarate	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	Keq		16.0		-	-
+36029	H2O;Fumarate	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	Km	Fumarate	8.1E-4		-	M
+36029	H2O;Fumarate	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	concentration	unknown compound			-	-
+36029	H2O;Fumarate	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	concentration	Fumarate	0.0	0.01	-	M
+36029	H2O;Fumarate	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	kcat		310.0		-	s^(-1)
+36030	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	Keq		6.1		-	-
+36030	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	Km	Fumarate	0.0038		-	M
+36030	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	concentration	Fumarate	0.0	0.01	-	M
+36030	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	concentration	unknown compound			-	-
+36030	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	kcat		730.0		-	s^(-1)
+36031	H2O;Fumarate	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	Km	Fumarate	3.8E-4		-	M
+36031	H2O;Fumarate	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	concentration	unknown compound			-	-
+36031	H2O;Fumarate	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	kcat		430.0		-	s^(-1)
+36031	H2O;Fumarate	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	concentration	Fumarate	0.0	0.01	-	M
+36031	H2O;Fumarate	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	Keq		19.0		-	-
+36032	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	concentration	Fumarate	0.0	0.01	-	M
+36032	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	kcat		510.0		-	s^(-1)
+36032	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	Keq		4.6		-	-
+36032	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	Km	Fumarate	0.0031		-	M
+36032	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	concentration	unknown compound			-	-
+36033	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	concentration	unknown compound			-	-
+36033	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	Km	Fumarate	6.7E-4		-	M
+36033	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	concentration	Fumarate	0.0	0.01	-	M
+36033	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	Keq		17.0		-	-
+36033	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	kcat		650.0		-	s^(-1)
+36034	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	Keq		6.4		-	-
+36034	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	concentration	unknown compound			-	-
+36034	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	kcat		48.0		-	s^(-1)
+36034	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	Km	L-Malate	0.0018		-	M
+36034	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	concentration	L-Malate	0.0	0.05	-	M
+36035	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	Km	L-Malate	0.0014		-	M
+36035	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	concentration	L-Malate	0.0	0.05	-	M
+36035	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	kcat		34.0		-	s^(-1)
+36035	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	concentration	unknown compound			-	-
+36035	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	6.0	20.0	Keq		16.0		-	-
+36036	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	Keq		6.1		-	-
+36036	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	concentration	unknown compound			-	-
+36036	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	Km	L-Malate	0.0063		-	M
+36036	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	kcat		200.0		-	s^(-1)
+36036	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	concentration	L-Malate	0.0	0.05	-	M
+36037	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	Km	L-Malate	0.0018		-	M
+36037	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	concentration	unknown compound			-	-
+36037	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	Keq		19.0		-	-
+36037	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	concentration	L-Malate	0.0	0.05	-	M
+36037	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	kcat		110.0		-	s^(-1)
+36038	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	concentration	unknown compound			-	-
+36038	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	Keq		4.6		-	-
+36038	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	concentration	L-Malate	0.0	0.05	-	M
+36038	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	kcat		460.0		-	s^(-1)
+36038	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	Km	L-Malate	0.013		-	M
+36039	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	Km	L-Malate	0.005		-	M
+36039	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	Keq		17.0		-	-
+36039	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	concentration	unknown compound			-	-
+36039	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	kcat		290.0		-	s^(-1)
+36039	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	8.0	20.0	concentration	L-Malate	0.0	0.05	-	M
+36040	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	concentration	L-Malate	0.002	0.02	-	M
+36040	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	concentration	unknown compound	0.004		-	mg/ml
+36040	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	Ki	Pyromellitate	0.0013		-	M
+36041	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	concentration	unknown compound	4.0E-4		-	mg/ml
+36041	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	concentration	L-Malate	0.002	0.02	-	M
+36041	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	Ki	D-Tartrate	0.016		-	M
+36042	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	concentration	L-Malate	0.002	0.02	-	M
+36042	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	Ki	meso-Tartrate	1.1E-4		-	M
+36042	L-Malate	Fumarate;H2O	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	concentration	unknown compound	4.0E-4		-	mg/ml
+36043	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	concentration	unknown compound	4.0E-4		-	mg/ml
+36043	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	Ki	D-Malate	0.0025		-	M
+36043	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	concentration	L-Malate	0.002	0.02	-	M
+36043	L-Malate	H2O;Fumarate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	Ki	D-Malate	0.012		-	M
+36044	H2O;Fumarate	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	concentration	Fumarate	6.6E-4	0.005	-	M
+36044	H2O;Fumarate	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	concentration	ATP	0.0	0.002	-	M
+36044	H2O;Fumarate	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.0	20.0	Ki	ATP	8.3E-4		-	M
+36045	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	Ki	ATP	0.0016		-	M
+36045	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	Ki	ATP	3.0E-4		-	M
+36045	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	concentration	ATP	0.0	0.001	-	M
+36045	Fumarate;H2O	L-Malate	wildtype	16717409	Corynebacterium glutamicum	Q8NRN8	4.2.1.2	7.3	20.0	concentration	Fumarate	6.6E-4	0.01	-	M
+54446	L-Malate	H2O;Fumarate	wildtype	9390175	Pisum sativum		4.2.1.2	8.3	22.0	Km	L-Malate	4.5E-4		-	M
+54446	L-Malate	H2O;Fumarate	wildtype	9390175	Pisum sativum		4.2.1.2	8.3	22.0	concentration	L-Malate	0.0	0.01	-	M
+54446	L-Malate	H2O;Fumarate	wildtype	9390175	Pisum sativum		4.2.1.2	8.3	22.0	Vmax		0.01083333		-	mol*s^(-1)*g^(-1)
+54447	L-Malate	Fumarate;H2O	wildtype	9390175	Pisum sativum		4.2.1.2	7.5	22.0	IC50	Coenzyme A	1.0E-4	2.0E-4	-	M
+54447	L-Malate	Fumarate;H2O	wildtype	9390175	Pisum sativum		4.2.1.2	7.5	22.0	concentration	L-Malate	0.01		-	M
+54448	L-Malate	H2O;Fumarate	wildtype	9390175	Pisum sativum		4.2.1.2	7.5	22.0	IC50	Acetyl-CoA	1.0E-4	2.0E-4	-	M
+54448	L-Malate	H2O;Fumarate	wildtype	9390175	Pisum sativum		4.2.1.2	7.5	22.0	concentration	L-Malate	0.01		-	M
+54449	L-Malate	Fumarate;H2O	wildtype	9390175	Pisum sativum		4.2.1.2	7.5	22.0	concentration	L-Malate	0.0	0.01	-	M
+54449	L-Malate	Fumarate;H2O	wildtype	9390175	Pisum sativum		4.2.1.2	7.5	22.0	concentration	ATP	2.5E-4		-	M
+54449	L-Malate	Fumarate;H2O	wildtype	9390175	Pisum sativum		4.2.1.2	7.5	22.0	Km	L-Malate	0.003		-	M
+56728	L-Malate	H2O;Fumarate	wildtype	16508996	Penicillium chrysogenum		4.2.1.2	6.5	25.0	Keq		0.28		-	-
+59108	L-Malate	H2O;Fumarate	wildtype	1329945	Escherichia coli	P0AC33	4.2.1.2	7.5	25.0	Km	L-Malate	7.0E-4		-	M
+59108	L-Malate	H2O;Fumarate	wildtype	1329945	Escherichia coli	P0AC33	4.2.1.2	7.5	25.0	kcat		3100.0		-	s^(-1)
+59109	L-Malate	Fumarate;H2O	wildtype	1329945	Escherichia coli	P0AC33	4.2.1.2	7.5	25.0	Km	L-Malate	0.003		-	M
+59109	L-Malate	Fumarate;H2O	wildtype	1329945	Escherichia coli	P0AC33	4.2.1.2	7.5	25.0	kcat		300.0		-	s^(-1)
+59110	L-Malate	H2O;Fumarate	wildtype	1329945	Escherichia coli	P0AC33	4.2.1.2	8.0	25.0	Kd	L-Malate	7.0E-4		-	M
+59110	L-Malate	H2O;Fumarate	wildtype	1329945	Escherichia coli	P0AC33	4.2.1.2	8.0	25.0	concentration	unknown compound	1.5		-	mg/ml
+59111	Fumarate;H2O	L-Malate	wildtype	1329945	Escherichia coli	P0AC33	4.2.1.2	7.5	25.0	Km	Fumarate	6.0E-4		-	M
+60196	L-Malate	H2O;Fumarate	wildtype FUMA	1917897	Escherichia coli	P0AC33	4.2.1.2	7.3	30.0	Km	L-Malate	4.9E-5		-	M
+60197	L-Malate	H2O;Fumarate	wildtype FUMA	1917897	Escherichia coli	P0AC33	4.2.1.2	7.3	30.0	Ki	Pyromellitate	2.0E-5		-	M
+60198	L-Malate	H2O;Fumarate	wildtype FUMC	1917897	Escherichia coli	P05042	4.2.1.2	7.3	30.0	Km	L-Malate	5.0E-5		-	M
+60199	L-Malate	Fumarate;H2O	wildtype FUMC	1917897	Escherichia coli	P05042	4.2.1.2	7.3	30.0	Ki	Pyromellitate	1.2E-6		-	M
+60200	L-Malate	Fumarate;H2O	wildtype	1917897	Sus scrofa	P10173	4.2.1.2	7.3	30.0	Km	L-Malate	4.2E-5		-	M
+60201	L-Malate	H2O;Fumarate	wildtype	1917897	Sus scrofa	P10173	4.2.1.2	7.3	30.0	Ki	Pyromellitate	1.0E-6		-	M
+63698	Fumarate;H2O	L-Malate	wildtype	4976787	Saccharomyces cerevisiae	P08417	4.2.1.2	7.0	25.0	IC50	ATP	4.0E-5		-	M
+63698	Fumarate;H2O	L-Malate	wildtype	4976787	Saccharomyces cerevisiae	P08417	4.2.1.2	7.0	25.0	concentration	Fumarate	2.0E-4		-	M
+63699	Fumarate;H2O	L-Malate	wildtype	4976787	Saccharomyces cerevisiae	P08417	4.2.1.2	7.0	25.0	concentration	Fumarate	2.0E-4		-	M
+63699	Fumarate;H2O	L-Malate	wildtype	4976787	Saccharomyces cerevisiae	P08417	4.2.1.2	7.0	25.0	IC50	GTP	8.0E-5		-	M
+63700	H2O;Fumarate	L-Malate	wildtype	4976787	Saccharomyces cerevisiae	P08417	4.2.1.2	7.0	25.0	IC50	GDP	3.3E-4		-	M
+63700	H2O;Fumarate	L-Malate	wildtype	4976787	Saccharomyces cerevisiae	P08417	4.2.1.2	7.0	25.0	concentration	Fumarate	2.0E-4		-	M
+63701	H2O;Fumarate	L-Malate	wildtype	4976787	Saccharomyces cerevisiae	P08417	4.2.1.2	7.0	25.0	IC50	ADP	4.0E-4		-	M
+63701	H2O;Fumarate	L-Malate	wildtype	4976787	Saccharomyces cerevisiae	P08417	4.2.1.2	7.0	25.0	concentration	Fumarate	2.0E-4		-	M
+63702	H2O;Fumarate	L-Malate	wildtype	4976787	Saccharomyces cerevisiae	P08417	4.2.1.2	7.0	23.0	concentration	Fumarate	1.0E-5	5.0E-5	-	M
+63702	H2O;Fumarate	L-Malate	wildtype	4976787	Saccharomyces cerevisiae	P08417	4.2.1.2	7.0	23.0	concentration	ATP	5.0E-6	5.0E-5	-	M
+63702	H2O;Fumarate	L-Malate	wildtype	4976787	Saccharomyces cerevisiae	P08417	4.2.1.2	7.0	23.0	Ki	ATP	5.0E-6		-	M
+63703	Fumarate;H2O	L-Malate	wildtype	4976787	Sus scrofa	P10173	4.2.1.2	7.0	23.0	concentration	ATP	4.2E-5	1.66E-4	-	M
+63703	Fumarate;H2O	L-Malate	wildtype	4976787	Sus scrofa	P10173	4.2.1.2	7.0	23.0	Ki	ATP	3.0E-5		-	M
+63703	Fumarate;H2O	L-Malate	wildtype	4976787	Sus scrofa	P10173	4.2.1.2	7.0	23.0	concentration	Fumarate	1.0E-5	5.0E-5	-	M
+63704	Fumarate;H2O	L-Malate	wildtype	4976787	Sus scrofa	P10173	4.2.1.2	8.0	23.0	concentration	ATP	4.2E-5	1.66E-4	-	M
+63704	Fumarate;H2O	L-Malate	wildtype	4976787	Sus scrofa	P10173	4.2.1.2	8.0	23.0	concentration	Fumarate	1.0E-5	5.0E-5	-	M
+63704	Fumarate;H2O	L-Malate	wildtype	4976787	Sus scrofa	P10173	4.2.1.2	8.0	23.0	Ki	ATP	1.0E-4		-	M
+64369	L-Malate	H2O;Fumarate	wildtype	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	Vmax		0.002976667		-	mol*s^(-1)*g^(-1)
+64369	L-Malate	H2O;Fumarate	wildtype	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	kcat/Km	L-Malate	695000.0		-	M^(-1)*s^(-1)
+64369	L-Malate	H2O;Fumarate	wildtype	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	kcat		595.2		-	s^(-1)
+64369	L-Malate	H2O;Fumarate	wildtype	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	Km	L-Malate	8.57E-4		-	M
+64370	L-Malate	H2O;Fumarate	mutant E315Q	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	kcat/Km	L-Malate	62500.0		-	M^(-1)*s^(-1)
+64370	L-Malate	H2O;Fumarate	mutant E315Q	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	kcat		55.32		-	s^(-1)
+64370	L-Malate	H2O;Fumarate	mutant E315Q	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	Km	L-Malate	8.85E-4		-	M
+64370	L-Malate	H2O;Fumarate	mutant E315Q	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	Vmax		2.685E-4		-	mol*s^(-1)*g^(-1)
+64371	H2O;Fumarate	L-Malate	wildtype	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	kcat/Km	Fumarate	5560000.0		-	M^(-1)*s^(-1)
+64371	H2O;Fumarate	L-Malate	wildtype	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	Km	Fumarate	2.07E-4		-	M
+64371	H2O;Fumarate	L-Malate	wildtype	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	kcat		1149.0		-	s^(-1)
+64371	H2O;Fumarate	L-Malate	wildtype	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	Vmax		0.005746667		-	mol*s^(-1)*g^(-1)
+64372	H2O;Fumarate	L-Malate	mutant E315Q	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	Vmax		5.366667E-4		-	mol*s^(-1)*g^(-1)
+64372	H2O;Fumarate	L-Malate	mutant E315Q	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	kcat		107.1		-	s^(-1)
+64372	H2O;Fumarate	L-Malate	mutant E315Q	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	kcat/Km	Fumarate	432000.0		-	M^(-1)*s^(-1)
+64372	H2O;Fumarate	L-Malate	mutant E315Q	12021453	Escherichia coli	P05042	4.2.1.2	7.9	-	Km	Fumarate	2.48E-4		-	M
+65343	H2O;Fumarate	L-Malate	wildtype	10091606	Helicobacter pylori	O25883	4.2.1.2	7.4	37.0	Km	Fumarate	0.121		1.2E-2	M
+65343	H2O;Fumarate	L-Malate	wildtype	10091606	Helicobacter pylori	O25883	4.2.1.2	7.4	37.0	Vmax		6.833333E-5		3.333333E-6	mol*s^(-1)*g^(-1)
+65347	L-Malate	Fumarate;H2O	wildtype	10091606	Helicobacter pylori	O25883	4.2.1.2	7.4	37.0	Vmax		1.8E-4		3.333333E-6	mol*s^(-1)*g^(-1)
+65347	L-Malate	Fumarate;H2O	wildtype	10091606	Helicobacter pylori	O25883	4.2.1.2	7.4	37.0	Km	L-Malate	0.0073		4E-4	M
+69385	L-Malate	Fumarate;H2O	wildtype	16027371	Mycobacterium tuberculosis	P9WN93	4.2.1.2	7.0	22.0	concentration	L-Malate	0.025		-	M
+69385	L-Malate	Fumarate;H2O	wildtype	16027371	Mycobacterium tuberculosis	P9WN93	4.2.1.2	7.0	22.0	concentration	unknown compound	0.2		-	mg/ml
+69385	L-Malate	Fumarate;H2O	wildtype	16027371	Mycobacterium tuberculosis	P9WN93	4.2.1.2	7.0	22.0	Vmax		9.133333E-6		-	mol*s^(-1)*g^(-1)
+69386	L-Malate	H2O;Fumarate	wildtype	16027371	Mycobacterium smegmatis		4.2.1.2	7.0	22.0	Vmax		2.036667E-5		-	mol*s^(-1)*g^(-1)
+69386	L-Malate	H2O;Fumarate	wildtype	16027371	Mycobacterium smegmatis		4.2.1.2	7.0	22.0	concentration	L-Malate	0.025		-	M
+69387	L-Malate	Fumarate;H2O	wildtype	16027371	Mycobacterium bovis		4.2.1.2	7.0	22.0	concentration	L-Malate	0.025		-	M
+69387	L-Malate	Fumarate;H2O	wildtype	16027371	Mycobacterium bovis		4.2.1.2	7.0	22.0	Vmax		1.736667E-5		-	mol*s^(-1)*g^(-1)
+69388	L-Malate	Fumarate;H2O	wildtype	16027371	Escherichia coli		4.2.1.2	7.0	22.0	Vmax		4.65E-6		-	mol*s^(-1)*g^(-1)
+69388	L-Malate	Fumarate;H2O	wildtype	16027371	Escherichia coli		4.2.1.2	7.0	22.0	concentration	L-Malate	0.025		-	M
+75189	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75189	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	Fumarate	200000.0		1E4	M^(-1)*s^(-1)
+75189	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	Fumarate	3.125E-5	0.005	-	M
+75189	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	Fumarate	3.3E-4		2E-5	M
+75189	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		66.0		1E0	s^(-1)
+75190	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		175.0		7E0	s^(-1)
+75190	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	Fumarate	3.125E-5	0.005	-	M
+75190	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	Fumarate	430000.0		5E4	M^(-1)*s^(-1)
+75190	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	Fumarate	4.0E-4		4E-5	M
+75190	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75191	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		202.0		7E0	s^(-1)
+75191	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	Fumarate	2.7E-4		3E-5	M
+75191	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	Fumarate	740000.0		9E4	M^(-1)*s^(-1)
+75191	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	Fumarate	3.125E-5	0.005	-	M
+75191	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75192	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		370.0		1E1	s^(-1)
+75192	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75192	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	Fumarate	1000000.0		1E5	M^(-1)*s^(-1)
+75192	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	Fumarate	3.7E-4		5E-5	M
+75192	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	Fumarate	3.125E-5	0.005	-	M
+75193	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	Fumarate	2.8E-4		4E-5	M
+75193	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	Fumarate	900000.0		1E4	M^(-1)*s^(-1)
+75193	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		260.0		1E1	s^(-1)
+75193	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75193	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	Fumarate	3.125E-5	0.005	-	M
+75194	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75194	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	Fumarate	3.125E-5	0.005	-	M
+75194	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	Fumarate	2.5E-4		3E-5	M
+75194	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	Fumarate	640000.0		9E4	M^(-1)*s^(-1)
+75194	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		160.0		1E1	s^(-1)
+75195	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	Fumarate	3.1E-4		2E-5	M
+75195	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	Fumarate	3.125E-5	0.005	-	M
+75195	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75195	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	Fumarate	200000.0		1E4	M^(-1)*s^(-1)
+75195	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		60.0		1E0	s^(-1)
+75196	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75196	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	L-Malate	3.8E-4		2E-5	M
+75196	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	L-Malate	63000.0		3E3	M^(-1)*s^(-1)
+75196	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	L-Malate	5.0E-4	0.05	-	M
+75196	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		24.1		4E-1	s^(-1)
+75196	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Keq		6.8		9E-1	-
+75197	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	L-Malate	6.0E-4		1E-4	M
+75197	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		59.0		2E0	s^(-1)
+75197	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Keq		7.0		2E0	-
+75197	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75197	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	L-Malate	100000.0		2E4	M^(-1)*s^(-1)
+75197	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	L-Malate	5.0E-4	0.05	-	M
+75198	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	L-Malate	0.0012		7E-5	M
+75198	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75198	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	L-Malate	200000.0		1E4	M^(-1)*s^(-1)
+75198	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	L-Malate	5.0E-4	0.05	-	M
+75198	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		245.0		7E0	s^(-1)
+75198	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Keq		4.9		7E-1	-
+75199	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75199	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		325.0		4E0	s^(-1)
+75199	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	L-Malate	5.0E-4	0.05	-	M
+75199	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Keq		7.0		1E0	-
+75199	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	L-Malate	120000.0		1E4	M^(-1)*s^(-1)
+75199	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	L-Malate	0.0027		2E-4	M
+75200	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Keq		5.0		1E0	-
+75200	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	L-Malate	5.0E-4	0.05	-	M
+75200	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75200	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		370.0		7E0	s^(-1)
+75200	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	L-Malate	0.0029		4E-4	M
+75200	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	L-Malate	130000.0		2E4	M^(-1)*s^(-1)
+75201	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75201	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	Fumarate	2.0E-4		4E-5	M
+75201	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	L-Malate	3.9E-5	0.04	-	M
+75201	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	Fumarate	7.062E-6	0.004	-	M
+75201	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		280.0		1E1	s^(-1)
+75201	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	L-Malate	0.0014		3E-4	M
+75201	H2O;Fumarate	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		170.0		1E1	s^(-1)
+75202	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75202	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		380.0		1.5E1	s^(-1)
+75202	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	Fumarate	3.125E-5	0.005	-	M
+75202	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	Fumarate	2.4E-4		2E-5	M
+75202	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	Fumarate	1580000.0		1.5E5	M^(-1)*s^(-1)
+75203	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		185.0		5E0	s^(-1)
+75203	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	L-Malate	5.0E-4	0.05	-	M
+75203	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	L-Malate	6.0E-4		1E-4	M
+75203	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Keq		5.0		1E0	-
+75203	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75203	L-Malate	H2O;Fumarate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	L-Malate	310000.0		1E4	M^(-1)*s^(-1)
+75204	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	Fumarate	430000.0		2E4	M^(-1)*s^(-1)
+75204	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		170.0		3E1	s^(-1)
+75204	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75204	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	Fumarate	3.125E-5	0.005	-	M
+75204	Fumarate;H2O	L-Malate	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	Fumarate	4.0E-4		2E-5	M
+75205	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	unknown compound	0.0024		-	mg/ml
+75205	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	concentration	L-Malate	5.0E-4	0.05	-	M
+75205	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat/Km	L-Malate	100000.0		4E4	M^(-1)*s^(-1)
+75205	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Keq		4.0		2E0	-
+75205	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	kcat		340.0		1E1	s^(-1)
+75205	L-Malate	Fumarate;H2O	wildtype	30761759	Homo sapiens	P07954	4.2.1.2	-	22.0	Km	L-Malate	0.0034		2E-4	M
+75619	Fumarate;H2O	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	Fumarate	0.0	0.002	-	M
+75619	Fumarate;H2O	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Vmax		0.00125		6.5E-5	mol*s^(-1)*g^(-1)
+75619	Fumarate;H2O	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	kcat/Km	Fumarate	30000.0		-	M^(-1)*s^(-1)
+75619	Fumarate;H2O	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Km	Fumarate	7.0E-4		1E-4	M
+75620	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Km	L-Malate	0.0018		2E-4	M
+75620	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	kcat/Km	L-Malate	8500.0		-	M^(-1)*s^(-1)
+75620	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Vmax		9.166667E-4		2.166667E-5	mol*s^(-1)*g^(-1)
+75620	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75621	H2O;Fumarate	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Km	Fumarate	4.0E-4		1E-4	M
+75621	H2O;Fumarate	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Vmax		0.001291667		8.333333E-5	mol*s^(-1)*g^(-1)
+75621	H2O;Fumarate	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	Fumarate	0.0	0.002	-	M
+75621	H2O;Fumarate	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	kcat/Km	Fumarate	57600.0		-	M^(-1)*s^(-1)
+75622	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Vmax		2.983333E-4		3.333333E-5	mol*s^(-1)*g^(-1)
+75622	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	kcat/Km	L-Malate	8700.0		-	M^(-1)*s^(-1)
+75622	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75622	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Km	L-Malate	6.0E-4		1E-4	M
+75623	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	kcat/Km	Fumarate	44300.0		-	M^(-1)*s^(-1)
+75623	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Km	Fumarate	5.0E-4		1E-4	M
+75623	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	Fumarate	0.0	0.002	-	M
+75623	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Vmax		0.001241667		5E-5	mol*s^(-1)*g^(-1)
+75624	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75624	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Km	L-Malate	0.0017		3E-4	M
+75624	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	kcat/Km	L-Malate	8700.0		-	M^(-1)*s^(-1)
+75624	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Vmax		8.25E-4		5.833333E-5	mol*s^(-1)*g^(-1)
+75625	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	kcat/Km	Fumarate	36600.0		-	M^(-1)*s^(-1)
+75625	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	Fumarate	0.0	0.002	-	M
+75625	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Km	Fumarate	5.0E-4		2E-4	M
+75625	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Vmax		0.001108333		6.666667E-5	mol*s^(-1)*g^(-1)
+75626	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	kcat/Km	L-Malate	9000.0		-	M^(-1)*s^(-1)
+75626	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Km	L-Malate	0.0019		2E-4	M
+75626	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75626	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Vmax		9.55E-4		1E-4	mol*s^(-1)*g^(-1)
+75627	H2O;Fumarate	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	Fumarate	0.0	0.002	-	M
+75627	H2O;Fumarate	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Km	Fumarate	5.0E-4		1E-4	M
+75627	H2O;Fumarate	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Vmax		4.783333E-4		3.333333E-5	mol*s^(-1)*g^(-1)
+75627	H2O;Fumarate	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	kcat/Km	Fumarate	8500.0		-	M^(-1)*s^(-1)
+75627	H2O;Fumarate	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	Oxaloacetate	0.003		-	M
+75628	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	Oxaloacetate	0.003		-	M
+75628	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75628	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	kcat/Km	L-Malate	37000.0		-	M^(-1)*s^(-1)
+75628	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Km	L-Malate	5.0E-4		2E-4	M
+75628	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Vmax		0.001166667		8.333333E-5	mol*s^(-1)*g^(-1)
+75629	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	Asparagine	0.003		-	M
+75629	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Vmax		0.001485		7.166667E-5	mol*s^(-1)*g^(-1)
+75629	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75629	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	kcat/Km	L-Malate	41300.0		-	M^(-1)*s^(-1)
+75629	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Km	L-Malate	6.0E-4		2E-4	M
+75630	L-Malate	Fumarate;H2O	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	kcat/Km	L-Malate	41000.0		-	M^(-1)*s^(-1)
+75630	L-Malate	Fumarate;H2O	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	Glutamine	0.003		-	M
+75630	L-Malate	Fumarate;H2O	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Km	L-Malate	6.0E-4		1E-4	M
+75630	L-Malate	Fumarate;H2O	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75630	L-Malate	Fumarate;H2O	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Vmax		0.001466667		1E-4	mol*s^(-1)*g^(-1)
+75631	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	kcat/Km	L-Malate	52300.0		-	M^(-1)*s^(-1)
+75631	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	Asparagine	0.003		-	M
+75631	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	Glutamine	0.003		-	M
+75631	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75631	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Vmax		0.00157		3.666667E-5	mol*s^(-1)*g^(-1)
+75631	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Km	L-Malate	5.0E-4		1E-4	M
+75632	Fumarate;H2O	L-Malate	wildtype oxFUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	kcat/Km	Fumarate	2000.0		-	M^(-1)*s^(-1)
+75632	Fumarate;H2O	L-Malate	wildtype oxFUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Km	Fumarate	0.0014		2E-4	M
+75632	Fumarate;H2O	L-Malate	wildtype oxFUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	Fumarate	0.0	0.002	-	M
+75632	Fumarate;H2O	L-Malate	wildtype oxFUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Vmax		1.716667E-4		1.166667E-5	mol*s^(-1)*g^(-1)
+75633	L-Malate	H2O;Fumarate	wildtype oxFUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	kcat/Km	L-Malate	300.0		-	M^(-1)*s^(-1)
+75633	L-Malate	H2O;Fumarate	wildtype oxFUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Vmax		1.033333E-4		3.333333E-5	mol*s^(-1)*g^(-1)
+75633	L-Malate	H2O;Fumarate	wildtype oxFUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Km	L-Malate	0.0063		3E-4	M
+75633	L-Malate	H2O;Fumarate	wildtype oxFUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75634	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	Oxaloacetate	0.003		-	M
+75634	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	Fumarate	0.0	0.002	-	M
+75634	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	kcat/Km	Fumarate	9700.0		-	M^(-1)*s^(-1)
+75634	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Km	Fumarate	5.0E-4		2E-4	M
+75634	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Vmax		2.666667E-4		1.333333E-5	mol*s^(-1)*g^(-1)
+75635	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	Oxaloacetate	0.003		-	M
+75635	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Vmax		0.001266667		6.666667E-5	mol*s^(-1)*g^(-1)
+75635	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	kcat/Km	L-Malate	37800.0		-	M^(-1)*s^(-1)
+75635	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75635	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Km	L-Malate	6.0E-4		1E-4	M
+75636	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Vmax		0.001616667		6.666667E-5	mol*s^(-1)*g^(-1)
+75636	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	kcat/Km	L-Malate	57700.0		-	M^(-1)*s^(-1)
+75636	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75636	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	Asparagine	0.003		-	M
+75636	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Km	L-Malate	5.0E-4		1E-4	M
+75637	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	kcat/Km	L-Malate	73000.0		-	M^(-1)*s^(-1)
+75637	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Km	L-Malate	4.0E-4		2E-4	M
+75637	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75637	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	Glutamine	0.003		-	M
+75637	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Vmax		0.001633333		8.333333E-5	mol*s^(-1)*g^(-1)
+75638	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Km	L-Malate	4.0E-4		1E-4	M
+75638	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	Glutamine	0.003		-	M
+75638	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	Asparagine	0.003		-	M
+75638	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75638	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	kcat/Km	L-Malate	78200.0		-	M^(-1)*s^(-1)
+75638	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Vmax		0.00165		1E-4	mol*s^(-1)*g^(-1)
+75639	Fumarate;H2O	L-Malate	wildtype oxFUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	Fumarate	0.0	0.002	-	M
+75639	Fumarate;H2O	L-Malate	wildtype oxFUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Vmax		2.166667E-4		3.333333E-5	mol*s^(-1)*g^(-1)
+75639	Fumarate;H2O	L-Malate	wildtype oxFUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	kcat/Km	Fumarate	5100.0		-	M^(-1)*s^(-1)
+75639	Fumarate;H2O	L-Malate	wildtype oxFUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Km	Fumarate	7.0E-4		2E-4	M
+75640	L-Malate	Fumarate;H2O	wildtype oxFUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	kcat/Km	L-Malate	3600.0		-	M^(-1)*s^(-1)
+75640	L-Malate	Fumarate;H2O	wildtype oxFUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Km	L-Malate	0.0024		3E-4	M
+75640	L-Malate	Fumarate;H2O	wildtype oxFUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Vmax		4.683333E-4		6.666667E-5	mol*s^(-1)*g^(-1)
+75640	L-Malate	Fumarate;H2O	wildtype oxFUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	concentration	L-Malate	0.0	0.012	-	M
+75641	H2O;Fumarate	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Activation constant	Glucose 6-phosphate	0.0019		-	M
+75642	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Ki	Glucose 6-phosphate	8.0E-4		-	M
+75643	Fumarate;H2O	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Ki	Phosphoenolpyruvate	6.0E-4		-	M
+75644	L-Malate	Fumarate;H2O	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Ki	Phosphoenolpyruvate	0.0012		-	M
+75645	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Activation constant	Pyruvate	0.0024		-	M
+75646	H2O;Fumarate	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Ki	Citrate	8.0E-4		-	M
+75647	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Ki	Citrate	0.0029		-	M
+75648	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Ki	Succinate	0.0029		-	M
+75649	Fumarate;H2O	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Ki	Oxaloacetate	8.0E-4		-	M
+75650	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Activation constant	Oxaloacetate	0.0011		-	M
+75651	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Activation constant	Asparagine	0.0012		-	M
+75652	L-Malate	Fumarate;H2O	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Activation constant	Glutamine	0.0011		-	M
+75653	Fumarate;H2O	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Ki	ATP	3.0E-5		-	M
+75654	L-Malate	H2O;Fumarate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Ki	ATP	1.6E-4		-	M
+75655	Fumarate;H2O	L-Malate	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Ki	ADP	1.6E-4		-	M
+75656	L-Malate	Fumarate;H2O	wildtype FUM1	29688630	Arabidopsis thaliana	P93033	4.2.1.2	-	30.0	Ki	ADP	4.0E-5		-	M
+75657	H2O;Fumarate	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Ki	Phosphoenolpyruvate	7.0E-4		-	M
+75658	H2O;Fumarate	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Ki	Pyruvate	0.0016		-	M
+75659	H2O;Fumarate	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Ki	Citrate	5.0E-4		-	M
+75660	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Ki	Citrate	0.0026		-	M
+75661	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Ki	Succinate	0.0011		-	M
+75662	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Ki	2-Oxoglutarate	8.0E-4		-	M
+75663	Fumarate;H2O	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Ki	Oxaloacetate	0.0012		-	M
+75664	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Activation constant	Oxaloacetate	0.0012		-	M
+75665	L-Malate	H2O;Fumarate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Activation constant	Asparagine	8.0E-4		-	M
+75666	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Activation constant	Glutamine	0.0011		-	M
+75667	H2O;Fumarate	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Ki	ATP	3.0E-5		-	M
+75668	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Ki	ATP	3.0E-4		-	M
+75669	H2O;Fumarate	L-Malate	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Ki	ADP	2.0E-4		-	M
+75670	L-Malate	Fumarate;H2O	wildtype FUM2	29688630	Arabidopsis thaliana	Q9FI53	4.2.1.2	-	30.0	Ki	ADP	6.0E-5		-	M

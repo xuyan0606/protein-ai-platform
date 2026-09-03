@@ -1,0 +1,26 @@
+{
+  "created_at": "2026-09-03T07:33:50.265746+00:00",
+  "local_only": true,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/fireprot_curated_stability_direction_normalized_candidates.jsonl",
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/fireprot_curated_kwb_schema_mapping_candidates.jsonl",
+  "input_rows": 5067,
+  "mapped_candidate_rows": 5067,
+  "excluded_rows": 0,
+  "excluded_reason_counts": {},
+  "label_decision_candidate_counts": {
+    "watch": 3494,
+    "go": 277,
+    "no_go": 1296
+  },
+  "manual_review_required_rows": 5048,
+  "ready_for_training_import_rows": 0,
+  "claim_eligible_rows_now": 0,
+  "remaining_blockers": [
+    "license_scope_not_selected",
+    "reviewed_import_receipt_missing",
+    "leakage_review_not_approved_for_training",
+    "numbering_not_reviewed_by_kwb"
+  ],
+  "safe_for_model_claim": false,
+  "policy": "Schema mapping is a candidate artifact only and must not be consumed by training."
+}

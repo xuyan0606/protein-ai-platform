@@ -1,0 +1,306 @@
+{
+  "manifest_id": "kwb_advanced_feature_cache_manifest",
+  "version": "1.0.0",
+  "created_at": "2026-09-03T07:34:03.292767+00:00",
+  "local_only": true,
+  "feature_families": [
+    {
+      "family_id": "sequence_plm_embeddings",
+      "adapter_ids": [
+        "esm2",
+        "esm_c",
+        "esm3_open",
+        "saprot_sequence",
+        "prosst",
+        "protssn"
+      ],
+      "cache_root": "cache/advanced_features/sequence_plm",
+      "expected_artifacts": [
+        "embedding.npy|json",
+        "metadata.json",
+        "input_sequence.sha256",
+        "model_card.json"
+      ],
+      "required_gates": [
+        "license",
+        "runtime",
+        "model_weight",
+        "sequence_input"
+      ],
+      "research_priority": "P1",
+      "rationale": "Modern mutation ranking needs sequence and structure-aware protein language model representations.",
+      "status": "blocked"
+    },
+    {
+      "family_id": "msa_conservation",
+      "adapter_ids": [
+        "mmseqs2",
+        "hmm_profile",
+        "hhsuite_profile",
+        "trusted_msa_cache"
+      ],
+      "cache_root": "cache/advanced_features/msa_conservation",
+      "expected_artifacts": [
+        "msa.a3m|sto",
+        "conservation.json",
+        "database_metadata.json",
+        "sha256"
+      ],
+      "required_gates": [
+        "runtime_or_trusted_cache",
+        "homolog_database",
+        "source_database_version",
+        "checksums"
+      ],
+      "research_priority": "P0",
+      "rationale": "Evolutionary conservation remains the first unlock for mutation-effect and OOD risk.",
+      "status": "blocked"
+    },
+    {
+      "family_id": "structure_graph",
+      "adapter_ids": [
+        "structure_parser",
+        "saprot_structure",
+        "prosst_structure_tokens",
+        "residue_neighborhood_graph"
+      ],
+      "cache_root": "cache/advanced_features/structure_graph",
+      "expected_artifacts": [
+        "residue_graph.json",
+        "chain_mapping.json",
+        "structure_tokens.json",
+        "structure.sha256"
+      ],
+      "required_gates": [
+        "reviewed_structure",
+        "reviewed_chain_mapping",
+        "numbering_verified"
+      ],
+      "research_priority": "P0",
+      "rationale": "Residue neighborhoods, structure tokens and chain mapping are required before structure-aware heads can be trusted.",
+      "status": "blocked"
+    },
+    {
+      "family_id": "ddg_stability",
+      "adapter_ids": [
+        "thermompnn",
+        "rosetta_ddg",
+        "pyrosetta_ddg",
+        "foldx_ddg",
+        "thermompnn_d",
+        "thermompnn_i"
+      ],
+      "cache_root": "cache/advanced_features/ddg_stability",
+      "expected_artifacts": [
+        "ddg_table.json",
+        "parameters.json",
+        "runtime.log",
+        "input_structure.sha256"
+      ],
+      "required_gates": [
+        "license",
+        "runtime",
+        "reviewed_structure",
+        "mutation_list",
+        "artifact_checksums"
+      ],
+      "research_priority": "P0",
+      "rationale": "Stability needs explicit ddG/proxy-ddG artifacts; Rosetta/FoldX names alone are not evidence.",
+      "status": "blocked"
+    },
+    {
+      "family_id": "structure_affinity_complex",
+      "adapter_ids": [
+        "boltz2",
+        "chai1",
+        "alphafold3_benchmark"
+      ],
+      "cache_root": "cache/advanced_features/structure_affinity",
+      "expected_artifacts": [
+        "complex_prediction.json",
+        "affinity_prediction.json",
+        "input_yaml_or_json.sha256",
+        "runtime.log"
+      ],
+      "required_gates": [
+        "license",
+        "runtime",
+        "model_weight",
+        "msa_or_template_policy",
+        "ligand_identity_verified"
+      ],
+      "research_priority": "P1",
+      "rationale": "Top-tier enzyme work increasingly needs protein-ligand or biomolecular complex evidence, not protein-only folds.",
+      "status": "blocked"
+    },
+    {
+      "family_id": "kinetics_function",
+      "adapter_ids": [
+        "catpred",
+        "clean",
+        "deep_ec_transformer"
+      ],
+      "cache_root": "cache/advanced_features/kinetics_function",
+      "expected_artifacts": [
+        "kinetics_prediction.json",
+        "ec_consistency.json",
+        "substrate_mapping.json",
+        "runtime.log"
+      ],
+      "required_gates": [
+        "license",
+        "runtime",
+        "substrate_smiles_verified",
+        "sequence_or_structure_input",
+        "calibration_report"
+      ],
+      "research_priority": "P1",
+      "rationale": "Activity and substrate-fit heads need kinetics/function consistency signals, with conditions and substrate identity preserved.",
+      "status": "blocked"
+    },
+    {
+      "family_id": "candidate_generation",
+      "adapter_ids": [
+        "ligandmpnn",
+        "proteinmpnn",
+        "rfdiffusion2"
+      ],
+      "cache_root": "cache/advanced_features/candidate_generation",
+      "expected_artifacts": [
+        "candidate_sequences.jsonl",
+        "fixed_residue_policy.json",
+        "design_constraints.json",
+        "biosecurity_gate.json"
+      ],
+      "required_gates": [
+        "license",
+        "runtime",
+        "reviewed_structure",
+        "protected_sites",
+        "human_approval",
+        "biosecurity_screening"
+      ],
+      "research_priority": "P2",
+      "rationale": "Generation should start only after ranking, structure, protected-site and safety gates are in place.",
+      "status": "blocked"
+    },
+    {
+      "family_id": "benchmark_score_cache",
+      "adapter_ids": [
+        "proteingym",
+        "flip2",
+        "atom3d_msp",
+        "fireprotdb_eval",
+        "prothermdb_eval"
+      ],
+      "cache_root": "cache/advanced_features/benchmarks",
+      "expected_artifacts": [
+        "benchmark_scores.json",
+        "split_definition.json",
+        "metric_report.json",
+        "dataset_license.json"
+      ],
+      "required_gates": [
+        "license",
+        "dataset_version",
+        "split_no_leakage",
+        "metric_definition",
+        "artifact_checksums"
+      ],
+      "research_priority": "P0",
+      "rationale": "A top-tier claim requires external benchmark comparison and leak-resistant splits.",
+      "status": "blocked"
+    },
+    {
+      "family_id": "wet_lab_feedback_calibration",
+      "adapter_ids": [
+        "kwb_experiment_feedback",
+        "kwb_plate_feedback"
+      ],
+      "cache_root": "cache/advanced_features/wet_lab_feedback",
+      "expected_artifacts": [
+        "feedback_features.jsonl",
+        "schema_validation_report.json",
+        "lineage.json"
+      ],
+      "required_gates": [
+        "schema_valid_feedback",
+        "numbering_verified",
+        "units_conditions_replicates_qc"
+      ],
+      "research_priority": "P0",
+      "rationale": "The defensible moat is KWB wet-lab feedback, plate-level QC and calibration.",
+      "status": "ready_to_implement"
+    }
+  ],
+  "cache_roots": {
+    "sequence_plm_embeddings": "cache/advanced_features/sequence_plm",
+    "msa_conservation": "cache/advanced_features/msa_conservation",
+    "structure_graph": "cache/advanced_features/structure_graph",
+    "ddg_stability": "cache/advanced_features/ddg_stability",
+    "structure_affinity_complex": "cache/advanced_features/structure_affinity",
+    "kinetics_function": "cache/advanced_features/kinetics_function",
+    "candidate_generation": "cache/advanced_features/candidate_generation",
+    "benchmark_score_cache": "cache/advanced_features/benchmarks",
+    "wet_lab_feedback_calibration": "cache/advanced_features/wet_lab_feedback"
+  },
+  "status": "blocked",
+  "research_sources": [
+    {
+      "source_id": "boltz2",
+      "url": "https://github.com/jwohlwend/boltz",
+      "note": "Open biomolecular interaction and affinity route; still needs local runtime/model-weight/MSA readiness."
+    },
+    {
+      "source_id": "esm_c",
+      "url": "https://github.com/Biohub/esm",
+      "note": "Modern ESMC/ESMFold2 representation route; license and weight gates must be explicit."
+    },
+    {
+      "source_id": "saprot",
+      "url": "https://github.com/westlake-repl/SaProt",
+      "note": "Structure-aware AA+3Di protein language model route; requires structure token generation and licensing review."
+    },
+    {
+      "source_id": "prosst",
+      "url": "https://github.com/AI4Protein/ProSST",
+      "note": "Structure-token mutation-effect route; non-commercial style licensing keeps it isolated unless legal review approves."
+    },
+    {
+      "source_id": "proteingym",
+      "url": "https://github.com/OATML-Markslab/ProteinGym",
+      "note": "External mutation-effect benchmark route with DMS and clinical variant score sets."
+    },
+    {
+      "source_id": "mmseqs2",
+      "url": "https://github.com/soedinglab/MMseqs2",
+      "note": "Primary MSA/conservation unlock candidate; requires executable plus homolog database/cache manifest."
+    },
+    {
+      "source_id": "thermompnn",
+      "url": "https://github.com/Kuhlman-Lab/ThermoMPNN",
+      "note": "Stability ddG proxy baseline candidate; requires reviewed structure and runtime/model-weight readiness."
+    },
+    {
+      "source_id": "ligandmpnn",
+      "url": "https://github.com/dauparas/LigandMPNN",
+      "note": "Ligand-aware sequence design candidate generator; must stay behind design constraints and human approval."
+    },
+    {
+      "source_id": "catpred",
+      "url": "https://github.com/maranasgroup/CatPred",
+      "note": "Enzyme kinetics kcat/Km/Ki prediction route; requires substrate and condition validation."
+    },
+    {
+      "source_id": "clean",
+      "url": "https://github.com/tttianhao/CLEAN",
+      "note": "EC/function consistency route; research-use license requires isolation until reviewed."
+    },
+    {
+      "source_id": "alphafold3",
+      "url": "https://github.com/google-deepmind/alphafold3",
+      "note": "Powerful benchmark/isolated structure route; source and weights terms must be treated separately."
+    }
+  ],
+  "policy": "Empty cache plan. Feature files become usable only after validator reports confirm real artifacts and checksums."
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-06",
+  "mode": "stage25_blocker_activation_map",
+  "stage": 25,
+  "activation_rows": 5,
+  "all_blockers_mapped": true,
+  "mapped_blocker_ids": [
+    "stage25_new_paper_fulltext_source_table",
+    "stage25_sqlite_apply",
+    "stage25_formal_decisions",
+    "stage25_foldx_runtime_receipt",
+    "stage25_model_release_claim"
+  ],
+  "activation_completion_ready_rows": 0,
+  "activations": [
+    {
+      "blocker_id": "stage25_new_paper_fulltext_source_table",
+      "trigger_inputs": [
+        "legally_obtained_fulltext_or_si_files_placed",
+        "source_locator_review_queue_updated",
+        "reviewed_extraction_draft_fields_completed"
+      ],
+      "rerun_commands": [
+        "validate_legal_fulltext_intake",
+        "validate_source_locator_review_queue",
+        "extract_fulltext_evidence_draft",
+        "build_stage25_reviewer_package",
+        "validate_source_drop_manifest",
+        "build_source_drop_inventory",
+        "validate_source_drop_inventory",
+        "validate_source_acquisition_receipts"
+      ],
+      "expected_flip_fields": [
+        "fulltext_intake_status",
+        "source_locator_review_ready_count",
+        "ready_for_reviewed_extraction_rows"
+      ],
+      "must_remain_false_until_next_gate": [
+        "external_sqlite_mutated",
+        "apply_executed",
+        "export_safe_released",
+        "safe_for_model_claim",
+        "release_ready"
+      ],
+      "current_completion_ready": false
+    },
+    {
+      "blocker_id": "stage25_sqlite_apply",
+      "trigger_inputs": [
+        "reviewed_source_evidence_ready_for_sqlite_apply",
+        "family_importer_allowlist_approval",
+        "sqlite_backup_preflight_ok"
+      ],
+      "rerun_commands": [
+        "validate_source_extraction_candidates",
+        "validate_source_extraction_candidate_reviewer_packet",
+        "validate_source_extraction_reviewer_closure_checklist",
+        "build_cm5_codon262_cross_read_audit",
+        "validate_cm5_codon262_cross_read_audit",
+        "build_cm5_codon262_sequence_quality_evidence_audit",
+        "validate_cm5_codon262_sequence_quality_evidence_audit"
+      ],
+      "expected_flip_fields": [
+        "ready_to_apply_rows",
+        "write_operation_count",
+        "paper_insert_count"
+      ],
+      "must_remain_false_until_next_gate": [
+        "export_safe_released",
+        "safe_for_model_claim",
+        "release_ready"
+      ],
+      "current_completion_ready": false
+    },
+    {
+      "blocker_id": "stage25_formal_decisions",
+      "trigger_inputs": [
+        "strict_holdout_formal_review_rows_filled",
+        "substrate_identity_formal_review_rows_filled",
+        "reviewer_time_basis_acceptance_receipts_present"
+      ],
+      "rerun_commands": [
+        "build_stage25_hard_gate_formal_decision_draft_package",
+        "validate_stage25_hard_gate_formal_decision_draft_package",
+        "validate_workstream_acceptance_decisions"
+      ],
+      "expected_flip_fields": [
+        "formal_decision_rows_written",
+        "bridge_intake_rows_written",
+        "accepted_streams"
+      ],
+      "must_remain_false_until_next_gate": [
+        "safe_for_model_claim",
+        "release_ready"
+      ],
+      "current_completion_ready": false
+    },
+    {
+      "blocker_id": "stage25_foldx_runtime_receipt",
+      "trigger_inputs": [
+        "licensed_foldx_executable_present",
+        "license_decision_reviewed",
+        "probe_and_smoke_artifacts_hashed"
+      ],
+      "rerun_commands": [
+        "validate_stage25_foldx_provision_manifest",
+        "build_stage25_foldx_provision_manifest_candidate",
+        "validate_stage25_foldx_provision_manifest_candidate",
+        "validate_stage25_foldx_runtime_receipt_candidate_drafts",
+        "validate_stage25_foldx_benchmark_bridge_isolation"
+      ],
+      "expected_flip_fields": [
+        "ready_for_runtime_receipt_rows",
+        "receipt_decision",
+        "formal_runtime_receipt_written"
+      ],
+      "must_remain_false_until_next_gate": [
+        "safe_for_model_claim",
+        "release_ready"
+      ],
+      "current_completion_ready": false
+    },
+    {
+      "blocker_id": "stage25_model_release_claim",
+      "trigger_inputs": [
+        "benchmark_completion_ready_rows_positive",
+        "formal_decisions_accepted",
+        "runtime_receipts_approved",
+        "release_acceptance_present"
+      ],
+      "rerun_commands": [
+        "validate_stage25_claim_release_consistency",
+        "build_local_release_manifest",
+        "validate_local_release_manifest_fail_closed_consistency",
+        "build_stage25_overall_fail_closed_index"
+      ],
+      "expected_flip_fields": [
+        "safe_for_model_claim",
+        "release_ready",
+        "customer_delivery_ready"
+      ],
+      "must_remain_false_until_next_gate": [],
+      "current_completion_ready": false
+    }
+  ],
+  "external_sqlite_mutated": false,
+  "formal_decision_rows_written": 0,
+  "apply_executed": false,
+  "export_safe_released": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

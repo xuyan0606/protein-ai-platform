@@ -1,0 +1,44 @@
+{
+  "created_at": "2026-09-03T07:34:46.265862+00:00",
+  "success": true,
+  "case_rows": 5,
+  "passed_rows": 5,
+  "failed_rows": 0,
+  "real_inputs_mutated": false,
+  "results": [
+    {
+      "case_id": "forged_ddg_local_completion",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 1
+    },
+    {
+      "case_id": "forged_wet_lab_local_completion",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 1
+    },
+    {
+      "case_id": "forged_automatic_promotion",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 1
+    },
+    {
+      "case_id": "forged_model_claim",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 1
+    },
+    {
+      "case_id": "forged_release_ready",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 1
+    }
+  ],
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Regression uses temporary board copies only and must not mutate receipts or the canonical promotion board."
+}

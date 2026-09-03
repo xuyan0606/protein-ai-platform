@@ -1,0 +1,73 @@
+{
+  "accession": "Q6SJ93",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF13365",
+        "name": "Trypsin-like peptidase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6sj93",
+          "protein_length": 734,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 475,
+                  "end": 664,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13365",
+              "score": 4.4e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF26749",
+        "name": "FAM111, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR060141",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6sj93",
+          "protein_length": 734,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 76,
+                  "end": 267,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF26749",
+              "score": 5.4e-73
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

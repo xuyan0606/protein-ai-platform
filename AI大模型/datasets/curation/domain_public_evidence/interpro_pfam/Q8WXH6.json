@@ -1,0 +1,73 @@
+{
+  "accession": "Q8WXH6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00071",
+        "name": "Ras family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001806",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wxh6",
+          "protein_length": 277,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 16,
+                  "end": 174,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00071",
+              "score": 1.3e-36
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07525",
+        "name": "SOCS box",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001496",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wxh6",
+          "protein_length": 277,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 189,
+                  "end": 223,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07525",
+              "score": 0.00024
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

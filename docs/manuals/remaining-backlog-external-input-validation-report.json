@@ -1,0 +1,214 @@
+{
+  "all_inputs_present": false,
+  "created_at": "2026-09-01T10:00:29.436475+00:00",
+  "destructive_actions": "not_executed",
+  "item_count": 7,
+  "items": [
+    {
+      "missing_fields": [
+        "formal_domain",
+        "dns_record_owner",
+        "tls_certificate_source",
+        "PUBLIC_BASE_URL",
+        "FRONTEND_URL",
+        "OIDC_ISSUER"
+      ],
+      "name": "formal_domain_https",
+      "priority": "P0",
+      "provided_fields": [],
+      "ready_to_run": false,
+      "required_input_fields": [
+        "formal_domain",
+        "dns_record_owner",
+        "tls_certificate_source",
+        "PUBLIC_BASE_URL",
+        "FRONTEND_URL",
+        "OIDC_ISSUER"
+      ],
+      "secret_reference_fields": [],
+      "status": "planned",
+      "validation_commands": [
+        "make production-config-gate",
+        "make nightly-live-gates FRONTEND_BASE_URL=https://<domain>"
+      ]
+    },
+    {
+      "missing_fields": [
+        "gpu_node_or_runner",
+        "gromacs_runtime_version",
+        "wt_pdb_input",
+        "mutant_pdb_input",
+        "md_worker_capacity_window"
+      ],
+      "name": "gpu_gromacs_md_live",
+      "priority": "P0",
+      "provided_fields": [],
+      "ready_to_run": false,
+      "required_input_fields": [
+        "gpu_node_or_runner",
+        "gromacs_runtime_version",
+        "wt_pdb_input",
+        "mutant_pdb_input",
+        "md_worker_capacity_window"
+      ],
+      "secret_reference_fields": [],
+      "status": "external_required",
+      "validation_commands": [
+        "make backend-md-topology-live-gate"
+      ]
+    },
+    {
+      "missing_fields": [
+        "MD_BLACKBOX_TASK_ID_or_ALLOW_MD_BLACKBOX_SUBMIT",
+        "MD_BLACKBOX_EMAIL_or_LIVE_AI_EMAIL",
+        "credential_secret_reference",
+        "validation_window"
+      ],
+      "name": "md_blackbox_live_e2e",
+      "priority": "P0",
+      "provided_fields": [],
+      "ready_to_run": false,
+      "required_input_fields": [
+        "MD_BLACKBOX_TASK_ID_or_ALLOW_MD_BLACKBOX_SUBMIT",
+        "MD_BLACKBOX_EMAIL_or_LIVE_AI_EMAIL",
+        "credential_secret_reference",
+        "validation_window"
+      ],
+      "secret_reference_fields": [
+        "credential_secret_reference"
+      ],
+      "status": "external_required",
+      "validation_commands": [
+        "make backend-md-blackbox MD_BLACKBOX_ARGS='--task-id <id> --email <email>'"
+      ]
+    },
+    {
+      "missing_fields": [
+        "ligand_worker_image_or_host",
+        "OpenBabel_or_RDKit_available",
+        "AutoDock_Vina_available",
+        "ACPYPE_or_AmberTools_available",
+        "GROMACS_available"
+      ],
+      "name": "ligand_runtime_live",
+      "priority": "P1",
+      "provided_fields": [],
+      "ready_to_run": false,
+      "required_input_fields": [
+        "ligand_worker_image_or_host",
+        "OpenBabel_or_RDKit_available",
+        "AutoDock_Vina_available",
+        "ACPYPE_or_AmberTools_available",
+        "GROMACS_available"
+      ],
+      "secret_reference_fields": [],
+      "status": "external_required",
+      "validation_commands": [
+        "make backend-ligand-toolchain-live-gate"
+      ]
+    },
+    {
+      "missing_fields": [
+        "storage_endpoint",
+        "bucket_name",
+        "access_key_secret_reference",
+        "write_read_delete_permission_scope"
+      ],
+      "name": "oss_minio_live_e2e",
+      "priority": "P0",
+      "provided_fields": [],
+      "ready_to_run": false,
+      "required_input_fields": [
+        "storage_endpoint",
+        "bucket_name",
+        "access_key_secret_reference",
+        "write_read_delete_permission_scope"
+      ],
+      "secret_reference_fields": [
+        "access_key_secret_reference"
+      ],
+      "status": "external_required",
+      "validation_commands": [
+        "python3 scripts/smoke_oss_minio_contract.py --json --require-live"
+      ]
+    },
+    {
+      "missing_fields": [
+        "SCREENSHOT_EMAIL_secret_reference",
+        "SCREENSHOT_PASSWORD_secret_reference",
+        "FRONTEND_BASE_URL"
+      ],
+      "name": "admin_authenticated_screenshots",
+      "priority": "P1",
+      "provided_fields": [],
+      "ready_to_run": false,
+      "required_input_fields": [
+        "SCREENSHOT_EMAIL_secret_reference",
+        "SCREENSHOT_PASSWORD_secret_reference",
+        "FRONTEND_BASE_URL"
+      ],
+      "secret_reference_fields": [
+        "SCREENSHOT_EMAIL_secret_reference",
+        "SCREENSHOT_PASSWORD_secret_reference"
+      ],
+      "status": "external_required",
+      "validation_commands": [
+        "make manual-screenshots FRONTEND_BASE_URL=<url>"
+      ]
+    },
+    {
+      "missing_fields": [
+        "MAINTENANCE_WINDOW_ID",
+        "ALLOW_PRODUCTION_DRILL_approval",
+        "REMOTE_BACKUP_TARGET_or_OFFSITE_BACKUP_TARGET",
+        "EXTERNAL_STORAGE_RESTORE_TARGET"
+      ],
+      "name": "maintenance_window_drills",
+      "priority": "P1",
+      "provided_fields": [],
+      "ready_to_run": false,
+      "required_input_fields": [
+        "MAINTENANCE_WINDOW_ID",
+        "ALLOW_PRODUCTION_DRILL_approval",
+        "REMOTE_BACKUP_TARGET_or_OFFSITE_BACKUP_TARGET",
+        "EXTERNAL_STORAGE_RESTORE_TARGET"
+      ],
+      "secret_reference_fields": [],
+      "status": "external_required",
+      "validation_commands": [
+        "make rollback-plan-json",
+        "make restore-drill BACKUP_FILE=<backup>"
+      ]
+    }
+  ],
+  "missing_input_rows": 7,
+  "mode": "read_only_external_input_validation",
+  "network_io": "not_executed",
+  "priority_summary": {
+    "P0": {
+      "item_count": 4,
+      "items": [
+        "formal_domain_https",
+        "gpu_gromacs_md_live",
+        "md_blackbox_live_e2e",
+        "oss_minio_live_e2e"
+      ],
+      "missing_field_count": 19,
+      "missing_input_rows": 4,
+      "ready_to_run_rows": 0
+    },
+    "P1": {
+      "item_count": 3,
+      "items": [
+        "ligand_runtime_live",
+        "admin_authenticated_screenshots",
+        "maintenance_window_drills"
+      ],
+      "missing_field_count": 12,
+      "missing_input_rows": 3,
+      "ready_to_run_rows": 0
+    }
+  },
+  "ready_to_run_rows": 0,
+  "secrets_printed": false
+}

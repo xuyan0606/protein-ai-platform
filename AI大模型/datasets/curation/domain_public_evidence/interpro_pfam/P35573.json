@@ -1,0 +1,141 @@
+{
+  "accession": "P35573",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF06202",
+        "name": "Amylo-alpha-1,6-glucosidase",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR032790",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p35573",
+          "protein_length": 1532,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1073,
+                  "end": 1527,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF06202",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14699",
+        "name": "N-terminal domain from the human glycogen debranching enzyme",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR029436",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p35573",
+          "protein_length": 1532,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 31,
+                  "end": 115,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14699",
+              "score": 2.3e-14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14701",
+        "name": "Glycogen debranching enzyme, glucanotransferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR032792",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p35573",
+          "protein_length": 1532,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 121,
+                  "end": 551,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14701",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14702",
+        "name": "Central domain of human glycogen debranching enzyme",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR032788",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p35573",
+          "protein_length": 1532,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 697,
+                  "end": 974,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF14702",
+              "score": 2.1e-69
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

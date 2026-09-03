@@ -1,0 +1,107 @@
+{
+  "accession": "Q9C030",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00622",
+        "name": "SPRY domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003877",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9c030",
+          "protein_length": 488,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 354,
+                  "end": 474,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00622",
+              "score": 2.6e-14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00643",
+        "name": "B-box zinc finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000315",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9c030",
+          "protein_length": 488,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 95,
+                  "end": 130,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00643",
+              "score": 1.2e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13445",
+        "name": "RING-type zinc-finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR027370",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9c030",
+          "protein_length": 488,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 15,
+                  "end": 57,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13445",
+              "score": 1.2e-08
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

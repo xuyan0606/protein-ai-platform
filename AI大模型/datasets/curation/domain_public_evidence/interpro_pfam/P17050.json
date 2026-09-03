@@ -1,0 +1,73 @@
+{
+  "accession": "P17050",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF16499",
+        "name": "Alpha galactosidase A",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002241",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p17050",
+          "protein_length": 411,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 25,
+                  "end": 308,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16499",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17450",
+        "name": "Alpha galactosidase A C-terminal beta sandwich domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR035373",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p17050",
+          "protein_length": 411,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 311,
+                  "end": 394,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17450",
+              "score": 1.5e-11
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

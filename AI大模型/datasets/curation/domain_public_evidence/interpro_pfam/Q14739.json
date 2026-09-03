@@ -1,0 +1,73 @@
+{
+  "accession": "Q14739",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01222",
+        "name": "Ergosterol biosynthesis ERG4/ERG24 family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001171",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q14739",
+          "protein_length": 615,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 200,
+                  "end": 615,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF01222",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09465",
+        "name": "Lamin-B receptor of TUDOR domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019023",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q14739",
+          "protein_length": 615,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1,
+                  "end": 55,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09465",
+              "score": 1.3e-27
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

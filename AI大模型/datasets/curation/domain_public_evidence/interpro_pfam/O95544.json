@@ -1,0 +1,73 @@
+{
+  "accession": "O95544",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01513",
+        "name": "ATP-NAD kinase N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR064509",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95544",
+          "protein_length": 446,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 107,
+                  "end": 231,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01513",
+              "score": 6.1e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF20143",
+        "name": "ATP-NAD kinase C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95544",
+          "protein_length": 446,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 283,
+                  "end": 406,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF20143",
+              "score": 1.2e-35
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

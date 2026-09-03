@@ -1,0 +1,20 @@
+{
+  "local_only": true,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/biosecurity_screening_decisions.jsonl",
+  "template": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/biosecurity_screening_decisions.template.jsonl",
+  "draft_rows": 3,
+  "decision_rows": 0,
+  "valid_rows": 0,
+  "invalid_rows": 0,
+  "approved_for_ordering_rows": 0,
+  "all_drafts_decided": false,
+  "missing_draft_decisions": [
+    "screening:kwb-venus15b-strict-review-001",
+    "screening:kwb-venus15b-strict-review-002",
+    "screening:kwb-venus15b-strict-review-003"
+  ],
+  "ready_for_ordering": false,
+  "error_counts": {},
+  "records": [],
+  "policy": "Biosecurity approval requires explicit screening result, project/use approval, and human reviewer decision; empty decisions stay blocked."
+}

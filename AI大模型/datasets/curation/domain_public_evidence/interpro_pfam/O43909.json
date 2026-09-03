@@ -1,0 +1,73 @@
+{
+  "accession": "O43909",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03016",
+        "name": "Exostosin GT47 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040911",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43909",
+          "protein_length": 919,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 192,
+                  "end": 500,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF03016",
+              "score": 1.3e-44
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09258",
+        "name": "Glycosyl transferase family 64 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015338",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43909",
+          "protein_length": 919,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 663,
+                  "end": 904,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09258",
+              "score": 1.4e-100
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

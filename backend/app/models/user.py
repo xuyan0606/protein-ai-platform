@@ -4,13 +4,11 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from passlib.context import CryptContext
-from sqlalchemy import DateTime, String, func
+from sqlalchemy import Boolean, DateTime, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
+from app.core.passwords import hash_password, verify_password
 from app.models.base import Base
-
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 class User(Base):
@@ -20,6 +18,10 @@ class User(Base):
     email: Mapped[str] = mapped_column(String(255), unique=True, index=True, nullable=False)
     hashed_password: Mapped[str] = mapped_column(String(255), nullable=False)
     name: Mapped[str] = mapped_column(String(100), nullable=False)
+    role: Mapped[str] = mapped_column(String(32), nullable=False, default="researcher")
+    is_active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+    locked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    disabled_reason: Mapped[str | None] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
@@ -31,8 +33,8 @@ class User(Base):
 
     @classmethod
     def hash_password(cls, plain: str) -> str:
-        return pwd_context.hash(plain)
+        return hash_password(plain)
 
     @classmethod
     def verify_password(cls, plain: str, hashed: str) -> bool:
-        return pwd_context.verify(plain, hashed)
+        return verify_password(plain, hashed)

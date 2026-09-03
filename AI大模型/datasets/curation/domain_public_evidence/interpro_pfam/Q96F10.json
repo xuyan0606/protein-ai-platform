@@ -1,0 +1,39 @@
+{
+  "accession": "Q96F10",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00583",
+        "name": "Acetyltransferase (GNAT) family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000182",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96f10",
+          "protein_length": 170,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 50,
+                  "end": 144,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00583",
+              "score": 1.5e-16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

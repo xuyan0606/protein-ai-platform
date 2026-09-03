@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KWB 湿实验反馈授权核实平台</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div>
+          <h1>湿实验反馈授权核实平台</h1>
+          <p>15B 突变体库 · 人工授权入口</p>
+        </div>
+        <div class="status">
+          <span class="pill">仅人工决策</span>
+          <span class="pill danger">训练未开放</span>
+          <span class="pill warn" id="countBadge">加载中</span>
+        </div>
+      </header>
+
+      <section class="toolbar">
+        <label>
+          <span>搜索</span>
+          <input id="searchInput" type="search" placeholder="变体 / 指标 / 样本 / 候选 ID" />
+        </label>
+        <label>
+          <span>变体</span>
+          <select id="variantFilter">
+            <option value="all">全部</option>
+            <option value="E331Q">E331Q</option>
+            <option value="D105N">D105N</option>
+            <option value="S265T">S265T</option>
+          </select>
+        </label>
+        <label>
+          <span>状态</span>
+          <select id="statusFilter">
+            <option value="all">全部</option>
+            <option value="open">未审核</option>
+            <option value="saved">已保存</option>
+            <option value="approved">已授权</option>
+          </select>
+        </label>
+        <button id="refreshBtn" type="button">刷新</button>
+      </section>
+
+      <main class="grid">
+        <aside class="queue panel">
+          <div class="panel-head">
+            <h2>审核队列</h2>
+            <span id="queueMeta">0 条</span>
+          </div>
+          <div id="queueList" class="queue-list"></div>
+        </aside>
+
+        <section class="detail panel">
+          <div class="panel-head">
+            <h2 id="detailHeading">选择一条记录</h2>
+            <span id="priorityBadge" class="badge">-</span>
+          </div>
+          <div id="emptyState" class="empty">从左侧选择一个指标。</div>
+          <div id="detailBody" class="hidden">
+            <div id="ruleNotice" class="rule-notice"></div>
+            <div class="metric-strip">
+              <div><small>变体</small><strong id="variantValue">-</strong></div>
+              <div><small>指标</small><strong id="metricValue">-</strong></div>
+              <div><small>候选结论</small><strong id="outcomeValue">-</strong></div>
+              <div><small>相对对照</small><strong id="ratioValue">-</strong></div>
+            </div>
+
+            <h3>原始实验记录</h3>
+            <dl class="facts">
+              <div><dt>候选 ID</dt><dd id="candidateValue">-</dd></div>
+              <div><dt>批次 / 样本</dt><dd id="batchValue">-</dd></div>
+              <div><dt>原始值 / 对照值</dt><dd id="rawValue">-</dd></div>
+              <div><dt>来源文件</dt><dd id="sourceValue">-</dd></div>
+              <div><dt>来源行号</dt><dd id="rowValue">-</dd></div>
+            </dl>
+
+            <div id="tradeoffBox" class="tradeoff hidden"></div>
+
+            <h3>人工核实规则</h3>
+            <div class="rules">
+              <div class="rule approved"><b>授权</b><span>来源、编号、单位/条件、批次对照、重复/QC 都核实，且 QC pass。</span></div>
+              <div class="rule more"><b>需要补充</b><span>有数据但至少一项核实不了，不进入 preflight 授权。</span></div>
+              <div class="rule rejected"><b>拒绝</b><span>来源、样本、编号或测量明显不对应，禁止进入反馈。</span></div>
+            </div>
+
+            <div class="checks">
+              <label><input data-check="source_trace_reviewed" type="checkbox" /> 来源文件和行号核实</label>
+              <label><input data-check="numbering_reviewed" type="checkbox" /> 变体编号已核实</label>
+              <label><input data-check="unit_condition_reviewed" type="checkbox" /> 单位和实验条件已核实</label>
+              <label><input data-check="batch_control_reviewed" type="checkbox" /> 批次和对照已核实</label>
+              <label><input data-check="replicate_policy_reviewed" type="checkbox" /> 重复实验 / QC 策略已核实</label>
+            </div>
+          </div>
+        </section>
+
+        <section class="decision panel">
+          <div class="panel-head">
+            <h2>人工授权决策</h2>
+            <span id="decisionState" class="badge danger">未审核</span>
+          </div>
+          <div class="plain-box">
+            <b>重要规则</b>
+            <span>页面不会替你批准。授权只代表这一个 metric 候选可进入 feedback preflight，不代表训练标签或模型质量通过。</span>
+          </div>
+          <div class="form">
+            <label>
+              <span>授权结论</span>
+              <select id="decision">
+                <option value="needs_more_info">需要补充信息</option>
+                <option value="approved_for_feedback_intake">授权进入 feedback preflight</option>
+                <option value="rejected">拒绝该候选</option>
+              </select>
+            </label>
+            <label>
+              <span>QC 结论</span>
+              <select id="qcDecision">
+                <option value="not_reviewed">未审核</option>
+                <option value="pass">pass</option>
+                <option value="pass_with_conditions">pass with conditions</option>
+                <option value="fail">fail</option>
+              </select>
+            </label>
+            <label>
+              <span>审核人</span>
+              <input id="reviewer" type="text" placeholder="姓名或工号" />
+            </label>
+            <label>
+              <span>审核时间</span>
+              <input id="reviewedAt" type="datetime-local" />
+            </label>
+            <label class="wide">
+              <span>授权依据 / 审核意见</span>
+              <textarea id="basis" rows="4" placeholder="写清楚为什么授权、拒绝或需要补充什么"></textarea>
+            </label>
+            <label class="wide">
+              <span>条件（pass with conditions 必填）</span>
+              <textarea id="conditions" rows="3" placeholder="每行一条条件"></textarea>
+            </label>
+            <label class="wide">
+              <span>剩余风险（授权时必须为空）</span>
+              <textarea id="risks" rows="3" placeholder="需要补充信息或拒绝时填写；授权通过时必须清空"></textarea>
+            </label>
+          </div>
+          <div class="heads">
+            <span>允许的训练 head（只是授权范围，不会启动训练）</span>
+            <label><input id="activityHead" type="checkbox" /> activity_risk_head</label>
+            <label><input id="stabilityHead" type="checkbox" /> stability_head</label>
+          </div>
+          <div id="validationBox" class="validation"></div>
+          <div class="actions">
+            <button id="saveBtn" class="primary" type="button">保存人工授权</button>
+            <button id="validateBtn" type="button">运行授权验证</button>
+            <button id="preflightBtn" type="button">生成 preflight</button>
+            <button id="applyPlanBtn" type="button">生成 apply plan</button>
+          </div>
+          <pre id="output" class="output">等待操作。</pre>
+        </section>
+      </main>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

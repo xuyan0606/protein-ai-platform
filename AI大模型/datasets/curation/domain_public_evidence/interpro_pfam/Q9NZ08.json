@@ -1,0 +1,107 @@
+{
+  "accession": "Q9NZ08",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01433",
+        "name": "Peptidase family M1 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014782",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nz08",
+          "protein_length": 941,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 281,
+                  "end": 484,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01433",
+              "score": 1.6e-75
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF11838",
+        "name": "ERAP1-like C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR024571",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nz08",
+          "protein_length": 941,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 597,
+                  "end": 916,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF11838",
+              "score": 1.9e-79
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17900",
+        "name": "Peptidase M1 N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR045357",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nz08",
+          "protein_length": 941,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 60,
+                  "end": 246,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17900",
+              "score": 1.9e-42
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

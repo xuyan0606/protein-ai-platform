@@ -1,0 +1,73 @@
+{
+  "accession": "P28562",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00581",
+        "name": "Rhodanese-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001763",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p28562",
+          "protein_length": 367,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 13,
+                  "end": 130,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00581",
+              "score": 4.8e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00782",
+        "name": "Dual specificity phosphatase, catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000340",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p28562",
+          "protein_length": 367,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 181,
+                  "end": 311,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00782",
+              "score": 2.7e-46
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

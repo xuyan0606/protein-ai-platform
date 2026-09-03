@@ -1,0 +1,141 @@
+{
+  "accession": "Q5TA45",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF07521",
+        "name": "Zn-dependent metallo-hydrolase RNA specificity domain",
+        "source_database": "pfam",
+        "type": "conserved_site",
+        "integrated": "IPR011108",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5ta45",
+          "protein_length": 600,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 378,
+                  "end": 438,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07521",
+              "score": 2.2e-14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF10996",
+        "name": "Beta-Casp domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022712",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5ta45",
+          "protein_length": 600,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 245,
+                  "end": 363,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10996",
+              "score": 2.4e-25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16661",
+        "name": "Metallo-beta-lactamase superfamily domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001279",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5ta45",
+          "protein_length": 600,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 21,
+                  "end": 194,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16661",
+              "score": 1.2e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21386",
+        "name": "Integrator IntS11, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR048662",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q5ta45",
+          "protein_length": 600,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 500,
+                  "end": 591,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF21386",
+              "score": 1.4e-37
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

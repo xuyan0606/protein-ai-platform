@@ -1,0 +1,73 @@
+{
+  "accession": "O60341",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01593",
+        "name": "Flavin containing amine oxidoreductase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002937",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60341",
+          "protein_length": 852,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 288,
+                  "end": 825,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF01593",
+              "score": 6.8e-100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04433",
+        "name": "SWIRM domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007526",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60341",
+          "protein_length": 852,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 184,
+                  "end": 264,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04433",
+              "score": 3.4e-16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

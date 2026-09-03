@@ -1,0 +1,107 @@
+{
+  "accession": "Q9NUP7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF05206",
+        "name": "Methyltransferase TRM13",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR007871",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nup7",
+          "protein_length": 481,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 165,
+                  "end": 469,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05206",
+              "score": 3.5e-81
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05253",
+        "name": "U11-48K-like CHHC zinc finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022776",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nup7",
+          "protein_length": 481,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 57,
+                  "end": 80,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05253",
+              "score": 8.3e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF11722",
+        "name": "CCCH zinc finger in TRM13 protein",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR021721",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nup7",
+          "protein_length": 481,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 17,
+                  "end": 45,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF11722",
+              "score": 1.4e-10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

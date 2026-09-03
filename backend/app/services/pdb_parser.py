@@ -22,6 +22,11 @@ _AA3TO1: dict[str, str] = {
     "ASX": "B", "GLX": "Z", "XLE": "J", "UNK": "X",
 }
 
+# PDB writes common covalently incorporated amino-acid variants as HETATM.
+# Other HETATM records are ligands, ions, glycans, solvents, etc. and must not
+# be counted as protein residues or converted to synthetic ``X`` chains.
+_POLYMER_HETATM_RESIDUES = {"MSE", "SEC", "PYL", "HYP"}
+
 
 @dataclass
 class ChainInfo:
@@ -47,6 +52,7 @@ class PDBResult:
     seqres_sequence: str = ""
     method: str | None = None
     deposited_date: str | None = None
+    nonpolymer_components: list[dict[str, Any]] = field(default_factory=list)
 
 
 def parse_pdb(content: str) -> dict[str, Any]:
@@ -64,6 +70,8 @@ def parse_pdb(content: str) -> dict[str, Any]:
     chains: dict[str, ChainInfo] = {}
     seqres_chains: dict[str, str] = defaultdict(str)
     seen_residues: set[tuple[str, int, str]] = set()  # (chain, resnum, resname)
+    nonpolymer_components: dict[tuple[str, int, str, str], dict[str, Any]] = {}
+    all_b_factors: list[float] = []
     current_model: int | None = None
 
     for line in lines:
@@ -99,8 +107,9 @@ def parse_pdb(content: str) -> dict[str, Any]:
                 seqres_chains[chain_id] = ""
             res_names = line[19:].split()
             for rn in res_names:
-                aa = _AA3TO1.get(rn.upper(), "X")
-                seqres_chains[chain_id] += aa
+                normalized = rn.upper()
+                if normalized in _AA3TO1:
+                    seqres_chains[chain_id] += _AA3TO1[normalized]
 
         elif record == "MODEL":
             try:
@@ -143,14 +152,31 @@ def parse_pdb(content: str) -> dict[str, Any]:
             if res_name == "HOH":
                 continue
 
+            result.total_atoms += 1
+            all_b_factors.append(b_factor)
+
+            is_polymer_residue = record == "ATOM" or res_name.upper() in _POLYMER_HETATM_RESIDUES
+            if not is_polymer_residue:
+                component_key = (chain_id, res_seq, i_code, res_name.upper())
+                component = nonpolymer_components.setdefault(
+                    component_key,
+                    {
+                        "component_id": res_name.upper(),
+                        "chain_id": chain_id or "_",
+                        "residue_number": res_seq,
+                        "insertion_code": i_code.strip() or None,
+                        "atom_count": 0,
+                    },
+                )
+                component["atom_count"] += 1
+                continue
+
             if chain_id not in chains:
                 chains[chain_id] = ChainInfo(chain_id=chain_id)
 
             chain = chains[chain_id]
             chain.atom_count += 1
             chain.b_factors.append(b_factor)
-            result.total_atoms += 1
-
             # Track unique residues
             res_key = (chain_id, res_seq, res_name)
             if res_key not in seen_residues:
@@ -168,14 +194,17 @@ def parse_pdb(content: str) -> dict[str, Any]:
 
     # Build chain list sorted by chain ID
     result.chains = sorted(chains.values(), key=lambda c: c.chain_id)
+    result.nonpolymer_components = sorted(
+        nonpolymer_components.values(),
+        key=lambda item: (item["chain_id"], item["residue_number"], item["insertion_code"] or ""),
+    )
 
     # B-factor statistics
-    all_bfactors = [b for c in result.chains for b in c.b_factors]
-    if all_bfactors:
+    if all_b_factors:
         result.b_factor_stats = {
-            "mean": round(sum(all_bfactors) / len(all_bfactors), 2),
-            "min": round(min(all_bfactors), 2),
-            "max": round(max(all_bfactors), 2),
+            "mean": round(sum(all_b_factors) / len(all_b_factors), 2),
+            "min": round(min(all_b_factors), 2),
+            "max": round(max(all_b_factors), 2),
         }
 
     # SEQRES (full construct sequence)
@@ -243,6 +272,7 @@ def _to_dict(result: PDBResult) -> dict[str, Any]:
         "total_atoms": result.total_atoms,
         "total_residues": result.total_residues,
         "seqres_sequence": result.seqres_sequence or None,
+        "nonpolymer_components": result.nonpolymer_components,
         "method": result.method,
         "deposited_date": result.deposited_date,
     }

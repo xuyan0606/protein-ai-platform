@@ -1,0 +1,56 @@
+{
+  "created_at": "2026-09-03T07:32:18.875270+00:00",
+  "local_only": true,
+  "required_schema_fields": [
+    "plate_id",
+    "well_id",
+    "variant_id",
+    "sample_batch",
+    "assay_type",
+    "replicate",
+    "raw_signal",
+    "qc_flag",
+    "instrument",
+    "protocol_version",
+    "operator",
+    "recorded_at"
+  ],
+  "backlog_rows": 110,
+  "audit_rows": 110,
+  "source_backlog_report_rows": 110,
+  "source_validation_success": true,
+  "missing_required_field_counts": {
+    "assay_type": 110,
+    "instrument": 110,
+    "operator": 110,
+    "plate_id": 110,
+    "protocol_version": 110,
+    "raw_signal": 110,
+    "recorded_at": 110,
+    "replicate": 110,
+    "sample_batch": 110,
+    "variant_id": 110,
+    "well_id": 110
+  },
+  "invalid_field_value_counts": {
+    "qc_flag": 110
+  },
+  "blocker_counts": {
+    "missing_required_schema_fields": 110,
+    "not_approved_for_plate_intake": 110,
+    "not_reviewed": 110,
+    "qc_not_usable": 110
+  },
+  "rows_with_missing_required_fields": 110,
+  "rows_with_invalid_field_values": 110,
+  "rows_approved_for_formal_intake": 0,
+  "training_eligible_rows": 0,
+  "formal_intake_allowed": false,
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "audit_jsonl": "datasets/feedback/plate_intake_schema_gap_audit.jsonl",
+  "policy": "Row-level draft/backlog plate schema audit only. Missing or invalid fields remain human-review blockers and never become training labels automatically."
+}

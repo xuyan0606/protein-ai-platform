@@ -1,0 +1,39 @@
+{
+  "accession": "Q96M32",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF05186",
+        "name": "Dpy-30 motif",
+        "source_database": "pfam",
+        "type": "conserved_site",
+        "integrated": "IPR007858",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96m32",
+          "protein_length": 723,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 679,
+                  "end": 720,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05186",
+              "score": 2.1e-16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

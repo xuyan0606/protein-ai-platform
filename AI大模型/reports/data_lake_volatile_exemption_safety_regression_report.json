@@ -1,0 +1,60 @@
+{
+  "created_at": "2026-09-03T07:35:04.882470+00:00",
+  "success": true,
+  "isolated_fixture": true,
+  "case_rows": 6,
+  "passed_rows": 6,
+  "failed_rows": 0,
+  "real_inputs_mutated": false,
+  "configured_volatile_paths": [
+    "reports/data_lake_live_content_integrity_validation_report.json",
+    "reports/safe_training_pipeline_run.json"
+  ],
+  "results": [
+    {
+      "case_id": "safe_pipeline_volatile_missing",
+      "tamper_rejected": true,
+      "expected_check": "volatile_exemption_paths_exact",
+      "expected_check_observed": true,
+      "failure_count": 2
+    },
+    {
+      "case_id": "live_validator_self_output_missing",
+      "tamper_rejected": true,
+      "expected_check": "volatile_exemption_paths_exact",
+      "expected_check_observed": true,
+      "failure_count": 2
+    },
+    {
+      "case_id": "manifest_declared_volatile_ignored",
+      "tamper_rejected": true,
+      "expected_check": "artifact_sha256_live_parity",
+      "expected_check_observed": true,
+      "failure_count": 2
+    },
+    {
+      "case_id": "release_input_excluded_path_missing_1",
+      "tamper_rejected": true,
+      "expected_check": "release_input_exclusion_paths_exact",
+      "expected_check_observed": true,
+      "failure_count": 1
+    },
+    {
+      "case_id": "release_input_excluded_path_missing_2",
+      "tamper_rejected": true,
+      "expected_check": "release_input_exclusion_paths_exact",
+      "expected_check_observed": true,
+      "failure_count": 1
+    },
+    {
+      "case_id": "release_input_excluded_path_missing_3",
+      "tamper_rejected": true,
+      "expected_check": "release_input_exclusion_paths_exact",
+      "expected_check_observed": true,
+      "failure_count": 1
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Regression uses a temporary root; manifest metadata cannot promote a strict artifact to existence-only validation."
+}

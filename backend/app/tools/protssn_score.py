@@ -110,16 +110,22 @@ def protssn_score(
         esm_mutations = {m.get("mutation"): m for m in esm_result.get("mutations", [])}
     except Exception as e:
         logger.warning("ESM-2 model unavailable, using BLOSUM62-only scoring: %s", e)
-        # Fall back to BLOSUM62-based scoring without ESM-2
-        from app.ml.embeddings import _AA_LIST
-        import math
+        # Fall back to a torch-free conservation heuristic.
         for mut_str in mutations:
             try:
                 wt = mut_str[0]
                 pos = int(mut_str[1:-1])
                 mutant = mut_str[-1]
+                if wt not in _AA or mutant not in _AA:
+                    esm_mutations[mut_str] = {"error": f"Invalid mutation format: {mut_str}"}
+                    continue
                 if pos < 1 or pos > n:
                     esm_mutations[mut_str] = {"error": f"Position {pos} out of range"}
+                    continue
+                if seq[pos - 1] != wt:
+                    esm_mutations[mut_str] = {
+                        "error": f"Wild-type residue mismatch at {pos}: expected {seq[pos - 1]}, got {wt}",
+                    }
                     continue
                 # Simple conservation-based score without ESM-2
                 cons = _CONS.get(wt, 5.0)
@@ -171,18 +177,25 @@ def protssn_score(
             "confidence": confidence,
             "structural_context": ctx,
             "recommendation": (
-                "优先改造候选" if confidence == "high" and combined_score > 0.5
-                else "可考虑改造" if confidence == "medium"
-                else "需谨慎评估" if ctx["is_near_active_site"]
-                else "低优先级"
+                "门控通过后复核" if confidence == "high" and combined_score > 0.5
+                else "仅作辅助评分" if confidence == "medium"
+                else "近活性位点，需保护性复核" if ctx["is_near_active_site"]
+                else "低优先级辅助评分"
             ),
         })
 
     return {
         "mutations": results,
-        "model": "ProtSSN-inspired (ESM-2 + structural context)",
-        "method": "zero-shot sequence scoring + structural neighborhood features",
-        "is_real_inference": True,
+        "model": "ProtSSN-inspired proxy (ESM-2/log-odds when available + structural-context heuristics)",
+        "method": "proxy mutation scoring; structural neighborhood is approximated from sequence distance unless real structure/runtime artifacts are supplied",
+        "is_real_inference": False,
+        "capability_status": "proxy",
+        "evidence_level": "DESIGN_HYPOTHESIS",
+        "candidate_table_status": "requires_identity_numbering_objective_gate",
+        "report_boundary": (
+            "仅可作为候选表门控后的辅助评分。没有模型版本、运行日志、结构输入和评分产物时，"
+            "不得写成真实 ProtSSN 推理，也不得单独决定突变优先级。"
+        ),
         "sequence_length": n,
         "active_site_positions": active_site_positions or [],
     }

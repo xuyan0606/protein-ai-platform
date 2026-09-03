@@ -1,0 +1,73 @@
+{
+  "accession": "Q6IA69",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00795",
+        "name": "Carbon-nitrogen hydrolase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR003010",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6ia69",
+          "protein_length": 706,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 6,
+                  "end": 282,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00795",
+              "score": 1.1e-45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02540",
+        "name": "NAD synthase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022310",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6ia69",
+          "protein_length": 706,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 339,
+                  "end": 603,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02540",
+              "score": 1.1e-23
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

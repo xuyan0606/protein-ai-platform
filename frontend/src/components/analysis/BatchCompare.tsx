@@ -1,7 +1,7 @@
-import { ArrowUpDown, TrendingUp, TrendingDown, Minus } from 'lucide-react'
+import { ArrowUpDown } from 'lucide-react'
 import { useState, useMemo } from 'react'
 
-interface CompareItem {
+export interface CompareItem {
   id: string
   name: string
   length: number
@@ -14,24 +14,13 @@ interface CompareItem {
   notes?: string
 }
 
-interface BatchCompareData {
+export interface BatchCompareData {
   title: string
   items: CompareItem[]
 }
 
 type SortKey = keyof CompareItem
 type SortDir = 'asc' | 'desc'
-
-function DeltaBadge({ value, unit, invert }: { value: number; unit?: string; invert?: boolean }) {
-  const positive = invert ? value < 0 : value > 0
-  const neutral = Math.abs(value) < 0.001
-  return (
-    <span className={`inline-flex items-center gap-0.5 text-[10px] font-mono ${neutral ? 'text-muted-foreground' : positive ? 'text-emerald-400' : 'text-red-400'}`}>
-      {neutral ? <Minus className="w-2.5 h-2.5" /> : positive ? <TrendingUp className="w-2.5 h-2.5" /> : <TrendingDown className="w-2.5 h-2.5" />}
-      {value > 0 ? '+' : ''}{value.toFixed(2)}{unit || ''}
-    </span>
-  )
-}
 
 export function BatchCompare({ data }: { data: BatchCompareData }) {
   const [sortKey, setSortKey] = useState<SortKey>('name')
@@ -172,30 +161,4 @@ export function BatchCompare({ data }: { data: BatchCompareData }) {
       </p>
     </div>
   )
-}
-
-export function isBatchCompareResult(data: unknown): data is BatchCompareData {
-  if (!data || typeof data !== 'object') return false
-  const d = data as Record<string, unknown>
-  return 'title' in d && 'items' in d && Array.isArray(d.items)
-}
-
-export function extractBatchCompare(
-  items: Array<Record<string, unknown>>,
-  title: string = 'Sequence Comparison'
-): BatchCompareData | null {
-  if (!items || items.length === 0) return null
-  const mapped: CompareItem[] = items.map((item, i) => ({
-    id: (item.id || item.name || `item-${i}`) as string,
-    name: (item.name || item.accession || `Item ${i + 1}`) as string,
-    length: (item.length || item.query_length || 0) as number,
-    molecular_weight_kda: (item.molecular_weight_kda || 0) as number,
-    isoelectric_point: (item.isoelectric_point || 0) as number,
-    gravy: (item.gravy || 0) as number,
-    identity_to_query: item.identity_to_query as number | undefined,
-    stability_score: item.stability_score as number | undefined,
-    mutation_count: item.mutation_count as number | undefined,
-    notes: item.notes as string | undefined,
-  }))
-  return { title, items: mapped }
 }

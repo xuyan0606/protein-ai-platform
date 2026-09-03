@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>文献证据复核</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div><strong>文献证据复核</strong><span id="summary">加载中</span></div>
+    <a href="../numbering_review/index.html">编号复核</a>
+  </header>
+  <section class="toolbar">
+    <input id="search" type="search" placeholder="搜索 PMCID、构建体、突变组成">
+    <select id="priority"><option value="all">全部优先级</option><option>P0</option><option>P1</option><option>P2</option></select>
+    <select id="lane"><option value="all">全部复核线</option><option value="numbering_conflict">编号冲突</option><option value="construct_background">构建体背景</option><option value="sequence_numbering">序列编号</option></select>
+    <select id="status"><option value="all">全部状态</option><option value="todo">待复核</option><option value="drafted">已起草</option></select>
+    <button id="export" type="button">导出草稿 JSONL</button>
+  </section>
+  <main>
+    <aside><div id="queueMeta"></div><div id="queue"></div></aside>
+    <article>
+      <div class="notice">此页面只生成证据复核草稿，不产生训练授权、正式决策或模型声明。</div>
+      <div id="empty">请选择复核任务</div>
+      <section id="detail" hidden>
+        <div class="title-row"><div><span id="badge"></span><h1 id="taskTitle"></h1><p id="taskMeta"></p></div><a id="paper" target="_blank" rel="noreferrer">查看论文</a></div>
+        <dl>
+          <div><dt>母本</dt><dd id="parent"></dd></div><div><dt>突变组成</dt><dd id="composition"></dd></div>
+          <div><dt>编号状态</dt><dd id="numbering"></dd></div><div><dt>关联测量</dt><dd id="measurements"></dd></div>
+          <div><dt>指标</dt><dd id="metrics"></dd></div><div><dt>表格位置</dt><dd id="locators"></dd></div>
+        </dl>
+        <h2>复核要求</h2><p id="checks"></p>
+        <h2>实验上下文</h2><pre id="contexts"></pre>
+        <h2>证据决定</h2>
+        <div id="decisions" class="segments"><button data-value="evidence_verified">证据核实</button><button data-value="keep_pending">继续待审</button><button data-value="reject_evidence">拒绝证据</button></div>
+        <label>审核人<input id="reviewer"></label>
+        <label>授权/许可回执<input id="receipt" placeholder="证据核实时必填；仅作为后续正式决策材料"></label>
+        <label>审核说明<textarea id="notes" rows="5"></textarea></label>
+        <div class="actions"><button id="save" type="button">保存本地草稿</button><button id="next" type="button">下一条</button></div>
+        <p id="validation"></p>
+      </section>
+    </article>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

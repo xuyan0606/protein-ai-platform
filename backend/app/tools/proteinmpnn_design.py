@@ -15,6 +15,7 @@ import random
 from typing import Any
 
 from app.tools.registry import ToolRegistry
+from app.tools.tool_capability_contract import merge_capability_contract
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -438,7 +439,11 @@ async def proteinmpnn_design(
     # Sort by recovery rate (higher = more conservative / likely better)
     designs.sort(key=lambda d: d["recovery_rate"], reverse=True)
 
-    return {
+    boundary = (
+        "This result is not report-grade ProteinMPNN inference unless official weights, "
+        "runtime logs, designed-chain config, FASTA outputs, and score artifacts are attached."
+    )
+    return merge_capability_contract({
         "target_sequence": target_seq,
         "target_length": n,
         "num_design_positions": len(design_positions) if design_positions else n,
@@ -448,12 +453,28 @@ async def proteinmpnn_design(
         "best_sequence": designs[0]["sequence"] if designs else target_seq,
         "best_recovery_rate": designs[0]["recovery_rate"] if designs else 1.0,
         "best_confidence": designs[0]["mean_confidence"] if designs else 1.0,
-        "model": "Simplified Inverse Folding (MVP)",
+        "is_real_inference": False,
+        "evidence_level": "DESIGN_HYPOTHESIS",
+        "report_boundary": boundary,
         "note": (
             "MVP uses secondary-structure propensity scoring. "
             "For state-of-the-art accuracy, connect to ProteinMPNN via HuggingFace."
         ),
-    }
+    },
+        capability_status="proxy",
+        model="ProteinMPNN-style proxy",
+        version="proxy-mvp",
+        checkpoint_or_weight=None,
+        input_payload={
+            "pdb_structure": pdb,
+            "design_positions": design_positions,
+            "temperature": temperature,
+            "num_sequences": num_sequences,
+        },
+        runtime=None,
+        scientific_boundary=boundary,
+        failure_reason=None,
+    )
 
 
 # ===================================================================

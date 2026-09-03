@@ -1,0 +1,196 @@
+{
+  "created_at": "2026-09-03T07:33:53.575845+00:00",
+  "formal_decision_rows_observed": 0,
+  "lanes": {
+    "reviewed_substrate_identity_set": {
+      "candidate_report_rows": 9,
+      "candidate_rows": 9,
+      "decision_rows": 0,
+      "formal_approved_rows_observed": 0,
+      "formal_decision_written_by_this_script": false,
+      "lane": "reviewed_substrate_identity_set",
+      "machine_status": "ready_for_human_review",
+      "packet_rows": 9,
+      "records": [
+        {
+          "candidate_id": "substrate-identity-candidate::α-淀粉酶（ET180型）-酒精专用::starch_slurry",
+          "formal_decision_observed": false,
+          "machine_checks": {
+            "candidate_id_present": true,
+            "formal_decision_absent": true,
+            "review_status_pending": true,
+            "smiles_not_inferred": true,
+            "source_evidence_present": true,
+            "source_hash_present": true
+          },
+          "machine_status": "ready_for_human_review"
+        },
+        {
+          "candidate_id": "substrate-identity-candidate::α-淀粉酶（ET513型）-酒精专用::starch_slurry",
+          "formal_decision_observed": false,
+          "machine_checks": {
+            "candidate_id_present": true,
+            "formal_decision_absent": true,
+            "review_status_pending": true,
+            "smiles_not_inferred": true,
+            "source_evidence_present": true,
+            "source_hash_present": true
+          },
+          "machine_status": "ready_for_human_review"
+        },
+        {
+          "candidate_id": "substrate-identity-candidate::科为博酶制剂实验方案（α-淀粉酶A513型、复合葡糖淀粉酶GP185型）巴彦诺尔华恒生物科技有限公司::starch_slurry",
+          "formal_decision_observed": false,
+          "machine_checks": {
+            "candidate_id_present": true,
+            "formal_decision_absent": true,
+            "review_status_pending": true,
+            "smiles_not_inferred": true,
+            "source_evidence_present": true,
+            "source_hash_present": true
+          },
+          "machine_status": "ready_for_human_review"
+        },
+        {
+          "candidate_id": "substrate-identity-candidate::科为博酶制剂实验方案（α-淀粉酶、糖化酶）河南丰源生物2026.4.24.::corn_whole_flour",
+          "formal_decision_observed": false,
+          "machine_checks": {
+            "candidate_id_present": true,
+            "formal_decision_absent": true,
+            "review_status_pending": true,
+            "smiles_not_inferred": true,
+            "source_evidence_present": true,
+            "source_hash_present": true
+          },
+          "machine_status": "ready_for_human_review"
+        },
+        {
+          "candidate_id": "substrate-identity-candidate::科为博酶制剂实验方案（α-淀粉酶、糖化酶）河南新兴生物::corn_whole_flour",
+          "formal_decision_observed": false,
+          "machine_checks": {
+            "candidate_id_present": true,
+            "formal_decision_absent": true,
+            "review_status_pending": true,
+            "smiles_not_inferred": true,
+            "source_evidence_present": true,
+            "source_hash_present": true
+          },
+          "machine_status": "ready_for_human_review"
+        },
+        {
+          "candidate_id": "substrate-identity-candidate::科为博酶制剂实验方案（α-淀粉酶、糖化酶）河南新兴生物2026.4.22::corn_whole_flour",
+          "formal_decision_observed": false,
+          "machine_checks": {
+            "candidate_id_present": true,
+            "formal_decision_absent": true,
+            "review_status_pending": true,
+            "smiles_not_inferred": true,
+            "source_evidence_present": true,
+            "source_hash_present": true
+          },
+          "machine_status": "ready_for_human_review"
+        },
+        {
+          "candidate_id": "substrate-identity-candidate::科为博酶制剂实验方案（α-淀粉酶、糖化酶）河南新兴生物_::corn_whole_flour",
+          "formal_decision_observed": false,
+          "machine_checks": {
+            "candidate_id_present": true,
+            "formal_decision_absent": true,
+            "review_status_pending": true,
+            "smiles_not_inferred": true,
+            "source_evidence_present": true,
+            "source_hash_present": true
+          },
+          "machine_status": "ready_for_human_review"
+        },
+        {
+          "candidate_id": "substrate-identity-candidate::葡糖淀粉酶(1)::corn_whole_flour",
+          "formal_decision_observed": false,
+          "machine_checks": {
+            "candidate_id_present": true,
+            "formal_decision_absent": true,
+            "review_status_pending": true,
+            "smiles_not_inferred": true,
+            "source_evidence_present": true,
+            "source_hash_present": true
+          },
+          "machine_status": "ready_for_human_review"
+        },
+        {
+          "candidate_id": "substrate-identity-candidate::葡糖淀粉酶(1)::starch_slurry",
+          "formal_decision_observed": false,
+          "machine_checks": {
+            "candidate_id_present": true,
+            "formal_decision_absent": true,
+            "review_status_pending": true,
+            "smiles_not_inferred": true,
+            "source_evidence_present": true,
+            "source_hash_present": true
+          },
+          "machine_status": "ready_for_human_review"
+        }
+      ],
+      "training_import_written_by_this_script": false
+    },
+    "strict_mutation_holdout": {
+      "benchmark_cache": {
+        "artifacts_present": true,
+        "dataset_rows": 0,
+        "leakage_check_status": "failed",
+        "primary_holdout_rows": 0,
+        "ready_as_benchmark_scorecard": false
+      },
+      "decision_rows": 0,
+      "formal_approved_rows_observed": 0,
+      "formal_decision_written_by_this_script": false,
+      "lane": "kwb_strict_mutation_holdout",
+      "machine_status": "ready_for_human_review",
+      "packet_keys_without_decision": 3,
+      "packet_rows": 3,
+      "records": [
+        {
+          "machine_checks": {
+            "formal_decision_absent": true,
+            "numbering_not_formally_confirmed": true,
+            "review_key_present": true,
+            "sequence_pdb_cross_check_exact": true,
+            "source_receipts_present": true,
+            "training_not_eligible": true
+          },
+          "machine_status": "ready_for_human_review",
+          "review_key": "kwb_venus15b_strict_candidate::D105N"
+        },
+        {
+          "machine_checks": {
+            "formal_decision_absent": true,
+            "numbering_not_formally_confirmed": true,
+            "review_key_present": true,
+            "sequence_pdb_cross_check_exact": true,
+            "source_receipts_present": true,
+            "training_not_eligible": true
+          },
+          "machine_status": "ready_for_human_review",
+          "review_key": "kwb_venus15b_strict_candidate::E331Q"
+        },
+        {
+          "machine_checks": {
+            "formal_decision_absent": true,
+            "numbering_not_formally_confirmed": true,
+            "review_key_present": true,
+            "sequence_pdb_cross_check_exact": true,
+            "source_receipts_present": true,
+            "training_not_eligible": true
+          },
+          "machine_status": "ready_for_human_review",
+          "review_key": "kwb_venus15b_strict_candidate::S265T"
+        }
+      ],
+      "training_import_written_by_this_script": false
+    }
+  },
+  "policy": "Machine pre-review only. It checks source and namespace hygiene and never writes formal decisions, training labels, claims, or release state.",
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "status": "ready_for_human_review",
+  "training_import_written_rows": 0
+}

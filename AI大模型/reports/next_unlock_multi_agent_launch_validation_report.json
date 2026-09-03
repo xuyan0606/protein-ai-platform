@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-09-03T07:34:02.583376+00:00",
+  "local_only": true,
+  "online_deployment": false,
+  "source_launch_board": "datasets/governance/next_unlock_multi_agent_launch_board.jsonl",
+  "source_remediation_queue": "datasets/governance/next_unlock_remediation_queue.jsonl",
+  "jsonl": "datasets/governance/next_unlock_multi_agent_launch_status.jsonl",
+  "launch_rows": 8,
+  "validated_launch_rows": 8,
+  "invalid_launch_rows": 0,
+  "started_items": 8,
+  "completion_ready_items": 0,
+  "requires_human_input_items": 8,
+  "local_agent_lanes": 4,
+  "lane_counts": {
+    "acceptance_claim_agent": 3,
+    "governance_agent": 3,
+    "msa_feedback_agent": 1,
+    "sequence_data_agent": 1
+  },
+  "invalid_launch_items": [],
+  "policy": "This validator confirms local launch-board semantics only. It does not create reviewed decisions, grant approvals, unlock claims, deploy online services, sync files, or restart servers."
+}

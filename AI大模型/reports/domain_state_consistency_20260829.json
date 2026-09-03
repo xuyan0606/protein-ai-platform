@@ -1,0 +1,23 @@
+{
+  "status": "blocked",
+  "policy": "feature readiness does not authorize supervised training or model claims",
+  "totals": {
+    "evidence": 1942,
+    "single_interval_usable": 1785,
+    "multi_occurrence_usable": 155,
+    "unresolved": 2
+  },
+  "source_reports": {
+    "evidence": "reports/domain_interpro_evidence_report.json",
+    "decisions": "reports/domain_interval_interpro_decision_report.json",
+    "applied": "reports/domain_interval_apply_report.json",
+    "sidecar": "reports/domain_multi_occurrence_feature_report.json"
+  },
+  "allowed_feature_scopes": [
+    "single_interval_plus_sidecar"
+  ],
+  "consistency": {
+    "ok": true,
+    "errors": []
+  }
+}

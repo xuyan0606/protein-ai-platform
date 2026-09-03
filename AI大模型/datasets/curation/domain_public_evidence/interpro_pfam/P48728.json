@@ -1,0 +1,73 @@
+{
+  "accession": "P48728",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01571",
+        "name": "GCVT N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006222",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p48728",
+          "protein_length": 403,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 38,
+                  "end": 293,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01571",
+              "score": 7.4e-63
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08669",
+        "name": "Glycine cleavage T-protein C-terminal barrel domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013977",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p48728",
+          "protein_length": 403,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 318,
+                  "end": 395,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08669",
+              "score": 7.4e-17
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "target_rows": 158,
+  "planned_jobs": 158,
+  "ready_jobs": 158,
+  "blocked_jobs": 0,
+  "executor_status": "available",
+  "available_executors": [
+    {
+      "name": "configured_mmseqs2_local_binary",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/MMseqs2/bin/mmseqs"
+    }
+  ],
+  "runtime_ready": true,
+  "selected_runtime": "local_binary",
+  "runtime_blockers": [
+    "docker daemon not reachable or not running"
+  ],
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/msa_execution_plan.jsonl",
+  "policy": "MSA remains blocked until a real executor and homolog source/cache are configured",
+  "local_install_options": [
+    "Install MAFFT or Clustal Omega locally and provide a homolog FASTA source per target.",
+    "Install MMseqs2 or Foldseek locally for database-backed homolog retrieval.",
+    "Use a precomputed trusted MSA/conservation cache and point targets to those files."
+  ]
+}

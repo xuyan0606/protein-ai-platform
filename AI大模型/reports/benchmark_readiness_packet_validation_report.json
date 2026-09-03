@@ -1,0 +1,50 @@
+{
+  "blocked_rows": 2,
+  "completion_ready_rows": 0,
+  "contract_valid": true,
+  "created_at": "2026-09-03T07:33:53.850492+00:00",
+  "expected_summary": {
+    "completion_ready_rows": 0,
+    "external_source_required_rows": 0,
+    "invalid_gap_rows": 2,
+    "local_contract_only_rows": 2,
+    "packet_rows": 2,
+    "packets_by_head": {
+      "mutation_rank": 1,
+      "substrate_fit": 1
+    },
+    "score_values_recorded": 0
+  },
+  "failure_count": 0,
+  "failures": [],
+  "inputs": {
+    "benchmark_acquisition_plan": "datasets/benchmark/benchmark_acquisition_plan.jsonl",
+    "benchmark_coverage_dashboard": "reports/benchmark_coverage_dashboard.json",
+    "benchmark_gap_queue": "datasets/benchmark/benchmark_gap_queue.jsonl",
+    "benchmark_matrix_report": "reports/benchmark_matrix_report.json",
+    "benchmark_score_cache_intake": "datasets/benchmark/benchmark_score_cache_intake.local.jsonl",
+    "benchmark_score_cache_intake_report": "reports/benchmark_score_cache_intake_report.json",
+    "benchmark_score_cache_manifest": "reports/benchmark_score_cache_manifest.json",
+    "benchmark_score_cache_validation_report": "reports/benchmark_score_cache_validation_report.json",
+    "five_head_benchmark_gap_actions": "datasets/governance/five_head_benchmark_gap_actions.jsonl",
+    "five_head_benchmark_gap_plan_report": "reports/five_head_benchmark_gap_plan_report.json"
+  },
+  "local_only": true,
+  "markdown": "reports/benchmark_readiness_packets.md",
+  "markdown_matches_current_packets": true,
+  "output": "reports/benchmark_readiness_packet_validation_report.json",
+  "packet_report": "reports/benchmark_readiness_packet_report.json",
+  "packet_report_summary_matches_current_packets": true,
+  "packet_rows": 2,
+  "packets": "datasets/governance/benchmark_readiness_packets.jsonl",
+  "policy": "Validation is fail-closed. A structurally valid blocked packet is an honest local readiness result, not a benchmark approval. --require-ready exits non-zero until every packet has all receipts and upstream cache/coverage gates are valid.",
+  "ready_for_model_claim": false,
+  "release_flags_modified": false,
+  "release_ready": false,
+  "require_ready_requested": false,
+  "safe_for_model_claim": false,
+  "score_values_recorded": 0,
+  "source_discrepancies": [],
+  "status": "blocked",
+  "training_labels_modified": false
+}

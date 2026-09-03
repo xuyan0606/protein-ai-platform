@@ -1,0 +1,107 @@
+{
+  "accession": "P46063",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00270",
+        "name": "DEAD/DEAH box helicase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011545",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p46063",
+          "protein_length": 649,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 93,
+                  "end": 260,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00270",
+              "score": 4.8e-22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00271",
+        "name": "Helicase conserved C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001650",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p46063",
+          "protein_length": 649,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 302,
+                  "end": 407,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00271",
+              "score": 4.8e-15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16124",
+        "name": "RecQ zinc-binding",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR032284",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p46063",
+          "protein_length": 649,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 421,
+                  "end": 479,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16124",
+              "score": 4.6e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+from build_p700_p0_real_input_pending_build_checklist import load_jsonl
+ROOT=Path(__file__).resolve().parents[1]; SOURCE=ROOT/"datasets/governance/p786_p0_pending_build_production_authorization_execution_gate.jsonl"; OUT=ROOT/"datasets/governance/p787_p0_pending_build_production_execution_audit_integrity_gate.jsonl"; REPORT=ROOT/"reports/p787_p0_pending_build_production_execution_audit_integrity_gate_report.json"; MD=ROOT/"reports/p787_p0_pending_build_production_execution_audit_integrity_gate.md"
+FIELDS=("production_execution_started","audit_receipt_present","receipt_atomicity_validated","receipt_hash_verified","receipt_signature_verified","receipt_timestamp_verified","receipt_provenance_validated","execution_result_attested","formal_decision_ready")
+def main():
+ created=datetime.now(timezone.utc).isoformat(); src=[r for r in load_jsonl(SOURCE) if r.get("boundary")!="summary"]; rows=[]
+ for i,s in enumerate(src,1):
+  r={"audit_gate_id":f"p787::{s.get('execution_gate_id')}","audit_gate_order":i,"created_at":created,"boundary":s.get("boundary"),"source_p786_id":s.get("execution_gate_id"),"gate_status":"empty_no_production_execution_to_audit","blocker_reason":"No production execution occurred and no authentic audit receipt exists for integrity validation.","operator_action":"Do not execute, synthesize, or attest production results or audit receipts.","policy":"P787 is an audit-integrity gate only; it performs no production action or attestation."}; r.update({f:False for f in FIELDS}); rows.append(r)
+ zero={f+"_rows":0 for f in FIELDS}; summary={"audit_gate_id":"p787::summary","audit_gate_order":len(rows)+1,"created_at":created,"boundary":"summary","audit_gate_rows":len(rows),**zero,"policy":"P787 remains empty and fail-closed."}; OUT.write_text("".join(json.dumps(r,ensure_ascii=False,sort_keys=True)+"\n" for r in rows+[summary]),encoding="utf-8"); report={"manifest_id":"P787","created_at":created,"local_only":True,"audit_gate_rows":len(rows),**zero,"artifact_jsonl":str(OUT.relative_to(ROOT)),"artifact_md":str(MD.relative_to(ROOT)),"policy":"P787 is planning-only and fail-closed."}; REPORT.write_text(json.dumps(report,ensure_ascii=False,indent=2,sort_keys=True)+"\n",encoding="utf-8"); MD.write_text(f"# P787 production execution audit integrity gate\n\nRows: `{len(rows)}`. Audit receipts present: `0`.\n",encoding="utf-8"); print(json.dumps({"manifest_id":"P787","audit_gate_rows":len(rows),"audit_receipt_present_rows":0,"output":str(REPORT)},ensure_ascii=False)); return 0
+if __name__=='__main__': raise SystemExit(main())

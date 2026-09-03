@@ -1,0 +1,73 @@
+{
+  "accession": "P40925",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00056",
+        "name": "lactate/malate dehydrogenase, NAD binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001236",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p40925",
+          "protein_length": 334,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 6,
+                  "end": 152,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00056",
+              "score": 2e-34
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02866",
+        "name": "lactate/malate dehydrogenase, alpha/beta C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022383",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p40925",
+          "protein_length": 334,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 156,
+                  "end": 330,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02866",
+              "score": 6.8e-53
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

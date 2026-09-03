@@ -1,0 +1,107 @@
+{
+  "accession": "Q6UWE0",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF07647",
+        "name": "SAM domain (Sterile alpha motif)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001660",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6uwe0",
+          "protein_length": 723,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 576,
+                  "end": 629,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07647",
+              "score": 0.0011
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13920",
+        "name": "Zinc finger, C3HC4 type (RING finger)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6uwe0",
+          "protein_length": 723,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 673,
+                  "end": 715,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13920",
+              "score": 1.5e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23598",
+        "name": "Leucine-rich repeat region",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR055414",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6uwe0",
+          "protein_length": 723,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 123,
+                  "end": 185,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF23598",
+              "score": 6.4e-07
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

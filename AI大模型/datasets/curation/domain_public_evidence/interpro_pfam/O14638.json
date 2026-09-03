@@ -1,0 +1,85 @@
+{
+  "accession": "O14638",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01033",
+        "name": "Somatomedin B domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001212",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14638",
+          "protein_length": 875,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 53,
+                  "end": 91,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF01033",
+              "score": 0.00062
+            },
+            {
+              "fragments": [
+                {
+                  "start": 96,
+                  "end": 136,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01033",
+              "score": 9.8e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01663",
+        "name": "Type I phosphodiesterase / nucleotide pyrophosphatase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002591",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o14638",
+          "protein_length": 875,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 161,
+                  "end": 486,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01663",
+              "score": 1.5e-99
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

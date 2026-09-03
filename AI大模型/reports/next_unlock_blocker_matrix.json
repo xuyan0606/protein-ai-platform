@@ -1,0 +1,179 @@
+{
+  "created_at": "2026-09-03T07:34:02.426798+00:00",
+  "local_only": true,
+  "source_completion_status": "datasets/governance/next_unlock_completion_status.jsonl",
+  "source_operator_index": "datasets/governance/next_unlock_operator_index.jsonl",
+  "jsonl": "datasets/governance/next_unlock_blockers.jsonl",
+  "action_rows": 12,
+  "blocked_actions": 8,
+  "completion_ready_actions": 4,
+  "blocker_rows": 15,
+  "critical_blockers": 9,
+  "high_blockers": 2,
+  "medium_blockers": 4,
+  "workstream_blockers": {
+    "biosecurity_screening": 2,
+    "external_license_review": 2,
+    "model_claim": 4,
+    "numbering_curation": 2,
+    "operator_review_actions": 1,
+    "plate_feedback_intake": 1,
+    "sequence_ip_fto": 2,
+    "workstream_acceptance": 1
+  },
+  "stage_blockers": {
+    "unlock_feedback_loop": 1,
+    "unlock_governance_delivery": 8,
+    "unlock_model_claim": 4,
+    "unlock_training_threshold": 2
+  },
+  "top_blockers": [
+    {
+      "blocker_id": "P43-A001-B001",
+      "action_id": "P43-A001",
+      "workstream": "numbering_curation",
+      "failed_check": "numbering valid rows meet action target",
+      "observed": 4,
+      "expected": 100,
+      "next_evidence_artifact": "datasets/curation/numbering_curation_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A001-B002",
+      "action_id": "P43-A001",
+      "workstream": "numbering_curation",
+      "failed_check": "strict supervised rows meet model-claim threshold",
+      "observed": 0,
+      "expected": 100,
+      "next_evidence_artifact": "datasets/curation/numbering_curation_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A006-B001",
+      "action_id": "P43-A006",
+      "workstream": "plate_feedback_intake",
+      "failed_check": "plate feedback training eligible rows present",
+      "observed": 0,
+      "expected": "> 0",
+      "next_evidence_artifact": "datasets/feedback/experiment_feedback_plate.local.jsonl"
+    },
+    {
+      "blocker_id": "P43-A007-B001",
+      "action_id": "P43-A007",
+      "workstream": "external_license_review",
+      "failed_check": "license decisions cover all packets",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "datasets/governance/external_license_review_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A007-B002",
+      "action_id": "P43-A007",
+      "workstream": "external_license_review",
+      "failed_check": "license decisions ready for customer delivery",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "datasets/governance/external_license_review_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A008-B001",
+      "action_id": "P43-A008",
+      "workstream": "biosecurity_screening",
+      "failed_check": "biosecurity drafts all decided",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "datasets/governance/biosecurity_screening_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A008-B002",
+      "action_id": "P43-A008",
+      "workstream": "biosecurity_screening",
+      "failed_check": "biosecurity ready for ordering",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "datasets/governance/biosecurity_screening_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A009-B001",
+      "action_id": "P43-A009",
+      "workstream": "sequence_ip_fto",
+      "failed_check": "IP/FTO delivery candidates all decided",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "datasets/governance/sequence_ip_fto_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A009-B002",
+      "action_id": "P43-A009",
+      "workstream": "sequence_ip_fto",
+      "failed_check": "IP/FTO ready for customer delivery",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "datasets/governance/sequence_ip_fto_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A010-B001",
+      "action_id": "P43-A010",
+      "workstream": "workstream_acceptance",
+      "failed_check": "all workstreams human accepted",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "datasets/governance/workstream_acceptance_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A011-B001",
+      "action_id": "P43-A011",
+      "workstream": "operator_review_actions",
+      "failed_check": "all operator actions completed",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "datasets/governance/operator_review_action_decisions.jsonl"
+    },
+    {
+      "blocker_id": "P43-A012-B001",
+      "action_id": "P43-A012",
+      "workstream": "model_claim",
+      "failed_check": "claim promotion decision gate passes",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "reports/claim_readiness_matrix.json"
+    },
+    {
+      "blocker_id": "P43-A012-B002",
+      "action_id": "P43-A012",
+      "workstream": "model_claim",
+      "failed_check": "all canonical claims are dynamically ready",
+      "observed": [
+        "active_learning_experiment_submission",
+        "approved_for_ordering",
+        "biosecurity_screened",
+        "customer_sequence_package",
+        "external_tool_production_use",
+        "five_head_training_run",
+        "ip_fto_cleared",
+        "local_release_review_package",
+        "local_safe_training_pipeline",
+        "model_quality_claim"
+      ],
+      "expected": [],
+      "next_evidence_artifact": "reports/claim_readiness_matrix.json"
+    },
+    {
+      "blocker_id": "P43-A012-B003",
+      "action_id": "P43-A012",
+      "workstream": "model_claim",
+      "failed_check": "promotion policy allows all canonical claims",
+      "observed": false,
+      "expected": true,
+      "next_evidence_artifact": "reports/claim_readiness_matrix.json"
+    },
+    {
+      "blocker_id": "P43-A012-B004",
+      "action_id": "P43-A012",
+      "workstream": "model_claim",
+      "failed_check": "claim matrix has zero blocked claims",
+      "observed": 10,
+      "expected": 0,
+      "next_evidence_artifact": "reports/claim_readiness_matrix.json"
+    }
+  ],
+  "policy": "This blocker matrix is a local evidence-gap index only; it does not write reviewed decisions, grant approvals, unlock claims, download tools, deploy services, sync files, or restart servers."
+}

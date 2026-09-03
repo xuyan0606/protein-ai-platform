@@ -1,0 +1,11 @@
+{"case_id": "positive_current_template", "description": "Current fail-closed template must validate.", "expected_valid": true, "mutations": []}
+{"case_id": "bad_go_recommendation_low_evidence", "description": "Mutated result must be rejected by the fail-closed result validator.", "expected_valid": false, "mutations": ["bad_go_recommendation_low_evidence"]}
+{"case_id": "bad_selected_variant_no_manual_review", "description": "Mutated result must be rejected by the fail-closed result validator.", "expected_valid": false, "mutations": ["bad_selected_variant_no_manual_review"]}
+{"case_id": "bad_training_import_true", "description": "Mutated result must be rejected by the fail-closed result validator.", "expected_valid": false, "mutations": ["bad_training_import_true"]}
+{"case_id": "bad_model_claim_true", "description": "Mutated result must be rejected by the fail-closed result validator.", "expected_valid": false, "mutations": ["bad_model_claim_true"]}
+{"case_id": "bad_release_ready_true", "description": "Mutated result must be rejected by the fail-closed result validator.", "expected_valid": false, "mutations": ["bad_release_ready_true"]}
+{"case_id": "bad_missing_required_forbidden_claim", "description": "Mutated result must be rejected by the fail-closed result validator.", "expected_valid": false, "mutations": ["bad_missing_required_forbidden_claim"]}
+{"case_id": "bad_artifact_refs_empty", "description": "Mutated result must be rejected by the fail-closed result validator.", "expected_valid": false, "mutations": ["bad_artifact_refs_empty"]}
+{"case_id": "bad_manual_review_false", "description": "Mutated result must be rejected by the fail-closed result validator.", "expected_valid": false, "mutations": ["bad_manual_review_false"]}
+{"case_id": "bad_resource_plan_validation_false", "description": "Mutated result must be rejected by the fail-closed result validator.", "expected_valid": false, "mutations": ["bad_resource_plan_validation_false"]}
+{"case_id": "bad_physics_ddg_claim", "description": "Mutated result must be rejected by the fail-closed result validator.", "expected_valid": false, "mutations": ["bad_physics_ddg_claim"]}

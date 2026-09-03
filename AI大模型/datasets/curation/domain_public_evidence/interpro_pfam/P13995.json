@@ -1,0 +1,73 @@
+{
+  "accession": "P13995",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00763",
+        "name": "Tetrahydrofolate dehydrogenase/cyclohydrolase, catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR020630",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p13995",
+          "protein_length": 350,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 40,
+                  "end": 155,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00763",
+              "score": 1.3e-38
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02882",
+        "name": "Tetrahydrofolate dehydrogenase/cyclohydrolase, NAD(P)-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR020631",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p13995",
+          "protein_length": 350,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 174,
+                  "end": 330,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF02882",
+              "score": 2e-50
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

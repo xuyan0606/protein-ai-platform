@@ -1,0 +1,30 @@
+{
+  "completion_ready_rows": 0,
+  "contract_valid": true,
+  "created_at": "2026-09-03T07:33:45.105764+00:00",
+  "expected_packet_rows": 2,
+  "failure_count": 0,
+  "failures": [],
+  "inputs": {
+    "benchmark_acquisition_plan": "datasets/benchmark/benchmark_acquisition_plan.jsonl",
+    "benchmark_score_cache_manifest": "reports/benchmark_score_cache_manifest.json",
+    "benchmark_score_cache_validation_report": "reports/benchmark_score_cache_validation_report.json",
+    "five_head_benchmark_gap_plan_report": "reports/five_head_benchmark_gap_plan_report.json"
+  },
+  "local_only": true,
+  "manifest_update_allowed": false,
+  "markdown": "reports/benchmark_hard_gate_operator_packets.md",
+  "markdown_matches_current_packets": true,
+  "output": "reports/benchmark_hard_gate_operator_packet_validation_report.json",
+  "packet_report": "reports/benchmark_hard_gate_operator_packet_report.json",
+  "packet_rows": 2,
+  "packets": "datasets/governance/benchmark_hard_gate_operator_packets.jsonl",
+  "policy": "Validation only. Passing means the benchmark hard-gate packets are current and fail-closed, not approved.",
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "report_summary_matches_packets": true,
+  "safe_for_model_claim": false,
+  "safe_pipeline_integration_allowed": false,
+  "status": "blocked",
+  "write_benchmark_score_cache_intake_allowed": false
+}

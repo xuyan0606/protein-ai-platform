@@ -1,0 +1,155 @@
+{
+  "accession": "Q92696",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00560",
+        "name": "Leucine Rich Repeat",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR001611",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92696",
+          "protein_length": 567,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 466,
+                  "end": 484,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00560",
+              "score": 730
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01239",
+        "name": "Protein prenyltransferase alpha subunit repeat",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR002088",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92696",
+          "protein_length": 567,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 47,
+                  "end": 76,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01239",
+              "score": 11
+            },
+            {
+              "fragments": [
+                {
+                  "start": 90,
+                  "end": 119,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01239",
+              "score": 0.00056
+            },
+            {
+              "fragments": [
+                {
+                  "start": 125,
+                  "end": 154,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01239",
+              "score": 0.035
+            },
+            {
+              "fragments": [
+                {
+                  "start": 161,
+                  "end": 190,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01239",
+              "score": 2.8e-05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 209,
+                  "end": 238,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01239",
+              "score": 0.00066
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07711",
+        "name": "Rab geranylgeranyl transferase alpha-subunit, insert domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR009087",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92696",
+          "protein_length": 567,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 245,
+                  "end": 345,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07711",
+              "score": 2.9e-43
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

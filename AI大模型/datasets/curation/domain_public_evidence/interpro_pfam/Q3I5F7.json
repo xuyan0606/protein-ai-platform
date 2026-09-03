@@ -1,0 +1,73 @@
+{
+  "accession": "Q3I5F7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04775",
+        "name": "Acyl-CoA thioester hydrolase/BAAT N-terminal region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR006862",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q3i5f7",
+          "protein_length": 421,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 16,
+                  "end": 140,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04775",
+              "score": 6e-33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08840",
+        "name": "BAAT / Acyl-CoA thioester hydrolase C terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014940",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q3i5f7",
+          "protein_length": 421,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 203,
+                  "end": 411,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08840",
+              "score": 4e-84
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

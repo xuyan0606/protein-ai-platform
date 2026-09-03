@@ -1,0 +1,52 @@
+{
+  "local_only": true,
+  "status": "all_local_workstreams_started",
+  "acceptance_gates": "reports/workstream_acceptance_gates.json",
+  "accepted_streams": 0,
+  "total_acceptance_gates": 6,
+  "workstreams": [
+    {
+      "stream": "numbering_curation",
+      "started": true,
+      "artifact": "datasets/curation/numbering_review_worklist.jsonl",
+      "current_rows": 475,
+      "blocked_by": "requires reviewed numbering decisions"
+    },
+    {
+      "stream": "structure_chain_mapping",
+      "started": true,
+      "artifact": "datasets/curation/structure_chain_autoreview_candidates.jsonl",
+      "current_rows": 84,
+      "blocked_by": "auto-review candidates require human acceptance before apply"
+    },
+    {
+      "stream": "msa_conservation",
+      "started": true,
+      "artifact": "datasets/curation/msa_runtime_commands.jsonl",
+      "current_rows": 3,
+      "blocked_by": "mmseqs/docker/trusted cache not ready"
+    },
+    {
+      "stream": "experiment_feedback_plate",
+      "started": true,
+      "artifact": "datasets/feedback/plate_review_packets/feedback_plate_review_priority_001.jsonl",
+      "current_rows": 110,
+      "blocked_by": "requires manual extraction of genuine wet-lab plate/well records"
+    },
+    {
+      "stream": "governance_release",
+      "started": true,
+      "artifact": "reports/local_release_manifest.json",
+      "current_rows": 2746,
+      "blocked_by": "license, IP/FTO, biosecurity, benchmark, and human approval gates"
+    },
+    {
+      "stream": "active_learning",
+      "started": true,
+      "artifact": "reports/active_learning_trial_readiness_report.json",
+      "current_rows": 0,
+      "blocked_by": "no approved model, benchmark, plate feedback, budget, or human approval"
+    }
+  ],
+  "policy": "All streams are started as local artifacts; blocked states are expected and must not be bypassed."
+}

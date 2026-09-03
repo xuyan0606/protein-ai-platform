@@ -1,0 +1,22 @@
+{
+  "source_eval": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/baseline_ranker_eval.json",
+  "model": "0.1.0-linear-baseline",
+  "error_count": 2,
+  "suggestions": [
+    {
+      "type": "increase_positive_feedback_weight",
+      "reason": "A42P has validated go evidence but remains watch",
+      "candidate_weight": "has_prior_go",
+      "current_value": 15.0,
+      "suggested_delta": 8.0
+    },
+    {
+      "type": "soften_near_active_site_penalty",
+      "reason": "D180N near-active-site risk should be watch rather than automatic no_go",
+      "candidate_weight": "risk_near_active_site",
+      "current_value": -20.0,
+      "suggested_delta": 6.0
+    }
+  ],
+  "policy": "suggestions only; do not auto-change production weights"
+}

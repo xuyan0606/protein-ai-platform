@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB Biosecurity Screening Decision",
+  "type": "object",
+  "required": [
+    "screening_request_id",
+    "candidate_id",
+    "screening_state",
+    "synthesis_permission",
+    "screening_provider",
+    "screening_reference",
+    "customer_or_project_approval",
+    "intended_use_statement",
+    "human_reviewer_decision",
+    "reviewer",
+    "reviewed_at",
+    "approved_for_ordering"
+  ],
+  "properties": {
+    "screening_request_id": { "type": "string", "minLength": 1 },
+    "candidate_id": { "type": "string", "minLength": 1 },
+    "screening_state": {
+      "type": "string",
+      "enum": [
+        "screening_required",
+        "screening_pending",
+        "screening_denied",
+        "screening_granted",
+        "manual_exemption_required",
+        "approved_for_ordering"
+      ]
+    },
+    "synthesis_permission": {
+      "type": "string",
+      "enum": ["pending", "denied", "granted", "not_applicable"]
+    },
+    "screening_provider": { "type": "string", "minLength": 1 },
+    "screening_reference": { "type": "string", "minLength": 1 },
+    "customer_or_project_approval": {
+      "type": "string",
+      "enum": ["approved", "denied", "pending", "not_applicable"]
+    },
+    "intended_use_statement": { "type": "string", "minLength": 1 },
+    "human_reviewer_decision": {
+      "type": "string",
+      "enum": ["approved", "rejected", "needs_more_info"]
+    },
+    "reviewer": { "type": "string", "minLength": 1 },
+    "reviewed_at": { "type": "string", "format": "date-time" },
+    "approved_for_ordering": { "type": "boolean" },
+    "conditions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "order_ready_payload_uri": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

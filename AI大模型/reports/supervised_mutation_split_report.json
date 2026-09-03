@@ -1,0 +1,791 @@
+{
+  "rows": 500,
+  "groups": 145,
+  "split_group_counts": {
+    "train": 108,
+    "test": 19,
+    "validation": 18
+  },
+  "split_row_counts": {
+    "train": 373,
+    "test": 67,
+    "validation": 60
+  },
+  "label_distribution_by_split": {
+    "train": {
+      "no_go": 122,
+      "watch": 125,
+      "go": 126
+    },
+    "validation": {
+      "go": 19,
+      "no_go": 16,
+      "watch": 25
+    },
+    "test": {
+      "no_go": 20,
+      "watch": 31,
+      "go": 16
+    }
+  },
+  "group_leakage": [],
+  "assignments": {
+    "uniprot:A1L3X0": "train",
+    "uniprot:A2RUC4": "train",
+    "uniprot:O00329": "train",
+    "uniprot:O00444": "train",
+    "uniprot:O00487": "train",
+    "uniprot:O00506": "train",
+    "uniprot:O00746": "train",
+    "uniprot:O00762": "train",
+    "uniprot:O14744": "train",
+    "uniprot:O14757": "train",
+    "uniprot:O14933": "train",
+    "uniprot:O14939": "train",
+    "uniprot:O15067": "train",
+    "uniprot:O15111": "train",
+    "uniprot:O15269": "train",
+    "uniprot:O15297": "test",
+    "uniprot:O15484": "train",
+    "uniprot:O15488": "train",
+    "uniprot:O15541": "train",
+    "uniprot:O43143": "test",
+    "uniprot:O43323": "validation",
+    "uniprot:O43464": "train",
+    "uniprot:O43598": "train",
+    "uniprot:O43897": "train",
+    "uniprot:O60235": "test",
+    "uniprot:O60264": "train",
+    "uniprot:O60307": "train",
+    "uniprot:O60502": "train",
+    "uniprot:O60678": "train",
+    "uniprot:O60729": "test",
+    "uniprot:O60882": "train",
+    "uniprot:O60930": "train",
+    "uniprot:O75151": "train",
+    "uniprot:O75191": "train",
+    "uniprot:O75319": "validation",
+    "uniprot:O75365": "train",
+    "uniprot:O75390": "train",
+    "uniprot:O75449": "train",
+    "uniprot:O75828": "train",
+    "uniprot:O75884": "train",
+    "uniprot:O75897": "train",
+    "uniprot:O75928": "train",
+    "uniprot:O76039": "train",
+    "uniprot:O76074": "train",
+    "uniprot:O76075": "train",
+    "uniprot:O94762": "train",
+    "uniprot:O94768": "train",
+    "uniprot:O94923": "validation",
+    "uniprot:O95154": "train",
+    "uniprot:O95155": "validation",
+    "uniprot:O95260": "train",
+    "uniprot:O95342": "train",
+    "uniprot:O95361": "train",
+    "uniprot:O95470": "train",
+    "uniprot:O95497": "test",
+    "uniprot:O95544": "train",
+    "uniprot:O95571": "train",
+    "uniprot:O95622": "validation",
+    "uniprot:O95630": "test",
+    "uniprot:O95714": "train",
+    "uniprot:O95835": "train",
+    "uniprot:O95881": "train",
+    "uniprot:P00338": "test",
+    "uniprot:P00374": "train",
+    "uniprot:P00480": "train",
+    "uniprot:P00505": "validation",
+    "uniprot:P00519": "train",
+    "uniprot:P03951": "train",
+    "uniprot:P03956": "train",
+    "uniprot:P04062": "train",
+    "uniprot:P04179": "train",
+    "uniprot:P04180": "validation",
+    "uniprot:P04406": "train",
+    "uniprot:P04626": "train",
+    "uniprot:P05177": "test",
+    "uniprot:P06865": "train",
+    "uniprot:P07384": "train",
+    "uniprot:P07902": "train",
+    "uniprot:P07998": "test",
+    "uniprot:P08253": "train",
+    "uniprot:P08519": "train",
+    "uniprot:P08922": "train",
+    "uniprot:P09467": "test",
+    "uniprot:P09543": "validation",
+    "uniprot:P09769": "train",
+    "uniprot:P09874": "train",
+    "uniprot:P09884": "test",
+    "uniprot:P09936": "train",
+    "uniprot:P0C024": "train",
+    "uniprot:P0C870": "train",
+    "uniprot:P10153": "validation",
+    "uniprot:P10619": "train",
+    "uniprot:P10632": "validation",
+    "uniprot:P10635": "train",
+    "uniprot:P10721": "train",
+    "uniprot:P11233": "train",
+    "uniprot:P11766": "validation",
+    "uniprot:P12694": "train",
+    "uniprot:P13051": "train",
+    "uniprot:P13686": "test",
+    "uniprot:P13716": "train",
+    "uniprot:P14174": "validation",
+    "uniprot:P14550": "train",
+    "uniprot:P14735": "train",
+    "uniprot:P14920": "test",
+    "uniprot:P15104": "train",
+    "uniprot:P15170": "train",
+    "uniprot:P15374": "validation",
+    "uniprot:P15428": "train",
+    "uniprot:P15848": "train",
+    "uniprot:P16234": "validation",
+    "uniprot:P16455": "train",
+    "uniprot:P16591": "train",
+    "uniprot:P16615": "test",
+    "uniprot:P17050": "test",
+    "uniprot:P17252": "train",
+    "uniprot:P17405": "test",
+    "uniprot:P17540": "train",
+    "uniprot:P17643": "train",
+    "uniprot:P17812": "train",
+    "uniprot:P17987": "train",
+    "uniprot:P18074": "train",
+    "uniprot:P18440": "train",
+    "uniprot:P18669": "validation",
+    "uniprot:P18858": "train",
+    "uniprot:P19113": "train",
+    "uniprot:P19367": "train",
+    "uniprot:P19835": "train",
+    "uniprot:P20132": "train",
+    "uniprot:P20338": "train",
+    "uniprot:P20815": "train",
+    "uniprot:P21127": "train",
+    "uniprot:P21128": "validation",
+    "uniprot:P21439": "train",
+    "uniprot:P21589": "validation",
+    "uniprot:P21675": "train",
+    "uniprot:P21709": "train",
+    "uniprot:P21860": "train",
+    "uniprot:P21980": "validation",
+    "uniprot:P22303": "train",
+    "uniprot:P22304": "test",
+    "uniprot:P22455": "train",
+    "uniprot:P22735": "train",
+    "uniprot:P23458": "test",
+    "uniprot:P23468": "test"
+  },
+  "group_label_profiles": {
+    "uniprot:A1L3X0": {
+      "watch": 2
+    },
+    "uniprot:A2RUC4": {
+      "go": 3,
+      "watch": 1
+    },
+    "uniprot:O00329": {
+      "no_go": 2,
+      "watch": 1,
+      "go": 1
+    },
+    "uniprot:O00444": {
+      "go": 2,
+      "no_go": 2
+    },
+    "uniprot:O00487": {
+      "watch": 1,
+      "no_go": 2,
+      "go": 1
+    },
+    "uniprot:O00506": {
+      "go": 1,
+      "no_go": 2,
+      "watch": 1
+    },
+    "uniprot:O00746": {
+      "go": 1,
+      "watch": 1
+    },
+    "uniprot:O00762": {
+      "go": 3,
+      "no_go": 1,
+      "watch": 1
+    },
+    "uniprot:O14744": {
+      "no_go": 2,
+      "go": 1,
+      "watch": 2
+    },
+    "uniprot:O14757": {
+      "no_go": 2
+    },
+    "uniprot:O14933": {
+      "watch": 1,
+      "go": 3,
+      "no_go": 1
+    },
+    "uniprot:O14939": {
+      "watch": 1,
+      "no_go": 1,
+      "go": 1
+    },
+    "uniprot:O15067": {
+      "no_go": 1,
+      "go": 2
+    },
+    "uniprot:O15111": {
+      "no_go": 1,
+      "go": 1
+    },
+    "uniprot:O15269": {
+      "go": 2,
+      "no_go": 1
+    },
+    "uniprot:O15297": {
+      "no_go": 3,
+      "watch": 2
+    },
+    "uniprot:O15484": {
+      "no_go": 1,
+      "go": 1
+    },
+    "uniprot:O15488": {
+      "no_go": 2,
+      "go": 1
+    },
+    "uniprot:O15541": {
+      "watch": 2,
+      "no_go": 1,
+      "go": 1
+    },
+    "uniprot:O43143": {
+      "no_go": 2,
+      "watch": 3
+    },
+    "uniprot:O43323": {
+      "go": 3,
+      "no_go": 2
+    },
+    "uniprot:O43464": {
+      "no_go": 2,
+      "go": 1
+    },
+    "uniprot:O43598": {
+      "watch": 1,
+      "no_go": 2,
+      "go": 1
+    },
+    "uniprot:O43897": {
+      "watch": 3,
+      "no_go": 1,
+      "go": 1
+    },
+    "uniprot:O60235": {
+      "watch": 2
+    },
+    "uniprot:O60264": {
+      "watch": 1,
+      "go": 1,
+      "no_go": 1
+    },
+    "uniprot:O60307": {
+      "watch": 1,
+      "no_go": 1
+    },
+    "uniprot:O60502": {
+      "no_go": 2,
+      "go": 1,
+      "watch": 1
+    },
+    "uniprot:O60678": {
+      "go": 2
+    },
+    "uniprot:O60729": {
+      "watch": 3,
+      "go": 2
+    },
+    "uniprot:O60882": {
+      "no_go": 1,
+      "go": 2
+    },
+    "uniprot:O60930": {
+      "watch": 1,
+      "no_go": 2,
+      "go": 1
+    },
+    "uniprot:O75151": {
+      "watch": 2,
+      "go": 1,
+      "no_go": 1
+    },
+    "uniprot:O75191": {
+      "watch": 1,
+      "go": 1
+    },
+    "uniprot:O75319": {
+      "watch": 2,
+      "no_go": 1,
+      "go": 1
+    },
+    "uniprot:O75365": {
+      "no_go": 1,
+      "watch": 1
+    },
+    "uniprot:O75390": {
+      "go": 1,
+      "no_go": 1
+    },
+    "uniprot:O75449": {
+      "go": 3,
+      "watch": 1
+    },
+    "uniprot:O75828": {
+      "no_go": 1,
+      "go": 1
+    },
+    "uniprot:O75884": {
+      "no_go": 2,
+      "watch": 2
+    },
+    "uniprot:O75897": {
+      "watch": 1,
+      "no_go": 1,
+      "go": 1
+    },
+    "uniprot:O75928": {
+      "no_go": 1,
+      "watch": 1,
+      "go": 1
+    },
+    "uniprot:O76039": {
+      "go": 2,
+      "no_go": 2,
+      "watch": 1
+    },
+    "uniprot:O76074": {
+      "no_go": 1,
+      "go": 1
+    },
+    "uniprot:O76075": {
+      "no_go": 1,
+      "go": 3,
+      "watch": 1
+    },
+    "uniprot:O94762": {
+      "watch": 3
+    },
+    "uniprot:O94768": {
+      "no_go": 2
+    },
+    "uniprot:O94923": {
+      "watch": 1,
+      "go": 1,
+      "no_go": 2
+    },
+    "uniprot:O95154": {
+      "no_go": 1,
+      "go": 2
+    },
+    "uniprot:O95155": {
+      "watch": 4
+    },
+    "uniprot:O95260": {
+      "no_go": 1,
+      "watch": 1
+    },
+    "uniprot:O95342": {
+      "go": 1,
+      "no_go": 1,
+      "watch": 1
+    },
+    "uniprot:O95361": {
+      "no_go": 3,
+      "go": 1,
+      "watch": 1
+    },
+    "uniprot:O95470": {
+      "no_go": 3,
+      "watch": 1
+    },
+    "uniprot:O95497": {
+      "watch": 1,
+      "go": 1
+    },
+    "uniprot:O95544": {
+      "watch": 1,
+      "no_go": 1
+    },
+    "uniprot:O95571": {
+      "go": 1,
+      "no_go": 3,
+      "watch": 1
+    },
+    "uniprot:O95622": {
+      "watch": 3,
+      "go": 1
+    },
+    "uniprot:O95630": {
+      "watch": 1,
+      "no_go": 2
+    },
+    "uniprot:O95714": {
+      "watch": 1,
+      "no_go": 1
+    },
+    "uniprot:O95835": {
+      "go": 2,
+      "no_go": 1,
+      "watch": 1
+    },
+    "uniprot:O95881": {
+      "watch": 3,
+      "no_go": 1
+    },
+    "uniprot:P00338": {
+      "no_go": 1,
+      "watch": 2
+    },
+    "uniprot:P00374": {
+      "watch": 1,
+      "go": 1
+    },
+    "uniprot:P00480": {
+      "go": 1,
+      "watch": 1,
+      "no_go": 1
+    },
+    "uniprot:P00505": {
+      "no_go": 1,
+      "go": 1
+    },
+    "uniprot:P00519": {
+      "go": 2,
+      "watch": 1,
+      "no_go": 1
+    },
+    "uniprot:P03951": {
+      "watch": 4,
+      "go": 1
+    },
+    "uniprot:P03956": {
+      "go": 1,
+      "watch": 2
+    },
+    "uniprot:P04062": {
+      "go": 1,
+      "watch": 2
+    },
+    "uniprot:P04179": {
+      "watch": 1,
+      "go": 1,
+      "no_go": 3
+    },
+    "uniprot:P04180": {
+      "go": 2
+    },
+    "uniprot:P04406": {
+      "watch": 1,
+      "go": 1
+    },
+    "uniprot:P04626": {
+      "go": 3
+    },
+    "uniprot:P05177": {
+      "watch": 2,
+      "no_go": 1,
+      "go": 1
+    },
+    "uniprot:P06865": {
+      "go": 1,
+      "watch": 3,
+      "no_go": 1
+    },
+    "uniprot:P07384": {
+      "go": 2,
+      "no_go": 1
+    },
+    "uniprot:P07902": {
+      "go": 1,
+      "watch": 2
+    },
+    "uniprot:P07998": {
+      "no_go": 1,
+      "go": 1,
+      "watch": 1
+    },
+    "uniprot:P08253": {
+      "go": 2,
+      "watch": 1
+    },
+    "uniprot:P08519": {
+      "watch": 1,
+      "go": 3,
+      "no_go": 1
+    },
+    "uniprot:P08922": {
+      "watch": 2,
+      "no_go": 2,
+      "go": 1
+    },
+    "uniprot:P09467": {
+      "no_go": 2,
+      "watch": 2
+    },
+    "uniprot:P09543": {
+      "watch": 1,
+      "go": 1
+    },
+    "uniprot:P09769": {
+      "go": 3,
+      "watch": 2
+    },
+    "uniprot:P09874": {
+      "no_go": 2,
+      "watch": 3
+    },
+    "uniprot:P09884": {
+      "watch": 2,
+      "no_go": 1,
+      "go": 1
+    },
+    "uniprot:P09936": {
+      "watch": 1,
+      "go": 3
+    },
+    "uniprot:P0C024": {
+      "go": 3,
+      "no_go": 1
+    },
+    "uniprot:P0C870": {
+      "no_go": 2
+    },
+    "uniprot:P10153": {
+      "watch": 1,
+      "go": 1
+    },
+    "uniprot:P10619": {
+      "go": 1,
+      "no_go": 2
+    },
+    "uniprot:P10632": {
+      "no_go": 2,
+      "watch": 1
+    },
+    "uniprot:P10635": {
+      "watch": 1,
+      "no_go": 2
+    },
+    "uniprot:P10721": {
+      "watch": 2
+    },
+    "uniprot:P11233": {
+      "watch": 3
+    },
+    "uniprot:P11766": {
+      "watch": 1,
+      "go": 1
+    },
+    "uniprot:P12694": {
+      "watch": 1,
+      "no_go": 2,
+      "go": 1
+    },
+    "uniprot:P13051": {
+      "go": 2,
+      "watch": 1
+    },
+    "uniprot:P13686": {
+      "go": 1,
+      "no_go": 1
+    },
+    "uniprot:P13716": {
+      "watch": 2,
+      "go": 1,
+      "no_go": 1
+    },
+    "uniprot:P14174": {
+      "watch": 1,
+      "no_go": 1,
+      "go": 1
+    },
+    "uniprot:P14550": {
+      "go": 3,
+      "watch": 2
+    },
+    "uniprot:P14735": {
+      "watch": 2,
+      "no_go": 1,
+      "go": 2
+    },
+    "uniprot:P14920": {
+      "watch": 3
+    },
+    "uniprot:P15104": {
+      "watch": 2,
+      "no_go": 3
+    },
+    "uniprot:P15170": {
+      "watch": 2,
+      "go": 1
+    },
+    "uniprot:P15374": {
+      "watch": 2,
+      "no_go": 3
+    },
+    "uniprot:P15428": {
+      "no_go": 1,
+      "watch": 3,
+      "go": 1
+    },
+    "uniprot:P15848": {
+      "no_go": 1,
+      "go": 2,
+      "watch": 1
+    },
+    "uniprot:P16234": {
+      "go": 2
+    },
+    "uniprot:P16455": {
+      "no_go": 3,
+      "go": 2
+    },
+    "uniprot:P16591": {
+      "go": 2
+    },
+    "uniprot:P16615": {
+      "watch": 2,
+      "go": 3
+    },
+    "uniprot:P17050": {
+      "go": 4
+    },
+    "uniprot:P17252": {
+      "watch": 1,
+      "no_go": 1
+    },
+    "uniprot:P17405": {
+      "no_go": 2,
+      "watch": 1
+    },
+    "uniprot:P17540": {
+      "watch": 1,
+      "no_go": 1
+    },
+    "uniprot:P17643": {
+      "watch": 1,
+      "go": 3,
+      "no_go": 1
+    },
+    "uniprot:P17812": {
+      "watch": 3,
+      "go": 1
+    },
+    "uniprot:P17987": {
+      "go": 3
+    },
+    "uniprot:P18074": {
+      "watch": 1,
+      "go": 1
+    },
+    "uniprot:P18440": {
+      "watch": 1,
+      "no_go": 1
+    },
+    "uniprot:P18669": {
+      "watch": 1,
+      "no_go": 1
+    },
+    "uniprot:P18858": {
+      "no_go": 3,
+      "go": 1
+    },
+    "uniprot:P19113": {
+      "go": 2,
+      "no_go": 1
+    },
+    "uniprot:P19367": {
+      "no_go": 2,
+      "go": 1,
+      "watch": 1
+    },
+    "uniprot:P19835": {
+      "no_go": 3,
+      "watch": 5,
+      "go": 1
+    },
+    "uniprot:P20132": {
+      "no_go": 2,
+      "watch": 2,
+      "go": 1
+    },
+    "uniprot:P20338": {
+      "watch": 1,
+      "no_go": 1,
+      "go": 2
+    },
+    "uniprot:P20815": {
+      "go": 1,
+      "no_go": 1,
+      "watch": 1
+    },
+    "uniprot:P21127": {
+      "watch": 4,
+      "no_go": 1
+    },
+    "uniprot:P21128": {
+      "no_go": 1,
+      "watch": 2,
+      "go": 2
+    },
+    "uniprot:P21439": {
+      "no_go": 2
+    },
+    "uniprot:P21589": {
+      "no_go": 2,
+      "watch": 3
+    },
+    "uniprot:P21675": {
+      "watch": 2
+    },
+    "uniprot:P21709": {
+      "no_go": 2,
+      "go": 1
+    },
+    "uniprot:P21860": {
+      "no_go": 1,
+      "watch": 1
+    },
+    "uniprot:P21980": {
+      "go": 2,
+      "watch": 2
+    },
+    "uniprot:P22303": {
+      "watch": 2,
+      "go": 1,
+      "no_go": 1
+    },
+    "uniprot:P22304": {
+      "go": 1,
+      "no_go": 2
+    },
+    "uniprot:P22455": {
+      "watch": 1,
+      "no_go": 1
+    },
+    "uniprot:P22735": {
+      "no_go": 2,
+      "go": 1
+    },
+    "uniprot:P23458": {
+      "watch": 3,
+      "go": 1,
+      "no_go": 1
+    },
+    "uniprot:P23468": {
+      "no_go": 1,
+      "watch": 1
+    }
+  },
+  "split_rule": "sha256(group_key) with 70/15/15 train/validation/test buckets"
+}

@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "mode": "stage25_post_source_drop_rerun_independent_policy_current_regression",
+  "success": true,
+  "isolated_fixture": true,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_stage25_post_source_drop_rerun_independent_policy_current_regression_20260810.py",
+  "regression_script_sha256": "c07d8d5babcf77d988bcbd2f3f5ab04a2603f91f4ff98bc2e1e99307377e3dee",
+  "case_count": 16,
+  "passed_case_count": 16,
+  "failed_case_count": 0,
+  "real_inputs_mutated": false,
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case": "fixture_control",
+      "passed": true,
+      "policy_returncode": 0,
+      "current_returncode": 0,
+      "failure_count": 0
+    },
+    {
+      "case": "policy_version_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "policy_version_exact",
+      "observed_checks": [
+        "policy_version_exact"
+      ]
+    },
+    {
+      "case": "expected_command_rows_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "command_rows_exact",
+      "observed_checks": [
+        "command_rows_exact"
+      ]
+    },
+    {
+      "case": "expected_command_vector_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "command_vector_sha256_exact",
+      "observed_checks": [
+        "command_vector_sha256_exact"
+      ]
+    },
+    {
+      "case": "observed_builder_vector_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "builder_command_vector_current",
+      "observed_checks": [
+        "builder_command_vector_current"
+      ]
+    },
+    {
+      "case": "observed_receipt_vector_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "receipt_command_vector_current",
+      "observed_checks": [
+        "receipt_command_vector_current"
+      ]
+    },
+    {
+      "case": "recorded_policy_script_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "policy_script_sha256_current",
+      "observed_checks": [
+        "policy_script_sha256_current"
+      ]
+    },
+    {
+      "case": "live_policy_script_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "policy_script_sha256_current",
+      "observed_checks": [
+        "policy_script_sha256_current"
+      ]
+    },
+    {
+      "case": "builder_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "builder_sha256_current",
+      "observed_checks": [
+        "builder_sha256_current"
+      ]
+    },
+    {
+      "case": "validator_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "validator_sha256_current",
+      "observed_checks": [
+        "validator_sha256_current"
+      ]
+    },
+    {
+      "case": "receipt_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "receipt_sha256_current",
+      "observed_checks": [
+        "receipt_sha256_current"
+      ]
+    },
+    {
+      "case": "validation_sha_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "validation_sha256_current",
+      "observed_checks": [
+        "validation_sha256_current"
+      ]
+    },
+    {
+      "case": "policy_output_path_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "policy_output_path_canonical",
+      "observed_checks": [
+        "policy_output_path_canonical"
+      ]
+    },
+    {
+      "case": "policy_lock_path_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "policy_lock_path_canonical",
+      "observed_checks": [
+        "policy_lock_path_canonical"
+      ]
+    },
+    {
+      "case": "policy_atomic_commit_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "policy_atomic_commit",
+      "observed_checks": [
+        "policy_atomic_commit"
+      ]
+    },
+    {
+      "case": "policy_success_drift",
+      "passed": true,
+      "returncode": 1,
+      "expected_check": "policy_success",
+      "observed_checks": [
+        "policy_success"
+      ]
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

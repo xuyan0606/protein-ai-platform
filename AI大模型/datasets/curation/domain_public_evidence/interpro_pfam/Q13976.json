@@ -1,0 +1,119 @@
+{
+  "accession": "Q13976",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00027",
+        "name": "Cyclic nucleotide-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000595",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13976",
+          "protein_length": 671,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 122,
+                  "end": 203,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00027",
+              "score": 6.3e-14
+            },
+            {
+              "fragments": [
+                {
+                  "start": 240,
+                  "end": 325,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00027",
+              "score": 4.6e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00069",
+        "name": "Protein kinase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000719",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13976",
+          "protein_length": 671,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 361,
+                  "end": 619,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00069",
+              "score": 6e-69
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16808",
+        "name": "Coiled-coil N-terminus of cGMP-dependent protein kinase",
+        "source_database": "pfam",
+        "type": "coiled_coil",
+        "integrated": "IPR031831",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13976",
+          "protein_length": 671,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 10,
+                  "end": 44,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16808",
+              "score": 1.5e-11
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

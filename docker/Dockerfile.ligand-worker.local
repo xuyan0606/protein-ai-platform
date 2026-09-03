@@ -1,0 +1,31 @@
+# syntax=docker/dockerfile:1.6
+# Local ligand runtime overlay.
+#
+# This avoids pulling python:3.12-slim when Docker Hub is unavailable. It starts
+# from the already-built backend image and adds the missing ligand toolchain.
+
+FROM docker-backend:latest
+
+USER root
+ENV DEBIAN_FRONTEND=noninteractive
+ENV GROMACS_BIN="gmx"
+ENV GMX_MAXBACKUP="-1"
+ENV LIGAND_RUNTIME_BOUNDARY="ligand_worker_only"
+ENV LIGAND_RUNTIME_CHECK="/usr/local/bin/ligand-runtime-check"
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        ca-certificates \
+        openbabel \
+        autodock-vina \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir acpype rdkit
+
+COPY docker/ligand-runtime-check.py /usr/local/bin/ligand-runtime-check
+
+RUN chmod +x /usr/local/bin/ligand-runtime-check \
+    && ligand-runtime-check
+
+USER appuser
+CMD ["celery", "-A", "app.services.scheduler", "worker", "--loglevel=info", "--queues=ligand_cpu", "--concurrency=1"]

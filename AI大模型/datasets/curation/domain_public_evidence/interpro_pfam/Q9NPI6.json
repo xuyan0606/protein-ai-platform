@@ -1,0 +1,73 @@
+{
+  "accession": "Q9NPI6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF06058",
+        "name": "Dcp1-like decapping family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR010334",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9npi6",
+          "protein_length": 582,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 9,
+                  "end": 123,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF06058",
+              "score": 3.3e-39
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16741",
+        "name": "mRNA-decapping enzyme C-terminus",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR031953",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9npi6",
+          "protein_length": 582,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 541,
+                  "end": 581,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16741",
+              "score": 8.9e-16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "schema_version": 2,
+  "mode": "stage25-operator-docs-dynamic-status-sync-regression-v2",
+  "created_at": "2026-09-03T07:34:51.057169+00:00",
+  "success": true,
+  "isolated_fixture": true,
+  "case_rows": 13,
+  "passed_rows": 13,
+  "failed_rows": 0,
+  "real_inputs_mutated": false,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_stage25_operator_docs_dynamic_status_sync_regression.py",
+  "regression_script_sha256": "f8e7294a3462153eb2e49e8fbc8da8733b2c12ada93e65bf57953633159f69f1",
+  "sync_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/sync_stage25_operator_docs_dynamic_status.py",
+  "sync_script_sha256": "c3cdc29dbf4a031fb47844bd97cbf77d72d09ae42a5623df4aee202cb1790337",
+  "proof_io_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/stage25_operator_docs_sync_regression_proof_io.py",
+  "proof_io_sha256": "6da6410e0574680638e289bf2fe741b23e730ce31b78ad9b38064b589df8f4b1",
+  "output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_operator_docs_dynamic_status_sync_regression_report.json",
+  "lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.stage25_operator_docs_sync_regression_proof.lock",
+  "lock_acquired": true,
+  "atomic_commit": true,
+  "results": [
+    {
+      "case_id": "backlog-open-items-string_rejected",
+      "tamper_rejected": true,
+      "expected_check": "human_backlog_rows_valid",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "backlog-open-items-boolean_rejected",
+      "tamper_rejected": true,
+      "expected_check": "human_backlog_rows_valid",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "backlog-open-items-negative_rejected",
+      "tamper_rejected": true,
+      "expected_check": "human_backlog_rows_valid",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "stale_check_rejected",
+      "tamper_rejected": true,
+      "expected_check": "documents_current",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "missing_marker_rejected",
+      "tamper_rejected": true,
+      "expected_check": "marker_exactly_once",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "duplicate_marker_rejected",
+      "tamper_rejected": true,
+      "expected_check": "marker_exactly_once",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "cross_document_failure_no_partial_write",
+      "tamper_rejected": true,
+      "expected_check": "no_partial_write",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "commit_failure_rolls_back_all_docs",
+      "tamper_rejected": true,
+      "expected_check": "document_transaction_commit",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "concurrent_edit_preserved",
+      "tamper_rejected": true,
+      "expected_check": "document_changed_after_plan",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "lock_contention_rejected",
+      "tamper_rejected": true,
+      "expected_check": "sync_lock_acquired",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "receipt_failure_preserves_prior_state",
+      "tamper_rejected": true,
+      "expected_check": "atomic_receipt_or_rollback",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "receipt_commit_remains_under_lock",
+      "tamper_rejected": true,
+      "expected_check": "sync_lock_acquired",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "apply_repairs_only_targets",
+      "tamper_rejected": true,
+      "expected_check": "target_only_repair",
+      "expected_check_observed": true
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Regression edits temporary Markdown copies only; canonical operator documents remain unchanged."
+}

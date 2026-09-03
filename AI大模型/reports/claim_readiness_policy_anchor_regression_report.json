@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "mode": "claim_readiness_policy_anchor_regression",
+  "created_at": "2026-09-03T07:35:24.483733+00:00",
+  "local_only": true,
+  "success": true,
+  "case_count": 8,
+  "passed_case_count": 8,
+  "failed_rows": 0,
+  "isolated_in_memory": true,
+  "real_inputs_mutated": false,
+  "cases": [
+    {
+      "case": "control_valid",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case": "policy_version_drift",
+      "passed": true,
+      "expected_check": "policy_version_exact",
+      "observed_checks": [
+        "canonical_policy_sha256_exact",
+        "policy_version_exact"
+      ]
+    },
+    {
+      "case": "claim_set_expanded",
+      "passed": true,
+      "expected_check": "canonical_claim_ids_exact",
+      "observed_checks": [
+        "canonical_claim_ids_exact",
+        "canonical_policy_sha256_exact"
+      ]
+    },
+    {
+      "case": "claim_set_removed",
+      "passed": true,
+      "expected_check": "canonical_claim_ids_exact",
+      "observed_checks": [
+        "canonical_claim_ids_exact",
+        "canonical_policy_sha256_exact"
+      ]
+    },
+    {
+      "case": "must_allow_set_drift",
+      "passed": true,
+      "expected_check": "must_allow_internal_claim_ids_exact",
+      "observed_checks": [
+        "canonical_policy_sha256_exact",
+        "must_allow_internal_claim_ids_exact"
+      ]
+    },
+    {
+      "case": "conditional_set_drift",
+      "passed": true,
+      "expected_check": "conditional_internal_claim_ids_exact",
+      "observed_checks": [
+        "canonical_policy_sha256_exact",
+        "conditional_internal_claim_ids_exact"
+      ]
+    },
+    {
+      "case": "blocked_set_drift",
+      "passed": true,
+      "expected_check": "blocked_claim_ids_exact",
+      "observed_checks": [
+        "blocked_claim_ids_exact",
+        "canonical_policy_sha256_exact"
+      ]
+    },
+    {
+      "case": "test_vector_drift",
+      "passed": true,
+      "expected_check": "test_vector_sha256_exact",
+      "observed_checks": [
+        "test_vector_sha256_exact"
+      ]
+    }
+  ],
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_claim_readiness_policy_anchor_regression.py",
+  "regression_script_sha256": "dac52a1f14f7e9875ae8c8b92357637dc64d6e8ea9187f25107c40ba59e10e2b",
+  "anchor_validator_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_claim_readiness_policy_anchor.py",
+  "anchor_validator_sha256": "79ba07ac183d13f8ebdc2f056a4833a4344e90f3275494f0376ae6b294de050c",
+  "output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/claim_readiness_policy_anchor_regression_report.json",
+  "lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.claim_readiness_policy_anchor_regression.lock",
+  "lock_acquired": true,
+  "atomic_commit": true,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "In-memory drift regression only; canonical policy files remain unchanged."
+}

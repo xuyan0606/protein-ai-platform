@@ -1,0 +1,85 @@
+{
+  "accession": "P78563",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00035",
+        "name": "Double-stranded RNA binding motif",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014720",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p78563",
+          "protein_length": 741,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 79,
+                  "end": 140,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00035",
+              "score": 7.3e-10
+            },
+            {
+              "fragments": [
+                {
+                  "start": 244,
+                  "end": 294,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00035",
+              "score": 3.8e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02137",
+        "name": "Adenosine-deaminase (editase) domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002466",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p78563",
+          "protein_length": 741,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 370,
+                  "end": 731,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02137",
+              "score": 8.3e-111
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

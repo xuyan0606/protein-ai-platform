@@ -1,0 +1,73 @@
+{
+  "accession": "Q9BZQ6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01532",
+        "name": "Glycosyl hydrolase family 47",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR001382",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bzq6",
+          "protein_length": 932,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 59,
+                  "end": 497,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01532",
+              "score": 9.3e-119
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02225",
+        "name": "PA domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003137",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bzq6",
+          "protein_length": 932,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 685,
+                  "end": 773,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02225",
+              "score": 3.2e-15
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-09-03T07:34:01.777068+00:00",
+  "local_only": true,
+  "audit_rows": 11,
+  "blocked_claim_rows": 10,
+  "summary_audit_rows": 1,
+  "claims_allowed": 1,
+  "claims_blocked": 10,
+  "allowed_claim_ids": [
+    "internal_design_review_artifacts"
+  ],
+  "blocked_claim_ids": [
+    "local_safe_training_pipeline",
+    "model_quality_claim",
+    "five_head_training_run",
+    "active_learning_experiment_submission",
+    "customer_sequence_package",
+    "approved_for_ordering",
+    "ip_fto_cleared",
+    "biosecurity_screened",
+    "external_tool_production_use",
+    "local_release_review_package"
+  ],
+  "policy_success": true,
+  "policy_failure_count": 0,
+  "policy_current_success": true,
+  "policy_current_failure_count": 0,
+  "policy_current_regression_success": true,
+  "policy_current_regression_failed_rows": 0,
+  "local_release_ready": false,
+  "customer_delivery_ready_source": false,
+  "master_overall_status": "blocked_for_model_claim",
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "customer_delivery_ready": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "audit_jsonl": "datasets/governance/p480_claim_readiness_blocker_gap_audit.jsonl",
+  "policy": "P480 audit only. Blocked claim rows remain fail-closed until explicit source requirements and promotion decisions pass."
+}

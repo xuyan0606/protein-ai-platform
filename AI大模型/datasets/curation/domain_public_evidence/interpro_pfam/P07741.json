@@ -1,0 +1,39 @@
+{
+  "accession": "P07741",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00156",
+        "name": "Phosphoribosyl transferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000836",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07741",
+          "protein_length": 180,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 33,
+                  "end": 158,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00156",
+              "score": 1.6e-17
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

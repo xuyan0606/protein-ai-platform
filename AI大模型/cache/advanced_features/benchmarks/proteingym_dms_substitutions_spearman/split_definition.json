@@ -1,0 +1,18 @@
+{
+  "aggregation_policy": "Use ProteinGym-published DMS-level scores; no KWB training split is created.",
+  "benchmark_name": "ProteinGym",
+  "created_at": "2026-09-03T07:33:45.739637+00:00",
+  "dataset_level": "DMS_level",
+  "dataset_source": "cache/external/ProteinGym/benchmarks/DMS_zero_shot/substitutions/Spearman/DMS_substitutions_Spearman_DMS_level.csv",
+  "dataset_source_sha256": "f432423b87f79ac9778dfac86e3d95be041d246bc618dc0a406b35b0b7466437",
+  "evaluation_only": true,
+  "head": "mutation_rank",
+  "leakage_check_status": "passed",
+  "leakage_policy": "External benchmark score table is evaluation-only and excluded from KWB training/import paths.",
+  "model_claim_allowed": false,
+  "rows": 217,
+  "source_benchmark": "ProteinGym DMS substitutions zero-shot Spearman",
+  "summary_source": "cache/external/ProteinGym/benchmarks/DMS_zero_shot/substitutions/Spearman/Summary_performance_DMS_substitutions_Spearman.csv",
+  "summary_source_sha256": "ee61a7c09efbfbd8d9a6c9355092c798032a578fa58c6f6256b5da8778555fd4",
+  "training_import_allowed": false
+}

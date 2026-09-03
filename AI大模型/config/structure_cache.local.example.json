@@ -1,0 +1,20 @@
+{
+  "local_only": true,
+  "cache_roots": [
+    {
+      "name": "project_pdb_cache",
+      "path": "../pdb",
+      "read_only": true
+    },
+    {
+      "name": "project_alphafold_cache",
+      "path": "../alphafold",
+      "read_only": true
+    }
+  ],
+  "notes": [
+    "This is a local-only example. Do not store credentials here.",
+    "Populate the cache manually or via an approved offline process.",
+    "Run scripts/audit_structure_cache.py after materializing files."
+  ]
+}

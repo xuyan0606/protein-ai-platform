@@ -1,0 +1,187 @@
+{
+  "component": "deploy_data",
+  "status": "completed",
+  "version": "20260718T032158Z",
+  "updated_at": "2026-07-18T03:21:58.711974+00:00",
+  "started_at": "2026-07-18T03:19:47.993948+00:00",
+  "duration_seconds": 130.72,
+  "manifest": "/Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data/live_manifest.json",
+  "deploy_root": "/Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data",
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "scripts/refresh_live_deploy_data.py",
+    "--manifest",
+    "/Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data/live_manifest.json",
+    "--deploy-root",
+    "/Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data"
+  ],
+  "returncode": 0,
+  "stdout_tail": [
+    "deploy_data_root\tready\t/Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data",
+    "annotations\tready\t5 files: base.json, interpro.json, mcsa.json, ... (+2 more)",
+    "sifts\tready\t7 files: 1abc.json, 1bag.json, 1bli.json, ... (+4 more)",
+    "pdb\tready\t8 files: 1BAG.cif, 1BLI.cif, 1QHO.cif, ... (+5 more)",
+    "alphafold\tready\t5 files: AF-I3P686-F1-model_v6.cif, AF-P00691-F1-model_v6.cif, AF-P00692-F1-model_v6.cif, ... (+2 more)",
+    "foldseek\tready\tpdb=23 files: protein_ai_pdb, ... (+22 more); alphafold=23 files: protein_ai_alphafold, ... (+22 more)",
+    "smoke_query\tready\tquery.pdb (229484 bytes)",
+    "version_comparison\tcurrent\tmanifest=2026-07-06-alpha-amylase-seed; components=annotations:5:2026-07-18T03:21:53.125338+00:00, sifts:7:2026-07-18T03:20:05.155277+00:00, pdb:8:2026-07-18T03:19:57.394114+00:00, alphafold:5:2026-07-18T03:20:38.956505+00:00, foldseek:47:2026-07-18T03:21:58.438972+00:00, smoke_query:1:2026-07-06T01:52:16.181604+00:00",
+    "dry_run\tplanned\tNo downloads or writes performed. Missing/not-ready components: none",
+    "summary\tlive-data-ready\tNext: cd backend && .venv/bin/python scripts/structure_smoke_readiness.py",
+    "$ /opt/homebrew/opt/python@3.14/bin/python3.14 scripts/download_rcsb_structures.py --ids 3BH4,1QHP,1QHO,1BLI,6TOY,1BAG --format cif --output /Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data/pdb",
+    "$ /opt/homebrew/opt/python@3.14/bin/python3.14 scripts/download_sifts_mappings.py --ids 3BH4,1QHP,1QHO,1BLI,6TOY,1BAG --output /Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data/sifts",
+    "$ /opt/homebrew/opt/python@3.14/bin/python3.14 scripts/download_alphafold_models.py --ids P00692,P19531,P00691,P06278,I3P686 --structure-format cif --output /Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data/alphafold --with-pae-json",
+    "$ /opt/homebrew/opt/python@3.14/bin/python3.14 scripts/download_real_annotations.py --ids P00692,P19531,P00691,P06278,I3P686 --output /Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data/annotations",
+    "$ /opt/homebrew/opt/python@3.14/bin/python3.14 scripts/build_foldseek_db.py --kind pdb --deploy-root /Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data",
+    "$ /opt/homebrew/opt/python@3.14/bin/python3.14 scripts/build_foldseek_db.py --kind alphafold --deploy-root /Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data",
+    "$ /opt/homebrew/opt/python@3.14/bin/python3.14 scripts/materialize_foldseek_links.py --root /Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data/foldseek",
+    "$ /opt/homebrew/opt/python@3.14/bin/python3.14 scripts/write_deploy_env.py --deploy-root /Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data",
+    "$ /opt/homebrew/opt/python@3.14/bin/python3.14 scripts/check_deploy_data.py --root /Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data",
+    "Refresh complete."
+  ],
+  "stderr_tail": [],
+  "readiness": [
+    {
+      "label": "deploy_data_root",
+      "status": "ready",
+      "detail": "/Users/xuyan/\u79d1\u4e3a\u535a/05\u81ea\u52a8\u5316\u7a0b\u5e8f/04\u7814\u53d1\u5de5\u4f5c\u533a/\u9176\u86cb\u767dAI\u5e73\u53f0/deploy_data",
+      "expected_count": null,
+      "actual_count": null,
+      "missing_items": [],
+      "next_actions": [],
+      "version": null,
+      "updated_at": null,
+      "planned_commands": []
+    },
+    {
+      "label": "annotations",
+      "status": "ready",
+      "detail": "5 files: base.json, interpro.json, mcsa.json, ... (+2 more)",
+      "expected_count": 5,
+      "actual_count": 5,
+      "missing_items": [],
+      "next_actions": [],
+      "version": "2026-07-06-alpha-amylase-seed",
+      "updated_at": "2026-07-18T03:21:53.125338+00:00",
+      "planned_commands": [
+        "python3 scripts/download_real_annotations.py --ids P00692,P19531,P00691,P06278,I3P686 --output deploy_data/annotations"
+      ]
+    },
+    {
+      "label": "sifts",
+      "status": "ready",
+      "detail": "7 files: 1abc.json, 1bag.json, 1bli.json, ... (+4 more)",
+      "expected_count": 6,
+      "actual_count": 7,
+      "missing_items": [],
+      "next_actions": [],
+      "version": "2026-07-06-alpha-amylase-seed",
+      "updated_at": "2026-07-18T03:20:05.155277+00:00",
+      "planned_commands": [
+        "python3 scripts/download_sifts_mappings.py --ids 3BH4,1QHP,1QHO,1BLI,6TOY,1BAG --output deploy_data/sifts"
+      ]
+    },
+    {
+      "label": "pdb",
+      "status": "ready",
+      "detail": "8 files: 1BAG.cif, 1BLI.cif, 1QHO.cif, ... (+5 more)",
+      "expected_count": 6,
+      "actual_count": 8,
+      "missing_items": [],
+      "next_actions": [],
+      "version": "2026-07-06-alpha-amylase-seed",
+      "updated_at": "2026-07-18T03:19:57.394114+00:00",
+      "planned_commands": [
+        "python3 scripts/download_rcsb_structures.py --ids 3BH4,1QHP,1QHO,1BLI,6TOY,1BAG --format cif --output deploy_data/pdb"
+      ]
+    },
+    {
+      "label": "alphafold",
+      "status": "ready",
+      "detail": "5 files: AF-I3P686-F1-model_v6.cif, AF-P00691-F1-model_v6.cif, AF-P00692-F1-model_v6.cif, ... (+2 more)",
+      "expected_count": 5,
+      "actual_count": 5,
+      "missing_items": [],
+      "next_actions": [],
+      "version": "2026-07-06-alpha-amylase-seed",
+      "updated_at": "2026-07-18T03:20:38.956505+00:00",
+      "planned_commands": [
+        "python3 scripts/download_alphafold_models.py --ids P00692,P19531,P00691,P06278,I3P686 --structure-format cif --with-pae-json --output deploy_data/alphafold"
+      ]
+    },
+    {
+      "label": "foldseek",
+      "status": "ready",
+      "detail": "pdb=23 files: protein_ai_pdb, ... (+22 more); alphafold=23 files: protein_ai_alphafold, ... (+22 more)",
+      "expected_count": null,
+      "actual_count": 47,
+      "missing_items": [],
+      "next_actions": [],
+      "version": "2026-07-06-alpha-amylase-seed",
+      "updated_at": "2026-07-18T03:21:58.438972+00:00",
+      "planned_commands": [
+        "python3 scripts/build_foldseek_db.py --kind pdb --deploy-root deploy_data",
+        "python3 scripts/build_foldseek_db.py --kind alphafold --deploy-root deploy_data",
+        "python3 scripts/materialize_foldseek_links.py --root deploy_data/foldseek --dry-run"
+      ]
+    },
+    {
+      "label": "smoke_query",
+      "status": "ready",
+      "detail": "query.pdb (229484 bytes)",
+      "expected_count": null,
+      "actual_count": 1,
+      "missing_items": [],
+      "next_actions": [],
+      "version": "2026-07-06-alpha-amylase-seed",
+      "updated_at": "2026-07-06T01:52:16.181604+00:00",
+      "planned_commands": [
+        "cp <representative-query.pdb> deploy_data/smoke/query.pdb"
+      ]
+    },
+    {
+      "label": "version_comparison",
+      "status": "current",
+      "detail": "manifest=2026-07-06-alpha-amylase-seed; components=annotations:5:2026-07-18T03:21:53.125338+00:00, sifts:7:2026-07-18T03:20:05.155277+00:00, pdb:8:2026-07-18T03:19:57.394114+00:00, alphafold:5:2026-07-18T03:20:38.956505+00:00, foldseek:47:2026-07-18T03:21:58.438972+00:00, smoke_query:1:2026-07-06T01:52:16.181604+00:00",
+      "expected_count": null,
+      "actual_count": null,
+      "missing_items": [],
+      "next_actions": [],
+      "version": "2026-07-06-alpha-amylase-seed",
+      "updated_at": "2026-07-06",
+      "planned_commands": []
+    },
+    {
+      "label": "dry_run",
+      "status": "planned",
+      "detail": "No downloads or writes performed. Missing/not-ready components: none",
+      "expected_count": null,
+      "actual_count": null,
+      "missing_items": [],
+      "next_actions": [],
+      "version": "2026-07-06-alpha-amylase-seed",
+      "updated_at": null,
+      "planned_commands": [
+        "python3 scripts/download_real_annotations.py --ids P00692,P19531,P00691,P06278,I3P686 --output deploy_data/annotations",
+        "python3 scripts/download_sifts_mappings.py --ids 3BH4,1QHP,1QHO,1BLI,6TOY,1BAG --output deploy_data/sifts",
+        "python3 scripts/download_rcsb_structures.py --ids 3BH4,1QHP,1QHO,1BLI,6TOY,1BAG --format cif --output deploy_data/pdb",
+        "python3 scripts/download_alphafold_models.py --ids P00692,P19531,P00691,P06278,I3P686 --structure-format cif --with-pae-json --output deploy_data/alphafold",
+        "python3 scripts/build_foldseek_db.py --kind pdb --deploy-root deploy_data",
+        "python3 scripts/build_foldseek_db.py --kind alphafold --deploy-root deploy_data",
+        "python3 scripts/materialize_foldseek_links.py --root deploy_data/foldseek --dry-run",
+        "cp <representative-query.pdb> deploy_data/smoke/query.pdb"
+      ]
+    },
+    {
+      "label": "summary",
+      "status": "live-data-ready",
+      "detail": "Next: cd backend && .venv/bin/python scripts/structure_smoke_readiness.py",
+      "expected_count": null,
+      "actual_count": null,
+      "missing_items": [],
+      "next_actions": [],
+      "version": null,
+      "updated_at": null,
+      "planned_commands": []
+    }
+  ]
+}

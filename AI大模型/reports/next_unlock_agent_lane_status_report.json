@@ -1,0 +1,27 @@
+{
+  "created_at": "2026-09-03T07:34:02.648736+00:00",
+  "local_only": true,
+  "online_deployment": false,
+  "source_launch_status": "datasets/governance/next_unlock_multi_agent_launch_status.jsonl",
+  "jsonl": "datasets/governance/next_unlock_agent_lane_status.jsonl",
+  "lane_rows": 4,
+  "started_blocked_lanes": 4,
+  "invalid_lanes": 0,
+  "lanes_with_completion_ready_items": 0,
+  "total_launch_items": 8,
+  "validated_launch_items": 8,
+  "invalid_launch_items": 0,
+  "started_items": 8,
+  "completion_ready_items": 0,
+  "requires_human_input_items": 8,
+  "lane_order": [
+    "acceptance_claim_agent",
+    "governance_agent",
+    "msa_feedback_agent",
+    "sequence_data_agent"
+  ],
+  "lane_status_counts": {
+    "lane_started_blocked": 4
+  },
+  "policy": "This report summarizes local agent-lane coordination only. It does not create reviewed decisions, grant approvals, unlock claims, deploy online services, sync files, or restart servers."
+}

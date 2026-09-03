@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB Structure Chain Mapping Decision",
+  "type": "object",
+  "required": [
+    "structure_id",
+    "decision",
+    "canonical_uniprot_id",
+    "selected_chain_id",
+    "sequence_to_structure_mapping_status",
+    "residue_numbering_basis",
+    "missing_residue_ranges",
+    "source_refs",
+    "confidence",
+    "curator",
+    "curated_at"
+  ],
+  "properties": {
+    "structure_id": { "type": "string", "minLength": 4 },
+    "decision": {
+      "type": "string",
+      "enum": ["set_chain_mapping", "keep_unreviewed", "reject_structure"]
+    },
+    "canonical_uniprot_id": { "type": ["string", "null"] },
+    "selected_chain_id": { "type": ["string", "null"] },
+    "sequence_to_structure_mapping_status": {
+      "type": "string",
+      "enum": [
+        "exact_sequence_match",
+        "reviewed_with_missing_residues",
+        "reviewed_with_construct_or_tags",
+        "manual_alignment_reviewed",
+        "unreviewed",
+        "rejected"
+      ]
+    },
+    "residue_numbering_basis": {
+      "type": "string",
+      "enum": [
+        "sifts_uniprot_mapping",
+        "pdb_label_seq_id",
+        "pdb_author_numbering",
+        "manual_alignment",
+        "unreviewed",
+        "rejected"
+      ]
+    },
+    "missing_residue_ranges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["start_pos", "end_pos", "basis"],
+        "properties": {
+          "start_pos": { "type": "integer", "minimum": 1 },
+          "end_pos": { "type": "integer", "minimum": 1 },
+          "basis": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string" }
+    },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "notes": { "type": "string" },
+    "curator": { "type": "string" },
+    "curated_at": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

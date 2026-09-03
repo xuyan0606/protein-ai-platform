@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB Human-Approved Active Learning Trial",
+  "type": "object",
+  "required": [
+    "candidate_id",
+    "model_version",
+    "training_data_version",
+    "objective_vector",
+    "uncertainty",
+    "plate_plan_id",
+    "human_approval_status",
+    "budget_note",
+    "created_at"
+  ],
+  "properties": {
+    "candidate_id": { "type": "string", "minLength": 1 },
+    "model_version": { "type": "string", "minLength": 1 },
+    "training_data_version": { "type": "string", "minLength": 1 },
+    "objective_vector": {
+      "type": "object",
+      "additionalProperties": { "type": ["number", "null"] }
+    },
+    "uncertainty": { "type": "number", "minimum": 0 },
+    "plate_plan_id": { "type": ["string", "null"] },
+    "human_approval_status": {
+      "type": "string",
+      "enum": ["not_requested", "pending", "approved", "rejected"]
+    },
+    "budget_note": { "type": "string" },
+    "allowed_next_state": {
+      "type": "string",
+      "enum": ["design_candidate", "experiment_candidate", "blocked"]
+    },
+    "created_at": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

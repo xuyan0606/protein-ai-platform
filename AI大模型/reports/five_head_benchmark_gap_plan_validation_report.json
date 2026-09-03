@@ -1,0 +1,26 @@
+{
+  "action_rows": 5,
+  "cache_validated_benchmarks": 13,
+  "checked_actions": "datasets/governance/five_head_benchmark_gap_actions.jsonl",
+  "checked_markdown": "reports/five_head_benchmark_gap_plan.md",
+  "checked_report": "reports/five_head_benchmark_gap_plan_report.json",
+  "created_at": "2026-09-03T07:33:53.794287+00:00",
+  "expected_heads": [
+    "mutation_rank",
+    "stability",
+    "activity_risk",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "failure_count": 0,
+  "failures": [],
+  "heads_with_complete_scorecards": 3,
+  "local_only": true,
+  "policy": "Fail-closed validation for five-head benchmark gap planning. The validated artifact remains planning evidence only; it does not approve benchmarks, write labels, run training, open model claims, or grant release readiness.",
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "required_benchmarks": 15,
+  "safe_for_model_claim": false,
+  "source_report_consistent": true,
+  "success": true
+}

@@ -1,0 +1,165 @@
+{
+  "accession": "Q05823",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00069",
+        "name": "Protein kinase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000719",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q05823",
+          "protein_length": 741,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 387,
+                  "end": 512,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00069",
+              "score": 1e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF06479",
+        "name": "Ribonuclease 2-5A",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR010513",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q05823",
+          "protein_length": 741,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 592,
+                  "end": 719,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF06479",
+              "score": 8.8e-24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12796",
+        "name": "Ankyrin repeats (3 copies)",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR002110",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q05823",
+          "protein_length": 741,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 27,
+                  "end": 87,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12796",
+              "score": 2.5e-07
+            },
+            {
+              "fragments": [
+                {
+                  "start": 89,
+                  "end": 154,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12796",
+              "score": 3.3e-07
+            },
+            {
+              "fragments": [
+                {
+                  "start": 218,
+                  "end": 300,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12796",
+              "score": 6.6e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13857",
+        "name": "Ankyrin repeats (many copies)",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR002110",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q05823",
+          "protein_length": 741,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 159,
+                  "end": 209,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13857",
+              "score": 4.5e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

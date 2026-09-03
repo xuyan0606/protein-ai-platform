@@ -1,0 +1,144 @@
+{
+  "case_id": "kwb-demo-lipase-thermostability-001",
+  "project_id": "local-demo",
+  "case_type": "multi_objective",
+  "objective": {
+    "primary_goal": "increase thermostability",
+    "secondary_goals": [
+      "preserve hydrolytic activity",
+      "avoid catalytic residue mutation"
+    ],
+    "constraints": [
+      "activity_relative_to_wt >= 0.8",
+      "do not mutate catalytic triad",
+      "prefer single-site candidates before combinations"
+    ],
+    "success_metric": "Tm increase >= 3C and activity_relative_to_wt >= 0.8"
+  },
+  "enzyme": {
+    "name": "KWB demo lipase",
+    "family": "lipase",
+    "ec_number": "3.1.1.3",
+    "organism": "demo organism",
+    "uniprot_id": "DEMO0001",
+    "sequence": "MSTNPKPQRKTKRNTNRRPQDVKFPGGGQIVGGYKVVGQLVGEDNINVVEGNEQFISASKSIVHPSYNSNTLNNDIMLIKLAQKVGLVQ",
+    "sequence_md5": "demo-sequence-md5",
+    "numbering_system": "sequence_1_indexed"
+  },
+  "structure": {
+    "source_type": "uploaded_pdb",
+    "object_name": "uploads/demo/demo_lipase.pdb",
+    "pdb_id": null,
+    "chain_id": "A",
+    "confidence": null,
+    "numbering_verified": true,
+    "residue_mapping_ref": "local-demo-sifts-map",
+    "quality_flags": []
+  },
+  "substrate": {
+    "name": "p-nitrophenyl palmitate",
+    "smiles": "CCCCCCCCCCCCCCCC(=O)Oc1ccc([N+](=O)[O-])cc1",
+    "sdf_object": "uploads/demo/pnp_palmitate.sdf",
+    "reaction": "ester hydrolysis",
+    "pocket_residues": [42, 78, 129, 153]
+  },
+  "assay_condition": {
+    "ph": 7.5,
+    "temperature_c": 55,
+    "buffer": "phosphate buffer",
+    "expression_system": "Pichia pastoris",
+    "assay_method": "pNP release",
+    "replicates": 3
+  },
+  "mutations": [
+    {
+      "code": "A42P",
+      "position": 42,
+      "wild_type": "A",
+      "mutant": "P",
+      "source": "candidate",
+      "status": "untested",
+      "rationale": "loop rigidification candidate away from catalytic triad",
+      "risk_flags": ["near_pocket"]
+    },
+    {
+      "code": "S153A",
+      "position": 153,
+      "wild_type": "S",
+      "mutant": "A",
+      "source": "literature",
+      "status": "no_go",
+      "rationale": "protected catalytic residue",
+      "risk_flags": ["protected_catalytic"]
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "kwb-private-demo-001",
+      "source": "kwb_private",
+      "source_ref": "demo-record",
+      "evidence_type": "experimental",
+      "summary": "Similar lipase loop proline mutation improved thermal half-life while preserving activity in a prior internal assay.",
+      "confidence": 0.78
+    },
+    {
+      "evidence_id": "tool-catalytic-demo-001",
+      "source": "tool",
+      "source_ref": "catalytic_site_lookup:demo",
+      "evidence_type": "predicted",
+      "summary": "Position 153 is marked as catalytic or adjacent to catalytic machinery and should be protected.",
+      "confidence": 0.82
+    }
+  ],
+  "tool_results": [
+    {
+      "tool_name": "residue_numbering_gate",
+      "status": "completed",
+      "result_ref": "tool-task-demo-numbering",
+      "summary": {
+        "numbering_verified": true,
+        "chain_id": "A"
+      },
+      "quality_flags": []
+    },
+    {
+      "tool_name": "mutation_priority_score",
+      "status": "completed",
+      "result_ref": "tool-task-demo-mutation-priority",
+      "summary": {
+        "top_candidates": ["A42P"],
+        "blocked_candidates": ["S153A"]
+      },
+      "quality_flags": []
+    }
+  ],
+  "labels": {
+    "activity_relative_to_wt": null,
+    "stability_delta_tm_c": null,
+    "half_life_fold_change": null,
+    "expression_relative_to_wt": null,
+    "substrate_fit_label": "unknown",
+    "assay_success": null,
+    "decision": "watch"
+  },
+  "quality": {
+    "data_quality_score": 72,
+    "usable_for_training": false,
+    "usable_for_benchmark": true,
+    "missing_fields": [
+      "experimental_activity_label",
+      "experimental_stability_label"
+    ],
+    "warnings": [
+      "demo sample only",
+      "candidate mutation remains untested"
+    ]
+  },
+  "audit": {
+    "created_at": "2026-07-24T00:00:00+08:00",
+    "updated_at": "2026-07-24T00:00:00+08:00",
+    "source_owner": "KWB local R&D",
+    "review_status": "draft",
+    "data_version": "kwb-enzyme-case-v0.1"
+  }
+}

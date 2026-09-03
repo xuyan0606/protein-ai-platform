@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Dna, FileText, Table2, Loader2 } from 'lucide-react'
 import { ProteinViewer } from '@/components/viewer/ProteinViewer'
+import { authFetch, normalizeFileDownloadUrl } from '@/lib/api'
 
 interface Props {
   fileName: string
@@ -18,13 +19,25 @@ export function FileViewer({ fileName, fileType, content, fileUrl }: Props) {
   const isCSV = fileType.includes('csv') || fileName.endsWith('.csv')
 
   useEffect(() => {
-    if (isPDB && !content && fileUrl) {
+    if (!isPDB || content || !fileUrl) return
+    let cancelled = false
+    queueMicrotask(() => {
+      if (cancelled) return
       setLoading(true)
-      fetch(fileUrl)
+      authFetch(normalizeFileDownloadUrl(fileUrl))
         .then((r) => r.text())
-        .then((text) => setPdbContent(text))
-        .catch(() => setPdbContent(null))
-        .finally(() => setLoading(false))
+        .then((text) => {
+          if (!cancelled) setPdbContent(text)
+        })
+        .catch(() => {
+          if (!cancelled) setPdbContent(null)
+        })
+        .finally(() => {
+          if (!cancelled) setLoading(false)
+        })
+    })
+    return () => {
+      cancelled = true
     }
   }, [isPDB, content, fileUrl])
 

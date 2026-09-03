@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-09-03T07:47:17.848613+00:00",
+  "local_only": true,
+  "success": true,
+  "action_rows": 12,
+  "current_execution_allowed_rows": 5,
+  "executed_in_current_trace_rows": 11,
+  "receipt_present_rows": 11,
+  "failures": [],
+  "safe_for_execution_claim": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Eligibility validation confirms receipted local execution state and keeps training/model/release claims fail-closed. It does not create formal decisions, authorize training imports, customer delivery, or release."
+}

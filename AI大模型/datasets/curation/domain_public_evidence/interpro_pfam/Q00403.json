@@ -1,0 +1,85 @@
+{
+  "accession": "Q00403",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00382",
+        "name": "Transcription factor TFIIB repeat",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013150",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q00403",
+          "protein_length": 316,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 112,
+                  "end": 200,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00382",
+              "score": 6.4e-25
+            },
+            {
+              "fragments": [
+                {
+                  "start": 206,
+                  "end": 293,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00382",
+              "score": 7.2e-24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08271",
+        "name": "TFIIB zinc-binding",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013137",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q00403",
+          "protein_length": 316,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 14,
+                  "end": 55,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08271",
+              "score": 1.1e-11
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

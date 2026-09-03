@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB Operator Review Action Decision",
+  "type": "object",
+  "required": [
+    "action_id",
+    "stream",
+    "action_status",
+    "reviewer",
+    "reviewed_at",
+    "evidence_artifacts",
+    "validation_reports",
+    "completion_note"
+  ],
+  "properties": {
+    "action_id": { "type": "string", "minLength": 1 },
+    "stream": { "type": "string", "minLength": 1 },
+    "action_status": {
+      "type": "string",
+      "enum": ["completed", "blocked", "rejected", "needs_more_info"]
+    },
+    "reviewer": { "type": "string", "minLength": 1 },
+    "reviewed_at": { "type": "string", "format": "date-time" },
+    "evidence_artifacts": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "validation_reports": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "completion_note": { "type": "string", "minLength": 1 },
+    "residual_risks": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "next_action": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}

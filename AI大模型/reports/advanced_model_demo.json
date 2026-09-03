@@ -1,0 +1,197 @@
+{
+  "model": {
+    "name": "KWB-EnzymeDesigner",
+    "version": "2.2.0-advanced-scaffold",
+    "architecture": "plm_gnn_ddg_feedback_multitask_scaffold"
+  },
+  "status": "scaffold_only_fail_closed",
+  "candidates": [
+    {
+      "mutation": "A42P",
+      "heads": {
+        "mutation_rank": 54.0,
+        "stability": 64.0,
+        "activity_safety": 42.0,
+        "substrate_fit": 62.0,
+        "assay_success": 58.0
+      },
+      "pareto_rank": 1,
+      "uncertainty": {
+        "confidence": 0.64,
+        "missing_modalities": [
+          "msa_conservation",
+          "ddg_backend"
+        ],
+        "ood_flags": [
+          "sequence_numbering_mismatch",
+          "no_msa_conservation",
+          "no_ddg_backend"
+        ]
+      },
+      "risk_flags": [
+        "near_pocket"
+      ],
+      "evidence_tier": "tier_0_kwb_wet_lab_or_private_context",
+      "feature_row": {
+        "case_id": "kwb-demo-lipase-thermostability-001",
+        "mutation": "A42P",
+        "feature_version": "2.2.0-advanced-scaffold",
+        "evidence_tier": "tier_0_kwb_wet_lab_or_private_context",
+        "sequence_features": {
+          "sequence_present": true,
+          "sequence_length": 89,
+          "wild_type_matches_sequence": false,
+          "window_11": "VGQLVGEDNIN",
+          "wt_hydrophobic": true,
+          "mutant_hydrophobic": false,
+          "charge_change": false,
+          "proline_introduced": true,
+          "glycine_removed": false
+        },
+        "structure_features": {
+          "structure_source": "uploaded_pdb",
+          "numbering_verified": true,
+          "confidence": null,
+          "near_active_site": false,
+          "near_pocket": true,
+          "protected_catalytic": false
+        },
+        "msa_features": {
+          "available": false,
+          "conservation_score": null,
+          "alignment_depth": null,
+          "source_database": null
+        },
+        "ddg_features": {
+          "available": false,
+          "backend": null,
+          "ddg_kcal_mol": null,
+          "negative_is_stabilizing": true
+        },
+        "feedback_features": {
+          "single_mutant_status": "untested",
+          "has_kwb_private_context": true,
+          "label_decision": "watch"
+        },
+        "adapter_readiness": {
+          "sequence_plm_embedding": true,
+          "structure_gnn": true,
+          "msa_conservation": false,
+          "ddg_backend": false,
+          "wet_lab_feedback": true,
+          "ligand_or_substrate_context": true
+        },
+        "missing_modalities": [
+          "msa_conservation",
+          "ddg_backend"
+        ]
+      },
+      "decision": "watch"
+    },
+    {
+      "mutation": "S153A",
+      "heads": {
+        "mutation_rank": 0.0,
+        "stability": 50.0,
+        "activity_safety": 0.0,
+        "substrate_fit": 10,
+        "assay_success": 36.0
+      },
+      "pareto_rank": 2,
+      "uncertainty": {
+        "confidence": 0.64,
+        "missing_modalities": [
+          "msa_conservation",
+          "ddg_backend"
+        ],
+        "ood_flags": [
+          "sequence_numbering_mismatch",
+          "no_msa_conservation",
+          "no_ddg_backend"
+        ]
+      },
+      "risk_flags": [
+        "protected_catalytic"
+      ],
+      "evidence_tier": "tier_0_kwb_wet_lab_or_private_context",
+      "feature_row": {
+        "case_id": "kwb-demo-lipase-thermostability-001",
+        "mutation": "S153A",
+        "feature_version": "2.2.0-advanced-scaffold",
+        "evidence_tier": "tier_0_kwb_wet_lab_or_private_context",
+        "sequence_features": {
+          "sequence_present": true,
+          "sequence_length": 89,
+          "wild_type_matches_sequence": false,
+          "window_11": "",
+          "wt_hydrophobic": false,
+          "mutant_hydrophobic": true,
+          "charge_change": false,
+          "proline_introduced": false,
+          "glycine_removed": false
+        },
+        "structure_features": {
+          "structure_source": "uploaded_pdb",
+          "numbering_verified": true,
+          "confidence": null,
+          "near_active_site": false,
+          "near_pocket": false,
+          "protected_catalytic": true
+        },
+        "msa_features": {
+          "available": false,
+          "conservation_score": null,
+          "alignment_depth": null,
+          "source_database": null
+        },
+        "ddg_features": {
+          "available": false,
+          "backend": null,
+          "ddg_kcal_mol": null,
+          "negative_is_stabilizing": true
+        },
+        "feedback_features": {
+          "single_mutant_status": "no_go",
+          "has_kwb_private_context": true,
+          "label_decision": "watch"
+        },
+        "adapter_readiness": {
+          "sequence_plm_embedding": true,
+          "structure_gnn": true,
+          "msa_conservation": false,
+          "ddg_backend": false,
+          "wet_lab_feedback": true,
+          "ligand_or_substrate_context": true
+        },
+        "missing_modalities": [
+          "msa_conservation",
+          "ddg_backend"
+        ]
+      },
+      "decision": "no_go"
+    }
+  ],
+  "evidence_summary": {
+    "adapter_readiness": {
+      "sequence_plm_embedding": true,
+      "structure_gnn": true,
+      "msa_conservation": false,
+      "ddg_backend": false,
+      "wet_lab_feedback": true,
+      "ligand_or_substrate_context": true
+    },
+    "ready_modalities": [
+      "ligand_or_substrate_context",
+      "sequence_plm_embedding",
+      "structure_gnn",
+      "wet_lab_feedback"
+    ],
+    "missing_modalities": [
+      "ddg_backend",
+      "msa_conservation"
+    ],
+    "evidence_tier": "tier_0_kwb_wet_lab_or_private_context",
+    "requires_wet_lab_validation": true
+  },
+  "policy": "Advanced scaffold only; no trained neural weights or model-quality claim."
+}

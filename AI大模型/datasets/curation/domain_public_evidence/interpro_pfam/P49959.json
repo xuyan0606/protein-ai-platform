@@ -1,0 +1,73 @@
+{
+  "accession": "P49959",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00149",
+        "name": "Calcineurin-like phosphoesterase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004843",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49959",
+          "protein_length": 708,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 13,
+                  "end": 249,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00149",
+              "score": 3.6e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04152",
+        "name": "Mre11 DNA-binding presumed domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007281",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49959",
+          "protein_length": 708,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 294,
+                  "end": 461,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF04152",
+              "score": 2.7e-46
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

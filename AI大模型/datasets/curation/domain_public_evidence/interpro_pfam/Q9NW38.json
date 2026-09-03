@@ -1,0 +1,141 @@
+{
+  "accession": "Q9NW38",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF09765",
+        "name": "FANCL UBC-like domain 1",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019162",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nw38",
+          "protein_length": 375,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 6,
+                  "end": 92,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF09765",
+              "score": 1.2e-28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF11793",
+        "name": "FANCL C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR026850",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nw38",
+          "protein_length": 375,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 304,
+                  "end": 371,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF11793",
+              "score": 8.8e-32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18890",
+        "name": "FANCL UBC-like domain 2",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR043898",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nw38",
+          "protein_length": 375,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 108,
+                  "end": 197,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF18890",
+              "score": 1.3e-23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18891",
+        "name": "FANCL UBC-like domain 3",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR044037",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nw38",
+          "protein_length": 375,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 200,
+                  "end": 294,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18891",
+              "score": 2e-36
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

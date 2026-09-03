@@ -19,20 +19,22 @@ import logging
 import secrets
 import time
 from datetime import datetime, timezone
+from urllib.parse import urlencode, urlsplit
 
-from authlib.jose import jwt
-from fastapi import APIRouter, Depends, HTTPException, Request, status
+from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from fastapi.responses import RedirectResponse, JSONResponse
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.database import get_session
+from app.core.jwt_compat import JWTError, decode_jwt, encode_jwt
 from app.core.oidc_config import (
     AUTH_CODE_TTL,
     OIDC_CLIENTS,
     OIDC_ISSUER,
     OIDC_JWKS,
     OIDC_PRIVATE_KEY,
+    OIDC_PUBLIC_KEY,
     FRONTEND_URL,
 )
 from app.core.security import decode_access_token
@@ -45,6 +47,110 @@ router = APIRouter()
 # In-memory auth code store. In production with multiple workers, use Redis.
 # Format: {code: {"client_id": ..., "user_id": ..., "expires_at": ...}}
 _auth_codes: dict[str, dict] = {}
+_USES_HTTPS = urlsplit(FRONTEND_URL).scheme == "https"
+_LOGOUT_COOKIE_NAMES = (
+    "pa_token",
+    "refresh_token",
+    "accessToken",
+    "csrfToken",
+    "lastSignedIn",
+    "oauth_csrf",
+    "loggedIn",
+    "returnTo",
+)
+
+
+def _first_forwarded_value(value: str | None) -> str | None:
+    if not value:
+        return None
+    first = value.split(",", 1)[0].strip()
+    return first or None
+
+
+def _is_local_origin(origin: str) -> bool:
+    host = urlsplit(origin).hostname or ""
+    return host in {"", "localhost", "127.0.0.1"}
+
+
+def _is_internal_origin(origin: str) -> bool:
+    host = urlsplit(origin).hostname or ""
+    return host in {"", "frontend", "backend", "outline"}
+
+
+def _request_origin(request: Request) -> str:
+    proto = (
+        _first_forwarded_value(request.headers.get("x-forwarded-proto"))
+        or request.url.scheme
+        or "http"
+    )
+    forwarded_host = _first_forwarded_value(request.headers.get("x-forwarded-host"))
+    request_host = request.headers.get("host") or request.url.netloc
+    host = forwarded_host or request_host
+    forwarded_port = _first_forwarded_value(request.headers.get("x-forwarded-port"))
+
+    # Prefer the raw Host header when it already carries the browser-visible
+    # external port (e.g. localhost:4200). This avoids leaking the proxy's
+    # internal listener port such as 8080 into OIDC redirects.
+    if request_host and ":" in request_host:
+        host = request_host
+
+    # Some proxies forward host without the external port (e.g. "localhost")
+    # while preserving the port separately in X-Forwarded-Port. Reattach it so
+    # OIDC redirect URI validation can distinguish localhost:4200 from :80.
+    if host and forwarded_port and ":" not in host:
+        is_default_port = (
+            (proto == "http" and forwarded_port == "80")
+            or (proto == "https" and forwarded_port == "443")
+        )
+        if not is_default_port:
+            host = f"{host}:{forwarded_port}"
+    return f"{proto}://{host}".rstrip("/")
+
+
+def _browser_origin(request: Request) -> str | None:
+    origin = _request_origin(request)
+    if not origin or _is_internal_origin(origin):
+        return None
+    return origin
+
+
+def _public_frontend_origin(request: Request) -> str:
+    request_origin = _browser_origin(request)
+    if request_origin:
+        return request_origin
+    configured = FRONTEND_URL.rstrip("/")
+    if configured and not _is_local_origin(configured):
+        return configured
+    return _request_origin(request)
+
+
+def _public_issuer(request: Request) -> str:
+    request_origin = _browser_origin(request)
+    if request_origin:
+        return request_origin
+    configured = OIDC_ISSUER.rstrip("/")
+    if configured and not _is_local_origin(configured):
+        return configured
+    return _request_origin(request)
+
+
+def _default_outline_redirect_uri(request: Request) -> str:
+    return f"{_public_frontend_origin(request)}/wiki/auth/oidc.callback"
+
+
+def _allowed_redirect_uris(request: Request, client: dict) -> set[str]:
+    uris = set(client.get("redirect_uris", []))
+    candidate_origins = {
+        _request_origin(request),
+        _public_frontend_origin(request),
+        _public_issuer(request),
+        FRONTEND_URL.rstrip("/"),
+        OIDC_ISSUER.rstrip("/"),
+    }
+    for origin in {origin for origin in candidate_origins if origin and not _is_internal_origin(origin)}:
+        uris.add(f"{origin}/auth/oidc.callback")
+        uris.add(f"{origin}/wiki/auth/oidc.callback")
+    return uris
 
 
 def _cleanup_expired_codes() -> None:
@@ -52,6 +158,17 @@ def _cleanup_expired_codes() -> None:
     expired = [c for c, v in _auth_codes.items() if v["expires_at"] < now]
     for c in expired:
         del _auth_codes[c]
+
+
+def _clear_unified_auth_cookies(response: Response) -> None:
+    """Clear platform auth cookies and Outline cookies on the shared host."""
+    for cookie_name in _LOGOUT_COOKIE_NAMES:
+        response.delete_cookie(
+            key=cookie_name,
+            path="/",
+            secure=_USES_HTTPS,
+            samesite="lax",
+        )
 
 
 def _get_user_from_cookie(request: Request) -> dict | None:
@@ -71,14 +188,15 @@ def _get_user_from_cookie(request: Request) -> dict | None:
 # ---------------------------------------------------------------------------
 
 @router.get("/.well-known/openid-configuration")
-async def openid_configuration():
+async def openid_configuration(request: Request):
     """OIDC Discovery — tells Outline where all endpoints live."""
+    issuer = _public_issuer(request)
     return {
-        "issuer": OIDC_ISSUER,
-        "authorization_endpoint": f"{OIDC_ISSUER}/api/oidc/authorize",
-        "token_endpoint": f"{OIDC_ISSUER}/api/oidc/token",
-        "userinfo_endpoint": f"{OIDC_ISSUER}/api/oidc/userinfo",
-        "jwks_uri": f"{OIDC_ISSUER}/api/oidc/jwks",
+        "issuer": issuer,
+        "authorization_endpoint": f"{issuer}/api/oidc/authorize",
+        "token_endpoint": f"{issuer}/api/oidc/token",
+        "userinfo_endpoint": f"{issuer}/api/oidc/userinfo",
+        "jwks_uri": f"{issuer}/api/oidc/jwks",
         "response_types_supported": ["code"],
         "grant_types_supported": ["authorization_code", "refresh_token"],
         "subject_types_supported": ["public"],
@@ -118,17 +236,29 @@ async def oidc_authorize(
     if response_type != "code":
         raise HTTPException(status_code=400, detail="Only 'code' response_type is supported")
 
+    # Validate redirect_uri against client's registered URIs (OIDC spec §3.1.2.1)
+    registered_uris = _allowed_redirect_uris(request, client)
+    if registered_uris and redirect_uri not in registered_uris:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid redirect_uri: not registered for this client",
+        )
+
     # Check if user is already authenticated via pa_token cookie
     user_payload = _get_user_from_cookie(request)
 
     if user_payload is None:
         # Not logged in → redirect to frontend login page
-        from urllib.parse import urlencode
+        # SECURITY: use only path+query to prevent Open Redirect via Host header injection.
+        # The frontend will resolve this relative URL against its own origin.
+        next_url = request.url.path
+        if request.url.query:
+            next_url += f"?{request.url.query}"
         login_params = urlencode({
-            "next": str(request.url),
+            "next": next_url,
         })
         return RedirectResponse(
-            url=f"{FRONTEND_URL}/login?{login_params}",
+            url=f"{_public_frontend_origin(request)}/login?{login_params}",
             status_code=status.HTTP_302_FOUND,
         )
 
@@ -141,13 +271,28 @@ async def oidc_authorize(
         "redirect_uri": redirect_uri,
         "expires_at": time.time() + AUTH_CODE_TTL,
         "nonce": nonce,
+        "issuer": _public_issuer(request),
     }
 
     # Build redirect back to Outline
-    from urllib.parse import urlencode
     params = urlencode({"code": code, "state": state})
     sep = "&" if "?" in redirect_uri else "?"
     return RedirectResponse(url=f"{redirect_uri}{sep}{params}")
+
+
+@router.get("/auth/oidc")
+async def oidc_authorize_entry(request: Request):
+    """Legacy entrypoint: bounce into Outline's own OIDC start route.
+
+    Outline must initiate the OAuth flow itself so it can generate and verify
+    the signed `state` payload plus the `oauth_csrf` cookie. Redirecting
+    browsers straight to our provider `/api/oidc/authorize` skips that step and
+    leads to `state-mismatch` on callback.
+    """
+    return RedirectResponse(
+        url=f"{_public_frontend_origin(request)}/wiki/auth/oidc",
+        status_code=status.HTTP_302_FOUND,
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -185,6 +330,7 @@ async def oidc_token(
         raise HTTPException(status_code=400, detail="Client ID mismatch")
 
     user_id = auth_entry["user_id"]
+    issuer = auth_entry.get("issuer") or OIDC_ISSUER
 
     # Look up user from DB
     result = await db.execute(select(User).where(User.id == user_id))
@@ -195,21 +341,22 @@ async def oidc_token(
 
     now = int(time.time())
     access_token_claims = {
-        "iss": OIDC_ISSUER,
+        "iss": issuer,
         "sub": str(user.id),
         "aud": [client_id],
         "iat": now,
         "exp": now + 3600,
         "scope": "openid profile email",
     }
-    access_token = jwt.encode(
-        {"alg": "RS256", "kid": "protein-ai-oidc-key"},
+    access_token = encode_jwt(
         access_token_claims,
         OIDC_PRIVATE_KEY,
-    ).decode()
+        algorithm="RS256",
+        headers={"kid": "protein-ai-oidc-key"},
+    )
 
     id_token_claims = {
-        "iss": OIDC_ISSUER,
+        "iss": issuer,
         "sub": str(user.id),
         "aud": [client_id],
         "iat": now,
@@ -218,11 +365,12 @@ async def oidc_token(
         "name": user.name,
         "nonce": auth_entry.get("nonce"),
     }
-    id_token = jwt.encode(
-        {"alg": "RS256", "kid": "protein-ai-oidc-key"},
+    id_token = encode_jwt(
         id_token_claims,
         OIDC_PRIVATE_KEY,
-    ).decode()
+        algorithm="RS256",
+        headers={"kid": "protein-ai-oidc-key"},
+    )
 
     return {
         "access_token": access_token,
@@ -246,9 +394,13 @@ async def oidc_userinfo(request: Request, db: AsyncSession = Depends(get_session
 
     token = auth_header[7:]
     try:
-        claims = jwt.decode(token, OIDC_JWKS["keys"][0])
-        claims.validate()
-    except Exception:
+        claims = decode_jwt(
+            token,
+            OIDC_PUBLIC_KEY,
+            algorithms=["RS256"],
+            options={"verify_aud": False},
+        )
+    except JWTError:
         raise HTTPException(status_code=401, detail="Invalid access token")
 
     user_id = int(claims["sub"])
@@ -264,6 +416,17 @@ async def oidc_userinfo(request: Request, db: AsyncSession = Depends(get_session
         "name": user.name,
         "email_verified": True,
     }
+
+
+@router.get("/api/oidc/logout")
+async def oidc_logout(request: Request):
+    """Unified logout entry used by Outline's OIDC integration."""
+    response = RedirectResponse(
+        url=f"{_public_frontend_origin(request)}/login",
+        status_code=status.HTTP_302_FOUND,
+    )
+    _clear_unified_auth_cookies(response)
+    return response
 
 
 # ---------------------------------------------------------------------------

@@ -1,0 +1,14 @@
+{"case_id": "positive_current_receipted_eligibility_matrix", "description": "Current eligibility matrix with authorized receipted local execution must validate.", "expected_valid": true, "mutations": []}
+{"case_id": "bad_report_allowed_rows_positive", "description": "Mutated execution eligibility state must be rejected.", "expected_valid": false, "mutations": ["bad_report_allowed_rows_positive"]}
+{"case_id": "bad_row_current_execution_allowed_true", "description": "Mutated execution eligibility state must be rejected.", "expected_valid": false, "mutations": ["bad_row_current_execution_allowed_true"]}
+{"case_id": "bad_row_executed_in_current_trace_true", "description": "Mutated execution eligibility state must be rejected.", "expected_valid": false, "mutations": ["bad_row_executed_in_current_trace_true"]}
+{"case_id": "bad_row_receipt_present_true", "description": "Mutated execution eligibility state must be rejected.", "expected_valid": false, "mutations": ["bad_row_receipt_present_true"]}
+{"case_id": "bad_row_model_claim_true", "description": "Mutated execution eligibility state must be rejected.", "expected_valid": false, "mutations": ["bad_row_model_claim_true"]}
+{"case_id": "bad_row_training_import_true", "description": "Mutated execution eligibility state must be rejected.", "expected_valid": false, "mutations": ["bad_row_training_import_true"]}
+{"case_id": "bad_row_release_ready_true", "description": "Mutated execution eligibility state must be rejected.", "expected_valid": false, "mutations": ["bad_row_release_ready_true"]}
+{"case_id": "bad_row_writes_training_rows_true", "description": "Mutated execution eligibility state must be rejected.", "expected_valid": false, "mutations": ["bad_row_writes_training_rows_true"]}
+{"case_id": "bad_executable_missing_confirmation_reason", "description": "Mutated execution eligibility state must be rejected.", "expected_valid": false, "mutations": ["bad_executable_missing_confirmation_reason"]}
+{"case_id": "bad_blocked_missing_human_reason", "description": "Mutated execution eligibility state must be rejected.", "expected_valid": false, "mutations": ["bad_blocked_missing_human_reason"]}
+{"case_id": "bad_forbidden_missing_forbidden_reason", "description": "Mutated execution eligibility state must be rejected.", "expected_valid": false, "mutations": ["bad_forbidden_missing_forbidden_reason"]}
+{"case_id": "bad_report_safe_for_execution_claim_true", "description": "Mutated execution eligibility state must be rejected.", "expected_valid": false, "mutations": ["bad_report_safe_for_execution_claim_true"]}
+{"case_id": "bad_receipt_regression_failed_cases_positive", "description": "Mutated execution eligibility state must be rejected.", "expected_valid": false, "mutations": ["bad_receipt_regression_failed_cases_positive"]}

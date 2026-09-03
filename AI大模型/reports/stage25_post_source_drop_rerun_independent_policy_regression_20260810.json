@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "mode": "stage25_post_source_drop_rerun_independent_policy_regression",
+  "success": true,
+  "isolated_fixture": true,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_stage25_post_source_drop_rerun_independent_policy_regression_20260810.py",
+  "regression_script_sha256": "7489a4eeb761f5ca098ad56e59273170d296ae626dd70124c6466196a319aa11",
+  "case_count": 10,
+  "passed_case_count": 10,
+  "failed_case_count": 0,
+  "real_inputs_mutated": false,
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case": "fixture_control",
+      "passed": true,
+      "builder_returncode": 0,
+      "validator_returncode": 0,
+      "policy_returncode": 0,
+      "failure_count": 0
+    },
+    {
+      "case": "builder_contract_version_drift",
+      "passed": true,
+      "builder_returncode": 0,
+      "coordinated_validator_returncode": 0,
+      "coordinated_validator_accepted": true,
+      "policy_returncode": 1,
+      "policy_stderr": null,
+      "expected_check": "builder_contract_version_exact",
+      "observed_checks": [
+        "builder_contract_version_exact",
+        "receipt_builder_contract_version_exact"
+      ]
+    },
+    {
+      "case": "builder_output_path_drift",
+      "passed": true,
+      "builder_returncode": 0,
+      "coordinated_validator_returncode": 0,
+      "coordinated_validator_accepted": true,
+      "policy_returncode": 1,
+      "policy_stderr": null,
+      "expected_check": "builder_output_path_exact",
+      "observed_checks": [
+        "receipt_path_canonical",
+        "builder_output_path_exact",
+        "receipt_output_path_exact"
+      ]
+    },
+    {
+      "case": "builder_lock_path_drift",
+      "passed": true,
+      "builder_returncode": 0,
+      "coordinated_validator_returncode": 0,
+      "coordinated_validator_accepted": true,
+      "policy_returncode": 1,
+      "policy_stderr": null,
+      "expected_check": "builder_lock_path_exact",
+      "observed_checks": [
+        "builder_lock_path_exact",
+        "receipt_lock_path_exact",
+        "validation_lock_path_exact"
+      ]
+    },
+    {
+      "case": "command_name_drift",
+      "passed": true,
+      "builder_returncode": 0,
+      "coordinated_validator_returncode": 0,
+      "coordinated_validator_accepted": true,
+      "policy_returncode": 1,
+      "policy_stderr": null,
+      "expected_check": "command_test_vector_sha256_exact",
+      "observed_checks": [
+        "command_test_vector_sha256_exact",
+        "receipt_command_test_vector_sha256_exact"
+      ]
+    },
+    {
+      "case": "command_expected_output_drift",
+      "passed": true,
+      "builder_returncode": 0,
+      "coordinated_validator_returncode": 0,
+      "coordinated_validator_accepted": true,
+      "policy_returncode": 1,
+      "policy_stderr": null,
+      "expected_check": "command_test_vector_sha256_exact",
+      "observed_checks": [
+        "command_test_vector_sha256_exact",
+        "receipt_command_test_vector_sha256_exact"
+      ]
+    },
+    {
+      "case": "sqlite_write_flag_drift",
+      "passed": true,
+      "builder_returncode": 0,
+      "coordinated_validator_returncode": 1,
+      "coordinated_validator_accepted": false,
+      "policy_returncode": 1,
+      "policy_stderr": null,
+      "expected_check": "all_commands_non_sqlite",
+      "observed_checks": [
+        "command_test_vector_sha256_exact",
+        "receipt_command_test_vector_sha256_exact",
+        "all_commands_non_sqlite",
+        "receipt_sqlite_write_rows_zero",
+        "validation_success",
+        "validation_failure_count_zero"
+      ]
+    },
+    {
+      "case": "apply_block_flag_drift",
+      "passed": true,
+      "builder_returncode": 0,
+      "coordinated_validator_returncode": 1,
+      "coordinated_validator_accepted": false,
+      "policy_returncode": 1,
+      "policy_stderr": null,
+      "expected_check": "all_commands_block_apply",
+      "observed_checks": [
+        "command_test_vector_sha256_exact",
+        "receipt_command_test_vector_sha256_exact",
+        "all_commands_block_apply",
+        "validation_success",
+        "validation_failure_count_zero"
+      ]
+    },
+    {
+      "case": "receipt_schema_drift",
+      "passed": true,
+      "builder_returncode": 0,
+      "coordinated_validator_returncode": 1,
+      "coordinated_validator_accepted": false,
+      "policy_returncode": 1,
+      "policy_stderr": null,
+      "expected_check": "receipt_schema_version_exact",
+      "observed_checks": [
+        "receipt_schema_version_exact",
+        "validation_success",
+        "validation_failure_count_zero"
+      ]
+    },
+    {
+      "case": "command_contract_schema_drift",
+      "passed": true,
+      "builder_returncode": 0,
+      "coordinated_validator_returncode": 1,
+      "coordinated_validator_accepted": false,
+      "policy_returncode": 1,
+      "policy_stderr": null,
+      "expected_check": "receipt_command_contract_schema_version_exact",
+      "observed_checks": [
+        "receipt_command_contract_schema_version_exact",
+        "validation_success",
+        "validation_failure_count_zero"
+      ]
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

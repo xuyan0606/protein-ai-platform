@@ -1,0 +1,73 @@
+{
+  "accession": "Q09328",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF15024",
+        "name": "Glycosyltransferase family 18",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR026116",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q09328",
+          "protein_length": 741,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 172,
+                  "end": 726,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF15024",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF15027",
+        "name": "MGT5A-like, N-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR027833",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q09328",
+          "protein_length": 741,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 6,
+                  "end": 136,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF15027",
+              "score": 1.5e-60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

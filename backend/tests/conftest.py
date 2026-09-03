@@ -12,7 +12,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 # Force SQLite for tests
 os.environ["USE_SQLITE"] = "true"
 
-TEST_DB_URL = "sqlite+aiosqlite:///./test_protein_ai.db"
+TEST_DB_URL = os.environ.get("TEST_DATABASE_URL", "sqlite+aiosqlite:///./test_protein_ai.db")
 
 
 @pytest.fixture(scope="session")
@@ -23,14 +23,21 @@ def event_loop():
 
 
 @pytest_asyncio.fixture
-async def engine():
-    e = create_async_engine(TEST_DB_URL, echo=False)
+async def engine(tmp_path):
+    # Keep each test isolated; a shared SQLite file races when async fixtures
+    # reset metadata across tests.
+    db_url = TEST_DB_URL
+    if db_url.startswith("sqlite+aiosqlite:///./"):
+        db_url = f"sqlite+aiosqlite:///{tmp_path / 'test.db'}"
+    e = create_async_engine(db_url, echo=False)
     yield e
     await e.dispose()
 
 
 @pytest_asyncio.fixture
 async def session(engine) -> AsyncGenerator[AsyncSession, None]:
+    # Import model modules before DDL so every declarative table is registered.
+    import app.models  # noqa: F401
     from app.models.base import Base
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all)

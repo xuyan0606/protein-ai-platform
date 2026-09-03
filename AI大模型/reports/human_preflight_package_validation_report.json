@@ -1,0 +1,49 @@
+{
+  "error_counts": {},
+  "expected_lanes": [
+    "fireprot",
+    "plate",
+    "retention_85c_3min"
+  ],
+  "formal_decisions_written": false,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/human_preflight_package.jsonl",
+  "invalid_package_rows": 0,
+  "local_only": true,
+  "missing_lanes": [],
+  "model_or_release_flags_changed": false,
+  "package_rows": 3,
+  "policy": "Validation only; no formal decisions, feedback intake rows, training imports, or model/release flags are written.",
+  "ready_for_training_import_rows": 0,
+  "records": [
+    {
+      "errors": [],
+      "lane": "fireprot",
+      "package_id": "human-preflight-fireprot-dedup-review",
+      "ready_for_training_import": false,
+      "safe_for_model_claim": false,
+      "valid": true
+    },
+    {
+      "errors": [],
+      "lane": "plate",
+      "package_id": "human-preflight-plate-50-backlog",
+      "ready_for_training_import": false,
+      "safe_for_model_claim": false,
+      "valid": true
+    },
+    {
+      "errors": [],
+      "lane": "retention_85c_3min",
+      "package_id": "human-preflight-retention-85c-3min-feedback-only",
+      "ready_for_training_import": false,
+      "safe_for_model_claim": false,
+      "valid": true
+    }
+  ],
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "success": true,
+  "training_rows_imported": false,
+  "unexpected_lanes": [],
+  "valid_package_rows": 3
+}

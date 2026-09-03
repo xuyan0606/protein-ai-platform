@@ -27,6 +27,7 @@ const resources = {
         designMutations: 'Design Mutations',
         benchmark: 'Family Benchmark',
         docking: 'Molecular Docking',
+        mdValidation: 'MD Validation',
         predictStructure: 'Predict Structure',
         solubility: 'Solubility Scan',
         // Tool category labels
@@ -50,6 +51,7 @@ const resources = {
         promptMutations: 'Design mutations to improve the thermostability of this enzyme. Scan for key positions and predict mutation effects.',
         promptBenchmark: 'Benchmark this protein against known families (GH13, GH11, GH7, GH5, GH1). Analyze conserved motifs and classify.',
         promptDocking: 'Perform molecular docking analysis for this protein with its substrate.',
+        promptMdValidation: 'Run molecular dynamics simulation validation for this protein. Report RMSD, RMSF, radius of gyration, flexible regions, and structural stability conclusions.',
         promptStructure: 'Predict the 3D structure from this protein sequence using ESMFold.',
         promptSolubility: 'Scan mutations to improve protein solubility and expression levels.',
       },
@@ -65,9 +67,9 @@ const resources = {
         selectModel: 'Select model',
         suggestions: [
           'Analyze this protein sequence for stability',
+          'Run MD validation and report RMSD/RMSF',
           'Design a binder for PD-L1',
           'Predict the structure from a sequence',
-          'Scan mutations to improve solubility',
         ],
       },
       sidebar: {
@@ -333,6 +335,7 @@ const resources = {
         designMutations: '突变设计',
         benchmark: '家族比对',
         docking: '分子对接',
+        mdValidation: '分子动力学模拟验证',
         predictStructure: '结构预测',
         solubility: '溶解度扫描',
         // Tool category labels
@@ -356,6 +359,7 @@ const resources = {
         promptMutations: '设计突变以提高此酶的热稳定性。扫描关键位点并预测突变效应。',
         promptBenchmark: '将此蛋白质与已知家族（GH13、GH11、GH7、GH5、GH1）进行比对。分析保守基序并分类。',
         promptDocking: '对此蛋白质与其底物进行分子对接分析。',
+        promptMdValidation: '对该蛋白执行分子动力学模拟验证，输出 RMSD、RMSF、回转半径、柔性区域，并给出结构稳定性结论。',
         promptStructure: '使用ESMFold从此蛋白质序列预测三维结构。',
         promptSolubility: '扫描突变以提高蛋白质溶解度和表达水平。',
       },
@@ -370,9 +374,9 @@ const resources = {
         selectModel: '选择模型',
         suggestions: [
           '分析此蛋白质序列的稳定性',
+          '做分子动力学模拟验证并输出 RMSD/RMSF',
           '设计PD-L1结合蛋白',
           '从序列预测结构',
-          '扫描突变以提高溶解度',
         ],
       },
       sidebar: {

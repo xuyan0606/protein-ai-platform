@@ -1,0 +1,107 @@
+{
+  "accession": "Q9H611",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF05970",
+        "name": "PIF1-like helicase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR010285",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h611",
+          "protein_length": 641,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 206,
+                  "end": 404,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05970",
+              "score": 3.9e-58
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21530",
+        "name": "DNA helicase Pif1, 2B domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049163",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h611",
+          "protein_length": 641,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 458,
+                  "end": 504,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF21530",
+              "score": 4.4e-15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25344",
+        "name": "LRR1 pleckstrin homology domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057437",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h611",
+          "protein_length": 641,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 16,
+                  "end": 125,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25344",
+              "score": 1.6e-07
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

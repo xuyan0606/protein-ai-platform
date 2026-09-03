@@ -1,0 +1,41 @@
+{
+  "apply_executed": false,
+  "case_rows": 2,
+  "cases": [
+    {
+      "authorized_send_rows": 1,
+      "case_id": "matching_current_draft_sha",
+      "expected_return_code": 0,
+      "external_message_sent": false,
+      "intake_valid": true,
+      "message_sha_bound_authorization_rows": 1,
+      "observed_return_code": 0,
+      "passed": true,
+      "request_sent_rows": 0
+    },
+    {
+      "case_id": "forged_well_formed_sha",
+      "expected_return_code": 1,
+      "external_message_sent": false,
+      "failure_check_present": true,
+      "intake_valid": false,
+      "observed_return_code": 1,
+      "passed": true,
+      "request_sent_rows": 0
+    }
+  ],
+  "external_message_sent": false,
+  "external_sqlite_mutated": false,
+  "failed_rows": 0,
+  "mode": "stage25_cm5_l262v_external_request_authorization_safety_regression",
+  "passed_rows": 2,
+  "policy": "Temporary isolated contract regression only. The real authorization input is not modified and no external communication is attempted.",
+  "real_authorization_input_mutated": false,
+  "release_ready": false,
+  "request_sent_rows": 0,
+  "safe_for_model_claim": false,
+  "schema_version": 1,
+  "send_executor_present": false,
+  "stage": 25,
+  "success": true
+}

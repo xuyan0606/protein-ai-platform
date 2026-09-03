@@ -1,0 +1,36 @@
+{
+  "all_numeric_candidates_covered": true,
+  "all_worklist_rows_valid": true,
+  "authorization_worklist_rows": 12,
+  "authorized_rows": 8,
+  "blocked_waiting_for_authorization_rows": 4,
+  "candidate_rows": 445,
+  "claim_eligible_rows_now": 0,
+  "completion_ready_rows": 0,
+  "created_at": "2026-09-03T07:32:17.919069+00:00",
+  "critical_tradeoff_worklist_rows": 4,
+  "duplicate_feedback_candidate_rows": 0,
+  "error_counts": {},
+  "invalid_worklist_rows": 0,
+  "local_only": true,
+  "missing_feedback_candidate_ids": [],
+  "missing_numeric_candidate_worklist_rows": 0,
+  "numeric_training_candidate_rows": 12,
+  "policy": "Validation proves worklist consistency only; it never authorizes rows, runs preflight, appends labels, or enables model claims.",
+  "priority_counts": {
+    "critical_tradeoff_review": 4,
+    "medium_mixed_benefit_review": 4,
+    "standard_multi_property_review": 4
+  },
+  "ready_for_feedback_intake_rows": 0,
+  "requires_human_input_rows": 12,
+  "safe_for_model_claim": false,
+  "status_counts": {
+    "authorized_ready_for_preflight": 8,
+    "blocked_waiting_for_authorization": 4
+  },
+  "status_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/wet_lab_mutant_library_feedback_authorization_worklist_status.jsonl",
+  "unexpected_feedback_candidate_ids": [],
+  "unexpected_worklist_candidate_rows": 0,
+  "valid_worklist_rows": 12
+}

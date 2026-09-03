@@ -1,0 +1,133 @@
+{
+  "armed_rows": 0,
+  "blocked_rows": 7,
+  "blocking_items": [
+    "external_input_validation",
+    "gate_execution_plan",
+    "operator_packet_manifest"
+  ],
+  "checks": [
+    {
+      "blocking_detail": {
+        "missing_input_rows": 7,
+        "ready_to_run_rows": 0
+      },
+      "name": "external_input_validation",
+      "ready": false,
+      "status": "waiting_for_external_inputs"
+    },
+    {
+      "blocking_detail": {
+        "armed_rows": 0,
+        "blocked_rows": 7
+      },
+      "name": "gate_execution_plan",
+      "ready": false,
+      "status": "not_armed"
+    },
+    {
+      "blocking_detail": {
+        "failure_count": 0,
+        "source_bound_current": true,
+        "success": true
+      },
+      "name": "operator_dispatch_validation",
+      "ready": true,
+      "status": "valid"
+    },
+    {
+      "blocking_detail": {
+        "freshness": {
+          "current": false,
+          "reason": "manifest_differs_from_current_packet",
+          "returncode": 1,
+          "stale_sections": [
+            "files"
+          ],
+          "status": "stale-or-missing"
+        },
+        "manifest_status": "ready-for-operator-review",
+        "missing_files": []
+      },
+      "name": "operator_packet_manifest",
+      "ready": false,
+      "status": "ready-for-operator-review/not-current"
+    }
+  ],
+  "created_at": "2026-09-02T05:54:37.308834+00:00",
+  "decision": "defer_waiting_for_external_inputs",
+  "destructive_actions": "not_executed",
+  "item_count": 7,
+  "live_gate_execution_allowed": false,
+  "missing_input_rows": 7,
+  "mode": "read_only_remaining_backlog_go_no_go_summary",
+  "network_io": "not_executed",
+  "next_action": "collect and validate external inputs by operator lane; rerun the summary; do not execute live gates",
+  "operator_packet_manifest": {
+    "current": false,
+    "freshness_status": "stale-or-missing",
+    "status": "ready-for-operator-review"
+  },
+  "priority_summary": {
+    "P0": {
+      "armed_rows": 0,
+      "blocked_rows": 4,
+      "item_count": 4,
+      "items": [
+        "formal_domain_https",
+        "gpu_gromacs_md_live",
+        "md_blackbox_live_e2e",
+        "oss_minio_live_e2e"
+      ],
+      "missing_input_rows": 4,
+      "ready_to_run_rows": 0
+    },
+    "P1": {
+      "armed_rows": 0,
+      "blocked_rows": 3,
+      "item_count": 3,
+      "items": [
+        "ligand_runtime_live",
+        "admin_authenticated_screenshots",
+        "maintenance_window_drills"
+      ],
+      "missing_input_rows": 3,
+      "ready_to_run_rows": 0
+    }
+  },
+  "ready_for_live_gate_execution": false,
+  "ready_to_run_rows": 0,
+  "secrets_printed": false,
+  "sources": {
+    "external_input_validation": {
+      "exists": true,
+      "invalid_json": null,
+      "invalid_shape": null,
+      "path": "docs/manuals/remaining-backlog-external-input-validation-report.json"
+    },
+    "gate_execution_plan": {
+      "exists": true,
+      "invalid_json": null,
+      "invalid_shape": null,
+      "path": "docs/manuals/remaining-backlog-gate-execution-plan.json"
+    },
+    "operator_dispatch_checklist": {
+      "exists": true,
+      "invalid_json": null,
+      "invalid_shape": null,
+      "path": "docs/manuals/remaining-backlog-operator-dispatch-checklist.json"
+    },
+    "operator_dispatch_validation": {
+      "exists": true,
+      "invalid_json": null,
+      "invalid_shape": null,
+      "path": "docs/manuals/remaining-backlog-operator-dispatch-checklist-validation-report.json"
+    },
+    "operator_packet_manifest": {
+      "exists": true,
+      "invalid_json": null,
+      "invalid_shape": null,
+      "path": "docs/manuals/remaining-backlog-operator-packet-manifest.json"
+    }
+  }
+}

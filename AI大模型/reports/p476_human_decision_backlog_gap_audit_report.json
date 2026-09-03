@@ -1,0 +1,40 @@
+{
+  "created_at": "2026-09-03T07:34:02.114592+00:00",
+  "local_only": true,
+  "audit_rows": 12,
+  "backlog_item_audit_rows": 11,
+  "summary_audit_rows": 1,
+  "backlog_items": 11,
+  "open_items": 11,
+  "ready_items": 0,
+  "total_required_rows": 1430,
+  "total_completed_rows": 40,
+  "total_missing_rows": 1392,
+  "priority_counts": {
+    "P0": 8,
+    "P1": 3
+  },
+  "workstream_counts": {
+    "biosecurity_screening": 1,
+    "domain_interval_occurrence_selection": 1,
+    "experiment_feedback_source_review": 1,
+    "external_license_review": 1,
+    "numbering_curation": 1,
+    "numbering_semantic_conflict_resolution": 1,
+    "operator_review_actions": 1,
+    "plate_feedback_intake": 1,
+    "sequence_ip_fto": 1,
+    "structure_chain_mapping": 1,
+    "workstream_acceptance": 1
+  },
+  "consistency_success": true,
+  "consistency_failures": [],
+  "safe_for_training_pipeline": true,
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "audit_jsonl": "datasets/governance/p476_human_decision_backlog_gap_audit.jsonl",
+  "policy": "P476 audit only. Human backlog visibility is not human approval, reviewed evidence, training import, model claim, release, or production execution."
+}

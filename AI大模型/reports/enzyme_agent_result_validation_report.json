@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-09-03T07:35:25.560342+00:00",
+  "local_only": true,
+  "success": true,
+  "result_id": "enzyme_agent_result_template_20260731_p168",
+  "selected_variant_rows": 0,
+  "property_prediction_rows": 5,
+  "ddg_result_rows": 2,
+  "artifact_ref_count": 8,
+  "reviewed_numbering_rows": 4,
+  "claim_eligible_training_rows": 0,
+  "strict_msa_site_feature_rows": 0,
+  "wet_lab_authorization_rows": 8,
+  "failures": [],
+  "warnings": [
+    "claim_eligible_training_rows_zero",
+    "strict_msa_site_feature_rows_zero"
+  ],
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Structured enzyme agent result validation is fail-closed. Passing this validator only proves the result is safely blocked; it does not approve recommendations, training import, model claims, ordering, or release."
+}

@@ -1,0 +1,18 @@
+[
+  {"id": "stability_constraint", "message": "提高热稳定性，但活性不能下降", "workflow_id": "WF-STABILITY", "primary_property": "stability", "secondary_properties": [], "preservation_constraints": ["activity_not_drop"]},
+  {"id": "stability_half_life", "message": "优化这个酶在 60 摄氏度下的半衰期", "workflow_id": "WF-STABILITY", "primary_property": "stability"},
+  {"id": "stability_expression_guard", "message": "提升耐热性，表达量保持不变", "workflow_id": "WF-STABILITY", "preservation_constraints": ["expression_not_drop"]},
+  {"id": "stability_exclude_activity", "message": "不要优化活性，只提高稳定性", "workflow_id": "WF-STABILITY", "preservation_constraints": ["activity_not_optimize"]},
+  {"id": "ph_metric", "message": "提高目标 pH 下活性", "workflow_id": "WF-PH", "primary_property": "ph", "secondary_properties": []},
+  {"id": "ph_window", "message": "拓宽 pH 活性窗口", "workflow_id": "WF-PH", "primary_property": "ph"},
+  {"id": "ph_optimum", "message": "把最适 pH 调到 5.5", "workflow_id": "WF-PH", "primary_property": "ph"},
+  {"id": "activity", "message": "提高催化效率", "workflow_id": "WF-ACTIVITY", "primary_property": "activity"},
+  {"id": "activity_stability_guard", "message": "提升 kcat/Km，但热稳定性不要降低", "workflow_id": "WF-ACTIVITY", "preservation_constraints": ["stability_not_drop"]},
+  {"id": "specificity", "message": "提高底物特异性", "workflow_id": "WF-SPECIFICITY", "primary_property": "specificity"},
+  {"id": "specificity_activity_guard", "message": "收窄底物谱，总体活性不能下降", "workflow_id": "WF-SPECIFICITY", "preservation_constraints": ["activity_not_drop"]},
+  {"id": "expression", "message": "提高可溶性表达", "workflow_id": "WF-EXPRESSION", "primary_property": "expression"},
+  {"id": "expression_activity_guard", "message": "提高分泌表达，但催化活性不要受影响", "workflow_id": "WF-EXPRESSION", "preservation_constraints": ["activity_not_drop"]},
+  {"id": "explicit_primary_secondary", "message": "主目标提高稳定性，同时提高活性", "workflow_id": "WF-STABILITY", "primary_property": "stability", "secondary_properties": ["activity"]},
+  {"id": "ambiguous_multi_goal", "message": "同时提高活性和特异性", "status": "NEEDS_INPUT"},
+  {"id": "concept_question", "message": "热稳定性是什么意思？", "status": "NOT_APPLICABLE", "workflow_id": null}
+]

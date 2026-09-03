@@ -1,0 +1,97 @@
+{
+  "accession": "Q13049",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01436",
+        "name": "NHL repeat",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR001258",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13049",
+          "protein_length": 653,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 371,
+                  "end": 398,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01436",
+              "score": 0.0019
+            },
+            {
+              "fragments": [
+                {
+                  "start": 469,
+                  "end": 496,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01436",
+              "score": 0.31
+            },
+            {
+              "fragments": [
+                {
+                  "start": 616,
+                  "end": 643,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01436",
+              "score": 0.019
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13445",
+        "name": "RING-type zinc-finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR027370",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13049",
+          "protein_length": 653,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 20,
+                  "end": 62,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13445",
+              "score": 4.7e-07
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

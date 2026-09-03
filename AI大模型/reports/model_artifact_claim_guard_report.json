@@ -1,0 +1,216 @@
+{
+  "artifact_count": 9,
+  "artifacts": [
+    {
+      "artifact_class": "rule_or_baseline_not_neural_weights",
+      "blocked_reasons": [
+        "limitations explicitly say not a trained neural model"
+      ],
+      "claimable_model_artifact": false,
+      "exists": true,
+      "has_weights_field": true,
+      "model": "KWB-EnzymeDesigner-baseline-ranker",
+      "path": "prototype/baseline_ranker_model.json",
+      "production_model_artifact": false,
+      "release_ready": false,
+      "safe_for_model_claim": false,
+      "safe_for_model_claim_source_field": null,
+      "sha256": "a34b443629c23ffcb11b9d450ddca5a9cedc3cf8794be6ce304da536bca22e73",
+      "status": null,
+      "trained_neural_weights": false,
+      "trained_on_rows": 12,
+      "training_source": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curated/training_table.jsonl",
+      "version": "0.1.0-linear-baseline"
+    },
+    {
+      "artifact_class": "blocked_empty_training_baseline",
+      "blocked_reasons": [
+        "trained_on_rows is 0 or blocked_empty_train_split"
+      ],
+      "claimable_model_artifact": false,
+      "exists": true,
+      "has_weights_field": false,
+      "model": "KWB-EnzymeDesigner-supervised-mutation-baseline",
+      "path": "prototype/supervised_mutation_baseline_model.json",
+      "production_model_artifact": false,
+      "release_ready": false,
+      "safe_for_model_claim": false,
+      "safe_for_model_claim_source_field": false,
+      "sha256": "1cd0b7835641cf2ecae961b8e19fc3f83c9cdd7ad4e4c4524f8b6dcc77261486",
+      "status": "blocked_empty_train_split",
+      "trained_neural_weights": false,
+      "trained_on_rows": 0,
+      "training_source": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curated/enzyme_mutation_supervised_repaired_verified.jsonl",
+      "version": "0.4.0-centroid-baseline"
+    },
+    {
+      "artifact_class": "legacy_baseline_not_claimable",
+      "blocked_reasons": [
+        "legacy or non-strict training source",
+        "source artifact does not set safe_for_model_claim true"
+      ],
+      "claimable_model_artifact": false,
+      "exists": true,
+      "has_weights_field": false,
+      "model": "KWB-EnzymeDesigner-supervised-mutation-baseline",
+      "path": "prototype/supervised_mutation_enriched_baseline_model.json",
+      "production_model_artifact": false,
+      "release_ready": false,
+      "safe_for_model_claim": false,
+      "safe_for_model_claim_source_field": null,
+      "sha256": "a84f37f3695a102742ab3093addf2831cce55b7fc33f1645870271d3c1dc2727",
+      "status": null,
+      "trained_neural_weights": false,
+      "trained_on_rows": 373,
+      "training_source": "datasets/curated/enzyme_mutation_training_table_enriched.jsonl",
+      "version": "0.4.0-centroid-baseline"
+    },
+    {
+      "artifact_class": "legacy_baseline_not_claimable",
+      "blocked_reasons": [
+        "legacy or non-strict training source",
+        "below model-claim row threshold",
+        "source artifact does not set safe_for_model_claim true"
+      ],
+      "claimable_model_artifact": false,
+      "exists": true,
+      "has_weights_field": false,
+      "model": "KWB-EnzymeDesigner-supervised-mutation-baseline",
+      "path": "prototype/supervised_mutation_verified_baseline_model.json",
+      "production_model_artifact": false,
+      "release_ready": false,
+      "safe_for_model_claim": false,
+      "safe_for_model_claim_source_field": null,
+      "sha256": "b56be78c6ae899a7a40b7cf5b610dabfee4e45aff82e2032d0d28d1c1b4c8147",
+      "status": null,
+      "trained_neural_weights": false,
+      "trained_on_rows": 20,
+      "training_source": "datasets/curated/enzyme_mutation_training_table_verified.jsonl",
+      "version": "0.4.0-centroid-baseline"
+    },
+    {
+      "artifact_class": "legacy_baseline_not_claimable",
+      "blocked_reasons": [
+        "legacy or non-strict training source",
+        "below model-claim row threshold",
+        "source artifact does not set safe_for_model_claim true"
+      ],
+      "claimable_model_artifact": false,
+      "exists": true,
+      "has_weights_field": false,
+      "model": "KWB-EnzymeDesigner-supervised-mutation-baseline",
+      "path": "prototype/site_sequence_feature_baseline_model.json",
+      "production_model_artifact": false,
+      "release_ready": false,
+      "safe_for_model_claim": false,
+      "safe_for_model_claim_source_field": null,
+      "sha256": "9fa9da3c7fa5692673b0ba517c58539035f8ad39d3f2058e2f1d1000f196802b",
+      "status": null,
+      "trained_neural_weights": false,
+      "trained_on_rows": 20,
+      "training_source": "datasets/curated/enzyme_mutation_site_sequence_features.jsonl",
+      "version": "0.4.0-centroid-baseline"
+    },
+    {
+      "artifact_class": "blocked_empty_training_baseline",
+      "blocked_reasons": [
+        "trained_on_rows is 0 or blocked_empty_train_split"
+      ],
+      "claimable_model_artifact": false,
+      "exists": true,
+      "has_weights_field": false,
+      "model": "KWB-EnzymeDesigner-supervised-mutation-baseline",
+      "path": "prototype/repaired_supervised_baseline_model.json",
+      "production_model_artifact": false,
+      "release_ready": false,
+      "safe_for_model_claim": false,
+      "safe_for_model_claim_source_field": false,
+      "sha256": "cfa60275d2ce09ded034aed77878b1715ce850c5c0db4cbb772d3e337a2d2347",
+      "status": "blocked_empty_train_split",
+      "trained_neural_weights": false,
+      "trained_on_rows": 0,
+      "training_source": "datasets/curated/enzyme_mutation_supervised_repaired_verified.jsonl",
+      "version": "0.4.0-centroid-baseline"
+    },
+    {
+      "artifact_class": "blocked_empty_training_baseline",
+      "blocked_reasons": [
+        "trained_on_rows is 0 or blocked_empty_train_split"
+      ],
+      "claimable_model_artifact": false,
+      "exists": true,
+      "has_weights_field": false,
+      "model": "KWB-EnzymeDesigner-supervised-mutation-baseline",
+      "path": "prototype/repaired_supervised_msa_baseline_model.json",
+      "production_model_artifact": false,
+      "release_ready": false,
+      "safe_for_model_claim": false,
+      "safe_for_model_claim_source_field": false,
+      "sha256": "798be38fae991652f8a2a566c083d26d3aa41cfa20246fb2947b3ac903ebd499",
+      "status": "blocked_empty_train_split",
+      "trained_neural_weights": false,
+      "trained_on_rows": 0,
+      "training_source": "datasets/curated/enzyme_mutation_strict_msa_site_features.jsonl",
+      "version": "0.4.0-centroid-baseline"
+    },
+    {
+      "artifact_class": "scaffold_only_not_trained_weights",
+      "blocked_reasons": [
+        "scaffold artifact only"
+      ],
+      "claimable_model_artifact": false,
+      "exists": true,
+      "has_weights_field": false,
+      "model": "KWB-EnzymeDesigner",
+      "path": "prototype/kwb_enzyme_designer_multitask_scaffold.json",
+      "production_model_artifact": false,
+      "release_ready": false,
+      "safe_for_model_claim": false,
+      "safe_for_model_claim_source_field": null,
+      "sha256": "9b64c79a8a39307137157b0e86364abd6f332bc8d0ffe0334f45374d5b6838b5",
+      "status": "scaffold_only",
+      "trained_neural_weights": false,
+      "trained_on_rows": 0,
+      "training_source": null,
+      "version": "0.2.0-multitask-scaffold"
+    },
+    {
+      "artifact_class": "code_scaffold_not_weights",
+      "blocked_reasons": [
+        "python scaffold source, not a serialized trained model"
+      ],
+      "claimable_model_artifact": false,
+      "exists": true,
+      "has_weights_field": false,
+      "model": "python_source_scaffold",
+      "path": "prototype/kwb_enzyme_designer_advanced_model.py",
+      "production_model_artifact": false,
+      "release_ready": false,
+      "safe_for_model_claim": false,
+      "safe_for_model_claim_source_field": null,
+      "sha256": "f6017df11d0c2a6e2a993de8ae317134139de76f95578935a93aa968b3ce3022",
+      "status": "source_code",
+      "trained_neural_weights": false,
+      "trained_on_rows": 0,
+      "training_source": null,
+      "version": null
+    }
+  ],
+  "claimable_model_artifact_count": 0,
+  "class_counts": {
+    "blocked_empty_training_baseline": 3,
+    "code_scaffold_not_weights": 1,
+    "legacy_baseline_not_claimable": 3,
+    "rule_or_baseline_not_neural_weights": 1,
+    "scaffold_only_not_trained_weights": 1
+  },
+  "created_at": "2026-09-03T07:33:56.590155+00:00",
+  "local_only": true,
+  "missing_artifacts": [],
+  "policy": "Existing prototype artifacts are retained for audit and local regression only. Legacy baselines, empty-train baselines, and scaffolds are not claimable top-tier model weights.",
+  "production_model_artifact_count": 0,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "success": true,
+  "trained_neural_weight_artifact_count": 0
+}

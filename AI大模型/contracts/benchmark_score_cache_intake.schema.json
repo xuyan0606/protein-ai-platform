@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kwb-benchmark-score-cache-intake.schema.json",
+  "title": "KWB benchmark score cache intake row",
+  "type": "object",
+  "required": [
+    "head",
+    "benchmark_name",
+    "dataset_version",
+    "license_review_status",
+    "local_dataset_uri",
+    "dataset_sha256",
+    "split_definition_uri",
+    "split_sha256",
+    "scorecard_uri",
+    "scorecard_sha256",
+    "metric_report_uri",
+    "metric_sha256",
+    "leakage_check_status",
+    "reviewer",
+    "reviewed_at"
+  ],
+  "properties": {
+    "head": {"type": "string"},
+    "benchmark_name": {"type": "string"},
+    "dataset_version": {"type": "string"},
+    "license_review_status": {"type": "string"},
+    "local_dataset_uri": {"type": "string"},
+    "dataset_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+    "split_definition_uri": {"type": "string"},
+    "split_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+    "scorecard_uri": {"type": "string"},
+    "scorecard_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+    "metric_report_uri": {"type": "string"},
+    "metric_sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+    "leakage_check_status": {"type": "string"},
+    "reviewer": {"type": "string"},
+    "reviewed_at": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": true
+}

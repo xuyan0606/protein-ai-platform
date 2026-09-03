@@ -1,0 +1,32 @@
+{
+  "briefing_json": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/numbering_review_briefing.json",
+  "briefing_rows": 33,
+  "briefing_validation": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/numbering_review_briefing_validation_report.json",
+  "briefing_validation_all_rows_valid": true,
+  "claim_eligible_rows_now": 0,
+  "completion_ready_rows": 0,
+  "created_at": "2026-09-03T07:32:18.457500+00:00",
+  "decision_input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_curation_decisions.jsonl",
+  "decision_input_rows": 4,
+  "decision_rows_present_for_briefing": 4,
+  "local_only": true,
+  "markdown": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/numbering_review_briefing_status_board.md",
+  "open_blocked_briefing_rows": 29,
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_briefing_status_board.jsonl",
+  "packet_counts": {
+    "numbering_review_abstract_signal_001": 25,
+    "numbering_review_isoform_exact_001": 8
+  },
+  "policy": "Briefing status board tracks missing human numbering review only; it never writes reviewed decisions, promotes labels, or enables model claims.",
+  "ready_for_decision_write_rows": 0,
+  "requires_human_input_rows": 29,
+  "safe_for_model_claim": false,
+  "status_counts": {
+    "open_blocked_waiting_for_human_review": 29,
+    "reviewed_decision_present_requires_validation_apply": 4
+  },
+  "title_flag_counts": {
+    "title_has_broad_protein_signal": 5,
+    "title_mismatch_risk": 28
+  }
+}

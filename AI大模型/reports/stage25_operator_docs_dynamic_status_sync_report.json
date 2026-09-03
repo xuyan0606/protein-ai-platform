@@ -1,0 +1,470 @@
+{
+  "created_at": "2026-09-03T07:35:35.971974+00:00",
+  "success": true,
+  "contract_version": "stage25-operator-docs-sync-v4",
+  "contract_sha256": "5bd2721fd12b10d35394d789a8eebea6debb5bc46d9a5a02e18e6dca19bd2cc2",
+  "canonical_output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_operator_docs_dynamic_status_sync_report.json",
+  "observed_output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_operator_docs_dynamic_status_sync_report.json",
+  "canonical_lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.stage25_operator_docs_sync.lock",
+  "check_only": false,
+  "lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.stage25_operator_docs_sync.lock",
+  "lock_acquired": true,
+  "canonical_targets": [
+    {
+      "namespace": "next",
+      "path_id": "ai:reports/next_operator_packet_20260806.md",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/next_operator_packet_20260806.md"
+    },
+    {
+      "namespace": "daily",
+      "path_id": "platform:docs/manuals/2026-08-06-daily-report.md",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/docs/manuals/2026-08-06-daily-report.md"
+    }
+  ],
+  "observed_targets": [
+    {
+      "namespace": "next",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/next_operator_packet_20260806.md"
+    },
+    {
+      "namespace": "daily",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/docs/manuals/2026-08-06-daily-report.md"
+    }
+  ],
+  "slots": [
+    "latest-release",
+    "core-counts",
+    "data-lake",
+    "human-backlog",
+    "post-source"
+  ],
+  "marker_specs": [
+    {
+      "namespace": "next",
+      "slot": "latest-release",
+      "marker": "<!-- stage25-sync:latest-release -->",
+      "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+    },
+    {
+      "namespace": "next",
+      "slot": "core-counts",
+      "marker": "<!-- stage25-sync:core-counts -->",
+      "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+    },
+    {
+      "namespace": "next",
+      "slot": "data-lake",
+      "marker": "<!-- stage25-sync:data-lake -->",
+      "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+    },
+    {
+      "namespace": "next",
+      "slot": "human-backlog",
+      "marker": "<!-- stage25-sync:human-backlog -->",
+      "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+    },
+    {
+      "namespace": "next",
+      "slot": "post-source",
+      "marker": "<!-- stage25-sync:post-source -->",
+      "target_path_id": "ai:reports/next_operator_packet_20260806.md"
+    },
+    {
+      "namespace": "daily",
+      "slot": "latest-release",
+      "marker": "<!-- stage25-sync:latest-release -->",
+      "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+    },
+    {
+      "namespace": "daily",
+      "slot": "core-counts",
+      "marker": "<!-- stage25-sync:core-counts -->",
+      "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+    },
+    {
+      "namespace": "daily",
+      "slot": "data-lake",
+      "marker": "<!-- stage25-sync:data-lake -->",
+      "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+    },
+    {
+      "namespace": "daily",
+      "slot": "human-backlog",
+      "marker": "<!-- stage25-sync:human-backlog -->",
+      "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+    },
+    {
+      "namespace": "daily",
+      "slot": "post-source",
+      "marker": "<!-- stage25-sync:post-source -->",
+      "target_path_id": "platform:docs/manuals/2026-08-06-daily-report.md"
+    }
+  ],
+  "provenance_rows": [
+    {
+      "role": "sync_script",
+      "kind": "implementation",
+      "path_id": "ai:scripts/sync_stage25_operator_docs_dynamic_status.py",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/sync_stage25_operator_docs_dynamic_status.py",
+      "size_bytes": 31909,
+      "sha256": "c3cdc29dbf4a031fb47844bd97cbf77d72d09ae42a5623df4aee202cb1790337",
+      "freshness_mode": "file_sha256"
+    },
+    {
+      "role": "sync_contract",
+      "kind": "implementation",
+      "path_id": "ai:scripts/stage25_operator_docs_sync_contract.py",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/stage25_operator_docs_sync_contract.py",
+      "size_bytes": 13500,
+      "sha256": "2f754c5865ddcbfa824f4f1e8d61f919f6f08bda998f15e68c0cd8d8c3bcc6fe",
+      "freshness_mode": "file_sha256"
+    },
+    {
+      "role": "runner_contract",
+      "kind": "code_contract",
+      "path_id": "ai:scripts/run_stage25_fail_closed_validation_20260806.py",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/run_stage25_fail_closed_validation_20260806.py",
+      "size_bytes": 48009,
+      "sha256": "765498d70c65b8523e74324d239a03b3978bfeacb94a74c9530ac350c3a359ba",
+      "freshness_mode": "file_sha256"
+    },
+    {
+      "role": "overall_contract",
+      "kind": "code_contract",
+      "path_id": "ai:scripts/build_stage25_overall_fail_closed_index_20260806.py",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/build_stage25_overall_fail_closed_index_20260806.py",
+      "size_bytes": 200274,
+      "sha256": "55f9335312b8ab8d5048c4289bfc50572be3828893c47b65a6b2bff5eab01f86",
+      "freshness_mode": "file_sha256"
+    },
+    {
+      "role": "handoff_contract",
+      "kind": "code_contract",
+      "path_id": "ai:scripts/build_stage25_handoff_bundle_manifest_20260806.py",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/build_stage25_handoff_bundle_manifest_20260806.py",
+      "size_bytes": 7277,
+      "sha256": "0d67614427338f3b70ed9233ecc14bfcc45fde2c1204a48f6e2eb36d613379df",
+      "freshness_mode": "file_sha256"
+    },
+    {
+      "role": "local_release",
+      "kind": "status_report",
+      "path_id": "ai:reports/local_release_manifest.json",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/local_release_manifest.json",
+      "size_bytes": 391923,
+      "sha256": "09481aca929061dfaadbd7a781ca2c5602bb361cd5b76a6b5e94da155dc04c30",
+      "freshness_mode": "semantic_projection",
+      "projection_version": "stage25-operator-docs-semantic-projection-v3",
+      "projection_fields": [
+        "artifact_count",
+        "release_ready"
+      ],
+      "projection": {
+        "artifact_count": 2746,
+        "release_ready": false
+      },
+      "projection_sha256": "bbcfc31f0787e31b60d0305dcf43716967b13bf35412693f778b2568c2b7b1bf"
+    },
+    {
+      "role": "data_lake",
+      "kind": "status_report",
+      "path_id": "ai:reports/data_lake_manifest.json",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/data_lake_manifest.json",
+      "size_bytes": 687693,
+      "sha256": "a3865e9300f3c0d7d0596a576d79966cbc8d6b14e6dc632a7affe1bcbf658dcd",
+      "freshness_mode": "semantic_projection",
+      "projection_version": "stage25-operator-docs-semantic-projection-v3",
+      "projection_fields": [
+        "source_artifact_rows",
+        "artifact_rows",
+        "unique_path_rows",
+        "deduplicated_input_rows",
+        "duplicate_input_path_rows"
+      ],
+      "projection": {
+        "source_artifact_rows": 2817,
+        "artifact_rows": 2746,
+        "unique_path_rows": 2746,
+        "deduplicated_input_rows": 71,
+        "duplicate_input_path_rows": 71
+      },
+      "projection_sha256": "90cd7d19f0ff575d4214c677b57c74d828c86c78f3f07dd64bad40305e72e317"
+    },
+    {
+      "role": "live_integrity",
+      "kind": "status_report",
+      "path_id": "ai:reports/data_lake_live_content_integrity_validation_report.json",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/data_lake_live_content_integrity_validation_report.json",
+      "size_bytes": 1872,
+      "sha256": "186bbc6adfcc9dd545d6757da9f54def0d87d4dc78458d13a5dbe9480ae7db52",
+      "freshness_mode": "semantic_projection",
+      "projection_version": "stage25-operator-docs-semantic-projection-v3",
+      "projection_fields": [
+        "success",
+        "failure_count",
+        "artifact_rows",
+        "strict_verified_rows",
+        "volatile_existence_only_rows",
+        "missing_rows",
+        "unsafe_path_rows",
+        "size_mismatch_rows",
+        "sha256_mismatch_rows",
+        "row_mismatch_rows"
+      ],
+      "projection": {
+        "success": true,
+        "failure_count": 0,
+        "artifact_rows": 2746,
+        "strict_verified_rows": 2744,
+        "volatile_existence_only_rows": 2,
+        "missing_rows": 0,
+        "unsafe_path_rows": 0,
+        "size_mismatch_rows": 0,
+        "sha256_mismatch_rows": 0,
+        "row_mismatch_rows": 0
+      },
+      "projection_sha256": "c219178a88e5258162ff8456ff280dc405351cd7d8901814d5c4d453cd6ea1c4"
+    },
+    {
+      "role": "human_backlog",
+      "kind": "status_report",
+      "path_id": "ai:reports/human_decision_backlog_fail_closed_consistency_validation_report.json",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/human_decision_backlog_fail_closed_consistency_validation_report.json",
+      "size_bytes": 718,
+      "sha256": "96e7732ba887ea03e0ef5503606ab6b71b364e78fb77f7e99a739963cacef643",
+      "freshness_mode": "semantic_projection",
+      "projection_version": "stage25-operator-docs-semantic-projection-v3",
+      "projection_fields": [
+        "success",
+        "open_items",
+        "total_required_rows",
+        "total_completed_rows",
+        "total_missing_rows",
+        "safe_for_model_claim",
+        "release_ready"
+      ],
+      "projection": {
+        "success": true,
+        "open_items": 11,
+        "total_required_rows": 1430,
+        "total_completed_rows": 40,
+        "total_missing_rows": 1392,
+        "safe_for_model_claim": false,
+        "release_ready": false
+      },
+      "projection_sha256": "d5976028517b6b0cf0ee65d4b7dd696e7fbc67960f35cf3de0de90a72454fd22"
+    },
+    {
+      "role": "safety_guard_contract",
+      "kind": "code_contract",
+      "path_id": "ai:scripts/validate_local_release_safety_guard_links.py",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_safety_guard_links.py",
+      "size_bytes": 35565,
+      "sha256": "6459bca875d1d301b4073fa8ad0622710bb7f4ee3466bb331ada59a4b49490dd",
+      "freshness_mode": "file_sha256"
+    },
+    {
+      "role": "approved_apply",
+      "kind": "external_status_report",
+      "path_id": "enzyme_db:stage25_approved_apply_report_20260806.json",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库/stage25_approved_apply_report_20260806.json",
+      "size_bytes": 3915,
+      "sha256": "68b58df9e8d4e6c77b4069b3da7fc915a61c16cee3d275b23ebb322749c4209f",
+      "freshness_mode": "file_sha256"
+    },
+    {
+      "role": "approved_apply_validation",
+      "kind": "external_status_report",
+      "path_id": "enzyme_db:stage25_approved_apply_report_validation_20260806.json",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库/stage25_approved_apply_report_validation_20260806.json",
+      "size_bytes": 474,
+      "sha256": "20f83a5a2fe4f27729e4e3fd0a4afa12ad5b66d3207d3fc3a3632753e6e60318",
+      "freshness_mode": "file_sha256"
+    },
+    {
+      "role": "post_source_receipt",
+      "kind": "status_report",
+      "path_id": "ai:reports/stage25_post_source_drop_rerun_receipt_20260806.json",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_post_source_drop_rerun_receipt_20260806.json",
+      "size_bytes": 43664,
+      "sha256": "a866fbb2ddf592dd073b0c31450c5b2de3ac81a7ca50c32da534b01de9e8f62b",
+      "freshness_mode": "semantic_projection",
+      "projection_version": "stage25-operator-docs-semantic-projection-v3",
+      "projection_fields": [
+        "command_rows",
+        "command_contract_sha256",
+        "sqlite_write_command_rows",
+        "rerun_ready",
+        "safe_for_model_claim",
+        "release_ready"
+      ],
+      "projection": {
+        "command_rows": 62,
+        "command_contract_sha256": "2276ec5232a321909d1d9005838c0223a8cf6c0b63980da4454c0415eaa9e183",
+        "sqlite_write_command_rows": 0,
+        "rerun_ready": true,
+        "safe_for_model_claim": false,
+        "release_ready": false
+      },
+      "projection_sha256": "6664fdd45df06730bec5d4a2ac960036add1889778cd654371c90b9e29131bb8"
+    },
+    {
+      "role": "post_source_validation",
+      "kind": "status_report",
+      "path_id": "ai:reports/stage25_post_source_drop_rerun_receipt_validation_20260806.json",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_post_source_drop_rerun_receipt_validation_20260806.json",
+      "size_bytes": 2724,
+      "sha256": "035c3cc54524a3edd9bdff98f58f635928d2f0b2e263649384fe1f28518a0a53",
+      "freshness_mode": "semantic_projection",
+      "projection_version": "stage25-operator-docs-semantic-projection-v3",
+      "projection_fields": [
+        "command_rows",
+        "command_contract_valid",
+        "failure_count",
+        "receipt_valid",
+        "sqlite_write_command_rows",
+        "safe_for_model_claim",
+        "release_ready"
+      ],
+      "projection": {
+        "command_rows": 62,
+        "command_contract_valid": true,
+        "failure_count": 0,
+        "receipt_valid": true,
+        "sqlite_write_command_rows": 0,
+        "safe_for_model_claim": false,
+        "release_ready": false
+      },
+      "projection_sha256": "2978574903a025079a31cb79060006ad89b7dc149e6e6dd879284470f00ed95d"
+    },
+    {
+      "role": "post_source_dry_run",
+      "kind": "status_report",
+      "path_id": "ai:reports/stage25_post_source_drop_rerun_dry_run_audit_validation_20260806.json",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_post_source_drop_rerun_dry_run_audit_validation_20260806.json",
+      "size_bytes": 1053,
+      "sha256": "92dfb471647366fd4e6434021324554458e7015dccfdac5a0cbc598d3aa7e85d",
+      "freshness_mode": "semantic_projection",
+      "projection_version": "stage25-operator-docs-semantic-projection-v3",
+      "projection_fields": [
+        "audit_valid",
+        "command_rows",
+        "command_contract_sha256",
+        "sqlite_write_command_rows",
+        "commands_executed",
+        "outputs_freshness_verified",
+        "rerun_completion_receipted",
+        "ready_for_source_drop_rerun",
+        "safe_for_model_claim",
+        "release_ready"
+      ],
+      "projection": {
+        "audit_valid": true,
+        "command_rows": 62,
+        "command_contract_sha256": "2276ec5232a321909d1d9005838c0223a8cf6c0b63980da4454c0415eaa9e183",
+        "sqlite_write_command_rows": 0,
+        "commands_executed": false,
+        "outputs_freshness_verified": false,
+        "rerun_completion_receipted": false,
+        "ready_for_source_drop_rerun": false,
+        "safe_for_model_claim": false,
+        "release_ready": false
+      },
+      "projection_sha256": "3909c2adcb3abf6ce7c4d5652f31effa4ae995f6a84a54fd507434458a4c9465"
+    }
+  ],
+  "provenance_row_count": 15,
+  "provenance_sha256": "5a8729b9b3f5fc2d7f69ad30ab3f3cb37500861a0b7777401751e7578a00a388",
+  "observed_provenance_sha256": "6f9e6c25e603f4d7d1708160e107c03c4a85818470feee2a4f29050fbb1568ea",
+  "target_rows": 10,
+  "detected_stale_rows": 0,
+  "stale_rows": 0,
+  "changed_rows": 0,
+  "transaction_applied": true,
+  "rollback_performed": false,
+  "transaction_journal_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.stage25_operator_docs_dynamic_status_sync_report.json.transaction.json",
+  "recovery_performed": false,
+  "recovery_mode": "none",
+  "document_hashes": [
+    {
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/next_operator_packet_20260806.md",
+      "before_sha256": "80c9f123c42f0c2a7363a34ae0098da99dc22c7bdc85f9a1631ce5d29e2b6c9a",
+      "proposed_sha256": "80c9f123c42f0c2a7363a34ae0098da99dc22c7bdc85f9a1631ce5d29e2b6c9a",
+      "after_sha256": "80c9f123c42f0c2a7363a34ae0098da99dc22c7bdc85f9a1631ce5d29e2b6c9a"
+    },
+    {
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/docs/manuals/2026-08-06-daily-report.md",
+      "before_sha256": "affaff31be8f92ea8f87185a953d39219931d9f4e3f79f16f3bf20e882713ee8",
+      "proposed_sha256": "affaff31be8f92ea8f87185a953d39219931d9f4e3f79f16f3bf20e882713ee8",
+      "after_sha256": "affaff31be8f92ea8f87185a953d39219931d9f4e3f79f16f3bf20e882713ee8"
+    }
+  ],
+  "results": [
+    {
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/next_operator_packet_20260806.md",
+      "slot": "latest-release",
+      "stale": false,
+      "detected_stale": false
+    },
+    {
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/next_operator_packet_20260806.md",
+      "slot": "core-counts",
+      "stale": false,
+      "detected_stale": false
+    },
+    {
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/next_operator_packet_20260806.md",
+      "slot": "data-lake",
+      "stale": false,
+      "detected_stale": false
+    },
+    {
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/next_operator_packet_20260806.md",
+      "slot": "human-backlog",
+      "stale": false,
+      "detected_stale": false
+    },
+    {
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/next_operator_packet_20260806.md",
+      "slot": "post-source",
+      "stale": false,
+      "detected_stale": false
+    },
+    {
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/docs/manuals/2026-08-06-daily-report.md",
+      "slot": "latest-release",
+      "stale": false,
+      "detected_stale": false
+    },
+    {
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/docs/manuals/2026-08-06-daily-report.md",
+      "slot": "core-counts",
+      "stale": false,
+      "detected_stale": false
+    },
+    {
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/docs/manuals/2026-08-06-daily-report.md",
+      "slot": "data-lake",
+      "stale": false,
+      "detected_stale": false
+    },
+    {
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/docs/manuals/2026-08-06-daily-report.md",
+      "slot": "human-backlog",
+      "stale": false,
+      "detected_stale": false
+    },
+    {
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/docs/manuals/2026-08-06-daily-report.md",
+      "slot": "post-source",
+      "stale": false,
+      "detected_stale": false
+    }
+  ],
+  "failure_count": 0,
+  "failures": [],
+  "receipt_atomic_commit": true,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Only six marker-bound current-state lines may be synchronized from local validated reports."
+}

@@ -1,0 +1,127 @@
+{
+  "case_id": "venus15b-thermompnn-candidate-smoke-001",
+  "backend": "thermompnn",
+  "status": "completed",
+  "negative_ddg_is_stabilizing": true,
+  "inputs": {
+    "pdb": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/Venus-15B淀粉酶项目/15B-AAP-noCa.pdb",
+    "chain": "A",
+    "mutations": [
+      "S265D",
+      "D405N",
+      "E331Q",
+      "M204H"
+    ],
+    "input_pdb_sha256": "327eacf9cab8703f13bd7dc72e052278a509ba4fe6ce594245565425db7f2454",
+    "sequence_sha256": "15a4430c8325d35c38f31f81e6f850757bd423f5b1964285ebeb7ec03ed9c2da"
+  },
+  "outputs": {
+    "mutation_rows": 4,
+    "ddg_table": [
+      {
+        "mutation": "S265D",
+        "wild_type": "S",
+        "mutant": "D",
+        "canonical_position": 265,
+        "thermompnn_position_zero_based": 264,
+        "observed_sequence_residue": "S",
+        "numbering_verified": true,
+        "backend": "thermompnn",
+        "ddg_pred_kcal_mol": 1.2201781272888184,
+        "negative_ddg_is_stabilizing": true,
+        "threshold_class": "destabilizing_watch",
+        "manual_review_required": true,
+        "evidence_level": "computational_proxy",
+        "limitations": [
+          "ThermoMPNN predicted ddG proxy, not Rosetta/FoldX physics ddG",
+          "not a wet-lab stability label",
+          "single local smoke run; no replicate model ensemble"
+        ]
+      },
+      {
+        "mutation": "D405N",
+        "wild_type": "D",
+        "mutant": "N",
+        "canonical_position": 405,
+        "thermompnn_position_zero_based": 404,
+        "observed_sequence_residue": "D",
+        "numbering_verified": true,
+        "backend": "thermompnn",
+        "ddg_pred_kcal_mol": -0.5451050400733948,
+        "negative_ddg_is_stabilizing": true,
+        "threshold_class": "near_neutral_manual_review",
+        "manual_review_required": true,
+        "evidence_level": "computational_proxy",
+        "limitations": [
+          "ThermoMPNN predicted ddG proxy, not Rosetta/FoldX physics ddG",
+          "not a wet-lab stability label",
+          "single local smoke run; no replicate model ensemble"
+        ]
+      },
+      {
+        "mutation": "E331Q",
+        "wild_type": "E",
+        "mutant": "Q",
+        "canonical_position": 331,
+        "thermompnn_position_zero_based": 330,
+        "observed_sequence_residue": "E",
+        "numbering_verified": true,
+        "backend": "thermompnn",
+        "ddg_pred_kcal_mol": 0.14448201656341553,
+        "negative_ddg_is_stabilizing": true,
+        "threshold_class": "near_neutral_manual_review",
+        "manual_review_required": true,
+        "evidence_level": "computational_proxy",
+        "limitations": [
+          "ThermoMPNN predicted ddG proxy, not Rosetta/FoldX physics ddG",
+          "not a wet-lab stability label",
+          "single local smoke run; no replicate model ensemble"
+        ]
+      },
+      {
+        "mutation": "M204H",
+        "wild_type": "M",
+        "mutant": "H",
+        "canonical_position": 204,
+        "thermompnn_position_zero_based": 203,
+        "observed_sequence_residue": "M",
+        "numbering_verified": true,
+        "backend": "thermompnn",
+        "ddg_pred_kcal_mol": 0.6317817568778992,
+        "negative_ddg_is_stabilizing": true,
+        "threshold_class": "near_neutral_manual_review",
+        "manual_review_required": true,
+        "evidence_level": "computational_proxy",
+        "limitations": [
+          "ThermoMPNN predicted ddG proxy, not Rosetta/FoldX physics ddG",
+          "not a wet-lab stability label",
+          "single local smoke run; no replicate model ensemble"
+        ]
+      }
+    ],
+    "ready_as_proxy_ddg_artifact": true
+  },
+  "artifacts": {
+    "parameters": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/advanced_features/ddg_stability/thermompnn_venus15b_smoke/parameters.json",
+    "input_structure_sha256": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/advanced_features/ddg_stability/thermompnn_venus15b_smoke/input_structure.sha256",
+    "mutation_list": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/advanced_features/ddg_stability/thermompnn_venus15b_smoke/mutation_list.json",
+    "ddg_table": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/advanced_features/ddg_stability/thermompnn_venus15b_smoke/ddg_table.json",
+    "runtime_log": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/advanced_features/ddg_stability/thermompnn_venus15b_smoke/runtime.log"
+  },
+  "artifact_sha256": {
+    "parameters": "85dbfeab6ff3bda504c823f45ea147e73d9046c1c43b548cf466708d09d288c7",
+    "input_structure_sha256": "ba054697814c6d5f2ec9876017c3a70917e4a4251cd1c75e53ebc5fc3635a2c6",
+    "mutation_list": "f87836b05e5acb8c7527b664cf1a8b7d3b21517a01ae06f74bf011c2c6d9b4b1",
+    "ddg_table": "7ff1a4d65a3f3ede6df190674623b79c8bc6d7f6793682444316b24655cea13c",
+    "runtime_log": "0e4698b13d12aabd1975d1cd131572adae179c99776a76976608c87ebd991a02"
+  },
+  "manual_review_required": true,
+  "local_only": true,
+  "reason": null,
+  "limitations": [
+    "ThermoMPNN is a predicted ddG proxy backend",
+    "Not Rosetta/PyRosetta/FoldX physics ddG",
+    "Not a wet-lab stability label"
+  ],
+  "safe_for_model_claim": false
+}

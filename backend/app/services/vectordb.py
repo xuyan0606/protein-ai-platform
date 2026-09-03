@@ -28,17 +28,21 @@ LITERATURE_COLLECTION = "protein_literature"
 def _get_client() -> HttpClient:
     global _client
     if _client is None:
-        chroma_host = settings.REDIS_HOST  # chromadb runs on same host in docker-compose
         try:
             _client = HttpClient(
-                host="localhost",
-                port=8001,
+                host=settings.CHROMA_HOST,
+                port=settings.CHROMA_PORT,
                 settings=ChromaSettings(anonymized_telemetry=False),
             )
             _client.heartbeat()
-            logger.info("ChromaDB connected at localhost:8001")
-        except Exception:
-            logger.warning("ChromaDB unavailable — vector search disabled")
+            logger.info("ChromaDB connected at %s:%s", settings.CHROMA_HOST, settings.CHROMA_PORT)
+        except Exception as e:
+            logger.warning(
+                "ChromaDB unavailable at %s:%s — vector search disabled: %s",
+                settings.CHROMA_HOST,
+                settings.CHROMA_PORT,
+                e,
+            )
             _client = None
     return _client
 

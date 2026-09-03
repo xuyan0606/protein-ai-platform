@@ -1,0 +1,141 @@
+{
+  "accession": "P98194",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00122",
+        "name": "P-type ATPase actuator domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR059000",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p98194",
+          "protein_length": 919,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 134,
+                  "end": 249,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00122",
+              "score": 2.4e-20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00689",
+        "name": "Cation transporting ATPase, C-terminus",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR006068",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p98194",
+          "protein_length": 919,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 726,
+                  "end": 897,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00689",
+              "score": 2.1e-46
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00690",
+        "name": "Cation transporter/ATPase, N-terminus",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004014",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p98194",
+          "protein_length": 919,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 27,
+                  "end": 94,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00690",
+              "score": 7e-15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13246",
+        "name": "P-type ATPase, cytoplasmic domain N",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p98194",
+          "protein_length": 919,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 401,
+                  "end": 550,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13246",
+              "score": 3e-29
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

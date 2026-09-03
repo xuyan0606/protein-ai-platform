@@ -1,0 +1,73 @@
+{
+  "accession": "Q9NRN7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01648",
+        "name": "4'-phosphopantetheinyl transferase superfamily",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR008278",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nrn7",
+          "protein_length": 309,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 125,
+                  "end": 241,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01648",
+              "score": 1.4e-12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22624",
+        "name": "4'-phosphopantetheinyl transferase, N-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR055066",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nrn7",
+          "protein_length": 309,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 25,
+                  "end": 122,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22624",
+              "score": 5.4e-38
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

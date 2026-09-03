@@ -1,0 +1,48 @@
+{
+  "created_at": "2026-09-03T07:33:53.822196+00:00",
+  "inputs": {
+    "benchmark_acquisition_plan": "datasets/benchmark/benchmark_acquisition_plan.jsonl",
+    "benchmark_coverage_dashboard": "reports/benchmark_coverage_dashboard.json",
+    "benchmark_gap_queue": "datasets/benchmark/benchmark_gap_queue.jsonl",
+    "benchmark_matrix_report": "reports/benchmark_matrix_report.json",
+    "benchmark_score_cache_intake": "datasets/benchmark/benchmark_score_cache_intake.local.jsonl",
+    "benchmark_score_cache_intake_report": "reports/benchmark_score_cache_intake_report.json",
+    "benchmark_score_cache_manifest": "reports/benchmark_score_cache_manifest.json",
+    "benchmark_score_cache_validation_report": "reports/benchmark_score_cache_validation_report.json",
+    "five_head_benchmark_gap_actions": "datasets/governance/five_head_benchmark_gap_actions.jsonl",
+    "five_head_benchmark_gap_plan_report": "reports/five_head_benchmark_gap_plan_report.json"
+  },
+  "local_only": true,
+  "manifest_update_allowed": false,
+  "outputs": {
+    "markdown": "reports/benchmark_readiness_packets.md",
+    "packets": "datasets/governance/benchmark_readiness_packets.jsonl",
+    "report": "reports/benchmark_readiness_packet_report.json"
+  },
+  "packet_ids": [
+    "benchmark-readiness-mutation_rank-kwb-strict-mutation-holdout",
+    "benchmark-readiness-substrate_fit-reviewed-substrate-identity-set"
+  ],
+  "policy": "Benchmark readiness packet only. It is a local execution contract for resolving an invalid benchmark gap. It does not download data, accept licenses, write score-cache intake, update a manifest, create scores, open model claims, change training labels, change release flags, or grant release readiness.",
+  "ready_for_model_claim": false,
+  "release_flags_modified": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "source_discrepancies": [],
+  "source_input_missing": [],
+  "status": "blocked",
+  "summary": {
+    "completion_ready_rows": 0,
+    "external_source_required_rows": 0,
+    "invalid_gap_rows": 2,
+    "local_contract_only_rows": 2,
+    "packet_rows": 2,
+    "packets_by_head": {
+      "mutation_rank": 1,
+      "substrate_fit": 1
+    },
+    "score_values_recorded": 0
+  },
+  "training_labels_modified": false,
+  "write_benchmark_score_cache_intake_allowed": false
+}

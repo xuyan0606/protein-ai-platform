@@ -1,0 +1,107 @@
+{
+  "accession": "P42356",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00454",
+        "name": "Phosphatidylinositol 3- and 4-kinase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000403",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p42356",
+          "protein_length": 2102,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1845,
+                  "end": 2050,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00454",
+              "score": 1.2e-45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00613",
+        "name": "Phosphoinositide 3-kinase family, accessory domain (PIK domain)",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR001263",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p42356",
+          "protein_length": 2102,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1583,
+                  "end": 1726,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00613",
+              "score": 1.8e-35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19274",
+        "name": "PI4-kinase N-terminal region",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR045495",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p42356",
+          "protein_length": 2102,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 378,
+                  "end": 1514,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF19274",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

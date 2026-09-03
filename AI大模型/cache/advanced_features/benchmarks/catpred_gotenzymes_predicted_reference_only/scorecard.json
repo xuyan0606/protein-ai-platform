@@ -1,0 +1,37 @@
+{
+  "benchmark_name": "CatPred/GotEnzymes predicted reference only",
+  "created_at": "2026-09-03T07:33:37.500291+00:00",
+  "dataset_version": "gotenzymes2-source-reference-bdw-oyw-gsc-v1-2026-08-03",
+  "field_completeness": {
+    "kcat_over_km_raw": 226,
+    "kcat_raw": 226,
+    "km_raw": 226,
+    "tm_raw": 226,
+    "topt_raw": 226
+  },
+  "head": "activity_risk",
+  "local_only": true,
+  "model_under_test": "none_predicted_reference_coverage_scorecard_only",
+  "quality_status": "external_predicted_reference_cache_ready_not_model_claim",
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "rows_scored": 226,
+  "safe_for_model_claim": false,
+  "source_fields": [
+    "kcat_raw",
+    "km_raw",
+    "kcat_over_km_raw",
+    "topt_raw",
+    "tm_raw"
+  ],
+  "source_shard_counts": {
+    "bdw": 38,
+    "gsc": 135,
+    "oyw": 53
+  },
+  "training_data_used": "none_by_this_benchmark_cache_row",
+  "unique_compounds": 129,
+  "unique_ec": 48,
+  "unique_proteins": 32,
+  "unique_reactions": 79
+}

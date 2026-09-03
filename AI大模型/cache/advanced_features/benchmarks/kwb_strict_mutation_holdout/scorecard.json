@@ -1,0 +1,22 @@
+{
+  "benchmark_name": "KWB strict mutation holdout",
+  "head": "mutation_rank",
+  "created_at": "2026-09-03T07:33:53.500733+00:00",
+  "local_only": true,
+  "model": "KWB-EnzymeDesigner-supervised-mutation-baseline",
+  "model_version": "0.4.0-centroid-baseline",
+  "model_artifact": "prototype/repaired_supervised_baseline_model.json",
+  "model_artifact_sha256": "cfa60275d2ce09ded034aed77878b1715ce850c5c0db4cbb772d3e337a2d2347",
+  "training_rows": 0,
+  "training_source": "datasets/curated/enzyme_mutation_supervised_repaired_verified.jsonl",
+  "selected_strategy": null,
+  "primary_split": "test",
+  "primary_records": [],
+  "diagnostic_validation_records": [],
+  "policy": "Primary benchmark score uses the protein-group test holdout only; validation is diagnostic because it was used for strategy selection.",
+  "limitations": [
+    "strict supervised source currently has 0 rows",
+    "primary test holdout currently has 0 rows and is not statistically strong",
+    "this benchmark does not provide reviewed numbering for weak rows, ddG backend output, or wet-lab feedback"
+  ]
+}

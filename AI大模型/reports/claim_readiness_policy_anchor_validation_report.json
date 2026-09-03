@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "mode": "claim_readiness_policy_anchor_validation",
+  "created_at": "2026-09-03T07:35:24.455600+00:00",
+  "local_only": true,
+  "success": true,
+  "failure_count": 0,
+  "failures": [],
+  "anchor_validator_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_claim_readiness_policy_anchor.py",
+  "anchor_validator_sha256": "79ba07ac183d13f8ebdc2f056a4833a4344e90f3275494f0376ae6b294de050c",
+  "contract_module_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/claim_readiness_policy_contract.py",
+  "contract_module_sha256": "10b5fc359f0abf914e58272ec0f5637c9e7520a2f0fc306daaaf41455972a27b",
+  "output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/claim_readiness_policy_anchor_validation_report.json",
+  "lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.claim_readiness_policy_anchor.lock",
+  "lock_acquired": true,
+  "atomic_commit": true,
+  "expected_policy_payload": {
+    "policy_version": "claim-readiness-policy-v1",
+    "canonical_claim_ids": [
+      "active_learning_experiment_submission",
+      "approved_for_ordering",
+      "biosecurity_screened",
+      "customer_sequence_package",
+      "external_tool_production_use",
+      "five_head_training_run",
+      "internal_design_review_artifacts",
+      "ip_fto_cleared",
+      "local_release_review_package",
+      "local_safe_training_pipeline",
+      "model_quality_claim"
+    ],
+    "must_allow_internal_claim_ids": [
+      "internal_design_review_artifacts"
+    ],
+    "conditional_internal_claim_ids": [
+      "local_safe_training_pipeline"
+    ],
+    "blocked_claim_ids": [
+      "active_learning_experiment_submission",
+      "approved_for_ordering",
+      "biosecurity_screened",
+      "customer_sequence_package",
+      "external_tool_production_use",
+      "five_head_training_run",
+      "ip_fto_cleared",
+      "local_release_review_package",
+      "model_quality_claim"
+    ]
+  },
+  "expected_canonical_policy_sha256": "c905ad3ae3d0cb52f4b301f30c377cd85c2e461ca79d73ff611bebf33743f64d",
+  "expected_test_vector_sha256": "11b1cec3bb19f327ed834b826cd4f6a4e431f53e2f290d3e649cdff4a29a4ef6",
+  "observed_policy_payload": {
+    "policy_version": "claim-readiness-policy-v1",
+    "canonical_claim_ids": [
+      "active_learning_experiment_submission",
+      "approved_for_ordering",
+      "biosecurity_screened",
+      "customer_sequence_package",
+      "external_tool_production_use",
+      "five_head_training_run",
+      "internal_design_review_artifacts",
+      "ip_fto_cleared",
+      "local_release_review_package",
+      "local_safe_training_pipeline",
+      "model_quality_claim"
+    ],
+    "must_allow_internal_claim_ids": [
+      "internal_design_review_artifacts"
+    ],
+    "conditional_internal_claim_ids": [
+      "local_safe_training_pipeline"
+    ],
+    "blocked_claim_ids": [
+      "active_learning_experiment_submission",
+      "approved_for_ordering",
+      "biosecurity_screened",
+      "customer_sequence_package",
+      "external_tool_production_use",
+      "five_head_training_run",
+      "ip_fto_cleared",
+      "local_release_review_package",
+      "model_quality_claim"
+    ]
+  },
+  "observed_canonical_policy_sha256": "c905ad3ae3d0cb52f4b301f30c377cd85c2e461ca79d73ff611bebf33743f64d",
+  "observed_test_vector_sha256": "11b1cec3bb19f327ed834b826cd4f6a4e431f53e2f290d3e649cdff4a29a4ef6",
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "The independent anchor detects shared claim-policy drift and never grants claim or release readiness."
+}

@@ -1,0 +1,39 @@
+{
+  "accession": "Q8WTS1",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00561",
+        "name": "alpha/beta hydrolase fold",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000073",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wts1",
+          "protein_length": 349,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 77,
+                  "end": 332,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00561",
+              "score": 5.4e-19
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

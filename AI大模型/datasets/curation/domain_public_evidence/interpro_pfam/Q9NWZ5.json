@@ -1,0 +1,73 @@
+{
+  "accession": "Q9NWZ5",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00485",
+        "name": "Phosphoribulokinase / Uridine kinase family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006083",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nwz5",
+          "protein_length": 548,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 101,
+                  "end": 287,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00485",
+              "score": 1.4e-57
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14681",
+        "name": "Uracil phosphoribosyltransferase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000836",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nwz5",
+          "protein_length": 548,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 329,
+                  "end": 532,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14681",
+              "score": 2e-72
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

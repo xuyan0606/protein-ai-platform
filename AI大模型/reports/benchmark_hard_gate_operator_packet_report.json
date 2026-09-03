@@ -1,0 +1,53 @@
+{
+  "benchmark_approval_granted": false,
+  "created_at": "2026-09-03T07:33:45.080308+00:00",
+  "download_allowed_by_packet": false,
+  "forbidden_outputs": [
+    "datasets/benchmark/benchmark_score_cache_intake.local.jsonl",
+    "reports/benchmark_score_cache_manifest.json",
+    "safe training or safe pipeline manifests"
+  ],
+  "input_errors": [],
+  "inputs": {
+    "benchmark_acquisition_plan": "datasets/benchmark/benchmark_acquisition_plan.jsonl",
+    "benchmark_score_cache_manifest": "reports/benchmark_score_cache_manifest.json",
+    "benchmark_score_cache_validation_report": "reports/benchmark_score_cache_validation_report.json",
+    "five_head_benchmark_gap_plan_report": "reports/five_head_benchmark_gap_plan_report.json"
+  },
+  "local_only": true,
+  "manifest_update_allowed": false,
+  "model_claim_allowed": false,
+  "outputs": {
+    "markdown": "reports/benchmark_hard_gate_operator_packets.md",
+    "packets": "datasets/governance/benchmark_hard_gate_operator_packets.jsonl",
+    "report": "reports/benchmark_hard_gate_operator_packet_report.json"
+  },
+  "packet_ids": [
+    "benchmark-hard-gate-mutation_rank-kwb-strict-mutation-holdout",
+    "benchmark-hard-gate-substrate_fit-reviewed-substrate-identity-set"
+  ],
+  "policy": "Fail closed: these packets are operator scaffolds only. They do not download benchmark data, approve licenses, approve benchmark use, write benchmark_score_cache_intake.local.jsonl, update benchmark_score_cache_manifest.json, run a safe pipeline, attach a benchmark to model claims, or grant release readiness.",
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_pipeline_integration_allowed": false,
+  "status": "blocked",
+  "summary": {
+    "completion_ready_rows": 0,
+    "heads_with_packets": 2,
+    "leakage_not_passed_rows": 2,
+    "license_not_approved_rows": 2,
+    "missing_checksum_rows": 2,
+    "missing_human_acceptance_receipt_rows": 2,
+    "missing_local_dataset_uri_rows": 2,
+    "missing_metric_report_uri_rows": 2,
+    "missing_scorecard_uri_rows": 2,
+    "packet_rows": 2,
+    "packets_by_head": {
+      "mutation_rank": 1,
+      "substrate_fit": 1
+    },
+    "requires_human_input_rows": 2
+  },
+  "training_unlocked": false,
+  "write_benchmark_score_cache_intake_allowed": false
+}

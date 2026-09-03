@@ -1,0 +1,39 @@
+{
+  "decision_rows": 4,
+  "active_decision_rows": 4,
+  "inactive_decision_rows": 0,
+  "active_queue_rows": 475,
+  "valid_rows": 4,
+  "invalid_rows": 0,
+  "deep_audit_rows": 549,
+  "blocked_deep_audit_map_rows": 0,
+  "error_counts": {},
+  "records": [
+    {
+      "record_id": "stability:261",
+      "decision": "reject_label",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "record_id": "stability:103",
+      "decision": "reject_label",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "record_id": "stability:458",
+      "decision": "reject_label",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "record_id": "stability:460",
+      "decision": "reject_label",
+      "valid": true,
+      "errors": []
+    }
+  ],
+  "inactive_records_sample": [],
+  "policy": "Only decisions whose record_id is in the current numbering queue are active. Inactive historical decisions are reported but do not fail current validation. map_to_canonical requires canonical WT to match the current canonical sequence. Rows recommended as reject_label by deep audit cannot be mapped unless a ReviewedSourceReceipt is cited."
+}

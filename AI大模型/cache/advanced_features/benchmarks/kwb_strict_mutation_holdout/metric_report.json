@@ -1,0 +1,79 @@
+{
+  "benchmark_name": "KWB strict mutation holdout",
+  "head": "mutation_rank",
+  "created_at": "2026-09-03T07:33:53.500733+00:00",
+  "local_only": true,
+  "primary_split": "test",
+  "primary_metrics": {
+    "rows": 0,
+    "accuracy": null,
+    "macro_f1": null,
+    "label_distribution": {},
+    "confusion": {
+      "go": {
+        "go": 0,
+        "watch": 0,
+        "no_go": 0
+      },
+      "watch": {
+        "go": 0,
+        "watch": 0,
+        "no_go": 0
+      },
+      "no_go": {
+        "go": 0,
+        "watch": 0,
+        "no_go": 0
+      }
+    }
+  },
+  "diagnostic_validation_metrics": {
+    "rows": 0,
+    "accuracy": null,
+    "macro_f1": null,
+    "label_distribution": {},
+    "confusion": {
+      "go": {
+        "go": 0,
+        "watch": 0,
+        "no_go": 0
+      },
+      "watch": {
+        "go": 0,
+        "watch": 0,
+        "no_go": 0
+      },
+      "no_go": {
+        "go": 0,
+        "watch": 0,
+        "no_go": 0
+      }
+    }
+  },
+  "all_holdout_metrics": {
+    "rows": 0,
+    "accuracy": null,
+    "macro_f1": null,
+    "label_distribution": {},
+    "confusion": {
+      "go": {
+        "go": 0,
+        "watch": 0,
+        "no_go": 0
+      },
+      "watch": {
+        "go": 0,
+        "watch": 0,
+        "no_go": 0
+      },
+      "no_go": {
+        "go": 0,
+        "watch": 0,
+        "no_go": 0
+      }
+    }
+  },
+  "ready_as_benchmark_scorecard": false,
+  "ready_for_model_quality_claim": false,
+  "reason_not_model_quality_claim": "Strict holdout benchmark is not model-claim ready because it requires a non-empty leakage-passed strict dataset, non-empty primary holdout metrics, and statistical review before use as model-quality evidence."
+}

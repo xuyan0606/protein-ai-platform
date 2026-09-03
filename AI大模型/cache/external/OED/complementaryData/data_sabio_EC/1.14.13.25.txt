@@ -1,0 +1,200 @@
+EntryID	Substrate	Product	EnzymeType	PubMedID	Organism	UniprotID	ECNumber	pH	Temperature	parameter.type	parameter.associatedSpecies	parameter.startValue	parameter.endValue	parameter.standardDeviation	parameter.unit
+3880	NADH;Furan;O2;H+	Oxidized furan;NAD+;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		41.0		3E0	s^(-1)
+3880	NADH;Furan;O2;H+	Oxidized furan;NAD+;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M
+3880	NADH;Furan;O2;H+	Oxidized furan;NAD+;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Furan	0.001		-	M
+3880	NADH;Furan;O2;H+	Oxidized furan;NAD+;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3881	O2;NADH;H+;Furan	NAD+;Oxidized furan;H2O	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		106.0		1.9E1	s^(-1)
+3881	O2;NADH;H+;Furan	NAD+;Oxidized furan;H2O	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3881	O2;NADH;H+;Furan	NAD+;Oxidized furan;H2O	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Furan	0.001		-	M
+3881	O2;NADH;H+;Furan	NAD+;Oxidized furan;H2O	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M
+3882	O2;NADH;Nitrobenzene;H+	NAD+;H2O;p-Nitrophenol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	1.0E-4		-	M
+3882	O2;NADH;Nitrobenzene;H+	NAD+;H2O;p-Nitrophenol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	2.5E-4		-	M
+3882	O2;NADH;Nitrobenzene;H+	NAD+;H2O;p-Nitrophenol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		0.75		-	s^(-1)
+3882	O2;NADH;Nitrobenzene;H+	NAD+;H2O;p-Nitrophenol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		7.0		-	s^(-1)
+3882	O2;NADH;Nitrobenzene;H+	NAD+;H2O;p-Nitrophenol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3883	O2;H+;Nitrobenzene;NADH	NAD+;H2O;p-Nitrophenol	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3883	O2;H+;Nitrobenzene;NADH	NAD+;H2O;p-Nitrophenol	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3883	O2;H+;Nitrobenzene;NADH	NAD+;H2O;p-Nitrophenol	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		45.0		-	s^(-1)
+3883	O2;H+;Nitrobenzene;NADH	NAD+;H2O;p-Nitrophenol	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3883	O2;H+;Nitrobenzene;NADH	NAD+;H2O;p-Nitrophenol	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		1.9		-	s^(-1)
+3884	Nitrobenzene;NADH;H+;O2	NAD+;H2O;p-Nitrophenol	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3884	Nitrobenzene;NADH;H+;O2	NAD+;H2O;p-Nitrophenol	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		0.75		-	s^(-1)
+3884	Nitrobenzene;NADH;H+;O2	NAD+;H2O;p-Nitrophenol	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3884	Nitrobenzene;NADH;H+;O2	NAD+;H2O;p-Nitrophenol	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		0.25		-	s^(-1)
+3884	Nitrobenzene;NADH;H+;O2	NAD+;H2O;p-Nitrophenol	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3885	H+;Nitrobenzene;NADH;O2	p-Nitrophenol;H2O;NAD+	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		30.0		-	s^(-1)
+3885	H+;Nitrobenzene;NADH;O2	p-Nitrophenol;H2O;NAD+	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3885	H+;Nitrobenzene;NADH;O2	p-Nitrophenol;H2O;NAD+	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3885	H+;Nitrobenzene;NADH;O2	p-Nitrophenol;H2O;NAD+	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3885	H+;Nitrobenzene;NADH;O2	p-Nitrophenol;H2O;NAD+	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		2.3		-	s^(-1)
+3886	O2;Nitrobenzene;NADH;H+	p-Nitrophenol;H2O;NAD+	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3886	O2;Nitrobenzene;NADH;H+	p-Nitrophenol;H2O;NAD+	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3886	O2;Nitrobenzene;NADH;H+	p-Nitrophenol;H2O;NAD+	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		6.0		-	s^(-1)
+3886	O2;Nitrobenzene;NADH;H+	p-Nitrophenol;H2O;NAD+	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		0.7		-	s^(-1)
+3886	O2;Nitrobenzene;NADH;H+	p-Nitrophenol;H2O;NAD+	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3887	O2;H+;NADH;Nitrobenzene	NAD+;H2O;p-Nitrophenol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3887	O2;H+;NADH;Nitrobenzene	NAD+;H2O;p-Nitrophenol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		2.3		-	s^(-1)
+3887	O2;H+;NADH;Nitrobenzene	NAD+;H2O;p-Nitrophenol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3887	O2;H+;NADH;Nitrobenzene	NAD+;H2O;p-Nitrophenol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		40.0		-	s^(-1)
+3887	O2;H+;NADH;Nitrobenzene	NAD+;H2O;p-Nitrophenol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3888	O2;H+;Nitrobenzene;NADH	p-Nitrophenol;NAD+;H2O	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3888	O2;H+;Nitrobenzene;NADH	p-Nitrophenol;NAD+;H2O	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		0.44		-	s^(-1)
+3888	O2;H+;Nitrobenzene;NADH	p-Nitrophenol;NAD+;H2O	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	rate const.		25.0		-	s^(-1)
+3888	O2;H+;Nitrobenzene;NADH	p-Nitrophenol;NAD+;H2O	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3888	O2;H+;Nitrobenzene;NADH	p-Nitrophenol;NAD+;H2O	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3889	Methane;O2;NADH;H+	NAD+;H2O;Methanol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	Methane	2.0E-4		-	M
+3889	Methane;O2;NADH;H+	NAD+;H2O;Methanol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	O2	2.5E-4		-	M
+3889	Methane;O2;NADH;H+	NAD+;H2O;Methanol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	rate const.		2.4		1E-1	s^(-1)
+3889	Methane;O2;NADH;H+	NAD+;H2O;Methanol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	NADH	1.0E-4		-	M
+3890	NADH;H+;Methane;O2	NAD+;H2O;Methanol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	NADH	1.0E-4		-	M
+3890	NADH;H+;Methane;O2	NAD+;H2O;Methanol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	rate const.		2.1		1E-1	s^(-1)
+3890	NADH;H+;Methane;O2	NAD+;H2O;Methanol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	O2	2.5E-4		-	M
+3890	NADH;H+;Methane;O2	NAD+;H2O;Methanol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	Methane	2.0E-4		-	M
+3891	Methane;H+;O2;NADH	NAD+;H2O;Methanol	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	Methane	2.0E-4		-	M
+3891	Methane;H+;O2;NADH	NAD+;H2O;Methanol	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	rate const.		2.1		4E-2	s^(-1)
+3891	Methane;H+;O2;NADH	NAD+;H2O;Methanol	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	O2	2.5E-4		-	M
+3891	Methane;H+;O2;NADH	NAD+;H2O;Methanol	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	NADH	1.0E-4		-	M
+3892	Methane;O2;NADH;H+	H2O;Methanol;NAD+	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	Methane	2.0E-4		-	M
+3892	Methane;O2;NADH;H+	H2O;Methanol;NAD+	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	O2	2.5E-4		-	M
+3892	Methane;O2;NADH;H+	H2O;Methanol;NAD+	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	rate const.		1.9		4E-2	s^(-1)
+3892	Methane;O2;NADH;H+	H2O;Methanol;NAD+	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	NADH	1.0E-4		-	M
+3893	O2;H+;NADH;Ethane	NAD+;Ethanol;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	rate const.		3.8		2E-1	s^(-1)
+3893	O2;H+;NADH;Ethane	NAD+;Ethanol;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	O2	2.5E-4		-	M
+3893	O2;H+;NADH;Ethane	NAD+;Ethanol;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	Ethane	2.0E-4		-	M
+3893	O2;H+;NADH;Ethane	NAD+;Ethanol;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	NADH	1.0E-4		-	M
+3894	Ethane;O2;H+;NADH	H2O;NAD+;Ethanol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	rate const.		5.6		1E-1	s^(-1)
+3894	Ethane;O2;H+;NADH	H2O;NAD+;Ethanol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	Ethane	2.0E-4		-	M
+3894	Ethane;O2;H+;NADH	H2O;NAD+;Ethanol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	O2	2.5E-4		-	M
+3894	Ethane;O2;H+;NADH	H2O;NAD+;Ethanol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	4.0	concentration	NADH	1.0E-4		-	M
+3896	H+;O2;Methane;NADH	H2O;NAD+;Methanol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3896	H+;O2;Methane;NADH	H2O;NAD+;Methanol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Methane	3.0E-4		-	M
+3896	H+;O2;Methane;NADH	H2O;NAD+;Methanol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		1.05		1E-2	s^(-1)
+3896	H+;O2;Methane;NADH	H2O;NAD+;Methanol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3897	O2;NADH;Methane;H+	H2O;Methanol;NAD+	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Methane	3.0E-4		-	M
+3897	O2;NADH;Methane;H+	H2O;Methanol;NAD+	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3897	O2;NADH;Methane;H+	H2O;Methanol;NAD+	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3897	O2;NADH;Methane;H+	H2O;Methanol;NAD+	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		1.05		1E-2	s^(-1)
+3898	H+;Methane;NADH;O2	Methanol;NAD+;H2O	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3898	H+;Methane;NADH;O2	Methanol;NAD+;H2O	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.52		1E-2	s^(-1)
+3898	H+;Methane;NADH;O2	Methanol;NAD+;H2O	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3898	H+;Methane;NADH;O2	Methanol;NAD+;H2O	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Methane	3.0E-4		-	M
+3899	Methane;H+;O2;NADH	Methanol;NAD+;H2O	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3899	Methane;H+;O2;NADH	Methanol;NAD+;H2O	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		1.11		1E-2	s^(-1)
+3899	Methane;H+;O2;NADH	Methanol;NAD+;H2O	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3899	Methane;H+;O2;NADH	Methanol;NAD+;H2O	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Methane	3.0E-4		-	M
+3900	NADH;O2;H+;Methane	H2O;NAD+;Methanol	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3900	NADH;O2;H+;Methane	H2O;NAD+;Methanol	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3900	NADH;O2;H+;Methane	H2O;NAD+;Methanol	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Methane	3.0E-4		-	M
+3900	NADH;O2;H+;Methane	H2O;NAD+;Methanol	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.89		1E-2	s^(-1)
+3901	H+;NADH;Methane;O2	NAD+;H2O;Methanol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Methane	3.0E-4		-	M
+3901	H+;NADH;Methane;O2	NAD+;H2O;Methanol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3901	H+;NADH;Methane;O2	NAD+;H2O;Methanol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3901	H+;NADH;Methane;O2	NAD+;H2O;Methanol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.79		1E-2	s^(-1)
+3902	O2;NADH;Methane;H+	NAD+;Methanol;H2O	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.12		1E-3	s^(-1)
+3902	O2;NADH;Methane;H+	NAD+;Methanol;H2O	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3902	O2;NADH;Methane;H+	NAD+;Methanol;H2O	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3902	O2;NADH;Methane;H+	NAD+;Methanol;H2O	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Methane	3.0E-4		-	M
+3904	Nitrobenzene;NADH;H+;O2	p-Nitrophenol;NAD+;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.3		1E-2	s^(-1)
+3904	Nitrobenzene;NADH;H+;O2	p-Nitrophenol;NAD+;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3904	Nitrobenzene;NADH;H+;O2	p-Nitrophenol;NAD+;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3904	Nitrobenzene;NADH;H+;O2	p-Nitrophenol;NAD+;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2			-	-
+3905	NADH;H+;O2;Nitrobenzene	H2O;p-Nitrophenol;NAD+	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3905	NADH;H+;O2;Nitrobenzene	H2O;p-Nitrophenol;NAD+	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3905	NADH;H+;O2;Nitrobenzene	H2O;p-Nitrophenol;NAD+	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.5		1E-2	s^(-1)
+3905	NADH;H+;O2;Nitrobenzene	H2O;p-Nitrophenol;NAD+	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3906	Nitrobenzene;NADH;O2;H+	p-Nitrophenol;NAD+;H2O	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3906	Nitrobenzene;NADH;O2;H+	p-Nitrophenol;NAD+;H2O	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3906	Nitrobenzene;NADH;O2;H+	p-Nitrophenol;NAD+;H2O	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.1		1E-2	s^(-1)
+3906	Nitrobenzene;NADH;O2;H+	p-Nitrophenol;NAD+;H2O	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3907	NADH;H+;O2;Nitrobenzene	NAD+;H2O;p-Nitrophenol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3907	NADH;H+;O2;Nitrobenzene	NAD+;H2O;p-Nitrophenol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3907	NADH;H+;O2;Nitrobenzene	NAD+;H2O;p-Nitrophenol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3907	NADH;H+;O2;Nitrobenzene	NAD+;H2O;p-Nitrophenol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.5		1E-2	s^(-1)
+3908	O2;H+;NADH;Nitrobenzene	p-Nitrophenol;NAD+;H2O	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3908	O2;H+;NADH;Nitrobenzene	p-Nitrophenol;NAD+;H2O	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3908	O2;H+;NADH;Nitrobenzene	p-Nitrophenol;NAD+;H2O	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.35		1E-2	s^(-1)
+3908	O2;H+;NADH;Nitrobenzene	p-Nitrophenol;NAD+;H2O	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3909	H+;NADH;O2;Nitrobenzene	NAD+;H2O;p-Nitrophenol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.38		1E-2	s^(-1)
+3909	H+;NADH;O2;Nitrobenzene	NAD+;H2O;p-Nitrophenol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3909	H+;NADH;O2;Nitrobenzene	NAD+;H2O;p-Nitrophenol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3909	H+;NADH;O2;Nitrobenzene	NAD+;H2O;p-Nitrophenol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3910	Nitrobenzene;NADH;O2;H+	p-Nitrophenol;H2O;NAD+	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.04		1E-3	s^(-1)
+3910	Nitrobenzene;NADH;O2;H+	p-Nitrophenol;H2O;NAD+	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Nitrobenzene	0.0016		-	M
+3910	Nitrobenzene;NADH;O2;H+	p-Nitrophenol;H2O;NAD+	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3910	Nitrobenzene;NADH;O2;H+	p-Nitrophenol;H2O;NAD+	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3912	NADH;Furan;H+;O2	Oxidized furan;NAD+;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Furan	0.0016		-	M
+3912	NADH;Furan;H+;O2	Oxidized furan;NAD+;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3912	NADH;Furan;H+;O2	Oxidized furan;NAD+;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3912	NADH;Furan;H+;O2	Oxidized furan;NAD+;H2O	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		1.13		5E-2	s^(-1)
+3913	Furan;O2;NADH;H+	H2O;Oxidized furan;NAD+	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3913	Furan;O2;NADH;H+	H2O;Oxidized furan;NAD+	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Furan	0.0016		-	M
+3913	Furan;O2;NADH;H+	H2O;Oxidized furan;NAD+	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3913	Furan;O2;NADH;H+	H2O;Oxidized furan;NAD+	mutant Quad	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		1.9		5E-2	s^(-1)
+3914	O2;Furan;H+;NADH	Oxidized furan;H2O;NAD+	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3914	O2;Furan;H+;NADH	Oxidized furan;H2O;NAD+	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3914	O2;Furan;H+;NADH	Oxidized furan;H2O;NAD+	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Furan	0.0016		-	M
+3914	O2;Furan;H+;NADH	Oxidized furan;H2O;NAD+	mutant DBL1	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.56		2E-2	s^(-1)
+3915	O2;Furan;NADH;H+	Oxidized furan;NAD+;H2O	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3915	O2;Furan;NADH;H+	Oxidized furan;NAD+;H2O	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		1.4		1E-1	s^(-1)
+3915	O2;Furan;NADH;H+	Oxidized furan;NAD+;H2O	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Furan	0.0016		-	M
+3915	O2;Furan;NADH;H+	Oxidized furan;NAD+;H2O	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3916	Furan;O2;NADH;H+	H2O;NAD+;Oxidized furan	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3916	Furan;O2;NADH;H+	H2O;NAD+;Oxidized furan	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3916	Furan;O2;NADH;H+	H2O;NAD+;Oxidized furan	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		1.11		1E-2	s^(-1)
+3916	Furan;O2;NADH;H+	H2O;NAD+;Oxidized furan	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Furan	0.0016		-	M
+3917	O2;NADH;Furan;H+	Oxidized furan;H2O;NAD+	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3917	O2;NADH;Furan;H+	Oxidized furan;H2O;NAD+	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3917	O2;NADH;Furan;H+	Oxidized furan;H2O;NAD+	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Furan	0.0016		-	M
+3917	O2;NADH;Furan;H+	Oxidized furan;H2O;NAD+	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.79		3E-2	s^(-1)
+3918	NADH;Furan;O2;H+	H2O;NAD+;Oxidized furan	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	O2	2.5E-4		-	M
+3918	NADH;Furan;O2;H+	H2O;NAD+;Oxidized furan	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	kcat		0.15		2E-3	s^(-1)
+3918	NADH;Furan;O2;H+	H2O;NAD+;Oxidized furan	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	NADH	1.0E-4		-	M
+3918	NADH;Furan;O2;H+	H2O;NAD+;Oxidized furan	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.6	25.0	concentration	Furan	0.0016		-	M
+3919	Furan;H+;NADH;O2	NAD+;Oxidized furan;H2O	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Furan	0.001		-	M
+3919	Furan;H+;NADH;O2	NAD+;Oxidized furan;H2O	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3919	Furan;H+;NADH;O2	NAD+;Oxidized furan;H2O	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M
+3919	Furan;H+;NADH;O2	NAD+;Oxidized furan;H2O	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		46.0		8E0	s^(-1)
+3920	O2;Furan;H+;NADH	NAD+;Oxidized furan;H2O	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3920	O2;Furan;H+;NADH	NAD+;Oxidized furan;H2O	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Furan	0.001		-	M
+3920	O2;Furan;H+;NADH	NAD+;Oxidized furan;H2O	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		88.0		1.2E1	s^(-1)
+3920	O2;Furan;H+;NADH	NAD+;Oxidized furan;H2O	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M
+3921	Furan;O2;NADH;H+	NAD+;H2O;Oxidized furan	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M
+3921	Furan;O2;NADH;H+	NAD+;H2O;Oxidized furan	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3921	Furan;O2;NADH;H+	NAD+;H2O;Oxidized furan	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Furan	2.0E-4		-	M
+3921	Furan;O2;NADH;H+	NAD+;H2O;Oxidized furan	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		6.0		1E-1	s^(-1)
+3922	Furan;NADH;H+;O2	H2O;Oxidized furan;NAD+	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M
+3922	Furan;NADH;H+;O2	H2O;Oxidized furan;NAD+	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		8.2		3E-1	s^(-1)
+3922	Furan;NADH;H+;O2	H2O;Oxidized furan;NAD+	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Furan	2.0E-4		-	M
+3922	Furan;NADH;H+;O2	H2O;Oxidized furan;NAD+	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3923	Furan;NADH;H+;O2	Oxidized furan;NAD+;H2O	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Furan	2.0E-4		-	M
+3923	Furan;NADH;H+;O2	Oxidized furan;NAD+;H2O	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3923	Furan;NADH;H+;O2	Oxidized furan;NAD+;H2O	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		5.5		2E-1	s^(-1)
+3923	Furan;NADH;H+;O2	Oxidized furan;NAD+;H2O	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M
+3924	NADH;O2;Furan;H+	Oxidized furan;H2O;NAD+	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		9.1		3E-1	s^(-1)
+3924	NADH;O2;Furan;H+	Oxidized furan;H2O;NAD+	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M
+3924	NADH;O2;Furan;H+	Oxidized furan;H2O;NAD+	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3924	NADH;O2;Furan;H+	Oxidized furan;H2O;NAD+	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Furan	2.0E-4		-	M
+3925	NADH;Furan;H+;O2	Oxidized furan;H2O;NAD+	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3925	NADH;Furan;H+;O2	Oxidized furan;H2O;NAD+	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M
+3925	NADH;Furan;H+;O2	Oxidized furan;H2O;NAD+	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		15.0		-	s^(-1)
+3925	NADH;Furan;H+;O2	Oxidized furan;H2O;NAD+	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Furan	2.0E-4		-	M
+3926	H+;Methane;NADH;O2	NAD+;H2O;Methanol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M
+3926	H+;Methane;NADH;O2	NAD+;H2O;Methanol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		6.3		2E-1	s^(-1)
+3926	H+;Methane;NADH;O2	NAD+;H2O;Methanol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Methane	2.0E-4		-	M
+3926	H+;Methane;NADH;O2	NAD+;H2O;Methanol	wildtype	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3927	Methane;H+;NADH;O2	NAD+;H2O;Methanol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3927	Methane;H+;NADH;O2	NAD+;H2O;Methanol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M
+3927	Methane;H+;NADH;O2	NAD+;H2O;Methanol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Methane	2.0E-4		-	M
+3927	Methane;H+;NADH;O2	NAD+;H2O;Methanol	mutant DBL2	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		6.4		1E-1	s^(-1)
+3928	Methane;NADH;O2;H+	Methanol;H2O;NAD+	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		5.3		2E-1	s^(-1)
+3928	Methane;NADH;O2;H+	Methanol;H2O;NAD+	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M
+3928	Methane;NADH;O2;H+	Methanol;H2O;NAD+	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3928	Methane;NADH;O2;H+	Methanol;H2O;NAD+	mutant S109A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Methane	2.0E-4		-	M
+3929	O2;H+;NADH;Methane	H2O;NAD+;Methanol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		5.6		2E-1	s^(-1)
+3929	O2;H+;NADH;Methane	H2O;NAD+;Methanol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Methane	2.0E-4		-	M
+3929	O2;H+;NADH;Methane	H2O;NAD+;Methanol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M
+3929	O2;H+;NADH;Methane	H2O;NAD+;Methanol	mutant T111A	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3930	O2;NADH;Methane;H+	NAD+;Methanol;H2O	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	rate const.		1.6		7E-2	s^(-1)
+3930	O2;NADH;Methane;H+	NAD+;Methanol;H2O	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	Methane	2.0E-4		-	M
+3930	O2;NADH;Methane;H+	NAD+;Methanol;H2O	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	O2	2.5E-4		-	M
+3930	O2;NADH;Methane;H+	NAD+;Methanol;H2O	mutant T111Y	12741818	Methylosinus trichosporium	P27356	1.14.13.25	7.0	25.0	concentration	NADH	1.0E-4		-	M

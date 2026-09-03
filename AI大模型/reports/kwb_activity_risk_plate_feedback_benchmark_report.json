@@ -1,0 +1,32 @@
+{
+  "activity_risk_training_label_rows_written": 0,
+  "benchmark_name": "KWB plate-level wet-lab feedback",
+  "blocked_samples": [],
+  "created_at": "2026-09-03T07:33:37.431473+00:00",
+  "dataset_rows": 17,
+  "evidence_quality_counts": {
+    "limited_variant_replicates_control_supported": 4,
+    "plate_control_ratio_supported": 13
+  },
+  "head": "activity_risk",
+  "label_counts": {
+    "high_activity_risk": 7,
+    "low_activity_risk": 4,
+    "watch_activity_risk": 6
+  },
+  "local_only": true,
+  "outputs": {
+    "dataset": "cache/advanced_features/benchmarks/kwb_4g_activity_risk_plate_feedback/dataset.jsonl",
+    "metric_report": "cache/advanced_features/benchmarks/kwb_4g_activity_risk_plate_feedback/metric_report.json",
+    "scorecard": "cache/advanced_features/benchmarks/kwb_4g_activity_risk_plate_feedback/scorecard.json",
+    "split": "cache/advanced_features/benchmarks/kwb_4g_activity_risk_plate_feedback/split_definition.json"
+  },
+  "policy": "Evaluation-only activity-risk benchmark. Batch-control ratios may support benchmark coverage only and do not create reviewed labels or model claims.",
+  "raw_measurement_rows_used": 638,
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "training_import_written_rows": 0,
+  "unique_batches": 5,
+  "unique_variants": 11
+}

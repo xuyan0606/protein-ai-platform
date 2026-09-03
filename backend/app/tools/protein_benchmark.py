@@ -177,6 +177,7 @@ def protein_benchmark(
     known_family: str | None = None,
     enzyme_type: str | None = None,
     blast_results: list[dict] | None = None,
+    identity_profile: dict | None = None,
 ) -> dict:
     """Benchmark a query protein against known homologs and enzyme families.
 
@@ -186,6 +187,7 @@ def protein_benchmark(
         known_family: Known enzyme family (e.g., "GH13", "GH11")
         enzyme_type: Type of enzyme for family hints (e.g., "amylase")
         blast_results: Pre-computed BLAST results [{name, identity, sequence, ...}]
+        identity_profile: Optional enzyme_identity_profile output for family/key-residue gating
 
     Returns:
         Comprehensive benchmark report with family info, conservation analysis,
@@ -202,14 +204,102 @@ def protein_benchmark(
         raise ValueError(f"INVALID_AA: {''.join(sorted(invalid))}")
 
     # --- 1. Family Identification ---
-    family = _resolve_family(known_family, enzyme_type)
+    # This tool is a downstream explainer, not an identity caller.  Explicit
+    # known_family/enzyme_type hints are kept as user context, but they must not
+    # unlock family knowledge or engineering recommendations without a current
+    # enzyme_identity_profile that passed the foundation/numbering gate.
+    identity_summary = _extract_identity_profile(identity_profile)
+    profile_ready = bool(identity_summary)
+    family = _resolve_family_from_identity(identity_summary) if profile_ready else None
     family_info = _KNOWN_FAMILIES.get(family) if family else None
+    family_label = family_info["name"] if family_info else None
+    family_ec = family_info.get("ec") if family_info else None
+    family_mechanism = family_info.get("mechanism") if family_info else None
+    if identity_summary.get("family"):
+        family_label = str(identity_summary.get("family"))
+        family_ec = identity_summary.get("ec") or family_ec
+        family_mechanism = identity_summary.get("family_superfamily") or family_mechanism
+        family = family or None
+    profile_key_residues = identity_summary.get("key_residues", [])
+    profile_protected_positions = identity_summary.get("protected_positions", [])
 
     # --- 2. Property Computation ---
     properties = _compute_properties(seq)
 
     # --- 3. Conservation Analysis ---
     conservation = _analyze_conservation(seq)
+
+    if not profile_ready:
+        homolog_comparison = _compare_homologs(
+            seq, properties, homolog_sequences or [], blast_results or []
+        )
+        return {
+            "status": "blocked",
+            "capability_status": "foundation_dependent_explainer",
+            "evidence_level": "BLOCKED",
+            "report_boundary": (
+                "protein_benchmark 只解释已确认家族；enzyme_identity_profile 的身份、编号和保护位点门控未通过时，"
+                "不得输出家族特异工程建议、催化残基或候选位点依据。"
+            ),
+            "query_info": {
+                "length": n,
+                "sequence_preview": seq[:60] + ("..." if n > 60 else ""),
+            },
+            "foundation_gate": {
+                "status": "blocked",
+                "reason": "enzyme_identity_profile_required",
+                "message": (
+                    "protein_benchmark only explains confirmed enzyme families. "
+                    "Run annotation_bundle -> enzyme_identity_profile first, and pass a profile "
+                    "with identity_status=identified and guardrail.status=ready."
+                ),
+                "user_supplied_context": {
+                    "known_family": known_family,
+                    "enzyme_type": enzyme_type,
+                },
+                "blocked_outputs": [
+                    "family-specific motifs",
+                    "catalytic residue prediction",
+                    "domain architecture inference",
+                    "engineering recommendations",
+                    "known engineering successes",
+                ],
+            },
+            "family": {"identified": None, "name": "Unknown enzyme family", "confidence": "none"},
+            "properties": properties,
+            "conservation_analysis": conservation,
+            "homolog_comparison": homolog_comparison,
+            "family_motifs": [],
+            "catalytic_residues": {
+                "known": False,
+                "note": "Blocked until enzyme_identity_profile confirms family and numbering.",
+            },
+            "domain_architecture": [],
+            "engineering_targets": {
+                "ph_lowering": [],
+                "thermostability": [],
+                "activity_modulation": [],
+                "never_mutate": [],
+            },
+            "benchmark_metrics": {
+                "status": "blocked",
+                "reason": "family_not_confirmed",
+            },
+            "known_engineering_successes": [],
+            "identity_profile": None,
+            "recommendations": [
+                {
+                    "priority": 0,
+                    "category": "Foundation evidence required",
+                    "action": "Resolve enzyme family, catalytic/key residues, and numbering before benchmarking.",
+                    "plan": [
+                        "Run annotation_bundle against curated/local data.",
+                        "Run enzyme_identity_profile and verify identity_status=identified.",
+                        "Confirm guardrail.status=ready before using family-specific engineering knowledge.",
+                    ],
+                }
+            ],
+        }
 
     # --- 4. Family-Specific Motif Search ---
     family_motifs = _search_family_motifs(seq, family_info) if family_info else []
@@ -220,7 +310,7 @@ def protein_benchmark(
     )
 
     # --- 6. Catalytic Residue Prediction ---
-    catalytic = _predict_catalytic_residues(seq, family_info)
+    catalytic = _predict_catalytic_residues(seq, family_info, identity_summary)
 
     # --- 7. Domain Architecture Annotation ---
     domains = _annotate_domains(n, family_info)
@@ -232,17 +322,24 @@ def protein_benchmark(
     benchmark = _compute_benchmark_metrics(properties, family_info)
 
     return {
+        "capability_status": "foundation_dependent_explainer",
+        "evidence_level": "IDENTITY_PROFILE_DERIVED",
+        "report_boundary": (
+            "仅用于解释已通过 enzyme_identity_profile 门控的家族/保守性背景；"
+            "不能替代同源检索、结构编号映射、目标 assay 或湿实验验证。"
+        ),
         "query_info": {
             "length": n,
             "sequence_preview": seq[:60] + ("..." if n > 60 else ""),
         },
         "family": {
-            "identified": family,
-            "name": family_info["name"] if family_info else "Unknown",
-            "ec": family_info.get("ec") if family_info else None,
-            "mechanism": family_info.get("mechanism") if family_info else None,
-            "confidence": "high" if family_info else "none",
-        } if family else {"identified": None, "name": "Unknown enzyme family", "confidence": "none"},
+            "identified": family or identity_summary.get("family_accession"),
+            "name": family_label if family_label else "Unknown enzyme family",
+            "ec": family_ec,
+            "mechanism": family_mechanism,
+            "confidence": "high" if family_info or identity_summary else "none",
+            "source": "identity_profile" if identity_summary else ("curated_family" if family_info else None),
+        } if (family_info or identity_summary) else {"identified": None, "name": "Unknown enzyme family", "confidence": "none"},
         "properties": properties,
         "conservation_analysis": conservation,
         "family_motifs": family_motifs,
@@ -252,31 +349,64 @@ def protein_benchmark(
         "engineering_targets": engineering_targets,
         "benchmark_metrics": benchmark,
         "known_engineering_successes": family_info.get("known_engineering_successes", []) if family_info else [],
+        "identity_profile": {
+            "family": identity_summary.get("family"),
+            "ec": identity_summary.get("ec"),
+            "protected_positions": profile_protected_positions,
+            "key_residues": profile_key_residues[:10] if isinstance(profile_key_residues, list) else [],
+            "source": "enzyme_identity_profile" if identity_summary else None,
+        } if identity_summary else None,
         "recommendations": _generate_recommendations(
             family_info, properties, conservation, engineering_targets
         ),
     }
 
 
-def _resolve_family(known_family: str | None, enzyme_type: str | None) -> str | None:
-    """Resolve enzyme family from explicit input or type hints."""
-    if known_family and known_family.upper() in _KNOWN_FAMILIES:
-        return known_family.upper()
-    if enzyme_type:
-        hint = enzyme_type.lower()
-        for keyword, fam in _GH_FAMILY_HINT.items():
-            if keyword in hint:
-                return fam.split(" or ")[0]  # take first match
-    # Try to match known_family if it's a partial name
-    if known_family:
-        upper = known_family.upper()
-        if "GH13" in upper or "AMYLASE" in upper:
-            return "GH13"
-        if "GH11" in upper or "XYLANASE" in upper:
-            return "GH11"
-        if "GH7" in upper or "CBH" in upper:
-            return "GH7"
+def _resolve_family_from_identity(identity_summary: dict) -> str | None:
+    """Resolve built-in explanation pack only from confirmed identity evidence."""
+    accession = str(identity_summary.get("family_accession") or "").upper()
+    family_name = str(identity_summary.get("family") or "").upper()
+    if accession == "IPR006046" or "GH13" in family_name or "ALPHA AMYLASE" in family_name:
+        return "GH13"
+    if "GH11" in family_name or "XYLANASE" in family_name:
+        return "GH11"
+    if "GH7" in family_name or "CELLOBIOHYDROLASE" in family_name:
+        return "GH7"
+    if "GH5" in family_name or "ENDOGLUCANASE" in family_name:
+        return "GH5"
+    if "GH1" in family_name or "GLUCOSIDASE" in family_name:
+        return "GH1"
     return None
+
+
+def _extract_identity_profile(identity_profile: dict | None) -> dict:
+    """Extract a conservative identity summary from enzyme_identity_profile output."""
+    if not isinstance(identity_profile, dict):
+        return {}
+    if str(identity_profile.get("identity_status") or "") != "identified":
+        return {}
+    guardrail = identity_profile.get("guardrail", {})
+    if not isinstance(guardrail, dict) or str(guardrail.get("status") or "") != "ready":
+        return {}
+
+    family_candidates = identity_profile.get("family_candidates", [])
+    ec_candidates = identity_profile.get("ec_candidates", [])
+    top_family = family_candidates[0] if isinstance(family_candidates, list) and family_candidates and isinstance(family_candidates[0], dict) else {}
+    top_ec = ec_candidates[0] if isinstance(ec_candidates, list) and ec_candidates and isinstance(ec_candidates[0], dict) else {}
+    key_residues = identity_profile.get("key_residues", [])
+    protected_positions = identity_profile.get("protected_positions", [])
+    return {
+        "family": top_family.get("name"),
+        "family_accession": top_family.get("accession"),
+        "family_confidence": top_family.get("confidence"),
+        "family_superfamily": top_family.get("superfamily"),
+        "ec": top_ec.get("ec"),
+        "ec_name": top_ec.get("name"),
+        "ec_confidence": top_ec.get("confidence"),
+        "key_residues": key_residues if isinstance(key_residues, list) else [],
+        "protected_positions": protected_positions if isinstance(protected_positions, list) else [],
+        "missing_evidence": identity_profile.get("missing_evidence", []),
+    }
 
 
 def _compute_properties(seq: str) -> dict:
@@ -448,8 +578,34 @@ def _search_family_motifs(seq: str, family_info: dict | None) -> list[dict]:
     return motifs_found
 
 
-def _predict_catalytic_residues(seq: str, family_info: dict | None) -> dict:
+def _predict_catalytic_residues(
+    seq: str,
+    family_info: dict | None,
+    identity_summary: dict | None = None,
+) -> dict:
     """Predict catalytic residue positions based on family knowledge."""
+    if identity_summary and identity_summary.get("key_residues"):
+        residues = []
+        for item in identity_summary.get("key_residues", []):
+            if not isinstance(item, dict):
+                continue
+            role = str(item.get("role") or "").lower()
+            if "catalytic" not in role and "acid/base" not in role and "activates" not in role:
+                continue
+            residues.append({
+                "role": item.get("role", "key residue"),
+                "position": item.get("position"),
+                "sequence": item.get("matched_sequence") or item.get("residue"),
+                "residue": item.get("residue"),
+                "source": "identity_profile",
+            })
+        if residues:
+            return {
+                "known": True,
+                "family": identity_summary.get("family") or "identity_profile",
+                "residues": residues,
+            }
+
     if not family_info:
         return {"known": False, "note": "No family info available for catalytic prediction"}
 
@@ -841,6 +997,10 @@ ToolRegistry.register(
                     },
                 },
                 "description": "Pre-computed BLAST results for comparison",
+            },
+            "identity_profile": {
+                "type": "object",
+                "description": "Optional enzyme_identity_profile output used to gate family and catalytic residue claims.",
             },
         },
         "required": ["query_sequence"],

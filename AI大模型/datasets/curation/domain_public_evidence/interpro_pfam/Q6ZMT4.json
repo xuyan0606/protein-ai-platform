@@ -1,0 +1,107 @@
+{
+  "accession": "Q6ZMT4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02373",
+        "name": "JmjC domain, hydroxylase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003347",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6zmt4",
+          "protein_length": 941,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 269,
+                  "end": 369,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02373",
+              "score": 8.5e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17811",
+        "name": "Jumonji helical domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041070",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6zmt4",
+          "protein_length": 941,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 373,
+                  "end": 476,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17811",
+              "score": 9.5e-40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF30811",
+        "name": "UBR7-like PHD finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR064051",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6zmt4",
+          "protein_length": 941,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 38,
+                  "end": 86,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF30811",
+              "score": 0.0015
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

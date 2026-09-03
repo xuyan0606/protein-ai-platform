@@ -1,0 +1,48 @@
+{
+  "approved_for_physical_ddg_runtime": false,
+  "artifact_sha256": {
+    "cache/advanced_features/ddg_physical_smoke/foldx/stage25_technical_smoke_20260806/ddg_table.json": "6d7e76a902b58fcd369f9a20171c5610a6699b628c9b9f4b9ddfa6e09ec0cf6c",
+    "cache/advanced_features/ddg_physical_smoke/foldx/stage25_technical_smoke_20260806/input_structure.sha256": "b952195ae30be5b063582bff5c6d0e7ce6e3ebab552aba0d12602c4fdbe90d7f",
+    "cache/advanced_features/ddg_physical_smoke/foldx/stage25_technical_smoke_20260806/mutation_list.json": "9d85a38b5e87a8cb681f5d6dd1fa65151cab9dcf05361439504146ba684b33b3",
+    "cache/advanced_features/ddg_physical_smoke/foldx/stage25_technical_smoke_20260806/parameters.json": "3df16157efc5fa1d9483c93e3cf854c6a80f6f14f90dcb0018c4abd7da5b62d5",
+    "cache/advanced_features/ddg_physical_smoke/foldx/stage25_technical_smoke_20260806/runtime.log": "17f65b64bdf275e6f04b3470e168136f8c25e0da598cc6e03b4ab91b7af86c00"
+  },
+  "backend": "foldx",
+  "buildmodel_returncode": 0,
+  "created_at": "2026-08-06T09:17:35.061795+00:00",
+  "ddg_table_rows": 1,
+  "ddg_value_technical_only": true,
+  "energetic_interpretation_approved": false,
+  "executable_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/FoldX/foldx",
+  "export_safe_released": false,
+  "formal_runtime_receipt_written": false,
+  "input_structure": "cache/structures/pdb/10mh.pdb",
+  "output_dir": "cache/advanced_features/ddg_physical_smoke/foldx/stage25_technical_smoke_20260806",
+  "parse_errors": [],
+  "parsed_rows": 1,
+  "parameterization_dependency_warning_detected": true,
+  "parameterization_review_completed": false,
+  "parameterization_warning_command_count": 2,
+  "parameterization_warning_commands": [
+    "RepairPDB",
+    "BuildModel"
+  ],
+  "physical_ddg_comparable": false,
+  "policy": "Technical smoke only. FoldX reported an external-molecule parameterization dependency, so energetic interpretation and physical-ddG comparability remain unapproved until parameterization review. This does not approve a license, formal runtime receipt, wet-lab label, training import, benchmark intake, model claim, customer delivery, or release.",
+  "release_ready": false,
+  "repair_returncode": 0,
+  "safe_for_benchmark_intake": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "stage": 25,
+  "status": "technical_smoke_passed",
+  "technical_smoke_passed": true,
+  "unrecognized_atom_rows": 110,
+  "unrecognized_molecule_diagnostic_present": true,
+  "unrecognized_molecule_diagnostic_sha256": "844eb97d8e3f565c43f0b62430fb45cb1792b7345a02bd2f23ce1337e6f45892",
+  "unrecognized_molecule_names": [
+    "5CM",
+    "5NC",
+    "SAH"
+  ]
+}

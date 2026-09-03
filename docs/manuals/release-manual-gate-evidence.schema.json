@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Release manual gate evidence record",
+  "type": "object",
+  "required": [
+    "release",
+    "release_acceptance",
+    "gates",
+    "decision"
+  ],
+  "properties": {
+    "mode": {
+      "type": "string"
+    },
+    "release": {
+      "type": "object",
+      "required": [
+        "release_date",
+        "release_owner",
+        "reviewer",
+        "business_owner",
+        "release_package",
+        "release_package_sha256_evidence",
+        "database_backup",
+        "database_backup_sha256_evidence",
+        "evidence_archive_dir"
+      ]
+    },
+    "release_acceptance": {
+      "type": "object",
+      "required": [
+        "status",
+        "failed",
+        "blocked",
+        "manual_required",
+        "skipped",
+        "json_output_path"
+      ],
+      "properties": {
+        "status": {
+          "const": "passed"
+        },
+        "failed": {
+          "const": 0
+        },
+        "blocked": {
+          "const": 0
+        },
+        "manual_required": {
+          "const": 0
+        },
+        "skipped": {
+          "const": 0
+        }
+      }
+    },
+    "gates": {
+      "type": "object",
+      "required": [
+        "production_rollback_drill_gate",
+        "offsite_backup_restore_drill_gate",
+        "external_storage_restore_validation_gate"
+      ],
+      "properties": {
+        "external_storage_restore_validation_gate": {
+          "type": "object",
+          "required": [
+            "status",
+            "backup_ref",
+            "restore_target",
+            "shadow_restore_evidence_path",
+            "sample_object_read_evidence_path",
+            "application_readonly_smoke_path",
+            "production_path_switched",
+            "conclusion"
+          ],
+          "properties": {
+            "production_path_switched": {
+              "const": false
+            }
+          }
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "required": [
+        "automatic_failed_zero",
+        "automatic_blocked_zero",
+        "maintenance_evidence_complete",
+        "offsite_restore_evidence_complete",
+        "external_storage_evidence_complete",
+        "rollback_path_ready",
+        "approvals_complete",
+        "final_decision",
+        "release_owner_signature",
+        "reviewer_signature",
+        "business_owner_signature"
+      ],
+      "properties": {
+        "automatic_failed_zero": {
+          "const": true
+        },
+        "automatic_blocked_zero": {
+          "const": true
+        },
+        "maintenance_evidence_complete": {
+          "const": true
+        },
+        "offsite_restore_evidence_complete": {
+          "const": true
+        },
+        "external_storage_evidence_complete": {
+          "const": true
+        },
+        "rollback_path_ready": {
+          "const": true
+        },
+        "approvals_complete": {
+          "const": true
+        },
+        "final_decision": {
+          "enum": [
+            "go",
+            "no-go",
+            "defer"
+          ]
+        }
+      }
+    }
+  }
+}

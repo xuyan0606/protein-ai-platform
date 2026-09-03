@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB External License Review Decision",
+  "type": "object",
+  "required": [
+    "review_item_id",
+    "item_type",
+    "review_decision",
+    "reviewer",
+    "reviewed_at",
+    "license_reference",
+    "authorization_source",
+    "authorization_status",
+    "verification_required",
+    "capability_authorizations",
+    "approved_for_training",
+    "approved_for_local_evaluation",
+    "approved_for_customer_delivery",
+    "conditions",
+    "prohibited_uses"
+  ],
+  "properties": {
+    "review_item_id": { "type": "string", "minLength": 1 },
+    "item_type": {
+      "type": "string",
+      "enum": ["external_data_source", "foreign_tool"]
+    },
+    "review_decision": {
+      "type": "string",
+      "enum": ["approved", "approved_with_conditions", "rejected", "needs_more_info"]
+    },
+    "reviewer": { "type": "string", "minLength": 1 },
+    "reviewed_at": { "type": "string", "format": "date-time" },
+    "license_reference": { "type": "string", "minLength": 1 },
+    "approval_scope": { "type": ["string", "null"] },
+    "authorization_source": {
+      "type": "string",
+      "enum": ["user_attestation", "contract_or_license", "official_license_text", "internal_policy"]
+    },
+    "authorization_status": {
+      "type": "string",
+      "enum": ["self_attested", "pending_verification", "verified", "denied"]
+    },
+    "verification_required": { "type": "boolean" },
+    "capability_authorizations": {
+      "type": "object",
+      "required": [
+        "commercial_evaluation",
+        "training_import",
+        "customer_delivery",
+        "service_hosting",
+        "publication"
+      ],
+      "properties": {
+        "commercial_evaluation": { "$ref": "#/$defs/capabilityStatus" },
+        "training_import": { "$ref": "#/$defs/capabilityStatus" },
+        "customer_delivery": { "$ref": "#/$defs/capabilityStatus" },
+        "service_hosting": { "$ref": "#/$defs/capabilityStatus" },
+        "publication": { "$ref": "#/$defs/capabilityStatus" }
+      },
+      "additionalProperties": false
+    },
+    "license_type": { "type": ["string", "null"] },
+    "license_holder": { "type": ["string", "null"] },
+    "contract_reference": { "type": ["string", "null"] },
+    "valid_from": { "type": ["string", "null"] },
+    "valid_until": { "type": ["string", "null"] },
+    "verification_status": {
+      "type": ["string", "null"],
+      "enum": ["self_attested", "pending_verification", "verified", "denied", null]
+    },
+    "approved_for_training": { "type": "boolean" },
+    "approved_for_local_evaluation": { "type": "boolean" },
+    "approved_for_customer_delivery": { "type": "boolean" },
+    "attribution_text": { "type": ["string", "null"] },
+    "version_or_retrieval_date": { "type": ["string", "null"] },
+    "conditions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "prohibited_uses": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "notes": { "type": ["string", "null"] }
+  },
+  "$defs": {
+    "capabilityStatus": {
+      "type": "string",
+      "enum": ["allowed", "pending", "denied"]
+    }
+  },
+  "additionalProperties": false
+}

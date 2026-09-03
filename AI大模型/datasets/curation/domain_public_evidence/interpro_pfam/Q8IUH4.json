@@ -1,0 +1,85 @@
+{
+  "accession": "Q8IUH4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01529",
+        "name": "DHHC palmitoyltransferase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001594",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iuh4",
+          "protein_length": 622,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 424,
+                  "end": 557,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01529",
+              "score": 2.3e-28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12796",
+        "name": "Ankyrin repeats (3 copies)",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR002110",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iuh4",
+          "protein_length": 622,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 56,
+                  "end": 145,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12796",
+              "score": 2.7e-11
+            },
+            {
+              "fragments": [
+                {
+                  "start": 202,
+                  "end": 270,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12796",
+              "score": 8.8e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

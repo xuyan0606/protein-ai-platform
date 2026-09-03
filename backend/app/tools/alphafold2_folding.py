@@ -13,6 +13,7 @@ import random
 from typing import Any
 
 from app.tools.registry import ToolRegistry
+from app.tools.tool_capability_contract import merge_capability_contract
 
 _AA = list("ACDEFGHIKLMNPQRSTVWY")
 _STRUCTURES = ["helix", "sheet", "loop"] * 200
@@ -69,10 +70,16 @@ def alphafold2_folding(
 
     ss_result = _predict_ss(seq)
 
-    return {
+    boundary = (
+        "This local entry does not run official AlphaFold2 checkpoints/MSA/template pipeline. "
+        "Use as exploratory secondary-structure/confidence proxy only unless runtime logs and structure artifacts exist."
+    )
+    return merge_capability_contract({
         "sequence": seq,
         "length": length,
-        "model": "AlphaFold2",
+        "is_real_inference": False,
+        "evidence_level": "DESIGN_HYPOTHESIS",
+        "report_boundary": boundary,
         "parameters": {
             "num_recycles": num_recycles,
             "max_msa_depth": max_msa_depth,
@@ -91,7 +98,21 @@ def alphafold2_folding(
             "pLDDT < 50: possibly disordered. pTM > 0.5: confident overall fold. "
             "Production requires full MSA pipeline (JackHMMER, HHBlits) and the AF2 model checkpoints."
         ),
-    }
+    },
+        capability_status="proxy",
+        model="AlphaFold2-style proxy",
+        version="proxy-mvp",
+        checkpoint_or_weight=None,
+        input_payload={
+            "sequence": seq,
+            "num_recycles": num_recycles,
+            "max_msa_depth": max_msa_depth,
+            "use_templates": use_templates,
+        },
+        runtime=None,
+        scientific_boundary=boundary,
+        failure_reason=None,
+    )
 
 
 ToolRegistry.register(

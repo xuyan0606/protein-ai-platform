@@ -1,5 +1,3 @@
-version: "3.8"
-
 # ---------------------------------------------------------------------------
 # Protein AI Platform — Docker Compose
 # ---------------------------------------------------------------------------
@@ -16,6 +14,7 @@ services:
   nginx:
     image: nginx:alpine
     ports:
+      - "4200:8080"
       - "80:80"
       - "443:443"
     volumes:
@@ -24,8 +23,10 @@ services:
     networks:
       - app_network
     depends_on:
-      - frontend
-      - backend
+      frontend:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1/nginx-health"]
       interval: 15s
@@ -46,8 +47,6 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile.frontend
-    ports:
-      - "4200:3000"
     networks:
       - app_network
     healthcheck:
@@ -63,6 +62,17 @@ services:
         max-file: "3"
     restart: unless-stopped
 
+  storage-init:
+    image: docker-backend:latest
+    user: "0:0"
+    command: ["sh", "-lc", "mkdir -p /app/storage /app/ligand_storage && chown -R 999:999 /app/storage /app/ligand_storage"]
+    volumes:
+      - upload_storage:/app/storage
+      - ligand_scratch:/app/ligand_storage
+    networks:
+      - app_network
+    restart: "no"
+
   # =========================================================================
   # Backend — FastAPI application server
   # =========================================================================
@@ -76,23 +86,45 @@ services:
       - app_network
     env_file:
       - .env
+      - .env.deploy-data
     environment:
       # Infrastructure hostnames (override localhost defaults)
       HOME: /app
+      DEPLOY_DATA_ROOT: /app/deploy_data
       POSTGRES_HOST: postgres
       REDIS_HOST: redis
       MINIO_ENDPOINT: minio:9000
       MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
       MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      CHROMA_HOST: chromadb
+      CHROMA_PORT: 8000
       ML_MODEL_CACHE_DIR: /app/.model_cache
       USE_SQLITE: "false"
       # Allow Docker-host browser origins
-      CORS_ORIGINS: '["http://localhost:4200","https://8.139.255.194","https://proteinai.kevibotech.com"]'
-      OIDC_ISSUER: http://localhost:4200
-      FRONTEND_URL: http://localhost:4200
+      CORS_ORIGINS: ${CORS_ORIGINS:-["http://localhost:4200","https://8.139.255.194","https://proteinai.kevibotech.com"]}
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-http://localhost:4200}
+      OIDC_ISSUER: ${PUBLIC_BASE_URL:-http://localhost:4200}
+      OIDC_PRIVATE_KEY_PATH: /run/secrets/oidc_private_key.pem
+      OIDC_PUBLIC_KEY_PATH: /run/secrets/oidc_public_key.pem
+      FRONTEND_URL: ${PUBLIC_BASE_URL:-http://localhost:4200}
+      OUTLINE_PUBLIC_URL: ${OUTLINE_PUBLIC_URL:-http://localhost:4200/wiki}
+      # Outline proxy — backend forwards unmatched routes to Outline for iframe embedding
+      OUTLINE_URL: http://outline:3001
+      OUTLINE_WS_URL: ws://outline:3001
     volumes:
       - model_cache:/app/.model_cache
+      - upload_storage:/app/storage
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+    secrets:
+      - source: oidc_private_key
+        target: oidc_private_key.pem
+        mode: 0444
+      - source: oidc_public_key
+        target: oidc_public_key.pem
+        mode: 0444
     depends_on:
+      storage-init:
+        condition: service_completed_successfully
       postgres:
         condition: service_healthy
       redis:
@@ -113,22 +145,97 @@ services:
     restart: unless-stopped
 
   # =========================================================================
-  # Worker — Celery task runner (GPU / long-running protein computations)
+  # Worker — Celery task runner for default async tools
   # =========================================================================
   worker:
     image: docker-backend:latest
-    command: ["celery", "-A", "app.services.scheduler", "worker", "--loglevel=info", "--concurrency=4"]
+    command:
+      [
+        "celery",
+        "-A",
+        "app.services.scheduler",
+        "worker",
+        "--loglevel=info",
+        "--queues=default",
+        "--concurrency=${CELERY_DEFAULT_WORKER_CONCURRENCY:-4}"
+      ]
     networks:
       - app_network
     env_file:
       - .env
+      - .env.deploy-data
     environment:
+      DEPLOY_DATA_ROOT: /app/deploy_data
       POSTGRES_HOST: postgres
       REDIS_HOST: redis
       MINIO_ENDPOINT: minio:9000
       MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
       MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      OIDC_PRIVATE_KEY_PATH: /run/secrets/oidc_private_key.pem
+      OIDC_PUBLIC_KEY_PATH: /run/secrets/oidc_public_key.pem
+    volumes:
+      - upload_storage:/app/storage
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+    secrets:
+      - source: oidc_private_key
+        target: oidc_private_key.pem
+        mode: 0444
+      - source: oidc_public_key
+        target: oidc_public_key.pem
+        mode: 0444
     depends_on:
+      storage-init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.services.scheduler", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  # =========================================================================
+  # MD Worker — dedicated queue for real GROMACS long-running jobs
+  # =========================================================================
+  md-worker:
+    image: docker-backend:latest
+    command:
+      [
+        "celery",
+        "-A",
+        "app.services.scheduler",
+        "worker",
+        "--loglevel=info",
+        "--queues=md_cpu",
+        "--concurrency=${CELERY_MD_WORKER_CONCURRENCY:-1}"
+      ]
+    networks:
+      - app_network
+    env_file:
+      - .env
+      - .env.deploy-data
+    environment:
+      DEPLOY_DATA_ROOT: /app/deploy_data
+      POSTGRES_HOST: postgres
+      REDIS_HOST: redis
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    volumes:
+      - upload_storage:/app/storage
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+    depends_on:
+      storage-init:
+        condition: service_completed_successfully
       postgres:
         condition: service_healthy
       redis:
@@ -155,6 +262,64 @@ services:
     #           capabilities: [gpu]
 
   # =========================================================================
+  # Ligand Worker — dedicated queue for 2D->3D, docking prep, and ligand topology
+  # =========================================================================
+  ligand-worker:
+    # ACPYPE bundles x86_64 AmberTools; keep this queue on the amd64 worker.
+    platform: linux/amd64
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.ligand-worker
+    command:
+      [
+        "celery",
+        "-A",
+        "app.services.scheduler",
+        "worker",
+        "--loglevel=info",
+        "--queues=ligand_cpu",
+        "--concurrency=${CELERY_LIGAND_WORKER_CONCURRENCY:-1}"
+      ]
+    networks:
+      - app_network
+    env_file:
+      - .env
+      - .env.deploy-data
+    environment:
+      DEPLOY_DATA_ROOT: /app/deploy_data
+      POSTGRES_HOST: postgres
+      REDIS_HOST: redis
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      GROMACS_BIN: ${GROMACS_BIN:-gmx}
+      AMBERHOME: ${AMBERHOME:-/opt/ambertools}
+      LIGAND_RUNTIME_BOUNDARY: ligand_worker_only
+      LIGAND_RUNTIME_CHECK: /usr/local/bin/ligand-runtime-check
+    volumes:
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+      - ligand_scratch:/app/storage
+    depends_on:
+      storage-init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.services.scheduler", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  # =========================================================================
   # PostgreSQL 16 with pgvector extension
   # =========================================================================
   postgres:
@@ -163,13 +328,21 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       POSTGRES_DB: ${POSTGRES_DB:-protein_ai}
+      # Trust auth for Docker network — eliminates pg_hba.conf issues on container recreation
+      POSTGRES_HOST_AUTH_METHOD: trust
     # No public port — only accessible within app_network
     volumes:
       - pgdata:/var/lib/postgresql/data
+      # Auto-create outline database on first start
+      - ./init-db.sql:/docker-entrypoint-initdb.d/10-create-outline-db.sql:ro
+      # Trusted pg_hba.conf — enforced on every healthcheck (survives restarts)
+      - ./pg_hba.conf:/etc/postgresql/pg_hba.conf:ro
     networks:
       - app_network
+    # Healthcheck enforces trust auth on EVERY startup (POSTGRES_HOST_AUTH_METHOD
+    # only works on first init, so we patch pg_hba.conf via healthcheck)
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-protein_ai}"]
+      test: ["CMD-SHELL", "cp /etc/postgresql/pg_hba.conf /var/lib/postgresql/data/pg_hba.conf && pg_ctl reload -D /var/lib/postgresql/data -s 2>/dev/null; pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-protein_ai}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -231,6 +404,7 @@ services:
         max-size: "10m"
         max-file: "3"
     restart: unless-stopped
+    stop_grace_period: 10s
 
   # =========================================================================
   # Outline — team knowledge base (OIDC auth via our backend)
@@ -257,16 +431,16 @@ services:
       # OIDC authentication (HTTPS in production)
       OIDC_CLIENT_ID: protein-ai
       OIDC_CLIENT_SECRET: ${OIDC_CLIENT_SECRET:-72133a323ffc0ae1ff449fcabec9368a44dd6bddc59eaca21c9afefcb7a6aee9}
-      OIDC_AUTH_URI: http://localhost:4200/api/oidc/authorize
+      OIDC_AUTH_URI: ${PUBLIC_BASE_URL:-http://localhost:4200}/api/oidc/authorize
       OIDC_TOKEN_URI: http://backend:8000/api/oidc/token
       OIDC_USERINFO_URI: http://backend:8000/api/oidc/userinfo
-      OIDC_LOGOUT_URI: http://localhost:4200/api/oidc/logout
+      OIDC_LOGOUT_URI: ${PUBLIC_BASE_URL:-http://localhost:4200}/api/oidc/logout
       OIDC_DISPLAY_NAME: Protein AI
       OIDC_SCOPES: openid profile email
       # Application
       SECRET_KEY: ${OUTLINE_SECRET_KEY:-dea6e90a6667d16e5f62183bfebe74b74bd67b548826d64667a83dd16d13e31b}
       UTILS_SECRET: ${OUTLINE_UTILS_SECRET:-ef9ab5004c76cb85665254b57c0305089638f14816698eac237dcbd401e2091c}
-      URL: http://localhost:4200
+      URL: ${OUTLINE_PUBLIC_URL:-http://localhost:4200/wiki/}
       PORT: 3001
       FORCE_HTTPS: "false"
       NODE_ENV: production
@@ -274,6 +448,7 @@ services:
       RATE_LIMITER_ENABLED: "false"
     volumes:
       - outline_data:/var/lib/outline/data
+      - ./outline-passport-patched.js:/opt/outline/build/server/utils/passport.js
     networks:
       - app_network
     depends_on:
@@ -281,6 +456,12 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3001/auth/login"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
     logging:
       driver: json-file
       options:
@@ -329,6 +510,14 @@ volumes:
   chroma_data:
   model_cache:
   outline_data:
+  ligand_scratch:
+  upload_storage:
+
+secrets:
+  oidc_private_key:
+    file: ${OIDC_PRIVATE_KEY_HOST_PATH:-../backend/oidc_private_key.pem}
+  oidc_public_key:
+    file: ${OIDC_PUBLIC_KEY_HOST_PATH:-../backend/oidc_public_key.pem}
 
 # ===========================================================================
 # Networks

@@ -1,0 +1,73 @@
+{
+  "accession": "P21108",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF13793",
+        "name": "N-terminal domain of ribose phosphate pyrophosphokinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR029099",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p21108",
+          "protein_length": 318,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 4,
+                  "end": 120,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13793",
+              "score": 1.2e-47
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14572",
+        "name": "Phosphoribosyl synthetase-associated domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR005946",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p21108",
+          "protein_length": 318,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 204,
+                  "end": 313,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14572",
+              "score": 6.6e-33
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

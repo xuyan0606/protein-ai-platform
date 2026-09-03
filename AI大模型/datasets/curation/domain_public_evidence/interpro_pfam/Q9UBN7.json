@@ -1,0 +1,85 @@
+{
+  "accession": "Q9UBN7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00850",
+        "name": "Histone deacetylase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR023801",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ubn7",
+          "protein_length": 1215,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 106,
+                  "end": 401,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00850",
+              "score": 3e-84
+            },
+            {
+              "fragments": [
+                {
+                  "start": 500,
+                  "end": 797,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00850",
+              "score": 2e-92
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02148",
+        "name": "Zn-finger in ubiquitin-hydrolases and other protein",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001607",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ubn7",
+          "protein_length": 1215,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1133,
+                  "end": 1194,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02148",
+              "score": 5.2e-15
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q15311",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00620",
+        "name": "RhoGAP domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000198",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q15311",
+          "protein_length": 655,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 210,
+                  "end": 351,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00620",
+              "score": 3.8e-41
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF20924",
+        "name": "RLIP76, Ral binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049041",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q15311",
+          "protein_length": 655,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 398,
+                  "end": 445,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF20924",
+              "score": 9.1e-22
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

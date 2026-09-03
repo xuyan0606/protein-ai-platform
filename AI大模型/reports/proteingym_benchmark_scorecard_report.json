@@ -1,0 +1,35 @@
+{
+  "accepted_for_local_benchmark_cache_intake": true,
+  "artifacts": {
+    "dataset": {
+      "path": "cache/advanced_features/benchmarks/proteingym_dms_substitutions_spearman/dataset.jsonl",
+      "sha256": "8779a011c5c15253185f4c75478975025f4939a2e8e31d9af878ac03ef387082"
+    },
+    "metric_report": {
+      "path": "cache/advanced_features/benchmarks/proteingym_dms_substitutions_spearman/metric_report.json",
+      "sha256": "aa3cfcc8abd5fd1bb26baac2663e5e427302ec2385dec3ad07ad34f829bc84af"
+    },
+    "scorecard": {
+      "path": "cache/advanced_features/benchmarks/proteingym_dms_substitutions_spearman/scorecard.json",
+      "sha256": "ce6f4a9245179c425624cfeda1d8c27ef226b1fedd2dee7bc4f5a56697809aec"
+    },
+    "split_definition": {
+      "path": "cache/advanced_features/benchmarks/proteingym_dms_substitutions_spearman/split_definition.json",
+      "sha256": "464aed1a66368857536821276db243f26d57b5ecaddde751102a869955f8d0de"
+    }
+  },
+  "benchmark_name": "ProteinGym",
+  "created_at": "2026-09-03T07:33:45.739637+00:00",
+  "head": "mutation_rank",
+  "leakage_check_status": "passed",
+  "license_verification_required": true,
+  "local_only": true,
+  "materialized_dataset_rows": 217,
+  "policy": "Real external benchmark evidence only. It is not a KWB label source and does not open model-quality or release gates.",
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "source_dataset_rows": 217,
+  "source_summary_rows": 97,
+  "training_import_written_rows": 0
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q92905",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01398",
+        "name": "JAB1/Mov34/MPN/PAD-1 ubiquitin protease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000555",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92905",
+          "protein_length": 334,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 52,
+                  "end": 163,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01398",
+              "score": 1.2e-32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18323",
+        "name": "Cop9 signalosome subunit 5 C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040961",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92905",
+          "protein_length": 334,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 251,
+                  "end": 329,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF18323",
+              "score": 1.7e-23
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

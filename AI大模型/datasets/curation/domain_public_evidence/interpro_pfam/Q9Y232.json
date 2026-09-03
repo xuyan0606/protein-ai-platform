@@ -1,0 +1,73 @@
+{
+  "accession": "Q9Y232",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00378",
+        "name": "Enoyl-CoA hydratase/isomerase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001753",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y232",
+          "protein_length": 598,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 362,
+                  "end": 594,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00378",
+              "score": 6.5e-31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00385",
+        "name": "Chromo (CHRromatin Organisation MOdifier) domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR023780",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y232",
+          "protein_length": 598,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 62,
+                  "end": 112,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00385",
+              "score": 2.9e-16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

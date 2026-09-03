@@ -1,0 +1,73 @@
+{
+  "accession": "Q8WU03",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF06021",
+        "name": "Aralkyl acyl-CoA:amino acid N-acyltransferase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015938",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wu03",
+          "protein_length": 294,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1,
+                  "end": 199,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF06021",
+              "score": 7.2e-84
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08444",
+        "name": "Aralkyl acyl-CoA:amino acid N-acyltransferase, C-terminal region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR013652",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wu03",
+          "protein_length": 294,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 202,
+                  "end": 290,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08444",
+              "score": 2.3e-38
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

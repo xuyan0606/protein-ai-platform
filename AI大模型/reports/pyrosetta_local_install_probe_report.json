@@ -1,0 +1,65 @@
+{
+  "approved_for_physical_ddg_runtime": false,
+  "backend": "pyrosetta",
+  "backend_config_enabled": false,
+  "created_at": "2026-09-03T07:34:36.698387+00:00",
+  "ddg_protocol_executed": false,
+  "formal_license_decision_written": false,
+  "formal_runtime_receipt_written": false,
+  "import_probe": {
+    "added_sys_paths": [
+      "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/PyRosetta/python"
+    ],
+    "attempted": true,
+    "ddg_protocol_executed": false,
+    "error": null,
+    "pyrosetta_file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/PyRosetta/python/pyrosetta/__init__.py",
+    "pyrosetta_init_executed": false,
+    "succeeded": true
+  },
+  "install": {
+    "license_file": "cache/external/PyRosetta/python/pyrosetta/LICENSE.PyRosetta.md",
+    "license_file_present": true,
+    "license_file_sha256": "41de5b13b7ddb64fab2dda1cb45581b9d4c1ee6be7bd3ad90f562288bcdcffa1",
+    "numpy_package_version": "2.0.2",
+    "path": "cache/external/PyRosetta/python",
+    "path_exists": true,
+    "pyrosetta_package_version": "2026.29+releasequarterly.80a0635615"
+  },
+  "intended_scope": "technical install/import evidence under component authorization matrix; platform is not non-commercial-only and verified legal scope remains a separate gate",
+  "local_only": true,
+  "module_spec": {
+    "available": true,
+    "ddg_protocol_executed": false,
+    "discovered_via": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/PyRosetta/python",
+    "error": null,
+    "local_search_paths": [
+      "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/PyRosetta/python"
+    ],
+    "module": "pyrosetta",
+    "module_imported": false,
+    "origin": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/PyRosetta/python/pyrosetta/__init__.py",
+    "python_executable": "/Library/Developer/CommandLineTools/usr/bin/python3"
+  },
+  "official_download_source": "RosettaCommons PyRosetta quarterly release mirror",
+  "physics_ddg_ready": false,
+  "policy": "PyRosetta install/import evidence only; not a license approval, not a physical ddG run, not a training label source, and not a release claim.",
+  "python_executable": "/Library/Developer/CommandLineTools/usr/bin/python3",
+  "ready_for_ddg_smoke": false,
+  "release_ready": false,
+  "remaining_hard_gates": [
+    "formal external license decision must approve local evaluation",
+    "formal runtime receipt must be reviewed and valid",
+    "backend config enablement must be reviewed",
+    "reviewed smoke plan and smoke artifacts must exist with sha256",
+    "ready execution-plan row must exist for a reviewed structure/mutation"
+  ],
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "wheel": {
+    "path": "cache/external/PyRosetta/wheels/pyrosetta-2026.29+releasequarterly.80a0635615-cp39-cp39-macosx_12_0_arm64.whl",
+    "present": true,
+    "sha256": "2e41e25633999b06daa543af6087db0a8841eff612c26ae99acfb71c8b1765c0",
+    "size_bytes": 1530473343
+  }
+}

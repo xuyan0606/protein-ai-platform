@@ -1,0 +1,85 @@
+{
+  "accession": "O95363",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01409",
+        "name": "tRNA synthetases class II core domain (F)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002319",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95363",
+          "protein_length": 451,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 76,
+                  "end": 198,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01409",
+              "score": 2.4e-13
+            },
+            {
+              "fragments": [
+                {
+                  "start": 242,
+                  "end": 343,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01409",
+              "score": 5.3e-27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03147",
+        "name": "Ferredoxin-fold anticodon binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR005121",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95363",
+          "protein_length": 451,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 358,
+                  "end": 450,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03147",
+              "score": 2.1e-13
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

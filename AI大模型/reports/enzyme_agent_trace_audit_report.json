@@ -1,0 +1,37 @@
+{
+  "trace_id": "enzyme_agent_trace_20260731_p170",
+  "created_at": "2026-09-03T07:35:25.608617+00:00",
+  "local_only": true,
+  "plan_id": "enzyme_resource_retrieval_plan_20260731_p167",
+  "trace_rows": 6,
+  "event_types": [
+    "resource_plan_built",
+    "resource_plan_validated",
+    "result_template_built",
+    "result_validated",
+    "result_safety_regression_validated",
+    "final_fail_closed_state"
+  ],
+  "executed_action_count": 0,
+  "executed_action_ids": [],
+  "blocked_action_count": 5,
+  "forbidden_action_count": 1,
+  "selected_variant_rows": 0,
+  "resource_plan_validation_success": true,
+  "result_validation_success": true,
+  "result_safety_regression_success": true,
+  "result_safety_regression_failed_cases": 0,
+  "artifacts": [
+    "reports/enzyme_resource_retrieval_plan_report.json",
+    "reports/enzyme_resource_retrieval_plan_validation_report.json",
+    "datasets/governance/enzyme_agent_state_checkpoints.jsonl",
+    "reports/enzyme_agent_result_template.json",
+    "reports/enzyme_agent_result_validation_report.json",
+    "reports/enzyme_agent_result_safety_regression_report.json",
+    "datasets/governance/enzyme_agent_trace_audit.jsonl"
+  ],
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Audit trace records planning and validation only. It proves no controlled enzyme agent tool was executed and does not approve training import, model claims, customer delivery, ordering, or release."
+}

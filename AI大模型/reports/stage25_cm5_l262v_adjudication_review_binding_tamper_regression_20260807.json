@@ -1,0 +1,58 @@
+{
+  "apply_executed": false,
+  "case_rows": 5,
+  "cases": [
+    {
+      "case_id": "forged_artifact_sha_rejected",
+      "observed_return_code": 1,
+      "passed": true,
+      "sha256_live_failure_present": true,
+      "sha256_review_match_failure_present": true
+    },
+    {
+      "case_id": "cross_bound_review_paths_rejected",
+      "observed_return_code": 1,
+      "passed": true,
+      "relative_path_review_match_failure_present": true,
+      "sha256_review_match_failure_present": true
+    },
+    {
+      "case_id": "unsupported_adjudication_option_rejected",
+      "observed_return_code": 1,
+      "passed": true,
+      "review_supports_decision_failure_present": true
+    },
+    {
+      "case_id": "slot_evidence_class_mismatch_rejected",
+      "observed_return_code": 1,
+      "passed": true,
+      "slot_class_failure_present": true
+    },
+    {
+      "case_id": "invalid_decision_timestamp_rejected",
+      "observed_return_code": 1,
+      "passed": true,
+      "reviewed_at_utc_failure_present": true
+    }
+  ],
+  "cross_bound_review_rejected_rows": 1,
+  "discrepancy_resolved": false,
+  "external_sqlite_mutated": false,
+  "failed_rows": 0,
+  "forged_sha_rejected_rows": 1,
+  "formal_decision_rows_written": 0,
+  "invalid_decision_timestamp_rejected_rows": 1,
+  "mode": "stage25_cm5_l262v_adjudication_review_binding_tamper_regression",
+  "passed_rows": 5,
+  "policy": "Temporary isolated tamper regression only. Synthetic accepted reviews do not alter real review, receipt, decision, or evidence inputs and do not adjudicate CM5 L262V.",
+  "real_decision_input_mutated": false,
+  "real_receipt_input_mutated": false,
+  "real_review_input_mutated": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "schema_version": 1,
+  "slot_class_mismatch_rejected_rows": 1,
+  "stage": 25,
+  "success": true,
+  "unsupported_option_rejected_rows": 1
+}

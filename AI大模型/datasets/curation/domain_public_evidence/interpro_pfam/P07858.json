@@ -1,0 +1,73 @@
+{
+  "accession": "P07858",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00112",
+        "name": "Papain family cysteine protease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000668",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07858",
+          "protein_length": 339,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 80,
+                  "end": 328,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00112",
+              "score": 6.2e-64
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08127",
+        "name": "Peptidase family C1 propeptide",
+        "source_database": "pfam",
+        "type": "conserved_site",
+        "integrated": "IPR012599",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07858",
+          "protein_length": 339,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 26,
+                  "end": 63,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08127",
+              "score": 1.3e-15
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "ready_for_baseline_training": true,
+  "ready_for_supervised_training_pipeline": true,
+  "ready_for_supervised_small_model_claim": false,
+  "quality_score": 84.0,
+  "rows": {
+    "training_table": 12,
+    "enzyme_mutation_labels": 500,
+    "enzyme_mutation_training_table": 500,
+    "enzyme_mutation_training_table_enriched": 500,
+    "enzyme_mutation_training_table_verified": 25,
+    "enzyme_mutation_supervised_repaired_verified": 0,
+    "lipase_features": 24,
+    "feedback_features": 1,
+    "tool_audit_features": 1
+  },
+  "supervised_baseline": {
+    "selected_strategy": null,
+    "validation_accuracy": null,
+    "test_accuracy": null,
+    "candidate_validation_accuracy": null
+  },
+  "enriched_supervised_baseline": {
+    "selected_strategy": "majority_class",
+    "validation_accuracy": 0.317,
+    "test_accuracy": 0.239,
+    "candidate_validation_accuracy": {
+      "centroid": 0.233,
+      "majority_class": 0.317
+    }
+  },
+  "label_integrity": {
+    "verified_rows": 25,
+    "strict_supervised_rows": 0,
+    "claim_eligible_supervised_rows": 0,
+    "synthetic_or_unreceipted_rows": 0,
+    "label_provenance_hard_gate_status": "blocked_no_claim_eligible_real_source_labels",
+    "verified_ratio": 0.05,
+    "decision": "blocked_for_supervised_claim",
+    "integrity_flag_counts": {
+      "wild_type_mismatch_current_sequence": 475
+    },
+    "domain_architecture": {
+      "rows": 1942,
+      "invalid_interval_rows": 2,
+      "usable_for_position_features": true
+    },
+    "pdb_paths": {
+      "rows_with_paths": 113836,
+      "existing_local_files": 0,
+      "usable_for_coordinate_features": false
+    }
+  },
+  "structure_cache": {
+    "coordinate_features_ready": true,
+    "coordinate_features_scope": "sample_only",
+    "full_cache_ready": false,
+    "pdb_sample_existing": 502,
+    "alphafold_sample_existing": 0,
+    "totals": {
+      "pdb_structures": 113836,
+      "pdb_paths": 113836,
+      "alphafold_structures": 14527,
+      "alphafold_cif_paths": 0
+    }
+  },
+  "multitask_training": {
+    "status": "blocked",
+    "strict_rows": 0,
+    "audited_rows": 500,
+    "source_counts": {
+      "strict_supervised_rows": 0,
+      "audited_training_rows": 500,
+      "activity_risk_training_import_jsonl_rows": 6,
+      "activity_risk_training_import_label_rows": 6,
+      "activity_risk_training_import_validation_report_rows": 6
+    },
+    "source_consistency": {
+      "activity_risk_training_import": {
+        "validation_report_present": true,
+        "validation_success": true,
+        "jsonl_label_rows": 6,
+        "validation_report_rows": 6,
+        "training_execution_allowed": false,
+        "consistent": true
+      }
+    },
+    "heads": {
+      "mutation_rank": {
+        "label_fields": [
+          "label_decision"
+        ],
+        "rows": 0,
+        "minimum_rows": 100,
+        "ready": false
+      },
+      "stability": {
+        "label_fields": [
+          "label_stability_delta_tm_c",
+          "label_ddg"
+        ],
+        "rows": 0,
+        "minimum_rows": 100,
+        "ready": false
+      },
+      "activity_risk": {
+        "label_fields": [
+          "activity_relative_to_wt",
+          "activity_risk_label"
+        ],
+        "rows": 6,
+        "minimum_rows": 100,
+        "source_rows": {
+          "audited_training_table_label_rows": 0,
+          "training_import_label_rows": 6,
+          "training_import_jsonl_rows": 6,
+          "training_import_validation_report_rows": 6
+        },
+        "training_import_validation_success": true,
+        "training_import_source_consistent": true,
+        "training_execution_allowed": false,
+        "safe_for_model_claim": false,
+        "release_ready": false,
+        "ready": false
+      },
+      "substrate_fit": {
+        "label_fields": [
+          "substrate_fit_label"
+        ],
+        "rows": 0,
+        "minimum_rows": 100,
+        "ready": false
+      },
+      "assay_success": {
+        "label_fields": [
+          "assay_success"
+        ],
+        "rows": 0,
+        "minimum_rows": 100,
+        "ready": false
+      }
+    },
+    "missing_head_labels": [
+      "mutation_rank",
+      "stability",
+      "activity_risk",
+      "substrate_fit",
+      "assay_success"
+    ],
+    "scaffold": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/prototype/kwb_enzyme_designer_multitask_scaffold.json",
+    "ready_head_count": 0,
+    "training_execution_allowed": false,
+    "safe_for_model_claim": false,
+    "release_ready": false,
+    "policy": "fail closed; this report never converts missing labels into synthetic supervision"
+  },
+  "feature_streams": {
+    "msa_conservation": {
+      "targets": 158,
+      "present": 158,
+      "missing": 0,
+      "ready": true,
+      "source": "trusted_cache_validated"
+    },
+    "structure_chain_mapping": {
+      "worklist_rows": 500,
+      "reviewed_rows": 25,
+      "remaining_unreviewed_rows": 475
+    },
+    "experiment_feedback": {
+      "local_rows": 7,
+      "reviewed_numbered_rows": 7,
+      "ready_for_training": false
+    }
+  },
+  "blockers": [
+    "mutation label numbering/provenance integrity is below supervised claim threshold",
+    "supervised pipeline is ready, but current non-leaky baseline is below model-quality threshold",
+    "multi-task head labels are incomplete for the five-head model",
+    "structure chain mapping still needs 475 human-reviewed rows",
+    "experiment feedback has 7 reviewed rows but is not training-authorized",
+    "need structure/pocket/conservation/family features and real KWB wet-lab feedback before claiming predictive quality"
+  ],
+  "next_steps": [
+    "repair mutation label numbering via UniProt version/isoform/literature mapping",
+    "review 2 unresolved domain intervals via domain_unresolved_review_packet_20260829.json",
+    "materialize full local PDB/mmCIF cache; current coordinate evidence is sample-only",
+    "add structure-aware mutation features from uploaded/AlphaFold/ESMFold structures",
+    "add sequence conservation and enzyme-family embeddings",
+    "train GBDT or neural multi-task heads after feature enrichment",
+    "connect real experiment feedback and tool audit tables when available"
+  ]
+}

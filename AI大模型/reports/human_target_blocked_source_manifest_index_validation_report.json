@@ -1,0 +1,17 @@
+{
+  "local_only": true,
+  "success": true,
+  "checked_index": "reports/human_target_blocked_source_manifest_index.json",
+  "checked_split_dir": "reports/human_target_sources",
+  "checked_input": "reports/human_target_source_runtime_manifest.json",
+  "builder_contract": "scripts/build_human_target_blocked_source_manifests.py",
+  "index_matches_current_builder_projection": true,
+  "split_manifests_match_current_builder_projection": true,
+  "expected_split_count": 7,
+  "split_count": 7,
+  "failures": [],
+  "failure_count": 0,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Validation only proves the split manifests are blocked and internally consistent."
+}

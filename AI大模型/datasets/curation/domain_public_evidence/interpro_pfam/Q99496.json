@@ -1,0 +1,73 @@
+{
+  "accession": "Q99496",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF13923",
+        "name": "Zinc finger, C3HC4 type (RING finger)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001841",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q99496",
+          "protein_length": 336,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 50,
+                  "end": 90,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13923",
+              "score": 9.7e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16207",
+        "name": "RAWUL domain RING finger- and WD40-associated ubiquitin-like",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR032443",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q99496",
+          "protein_length": 336,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 246,
+                  "end": 330,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16207",
+              "score": 5.1e-18
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "accession": "Q96AY3",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00254",
+        "name": "FKBP-type peptidyl-prolyl cis-trans isomerase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001179",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96ay3",
+          "protein_length": 582,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 55,
+                  "end": 147,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00254",
+              "score": 8.9e-28
+            },
+            {
+              "fragments": [
+                {
+                  "start": 167,
+                  "end": 258,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00254",
+              "score": 9.3e-28
+            },
+            {
+              "fragments": [
+                {
+                  "start": 281,
+                  "end": 370,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00254",
+              "score": 1.5e-26
+            },
+            {
+              "fragments": [
+                {
+                  "start": 392,
+                  "end": 483,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00254",
+              "score": 6.4e-23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13202",
+        "name": "EF hand",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002048",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96ay3",
+          "protein_length": 582,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 505,
+                  "end": 525,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13202",
+              "score": 16
+            },
+            {
+              "fragments": [
+                {
+                  "start": 548,
+                  "end": 568,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13202",
+              "score": 2.5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

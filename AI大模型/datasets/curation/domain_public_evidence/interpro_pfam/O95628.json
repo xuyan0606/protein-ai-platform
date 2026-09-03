@@ -1,0 +1,73 @@
+{
+  "accession": "O95628",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00076",
+        "name": "RNA recognition motif",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000504",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95628",
+          "protein_length": 575,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 130,
+                  "end": 187,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00076",
+              "score": 0.068
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14570",
+        "name": "RING/Ubox like zinc-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95628",
+          "protein_length": 575,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 14,
+                  "end": 60,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14570",
+              "score": 8e-17
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

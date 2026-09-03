@@ -1,0 +1,107 @@
+{
+  "accession": "P56180",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00520",
+        "name": "Ion transport protein",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR005821",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p56180",
+          "protein_length": 551,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 92,
+                  "end": 219,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00520",
+              "score": 0.0016
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF10409",
+        "name": "C2 domain of PTEN tumour-suppressor protein",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014020",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p56180",
+          "protein_length": 551,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 409,
+                  "end": 539,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10409",
+              "score": 6.3e-30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22785",
+        "name": "Polymorphic toxin system, DSP-PTPase phosphatase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p56180",
+          "protein_length": 551,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 298,
+                  "end": 355,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22785",
+              "score": 4.3e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

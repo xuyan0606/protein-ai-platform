@@ -327,6 +327,13 @@ def mutation_scan(
         "sequence_preview": seq[:60] + ("..." if n > 60 else ""),
         "results": results,
         "is_real_inference": esm_scored,
+        "capability_status": "proxy",
+        "evidence_level": "DESIGN_HYPOTHESIS",
+        "candidate_table_status": "requires_identity_numbering_objective_gate",
+        "report_boundary": (
+            "仅可作为替换空间和理化风险的辅助扫描。身份、编号、催化/关键位点和目标 assay "
+            "门控未通过前，不得把扫描结果写成可排单突变候选表。"
+        ),
         "scoring_method": (
             "ESM-2 zero-shot + BLOSUM62 + Grantham + FoldX-style ddG"
             if esm_scored else

@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-09-03T07:32:18.939565+00:00",
+  "local_only": true,
+  "success": true,
+  "audit_rows": 14,
+  "authorization_rows": 12,
+  "authorization_blocked_rows": 4,
+  "parent_sequence_rows": 2,
+  "parent_sequence_blocked_rows": 2,
+  "failures": [],
+  "ready_for_feedback_intake_rows": 0,
+  "ready_for_numbering_audit": false,
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "policy": "Validation only. P28 authorization and parent-sequence gaps remain blocked and cannot create labels or training rows."
+}

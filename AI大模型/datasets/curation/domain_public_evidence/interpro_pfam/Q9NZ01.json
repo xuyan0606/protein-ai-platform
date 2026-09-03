@@ -1,0 +1,73 @@
+{
+  "accession": "Q9NZ01",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02544",
+        "name": "3-oxo-5-alpha-steroid 4-dehydrogenase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001104",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nz01",
+          "protein_length": 308,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 155,
+                  "end": 308,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02544",
+              "score": 5.4e-26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21696",
+        "name": "TECR, ubiquitin-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049127",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nz01",
+          "protein_length": 308,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 5,
+                  "end": 80,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF21696",
+              "score": 3.4e-37
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

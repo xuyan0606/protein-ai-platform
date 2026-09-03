@@ -1,0 +1,73 @@
+{
+  "accession": "Q6BCY4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00175",
+        "name": "Oxidoreductase NAD-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001433",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6bcy4",
+          "protein_length": 276,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 152,
+                  "end": 259,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00175",
+              "score": 3.6e-30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00970",
+        "name": "Oxidoreductase FAD-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR008333",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6bcy4",
+          "protein_length": 276,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 20,
+                  "end": 126,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00970",
+              "score": 5.7e-33
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

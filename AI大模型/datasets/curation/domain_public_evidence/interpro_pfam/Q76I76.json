@@ -1,0 +1,107 @@
+{
+  "accession": "Q76I76",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00782",
+        "name": "Dual specificity phosphatase, catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000340",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q76i76",
+          "protein_length": 1423,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 315,
+                  "end": 443,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00782",
+              "score": 7.2e-30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08766",
+        "name": "DEK C terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014876",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q76i76",
+          "protein_length": 1423,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 250,
+                  "end": 302,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08766",
+              "score": 1.5e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23040",
+        "name": "Protein phosphatase Slingshot homolog 1-like, PH domain-like",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR043588",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q76i76",
+          "protein_length": 1423,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 76,
+                  "end": 224,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF23040",
+              "score": 5.5e-62
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

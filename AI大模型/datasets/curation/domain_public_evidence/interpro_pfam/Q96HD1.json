@@ -1,0 +1,97 @@
+{
+  "accession": "Q96HD1",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF07645",
+        "name": "Calcium-binding EGF domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049883",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96hd1",
+          "protein_length": 420,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 245,
+                  "end": 276,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07645",
+              "score": 4.7
+            },
+            {
+              "fragments": [
+                {
+                  "start": 305,
+                  "end": 338,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07645",
+              "score": 7.6e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF11938",
+        "name": "TLR4 regulator and MIR-interacting MSAP",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR021852",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96hd1",
+          "protein_length": 420,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 46,
+                  "end": 101,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF11938",
+              "score": 0.24
+            },
+            {
+              "fragments": [
+                {
+                  "start": 102,
+                  "end": 142,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF11938",
+              "score": 0.66
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

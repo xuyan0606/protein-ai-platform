@@ -1,0 +1,51 @@
+{
+  "accession": "P18433",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00102",
+        "name": "Protein-tyrosine phosphatase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000242",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p18433",
+          "protein_length": 802,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 265,
+                  "end": 500,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00102",
+              "score": 2.6e-79
+            },
+            {
+              "fragments": [
+                {
+                  "start": 558,
+                  "end": 789,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00102",
+              "score": 2.8e-83
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

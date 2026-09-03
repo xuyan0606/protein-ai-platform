@@ -1,0 +1,107 @@
+{
+  "accession": "P28330",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00441",
+        "name": "Acyl-CoA dehydrogenase, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR009075",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p28330",
+          "protein_length": 430,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 278,
+                  "end": 426,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00441",
+              "score": 8.5e-39
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02770",
+        "name": "Acyl-CoA dehydrogenase, middle domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006091",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p28330",
+          "protein_length": 430,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 169,
+                  "end": 265,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02770",
+              "score": 9.6e-23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02771",
+        "name": "Acyl-CoA dehydrogenase, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013786",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p28330",
+          "protein_length": 430,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 54,
+                  "end": 165,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02771",
+              "score": 1.8e-28
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

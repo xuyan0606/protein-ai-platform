@@ -1,0 +1,73 @@
+{
+  "accession": "Q9NZK5",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00962",
+        "name": "Adenosine deaminase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001365",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nzk5",
+          "protein_length": 511,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 198,
+                  "end": 495,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00962",
+              "score": 8.1e-24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08451",
+        "name": "Adenosine/AMP deaminase N-terminal",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR013659",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9nzk5",
+          "protein_length": 511,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 18,
+                  "end": 102,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF08451",
+              "score": 1.3e-15
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

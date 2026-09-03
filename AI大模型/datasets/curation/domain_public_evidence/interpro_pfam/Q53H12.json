@@ -1,0 +1,73 @@
+{
+  "accession": "Q53H12",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00781",
+        "name": "Diacylglycerol kinase catalytic domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001206",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q53h12",
+          "protein_length": 422,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 62,
+                  "end": 195,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00781",
+              "score": 3.8e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19712",
+        "name": "Acylglycerol kinase C-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR045579",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q53h12",
+          "protein_length": 422,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 206,
+                  "end": 419,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF19712",
+              "score": 1.4e-111
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

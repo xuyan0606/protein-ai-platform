@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-09-03T07:34:02.336199+00:00",
+  "local_only": true,
+  "success": true,
+  "audit_rows": 20,
+  "action_audit_rows": 12,
+  "stage_audit_rows": 7,
+  "blocked_action_rows": 8,
+  "blocked_stage_rows": 4,
+  "blocked_gap_rows": 12,
+  "validation_completion_ready_actions": 4,
+  "validation_completion_ready_stage_count": 3,
+  "failures": [],
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "customer_delivery_ready": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "policy": "Validation only. Next-unlock execution gaps do not authorize training, claims, delivery, release, ordering, or production execution."
+}

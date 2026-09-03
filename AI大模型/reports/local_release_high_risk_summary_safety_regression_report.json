@@ -1,0 +1,45 @@
+{
+  "created_at": "2026-09-03T07:34:47.608408+00:00",
+  "success": true,
+  "case_rows": 4,
+  "passed_rows": 4,
+  "failed_rows": 0,
+  "real_inputs_mutated": false,
+  "results": [
+    {
+      "case_id": "model_claim_forged_true",
+      "field": "advanced_model_safe_for_model_claim",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 6,
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "production_execution_forged_true",
+      "field": "active_stage_execution_matrix_production_execution_allowed",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 6,
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "selected_variant_forged",
+      "field": "enzyme_agent_result_selected_variants",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 6,
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "production_artifact_forged",
+      "field": "model_artifact_claim_guard_production_artifacts",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 6,
+      "expected_check_observed": true
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Regression mutates temporary release copies only; canonical release and high-risk source reports remain byte-identical."
+}

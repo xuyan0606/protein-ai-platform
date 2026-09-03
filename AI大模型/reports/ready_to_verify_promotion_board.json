@@ -1,0 +1,215 @@
+{
+  "created_at": "2026-09-03T07:34:45.993324+00:00",
+  "local_only": true,
+  "audit_rows": 6,
+  "receipt_valid_rows": 6,
+  "local_artifact_completion_rows": 2,
+  "verified_blocked_rows": 4,
+  "automatic_promotion_rows": 0,
+  "workstream_completion_ready_rows": 0,
+  "execution_ready_rows": 0,
+  "safe_for_training_import_rows": 0,
+  "safe_for_model_claim_rows": 0,
+  "customer_delivery_ready_rows": 0,
+  "release_ready_rows": 0,
+  "selected_variant_rows": 0,
+  "rows": [
+    {
+      "audit_id": "non_human:nhc_data_lake_cache_governance",
+      "scope": "non_human",
+      "workstream_id": "nhc_data_lake_cache_governance",
+      "title": "Data lake, cache manifest and provenance governance",
+      "receipt_valid": true,
+      "completion_checks": {
+        "receipt_valid": true,
+        "data_lake_manifest_has_no_missing_artifacts": true,
+        "provenance_graph_ready": true,
+        "governance_readiness_report_exists": true
+      },
+      "context": {
+        "manifest_artifact_rows": 2746,
+        "provenance_entity_count": 2746,
+        "governance_ready": false,
+        "governance_blockers": 7
+      },
+      "local_artifact_completion_checks_met": true,
+      "promotion_status": "verified_local_artifact_only",
+      "remaining_blockers": [],
+      "automatic_promotion_allowed": false,
+      "workstream_completion_ready": false,
+      "execution_ready": false,
+      "safe_for_training_import": false,
+      "safe_for_model_claim": false,
+      "customer_delivery_ready": false,
+      "release_ready": false,
+      "selected_variant_rows": 0,
+      "policy": "Local completion checks may identify a verified artifact only. Automatic promotion, execution, training, model, customer-delivery, and release gates remain closed."
+    },
+    {
+      "audit_id": "non_human:nhc_ddg_physics_backend",
+      "scope": "non_human",
+      "workstream_id": "nhc_ddg_physics_backend",
+      "title": "Rosetta/PyRosetta/FoldX physics ddG backend",
+      "receipt_valid": true,
+      "completion_checks": {
+        "receipt_valid": true,
+        "executable_ddg_backend_ready": true,
+        "operator_packet_ready_now": true,
+        "ddg_execution_plan_has_ready_rows": false,
+        "negative_ddg_stabilization_convention_preserved": true
+      },
+      "context": {
+        "operator_ready_now_rows": 1,
+        "plan_rows": 34,
+        "ready_plan_rows": 0
+      },
+      "local_artifact_completion_checks_met": false,
+      "promotion_status": "verified_blocked",
+      "remaining_blockers": [
+        "ddg_execution_plan_has_ready_rows"
+      ],
+      "automatic_promotion_allowed": false,
+      "workstream_completion_ready": false,
+      "execution_ready": false,
+      "safe_for_training_import": false,
+      "safe_for_model_claim": false,
+      "customer_delivery_ready": false,
+      "release_ready": false,
+      "selected_variant_rows": 0,
+      "policy": "Local completion checks may identify a verified artifact only. Automatic promotion, execution, training, model, customer-delivery, and release gates remain closed."
+    },
+    {
+      "audit_id": "non_human:nhc_structure_gnn_features",
+      "scope": "non_human",
+      "workstream_id": "nhc_structure_gnn_features",
+      "title": "Structure graph and GNN feature production",
+      "receipt_valid": true,
+      "completion_checks": {
+        "receipt_valid": true,
+        "reviewed_structure_graph_ready": true,
+        "valid_graph_rows_present": true,
+        "coordinate_graph_checksums_traceable": true
+      },
+      "context": {
+        "valid_graph_rows": 34,
+        "invalid_graph_rows": 0
+      },
+      "local_artifact_completion_checks_met": true,
+      "promotion_status": "verified_local_artifact_only",
+      "remaining_blockers": [],
+      "automatic_promotion_allowed": false,
+      "workstream_completion_ready": false,
+      "execution_ready": false,
+      "safe_for_training_import": false,
+      "safe_for_model_claim": false,
+      "customer_delivery_ready": false,
+      "release_ready": false,
+      "selected_variant_rows": 0,
+      "policy": "Local completion checks may identify a verified artifact only. Automatic promotion, execution, training, model, customer-delivery, and release gates remain closed."
+    },
+    {
+      "audit_id": "top_tier:cross_rosetta_foldx_ddg_backend",
+      "scope": "top_tier",
+      "workstream_id": "cross_rosetta_foldx_ddg_backend",
+      "title": "Rosetta/PyRosetta/FoldX ddG backend gate",
+      "receipt_valid": true,
+      "completion_checks": {
+        "receipt_valid": true,
+        "commercial_license_verified_for_customer_delivery": false,
+        "ddg_execution_plan_has_ready_rows": false,
+        "negative_ddg_stabilization_convention_preserved": true
+      },
+      "context": {
+        "plan_rows": 34,
+        "ready_plan_rows": 0,
+        "verified_customer_delivery_rows": 0
+      },
+      "local_artifact_completion_checks_met": false,
+      "promotion_status": "verified_blocked",
+      "remaining_blockers": [
+        "commercial_license_verified_for_customer_delivery",
+        "ddg_execution_plan_has_ready_rows"
+      ],
+      "automatic_promotion_allowed": false,
+      "workstream_completion_ready": false,
+      "execution_ready": false,
+      "safe_for_training_import": false,
+      "safe_for_model_claim": false,
+      "customer_delivery_ready": false,
+      "release_ready": false,
+      "selected_variant_rows": 0,
+      "policy": "Local completion checks may identify a verified artifact only. Automatic promotion, execution, training, model, customer-delivery, and release gates remain closed."
+    },
+    {
+      "audit_id": "top_tier:p0_kwb_wet_lab_feedback",
+      "scope": "top_tier",
+      "workstream_id": "p0_kwb_wet_lab_feedback",
+      "title": "KWB plate/well wet-lab feedback calibration",
+      "receipt_valid": true,
+      "completion_checks": {
+        "receipt_valid": true,
+        "plate_feedback_rows_present": false,
+        "plate_feedback_rows_valid": false,
+        "authorized_preflight_has_ready_rows": false,
+        "feedback_linked_numbering_verified": false
+      },
+      "context": {
+        "general_feedback_valid_rows": 7,
+        "plate_feedback_rows": 0,
+        "authorized_preflight_rows": 8,
+        "ready_preflight_rows": 0
+      },
+      "local_artifact_completion_checks_met": false,
+      "promotion_status": "verified_blocked",
+      "remaining_blockers": [
+        "authorized_preflight_has_ready_rows",
+        "feedback_linked_numbering_verified",
+        "plate_feedback_rows_present",
+        "plate_feedback_rows_valid"
+      ],
+      "automatic_promotion_allowed": false,
+      "workstream_completion_ready": false,
+      "execution_ready": false,
+      "safe_for_training_import": false,
+      "safe_for_model_claim": false,
+      "customer_delivery_ready": false,
+      "release_ready": false,
+      "selected_variant_rows": 0,
+      "policy": "Local completion checks may identify a verified artifact only. Automatic promotion, execution, training, model, customer-delivery, and release gates remain closed."
+    },
+    {
+      "audit_id": "top_tier:p0_reviewed_structure_graph",
+      "scope": "top_tier",
+      "workstream_id": "p0_reviewed_structure_graph",
+      "title": "Reviewed structure graph feature builder",
+      "receipt_valid": true,
+      "completion_checks": {
+        "receipt_valid": true,
+        "reviewed_structure_graph_ready": true,
+        "valid_graph_rows_present": true,
+        "graph_checksums_traceable": true,
+        "mutation_numbering_review_cleared": false
+      },
+      "context": {
+        "valid_graph_rows": 34,
+        "invalid_graph_rows": 0,
+        "graph_rows_requiring_mutation_numbering_review": 34
+      },
+      "local_artifact_completion_checks_met": false,
+      "promotion_status": "verified_blocked",
+      "remaining_blockers": [
+        "mutation_numbering_review_cleared"
+      ],
+      "automatic_promotion_allowed": false,
+      "workstream_completion_ready": false,
+      "execution_ready": false,
+      "safe_for_training_import": false,
+      "safe_for_model_claim": false,
+      "customer_delivery_ready": false,
+      "release_ready": false,
+      "selected_variant_rows": 0,
+      "policy": "Local completion checks may identify a verified artifact only. Automatic promotion, execution, training, model, customer-delivery, and release gates remain closed."
+    }
+  ],
+  "policy": "This audit separates local artifact verification from automatic workstream completion and all downstream scientific or release gates."
+}

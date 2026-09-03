@@ -1,0 +1,48 @@
+{
+  "local_only": true,
+  "checked_reports": {
+    "safe_entry": "reports/safe_training_entrypoint_check.json",
+    "repaired": "reports/repaired_supervised_table_report.json",
+    "provenance": "reports/label_provenance_audit_report.json",
+    "strict_msa": "reports/strict_msa_site_feature_report.json",
+    "pseudo_leakage": "reports/no_pseudo_strict_training_leakage_validation_report.json",
+    "model_quality": "reports/model_quality_unlock_requirements_report.json",
+    "top_tier": "reports/top_tier_model_execution_board.json",
+    "top_tier_receipts": "reports/top_tier_model_ready_to_verify_receipt_report.json",
+    "top_tier_receipt_validation": "reports/top_tier_model_ready_to_verify_receipt_validation_report.json",
+    "non_human": "reports/non_human_construction_board.json",
+    "promotion_board": "reports/ready_to_verify_promotion_board.json",
+    "promotion_validation": "reports/ready_to_verify_promotion_validation_report.json",
+    "promotion_regression": "reports/ready_to_verify_promotion_safety_regression_report.json",
+    "claim_matrix": "reports/claim_readiness_matrix.json",
+    "wet_lab_unlock": "reports/wet_lab_mutant_library_unlock_status_report.json",
+    "release": "reports/local_release_manifest.json"
+  },
+  "strict_rows": 0,
+  "claim_eligible_rows": 0,
+  "strict_msa_site_feature_rows": 0,
+  "model_quality_ready_to_verify_requirements": 1,
+  "model_quality_ready_to_verify_requirement_ids": [
+    "MQ-U003"
+  ],
+  "top_tier_ready_to_verify_workstreams": 3,
+  "non_human_ready_to_verify_workstreams": 3,
+  "wet_lab_unlock_ready_to_verify_gates": 7,
+  "top_tier_receipt_valid_rows": 3,
+  "promotion_audit_rows": 6,
+  "promotion_local_artifact_completion_rows": 2,
+  "promotion_verified_blocked_rows": 4,
+  "promotion_automatic_rows": 0,
+  "promotion_validation_success": true,
+  "promotion_regression_passed_rows": 5,
+  "claim_matrix_blocked_claims": 10,
+  "release_ready": false,
+  "failures": [],
+  "warnings": [
+    "strict_real_source_supervised_rows_zero"
+  ],
+  "success": true,
+  "safe_for_training_pipeline": true,
+  "safe_for_model_claim": false,
+  "policy": "Cross-report consistency guard. Local ready-to-verify receipts such as MQ-U003 physical ddG may exist, but training import, model-quality claims and release must remain fail-closed until real labels and formal gates pass."
+}

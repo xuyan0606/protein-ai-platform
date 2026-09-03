@@ -1,0 +1,405 @@
+{
+  "local_only": true,
+  "online_deployment": false,
+  "bundle": "datasets/governance/governance_review_bundle.jsonl",
+  "status": "datasets/governance/governance_review_bundle_status.jsonl",
+  "source_bundle_report": "reports/governance_review_bundle_report.json",
+  "bundle_rows": 37,
+  "valid_rows": 37,
+  "invalid_rows": 0,
+  "completion_ready_rows": 0,
+  "open_rows": 37,
+  "expected_counts": {
+    "external_license_review": 19,
+    "biosecurity_screening": 3,
+    "sequence_ip_fto": 3,
+    "operator_review_actions": 6,
+    "workstream_acceptance": 6
+  },
+  "observed_counts": {
+    "biosecurity_screening": 3,
+    "external_license_review": 19,
+    "operator_review_actions": 6,
+    "sequence_ip_fto": 3,
+    "workstream_acceptance": 6
+  },
+  "all_source_rows_covered": true,
+  "all_rows_valid": true,
+  "ready": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "error_counts": {},
+  "records": [
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_UniProt",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:UniProt",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_RCSB_PDB",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:RCSB PDB",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_BRENDA",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:BRENDA",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_SABIO-RK",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:SABIO-RK",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_MaveDB",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:MaveDB",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_ProteinGym",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:ProteinGym",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_FireProtDB",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:FireProtDB",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:data_source_ProThermDB",
+      "workstream": "external_license_review",
+      "source_row_id": "data_source:ProThermDB",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_mmseqs2",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:mmseqs2",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_boltz2",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:boltz2",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_chai1",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:chai1",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_thermompnn",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:thermompnn",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_rosetta",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:rosetta",
+      "current_status": "reviewed_valid_but_not_approved",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_pyrosetta",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:pyrosetta",
+      "current_status": "reviewed_valid_but_not_approved",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_foldx",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:foldx",
+      "current_status": "reviewed_valid_but_not_approved",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_clean",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:clean",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_ligandmpnn",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:ligandmpnn",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_alphafold3",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:alphafold3",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:external_license_review:foreign_tool_esm3_open",
+      "workstream": "external_license_review",
+      "source_row_id": "foreign_tool:esm3_open",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:biosecurity_screening:screening_kwb-venus15b-strict-review-001",
+      "workstream": "biosecurity_screening",
+      "source_row_id": "screening:kwb-venus15b-strict-review-001",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:biosecurity_screening:screening_kwb-venus15b-strict-review-002",
+      "workstream": "biosecurity_screening",
+      "source_row_id": "screening:kwb-venus15b-strict-review-002",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:biosecurity_screening:screening_kwb-venus15b-strict-review-003",
+      "workstream": "biosecurity_screening",
+      "source_row_id": "screening:kwb-venus15b-strict-review-003",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:sequence_ip_fto:sequence_ip_review_internal_labels_001_kwb-venus15b-strict-review-001",
+      "workstream": "sequence_ip_fto",
+      "source_row_id": "sequence_ip_review_internal_labels_001:kwb-venus15b-strict-review-001",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:sequence_ip_fto:sequence_ip_review_internal_labels_001_kwb-venus15b-strict-review-002",
+      "workstream": "sequence_ip_fto",
+      "source_row_id": "sequence_ip_review_internal_labels_001:kwb-venus15b-strict-review-002",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:sequence_ip_fto:sequence_ip_review_internal_labels_001_kwb-venus15b-strict-review-003",
+      "workstream": "sequence_ip_fto",
+      "source_row_id": "sequence_ip_review_internal_labels_001:kwb-venus15b-strict-review-003",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:operator_review_actions:review_action_001",
+      "workstream": "operator_review_actions",
+      "source_row_id": "review_action_001",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:operator_review_actions:review_action_002",
+      "workstream": "operator_review_actions",
+      "source_row_id": "review_action_002",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:operator_review_actions:review_action_003",
+      "workstream": "operator_review_actions",
+      "source_row_id": "review_action_003",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:operator_review_actions:review_action_004",
+      "workstream": "operator_review_actions",
+      "source_row_id": "review_action_004",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:operator_review_actions:review_action_005",
+      "workstream": "operator_review_actions",
+      "source_row_id": "review_action_005",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:operator_review_actions:review_action_006",
+      "workstream": "operator_review_actions",
+      "source_row_id": "review_action_006",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:workstream_acceptance:external_data_sources",
+      "workstream": "workstream_acceptance",
+      "source_row_id": "external_data_sources",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:workstream_acceptance:structure_chain_mapping",
+      "workstream": "workstream_acceptance",
+      "source_row_id": "structure_chain_mapping",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:workstream_acceptance:msa_conservation",
+      "workstream": "workstream_acceptance",
+      "source_row_id": "msa_conservation",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:workstream_acceptance:plate_feedback",
+      "workstream": "workstream_acceptance",
+      "source_row_id": "plate_feedback",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:workstream_acceptance:biosecurity_customer_delivery",
+      "workstream": "workstream_acceptance",
+      "source_row_id": "biosecurity_customer_delivery",
+      "current_status": "open_blocked_waiting_for_human_decision",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    },
+    {
+      "bundle_id": "governance_review:workstream_acceptance:active_learning",
+      "workstream": "workstream_acceptance",
+      "source_row_id": "active_learning",
+      "current_status": "reviewed_valid_but_not_approved",
+      "valid": true,
+      "completion_ready": false,
+      "errors": [],
+      "policy": "Status only; not a human approval."
+    }
+  ],
+  "policy": "Validation proves the governance review queue is internally consistent only. It does not approve legal use, FTO, biosecurity ordering, operator completion, workstream acceptance, model claims, release, deployment, or customer delivery."
+}

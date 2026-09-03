@@ -1,0 +1,73 @@
+{
+  "accession": "P49590",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03129",
+        "name": "Anticodon binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004154",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49590",
+          "protein_length": 506,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 411,
+                  "end": 502,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03129",
+              "score": 7.5e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13393",
+        "name": "Histidyl-tRNA synthetase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041715",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49590",
+          "protein_length": 506,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 62,
+                  "end": 390,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13393",
+              "score": 1e-33
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

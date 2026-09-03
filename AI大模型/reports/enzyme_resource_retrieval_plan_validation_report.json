@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-09-03T07:34:03.432760+00:00",
+  "local_only": true,
+  "success": true,
+  "plan_id": "enzyme_resource_retrieval_plan_20260731_p167",
+  "action_rows": 12,
+  "checkpoint_rows": 1,
+  "recommended_read_only_rows": 1,
+  "executable_after_user_confirmation_rows": 5,
+  "blocked_requires_human_decision_rows": 5,
+  "forbidden_for_current_request_rows": 1,
+  "failures": [],
+  "safe_for_controlled_agent_planning": true,
+  "safe_for_execution": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Validation confirms resource retrieval planning only. It does not authorize execution, formal decisions, training import, model claims, downloads, MCP calls, or release."
+}

@@ -1,0 +1,21 @@
+{
+  "local_only": true,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/sequence_ip_fto_decisions.jsonl",
+  "template": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/sequence_ip_fto_decisions.template.jsonl",
+  "packet_rows": 3,
+  "decision_rows": 0,
+  "valid_rows": 0,
+  "invalid_rows": 0,
+  "approved_for_internal_use_rows": 0,
+  "approved_for_customer_delivery_rows": 0,
+  "all_packet_candidates_decided_for_delivery": false,
+  "missing_delivery_decisions": [
+    "sequence_ip_review_internal_labels_001:kwb-venus15b-strict-review-001",
+    "sequence_ip_review_internal_labels_001:kwb-venus15b-strict-review-002",
+    "sequence_ip_review_internal_labels_001:kwb-venus15b-strict-review-003"
+  ],
+  "ready_for_customer_delivery": false,
+  "error_counts": {},
+  "records": [],
+  "policy": "IP/FTO readiness requires explicit human/legal decisions; review packets are not clearance."
+}

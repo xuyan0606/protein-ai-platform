@@ -1,0 +1,73 @@
+{
+  "accession": "Q8NCG7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01764",
+        "name": "Lipase (class 3)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002921",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8ncg7",
+          "protein_length": 672,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 370,
+                  "end": 503,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01764",
+              "score": 2.9e-15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF31009",
+        "name": "Diacylglycerol lipase N-terminal transmembrane region",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR063390",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8ncg7",
+          "protein_length": 672,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 7,
+                  "end": 155,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF31009",
+              "score": 3.1e-45
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

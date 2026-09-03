@@ -1,0 +1,29 @@
+{
+  "rows": 12,
+  "groups": 3,
+  "split_group_counts": {
+    "test": 2,
+    "train": 1
+  },
+  "split_row_counts": {
+    "test": 8,
+    "train": 4
+  },
+  "family_counts": {
+    "train": {
+      "unknown": 4
+    },
+    "validation": {},
+    "test": {
+      "lipase": 7,
+      "GH13": 1
+    }
+  },
+  "group_leakage": [],
+  "assignments": {
+    "enzyme_family:lipase": "test",
+    "enzyme_family:unknown": "train",
+    "enzyme_family:GH13": "test"
+  },
+  "note": "benchmark fixtures are included only for local R&D baseline; production training must exclude benchmark cases"
+}

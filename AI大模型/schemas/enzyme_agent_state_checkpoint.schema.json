@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB enzyme agent state checkpoint",
+  "type": "object",
+  "required": [
+    "checkpoint_id",
+    "created_at",
+    "local_only",
+    "plan_id",
+    "stage",
+    "selected_action_ids",
+    "selected_tool_contract_ids",
+    "blocked_action_ids",
+    "forbidden_action_ids",
+    "executed_action_ids",
+    "artifact_outputs",
+    "validator_outputs",
+    "claim_snapshot"
+  ],
+  "properties": {
+    "checkpoint_id": {"type": "string"},
+    "created_at": {"type": "string"},
+    "local_only": {"const": true},
+    "plan_id": {"type": "string"},
+    "stage": {"enum": ["retrieval_plan_built", "execution_proposed", "execution_observed", "closed"]},
+    "selected_action_ids": {"type": "array"},
+    "selected_tool_contract_ids": {"type": "array"},
+    "blocked_action_ids": {"type": "array"},
+    "forbidden_action_ids": {"type": "array"},
+    "executed_action_ids": {"type": "array"},
+    "artifact_outputs": {"type": "array"},
+    "validator_outputs": {"type": "array"},
+    "claim_snapshot": {
+      "type": "object",
+      "required": ["safe_for_training_import", "safe_for_model_claim", "release_ready"],
+      "properties": {
+        "safe_for_training_import": {"const": false},
+        "safe_for_model_claim": {"const": false},
+        "release_ready": {"const": false}
+      }
+    }
+  }
+}

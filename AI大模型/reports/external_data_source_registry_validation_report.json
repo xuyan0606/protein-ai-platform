@@ -1,0 +1,115 @@
+{
+  "local_only": true,
+  "registry": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/config/external_data_source_registry.local.example.json",
+  "source_rows": 8,
+  "valid_rows": 8,
+  "invalid_rows": 0,
+  "ready_sources": 0,
+  "ready": false,
+  "error_counts": {},
+  "blocker_counts": {
+    "commercial_use_not_cleared": 8,
+    "redistribution_not_cleared": 8,
+    "source_version_not_configured": 8,
+    "retrieved_at_missing": 8
+  },
+  "records": [
+    {
+      "source_name": "UniProt",
+      "valid": true,
+      "ready_for_training_or_delivery": false,
+      "errors": [],
+      "blockers": [
+        "commercial_use_not_cleared",
+        "redistribution_not_cleared",
+        "source_version_not_configured",
+        "retrieved_at_missing"
+      ]
+    },
+    {
+      "source_name": "RCSB PDB",
+      "valid": true,
+      "ready_for_training_or_delivery": false,
+      "errors": [],
+      "blockers": [
+        "commercial_use_not_cleared",
+        "redistribution_not_cleared",
+        "source_version_not_configured",
+        "retrieved_at_missing"
+      ]
+    },
+    {
+      "source_name": "BRENDA",
+      "valid": true,
+      "ready_for_training_or_delivery": false,
+      "errors": [],
+      "blockers": [
+        "commercial_use_not_cleared",
+        "redistribution_not_cleared",
+        "source_version_not_configured",
+        "retrieved_at_missing"
+      ]
+    },
+    {
+      "source_name": "SABIO-RK",
+      "valid": true,
+      "ready_for_training_or_delivery": false,
+      "errors": [],
+      "blockers": [
+        "commercial_use_not_cleared",
+        "redistribution_not_cleared",
+        "source_version_not_configured",
+        "retrieved_at_missing"
+      ]
+    },
+    {
+      "source_name": "MaveDB",
+      "valid": true,
+      "ready_for_training_or_delivery": false,
+      "errors": [],
+      "blockers": [
+        "commercial_use_not_cleared",
+        "redistribution_not_cleared",
+        "source_version_not_configured",
+        "retrieved_at_missing"
+      ]
+    },
+    {
+      "source_name": "ProteinGym",
+      "valid": true,
+      "ready_for_training_or_delivery": false,
+      "errors": [],
+      "blockers": [
+        "commercial_use_not_cleared",
+        "redistribution_not_cleared",
+        "source_version_not_configured",
+        "retrieved_at_missing"
+      ]
+    },
+    {
+      "source_name": "FireProtDB",
+      "valid": true,
+      "ready_for_training_or_delivery": false,
+      "errors": [],
+      "blockers": [
+        "commercial_use_not_cleared",
+        "redistribution_not_cleared",
+        "source_version_not_configured",
+        "retrieved_at_missing"
+      ]
+    },
+    {
+      "source_name": "ProThermDB",
+      "valid": true,
+      "ready_for_training_or_delivery": false,
+      "errors": [],
+      "blockers": [
+        "commercial_use_not_cleared",
+        "redistribution_not_cleared",
+        "source_version_not_configured",
+        "retrieved_at_missing"
+      ]
+    }
+  ],
+  "policy": "Registry validation never grants license clearance; version, retrieval date, commercial use, and redistribution must be reviewed per source."
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q9H0R5",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02263",
+        "name": "Guanylate-binding protein, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015894",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h0r5",
+          "protein_length": 595,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 19,
+                  "end": 280,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02263",
+              "score": 1.5e-126
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02841",
+        "name": "Guanylate-binding protein, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003191",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h0r5",
+          "protein_length": 595,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 282,
+                  "end": 578,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02841",
+              "score": 4.3e-121
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

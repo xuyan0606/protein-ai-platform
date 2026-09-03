@@ -1,0 +1,156 @@
+{
+  "local_only": true,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/external_license_review_decisions.jsonl",
+  "template": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/external_license_review_decisions.template.jsonl",
+  "packet_rows": 19,
+  "decision_rows": 3,
+  "valid_rows": 3,
+  "invalid_rows": 0,
+  "approved_for_training_rows": 0,
+  "approved_for_local_evaluation_rows": 3,
+  "approved_for_customer_delivery_rows": 0,
+  "authorization_status_counts": {
+    "self_attested": 3,
+    "pending_verification": 0,
+    "verified": 0
+  },
+  "verification_required_rows": 3,
+  "capability_authorization_counts": {
+    "commercial_evaluation": {
+      "allowed": 3,
+      "denied": 0,
+      "pending": 0
+    },
+    "training_import": {
+      "allowed": 3,
+      "denied": 0,
+      "pending": 0
+    },
+    "customer_delivery": {
+      "allowed": 3,
+      "denied": 0,
+      "pending": 0
+    },
+    "service_hosting": {
+      "allowed": 3,
+      "denied": 0,
+      "pending": 0
+    },
+    "publication": {
+      "allowed": 3,
+      "denied": 0,
+      "pending": 0
+    }
+  },
+  "verified_capability_allowed_counts": {
+    "commercial_evaluation": 0,
+    "training_import": 0,
+    "customer_delivery": 0,
+    "service_hosting": 0,
+    "publication": 0
+  },
+  "self_attested_capability_allowed_counts": {
+    "commercial_evaluation": 3,
+    "training_import": 3,
+    "customer_delivery": 3,
+    "service_hosting": 3,
+    "publication": 3
+  },
+  "self_attested_commercial_evaluation_rows": 3,
+  "verified_commercial_evaluation_rows": 0,
+  "verified_training_import_rows": 0,
+  "verified_customer_delivery_rows": 0,
+  "data_packet_rows": 8,
+  "tool_packet_rows": 11,
+  "all_packet_items_decided": false,
+  "missing_packet_decisions": [
+    "data_source:BRENDA",
+    "data_source:FireProtDB",
+    "data_source:MaveDB",
+    "data_source:ProThermDB",
+    "data_source:ProteinGym",
+    "data_source:RCSB PDB",
+    "data_source:SABIO-RK",
+    "data_source:UniProt",
+    "foreign_tool:alphafold3",
+    "foreign_tool:boltz2",
+    "foreign_tool:chai1",
+    "foreign_tool:clean",
+    "foreign_tool:esm3_open",
+    "foreign_tool:ligandmpnn",
+    "foreign_tool:mmseqs2",
+    "foreign_tool:thermompnn"
+  ],
+  "ready_for_training": false,
+  "ready_for_local_evaluation": true,
+  "verified_ready_for_local_evaluation": false,
+  "ready_for_customer_delivery": false,
+  "customer_delivery_ready_requires_verified_scope": true,
+  "error_counts": {},
+  "records": [
+    {
+      "review_item_id": "foreign_tool:pyrosetta",
+      "item_type": "foreign_tool",
+      "review_decision": "approved_with_conditions",
+      "valid": true,
+      "authorization_source": "user_attestation",
+      "authorization_status": "self_attested",
+      "verification_required": true,
+      "verification_status": "self_attested",
+      "capability_authorizations": {
+        "commercial_evaluation": "allowed",
+        "training_import": "allowed",
+        "customer_delivery": "allowed",
+        "service_hosting": "allowed",
+        "publication": "allowed"
+      },
+      "approved_for_training": false,
+      "approved_for_local_evaluation": true,
+      "approved_for_customer_delivery": false,
+      "errors": []
+    },
+    {
+      "review_item_id": "foreign_tool:rosetta",
+      "item_type": "foreign_tool",
+      "review_decision": "approved_with_conditions",
+      "valid": true,
+      "authorization_source": "user_attestation",
+      "authorization_status": "self_attested",
+      "verification_required": true,
+      "verification_status": "self_attested",
+      "capability_authorizations": {
+        "commercial_evaluation": "allowed",
+        "training_import": "allowed",
+        "customer_delivery": "allowed",
+        "service_hosting": "allowed",
+        "publication": "allowed"
+      },
+      "approved_for_training": false,
+      "approved_for_local_evaluation": true,
+      "approved_for_customer_delivery": false,
+      "errors": []
+    },
+    {
+      "review_item_id": "foreign_tool:foldx",
+      "item_type": "foreign_tool",
+      "review_decision": "approved_with_conditions",
+      "valid": true,
+      "authorization_source": "user_attestation",
+      "authorization_status": "self_attested",
+      "verification_required": true,
+      "verification_status": "self_attested",
+      "capability_authorizations": {
+        "commercial_evaluation": "allowed",
+        "training_import": "allowed",
+        "customer_delivery": "allowed",
+        "service_hosting": "allowed",
+        "publication": "allowed"
+      },
+      "approved_for_training": false,
+      "approved_for_local_evaluation": true,
+      "approved_for_customer_delivery": false,
+      "errors": []
+    }
+  ],
+  "policy": "平台不设置一刀切的非商业限制。具体能力根据组件许可证、企业授权和项目授权状态判定；self_attested 可作为工作流输入继续技术配置，但不能包装成 verified 法律结论或 customer_delivery/release ready。"
+}

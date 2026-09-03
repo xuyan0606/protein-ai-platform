@@ -1,0 +1,105 @@
+{
+  "candidate_rows": 20,
+  "created_at": "2026-09-03T07:35:30.412436+00:00",
+  "ddg_smoke_job_executed": false,
+  "executable_candidate_rows": 7,
+  "executable_with_xbit_rows": 7,
+  "foldx_candidate_rows": 1,
+  "local_only": true,
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/ddg_local_runtime_discovery_candidates.jsonl",
+  "physics_ddg_ready": false,
+  "policy": "Local runtime discovery is evidence gathering only; license review, runtime receipt, config enable and ddG smoke remain separate gates.",
+  "pyrosetta_module_available": true,
+  "python_module_available_rows": 1,
+  "ready_for_ddg_execution_rows": 1,
+  "ready_for_runtime_receipt_rows": 1,
+  "release_ready": false,
+  "rosetta_candidate_rows": 6,
+  "runtime_discovery_scope": "PATH lookup, bounded local file-name scan and Python module spec discovery only; no imports, no license acceptance, no ddG execution.",
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "scan_stats": [
+    {
+      "dirs_scanned": 799,
+      "errors": [],
+      "exists": true,
+      "files_scanned": 19012,
+      "max_depth": 6,
+      "root": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external",
+      "truncated": false
+    },
+    {
+      "dirs_scanned": 325,
+      "errors": [],
+      "exists": true,
+      "files_scanned": 12228,
+      "max_depth": 5,
+      "root": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache",
+      "truncated": false
+    },
+    {
+      "dirs_scanned": 123,
+      "errors": [],
+      "exists": true,
+      "files_scanned": 5403,
+      "max_depth": 3,
+      "root": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+      "truncated": false
+    },
+    {
+      "dirs_scanned": 0,
+      "errors": [],
+      "exists": false,
+      "files_scanned": 0,
+      "max_depth": 2,
+      "root": "/Users/keweibo/foldx",
+      "truncated": false
+    },
+    {
+      "dirs_scanned": 0,
+      "errors": [],
+      "exists": false,
+      "files_scanned": 0,
+      "max_depth": 2,
+      "root": "/Users/keweibo/FoldX",
+      "truncated": false
+    },
+    {
+      "dirs_scanned": 1,
+      "errors": [],
+      "exists": true,
+      "files_scanned": 0,
+      "max_depth": 2,
+      "root": "/opt/homebrew/bin",
+      "truncated": false
+    },
+    {
+      "dirs_scanned": 1,
+      "errors": [],
+      "exists": true,
+      "files_scanned": 9,
+      "max_depth": 2,
+      "root": "/usr/local/bin",
+      "truncated": false
+    },
+    {
+      "dirs_scanned": 1377,
+      "errors": [],
+      "exists": true,
+      "files_scanned": 25001,
+      "max_depth": 4,
+      "root": "/Applications",
+      "truncated": true
+    },
+    {
+      "dirs_scanned": 8,
+      "errors": [],
+      "exists": true,
+      "files_scanned": 7,
+      "max_depth": 2,
+      "root": "/Users/keweibo/Applications",
+      "truncated": false
+    }
+  ],
+  "version_probe_succeeded_rows": 0
+}

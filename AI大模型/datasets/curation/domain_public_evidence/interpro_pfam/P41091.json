@@ -1,0 +1,107 @@
+{
+  "accession": "P41091",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00009",
+        "name": "Elongation factor Tu GTP binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000795",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p41091",
+          "protein_length": 472,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 41,
+                  "end": 244,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00009",
+              "score": 2.2e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03144",
+        "name": "Elongation factor Tu domain 2",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004161",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p41091",
+          "protein_length": 472,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 276,
+                  "end": 358,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03144",
+              "score": 5.4e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09173",
+        "name": "Initiation factor eIF2 gamma, C terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015256",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p41091",
+          "protein_length": 472,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 369,
+                  "end": 459,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09173",
+              "score": 2.1e-30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

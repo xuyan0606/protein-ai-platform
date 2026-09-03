@@ -1,0 +1,80 @@
+{
+  "created_at": "2026-09-03T07:32:03.540957+00:00",
+  "local_only": true,
+  "expected_heads": [
+    "mutation_rank",
+    "stability",
+    "activity_risk",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "feature_family_head_mapping": {
+    "msa_conservation": [
+      "mutation_rank",
+      "stability",
+      "activity_risk",
+      "substrate_fit",
+      "assay_success"
+    ],
+    "structure_graph": [
+      "mutation_rank",
+      "stability",
+      "substrate_fit"
+    ],
+    "pyrosetta_ddg_reu_input": [
+      "stability"
+    ],
+    "structure_site": [
+      "mutation_rank",
+      "stability",
+      "substrate_fit"
+    ]
+  },
+  "source_feature_index": "datasets/features/validated_feature_index.jsonl",
+  "source_feature_report": "reports/validated_feature_index_report.json",
+  "source_feature_validation_report": "reports/validated_feature_index_validation_report.json",
+  "source_feature_rows": 210,
+  "source_feature_report_rows": 210,
+  "source_feature_validation_success": true,
+  "source_training_label_source_rows": 0,
+  "source_feature_rows_counted_as_labels": 0,
+  "source_family_counts": {
+    "msa_conservation": 158,
+    "pyrosetta_ddg_reu_input": 11,
+    "structure_graph": 34,
+    "structure_site": 7
+  },
+  "protein_group_definition": "uniprot:<uniprot_id> derived from validated_feature_index.uniprot_id",
+  "protein_group_count": 175,
+  "coverage_row_count": 875,
+  "covered_group_count_by_head": {
+    "mutation_rank": 175,
+    "stability": 175,
+    "activity_risk": 158,
+    "substrate_fit": 175,
+    "assay_success": 158
+  },
+  "missing_group_count_by_head": {
+    "mutation_rank": 0,
+    "stability": 0,
+    "activity_risk": 17,
+    "substrate_fit": 0,
+    "assay_success": 17
+  },
+  "input_feature_rows_by_head": {
+    "mutation_rank": 199,
+    "stability": 210,
+    "activity_risk": 158,
+    "substrate_fit": 199,
+    "assay_success": 158
+  },
+  "five_head_ready_head_count": 0,
+  "five_head_training_execution_allowed": false,
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "coverage_jsonl": "datasets/features/feature_coverage_by_head_group.jsonl",
+  "policy": "Feature coverage is an input-only audit for P27-A003. It does not convert features into labels, does not train models, does not promote claims, and does not open release or production gates."
+}

@@ -1,0 +1,35 @@
+{
+  "artifact_count": 9,
+  "builder_artifact_paths": [
+    "prototype/baseline_ranker_model.json",
+    "prototype/supervised_mutation_baseline_model.json",
+    "prototype/supervised_mutation_enriched_baseline_model.json",
+    "prototype/supervised_mutation_verified_baseline_model.json",
+    "prototype/site_sequence_feature_baseline_model.json",
+    "prototype/repaired_supervised_baseline_model.json",
+    "prototype/repaired_supervised_msa_baseline_model.json",
+    "prototype/kwb_enzyme_designer_multitask_scaffold.json",
+    "prototype/kwb_enzyme_designer_advanced_model.py"
+  ],
+  "builder_contract": "scripts/build_model_artifact_claim_guard_report.py",
+  "checked_report": "reports/model_artifact_claim_guard_report.json",
+  "claimable_model_artifact_count": 0,
+  "class_counts": {
+    "blocked_empty_training_baseline": 3,
+    "code_scaffold_not_weights": 1,
+    "legacy_baseline_not_claimable": 3,
+    "rule_or_baseline_not_neural_weights": 1,
+    "scaffold_only_not_trained_weights": 1
+  },
+  "created_at": "2026-09-03T07:33:56.615874+00:00",
+  "expected_artifact_count": 9,
+  "failures": [],
+  "local_only": true,
+  "policy": "Fail-closed validation for model artifact claim isolation.",
+  "production_model_artifact_count": 0,
+  "release_ready": false,
+  "report_matches_current_artifact_sources": true,
+  "safe_for_model_claim": false,
+  "success": true,
+  "trained_neural_weight_artifact_count": 0
+}

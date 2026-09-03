@@ -1,0 +1,131 @@
+{
+  "accession": "Q8TEJ3",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00018",
+        "name": "SH3 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001452",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8tej3",
+          "protein_length": 882,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 200,
+                  "end": 245,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00018",
+              "score": 7.2e-08
+            },
+            {
+              "fragments": [
+                {
+                  "start": 262,
+                  "end": 310,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00018",
+              "score": 7e-05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 471,
+                  "end": 516,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00018",
+              "score": 2.9e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13445",
+        "name": "RING-type zinc-finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR027370",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8tej3",
+          "protein_length": 882,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 57,
+                  "end": 95,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13445",
+              "score": 0.0013
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14604",
+        "name": "Variant SH3 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001452",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8tej3",
+          "protein_length": 882,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 831,
+                  "end": 880,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14604",
+              "score": 4.9e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -68,5 +68,5 @@ echo "    docker compose -f docker/docker-compose.dev.yml exec outline yarn db:m
 
 echo ""
 echo "=== Done ==="
-echo "Outline should be available at http://localhost/wiki (with nginx)"
+echo "Outline should be available at http://localhost/wiki/ (with nginx)"
 echo "or directly at http://localhost:3001 (dev mode)"

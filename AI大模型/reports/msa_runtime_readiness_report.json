@@ -1,0 +1,79 @@
+{
+  "local_only": true,
+  "config": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/config/msa_runtime.local.example.json",
+  "target_rows": 158,
+  "runtime_ready": true,
+  "selected_runtime": "local_binary",
+  "homolog_database": {
+    "database_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/mmseqs_databases/uniprot_sprot",
+    "database_name": "UniProtKB/Swiss-Prot",
+    "database_version": "UniProtKB/Swiss-Prot Release 2026_02 of 10-Jun-2026",
+    "checksum_manifest": "reports/mmseqs_homolog_database_manifest.json",
+    "ready": true
+  },
+  "local_binary": {
+    "required_executables": [
+      "mmseqs"
+    ],
+    "configured_binary_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/MMseqs2/bin/mmseqs",
+    "paths": {
+      "mmseqs": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/MMseqs2/bin/mmseqs"
+    },
+    "version_probes": {
+      "mmseqs": {
+        "returncode": 0,
+        "stdout": "17b688d21dda57fc5f5b7286ecba7ec003d4717f",
+        "stderr": ""
+      }
+    },
+    "executable_ready": true,
+    "ready": true
+  },
+  "docker_image": {
+    "docker_cli": "/Users/keweibo/.local/bin/docker",
+    "docker_version": {
+      "returncode": 0,
+      "stdout": "Docker version 29.6.1, build 8900f1d",
+      "stderr": ""
+    },
+    "docker_daemon_ready": false,
+    "pull_allowed": false,
+    "selected_image": null,
+    "image_candidates": [
+      "ghcr.io/soedinglab/mmseqs2:latest",
+      "soedinglab/mmseqs2:latest"
+    ],
+    "image_present": false,
+    "image_probe": {
+      "returncode": null,
+      "stdout": "",
+      "stderr": "no_selected_image"
+    },
+    "ready": false
+  },
+  "trusted_cache": {
+    "enabled": true,
+    "msa_cache_root": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/msa",
+    "conservation_cache_root": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/msa_conservation",
+    "target_rows": 158,
+    "present_msa": 158,
+    "present_conservation": 158,
+    "validation_ready": true,
+    "validation_report": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/msa_conservation_cache_validation_report.json",
+    "validation_target_rows_expected": 158,
+    "validation_target_rows_match": true,
+    "validation_error_counts": {
+      "missing_target_rows": 0
+    },
+    "ready": true
+  },
+  "blockers": [
+    "docker daemon not reachable or not running"
+  ],
+  "recommended_next_actions": [
+    "Start Docker Desktop and configure selected_image, or approve a Docker pull for MMseqs2.",
+    "Alternatively install a local MMseqs2 binary and ensure `mmseqs` is on PATH.",
+    "Alternatively provide a trusted precomputed MSA/conservation cache with checksums."
+  ],
+  "policy": "readiness only; no MSA, homolog search, docker pull, or conservation feature generation is performed here"
+}

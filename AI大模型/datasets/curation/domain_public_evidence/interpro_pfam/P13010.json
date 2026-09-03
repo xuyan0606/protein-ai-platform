@@ -1,0 +1,141 @@
+{
+  "accession": "P13010",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02735",
+        "name": "Ku70/Ku80 beta-barrel domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006164",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p13010",
+          "protein_length": 732,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 253,
+                  "end": 453,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02735",
+              "score": 5.7e-41
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03730",
+        "name": "Ku70/Ku80 C-terminal arm",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR005160",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p13010",
+          "protein_length": 732,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 477,
+                  "end": 568,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03730",
+              "score": 4.8e-15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03731",
+        "name": "Ku70/Ku80 N-terminal alpha/beta domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR005161",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p13010",
+          "protein_length": 732,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 9,
+                  "end": 243,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03731",
+              "score": 2.1e-55
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08785",
+        "name": "Ku C terminal domain like",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014893",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p13010",
+          "protein_length": 732,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 593,
+                  "end": 705,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08785",
+              "score": 1.6e-26
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

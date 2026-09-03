@@ -1,0 +1,46 @@
+{
+  "all_inputs_present": false,
+  "created_at": "2026-08-26T02:58:47.662768+00:00",
+  "destructive_actions": "not_executed",
+  "final_acceptance_command": [],
+  "groups": [
+    {
+      "missing_fields": [
+        "MAINTENANCE_WINDOW_ID",
+        "ALLOW_PRODUCTION_DRILL"
+      ],
+      "name": "production_rollback_drill_gate",
+      "provided_fields": [],
+      "ready": false
+    },
+    {
+      "missing_fields": [
+        "OFFSITE_BACKUP_TARGET",
+        "OFFSITE_RESTORE_TARGET"
+      ],
+      "name": "offsite_backup_restore_drill_gate",
+      "provided_fields": [],
+      "ready": false
+    },
+    {
+      "missing_fields": [
+        "EXTERNAL_STORAGE_BACKUP_REF",
+        "EXTERNAL_STORAGE_RESTORE_TARGET"
+      ],
+      "name": "external_storage_restore_validation_gate",
+      "provided_fields": [],
+      "ready": false
+    }
+  ],
+  "missing_gate_count": 3,
+  "missing_gates": [
+    "production_rollback_drill_gate",
+    "offsite_backup_restore_drill_gate",
+    "external_storage_restore_validation_gate"
+  ],
+  "mode": "read_only_release_manual_gate_input_validation",
+  "network_io": "not_executed",
+  "ready_to_run_final_acceptance": false,
+  "secrets_printed": false,
+  "status": "manual_required"
+}

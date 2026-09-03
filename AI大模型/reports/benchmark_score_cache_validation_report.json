@@ -1,0 +1,138 @@
+{
+  "created_at": "2026-09-03T07:35:30.719434+00:00",
+  "local_only": true,
+  "manifest": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/benchmark_score_cache_manifest.json",
+  "benchmark_rows": 15,
+  "valid_rows": 13,
+  "invalid_rows": 2,
+  "head_scorecards": {
+    "activity_risk": {
+      "expected_rows": 3,
+      "valid_rows": 3,
+      "ready": true
+    },
+    "assay_success": {
+      "expected_rows": 3,
+      "valid_rows": 3,
+      "ready": true
+    },
+    "mutation_rank": {
+      "expected_rows": 3,
+      "valid_rows": 2,
+      "ready": false
+    },
+    "stability": {
+      "expected_rows": 3,
+      "valid_rows": 3,
+      "ready": true
+    },
+    "substrate_fit": {
+      "expected_rows": 3,
+      "valid_rows": 2,
+      "ready": false
+    }
+  },
+  "heads_ready": 3,
+  "error_counts": {
+    "benchmark_status_not_present": 2
+  },
+  "ready_for_model_claim": false,
+  "safe_for_model_claim": false,
+  "records": [
+    {
+      "head": "mutation_rank",
+      "benchmark_name": "ProteinGym",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "head": "mutation_rank",
+      "benchmark_name": "FLIP/FLIP2-style protein/family/time split",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "head": "mutation_rank",
+      "benchmark_name": "KWB strict mutation holdout",
+      "valid": false,
+      "errors": [
+        "benchmark_status_not_present"
+      ]
+    },
+    {
+      "head": "stability",
+      "benchmark_name": "ThermoMPNN comparison",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "head": "stability",
+      "benchmark_name": "ATOM3D MSP",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "head": "stability",
+      "benchmark_name": "FireProt/ProTherm reviewed stability set",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "head": "activity_risk",
+      "benchmark_name": "KWB activity numeric feedback smoke",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "head": "activity_risk",
+      "benchmark_name": "KWB plate-level wet-lab feedback",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "head": "activity_risk",
+      "benchmark_name": "CatPred/GotEnzymes predicted reference only",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "head": "substrate_fit",
+      "benchmark_name": "PDBbind/CASF/D3R-style affinity or pose benchmark",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "head": "substrate_fit",
+      "benchmark_name": "PoseBusters-style pose plausibility",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "head": "substrate_fit",
+      "benchmark_name": "reviewed substrate identity set",
+      "valid": false,
+      "errors": [
+        "benchmark_status_not_present"
+      ]
+    },
+    {
+      "head": "assay_success",
+      "benchmark_name": "KWB plate-level feedback",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "head": "assay_success",
+      "benchmark_name": "replicate consistency",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "head": "assay_success",
+      "benchmark_name": "QC fail-rate calibration",
+      "valid": true,
+      "errors": []
+    }
+  ],
+  "policy": "Benchmark validation is an evaluation gate only. It does not supply KWB wet-lab labels or production approval."
+}

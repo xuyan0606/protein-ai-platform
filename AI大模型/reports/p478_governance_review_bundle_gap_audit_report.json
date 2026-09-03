@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-09-03T07:33:55.897580+00:00",
+  "local_only": true,
+  "audit_rows": 38,
+  "bundle_audit_rows": 37,
+  "summary_audit_rows": 1,
+  "bundle_rows": 37,
+  "open_rows": 37,
+  "completion_ready_rows": 0,
+  "human_review_required_rows": 37,
+  "no_auto_approval_rows": 37,
+  "bundle_ready": false,
+  "bundle_safe_for_model_claim": false,
+  "bundle_release_ready": false,
+  "validation_valid_rows": 37,
+  "validation_invalid_rows": 0,
+  "validation_open_rows": 37,
+  "validation_completion_ready_rows": 0,
+  "all_source_rows_covered": true,
+  "all_rows_valid": true,
+  "validation_ready": false,
+  "workstream_counts": {
+    "biosecurity_screening": 3,
+    "external_license_review": 19,
+    "operator_review_actions": 6,
+    "sequence_ip_fto": 3,
+    "workstream_acceptance": 6
+  },
+  "status_counts": {
+    "open_blocked_waiting_for_human_decision": 33,
+    "reviewed_valid_but_not_approved": 4
+  },
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "customer_delivery_ready": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "audit_jsonl": "datasets/governance/p478_governance_review_bundle_gap_audit.jsonl",
+  "policy": "P478 audit only. Governance review bundle rows remain open until explicit human decisions complete each workstream."
+}

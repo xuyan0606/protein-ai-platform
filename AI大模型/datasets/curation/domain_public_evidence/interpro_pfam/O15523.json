@@ -1,0 +1,73 @@
+{
+  "accession": "O15523",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00270",
+        "name": "DEAD/DEAH box helicase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011545",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15523",
+          "protein_length": 660,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 202,
+                  "end": 389,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00270",
+              "score": 3.6e-44
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00271",
+        "name": "Helicase conserved C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001650",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15523",
+          "protein_length": 660,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 425,
+                  "end": 534,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00271",
+              "score": 4.3e-29
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

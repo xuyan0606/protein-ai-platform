@@ -1,0 +1,107 @@
+{
+  "accession": "Q01780",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00570",
+        "name": "HRDC domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002121",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q01780",
+          "protein_length": 885,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 506,
+                  "end": 572,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00570",
+              "score": 1.9e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01612",
+        "name": "3'-5' exonuclease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002562",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q01780",
+          "protein_length": 885,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 289,
+                  "end": 455,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01612",
+              "score": 1.6e-52
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08066",
+        "name": "PMC2NT (NUC016) domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012588",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q01780",
+          "protein_length": 885,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 44,
+                  "end": 133,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF08066",
+              "score": 2.2e-18
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "accession": "Q9BUZ4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00097",
+        "name": "Zinc finger, C3HC4 type (RING finger)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR018957",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9buz4",
+          "protein_length": 470,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 18,
+                  "end": 56,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00097",
+              "score": 0.0001
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02176",
+        "name": "TRAF-type zinc finger",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001293",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9buz4",
+          "protein_length": 470,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 102,
+                  "end": 156,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02176",
+              "score": 2.8e-13
+            },
+            {
+              "fragments": [
+                {
+                  "start": 210,
+                  "end": 269,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02176",
+              "score": 7.6e-18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21355",
+        "name": "TRAF/meprin, MATH domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049342",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9buz4",
+          "protein_length": 470,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 331,
+                  "end": 459,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF21355",
+              "score": 4.8e-37
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

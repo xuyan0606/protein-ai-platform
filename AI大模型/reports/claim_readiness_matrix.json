@@ -1,0 +1,1180 @@
+{
+  "policy_version": "claim-readiness-policy-v1",
+  "local_only": true,
+  "claims_allowed": 1,
+  "claims_blocked": 10,
+  "allowed_claim_ids": [
+    "internal_design_review_artifacts"
+  ],
+  "blocked_claim_ids": [
+    "local_safe_training_pipeline",
+    "model_quality_claim",
+    "five_head_training_run",
+    "active_learning_experiment_submission",
+    "customer_sequence_package",
+    "approved_for_ordering",
+    "ip_fto_cleared",
+    "biosecurity_screened",
+    "external_tool_production_use",
+    "local_release_review_package"
+  ],
+  "claims": [
+    {
+      "claim_id": "local_safe_training_pipeline",
+      "label": "Local safe training pipeline can be run for internal engineering checks",
+      "scope": "internal_engineering",
+      "ready": false,
+      "allowed": false,
+      "status": "blocked",
+      "missing_requirements": [
+        "safe entrypoint safe for pipeline"
+      ],
+      "requirements": [
+        {
+          "name": "safe pipeline report exists",
+          "passed": true
+        },
+        {
+          "name": "safe entrypoint safe for pipeline",
+          "passed": false
+        },
+        {
+          "name": "enzyme tool contracts valid",
+          "passed": true
+        },
+        {
+          "name": "model claim fail-closed consistency passes",
+          "passed": true
+        }
+      ],
+      "policy": "This permits local validation only, not model-quality or customer claims."
+    },
+    {
+      "claim_id": "internal_design_review_artifacts",
+      "label": "Design and review artifacts may be used internally",
+      "scope": "internal_r_and_d",
+      "ready": true,
+      "allowed": true,
+      "status": "allowed",
+      "missing_requirements": [],
+      "requirements": [
+        {
+          "name": "local adapter assertions pass",
+          "passed": true
+        },
+        {
+          "name": "structure workflow gate assertions pass",
+          "passed": true
+        },
+        {
+          "name": "customer delivery remains blocked",
+          "passed": true
+        }
+      ],
+      "policy": "Internal artifacts remain review outputs and are not customer-ready sequence packages."
+    },
+    {
+      "claim_id": "model_quality_claim",
+      "label": "KWB-EnzymeDesigner model quality claim",
+      "scope": "model_claim",
+      "ready": false,
+      "allowed": false,
+      "status": "blocked",
+      "missing_requirements": [
+        "safe_for_model_claim",
+        "strict supervised rows >= 100",
+        "claim-eligible real supervised rows >= 100",
+        "all five heads ready",
+        "benchmark matrix ready",
+        "master board ready"
+      ],
+      "requirements": [
+        {
+          "name": "safe_for_model_claim",
+          "passed": false,
+          "evidence": [
+            "below_model_claim_row_threshold",
+            "strict_table_empty_training_pipeline_blocked",
+            "below_claim_eligible_real_label_threshold"
+          ]
+        },
+        {
+          "name": "strict supervised rows >= 100",
+          "passed": false,
+          "evidence": 0
+        },
+        {
+          "name": "claim-eligible real supervised rows >= 100",
+          "passed": false,
+          "evidence": 0
+        },
+        {
+          "name": "no synthetic or unreceipted strict labels",
+          "passed": true,
+          "evidence": {}
+        },
+        {
+          "name": "all five heads ready",
+          "passed": false,
+          "evidence": [
+            "mutation_rank",
+            "stability",
+            "activity_risk",
+            "substrate_fit",
+            "assay_success"
+          ]
+        },
+        {
+          "name": "benchmark matrix ready",
+          "passed": false
+        },
+        {
+          "name": "master board ready",
+          "passed": false,
+          "evidence": "blocked_for_model_claim"
+        },
+        {
+          "name": "human-target projection coverage valid",
+          "passed": true,
+          "evidence": {
+            "human_target_projection_gap_report_valid": true,
+            "human_target_projection_runtime_manifest_valid": true,
+            "human_target_projection_runtime_receipts_valid": true,
+            "human_target_projection_blocked_source_index_valid": true,
+            "human_target_projection_blocked_split_manifests_valid": true,
+            "human_target_projection_unlock_checklist_valid": true,
+            "human_target_projection_unlock_report_valid": true
+          }
+        },
+        {
+          "name": "claim-promotion evidence contract valid",
+          "passed": true,
+          "evidence": {
+            "release_summary": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "master_governance_release": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "release_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            },
+            "master_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "claim_id": "five_head_training_run",
+      "label": "Five-head supervised training run",
+      "scope": "training",
+      "ready": false,
+      "allowed": false,
+      "status": "blocked",
+      "missing_requirements": [
+        "strict supervised rows >= 100",
+        "claim-eligible real supervised rows >= 100",
+        "all five heads have eligible labels",
+        "safe entrypoint allows training pipeline"
+      ],
+      "requirements": [
+        {
+          "name": "strict supervised rows >= 100",
+          "passed": false,
+          "evidence": 0
+        },
+        {
+          "name": "claim-eligible real supervised rows >= 100",
+          "passed": false,
+          "evidence": 0
+        },
+        {
+          "name": "no synthetic or unreceipted strict labels",
+          "passed": true,
+          "evidence": {}
+        },
+        {
+          "name": "all five heads have eligible labels",
+          "passed": false,
+          "evidence": {
+            "mutation_rank": {
+              "label_fields": [
+                "label_decision"
+              ],
+              "rows": 0,
+              "minimum_rows": 100,
+              "ready": false
+            },
+            "stability": {
+              "label_fields": [
+                "label_stability_delta_tm_c",
+                "label_ddg"
+              ],
+              "rows": 0,
+              "minimum_rows": 100,
+              "ready": false
+            },
+            "activity_risk": {
+              "label_fields": [
+                "activity_relative_to_wt",
+                "activity_risk_label"
+              ],
+              "rows": 6,
+              "minimum_rows": 100,
+              "source_rows": {
+                "audited_training_table_label_rows": 0,
+                "training_import_label_rows": 6,
+                "training_import_jsonl_rows": 6,
+                "training_import_validation_report_rows": 6
+              },
+              "training_import_validation_success": true,
+              "training_import_source_consistent": true,
+              "training_execution_allowed": false,
+              "safe_for_model_claim": false,
+              "release_ready": false,
+              "ready": false
+            },
+            "substrate_fit": {
+              "label_fields": [
+                "substrate_fit_label"
+              ],
+              "rows": 0,
+              "minimum_rows": 100,
+              "ready": false
+            },
+            "assay_success": {
+              "label_fields": [
+                "assay_success"
+              ],
+              "rows": 0,
+              "minimum_rows": 100,
+              "ready": false
+            }
+          }
+        },
+        {
+          "name": "safe entrypoint allows training pipeline",
+          "passed": false
+        },
+        {
+          "name": "claim-promotion evidence contract valid",
+          "passed": true,
+          "evidence": {
+            "release_summary": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "master_governance_release": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "release_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            },
+            "master_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "claim_id": "active_learning_experiment_submission",
+      "label": "Active-learning experiment submission",
+      "scope": "experiment_submission",
+      "ready": false,
+      "allowed": false,
+      "status": "blocked",
+      "missing_requirements": [
+        "active learning readiness ready",
+        "experiment submission allowed",
+        "plate feedback eligible rows present",
+        "operator review status ready",
+        "biosecurity ready for ordering"
+      ],
+      "requirements": [
+        {
+          "name": "active learning readiness ready",
+          "passed": false
+        },
+        {
+          "name": "experiment submission allowed",
+          "passed": false
+        },
+        {
+          "name": "plate feedback eligible rows present",
+          "passed": false
+        },
+        {
+          "name": "operator review status ready",
+          "passed": false
+        },
+        {
+          "name": "biosecurity ready for ordering",
+          "passed": false
+        },
+        {
+          "name": "claim-promotion evidence contract valid",
+          "passed": true,
+          "evidence": {
+            "release_summary": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "master_governance_release": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "release_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            },
+            "master_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "claim_id": "customer_sequence_package",
+      "label": "Customer-ready sequence package",
+      "scope": "customer_delivery",
+      "ready": false,
+      "allowed": false,
+      "status": "blocked",
+      "missing_requirements": [
+        "customer delivery readiness ready",
+        "governance ready",
+        "workstreams human accepted",
+        "operator review status ready",
+        "local release ready"
+      ],
+      "requirements": [
+        {
+          "name": "customer delivery readiness ready",
+          "passed": false,
+          "evidence": [
+            "data_license_clearance",
+            "tool_license_clearance",
+            "verified_component_customer_delivery_scope",
+            "ip_fto_review",
+            "biosecurity_approval",
+            "human_delivery_approval",
+            "allowed_claims_review",
+            "benchmark_scorecards"
+          ]
+        },
+        {
+          "name": "governance ready",
+          "passed": false,
+          "evidence": [
+            "external data source commercial/redistribution review is incomplete",
+            "external data source registry validation is not ready",
+            "verified external data/tool customer-delivery authorization scope is not ready",
+            "head-level benchmark matrix is not ready for model claims",
+            "biosecurity/order approval is not ready",
+            "sequence IP/FTO decisions are not ready for customer delivery",
+            "master readiness board is blocked for model claim"
+          ]
+        },
+        {
+          "name": "workstreams human accepted",
+          "passed": false
+        },
+        {
+          "name": "operator review status ready",
+          "passed": false,
+          "evidence": [
+            "external data/tool license decisions are incomplete",
+            "biosecurity screening decisions are incomplete",
+            "workstream acceptance gates are incomplete",
+            "operator review action queue is not completed"
+          ]
+        },
+        {
+          "name": "local release ready",
+          "passed": false
+        },
+        {
+          "name": "human-target source/runtime fail-closed coverage valid",
+          "passed": true,
+          "evidence": {
+            "projection_ready": true,
+            "ready_sources": 0,
+            "unlock_ready_rows": 0
+          }
+        },
+        {
+          "name": "claim-promotion evidence contract valid",
+          "passed": true,
+          "evidence": {
+            "release_summary": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "master_governance_release": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "release_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            },
+            "master_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "claim_id": "approved_for_ordering",
+      "label": "Sequence or construct approved for ordering",
+      "scope": "ordering",
+      "ready": false,
+      "allowed": false,
+      "status": "blocked",
+      "missing_requirements": [
+        "biosecurity readiness ready",
+        "biosecurity decisions ready",
+        "IP/FTO ready for delivery",
+        "customer delivery ready"
+      ],
+      "requirements": [
+        {
+          "name": "biosecurity readiness ready",
+          "passed": false
+        },
+        {
+          "name": "biosecurity decisions ready",
+          "passed": false
+        },
+        {
+          "name": "IP/FTO ready for delivery",
+          "passed": false
+        },
+        {
+          "name": "customer delivery ready",
+          "passed": false
+        },
+        {
+          "name": "claim-promotion evidence contract valid",
+          "passed": true,
+          "evidence": {
+            "release_summary": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "master_governance_release": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "release_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            },
+            "master_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "claim_id": "ip_fto_cleared",
+      "label": "IP/FTO cleared",
+      "scope": "legal_review",
+      "ready": false,
+      "allowed": false,
+      "status": "blocked",
+      "missing_requirements": [
+        "IP/FTO decisions ready for delivery",
+        "all packet candidates decided for delivery"
+      ],
+      "requirements": [
+        {
+          "name": "IP/FTO decisions ready for delivery",
+          "passed": false
+        },
+        {
+          "name": "all packet candidates decided for delivery",
+          "passed": false
+        },
+        {
+          "name": "claim-promotion evidence contract valid",
+          "passed": true,
+          "evidence": {
+            "release_summary": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "master_governance_release": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "release_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            },
+            "master_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "claim_id": "biosecurity_screened",
+      "label": "Biosecurity screened",
+      "scope": "biosecurity",
+      "ready": false,
+      "allowed": false,
+      "status": "blocked",
+      "missing_requirements": [
+        "biosecurity decisions ready for ordering",
+        "biosecurity readiness ready for ordering"
+      ],
+      "requirements": [
+        {
+          "name": "biosecurity decisions ready for ordering",
+          "passed": false
+        },
+        {
+          "name": "biosecurity readiness ready for ordering",
+          "passed": false
+        },
+        {
+          "name": "claim-promotion evidence contract valid",
+          "passed": true,
+          "evidence": {
+            "release_summary": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "master_governance_release": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "release_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            },
+            "master_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "claim_id": "external_tool_production_use",
+      "label": "External tool production use",
+      "scope": "tooling",
+      "ready": false,
+      "allowed": false,
+      "status": "blocked",
+      "missing_requirements": [
+        "tool license decisions ready for delivery",
+        "governance ready"
+      ],
+      "requirements": [
+        {
+          "name": "tool license decisions ready for delivery",
+          "passed": false
+        },
+        {
+          "name": "at least one foreign tool ready locally",
+          "passed": true
+        },
+        {
+          "name": "governance ready",
+          "passed": false
+        },
+        {
+          "name": "claim-promotion evidence contract valid",
+          "passed": true,
+          "evidence": {
+            "release_summary": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "master_governance_release": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "release_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            },
+            "master_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "claim_id": "local_release_review_package",
+      "label": "Local release review package",
+      "scope": "release_review",
+      "ready": false,
+      "allowed": false,
+      "status": "blocked",
+      "missing_requirements": [
+        "local release marked ready"
+      ],
+      "requirements": [
+        {
+          "name": "artifact manifest has no missing files",
+          "passed": true
+        },
+        {
+          "name": "provenance ready",
+          "passed": true
+        },
+        {
+          "name": "human-target projection coverage valid",
+          "passed": true,
+          "evidence": {
+            "human_target_projection_gap_report_valid": true,
+            "human_target_projection_runtime_manifest_valid": true,
+            "human_target_projection_runtime_receipts_valid": true,
+            "human_target_projection_blocked_source_index_valid": true,
+            "human_target_projection_blocked_split_manifests_valid": true,
+            "human_target_projection_unlock_checklist_valid": true,
+            "human_target_projection_unlock_report_valid": true
+          }
+        },
+        {
+          "name": "claim-promotion evidence contract valid",
+          "passed": true,
+          "evidence": {
+            "release_summary": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "master_governance_release": {
+              "claim_promotion_decision_validation_success": true,
+              "claim_promotion_decision_validation_failures": 0,
+              "claim_promotion_template_rows": 9,
+              "claim_promotion_template_matches_expected_contract": true,
+              "claim_promotion_target_claim_rows": 9,
+              "claim_promotion_required_evidence_artifact_count": 3,
+              "claim_promotion_required_evidence_artifacts": [
+                "reports/claim_readiness_matrix.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board.json"
+              ],
+              "claim_promotion_required_validation_report_count": 6,
+              "claim_promotion_required_validation_reports": [
+                "reports/claim_readiness_matrix.json",
+                "reports/claim_readiness_matrix_fail_closed_policy_current_validation_report.json",
+                "reports/claim_readiness_policy_anchor_validation_report.json",
+                "reports/local_release_guard_coverage_validation_report.json",
+                "reports/local_release_manifest.json",
+                "reports/master_readiness_board_validation_report.json"
+              ],
+              "claim_promotion_decision_rows": 0,
+              "claim_promotion_approved_rows": 0,
+              "claim_promotion_missing_decisions": 9,
+              "claim_promotion_decision_success": false,
+              "claim_promotion_validation_failures": 0
+            },
+            "release_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            },
+            "master_requirement_coverage": {
+              "claim_promotion_requirement_name": "claim-promotion evidence contract valid",
+              "claim_promotion_target_claim_rows_with_contract_requirement": 9,
+              "claim_promotion_target_claim_rows_with_contract_requirement_passed": 9,
+              "claim_promotion_target_claim_contract_requirement_complete": true,
+              "claim_promotion_target_claim_rows_with_contract_requirement_evidence": 9,
+              "claim_promotion_target_claim_contract_requirement_evidence_complete": true
+            }
+          }
+        },
+        {
+          "name": "local release marked ready",
+          "passed": false
+        }
+      ],
+      "policy": "The current release manifest is an internal review package until all readiness gates pass."
+    }
+  ],
+  "global_policy": "Every customer, ordering, IP/FTO, biosecurity, model-quality, and production-tool claim fails closed unless its explicit validator chain is ready."
+}

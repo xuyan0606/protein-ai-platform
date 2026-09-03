@@ -1,0 +1,39 @@
+{
+  "accession": "Q9BU02",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01928",
+        "name": "CYTH domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR023577",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bu02",
+          "protein_length": 230,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 6,
+                  "end": 189,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01928",
+              "score": 1.5e-26
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

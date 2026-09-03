@@ -1,0 +1,116 @@
+{
+  "acquisition_integrity_verified": true,
+  "acquisition_integrity_verified_rows": 2,
+  "apply_executed": false,
+  "cm5_candidate_substitutions": [
+    "L15R",
+    "S45T",
+    "K85P",
+    "K231R"
+  ],
+  "cm5_composition_candidate_resolved": false,
+  "cm5_composition_formally_reviewed": false,
+  "cm5_sequence_member_verified": true,
+  "codon262_coverage_rows": 9,
+  "codon262_no_coverage_rows": 2,
+  "codon262_sequence_member_rows": 11,
+  "codon262_variant_codon_rows": 1,
+  "codon262_wt_codon_rows": 8,
+  "complete_composition_unambiguous": false,
+  "declared_substitutions_corroborated": true,
+  "document_locator_candidate_rows": 7,
+  "dsm4_composition_resolved": false,
+  "dsm4_identity_locator_candidate_rows": 3,
+  "export_safe_released": false,
+  "external_sqlite_mutated": false,
+  "failure_count": 0,
+  "failures": [],
+  "formal_decision_rows_written": 0,
+  "local_file_present": true,
+  "mode": "stage25_source_acquisition_receipts_validation",
+  "nucleotide_pdb_discrepancy": true,
+  "official_asset_public": true,
+  "policy": "Public acquisition integrity and probe validation only; composition candidates are not reviewed extraction, SQLite apply, model claims, customer delivery, or release.",
+  "probe_expected_missing_path_rows": 4,
+  "probe_only_rows": 2,
+  "public_asset_rows": 2,
+  "ready_for_reviewed_extraction": false,
+  "ready_for_sqlite_apply": false,
+  "receipt_rows": 4,
+  "receipt_valid": true,
+  "release_ready": false,
+  "reviewed_extraction_completed": false,
+  "reviewed_source_locator_rows": 0,
+  "safe_for_model_claim": false,
+  "schema_version": 2,
+  "source_evidence_ready": false,
+  "source_file_not_obtained_rows": 2,
+  "source_file_obtained_rows": 2,
+  "stage": 25,
+  "structured_locator_candidate_count": 7,
+  "structured_locator_candidate_rows": [
+    {
+      "composition_directly_resolved": false,
+      "dsm4_identity_candidate": false,
+      "locator": "Table S1",
+      "locator_type": "supplementary_table",
+      "measurement_candidate": false,
+      "role": "mutation_primer_sequences"
+    },
+    {
+      "composition_directly_resolved": false,
+      "dsm4_identity_candidate": false,
+      "locator": "Table S2",
+      "locator_type": "supplementary_table",
+      "measurement_candidate": false,
+      "role": "selected_disulfide_bridge_candidates_for_T41W_E119C"
+    },
+    {
+      "composition_directly_resolved": false,
+      "dsm4_identity_candidate": true,
+      "locator": "Figure S5",
+      "locator_type": "supplementary_figure",
+      "measurement_candidate": false,
+      "role": "purified_mutant_lane_identity_including_DSM4"
+    },
+    {
+      "composition_directly_resolved": false,
+      "dsm4_identity_candidate": false,
+      "locator": "Figure S6",
+      "locator_type": "supplementary_figure",
+      "measurement_candidate": true,
+      "role": "temperature_characteristics_chart"
+    },
+    {
+      "composition_directly_resolved": false,
+      "dsm4_identity_candidate": true,
+      "locator": "Figure S7",
+      "locator_type": "supplementary_figure",
+      "measurement_candidate": true,
+      "role": "disulfide_mutant_thermostability_chart"
+    },
+    {
+      "composition_directly_resolved": false,
+      "dsm4_identity_candidate": true,
+      "locator": "Figure S8",
+      "locator_type": "supplementary_figure",
+      "measurement_candidate": true,
+      "role": "DSM4_pH_characteristics_chart"
+    },
+    {
+      "composition_directly_resolved": false,
+      "dsm4_identity_candidate": false,
+      "locator": "Figure S10",
+      "locator_type": "supplementary_figure",
+      "measurement_candidate": false,
+      "role": "RMSF_context_chart"
+    }
+  ],
+  "structured_locator_composition_resolved_rows": 0,
+  "structured_locator_identity_candidate_rows": 3,
+  "structured_locator_measurement_candidate_rows": 3,
+  "undeclared_substitution_candidates": [
+    "L262V"
+  ],
+  "zenodo_archive_integrity_verified": true
+}

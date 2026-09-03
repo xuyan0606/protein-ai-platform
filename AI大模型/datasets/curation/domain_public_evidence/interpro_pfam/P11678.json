@@ -1,0 +1,73 @@
+{
+  "accession": "P11678",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03098",
+        "name": "Animal haem peroxidase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019791",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p11678",
+          "protein_length": 715,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 145,
+                  "end": 689,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03098",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF31271",
+        "name": "Lactoperoxidase-like, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR061955",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p11678",
+          "protein_length": 715,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1,
+                  "end": 142,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF31271",
+              "score": 0.0015
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

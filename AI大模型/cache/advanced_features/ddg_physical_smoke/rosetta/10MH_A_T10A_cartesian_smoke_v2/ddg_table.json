@@ -1,0 +1,30 @@
+{
+  "backend": "rosetta",
+  "protocol": "cartesian_ddg",
+  "rows": [
+    {
+      "chain_id": "A",
+      "ddg_reu": -0.57000000000005,
+      "ddg_units": "REU",
+      "limitations": [
+        "single mutation smoke only",
+        "Rosetta Energy Units are not wet-lab kcal/mol labels",
+        "self_attested component authorization is not verified license clearance",
+        "not training-import eligible without separate reviewed label authorization"
+      ],
+      "manual_review_required": true,
+      "mutant": "A",
+      "mutant_score_reu": 553.232,
+      "mutation": "T10A",
+      "negative_ddg_is_stabilizing": true,
+      "pdb_position": 10,
+      "pose_position": 34,
+      "release_ready": false,
+      "safe_for_model_claim": false,
+      "structure_id": "10MH",
+      "training_label": false,
+      "wild_score_reu": 553.802,
+      "wild_type": "T"
+    }
+  ]
+}

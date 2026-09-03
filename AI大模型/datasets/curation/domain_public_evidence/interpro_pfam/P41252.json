@@ -1,0 +1,153 @@
+{
+  "accession": "P41252",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00133",
+        "name": "tRNA synthetases class I (I, L, M and V)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002300",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p41252",
+          "protein_length": 1262,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 17,
+                  "end": 638,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00133",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08264",
+        "name": "Anticodon-binding domain of tRNA ligase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013155",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p41252",
+          "protein_length": 1262,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 693,
+                  "end": 849,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08264",
+              "score": 2.1e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19302",
+        "name": "Domain of unknown function (DUF5915)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p41252",
+          "protein_length": 1262,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 982,
+                  "end": 1035,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF19302",
+              "score": 3.3e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23567",
+        "name": "Isoleucine--tRNA ligase, cytoplasmic, ubiquitin-like",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057033",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p41252",
+          "protein_length": 1262,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1077,
+                  "end": 1160,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF23567",
+              "score": 4.2e-25
+            },
+            {
+              "fragments": [
+                {
+                  "start": 1169,
+                  "end": 1259,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF23567",
+              "score": 4.5e-32
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

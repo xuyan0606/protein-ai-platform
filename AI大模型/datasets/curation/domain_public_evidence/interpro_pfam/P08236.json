@@ -1,0 +1,107 @@
+{
+  "accession": "P08236",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00703",
+        "name": "Glycosyl hydrolases family 2",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006102",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p08236",
+          "protein_length": 651,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 226,
+                  "end": 327,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00703",
+              "score": 0.0045
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02836",
+        "name": "Glycosyl hydrolases family 2, TIM barrel domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006103",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p08236",
+          "protein_length": 651,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 329,
+                  "end": 630,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02836",
+              "score": 1.8e-115
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02837",
+        "name": "Glycosyl hydrolases family 2, sugar binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006104",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p08236",
+          "protein_length": 651,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 39,
+                  "end": 224,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02837",
+              "score": 2e-12
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

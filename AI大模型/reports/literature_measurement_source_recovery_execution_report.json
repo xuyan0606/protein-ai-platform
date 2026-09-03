@@ -1,0 +1,183 @@
+{
+  "request_count": 28,
+  "status_counts": {
+    "fetch_failed": 4,
+    "hash_mismatch": 7,
+    "recovered": 17
+  },
+  "records": [
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/acid_protease/PMC6167268.xml",
+      "source_path": "literature/raw_fulltext_xml/acid_protease/PMC6167268.xml",
+      "status": "hash_mismatch",
+      "actual_sha256": "9cd8149e2e29086e0981b044c5f5367e2e46087cc84385eca368c9d4a04c2875"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/amylase/PMC10883975.xml",
+      "source_path": "literature/raw_fulltext_xml/amylase/PMC10883975.xml",
+      "status": "recovered",
+      "actual_sha256": "b11019e7226e2aa97bc07689d3c27e88debb3c07753d3535ca4972f8655ac20a"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/amylase/PMC12007714.xml",
+      "source_path": "literature/raw_fulltext_xml/amylase/PMC12007714.xml",
+      "status": "recovered",
+      "actual_sha256": "c9d9bc4bf95e108a1c03646bb2c0ab094e87d5a0f14de732bb76abc83e7ef27f"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/amylase/PMC12695923.xml",
+      "source_path": "literature/raw_fulltext_xml/amylase/PMC12695923.xml",
+      "status": "recovered",
+      "actual_sha256": "8978fcab0fd2a35fa49d756e966c7a6fbe2ad14c3c9d1b99c4f30fd655d03e4b"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/amylase/PMC5478988.xml",
+      "source_path": "literature/raw_fulltext_xml/amylase/PMC5478988.xml",
+      "status": "recovered",
+      "actual_sha256": "c0dc9babb83bd76bbe02b2d4d3031ddb9bbcbb69cabf8881e725fd2910c92a47"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/amylase/PMC5738361.xml",
+      "source_path": "literature/raw_fulltext_xml/amylase/PMC5738361.xml",
+      "status": "hash_mismatch",
+      "actual_sha256": "b14b9146e0bd17cec046996ebdddf6d9f0b2d4ed59ed8f3d28f66a309e01a31a"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/amylase/PMC8520190.xml",
+      "source_path": "literature/raw_fulltext_xml/amylase/PMC8520190.xml",
+      "status": "recovered",
+      "actual_sha256": "b10402ba19a4286ba5a025a5a7066bd512308e0ca6fa234c78366ea180c0d7ac"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/amylase/PMC9105970.xml",
+      "source_path": "literature/raw_fulltext_xml/amylase/PMC9105970.xml",
+      "status": "hash_mismatch",
+      "actual_sha256": "24b55687a3196cef0ab26fbc704ba89dc6e7d83cfbd9a6c2080a85234af2e5e3"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/amylase/PMC9148494.xml",
+      "source_path": "literature/raw_fulltext_xml/amylase/PMC9148494.xml",
+      "status": "hash_mismatch",
+      "actual_sha256": "97ddd01c8a080fd8cbb008b202d363cbb7ff6b912e495b4ac666fc863ce7c1a6"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/glucose_oxidase/PMC3374809.xml",
+      "source_path": "literature/raw_fulltext_xml/glucose_oxidase/PMC3374809.xml",
+      "status": "fetch_failed",
+      "detail": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3374809/fullTextXML: <urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>; https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3374809/?report=xml: <urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/glucose_oxidase/PMC5855647.xml",
+      "source_path": "literature/raw_fulltext_xml/glucose_oxidase/PMC5855647.xml",
+      "status": "hash_mismatch",
+      "actual_sha256": "0326686eae211804c2592c75e153d98105c13bf9535e6df68e7ddc59cb5f78fb"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/glucose_oxidase/PMC7287683.xml",
+      "source_path": "literature/raw_fulltext_xml/glucose_oxidase/PMC7287683.xml",
+      "status": "hash_mismatch",
+      "actual_sha256": "27f3fd06548b1fcfc5a7df40982db38673f3accb2eece9280150c96fff7e8fcf"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/mannanase/PMC5457547.xml",
+      "source_path": "literature/raw_fulltext_xml/mannanase/PMC5457547.xml",
+      "status": "fetch_failed",
+      "detail": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5457547/fullTextXML: <urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>; https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5457547/?report=xml: <urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/mannanase/PMC8313266.xml",
+      "source_path": "literature/raw_fulltext_xml/mannanase/PMC8313266.xml",
+      "status": "recovered",
+      "actual_sha256": "30bbe7b5af028bb8ac21cf5cdb47d116a5984d5a30f709c67d14d22f7792d3be"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/mannanase/PMC9986629.xml",
+      "source_path": "literature/raw_fulltext_xml/mannanase/PMC9986629.xml",
+      "status": "recovered",
+      "actual_sha256": "b2e4911bf71e37a2f3dc8b8a1f10dd212d75c2f08b562d025a218a66cc6f796e"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/phytase/PMC10101328.xml",
+      "source_path": "literature/raw_fulltext_xml/phytase/PMC10101328.xml",
+      "status": "recovered",
+      "actual_sha256": "d1c62ce53e3a01420de2950a78dd9ffdfbf3c7d99ef01285a9c329c986a97421"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/phytase/PMC11180912.xml",
+      "source_path": "literature/raw_fulltext_xml/phytase/PMC11180912.xml",
+      "status": "recovered",
+      "actual_sha256": "7251b3214d4c538d15284e8690735d2d411dc71999082cdf209d55046b040428"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/phytase/PMC11380507.xml",
+      "source_path": "literature/raw_fulltext_xml/phytase/PMC11380507.xml",
+      "status": "fetch_failed",
+      "detail": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11380507/fullTextXML: <urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>; https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11380507/?report=xml: <urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/phytase/PMC5984770.xml",
+      "source_path": "literature/raw_fulltext_xml/phytase/PMC5984770.xml",
+      "status": "recovered",
+      "actual_sha256": "280f6a22beeb8968593d1848a3b3fa4c53a25b6a1ad7a25dc7862b88c90f58b4"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/phytase/PMC9181005.xml",
+      "source_path": "literature/raw_fulltext_xml/phytase/PMC9181005.xml",
+      "status": "fetch_failed",
+      "detail": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9181005/fullTextXML: <urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>; https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9181005/?report=xml: <urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/xylanase/PMC10987496.xml",
+      "source_path": "literature/raw_fulltext_xml/xylanase/PMC10987496.xml",
+      "status": "recovered",
+      "actual_sha256": "6dfb29b393695969e720a2bb972d29a41afce673139b91ce85d44f8af9ae2627"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/xylanase/PMC11430584.xml",
+      "source_path": "literature/raw_fulltext_xml/xylanase/PMC11430584.xml",
+      "status": "recovered",
+      "actual_sha256": "c06ed172ec74b222e6c24b35219f8a3454197160986748ce1fb11b0e1edd41c3"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/xylanase/PMC5431495.xml",
+      "source_path": "literature/raw_fulltext_xml/xylanase/PMC5431495.xml",
+      "status": "hash_mismatch",
+      "actual_sha256": "0813adbd249008e594d983c78deac8164b399a9f696785cc80f83f4a2b3d6e4b"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/xylanase/PMC6659274.xml",
+      "source_path": "literature/raw_fulltext_xml/xylanase/PMC6659274.xml",
+      "status": "recovered",
+      "actual_sha256": "4fe7ff0c2693dae92c379f10aa222960cbdae92e549ee0d6d084420d97e631e7"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/xylanase/PMC6883096.xml",
+      "source_path": "literature/raw_fulltext_xml/xylanase/PMC6883096.xml",
+      "status": "recovered",
+      "actual_sha256": "3904047fd4b9ecca4f4ba6dea4c4a5f81e295ce4e67ae1114abd11c975011233"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/xylanase/PMC8487158.xml",
+      "source_path": "literature/raw_fulltext_xml/xylanase/PMC8487158.xml",
+      "status": "recovered",
+      "actual_sha256": "e17c074e7149cc5527b20f4d592dee24053a4024c071cb3b21a286cc2adb4858"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/xylanase/PMC8546418.xml",
+      "source_path": "literature/raw_fulltext_xml/xylanase/PMC8546418.xml",
+      "status": "recovered",
+      "actual_sha256": "57dbbbd1c05d69bb23c45d7373bc3e3a33fa7d207790319059615c36550f9c0f"
+    },
+    {
+      "request_id": "literature-source-recovery::literature/raw_fulltext_xml/xylanase/PMC9957083.xml",
+      "source_path": "literature/raw_fulltext_xml/xylanase/PMC9957083.xml",
+      "status": "recovered",
+      "actual_sha256": "741d04cce6d9ae0264beec4ba8aee86c4dfca166d4f63237607afffbbf454115"
+    }
+  ],
+  "formal_intake_authorized": false,
+  "training_import_allowed": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Only exact SHA-256 matches are atomically restored; recovery never promotes evidence."
+}

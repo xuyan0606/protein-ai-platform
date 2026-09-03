@@ -1,0 +1,38 @@
+{
+  "activity_risk_training_label_rows_written": 0,
+  "benchmark_name": "CatPred/GotEnzymes predicted reference only",
+  "catpred_model_executed": false,
+  "created_at": "2026-09-03T07:33:37.500291+00:00",
+  "dataset_rows": 226,
+  "head": "activity_risk",
+  "local_only": true,
+  "outputs": {
+    "dataset": "cache/advanced_features/benchmarks/catpred_gotenzymes_predicted_reference_only/dataset.jsonl",
+    "metric_report": "cache/advanced_features/benchmarks/catpred_gotenzymes_predicted_reference_only/metric_report.json",
+    "scorecard": "cache/advanced_features/benchmarks/catpred_gotenzymes_predicted_reference_only/scorecard.json",
+    "source_receipt": "cache/advanced_features/benchmarks/catpred_gotenzymes_predicted_reference_only/source_receipt.json",
+    "split": "cache/advanced_features/benchmarks/catpred_gotenzymes_predicted_reference_only/split_definition.json"
+  },
+  "parse_errors": {},
+  "policy": "Evaluation-only GotEnzymes2 predicted-reference benchmark. It does not create KWB labels, execute CatPred, or open model/release claims.",
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "source_archive_failures": [],
+  "source_archive_verified": true,
+  "source_shard_counts": {
+    "bdw": 38,
+    "gsc": 135,
+    "oyw": 53
+  },
+  "source_shards": [
+    "bdw",
+    "oyw",
+    "gsc"
+  ],
+  "training_import_written_rows": 0,
+  "unique_compounds": 129,
+  "unique_ec": 48,
+  "unique_proteins": 32,
+  "unique_reactions": 79
+}

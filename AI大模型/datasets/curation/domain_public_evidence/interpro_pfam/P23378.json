@@ -1,0 +1,107 @@
+{
+  "accession": "P23378",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01212",
+        "name": "Beta-eliminating lyase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001597",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p23378",
+          "protein_length": 1020,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 586,
+                  "end": 729,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01212",
+              "score": 5.5e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02347",
+        "name": "Glycine cleavage system P-protein",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049315",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p23378",
+          "protein_length": 1020,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 65,
+                  "end": 488,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF02347",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21478",
+        "name": "Glycine dehydrogenase, C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049316",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p23378",
+          "protein_length": 1020,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 829,
+                  "end": 950,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF21478",
+              "score": 1.1e-55
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

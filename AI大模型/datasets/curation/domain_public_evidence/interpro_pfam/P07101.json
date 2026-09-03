@@ -1,0 +1,119 @@
+{
+  "accession": "P07101",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00351",
+        "name": "Biopterin-dependent aromatic amino acid hydroxylase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019774",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07101",
+          "protein_length": 528,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 195,
+                  "end": 524,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00351",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12549",
+        "name": "Tyrosine hydroxylase N terminal",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR021164",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07101",
+          "protein_length": 528,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 2,
+                  "end": 26,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF12549",
+              "score": 1.4e-11
+            },
+            {
+              "fragments": [
+                {
+                  "start": 56,
+                  "end": 80,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12549",
+              "score": 3.6e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21417",
+        "name": "Tyrosine 3-monooxygenase-like, ACT domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR049321",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07101",
+          "protein_length": 528,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 110,
+                  "end": 178,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF21417",
+              "score": 2.2e-26
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

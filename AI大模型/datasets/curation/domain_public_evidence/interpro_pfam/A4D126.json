@@ -1,0 +1,73 @@
+{
+  "accession": "A4D126",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01128",
+        "name": "2-C-methyl-D-erythritol 4-phosphate cytidylyltransferase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR034683",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "a4d126",
+          "protein_length": 451,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 47,
+                  "end": 278,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01128",
+              "score": 2e-36
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18706",
+        "name": "D-ribitol-5-phosphate cytidylyltransferase C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040635",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "a4d126",
+          "protein_length": 451,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 283,
+                  "end": 430,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF18706",
+              "score": 1.4e-67
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

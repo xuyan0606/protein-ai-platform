@@ -1,0 +1,20 @@
+{
+  "benchmark_name": "QC fail-rate calibration",
+  "created_at": "2026-09-03T07:33:37.289663+00:00",
+  "dataset_rows": 5,
+  "head": "assay_success",
+  "leakage_check_status": "passed",
+  "local_only": true,
+  "primary_metric": "aggregate_qc_fail_rate",
+  "primary_metric_value": 0.4782608695652174,
+  "quality_status": "internal_qc_calibration_cache_ready_not_model_claim",
+  "ready_as_benchmark_scorecard": true,
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "secondary_metrics": {
+    "aggregate_qc_insufficient_rate": 0.21739130434782608,
+    "batch_count": 5,
+    "raw_measurement_rows_used": 315
+  }
+}

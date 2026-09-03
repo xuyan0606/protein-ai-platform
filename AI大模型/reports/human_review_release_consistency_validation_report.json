@@ -1,0 +1,126 @@
+{
+  "checks": [
+    {
+      "expected": true,
+      "name": "launch validation success",
+      "observed": true,
+      "passed": true
+    },
+    {
+      "expected": true,
+      "name": "closeout validation success",
+      "observed": true,
+      "passed": true
+    },
+    {
+      "expected": "same",
+      "name": "launch rows match closeout rows",
+      "observed": {
+        "closeout": 5,
+        "launch": 5
+      },
+      "passed": true
+    },
+    {
+      "expected": "same",
+      "name": "launch packets match closeout prepared packets",
+      "observed": {
+        "closeout": 550,
+        "launch": 550
+      },
+      "passed": true
+    },
+    {
+      "expected": 5,
+      "name": "customer launch rows match",
+      "observed": 5,
+      "passed": true
+    },
+    {
+      "expected": 550,
+      "name": "customer packet rows match",
+      "observed": 550,
+      "passed": true
+    },
+    {
+      "expected": 5,
+      "name": "customer closeout rows match",
+      "observed": 5,
+      "passed": true
+    },
+    {
+      "expected": 7,
+      "name": "customer formal rows match",
+      "observed": 7,
+      "passed": true
+    },
+    {
+      "expected": 5,
+      "name": "manifest launch rows match",
+      "observed": 5,
+      "passed": true
+    },
+    {
+      "expected": 550,
+      "name": "manifest launch packet rows match",
+      "observed": 550,
+      "passed": true
+    },
+    {
+      "expected": 5,
+      "name": "manifest closeout rows match",
+      "observed": 5,
+      "passed": true
+    },
+    {
+      "expected": 550,
+      "name": "manifest closeout prepared rows match",
+      "observed": 550,
+      "passed": true
+    },
+    {
+      "expected": 7,
+      "name": "manifest closeout formal rows match",
+      "observed": 7,
+      "passed": true
+    },
+    {
+      "expected": 0,
+      "name": "completion remains blocked",
+      "observed": {
+        "closeout": 0,
+        "customer": 0,
+        "launch": 0,
+        "manifest": 0
+      },
+      "passed": true
+    },
+    {
+      "expected": false,
+      "name": "customer delivery remains blocked",
+      "observed": {
+        "customer": false,
+        "manifest": false
+      },
+      "passed": true
+    },
+    {
+      "expected": false,
+      "name": "release remains blocked",
+      "observed": false,
+      "passed": true
+    }
+  ],
+  "closeout_rows": 5,
+  "completion_ready_rows": 0,
+  "created_at": "2026-08-09T00:28:05.642607+00:00",
+  "customer_ready": false,
+  "failures": [],
+  "launch_rows": 5,
+  "local_only": true,
+  "policy": "Consistency validation only. Human-review preparation does not grant formal decisions, customer delivery, claims, training, ordering, or release readiness.",
+  "release_ready": false,
+  "success": true,
+  "total_formal_decision_rows": 7,
+  "total_prepared_packet_rows": 550
+}

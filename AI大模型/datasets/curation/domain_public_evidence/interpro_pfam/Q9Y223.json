@@ -1,0 +1,73 @@
+{
+  "accession": "Q9Y223",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00480",
+        "name": "ROK family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000600",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y223",
+          "protein_length": 722,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 410,
+                  "end": 714,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00480",
+              "score": 1.2e-50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02350",
+        "name": "UDP-N-acetylglucosamine 2-epimerase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR003331",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y223",
+          "protein_length": 722,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 37,
+                  "end": 375,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02350",
+              "score": 3.7e-60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

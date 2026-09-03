@@ -1,0 +1,266 @@
+{
+  "created_at": "2026-09-03T07:33:59.472576+00:00",
+  "local_only": true,
+  "summary": {
+    "total_lanes": 8,
+    "ready_lanes": 0,
+    "blocked_lanes": 8,
+    "proxy_lanes": 4,
+    "real_runtime_gated_lanes": 4
+  },
+  "lanes": [
+    {
+      "lane_id": "proteinmpnn_design",
+      "tool_name": "proteinmpnn_design",
+      "stage": null,
+      "display_name": "ProteinMPNN",
+      "runtime_kind": "proxy",
+      "capability_status": "proxy",
+      "status": "blocked",
+      "evidence_state": "blocked_proxy",
+      "blocked_reason": "proxy_only_no_official_runtime_artifact",
+      "ready_reason": null,
+      "local_binary": {
+        "present": false,
+        "present_names": [],
+        "resolved_paths": {}
+      },
+      "local_checks": [
+        "backend import",
+        "capability contract",
+        "official checkpoint artifact"
+      ],
+      "contract_boundary": "Not report-grade ProteinMPNN unless official weights and protein_mpnn_run.py outputs are recorded.",
+      "minimum_artifacts": [
+        "checkpoint/model",
+        "fixed/designed chains",
+        "FASTA",
+        "scores",
+        "seed",
+        "logs"
+      ],
+      "report_action": "label_as_proxy_or_block_until_artifacts_exist",
+      "generated_at": "2026-09-03T07:33:59.470596+00:00"
+    },
+    {
+      "lane_id": "rfdiffusion_design",
+      "tool_name": "rfdiffusion_design",
+      "stage": null,
+      "display_name": "RFdiffusion",
+      "runtime_kind": "proxy",
+      "capability_status": "proxy",
+      "status": "blocked",
+      "evidence_state": "blocked_proxy",
+      "blocked_reason": "proxy_only_no_official_runtime_artifact",
+      "ready_reason": null,
+      "local_binary": {
+        "present": false,
+        "present_names": [],
+        "resolved_paths": {}
+      },
+      "local_checks": [
+        "backend import",
+        "capability contract",
+        "official inference config"
+      ],
+      "contract_boundary": "Not report-grade RFdiffusion unless official checkpoint, run_inference config, PDB/TRB/trajectory artifacts exist.",
+      "minimum_artifacts": [
+        "checkpoint hash",
+        "Hydra config",
+        "backbone PDB",
+        "TRB",
+        "trajectory",
+        "GPU runtime"
+      ],
+      "report_action": "label_as_proxy_or_block_until_artifacts_exist",
+      "generated_at": "2026-09-03T07:33:59.470704+00:00"
+    },
+    {
+      "lane_id": "alphafold2_folding",
+      "tool_name": "alphafold2_folding",
+      "stage": null,
+      "display_name": "AlphaFold2",
+      "runtime_kind": "proxy",
+      "capability_status": "proxy",
+      "status": "blocked",
+      "evidence_state": "blocked_proxy",
+      "blocked_reason": "proxy_only_no_official_runtime_artifact",
+      "ready_reason": null,
+      "local_binary": {
+        "present": false,
+        "present_names": [],
+        "resolved_paths": {}
+      },
+      "local_checks": [
+        "backend import",
+        "capability contract",
+        "official checkpoint/log artifacts"
+      ],
+      "contract_boundary": "Current local entry is not official AlphaFold2 inference unless MSA, weights, logs, and structure artifacts are present.",
+      "minimum_artifacts": [
+        "model version",
+        "MSA/template provenance",
+        "PDB/mmCIF",
+        "PAE/pLDDT",
+        "logs"
+      ],
+      "report_action": "label_as_proxy_or_block_until_artifacts_exist",
+      "generated_at": "2026-09-03T07:33:59.470707+00:00"
+    },
+    {
+      "lane_id": "alphafold_colabfold_proxy",
+      "tool_name": "alphafold_folding",
+      "stage": null,
+      "display_name": "AlphaFold/ColabFold proxy lane",
+      "runtime_kind": "external_service_or_proxy",
+      "capability_status": "proxy_or_external_lookup",
+      "status": "blocked",
+      "evidence_state": "blocked_proxy",
+      "blocked_reason": "external_service_provenance_not_attached",
+      "ready_reason": null,
+      "local_binary": {
+        "present": false,
+        "present_names": [],
+        "resolved_paths": {}
+      },
+      "local_checks": [
+        "backend import",
+        "capability contract",
+        "service/version provenance"
+      ],
+      "contract_boundary": "Must distinguish AlphaFold DB lookup from true folding inference.",
+      "minimum_artifacts": [
+        "source",
+        "database version or runtime logs",
+        "structure artifact"
+      ],
+      "report_action": "label_as_proxy_or_block_until_artifacts_exist",
+      "generated_at": "2026-09-03T07:33:59.470709+00:00"
+    },
+    {
+      "lane_id": "vina_prepare_pdbqt",
+      "tool_name": "ligand_preprocess",
+      "stage": "prepare_pdbqt",
+      "display_name": "PDBQT preparation",
+      "runtime_kind": "local_binary_gated",
+      "capability_status": "real_runtime_gated",
+      "status": "blocked",
+      "evidence_state": "blocked_runtime_missing",
+      "blocked_reason": "required_local_binary_missing",
+      "ready_reason": null,
+      "local_binary": {
+        "present": false,
+        "present_names": [],
+        "resolved_paths": {}
+      },
+      "local_checks": [
+        "OpenBabel executable",
+        "PDBQT stage contract"
+      ],
+      "contract_boundary": "Real OpenBabel/Vina/ACPYPE stages only when runtimes exist; missing runtimes must return blocked.",
+      "minimum_artifacts": [
+        "stage results",
+        "tool versions",
+        "PDBQT/pose/topology files",
+        "logs"
+      ],
+      "report_action": "allow_with_artifacts",
+      "generated_at": "2026-09-03T07:33:59.472074+00:00"
+    },
+    {
+      "lane_id": "vina_docking",
+      "tool_name": "ligand_preprocess",
+      "stage": "vina_docking",
+      "display_name": "Vina docking",
+      "runtime_kind": "local_binary_gated",
+      "capability_status": "real_runtime_gated",
+      "status": "blocked",
+      "evidence_state": "blocked_runtime_missing",
+      "blocked_reason": "required_local_binary_missing",
+      "ready_reason": null,
+      "local_binary": {
+        "present": false,
+        "present_names": [],
+        "resolved_paths": {}
+      },
+      "local_checks": [
+        "Vina executable",
+        "pose log",
+        "pose artifact"
+      ],
+      "contract_boundary": "Real OpenBabel/Vina/ACPYPE stages only when runtimes exist; missing runtimes must return blocked.",
+      "minimum_artifacts": [
+        "stage results",
+        "tool versions",
+        "PDBQT/pose/topology files",
+        "logs"
+      ],
+      "report_action": "allow_with_artifacts",
+      "generated_at": "2026-09-03T07:33:59.472217+00:00"
+    },
+    {
+      "lane_id": "ligand_topology",
+      "tool_name": "ligand_preprocess",
+      "stage": "ligand_topology",
+      "display_name": "Ligand topology",
+      "runtime_kind": "local_binary_gated",
+      "capability_status": "real_runtime_gated",
+      "status": "blocked",
+      "evidence_state": "blocked_runtime_missing",
+      "blocked_reason": "required_local_binary_missing",
+      "ready_reason": null,
+      "local_binary": {
+        "present": false,
+        "present_names": [],
+        "resolved_paths": {}
+      },
+      "local_checks": [
+        "ACPYPE/AmberTools executable",
+        "topology artifacts"
+      ],
+      "contract_boundary": "Real OpenBabel/Vina/ACPYPE stages only when runtimes exist; missing runtimes must return blocked.",
+      "minimum_artifacts": [
+        "stage results",
+        "tool versions",
+        "PDBQT/pose/topology files",
+        "logs"
+      ],
+      "report_action": "allow_with_artifacts",
+      "generated_at": "2026-09-03T07:33:59.472342+00:00"
+    },
+    {
+      "lane_id": "gromacs_long_md",
+      "tool_name": "gromacs_md",
+      "stage": null,
+      "display_name": "GROMACS long task",
+      "runtime_kind": "local_binary_gated",
+      "capability_status": "real_runtime_gated",
+      "status": "blocked",
+      "evidence_state": "blocked_runtime_missing",
+      "blocked_reason": "required_local_binary_missing",
+      "ready_reason": null,
+      "local_binary": {
+        "present": false,
+        "present_names": [],
+        "resolved_paths": {}
+      },
+      "local_checks": [
+        "GROMACS executable",
+        "TPR/XTC/TRR/EDR/XVG artifacts",
+        "task receipt"
+      ],
+      "contract_boundary": "Real MD only when GROMACS preprocessing and mdrun artifacts exist; plan-only is not MD evidence.",
+      "minimum_artifacts": [
+        "MDP",
+        "TPR",
+        "XTC/TRR",
+        "EDR/XVG",
+        "stdout/stderr",
+        "runtime versions"
+      ],
+      "report_action": "allow_with_artifacts",
+      "generated_at": "2026-09-03T07:33:59.472571+00:00"
+    }
+  ],
+  "policy": "This evidence pack is local-signal only. A ready lane means the local binary or contract signal is visible; it does not mean the model runtime executed."
+}

@@ -1,0 +1,155 @@
+{
+  "created_at": "2026-09-03T07:33:44.796554+00:00",
+  "local_only": true,
+  "stage_count": 6,
+  "started_stage_count": 6,
+  "agent_delegated_stage_count": 1,
+  "main_thread_started_stage_count": 4,
+  "review_prep_stage_count": 1,
+  "rows": [
+    {
+      "stage_id": "P26",
+      "title": "真实数据解阻第一波",
+      "lane": "real_data_unblock",
+      "owner": "agent_019fb6e2_a2ed_P26",
+      "start_mode": "delegated_agent_started",
+      "allowed_now": [
+        "inspect numbering, structure cache, and domain interval evidence",
+        "build or refresh fail-closed reports and validators",
+        "run local validators"
+      ],
+      "forbidden_now": [
+        "write unreviewed formal numbering decisions",
+        "promote draft decisions into training labels",
+        "claim release readiness"
+      ],
+      "task_plan_status": "in_progress",
+      "started": true,
+      "requires_human_or_external_authorization": false,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false
+    },
+    {
+      "stage_id": "P27",
+      "title": "序列/结构特征生产",
+      "lane": "sequence_structure_feature_production",
+      "owner": "main_thread_until_agent_slot_available",
+      "start_mode": "main_thread_started_agent_queue_blocked_by_concurrency_limit",
+      "allowed_now": [
+        "refresh MSA/structure/domain/site feature contracts",
+        "validate feature-index input-only boundaries",
+        "exclude unreviewed coordinates from model-consumable indexes"
+      ],
+      "forbidden_now": [
+        "treat features as labels",
+        "open model-quality claims from feature availability alone",
+        "release production artifacts"
+      ],
+      "task_plan_status": "in_progress",
+      "started": true,
+      "requires_human_or_external_authorization": false,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false
+    },
+    {
+      "stage_id": "P28",
+      "title": "实验反馈闭环",
+      "lane": "experiment_feedback_loop",
+      "owner": "main_thread_until_agent_slot_available",
+      "start_mode": "main_thread_started_agent_queue_blocked_by_concurrency_limit",
+      "allowed_now": [
+        "refresh wet-lab authorization worklists and preflight reports",
+        "separate candidate rows from authorized training import rows",
+        "validate feedback semantics fail-closed"
+      ],
+      "forbidden_now": [
+        "invent human authorization",
+        "append numeric candidates into training feedback without approval",
+        "convert qualitative observations into numeric training labels"
+      ],
+      "task_plan_status": "in_progress",
+      "started": true,
+      "requires_human_or_external_authorization": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false
+    },
+    {
+      "stage_id": "P29",
+      "title": "五头统一模型训练",
+      "lane": "five_head_training",
+      "owner": "main_thread_until_agent_slot_available",
+      "start_mode": "main_thread_started_agent_queue_blocked_by_concurrency_limit",
+      "allowed_now": [
+        "refresh five-head training execution contract",
+        "keep missing head rows visible",
+        "run scaffold and baseline regressions"
+      ],
+      "forbidden_now": [
+        "train a claimable top-tier model with zero eligible rows",
+        "count feature-only rows as labels",
+        "publish trained neural weight claims"
+      ],
+      "task_plan_status": "in_progress",
+      "started": true,
+      "requires_human_or_external_authorization": false,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false
+    },
+    {
+      "stage_id": "P30",
+      "title": "本地平台验收",
+      "lane": "local_platform_acceptance",
+      "owner": "main_thread_until_agent_slot_available",
+      "start_mode": "main_thread_started_agent_queue_blocked_by_concurrency_limit",
+      "allowed_now": [
+        "refresh local-only release and safety guard validations",
+        "run local acceptance evidence checks",
+        "keep unresolved blockers visible in the review package"
+      ],
+      "forbidden_now": [
+        "mark release_ready true",
+        "claim customer delivery readiness",
+        "hide missing benchmark or human-decision blockers"
+      ],
+      "task_plan_status": "in_progress",
+      "started": true,
+      "requires_human_or_external_authorization": false,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false
+    },
+    {
+      "stage_id": "P31",
+      "title": "生产接入评审",
+      "lane": "production_integration_review_prep",
+      "owner": "main_thread_only_until_explicit_production_authorization",
+      "start_mode": "review_preparation_started_no_production_execution",
+      "allowed_now": [
+        "prepare pre-sync requirement checklist",
+        "prepare rollback/smoke-test review material",
+        "validate that production execution remains disabled"
+      ],
+      "forbidden_now": [
+        "sync to production",
+        "deploy or restart services",
+        "run grey release actions"
+      ],
+      "task_plan_status": "in_progress",
+      "started": true,
+      "requires_human_or_external_authorization": true,
+      "training_import_allowed": false,
+      "safe_for_model_claim": false,
+      "release_ready": false
+    }
+  ],
+  "failures": [],
+  "success": true,
+  "training_import_allowed": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "P26-P31 are started as local fail-closed workstreams only. This board is not a human decision, training import, model-quality claim, production sync, or release approval."
+}

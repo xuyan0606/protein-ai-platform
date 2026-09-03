@@ -1,0 +1,81 @@
+{
+  "manifest_id": "kwb_mmseqs_homolog_database_manifest",
+  "version": "1.0.0",
+  "created_at": "2026-09-03T07:32:01.113770+00:00",
+  "local_only": true,
+  "database_name": "UniProtKB/Swiss-Prot",
+  "database_prefix": "cache/mmseqs_databases/uniprot_sprot",
+  "database_version": "UniProt Knowledgebase Release 2026_02 consists of:\nUniProtKB/Swiss-Prot Release 2026_02 of 10-Jun-2026\nUniProtKB/TrEMBL Release 2026_02 of 10-Jun-2026",
+  "source": "0\tuniprot_sprot.fasta.gz",
+  "dbtype": "Aminoacid",
+  "dbtype_probe": {
+    "returncode": 0,
+    "stdout": "Aminoacid",
+    "stderr": ""
+  },
+  "sequence_rows_from_lookup": 575503,
+  "file_count": 11,
+  "files": [
+    {
+      "path": "cache/mmseqs_databases/uniprot_sprot",
+      "size_bytes": 210057908,
+      "sha256": "6d6015581a31fc5bdbcd18715e8af5bd6c85e2ce29ba48e9e3d3558599970ed5"
+    },
+    {
+      "path": "cache/mmseqs_databases/uniprot_sprot.dbtype",
+      "size_bytes": 4,
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+    },
+    {
+      "path": "cache/mmseqs_databases/uniprot_sprot.index",
+      "size_bytes": 11634773,
+      "sha256": "579b0f00c18f0b1d419acab3932fe498147b1f899f9f521cf07b44e68b17ca06"
+    },
+    {
+      "path": "cache/mmseqs_databases/uniprot_sprot.lookup",
+      "size_bytes": 9120398,
+      "sha256": "247cf91708a4095a5d6336fa4c27b2a906f1f48e190a854cfc5fb0ad43886bbb"
+    },
+    {
+      "path": "cache/mmseqs_databases/uniprot_sprot.source",
+      "size_bytes": 25,
+      "sha256": "4d5c19bbb60434cd37816435c3892608fae6516240a13919df8558404ce156ff"
+    },
+    {
+      "path": "cache/mmseqs_databases/uniprot_sprot.version",
+      "size_bytes": 151,
+      "sha256": "7ef2a745c849694a02dce241741f02491248424481219d36284cb9fdca198ce1"
+    },
+    {
+      "path": "cache/mmseqs_databases/uniprot_sprot_h",
+      "size_bytes": 75361329,
+      "sha256": "39bf02b8807efde4a1c9e8fb046d0b7a7307048399087b57ef8b51f37d47b856"
+    },
+    {
+      "path": "cache/mmseqs_databases/uniprot_sprot_h.dbtype",
+      "size_bytes": 4,
+      "sha256": "42f4aeb81c1ef81f771f3de8abca9dcf66901c575530e7672e4b1146474ae650"
+    },
+    {
+      "path": "cache/mmseqs_databases/uniprot_sprot_h.index",
+      "size_bytes": 11232548,
+      "sha256": "5815b1ee1cdc598d5ba95cbb65bfc88c9fe13642cddabb4aebda61a6569e1d00"
+    },
+    {
+      "path": "cache/mmseqs_databases/uniprot_sprot_mapping",
+      "size_bytes": 7613276,
+      "sha256": "509ba87555dafd4ba5c24a241e0ebc8b021570e74b12519606b2f2d747560e86"
+    },
+    {
+      "path": "cache/mmseqs_databases/uniprot_sprot_taxonomy",
+      "size_bytes": 798290399,
+      "sha256": "3920a064274e13c941cf171cfd29c084c0679c19436220478755171bf2e1453a"
+    }
+  ],
+  "required_files_missing": [],
+  "smoke_hits": "tmp/mmseqs_download/example_sprot_hits.m8",
+  "smoke_hit_rows": 69597,
+  "ready_as_homolog_database": true,
+  "safe_for_model_claim": false,
+  "policy": "Homolog database evidence only. MSA/conservation features must be generated and validated separately before model use."
+}

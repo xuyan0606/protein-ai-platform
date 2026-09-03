@@ -1,0 +1,73 @@
+{
+  "accession": "Q8TBC4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00899",
+        "name": "ThiF family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000594",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8tbc4",
+          "protein_length": 463,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 64,
+                  "end": 365,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00899",
+              "score": 1.4e-53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08825",
+        "name": "E2 binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014929",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8tbc4",
+          "protein_length": 463,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 376,
+                  "end": 461,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08825",
+              "score": 2.8e-21
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "accession": "Q99424",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01756",
+        "name": "Acyl-CoA oxidase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002655",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q99424",
+          "protein_length": 681,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 496,
+                  "end": 675,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01756",
+              "score": 1.3e-58
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14749",
+        "name": "Acyl-coenzyme A oxidase N-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR029320",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q99424",
+          "protein_length": 681,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 32,
+                  "end": 148,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14749",
+              "score": 9.4e-27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22924",
+        "name": "Acyl-CoA oxidase, C-alpha1 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR055060",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q99424",
+          "protein_length": 681,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 290,
+                  "end": 452,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22924",
+              "score": 1e-52
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

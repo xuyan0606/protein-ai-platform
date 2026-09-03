@@ -14,12 +14,13 @@ import httpx
 
 from app.core.config import settings
 from app.tools.registry import ToolRegistry
+from app.tools.tool_capability_contract import merge_capability_contract
 
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
 _ESMFOLD_API = "https://api.esmatlas.com/foldSequence/v1/foldSequence"
-_ESMFOLD_TIMEOUT = httpx.Timeout(300.0)  # folding can take minutes
+_ESMFOLD_TIMEOUT = httpx.Timeout(25.0, connect=8.0)  # fail fast to local fallback in chat
 _MAX_SEQUENCE_LENGTH = 400  # ESMFold API practical limit
 # NOTE: ESMFold public API at api.esmatlas.com is currently unreliable (returns 422
 # for all sequences). The tool now falls back to secondary structure prediction
@@ -31,15 +32,7 @@ _MAX_SEQUENCE_LENGTH = 400  # ESMFold API practical limit
 # ---------------------------------------------------------------------------
 
 async def _esmfold_api_fallback(sequence: str) -> dict:
-    """Fallback: use local ESM-2 embeddings with secondary structure prediction
-    when the ESMFold public API is unavailable."""
-    from app.ml.embeddings import get_mean_embedding
-
-    try:
-        emb = get_mean_embedding(sequence)
-    except Exception:
-        emb = None
-
+    """Torch-free fallback when the public ESMFold API is unavailable."""
     # Simple secondary structure propensities
     helix_fav = set("ALERKMQ")
     sheet_fav = set("VITFYW")
@@ -55,9 +48,12 @@ async def _esmfold_api_fallback(sequence: str) -> dict:
         ss_residues.append({"position": i + 1, "residue": aa, "ss_type": ss})
 
     total = len(sequence)
-    return {
+    boundary = (
+        "Fallback does not run ESMFold 3D inference or local ESM checkpoints; "
+        "secondary-structure output is exploratory only."
+    )
+    return merge_capability_contract({
         "status": "fallback",
-        "model": "ESM-2 (local) + SS prediction",
         "sequence_length": total,
         "secondary_structure": {
             "helix_percent": round(h_count / total * 100, 1),
@@ -65,11 +61,21 @@ async def _esmfold_api_fallback(sequence: str) -> dict:
             "coil_percent": round(c_count / total * 100, 1),
             "residues": ss_residues,
         },
-        "esm2_embedding_available": emb is not None,
+        "esm2_embedding_available": False,
         "note": "ESMFold public API (esmatlas.com) is currently unavailable. "
-                "Showing secondary structure prediction from local ESM-2 model. "
-                "For full 3D structure, use AlphaFold DB or a local ESMFold installation.",
-    }
+                "Showing a lightweight secondary-structure heuristic that does not "
+                "require local torch/ESM dependencies. For full 3D structure, use "
+                "AlphaFold DB or a local ESMFold installation.",
+    },
+        capability_status="proxy",
+        model="ESM-2-style SS proxy",
+        version="proxy-mvp",
+        checkpoint_or_weight=None,
+        input_payload={"sequence": sequence},
+        runtime=None,
+        scientific_boundary=boundary,
+        failure_reason="ESMFold public API unavailable; local fallback is heuristic.",
+    )
 
 
 async def esmfold_folding(sequence: str, num_recycles: int = 4) -> dict:
@@ -157,9 +163,12 @@ async def esmfold_folding(sequence: str, num_recycles: int = 4) -> dict:
     if len(seq) > 300:
         warning = "Long sequence — confidence may be lower at termini"
 
-    return {
+    boundary = (
+        "ESMFold result came from the esmatlas.com external service. Treat as external-service "
+        "inference unless service version, response provenance, and stored PDB artifact are audited."
+    )
+    return merge_capability_contract({
         "status": "completed",
-        "model": "ESMFold",
         "sequence_length": len(seq),
         "pdb_id": f"ESM_{seq_hash}",
         "mean_plddt": mean_plddt,
@@ -168,7 +177,28 @@ async def esmfold_folding(sequence: str, num_recycles: int = 4) -> dict:
         "pdb_content": pdb_text,
         "download_url": f"/api/structures/ESM_{seq_hash}.pdb",
         "warning": warning,
-    }
+    },
+        capability_status="external_service",
+        model="ESMFold",
+        version="esmatlas foldSequence/v1",
+        checkpoint_or_weight=None,
+        input_payload={"sequence": seq, "num_recycles": num_recycles},
+        runtime={
+            "provider": "esmatlas.com",
+            "endpoint": _ESMFOLD_API,
+            "http_status": resp.status_code,
+        },
+        logs=[],
+        artifact_manifest={
+            "version": 1,
+            "total_count": 1,
+            "total_size": len(pdb_text.encode("utf-8")),
+            "groups": {"structures": [{"name": f"ESM_{seq_hash}.pdb", "category": "structures", "stored": False}]},
+            "counts": {"structures": 1},
+        },
+        scientific_boundary=boundary,
+        failure_reason=None,
+    )
 
 
 # ===================================================================

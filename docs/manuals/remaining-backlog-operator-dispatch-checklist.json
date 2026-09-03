@@ -1,0 +1,349 @@
+{
+  "all_inputs_present": false,
+  "armed_rows": 0,
+  "blocked_rows": 7,
+  "created_at": "2026-09-01T10:00:29.490837+00:00",
+  "destructive_actions": "not_executed",
+  "item_count": 7,
+  "items": [
+    {
+      "armed_in_execution_plan": false,
+      "dispatch_status": "waiting_for_operator_input",
+      "evidence_to_collect": [
+        "Run python3 scripts/check_production_config.py --mode production --require-production-safe --env-file docker/.env.aliyun.app.",
+        "Run FRONTEND_BASE_URL=<https-domain> python3 scripts/run_nightly_live_gates.py --json."
+      ],
+      "lane": "infra_dns_tls",
+      "lane_label": "Formal domain, TLS, and identity config",
+      "live_command_plan_included": false,
+      "missing_fields": [
+        "formal_domain",
+        "dns_record_owner",
+        "tls_certificate_source",
+        "PUBLIC_BASE_URL",
+        "FRONTEND_URL",
+        "OIDC_ISSUER"
+      ],
+      "missing_requirements": [],
+      "name": "formal_domain_https",
+      "priority": "P0",
+      "ready_to_run_after_inputs": false,
+      "required_input_fields": [
+        "formal_domain",
+        "dns_record_owner",
+        "tls_certificate_source",
+        "PUBLIC_BASE_URL",
+        "FRONTEND_URL",
+        "OIDC_ISSUER"
+      ],
+      "safety_note": "Requires real DNS and TLS cutover evidence before production HTTPS status can be claimed.",
+      "secret_reference_fields": [],
+      "source_status": "planned",
+      "validation_after_collection": [
+        "make production-config-gate",
+        "make nightly-live-gates FRONTEND_BASE_URL=https://<domain>"
+      ]
+    },
+    {
+      "armed_in_execution_plan": false,
+      "dispatch_status": "waiting_for_operator_input",
+      "evidence_to_collect": [
+        "Provision the Aliyun GPU/GROMACS node, then run make backend-md-topology-live-gate.",
+        "After topology validation, submit real WT/mutant replicate batches and summarize ranking reports."
+      ],
+      "lane": "md_runtime",
+      "lane_label": "GPU/GROMACS and MD live validation",
+      "live_command_plan_included": false,
+      "missing_fields": [
+        "gpu_node_or_runner",
+        "gromacs_runtime_version",
+        "wt_pdb_input",
+        "mutant_pdb_input",
+        "md_worker_capacity_window"
+      ],
+      "missing_requirements": [
+        "NVIDIA/GROMACS runtime",
+        "real WT/mutant PDB inputs",
+        "long-running MD worker capacity"
+      ],
+      "name": "gpu_gromacs_md_live",
+      "priority": "P0",
+      "ready_to_run_after_inputs": false,
+      "required_input_fields": [
+        "gpu_node_or_runner",
+        "gromacs_runtime_version",
+        "wt_pdb_input",
+        "mutant_pdb_input",
+        "md_worker_capacity_window"
+      ],
+      "safety_note": "Requires a real GPU/GROMACS runner and real WT/mutant inputs; this plan does not start MD jobs.",
+      "secret_reference_fields": [],
+      "source_status": "external_required",
+      "validation_after_collection": [
+        "make backend-md-topology-live-gate"
+      ]
+    },
+    {
+      "armed_in_execution_plan": false,
+      "dispatch_status": "waiting_for_operator_input",
+      "evidence_to_collect": [
+        "Prefer resume mode first: set MD_BLACKBOX_TASK_ID plus live account credentials for an existing completed/running task.",
+        "For a fresh long-task proof, set ALLOW_MD_BLACKBOX_SUBMIT=true and run during a validation window."
+      ],
+      "lane": "md_runtime",
+      "lane_label": "GPU/GROMACS and MD live validation",
+      "live_command_plan_included": false,
+      "missing_fields": [
+        "MD_BLACKBOX_TASK_ID_or_ALLOW_MD_BLACKBOX_SUBMIT",
+        "MD_BLACKBOX_EMAIL_or_LIVE_AI_EMAIL",
+        "credential_secret_reference",
+        "validation_window"
+      ],
+      "missing_requirements": [
+        "MD_BLACKBOX_TASK_ID for resume or ALLOW_MD_BLACKBOX_SUBMIT=true for new submission",
+        "MD_BLACKBOX_PASSWORD/LIVE_AI_PASSWORD"
+      ],
+      "name": "md_blackbox_live_e2e",
+      "priority": "P0",
+      "ready_to_run_after_inputs": false,
+      "required_input_fields": [
+        "MD_BLACKBOX_TASK_ID_or_ALLOW_MD_BLACKBOX_SUBMIT",
+        "MD_BLACKBOX_EMAIL_or_LIVE_AI_EMAIL",
+        "credential_secret_reference",
+        "validation_window"
+      ],
+      "safety_note": "Requires live credentials and either an existing task id or explicit submission approval.",
+      "secret_reference_fields": [
+        "credential_secret_reference"
+      ],
+      "source_status": "external_required",
+      "validation_after_collection": [
+        "make backend-md-blackbox MD_BLACKBOX_ARGS='--task-id <id> --email <email>'"
+      ]
+    },
+    {
+      "armed_in_execution_plan": false,
+      "dispatch_status": "waiting_for_operator_input",
+      "evidence_to_collect": [
+        "Install or build the ligand worker runtime with OpenBabel or RDKit, AutoDock Vina, ACPYPE/AmberTools, and GROMACS.",
+        "Then run make backend-ligand-toolchain-live-gate.",
+        "Or build protein-ai-ligand-worker:aliyun and rerun the read-only readiness check."
+      ],
+      "lane": "ligand_runtime",
+      "lane_label": "Ligand preprocessing, docking, topology runtime",
+      "live_command_plan_included": false,
+      "missing_fields": [
+        "ligand_worker_image_or_host",
+        "OpenBabel_or_RDKit_available",
+        "AutoDock_Vina_available",
+        "ACPYPE_or_AmberTools_available",
+        "GROMACS_available"
+      ],
+      "missing_requirements": [
+        "conformer_generation",
+        "pdbqt_preparation",
+        "vina_docking",
+        "ligand_topology",
+        "gromacs_md"
+      ],
+      "name": "ligand_runtime_live",
+      "priority": "P1",
+      "ready_to_run_after_inputs": false,
+      "required_input_fields": [
+        "ligand_worker_image_or_host",
+        "OpenBabel_or_RDKit_available",
+        "AutoDock_Vina_available",
+        "ACPYPE_or_AmberTools_available",
+        "GROMACS_available"
+      ],
+      "safety_note": "Requires the real ligand toolchain runtime; local missing tools remain blocked.",
+      "secret_reference_fields": [],
+      "source_status": "external_required",
+      "validation_after_collection": [
+        "make backend-ligand-toolchain-live-gate"
+      ]
+    },
+    {
+      "armed_in_execution_plan": false,
+      "dispatch_status": "waiting_for_operator_input",
+      "evidence_to_collect": [
+        "Set live OSS/MinIO endpoint and credentials in the deployment environment.",
+        "Run python3 scripts/smoke_oss_minio_contract.py --json --require-live or acceptance matrix --include-oss-e2e."
+      ],
+      "lane": "storage",
+      "lane_label": "OSS/MinIO live storage scope",
+      "live_command_plan_included": false,
+      "missing_fields": [
+        "storage_endpoint",
+        "bucket_name",
+        "access_key_secret_reference",
+        "write_read_delete_permission_scope"
+      ],
+      "missing_requirements": [
+        "MINIO_ACCESS_KEY/MINIO_SECRET_KEY or ALIYUN_OSS_ACCESS_KEY_ID/ALIYUN_OSS_ACCESS_KEY_SECRET",
+        "live bucket permission"
+      ],
+      "name": "oss_minio_live_e2e",
+      "priority": "P0",
+      "ready_to_run_after_inputs": false,
+      "required_input_fields": [
+        "storage_endpoint",
+        "bucket_name",
+        "access_key_secret_reference",
+        "write_read_delete_permission_scope"
+      ],
+      "safety_note": "Requires write/read/delete permission in a controlled live bucket scope.",
+      "secret_reference_fields": [
+        "access_key_secret_reference"
+      ],
+      "source_status": "external_required",
+      "validation_after_collection": [
+        "python3 scripts/smoke_oss_minio_contract.py --json --require-live"
+      ]
+    },
+    {
+      "armed_in_execution_plan": false,
+      "dispatch_status": "waiting_for_operator_input",
+      "evidence_to_collect": [
+        "Provide admin screenshot credentials through SCREENSHOT_EMAIL/SCREENSHOT_PASSWORD.",
+        "Rerun make manual-screenshots FRONTEND_BASE_URL=http://127.0.0.1:4203 and verify /admin final_url."
+      ],
+      "lane": "qa_admin",
+      "lane_label": "Authenticated admin screenshot evidence",
+      "live_command_plan_included": false,
+      "missing_fields": [
+        "SCREENSHOT_EMAIL_secret_reference",
+        "SCREENSHOT_PASSWORD_secret_reference",
+        "FRONTEND_BASE_URL"
+      ],
+      "missing_requirements": [
+        "SCREENSHOT_EMAIL",
+        "SCREENSHOT_PASSWORD"
+      ],
+      "name": "admin_authenticated_screenshots",
+      "priority": "P1",
+      "ready_to_run_after_inputs": false,
+      "required_input_fields": [
+        "SCREENSHOT_EMAIL_secret_reference",
+        "SCREENSHOT_PASSWORD_secret_reference",
+        "FRONTEND_BASE_URL"
+      ],
+      "safety_note": "Requires admin credentials through secret references only.",
+      "secret_reference_fields": [
+        "SCREENSHOT_EMAIL_secret_reference",
+        "SCREENSHOT_PASSWORD_secret_reference"
+      ],
+      "source_status": "external_required",
+      "validation_after_collection": [
+        "make manual-screenshots FRONTEND_BASE_URL=<url>"
+      ]
+    },
+    {
+      "armed_in_execution_plan": false,
+      "dispatch_status": "waiting_for_operator_input",
+      "evidence_to_collect": [
+        "Schedule a maintenance window and set MAINTENANCE_WINDOW_ID plus ALLOW_PRODUCTION_DRILL=true.",
+        "Provide offsite backup and external storage restore targets before running live drills."
+      ],
+      "lane": "release_ops",
+      "lane_label": "Maintenance window and drill evidence",
+      "live_command_plan_included": false,
+      "missing_fields": [
+        "MAINTENANCE_WINDOW_ID",
+        "ALLOW_PRODUCTION_DRILL_approval",
+        "REMOTE_BACKUP_TARGET_or_OFFSITE_BACKUP_TARGET",
+        "EXTERNAL_STORAGE_RESTORE_TARGET"
+      ],
+      "missing_requirements": [
+        "MAINTENANCE_WINDOW_ID",
+        "ALLOW_PRODUCTION_DRILL=true",
+        "REMOTE_BACKUP_TARGET or OFFSITE_BACKUP_TARGET",
+        "EXTERNAL_STORAGE_RESTORE_TARGET"
+      ],
+      "name": "maintenance_window_drills",
+      "priority": "P1",
+      "ready_to_run_after_inputs": false,
+      "required_input_fields": [
+        "MAINTENANCE_WINDOW_ID",
+        "ALLOW_PRODUCTION_DRILL_approval",
+        "REMOTE_BACKUP_TARGET_or_OFFSITE_BACKUP_TARGET",
+        "EXTERNAL_STORAGE_RESTORE_TARGET"
+      ],
+      "safety_note": "Requires an approved maintenance window before any production drill.",
+      "secret_reference_fields": [],
+      "source_status": "external_required",
+      "validation_after_collection": [
+        "make rollback-plan-json",
+        "make restore-drill BACKUP_FILE=<backup>"
+      ]
+    }
+  ],
+  "lane_count": 6,
+  "lanes": [
+    {
+      "armed_count": 0,
+      "item_count": 1,
+      "items": [
+        "formal_domain_https"
+      ],
+      "lane": "infra_dns_tls",
+      "lane_label": "Formal domain, TLS, and identity config",
+      "waiting_for_input_count": 1
+    },
+    {
+      "armed_count": 0,
+      "item_count": 1,
+      "items": [
+        "ligand_runtime_live"
+      ],
+      "lane": "ligand_runtime",
+      "lane_label": "Ligand preprocessing, docking, topology runtime",
+      "waiting_for_input_count": 1
+    },
+    {
+      "armed_count": 0,
+      "item_count": 2,
+      "items": [
+        "gpu_gromacs_md_live",
+        "md_blackbox_live_e2e"
+      ],
+      "lane": "md_runtime",
+      "lane_label": "GPU/GROMACS and MD live validation",
+      "waiting_for_input_count": 2
+    },
+    {
+      "armed_count": 0,
+      "item_count": 1,
+      "items": [
+        "admin_authenticated_screenshots"
+      ],
+      "lane": "qa_admin",
+      "lane_label": "Authenticated admin screenshot evidence",
+      "waiting_for_input_count": 1
+    },
+    {
+      "armed_count": 0,
+      "item_count": 1,
+      "items": [
+        "maintenance_window_drills"
+      ],
+      "lane": "release_ops",
+      "lane_label": "Maintenance window and drill evidence",
+      "waiting_for_input_count": 1
+    },
+    {
+      "armed_count": 0,
+      "item_count": 1,
+      "items": [
+        "oss_minio_live_e2e"
+      ],
+      "lane": "storage",
+      "lane_label": "OSS/MinIO live storage scope",
+      "waiting_for_input_count": 1
+    }
+  ],
+  "live_commands_included": false,
+  "mode": "read_only_remaining_backlog_operator_dispatch_checklist",
+  "network_io": "not_executed",
+  "secrets_printed": false
+}

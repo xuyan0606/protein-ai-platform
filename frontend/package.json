@@ -1,13 +1,18 @@
 {
   "name": "frontend",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/prepare-3dmol-vendor.mjs",
     "dev": "vite",
+    "prebuild": "node scripts/prepare-3dmol-vendor.mjs",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "prepreview": "node scripts/prepare-3dmol-vendor.mjs",
+    "preview": "vite preview",
+    "smoke:http": "node tests/http-smoke.mjs",
+    "smoke:strategy-chat": "node tests/strategy-chat-live.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.1",

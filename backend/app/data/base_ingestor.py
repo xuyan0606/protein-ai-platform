@@ -205,6 +205,14 @@ class BaseIngestor(ABC):
     @staticmethod
     def _file_hash(path: Path) -> str:
         sha = hashlib.sha256()
+        if path.is_dir():
+            for child in sorted(p for p in path.rglob("*") if p.is_file()):
+                sha.update(str(child.relative_to(path)).encode("utf-8"))
+                with open(child, "rb") as f:
+                    for chunk in iter(lambda: f.read(8192), b""):
+                        sha.update(chunk)
+            return sha.hexdigest()
+
         with open(path, "rb") as f:
             for chunk in iter(lambda: f.read(8192), b""):
                 sha.update(chunk)

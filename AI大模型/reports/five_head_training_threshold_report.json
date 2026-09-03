@@ -1,0 +1,473 @@
+{
+  "below_threshold_heads": [
+    "activity_risk"
+  ],
+  "blocked_heads": [
+    "mutation_rank",
+    "stability",
+    "activity_risk",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "candidate_heads": [],
+  "created_at": "2026-09-03T07:32:22.652391+00:00",
+  "excluded_from_label_counts": {
+    "audited_training_rows": 500,
+    "fireprot_mapping_candidate_rows": 5067,
+    "validated_feature_index_rows": 210,
+    "wet_lab_mutant_library_candidate_rows": 445
+  },
+  "expected_heads": [
+    "mutation_rank",
+    "stability",
+    "activity_risk",
+    "substrate_fit",
+    "assay_success"
+  ],
+  "feature_label_boundary": {
+    "feature_inputs_are_labels": false,
+    "feature_rows_counted_as_labels": 0,
+    "feature_rows_observed": 210,
+    "policy": "Feature rows are input-only and never satisfy a head label threshold."
+  },
+  "heads": {
+    "activity_risk": {
+      "blockers": [
+        "sample_replicate_group_thresholds_not_met"
+      ],
+      "candidate_metrics": {
+        "group_count": 2,
+        "group_values": [
+          "D105N",
+          "S265T"
+        ],
+        "groups_with_explicit_replicate": 0,
+        "measurement_group_count": 1,
+        "replicate_count": 0,
+        "replicate_observation_count": 0,
+        "replicate_values": [],
+        "rows_missing_explicit_replicate": 6,
+        "sample_count": 6
+      },
+      "candidate_rows": 6,
+      "head": "activity_risk",
+      "label_metrics": {
+        "group_count": 2,
+        "group_values": [
+          "D105N",
+          "S265T"
+        ],
+        "groups_with_explicit_replicate": 0,
+        "measurement_group_count": 1,
+        "replicate_count": 0,
+        "replicate_observation_count": 0,
+        "replicate_values": [],
+        "rows_missing_explicit_replicate": 6,
+        "sample_count": 6
+      },
+      "label_rows": 6,
+      "label_sources": [
+        "numeric_feedback",
+        "activity_risk_formal_label_decisions",
+        "activity_risk_training_import_labels"
+      ],
+      "missing_required_fields_in_candidates": {
+        "activity_relative_to_wt": 0,
+        "activity_risk_label": 6
+      },
+      "missing_required_fields_in_label_rows": {
+        "activity_relative_to_wt": 0,
+        "activity_risk_label": 0
+      },
+      "policy": "Candidate rows are evidence only. A head label row must satisfy the explicit head label contract; rows without replicate metadata do not receive inferred replicates.",
+      "release_ready": false,
+      "required_label_fields": [
+        "activity_relative_to_wt",
+        "activity_risk_label"
+      ],
+      "safe_for_model_claim": false,
+      "status": "label_rows_below_threshold",
+      "threshold_checks": {
+        "minimum_groups": {
+          "met": false,
+          "observed": 2,
+          "required": 10
+        },
+        "minimum_replicates": {
+          "met": false,
+          "observed": 0,
+          "required": 3
+        },
+        "minimum_samples": {
+          "met": false,
+          "observed": 6,
+          "required": 100
+        }
+      },
+      "thresholds": {
+        "minimum_groups": 10,
+        "minimum_replicates": 3,
+        "minimum_samples": 100
+      },
+      "thresholds_met": false,
+      "trainable": false,
+      "training_allowed": false
+    },
+    "assay_success": {
+      "blockers": [
+        "no_head_label_rows",
+        "sample_replicate_group_thresholds_not_met"
+      ],
+      "candidate_metrics": {
+        "group_count": 0,
+        "group_values": [],
+        "groups_with_explicit_replicate": 0,
+        "measurement_group_count": 0,
+        "replicate_count": 0,
+        "replicate_observation_count": 0,
+        "replicate_values": [],
+        "rows_missing_explicit_replicate": 0,
+        "sample_count": 0
+      },
+      "candidate_rows": 0,
+      "head": "assay_success",
+      "label_metrics": {
+        "group_count": 0,
+        "group_values": [],
+        "groups_with_explicit_replicate": 0,
+        "measurement_group_count": 0,
+        "replicate_count": 0,
+        "replicate_observation_count": 0,
+        "replicate_values": [],
+        "rows_missing_explicit_replicate": 0,
+        "sample_count": 0
+      },
+      "label_rows": 0,
+      "label_sources": [
+        "plate_feedback"
+      ],
+      "missing_required_fields_in_candidates": {
+        "assay_success": 0
+      },
+      "missing_required_fields_in_label_rows": {
+        "assay_success": 0
+      },
+      "policy": "Candidate rows are evidence only. A head label row must satisfy the explicit head label contract; rows without replicate metadata do not receive inferred replicates.",
+      "release_ready": false,
+      "required_label_fields": [
+        "assay_success"
+      ],
+      "safe_for_model_claim": false,
+      "status": "blocked",
+      "threshold_checks": {
+        "minimum_groups": {
+          "met": false,
+          "observed": 0,
+          "required": 10
+        },
+        "minimum_replicates": {
+          "met": false,
+          "observed": 0,
+          "required": 3
+        },
+        "minimum_samples": {
+          "met": false,
+          "observed": 0,
+          "required": 100
+        }
+      },
+      "thresholds": {
+        "minimum_groups": 10,
+        "minimum_replicates": 3,
+        "minimum_samples": 100
+      },
+      "thresholds_met": false,
+      "trainable": false,
+      "training_allowed": false
+    },
+    "mutation_rank": {
+      "blockers": [
+        "no_head_label_rows",
+        "sample_replicate_group_thresholds_not_met"
+      ],
+      "candidate_metrics": {
+        "group_count": 0,
+        "group_values": [],
+        "groups_with_explicit_replicate": 0,
+        "measurement_group_count": 0,
+        "replicate_count": 0,
+        "replicate_observation_count": 0,
+        "replicate_values": [],
+        "rows_missing_explicit_replicate": 0,
+        "sample_count": 0
+      },
+      "candidate_rows": 0,
+      "head": "mutation_rank",
+      "label_metrics": {
+        "group_count": 0,
+        "group_values": [],
+        "groups_with_explicit_replicate": 0,
+        "measurement_group_count": 0,
+        "replicate_count": 0,
+        "replicate_observation_count": 0,
+        "replicate_values": [],
+        "rows_missing_explicit_replicate": 0,
+        "sample_count": 0
+      },
+      "label_rows": 0,
+      "label_sources": [
+        "strict_supervised"
+      ],
+      "missing_required_fields_in_candidates": {
+        "label_decision": 0
+      },
+      "missing_required_fields_in_label_rows": {
+        "label_decision": 0
+      },
+      "policy": "Candidate rows are evidence only. A head label row must satisfy the explicit head label contract; rows without replicate metadata do not receive inferred replicates.",
+      "release_ready": false,
+      "required_label_fields": [
+        "label_decision"
+      ],
+      "safe_for_model_claim": false,
+      "status": "blocked",
+      "threshold_checks": {
+        "minimum_groups": {
+          "met": false,
+          "observed": 0,
+          "required": 10
+        },
+        "minimum_replicates": {
+          "met": false,
+          "observed": 0,
+          "required": 3
+        },
+        "minimum_samples": {
+          "met": false,
+          "observed": 0,
+          "required": 100
+        }
+      },
+      "thresholds": {
+        "minimum_groups": 10,
+        "minimum_replicates": 3,
+        "minimum_samples": 100
+      },
+      "thresholds_met": false,
+      "trainable": false,
+      "training_allowed": false
+    },
+    "stability": {
+      "blockers": [
+        "no_head_label_rows",
+        "sample_replicate_group_thresholds_not_met"
+      ],
+      "candidate_metrics": {
+        "group_count": 0,
+        "group_values": [],
+        "groups_with_explicit_replicate": 0,
+        "measurement_group_count": 0,
+        "replicate_count": 0,
+        "replicate_observation_count": 0,
+        "replicate_values": [],
+        "rows_missing_explicit_replicate": 0,
+        "sample_count": 0
+      },
+      "candidate_rows": 0,
+      "head": "stability",
+      "label_metrics": {
+        "group_count": 0,
+        "group_values": [],
+        "groups_with_explicit_replicate": 0,
+        "measurement_group_count": 0,
+        "replicate_count": 0,
+        "replicate_observation_count": 0,
+        "replicate_values": [],
+        "rows_missing_explicit_replicate": 0,
+        "sample_count": 0
+      },
+      "label_rows": 0,
+      "label_sources": [
+        "strict_supervised",
+        "fireprot_reviewed_import"
+      ],
+      "missing_required_fields_in_candidates": {
+        "label_ddg": 0,
+        "label_stability_delta_tm_c": 0
+      },
+      "missing_required_fields_in_label_rows": {
+        "label_ddg": 0,
+        "label_stability_delta_tm_c": 0
+      },
+      "policy": "Candidate rows are evidence only. A head label row must satisfy the explicit head label contract; rows without replicate metadata do not receive inferred replicates.",
+      "release_ready": false,
+      "required_label_fields": [
+        "label_stability_delta_tm_c",
+        "label_ddg"
+      ],
+      "safe_for_model_claim": false,
+      "status": "blocked",
+      "threshold_checks": {
+        "minimum_groups": {
+          "met": false,
+          "observed": 0,
+          "required": 10
+        },
+        "minimum_replicates": {
+          "met": false,
+          "observed": 0,
+          "required": 3
+        },
+        "minimum_samples": {
+          "met": false,
+          "observed": 0,
+          "required": 100
+        }
+      },
+      "thresholds": {
+        "minimum_groups": 10,
+        "minimum_replicates": 3,
+        "minimum_samples": 100
+      },
+      "thresholds_met": false,
+      "trainable": false,
+      "training_allowed": false
+    },
+    "substrate_fit": {
+      "blockers": [
+        "no_head_label_rows",
+        "sample_replicate_group_thresholds_not_met"
+      ],
+      "candidate_metrics": {
+        "group_count": 0,
+        "group_values": [],
+        "groups_with_explicit_replicate": 0,
+        "measurement_group_count": 0,
+        "replicate_count": 0,
+        "replicate_observation_count": 0,
+        "replicate_values": [],
+        "rows_missing_explicit_replicate": 0,
+        "sample_count": 0
+      },
+      "candidate_rows": 0,
+      "head": "substrate_fit",
+      "label_metrics": {
+        "group_count": 0,
+        "group_values": [],
+        "groups_with_explicit_replicate": 0,
+        "measurement_group_count": 0,
+        "replicate_count": 0,
+        "replicate_observation_count": 0,
+        "replicate_values": [],
+        "rows_missing_explicit_replicate": 0,
+        "sample_count": 0
+      },
+      "label_rows": 0,
+      "label_sources": [
+        "numeric_feedback"
+      ],
+      "missing_required_fields_in_candidates": {
+        "substrate_fit_label": 0
+      },
+      "missing_required_fields_in_label_rows": {
+        "substrate_fit_label": 0
+      },
+      "policy": "Candidate rows are evidence only. A head label row must satisfy the explicit head label contract; rows without replicate metadata do not receive inferred replicates.",
+      "release_ready": false,
+      "required_label_fields": [
+        "substrate_fit_label"
+      ],
+      "safe_for_model_claim": false,
+      "status": "blocked",
+      "threshold_checks": {
+        "minimum_groups": {
+          "met": false,
+          "observed": 0,
+          "required": 10
+        },
+        "minimum_replicates": {
+          "met": false,
+          "observed": 0,
+          "required": 3
+        },
+        "minimum_samples": {
+          "met": false,
+          "observed": 0,
+          "required": 100
+        }
+      },
+      "thresholds": {
+        "minimum_groups": 10,
+        "minimum_replicates": 3,
+        "minimum_samples": 100
+      },
+      "thresholds_met": false,
+      "trainable": false,
+      "training_allowed": false
+    }
+  },
+  "local_only": true,
+  "parse_errors": {
+    "activity_risk_decisions": [],
+    "activity_risk_training_import": [],
+    "audited_training": [],
+    "fireprot_mapping_candidates": [],
+    "fireprot_reviewed": [],
+    "numeric_feedback": [],
+    "plate": [],
+    "strict": [],
+    "validated_features": [],
+    "wet_lab_candidates": []
+  },
+  "policy": "This report is a local evidence census only. It never converts numeric feedback candidates into labels, never counts feature rows as labels, never starts training, and never opens model-claim or release gates.",
+  "ready_head_count": 0,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "source_consistency_failures": [],
+  "source_counts": {
+    "activity_risk_formal_label_decision_rows": 6,
+    "activity_risk_training_import_label_rows": 6,
+    "fireprot_reviewed_import_rows": 0,
+    "numeric_feedback_rows": 6,
+    "plate_training_eligible_rows": 0,
+    "strict_supervised_rows": 0
+  },
+  "source_paths": {
+    "activity_risk_decisions": "datasets/feedback/activity_risk_label_replicate_decisions.jsonl",
+    "activity_risk_training_import": "datasets/training/activity_risk_training_import_labels.jsonl",
+    "audited_training": "datasets/curated/enzyme_mutation_training_table_audited.jsonl",
+    "fireprot_mapping_candidates": "datasets/curation/fireprot_curated_kwb_schema_mapping_candidates.jsonl",
+    "fireprot_reviewed": "datasets/curation/fireprot_reviewed_import_candidates.jsonl",
+    "numeric_feedback": "datasets/feedback/experiment_feedback.local.jsonl",
+    "plate": "datasets/feedback/experiment_feedback_plate.local.jsonl",
+    "strict": "datasets/curated/enzyme_mutation_supervised_repaired_verified.jsonl",
+    "validated_features": "datasets/features/validated_feature_index.jsonl",
+    "wet_lab_candidates": "datasets/feedback/wet_lab_mutant_library_feedback_candidates.jsonl"
+  },
+  "source_report_counts": {
+    "activity_risk_formal_label_decision_rows": 6,
+    "activity_risk_training_import_label_rows": 6,
+    "fireprot_reviewed_import_rows": 0,
+    "numeric_feedback_rows": 6,
+    "plate_training_eligible_rows": 0,
+    "strict_supervised_rows": 0
+  },
+  "status": "blocked",
+  "threshold_policy": {
+    "group_definition": "unique mutation/variant/record identity; no inferred grouping from feature rows",
+    "minimum_independent_groups": 10,
+    "minimum_replicates": 3,
+    "minimum_samples": 100,
+    "replicate_definition": "explicit replicate/replicate_id/replicate_index only; missing means zero"
+  },
+  "threshold_ready_heads": [],
+  "trainable_heads": [],
+  "training_execution_allowed": false,
+  "zero_label_heads": [
+    "mutation_rank",
+    "stability",
+    "substrate_fit",
+    "assay_success"
+  ]
+}

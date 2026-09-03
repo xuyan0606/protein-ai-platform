@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB Domain Interval Curation Decision",
+  "type": "object",
+  "required": ["domain_record_id", "decision", "curator", "curated_at"],
+  "properties": {
+    "domain_record_id": { "type": "integer" },
+    "decision": {
+      "type": "string",
+      "enum": ["set_interval", "keep_unresolved", "reject_domain_hit"]
+    },
+    "start_pos": { "type": ["integer", "null"], "minimum": 1 },
+    "end_pos": { "type": ["integer", "null"], "minimum": 1 },
+    "basis": {
+      "type": "string",
+      "enum": ["hmmer_rerun", "pfam_annotation", "uniprot_feature", "manual_review", "unresolved"]
+    },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "notes": { "type": "string" },
+    "curator": { "type": "string" },
+    "curated_at": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

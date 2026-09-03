@@ -1,0 +1,73 @@
+{
+  "accession": "P36957",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00198",
+        "name": "2-oxoacid dehydrogenases acyltransferase (catalytic domain)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001078",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p36957",
+          "protein_length": 453,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 221,
+                  "end": 451,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00198",
+              "score": 6.4e-81
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00364",
+        "name": "Biotin-requiring enzyme",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000089",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p36957",
+          "protein_length": 453,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 72,
+                  "end": 143,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00364",
+              "score": 1.5e-18
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

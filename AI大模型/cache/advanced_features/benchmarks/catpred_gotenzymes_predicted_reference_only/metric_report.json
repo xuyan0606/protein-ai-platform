@@ -1,0 +1,32 @@
+{
+  "benchmark_name": "CatPred/GotEnzymes predicted reference only",
+  "created_at": "2026-09-03T07:33:37.500291+00:00",
+  "dataset_rows": 226,
+  "head": "activity_risk",
+  "leakage_check_status": "passed",
+  "local_only": true,
+  "primary_metric": "predicted_reference_rows",
+  "primary_metric_value": 226,
+  "quality_status": "external_predicted_reference_cache_ready_not_model_claim",
+  "ready_as_benchmark_scorecard": true,
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "secondary_metrics": {
+    "parse_errors": {},
+    "source_shard_counts": {
+      "bdw": 38,
+      "gsc": 135,
+      "oyw": 53
+    },
+    "source_shards": [
+      "bdw",
+      "oyw",
+      "gsc"
+    ],
+    "unique_compounds": 129,
+    "unique_ec": 48,
+    "unique_proteins": 32,
+    "unique_reactions": 79
+  }
+}

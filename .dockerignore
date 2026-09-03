@@ -1,0 +1,129 @@
+# =============================================================================
+# Protein AI Platform — .dockerignore
+# =============================================================================
+# Excludes everything that is NOT needed at build time.  Without this file the
+# Docker build context balloons to 2+ GB (backend/data alone is 900+ MB),
+# making `docker compose build` unusably slow.
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Database files
+# ---------------------------------------------------------------------------
+*.db
+**/*.db
+*.db-journal
+**/*.db-journal
+*.db-wal
+**/*.db-wal
+*.sqlite
+**/*.sqlite
+*.sqlite3
+**/*.sqlite3
+backend/protein_ai.db
+backend/test_protein_ai.db
+frontend/protein_ai.db
+frontend/test_protein_ai.db
+
+# ---------------------------------------------------------------------------
+# Runtime data — LARGE (900+ MB for backend/data, 300+ MB for node_modules)
+# ---------------------------------------------------------------------------
+AI大模型/
+deploy_data/
+backups/
+output/
+frontend/output/
+backend/data/
+backend/storage/
+backend/*.pdb
+backend/*.zvec
+backend/.model_cache/
+.model_cache/
+*.tar.gz
+*.tar
+*.zip
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyc.bak
+.venv/
+backend/.venv/
+backend/.pytest_cache/
+backend/.mypy_cache/
+frontend/.pytest_cache/
+venv/
+*.egg-info/
+.eggs/
+dist/
+build/
+*.so
+
+# ---------------------------------------------------------------------------
+# Node / Frontend
+# ---------------------------------------------------------------------------
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/test-results/
+frontend/test-*.ts
+frontend/playwright-report/
+frontend/coverage/
+
+# ---------------------------------------------------------------------------
+# Git & IDE
+# ---------------------------------------------------------------------------
+.git/
+.gitignore
+.gitattributes
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------------------------------------------------------------------------
+# Docker runtime (keys belong at runtime, not in images)
+# ---------------------------------------------------------------------------
+docker/ssl/
+docker/.env
+docker/.env.*
+backend/oidc_private_key.pem
+backend/oidc_public_key.pem
+
+# ---------------------------------------------------------------------------
+# Logs, temp, OS noise
+# ---------------------------------------------------------------------------
+logs/
+tmp/
+*.log
+.DS_Store
+Thumbs.db
+
+# ---------------------------------------------------------------------------
+# Documentation & scripts (not needed in images)
+# ---------------------------------------------------------------------------
+*.md
+!README.md
+scripts/
+!docker/start.sh
+!docker/health-check.sh
+!docker/recover.sh
+
+# ---------------------------------------------------------------------------
+# Backend test / dev artifacts
+# ---------------------------------------------------------------------------
+backend/tests/
+backend/scripts/
+!backend/scripts/
+!backend/scripts/*.py
+backend/*.md
+backend/.env
+backend/.env.*
+
+# ---------------------------------------------------------------------------
+# CI / GitHub
+# ---------------------------------------------------------------------------
+.github/

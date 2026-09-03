@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "mode": "enzyme-agent-controlled-execution-wave-pair-atomicity-regression-v1",
+  "created_at": "2026-09-03T07:35:27.289712+00:00",
+  "success": true,
+  "isolated_fixture": true,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_enzyme_agent_controlled_execution_wave_pair_atomicity_regression.py",
+  "regression_script_sha256": "5ef62898bcbe3df0596e5a334be85a93bc7c023888ab9461dfc3f80d5e10e4e1",
+  "wave_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/run_enzyme_agent_controlled_execution_wave.py",
+  "wave_script_sha256": "5a2edc760168ded98826d06198fd35bcf0e8a035f80e3bc383a74b9edff034f8",
+  "output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/enzyme_agent_controlled_execution_wave_pair_atomicity_regression_report.json",
+  "lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.enzyme_agent_controlled_execution_wave.lock",
+  "lock_acquired": true,
+  "atomic_commit": true,
+  "case_count": 5,
+  "passed_case_count": 5,
+  "failed_case_count": 0,
+  "real_inputs_mutated": false,
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case": "complete_pair_atomic_commit",
+      "passed": true,
+      "status": "committed"
+    },
+    {
+      "case": "before_receipts_replace_preserves_prior_pair",
+      "passed": true
+    },
+    {
+      "case": "after_receipts_replace_pair_mismatch_rejected",
+      "passed": true
+    },
+    {
+      "case": "before_report_replace_pair_mismatch_rejected",
+      "passed": true
+    },
+    {
+      "case": "lock_timeout_preserves_and_recovery_commits",
+      "passed": true,
+      "blocked_status": "lock_timeout",
+      "recovered_status": "committed"
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

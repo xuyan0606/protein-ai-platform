@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-09-03T07:47:25.702422+00:00",
+  "local_only": true,
+  "validated_root": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型",
+  "validated_manifest_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/data_lake_manifest.json",
+  "validated_manifest_sha256": "55f28bb30e17d7e4510ba72d526ab122f747e8c9a0068c856b1daffa83b64acd",
+  "release_input_contract_version": "data-lake-release-input-v1",
+  "release_input_contract_sha256": "b2d53de1e43d1d6eeb57c65102d22cbe4791a137ba6f6abb54e6a5fd892a1ff6",
+  "release_input_artifact_rows": 2741,
+  "release_input_excluded_paths": [
+    "reports/data_lake_live_content_integrity_validation_report.json",
+    "reports/local_release_manifest.json",
+    "reports/local_release_manifest_fail_closed_consistency_validation_report.json",
+    "reports/local_release_safety_guard_link_validation_report.json",
+    "reports/safe_training_pipeline_run.json"
+  ],
+  "success": true,
+  "artifact_rows": 2746,
+  "strict_verified_rows": 2744,
+  "volatile_existence_only_rows": 2,
+  "missing_rows": 0,
+  "unsafe_path_rows": 0,
+  "size_mismatch_rows": 0,
+  "sha256_mismatch_rows": 0,
+  "row_mismatch_rows": 0,
+  "failure_count": 0,
+  "failures": [],
+  "configured_volatile_existence_only_paths": [
+    "reports/data_lake_live_content_integrity_validation_report.json",
+    "reports/safe_training_pipeline_run.json"
+  ],
+  "volatile_existence_only_paths": [
+    "reports/data_lake_live_content_integrity_validation_report.json",
+    "reports/safe_training_pipeline_run.json"
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "All non-volatile data-lake artifacts require live size, SHA-256, and applicable row-count parity. Explicit post-run outputs are existence-only and do not grant release readiness."
+}

@@ -1,0 +1,109 @@
+{
+  "accession": "Q9H4Q3",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00096",
+        "name": "Zinc finger, C2H2 type",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013087",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h4q3",
+          "protein_length": 707,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 137,
+                  "end": 159,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00096",
+              "score": 2.1
+            },
+            {
+              "fragments": [
+                {
+                  "start": 575,
+                  "end": 595,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00096",
+              "score": 2
+            },
+            {
+              "fragments": [
+                {
+                  "start": 602,
+                  "end": 623,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00096",
+              "score": 2.3
+            },
+            {
+              "fragments": [
+                {
+                  "start": 630,
+                  "end": 653,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00096",
+              "score": 3.6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF21549",
+        "name": "PR domain zinc finger protein 2, PR domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001214",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h4q3",
+          "protein_length": 707,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 11,
+                  "end": 119,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF21549",
+              "score": 8.1e-11
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

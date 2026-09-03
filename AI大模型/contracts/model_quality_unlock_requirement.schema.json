@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kwb-model-quality-unlock-requirement.schema.json",
+  "title": "KWB model quality unlock requirement",
+  "type": "object",
+  "required": [
+    "requirement_id",
+    "workstream",
+    "status",
+    "current_state",
+    "target_state",
+    "required_artifacts",
+    "validator_reports",
+    "human_or_external_authorization_required",
+    "forbidden_shortcuts"
+  ],
+  "properties": {
+    "requirement_id": {"type": "string"},
+    "workstream": {"type": "string"},
+    "status": {"type": "string", "enum": ["blocked", "ready_to_verify", "complete"]},
+    "current_state": {"type": "object"},
+    "target_state": {"type": "object"},
+    "required_artifacts": {"type": "array", "items": {"type": "string"}},
+    "validator_reports": {"type": "array", "items": {"type": "string"}},
+    "human_or_external_authorization_required": {"type": "boolean"},
+    "forbidden_shortcuts": {"type": "array", "items": {"type": "string"}}
+  }
+}

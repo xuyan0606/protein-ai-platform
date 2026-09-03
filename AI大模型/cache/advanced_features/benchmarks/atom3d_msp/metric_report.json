@@ -1,0 +1,54 @@
+{
+  "benchmark_name": "ATOM3D MSP",
+  "created_at": "2026-09-03T07:32:24.433943+00:00",
+  "dataset_rows": 4148,
+  "head": "stability",
+  "leakage_check_status": "passed",
+  "local_only": true,
+  "primary_metric": "official_atom3d_msp_rows_cached",
+  "primary_metric_value": 4148,
+  "quality_status": "atom3d_msp_stability_cache_ready_not_model_claim",
+  "ready_as_benchmark_scorecard": true,
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "secondary_metrics": {
+    "index_counts": {
+      "test": 347,
+      "train": 2864,
+      "validation": 937
+    },
+    "label_counts": {
+      "0": 3255,
+      "1": 893
+    },
+    "split_counts": {
+      "test": 347,
+      "train": 2864,
+      "validation": 937
+    },
+    "split_summary": {
+      "test": {
+        "label_counts": {
+          "0": 302,
+          "1": 45
+        },
+        "rows": 347
+      },
+      "train": {
+        "label_counts": {
+          "0": 2233,
+          "1": 631
+        },
+        "rows": 2864
+      },
+      "validation": {
+        "label_counts": {
+          "0": 720,
+          "1": 217
+        },
+        "rows": 937
+      }
+    }
+  }
+}

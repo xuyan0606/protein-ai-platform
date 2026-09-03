@@ -1,0 +1,73 @@
+{
+  "accession": "Q6YN16",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00106",
+        "name": "short chain dehydrogenase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002347",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6yn16",
+          "protein_length": 418,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 12,
+                  "end": 198,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00106",
+              "score": 2.4e-32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02036",
+        "name": "SCP-2 sterol transfer family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003033",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6yn16",
+          "protein_length": 418,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 318,
+                  "end": 411,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02036",
+              "score": 1.8e-21
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "accession": "Q96EP1",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00498",
+        "name": "FHA domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000253",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96ep1",
+          "protein_length": 664,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 38,
+                  "end": 105,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00498",
+              "score": 8.7e-11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13923",
+        "name": "Zinc finger, C3HC4 type (RING finger)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001841",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96ep1",
+          "protein_length": 664,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 304,
+                  "end": 342,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13923",
+              "score": 3.5e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17979",
+        "name": "Cysteine rich domain with multizinc binding regions",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040909",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96ep1",
+          "protein_length": 664,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 466,
+                  "end": 620,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF17979",
+              "score": 3.4e-42
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

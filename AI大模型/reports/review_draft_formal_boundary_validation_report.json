@@ -1,0 +1,137 @@
+{
+  "created_at": "2026-09-03T07:33:45.501983+00:00",
+  "local_only": true,
+  "success": true,
+  "draft_files": {
+    "numbering_deterministic_reject": {
+      "path": "datasets/curation/numbering_deterministic_reject_decisions.review_draft.jsonl",
+      "rows": 475,
+      "expected_rows": 475,
+      "missing_required_rows": 0,
+      "bad_policy_rows": 0,
+      "unexpected_fail_closed_value_rows": 0,
+      "duplicate_key_count": 0,
+      "all_rows_marked_review_draft": true,
+      "all_rows_draft_only": true
+    },
+    "structure_chain_mapping_dbref": {
+      "path": "datasets/curation/structure_chain_mapping_dbref_decisions.review_draft.jsonl",
+      "rows": 9,
+      "expected_rows": 9,
+      "missing_required_rows": 0,
+      "bad_policy_rows": 0,
+      "unexpected_fail_closed_value_rows": 0,
+      "duplicate_key_count": 0,
+      "all_rows_marked_review_draft": true,
+      "all_rows_draft_only": true
+    },
+    "structure_chain_autoreview_acceptance": {
+      "path": "datasets/curation/structure_chain_autoreview_decision_drafts/structure_chain_autoreview_acceptance_001.decision_acceptance.draft.jsonl",
+      "rows": 18,
+      "expected_rows": 18,
+      "missing_required_rows": 0,
+      "bad_policy_rows": 0,
+      "unexpected_fail_closed_value_rows": 0,
+      "duplicate_key_count": 0,
+      "all_rows_marked_review_draft": true,
+      "all_rows_draft_only": true
+    },
+    "wet_lab_feedback_authorization": {
+      "path": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.review_draft.jsonl",
+      "rows": 12,
+      "expected_rows": 12,
+      "missing_required_rows": 0,
+      "bad_policy_rows": 0,
+      "unexpected_fail_closed_value_rows": 0,
+      "duplicate_key_count": 0,
+      "all_rows_marked_review_draft": true,
+      "all_rows_draft_only": true
+    }
+  },
+  "formal_files": {
+    "numbering_curation": {
+      "path": "datasets/curation/numbering_curation_decisions.jsonl",
+      "rows": 4,
+      "expected_rows": 4,
+      "expected_rows_source": "static_spec",
+      "draft_only_field_rows": 0,
+      "duplicate_key_count": 0,
+      "boundary_locked_to_current_human_reviewed_count": true
+    },
+    "structure_chain_mapping": {
+      "path": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+      "rows": 34,
+      "expected_rows": 34,
+      "expected_rows_source": "static_spec",
+      "draft_only_field_rows": 0,
+      "duplicate_key_count": 0,
+      "boundary_locked_to_current_human_reviewed_count": true
+    },
+    "wet_lab_feedback_authorization": {
+      "path": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+      "rows": 8,
+      "expected_rows": 8,
+      "expected_rows_source": "reports/wet_lab_mutant_library_feedback_authorization_validation_report.json",
+      "draft_only_field_rows": 0,
+      "duplicate_key_count": 0,
+      "boundary_locked_to_current_human_reviewed_count": true
+    }
+  },
+  "overlap_audit": {
+    "numbering_curation": {
+      "paired_draft": "numbering_deterministic_reject",
+      "shared_decision_keys": [
+        "stability:103",
+        "stability:261",
+        "stability:458",
+        "stability:460"
+      ],
+      "shared_decision_key_count": 4,
+      "interpretation": "Shared keys are allowed only because formal row counts remain fixed and formal rows contain no draft-only fields; draft rows still cannot be counted as new formal decisions."
+    },
+    "structure_chain_mapping": {
+      "paired_draft": "structure_chain_mapping_dbref",
+      "shared_decision_keys": [
+        "10GH|A",
+        "11AP|A",
+        "121P|A",
+        "135L|A",
+        "13FO|D",
+        "16PK|A",
+        "193L|A",
+        "194L|A",
+        "1A3H|A"
+      ],
+      "shared_decision_key_count": 9,
+      "interpretation": "Shared keys are allowed only because formal row counts remain fixed and formal rows contain no draft-only fields; draft rows still cannot be counted as new formal decisions."
+    },
+    "wet_lab_feedback_authorization": {
+      "paired_draft": "wet_lab_feedback_authorization",
+      "shared_decision_keys": [
+        "wetlab-mutlib-auth-010c4b4508a7cc7d3457",
+        "wetlab-mutlib-auth-103574eeceae648b63a6",
+        "wetlab-mutlib-auth-1f3e60aa54df2a4ae993",
+        "wetlab-mutlib-auth-26b0011bb960c350680a",
+        "wetlab-mutlib-auth-3c133ffbbdc5d53764ed",
+        "wetlab-mutlib-auth-5418c885e1db554d00ee",
+        "wetlab-mutlib-auth-aeb771ff3269fd7596c4",
+        "wetlab-mutlib-auth-eb02f4bf1f0cf8791612"
+      ],
+      "shared_decision_key_count": 8,
+      "interpretation": "Shared keys are allowed only because formal row counts remain fixed and formal rows contain no draft-only fields; draft rows still cannot be counted as new formal decisions."
+    }
+  },
+  "total_review_draft_rows": 514,
+  "total_formal_decision_rows": 46,
+  "draft_rows_counted_as_formal_decisions": 0,
+  "formal_expected_counts": {
+    "numbering_curation": 4,
+    "structure_chain_mapping": 34,
+    "wet_lab_feedback_authorization": 8
+  },
+  "failures": [],
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Review drafts are operator aids only. They must retain review_draft/draft_policy markers and must not change formal decision counts, training labels, model-quality claims or release readiness."
+}

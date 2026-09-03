@@ -1,0 +1,109 @@
+{
+  "accession": "P03951",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00024",
+        "name": "PAN domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003609",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p03951",
+          "protein_length": 625,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 20,
+                  "end": 103,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00024",
+              "score": 4.9e-06
+            },
+            {
+              "fragments": [
+                {
+                  "start": 113,
+                  "end": 193,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00024",
+              "score": 2.9e-07
+            },
+            {
+              "fragments": [
+                {
+                  "start": 202,
+                  "end": 283,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00024",
+              "score": 4.6e-07
+            },
+            {
+              "fragments": [
+                {
+                  "start": 294,
+                  "end": 374,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00024",
+              "score": 2.8e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00089",
+        "name": "Trypsin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001254",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p03951",
+          "protein_length": 625,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 388,
+                  "end": 618,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00089",
+              "score": 1.1e-68
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

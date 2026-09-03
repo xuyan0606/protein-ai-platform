@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "success": true,
+  "failure_count": 0,
+  "failures": [],
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "validated_fields": [
+    "human_decision_batch_session_count",
+    "human_decision_first_assignment_count",
+    "human_decision_first_assignment_target_rows",
+    "human_decision_next_closeout_target_blockers",
+    "human_decision_pending_index_rows",
+    "human_decision_priority_queue_p0_batches",
+    "human_decision_release_blocker_rows",
+    "human_decision_review_batch_count"
+  ],
+  "dynamic_expected": {
+    "human_decision_pending_index_rows": 1220,
+    "human_decision_review_batch_count": 30,
+    "human_decision_priority_queue_p0_batches": 28,
+    "human_decision_batch_session_count": 30,
+    "human_decision_release_blocker_rows": 11,
+    "human_decision_next_closeout_target_blockers": 5,
+    "human_decision_first_assignment_count": 5,
+    "human_decision_first_assignment_target_rows": 126
+  }
+}

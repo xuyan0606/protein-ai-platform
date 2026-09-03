@@ -1,0 +1,39 @@
+{
+  "accession": "Q9H6B9",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00561",
+        "name": "alpha/beta hydrolase fold",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000073",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9h6b9",
+          "protein_length": 360,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 98,
+                  "end": 339,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00561",
+              "score": 1.2e-19
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

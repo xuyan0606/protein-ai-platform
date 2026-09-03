@@ -28,7 +28,7 @@ interface DesignResult {
   backbone_rmsd_estimate: number
 }
 
-interface RFdiffusionData {
+export interface RFdiffusionData {
   designs: DesignResult[]
   parameters: {
     length: number
@@ -52,17 +52,6 @@ interface RFdiffusionData {
     interface_score: number
     symmetry: SymmetryResult
   }
-}
-
-export function isRFdiffusionResult(data: unknown): data is RFdiffusionData {
-  if (!data || typeof data !== 'object') return false
-  const d = data as Record<string, unknown>
-  return (
-    Array.isArray(d.designs) &&
-    typeof d.parameters === 'object' &&
-    d.parameters !== null &&
-    typeof (d.parameters as Record<string, unknown>).symmetry_type === 'string'
-  )
 }
 
 function MetricRow({ icon: Icon, label, value, unit, color }: {
@@ -128,15 +117,20 @@ function ChainPreview({ chain }: { chain: ChainData }) {
 
 export function RFdiffusionResult({ data }: { data: RFdiffusionData }) {
   const params = data.parameters
-  const top = data.top_design || (data.designs[0] ? {
-    design_id: data.designs[0].design_id,
-    mean_plddt: data.designs[0].mean_plddt,
-    rg: data.designs[0].radius_of_gyration,
-    ss_composition: data.designs[0].ss_composition_pct,
-    backbone_rmsd: data.designs[0].backbone_rmsd_estimate,
-    interface_score: data.designs[0].interface_score,
-    symmetry: data.designs[0].symmetry_result,
-  } : null)
+  const top = useMemo(() => {
+    if (data.top_design) return data.top_design
+    const firstDesign = data.designs[0]
+    if (!firstDesign) return null
+    return {
+      design_id: firstDesign.design_id,
+      mean_plddt: firstDesign.mean_plddt,
+      rg: firstDesign.radius_of_gyration,
+      ss_composition: firstDesign.ss_composition_pct,
+      backbone_rmsd: firstDesign.backbone_rmsd_estimate,
+      interface_score: firstDesign.interface_score,
+      symmetry: firstDesign.symmetry_result,
+    }
+  }, [data.designs, data.top_design])
 
   const isSymmetric = params.symmetry_type !== 'none' && params.num_subunits > 1
 

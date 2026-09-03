@@ -1,0 +1,63 @@
+{
+  "accession": "Q14554",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00085",
+        "name": "Thioredoxin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013766",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q14554",
+          "protein_length": 519,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 156,
+                  "end": 257,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00085",
+              "score": 9.8e-16
+            },
+            {
+              "fragments": [
+                {
+                  "start": 278,
+                  "end": 378,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00085",
+              "score": 4.8e-20
+            },
+            {
+              "fragments": [
+                {
+                  "start": 399,
+                  "end": 502,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00085",
+              "score": 5.3e-19
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

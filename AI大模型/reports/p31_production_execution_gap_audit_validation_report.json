@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-09-03T07:33:55.723030+00:00",
+  "local_only": true,
+  "success": true,
+  "audit_rows": 5,
+  "pending_action_rows": 3,
+  "active_stage_rows": 1,
+  "operator_completed_action_rows": 0,
+  "claim_matrix_blocked_claims": 10,
+  "failures": [],
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "customer_delivery_ready": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "sync_allowed": false,
+  "deploy_allowed": false,
+  "restart_allowed": false,
+  "grey_release_allowed": false,
+  "policy": "Validation only. P31 production execution remains blocked and does not authorize sync, deploy, restart, grey release, or release."
+}

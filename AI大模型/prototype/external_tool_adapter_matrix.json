@@ -1,0 +1,253 @@
+{
+  "model": "KWB-EnzymeDesigner",
+  "surface": "external_tool_adapter_matrix",
+  "local_only": true,
+  "policy": "Adapters are evidence providers. Missing or restricted tools fail closed.",
+  "adapters": [
+    {
+      "tool_id": "mmseqs2",
+      "category": "msa_conservation",
+      "adapter_status": "ready_for_local_evaluation",
+      "panel_status": "ready",
+      "license_gate": "commercial_evaluation_allowed",
+      "install_ready": true,
+      "runtime_ready": true,
+      "license_ready": true,
+      "authorization_status": null,
+      "verification_required": null,
+      "capability_authorizations": null,
+      "data_ready": true,
+      "model_weight_ready": true,
+      "expected_outputs": [
+        "msa_hit_table",
+        "conservation_features"
+      ],
+      "kwb_usage": "local_evaluation_only"
+    },
+    {
+      "tool_id": "boltz2",
+      "category": "structure_affinity",
+      "adapter_status": "not_installed",
+      "panel_status": "not_installed",
+      "license_gate": "commercial_evaluation_allowed",
+      "install_ready": false,
+      "runtime_ready": true,
+      "license_ready": true,
+      "authorization_status": null,
+      "verification_required": null,
+      "capability_authorizations": null,
+      "data_ready": false,
+      "model_weight_ready": false,
+      "expected_outputs": [
+        "complex_structure",
+        "binding_affinity_proxy",
+        "confidence"
+      ],
+      "kwb_usage": "blocked"
+    },
+    {
+      "tool_id": "chai1",
+      "category": "structure_complex",
+      "adapter_status": "not_installed",
+      "panel_status": "not_installed",
+      "license_gate": "license_review_required",
+      "install_ready": false,
+      "runtime_ready": false,
+      "license_ready": false,
+      "authorization_status": null,
+      "verification_required": null,
+      "capability_authorizations": null,
+      "data_ready": false,
+      "model_weight_ready": false,
+      "expected_outputs": [
+        "complex_structure",
+        "confidence"
+      ],
+      "kwb_usage": "blocked"
+    },
+    {
+      "tool_id": "foldx",
+      "category": "ddg_stability",
+      "adapter_status": "blocked_by_runtime_or_data",
+      "panel_status": "restricted",
+      "license_gate": "license_review_required",
+      "install_ready": true,
+      "runtime_ready": true,
+      "license_ready": true,
+      "authorization_status": "self_attested",
+      "verification_required": true,
+      "capability_authorizations": {
+        "commercial_evaluation": "allowed",
+        "training_import": "allowed",
+        "customer_delivery": "allowed",
+        "service_hosting": "allowed",
+        "publication": "allowed"
+      },
+      "data_ready": false,
+      "model_weight_ready": true,
+      "expected_outputs": [
+        "ddg_kcal_mol",
+        "BuildModel_raw",
+        "Average_Dif",
+        "runtime_log"
+      ],
+      "kwb_usage": "blocked"
+    },
+    {
+      "tool_id": "pyrosetta",
+      "category": "ddg_stability",
+      "adapter_status": "ready_for_local_evaluation",
+      "panel_status": "ready",
+      "license_gate": "license_review_required",
+      "install_ready": true,
+      "runtime_ready": true,
+      "license_ready": true,
+      "authorization_status": "self_attested",
+      "verification_required": true,
+      "capability_authorizations": {
+        "commercial_evaluation": "allowed",
+        "training_import": "allowed",
+        "customer_delivery": "allowed",
+        "service_hosting": "allowed",
+        "publication": "allowed"
+      },
+      "data_ready": true,
+      "model_weight_ready": true,
+      "expected_outputs": [
+        "ddg_kcal_mol",
+        "replicate_scores",
+        "protocol_parameters",
+        "runtime_log"
+      ],
+      "kwb_usage": "local_evaluation_only"
+    },
+    {
+      "tool_id": "rosetta",
+      "category": "ddg_stability",
+      "adapter_status": "blocked_by_runtime_or_data",
+      "panel_status": "restricted",
+      "license_gate": "license_review_required",
+      "install_ready": true,
+      "runtime_ready": true,
+      "license_ready": true,
+      "authorization_status": "self_attested",
+      "verification_required": true,
+      "capability_authorizations": {
+        "commercial_evaluation": "allowed",
+        "training_import": "allowed",
+        "customer_delivery": "allowed",
+        "service_hosting": "allowed",
+        "publication": "allowed"
+      },
+      "data_ready": false,
+      "model_weight_ready": true,
+      "expected_outputs": [
+        "ddg_kcal_mol",
+        "replicate_scores",
+        "protocol_flags",
+        "runtime_log"
+      ],
+      "kwb_usage": "blocked"
+    },
+    {
+      "tool_id": "thermompnn",
+      "category": "stability",
+      "adapter_status": "not_installed",
+      "panel_status": "not_installed",
+      "license_gate": "commercial_evaluation_allowed",
+      "install_ready": false,
+      "runtime_ready": true,
+      "license_ready": true,
+      "authorization_status": null,
+      "verification_required": null,
+      "capability_authorizations": null,
+      "data_ready": true,
+      "model_weight_ready": true,
+      "expected_outputs": [
+        "ddg_proxy",
+        "direction",
+        "confidence"
+      ],
+      "kwb_usage": "blocked"
+    },
+    {
+      "tool_id": "clean",
+      "category": "enzyme_function",
+      "adapter_status": "not_installed",
+      "panel_status": "not_installed",
+      "license_gate": "license_review_required",
+      "install_ready": false,
+      "runtime_ready": false,
+      "license_ready": false,
+      "authorization_status": null,
+      "verification_required": null,
+      "capability_authorizations": null,
+      "data_ready": false,
+      "model_weight_ready": false,
+      "expected_outputs": [
+        "ec_candidates",
+        "function_shift_risk"
+      ],
+      "kwb_usage": "blocked"
+    },
+    {
+      "tool_id": "ligandmpnn",
+      "category": "ligand_aware_design",
+      "adapter_status": "blocked_by_license_review",
+      "panel_status": "license_review_required",
+      "license_gate": "license_review_required",
+      "install_ready": true,
+      "runtime_ready": false,
+      "license_ready": false,
+      "authorization_status": null,
+      "verification_required": null,
+      "capability_authorizations": null,
+      "data_ready": false,
+      "model_weight_ready": false,
+      "expected_outputs": [
+        "designed_sequences",
+        "ligand_context_scores"
+      ],
+      "kwb_usage": "blocked"
+    },
+    {
+      "tool_id": "alphafold3",
+      "category": "structure_complex_benchmark",
+      "adapter_status": "blocked_by_license",
+      "panel_status": "restricted",
+      "license_gate": "non_commercial_or_restricted",
+      "install_ready": true,
+      "runtime_ready": false,
+      "license_ready": false,
+      "authorization_status": null,
+      "verification_required": null,
+      "capability_authorizations": null,
+      "data_ready": false,
+      "model_weight_ready": false,
+      "expected_outputs": [
+        "benchmark_only_structure_prediction"
+      ],
+      "kwb_usage": "blocked"
+    },
+    {
+      "tool_id": "esm3_open",
+      "category": "sequence_structure_function_generation",
+      "adapter_status": "blocked_by_license",
+      "panel_status": "restricted",
+      "license_gate": "non_commercial_or_restricted",
+      "install_ready": false,
+      "runtime_ready": false,
+      "license_ready": false,
+      "authorization_status": null,
+      "verification_required": null,
+      "capability_authorizations": null,
+      "data_ready": false,
+      "model_weight_ready": false,
+      "expected_outputs": [
+        "sequence_embedding",
+        "generation_candidates"
+      ],
+      "kwb_usage": "blocked"
+    }
+  ]
+}

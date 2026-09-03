@@ -1,0 +1,220 @@
+{
+  "all_physical_backends_ready": false,
+  "created_at": "2026-09-03T07:32:13.126347+00:00",
+  "ddg_action_receipt": {
+    "action_id": "act_ddg_proxy_or_physics",
+    "all_commands_passed": true,
+    "commands": [
+      {
+        "command": "/Library/Developer/CommandLineTools/usr/bin/python3 scripts/build_ddg_executable_probe.py",
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "{\"rosetta_executable_found\": true, \"foldx_executable_found\": true, \"pyrosetta_module_available\": true, \"version_probe_succeeded_rows\": 6, \"executable_ddg_backend_ready\": true, \"physics_ddg_ready\": false, \"output\": \"/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/ddg_executable_probe_report.json\"}"
+      },
+      {
+        "command": "/Library/Developer/CommandLineTools/usr/bin/python3 scripts/build_ddg_local_runtime_discovery.py",
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "{\"candidate_rows\": 20, \"executable_candidate_rows\": 7, \"python_module_available_rows\": 1, \"ready_for_ddg_execution_rows\": 1, \"physics_ddg_ready\": false, \"output\": \"/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/ddg_local_runtime_discovery_report.json\"}"
+      },
+      {
+        "command": "/Library/Developer/CommandLineTools/usr/bin/python3 scripts/build_ddg_backend_readiness.py",
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "{\"adapter_integrated\": true, \"ready_backend_count\": 2, \"executable_ddg_backend_ready\": true, \"proxy_ddg_backend_ready\": true, \"one_ddg_backend_ready\": true, \"output\": \"/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/ddg_backend_readiness_report.json\"}"
+      }
+    ],
+    "diagnostic_status": "failed_physics_receipt_but_proxy_ready",
+    "return_status": "executed_passed"
+  },
+  "diagnostic_id": "ddg_backend_failed_receipt_proxy_not_physics_guard",
+  "executable_ddg_backend_ready": false,
+  "guardrails": {
+    "ddg_fake_results_generated": false,
+    "formal_runtime_receipt_written": true,
+    "prohibited_actions": [
+      "do_not_install_or_download_unapproved_ddg_backends",
+      "do_not_enable_unapproved_ddg_backend_config",
+      "do_not_generate_fake_delta_delta_g_results",
+      "do_not_write_unreviewed_formal_decision",
+      "do_not_write_training_labels",
+      "do_not_set_release_ready_true"
+    ],
+    "ready_for_model_claim": false,
+    "release_ready": false,
+    "safe_for_model_claim": false,
+    "safe_for_training_import": false,
+    "training_labels_written": false,
+    "unapproved_config_enable_changed": false,
+    "unreviewed_formal_decision_written": false
+  },
+  "input_presence": {
+    "controlled_wave": true,
+    "executable_probe": true,
+    "license_validation": true,
+    "preflight_json": true,
+    "preflight_md": true,
+    "readiness": true,
+    "receipt_validation": true,
+    "runtime_discovery": true
+  },
+  "inputs": {
+    "controlled_wave": "reports/enzyme_agent_controlled_execution_wave_report.json",
+    "executable_probe": "reports/ddg_executable_probe_report.json",
+    "license_validation": "reports/external_license_review_decision_validation_report.json",
+    "preflight_json": "reports/ddg_physical_runtime_receipt_preflight_report.json",
+    "preflight_md": "reports/ddg_physical_runtime_receipt_preflight.md",
+    "readiness": "reports/ddg_backend_readiness_report.json",
+    "receipt_validation": "reports/ddg_backend_runtime_receipt_validation_report.json",
+    "runtime_discovery": "reports/ddg_local_runtime_discovery_report.json"
+  },
+  "local_only": true,
+  "one_ddg_backend_ready": true,
+  "physical_ddg_lane_capability_status": "blocked",
+  "physics_backend_ready_count": 1,
+  "physics_backend_statuses": [
+    {
+      "backend": "rosetta",
+      "backend_family": "physics_ddg",
+      "blockers": [
+        "reviewed structure/mutation data gate not ready for this backend"
+      ],
+      "data_ready": false,
+      "enabled_in_config": true,
+      "executable_found": true,
+      "install_ready": true,
+      "license_ready": true,
+      "python_module_available": null,
+      "ready_for_physics_ddg": false,
+      "ready_from_probe": true,
+      "ready_from_readiness": false,
+      "ready_from_receipt_preflight": false,
+      "receipt_missing_categories": [],
+      "receipt_preflight_status": "runtime_receipt_validated_ready",
+      "runtime_ready": true
+    },
+    {
+      "backend": "pyrosetta",
+      "backend_family": "physics_ddg",
+      "blockers": [],
+      "data_ready": true,
+      "enabled_in_config": true,
+      "executable_found": null,
+      "install_ready": true,
+      "license_ready": true,
+      "python_module_available": true,
+      "ready_for_physics_ddg": true,
+      "ready_from_probe": true,
+      "ready_from_readiness": true,
+      "ready_from_receipt_preflight": true,
+      "receipt_missing_categories": [],
+      "receipt_preflight_status": "runtime_receipt_validated_ready",
+      "runtime_ready": true
+    },
+    {
+      "backend": "foldx",
+      "backend_family": "physics_ddg",
+      "blockers": [
+        "approved_runtime_receipt",
+        "config_enabled",
+        "install_path_or_module",
+        "license",
+        "probe",
+        "reviewed structure/mutation data gate not ready for this backend",
+        "smoke_artifact"
+      ],
+      "data_ready": false,
+      "enabled_in_config": true,
+      "executable_found": true,
+      "install_ready": true,
+      "license_ready": true,
+      "python_module_available": null,
+      "ready_for_physics_ddg": false,
+      "ready_from_probe": true,
+      "ready_from_readiness": false,
+      "ready_from_receipt_preflight": false,
+      "receipt_missing_categories": [
+        "license",
+        "install_path_or_module",
+        "config_enabled",
+        "probe",
+        "smoke_artifact",
+        "approved_runtime_receipt"
+      ],
+      "receipt_preflight_status": "blocked_missing_preflight_evidence",
+      "runtime_ready": true
+    }
+  ],
+  "physics_ddg_blocker_summary": {
+    "executable_probe_version_probe_succeeded_rows": 6,
+    "license_approved_for_local_evaluation_rows": 3,
+    "missing_inputs": [],
+    "preflight_ready_to_run_physical_ddg_smoke_rows": 1,
+    "runtime_discovery_ready_for_execution_rows": 1,
+    "runtime_receipt_approved_rows": 2,
+    "runtime_receipt_ready_for_smoke_rows": 2
+  },
+  "physics_ddg_not_ready_reason": "Rosetta/PyRosetta/FoldX have no executable/module-ready, license-approved, config-reviewed, receipt-approved, smoke-ready physical ddG runtime.",
+  "physics_ddg_ready": false,
+  "physics_ddg_status": "not_ready",
+  "policy": "Executable physics ddG requires Rosetta/PyRosetta/FoldX runtime evidence. A ready PyRosetta runtime remains computational physics evidence only; ThermoMPNN remains proxy-only and training/model/release gates stay false.",
+  "preflight_markdown_evidence": {
+    "contains_fail_closed_scaffold_text": true,
+    "line_count": 55,
+    "path": "reports/ddg_physical_runtime_receipt_preflight.md",
+    "read": true
+  },
+  "proxy_ddg_backend_ready": true,
+  "proxy_is_physics": false,
+  "ready_backend_count": 2,
+  "receipt_failure": {
+    "approved_runtime_receipt_rows": 2,
+    "failed_receipt_diagnostic": true,
+    "formal_runtime_receipt_written": true,
+    "missing_config_enabled_rows": 1,
+    "missing_install_path_or_module_rows": 1,
+    "missing_license_rows": 1,
+    "missing_probe_rows": 1,
+    "missing_smoke_artifact_rows": 1,
+    "ready_to_write_formal_runtime_receipt_rows": 2,
+    "receipt_validator_approved_runtime_rows": 2,
+    "receipt_validator_ready_for_smoke_rows": 2,
+    "runtime_receipt_rows": 2
+  },
+  "source_flags": {
+    "license_approved_for_local_evaluation_rows": 3,
+    "preflight_all_physical_backends_ready": false,
+    "preflight_approved_runtime_receipt_rows": 2,
+    "preflight_physical_ddg_lane_capability_status": "blocked",
+    "preflight_ready_to_run_physical_ddg_smoke_rows": 1,
+    "probe_executable_ddg_backend_ready": true,
+    "readiness_executable_ddg_backend_ready": true,
+    "readiness_one_ddg_backend_ready": true,
+    "readiness_proxy_ddg_backend_ready": true,
+    "receipt_validation_approved_runtime_rows": 2,
+    "receipt_validation_ready_for_ddg_smoke_rows": 2,
+    "runtime_discovery_ready_for_ddg_execution_rows": 1
+  },
+  "thermompnn_proxy": {
+    "backend": "thermompnn",
+    "backend_family": "proxy_ddg",
+    "data_ready": true,
+    "expected_outputs": [
+      "ddg_proxy",
+      "direction",
+      "confidence"
+    ],
+    "license_ready": true,
+    "model_weight_ready": true,
+    "physics_ddg_ready": false,
+    "policy": "ThermoMPNN readiness is proxy/baseline evidence only and is not Rosetta/PyRosetta/FoldX physics ddG.",
+    "proxy_ddg_backend_ready": true,
+    "proxy_is_physics": false,
+    "proxy_ready": true,
+    "ready_for_execution": true,
+    "runtime_dependency_ready": true,
+    "runtime_ready": true,
+    "smoke_artifact_ready": true,
+    "source_license_model_ready": true
+  }
+}

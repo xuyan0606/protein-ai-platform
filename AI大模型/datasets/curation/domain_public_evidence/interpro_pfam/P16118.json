@@ -1,0 +1,73 @@
+{
+  "accession": "P16118",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00300",
+        "name": "Histidine phosphatase superfamily (branch 1)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013078",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p16118",
+          "protein_length": 471,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 254,
+                  "end": 437,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00300",
+              "score": 4.2e-40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01591",
+        "name": "6-phosphofructo-2-kinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013079",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p16118",
+          "protein_length": 471,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 31,
+                  "end": 251,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF01591",
+              "score": 5.5e-102
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "items": {
+    "admin_authenticated_screenshots": {
+      "FRONTEND_BASE_URL": "<fill>",
+      "SCREENSHOT_EMAIL_secret_reference": "<secret-reference-only>",
+      "SCREENSHOT_PASSWORD_secret_reference": "<secret-reference-only>"
+    },
+    "formal_domain_https": {
+      "FRONTEND_URL": "<fill>",
+      "OIDC_ISSUER": "<fill>",
+      "PUBLIC_BASE_URL": "<fill>",
+      "dns_record_owner": "<fill>",
+      "formal_domain": "<fill>",
+      "tls_certificate_source": "<fill>"
+    },
+    "gpu_gromacs_md_live": {
+      "gpu_node_or_runner": "<fill>",
+      "gromacs_runtime_version": "<fill>",
+      "md_worker_capacity_window": "<fill>",
+      "mutant_pdb_input": "<fill>",
+      "wt_pdb_input": "<fill>"
+    },
+    "ligand_runtime_live": {
+      "ACPYPE_or_AmberTools_available": "<fill>",
+      "AutoDock_Vina_available": "<fill>",
+      "GROMACS_available": "<fill>",
+      "OpenBabel_or_RDKit_available": "<fill>",
+      "ligand_worker_image_or_host": "<fill>"
+    },
+    "maintenance_window_drills": {
+      "ALLOW_PRODUCTION_DRILL_approval": "<fill>",
+      "EXTERNAL_STORAGE_RESTORE_TARGET": "<fill>",
+      "MAINTENANCE_WINDOW_ID": "<fill>",
+      "REMOTE_BACKUP_TARGET_or_OFFSITE_BACKUP_TARGET": "<fill>"
+    },
+    "md_blackbox_live_e2e": {
+      "MD_BLACKBOX_EMAIL_or_LIVE_AI_EMAIL": "<fill>",
+      "MD_BLACKBOX_TASK_ID_or_ALLOW_MD_BLACKBOX_SUBMIT": "<fill>",
+      "credential_secret_reference": "<secret-reference-only>",
+      "validation_window": "<fill>"
+    },
+    "oss_minio_live_e2e": {
+      "access_key_secret_reference": "<secret-reference-only>",
+      "bucket_name": "<fill>",
+      "storage_endpoint": "<fill>",
+      "write_read_delete_permission_scope": "<fill>"
+    }
+  },
+  "mode": "operator_supplied_values_template",
+  "policy": "Fill values or secret references only. Do not paste raw passwords or cloud secrets into this file.",
+  "priority_summary": {
+    "P0": {
+      "item_count": 4,
+      "items": [
+        "formal_domain_https",
+        "gpu_gromacs_md_live",
+        "md_blackbox_live_e2e",
+        "oss_minio_live_e2e"
+      ],
+      "required_input_field_count": 19
+    },
+    "P1": {
+      "item_count": 3,
+      "items": [
+        "ligand_runtime_live",
+        "admin_authenticated_screenshots",
+        "maintenance_window_drills"
+      ],
+      "required_input_field_count": 12
+    }
+  }
+}

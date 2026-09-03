@@ -1,0 +1,73 @@
+{
+  "accession": "Q02083",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02275",
+        "name": "Linear amide C-N hydrolases, choloylglycine hydrolase family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR029132",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q02083",
+          "protein_length": 359,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 126,
+                  "end": 255,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02275",
+              "score": 0.17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF15508",
+        "name": "beta subunit of N-acylethanolamine-hydrolyzing acid amidase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR029130",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q02083",
+          "protein_length": 359,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 32,
+                  "end": 91,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF15508",
+              "score": 3.8e-10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

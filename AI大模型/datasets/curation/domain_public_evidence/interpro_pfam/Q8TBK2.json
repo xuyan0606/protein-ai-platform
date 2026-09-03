@@ -1,0 +1,73 @@
+{
+  "accession": "Q8TBK2",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00856",
+        "name": "SET domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001214",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8tbk2",
+          "protein_length": 473,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 74,
+                  "end": 286,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00856",
+              "score": 1.2e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09273",
+        "name": "Rubisco LSMT substrate-binding",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015353",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8tbk2",
+          "protein_length": 473,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 332,
+                  "end": 465,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09273",
+              "score": 1.8e-15
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

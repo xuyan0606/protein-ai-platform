@@ -1,0 +1,56 @@
+{
+  "strict_table": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curated/enzyme_mutation_supervised_repaired_verified.jsonl",
+  "strict_rows": 0,
+  "strict_msa_rows": 0,
+  "claim_eligible_rows": 0,
+  "source_rejected_by_deep_audit_rows": 25,
+  "artifact_count": 4,
+  "valid_artifacts": 4,
+  "invalid_artifacts": 0,
+  "failures": [],
+  "warnings": [
+    "strict_real_source_supervised_rows_zero_training_must_remain_blocked"
+  ],
+  "safe_for_training_pipeline": true,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "artifacts": [
+    {
+      "path": "reports/repaired_supervised_baseline_eval.json",
+      "exists": true,
+      "status": "blocked_empty_train_split",
+      "positive_training_count": 0,
+      "safe_for_model_claim": false,
+      "valid": true,
+      "failures": []
+    },
+    {
+      "path": "prototype/repaired_supervised_baseline_model.json",
+      "exists": true,
+      "status": "blocked_empty_train_split",
+      "positive_training_count": 0,
+      "safe_for_model_claim": false,
+      "valid": true,
+      "failures": []
+    },
+    {
+      "path": "reports/repaired_supervised_msa_baseline_eval.json",
+      "exists": true,
+      "status": "blocked_empty_train_split",
+      "positive_training_count": 0,
+      "safe_for_model_claim": false,
+      "valid": true,
+      "failures": []
+    },
+    {
+      "path": "prototype/repaired_supervised_msa_baseline_model.json",
+      "exists": true,
+      "status": "blocked_empty_train_split",
+      "positive_training_count": 0,
+      "safe_for_model_claim": false,
+      "valid": true,
+      "failures": []
+    }
+  ],
+  "policy": "When strict real-source supervised rows are zero, supervised training artifacts must be blocked_empty_train_split with zero trained rows and safe_for_model_claim=false."
+}

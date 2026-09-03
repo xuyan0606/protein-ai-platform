@@ -1,0 +1,425 @@
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "${APP_HTTP_PORT:-4200}:8080"
+      - "${APP_HTTP_REDIRECT_PORT:-4280}:80"
+      - "${APP_HTTPS_PORT:-4243}:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    networks:
+      - app_network
+    depends_on:
+      frontend:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1/nginx-health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  frontend:
+    image: protein-ai-frontend:aliyun
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.frontend
+    networks:
+      - app_network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3000/"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  storage-init:
+    image: protein-ai-backend:aliyun
+    user: "0:0"
+    command: ["sh", "-lc", "mkdir -p /app/storage && chown -R 999:999 /app/storage"]
+    volumes:
+      - upload_storage:/app/storage
+    networks:
+      - app_network
+    restart: "no"
+
+  backend:
+    image: protein-ai-backend:aliyun
+    platform: linux/amd64
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    expose:
+      - "8000"
+    networks:
+      - app_network
+    env_file:
+      - .env
+      - .env.deploy-data
+      - .env.aliyun.app
+    environment:
+      HOME: /app
+      DEPLOY_DATA_ROOT: /app/deploy_data
+      ENZYME_DB_ROOT: /app/enzyme_dbs
+      DATABASE_URL: ${ALIYUN_APP_DATABASE_URL}
+      REDIS_HOST: ${ALIYUN_REDIS_HOST}
+      REDIS_PORT: ${ALIYUN_REDIS_PORT:-6379}
+      REDIS_DB: ${ALIYUN_REDIS_APP_DB:-0}
+      REDIS_USERNAME: ${ALIYUN_REDIS_USERNAME:-}
+      REDIS_PASSWORD: ${ALIYUN_REDIS_PASSWORD:-}
+      REDIS_URL: ${ALIYUN_REDIS_APP_URL:-}
+      MINIO_ENDPOINT: ${ALIYUN_OSS_ENDPOINT}
+      MINIO_ACCESS_KEY: ${ALIYUN_OSS_ACCESS_KEY_ID}
+      MINIO_SECRET_KEY: ${ALIYUN_OSS_ACCESS_KEY_SECRET}
+      MINIO_BUCKET: ${ALIYUN_OSS_BUCKET}
+      MINIO_SECURE: ${ALIYUN_OSS_SECURE:-true}
+      MINIO_REGION: ${ALIYUN_OSS_REGION}
+      CHROMA_HOST: chromadb
+      CHROMA_PORT: 8000
+      ML_MODEL_CACHE_DIR: /app/.model_cache
+      P2RANK_BINARY: ${P2RANK_BINARY:-/opt/p2rank/bin/prank}
+      FPOCKET_BINARY: ${FPOCKET_BINARY:-/opt/fpocket/bin/fpocket}
+      USE_SQLITE: "false"
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL}
+      OIDC_ISSUER: ${PUBLIC_BASE_URL}
+      OIDC_PRIVATE_KEY_PATH: /run/secrets/oidc_private_key.pem
+      OIDC_PUBLIC_KEY_PATH: /run/secrets/oidc_public_key.pem
+      FRONTEND_URL: ${PUBLIC_BASE_URL}
+      OUTLINE_PUBLIC_URL: ${OUTLINE_PUBLIC_URL}
+      OUTLINE_URL: http://outline:3001
+      OUTLINE_WS_URL: ws://outline:3001
+    volumes:
+      - model_cache:/app/.model_cache
+      - upload_storage:/app/storage
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+      - ${ENZYME_DB_HOST_PATH:-/opt/protein-ai-platform/enzyme-dbs}:/app/enzyme_dbs:ro
+      - ${P2RANK_HOST_PATH:-/opt/p2rank}:/opt/p2rank:ro
+      - ${FPOCKET_HOST_PATH:-/opt/fpocket}:/opt/fpocket:ro
+    secrets:
+      - source: oidc_private_key
+        target: oidc_private_key.pem
+        mode: 0444
+      - source: oidc_public_key
+        target: oidc_public_key.pem
+        mode: 0444
+    depends_on:
+      storage-init:
+        condition: service_completed_successfully
+      chromadb:
+        condition: service_healthy
+      outline:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8000/api/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  worker:
+    image: protein-ai-backend:aliyun
+    command:
+      [
+        "celery",
+        "-A",
+        "app.services.scheduler",
+        "worker",
+        "--loglevel=info",
+        "--queues=default",
+        "--concurrency=${CELERY_DEFAULT_WORKER_CONCURRENCY:-4}"
+      ]
+    networks:
+      - app_network
+    env_file:
+      - .env
+      - .env.deploy-data
+      - .env.aliyun.app
+    environment:
+      DEPLOY_DATA_ROOT: /app/deploy_data
+      ENZYME_DB_ROOT: /app/enzyme_dbs
+      DATABASE_URL: ${ALIYUN_APP_DATABASE_URL}
+      REDIS_HOST: ${ALIYUN_REDIS_HOST}
+      REDIS_PORT: ${ALIYUN_REDIS_PORT:-6379}
+      REDIS_DB: ${ALIYUN_REDIS_APP_DB:-0}
+      REDIS_USERNAME: ${ALIYUN_REDIS_USERNAME:-}
+      REDIS_PASSWORD: ${ALIYUN_REDIS_PASSWORD:-}
+      REDIS_URL: ${ALIYUN_REDIS_APP_URL:-}
+      MINIO_ENDPOINT: ${ALIYUN_OSS_ENDPOINT}
+      MINIO_ACCESS_KEY: ${ALIYUN_OSS_ACCESS_KEY_ID}
+      MINIO_SECRET_KEY: ${ALIYUN_OSS_ACCESS_KEY_SECRET}
+      MINIO_BUCKET: ${ALIYUN_OSS_BUCKET}
+      MINIO_SECURE: ${ALIYUN_OSS_SECURE:-true}
+      MINIO_REGION: ${ALIYUN_OSS_REGION}
+      OIDC_PRIVATE_KEY_PATH: /run/secrets/oidc_private_key.pem
+      OIDC_PUBLIC_KEY_PATH: /run/secrets/oidc_public_key.pem
+      P2RANK_BINARY: ${P2RANK_BINARY:-/opt/p2rank/bin/prank}
+      FPOCKET_BINARY: ${FPOCKET_BINARY:-/opt/fpocket/bin/fpocket}
+    volumes:
+      - upload_storage:/app/storage
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+      - ${ENZYME_DB_HOST_PATH:-/opt/protein-ai-platform/enzyme-dbs}:/app/enzyme_dbs:ro
+      - ${P2RANK_HOST_PATH:-/opt/p2rank}:/opt/p2rank:ro
+      - ${FPOCKET_HOST_PATH:-/opt/fpocket}:/opt/fpocket:ro
+    secrets:
+      - source: oidc_private_key
+        target: oidc_private_key.pem
+        mode: 0444
+      - source: oidc_public_key
+        target: oidc_public_key.pem
+        mode: 0444
+    depends_on:
+      storage-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.services.scheduler", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  md-worker:
+    image: protein-ai-backend:aliyun
+    command:
+      [
+        "celery",
+        "-A",
+        "app.services.scheduler",
+        "worker",
+        "--loglevel=info",
+        "--queues=md_cpu",
+        "--concurrency=${CELERY_MD_WORKER_CONCURRENCY:-1}"
+      ]
+    networks:
+      - app_network
+    env_file:
+      - .env
+      - .env.deploy-data
+      - .env.aliyun.app
+    environment:
+      HOME: /app
+      DEPLOY_DATA_ROOT: /app/deploy_data
+      DATABASE_URL: ${ALIYUN_APP_DATABASE_URL}
+      REDIS_HOST: ${ALIYUN_REDIS_HOST}
+      REDIS_PORT: ${ALIYUN_REDIS_PORT:-6379}
+      REDIS_DB: ${ALIYUN_REDIS_APP_DB:-0}
+      REDIS_USERNAME: ${ALIYUN_REDIS_USERNAME:-}
+      REDIS_PASSWORD: ${ALIYUN_REDIS_PASSWORD:-}
+      REDIS_URL: ${ALIYUN_REDIS_APP_URL:-}
+      MINIO_ENDPOINT: ${ALIYUN_OSS_ENDPOINT}
+      MINIO_ACCESS_KEY: ${ALIYUN_OSS_ACCESS_KEY_ID}
+      MINIO_SECRET_KEY: ${ALIYUN_OSS_ACCESS_KEY_SECRET}
+      MINIO_BUCKET: ${ALIYUN_OSS_BUCKET}
+      MINIO_SECURE: ${ALIYUN_OSS_SECURE:-true}
+      MINIO_REGION: ${ALIYUN_OSS_REGION}
+      GROMACS_BIN: ${GROMACS_BIN:-gmx}
+      OIDC_PRIVATE_KEY_PATH: /run/secrets/oidc_private_key.pem
+      OIDC_PUBLIC_KEY_PATH: /run/secrets/oidc_public_key.pem
+    volumes:
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+      - upload_storage:/app/storage
+    secrets:
+      - source: oidc_private_key
+        target: oidc_private_key.pem
+        mode: 0444
+      - source: oidc_public_key
+        target: oidc_public_key.pem
+        mode: 0444
+    depends_on:
+      storage-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.services.scheduler", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  ligand-worker:
+    image: protein-ai-ligand-worker:aliyun
+    platform: linux/amd64
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.ligand-worker.aliyun
+    command:
+      [
+        "celery",
+        "-A",
+        "app.services.scheduler",
+        "worker",
+        "--loglevel=info",
+        "--queues=ligand_cpu",
+        "--concurrency=${CELERY_LIGAND_WORKER_CONCURRENCY:-1}"
+      ]
+    networks:
+      - app_network
+    env_file:
+      - .env
+      - .env.deploy-data
+      - .env.aliyun.app
+    environment:
+      HOME: /app
+      DEPLOY_DATA_ROOT: /app/deploy_data
+      DATABASE_URL: ${ALIYUN_APP_DATABASE_URL}
+      REDIS_HOST: ${ALIYUN_REDIS_HOST}
+      REDIS_PORT: ${ALIYUN_REDIS_PORT:-6379}
+      REDIS_DB: ${ALIYUN_REDIS_APP_DB:-0}
+      REDIS_USERNAME: ${ALIYUN_REDIS_USERNAME:-}
+      REDIS_PASSWORD: ${ALIYUN_REDIS_PASSWORD:-}
+      REDIS_URL: ${ALIYUN_REDIS_APP_URL:-}
+      MINIO_ENDPOINT: ${ALIYUN_OSS_ENDPOINT}
+      MINIO_ACCESS_KEY: ${ALIYUN_OSS_ACCESS_KEY_ID}
+      MINIO_SECRET_KEY: ${ALIYUN_OSS_ACCESS_KEY_SECRET}
+      MINIO_BUCKET: ${ALIYUN_OSS_BUCKET}
+      MINIO_SECURE: ${ALIYUN_OSS_SECURE:-true}
+      MINIO_REGION: ${ALIYUN_OSS_REGION}
+      GROMACS_BIN: ${GROMACS_BIN:-gmx}
+      AMBERHOME: ${AMBERHOME:-/opt/ambertools}
+      LIGAND_RUNTIME_BOUNDARY: ligand_worker_only
+      LIGAND_RUNTIME_CHECK: /usr/local/bin/ligand-runtime-check
+    volumes:
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+      - upload_storage:/app/storage
+    depends_on:
+      storage-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.services.scheduler", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  outline:
+    image: outlinewiki/outline:latest
+    command:
+      [
+        "sh",
+        "-lc",
+        "sed -i 's/secure: _env.default.isProduction,/secure: false,/g' /opt/outline/build/plugins/oidc/server/auth/oidcRouter.js && exec node build/server/index.js"
+      ]
+    expose:
+      - "3001"
+    networks:
+      - app_network
+    environment:
+      DATABASE_URL: ${ALIYUN_OUTLINE_DATABASE_URL}
+      PGSSLMODE: ${ALIYUN_OUTLINE_PGSSLMODE:-prefer}
+      DATABASE_URL_TEST: ${ALIYUN_OUTLINE_DATABASE_URL_TEST:-}
+      REDIS_URL: ${ALIYUN_REDIS_OUTLINE_URL:-redis://${ALIYUN_REDIS_HOST}:${ALIYUN_REDIS_PORT:-6379}/${ALIYUN_REDIS_OUTLINE_DB:-1}}
+      AWS_ACCESS_KEY_ID: ${ALIYUN_OSS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${ALIYUN_OSS_ACCESS_KEY_SECRET}
+      AWS_REGION: ${ALIYUN_OSS_REGION}
+      AWS_S3_UPLOAD_BUCKET_NAME: ${ALIYUN_OSS_OUTLINE_BUCKET}
+      AWS_S3_UPLOAD_BUCKET_URL: ${ALIYUN_OSS_OUTLINE_BUCKET_URL}
+      AWS_S3_FORCE_PATH_STYLE: ${ALIYUN_OSS_FORCE_PATH_STYLE:-false}
+      AWS_S3_ACL: private
+      OIDC_CLIENT_ID: protein-ai
+      OIDC_CLIENT_SECRET: ${OIDC_CLIENT_SECRET}
+      OIDC_AUTH_URI: ${PUBLIC_BASE_URL}/api/oidc/authorize
+      OIDC_TOKEN_URI: http://backend:8000/api/oidc/token
+      OIDC_USERINFO_URI: http://backend:8000/api/oidc/userinfo
+      OIDC_LOGOUT_URI: ${PUBLIC_BASE_URL}/api/oidc/logout
+      OIDC_DISPLAY_NAME: Protein AI
+      OIDC_SCOPES: openid profile email
+      SECRET_KEY: ${OUTLINE_SECRET_KEY}
+      UTILS_SECRET: ${OUTLINE_UTILS_SECRET}
+      URL: ${OUTLINE_PUBLIC_URL}
+      PORT: 3001
+      FORCE_HTTPS: ${OUTLINE_FORCE_HTTPS:-false}
+      NODE_ENV: production
+      FILE_STORAGE: s3
+      RATE_LIMITER_ENABLED: "false"
+    volumes:
+      - outline_data:/var/lib/outline/data
+      - ./outline-passport-patched.js:/opt/outline/build/server/utils/passport.js
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3001/auth/login"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  chromadb:
+    image: chromadb/chroma:latest
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+    networks:
+      - app_network
+    healthcheck:
+      test: ["CMD-SHELL", "grep -q ':1F40 ' /proc/net/tcp"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+volumes:
+  chroma_data:
+  ligand_scratch:
+  md_scratch:
+  model_cache:
+  outline_data:
+  upload_storage:
+
+secrets:
+  oidc_private_key:
+    file: ${OIDC_PRIVATE_KEY_HOST_PATH:-/opt/protein-ai-platform/shared/secrets/oidc_private_key.pem}
+  oidc_public_key:
+    file: ${OIDC_PUBLIC_KEY_HOST_PATH:-/opt/protein-ai-platform/shared/secrets/oidc_public_key.pem}
+
+networks:
+  app_network:
+    driver: bridge

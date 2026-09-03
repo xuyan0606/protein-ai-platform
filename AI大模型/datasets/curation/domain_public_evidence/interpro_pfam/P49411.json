@@ -1,0 +1,107 @@
+{
+  "accession": "P49411",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00009",
+        "name": "Elongation factor Tu GTP binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000795",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49411",
+          "protein_length": 455,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 58,
+                  "end": 251,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00009",
+              "score": 8.8e-57
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03143",
+        "name": "Elongation factor Tu C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004160",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49411",
+          "protein_length": 455,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 348,
+                  "end": 442,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03143",
+              "score": 2.1e-26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03144",
+        "name": "Elongation factor Tu domain 2",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004161",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49411",
+          "protein_length": 455,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 275,
+                  "end": 343,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03144",
+              "score": 9.4e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

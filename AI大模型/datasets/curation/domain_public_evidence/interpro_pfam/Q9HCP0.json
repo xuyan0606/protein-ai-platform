@@ -1,0 +1,85 @@
+{
+  "accession": "Q9HCP0",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00069",
+        "name": "Protein kinase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000719",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hcp0",
+          "protein_length": 422,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 44,
+                  "end": 262,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00069",
+              "score": 1.2e-22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12605",
+        "name": "Casein kinase 1 gamma C terminal",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR022247",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hcp0",
+          "protein_length": 422,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 331,
+                  "end": 362,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12605",
+              "score": 0.058
+            },
+            {
+              "fragments": [
+                {
+                  "start": 369,
+                  "end": 392,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF12605",
+              "score": 3.6e-06
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "O95260",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04376",
+        "name": "Arginine-tRNA-protein transferase, N terminus",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR007471",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95260",
+          "protein_length": 518,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 22,
+                  "end": 92,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04376",
+              "score": 4.4e-23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04377",
+        "name": "Arginine-tRNA-protein transferase, C terminus",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR007472",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95260",
+          "protein_length": 518,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 290,
+                  "end": 429,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04377",
+              "score": 1.3e-42
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "created_at": "2026-09-03T07:35:25.584937+00:00",
+  "local_only": true,
+  "case_rows": 11,
+  "positive_cases": 1,
+  "negative_cases": 10,
+  "expected_rejected_negative_cases": 10,
+  "actual_rejected_negative_cases": 10,
+  "failed_regression_cases": 0,
+  "success": true,
+  "cases": [
+    {
+      "case_id": "positive_current_template",
+      "expected_valid": true,
+      "actual_valid": true,
+      "expected_outcome_met": true,
+      "failure_checks": [],
+      "warning_count": 2,
+      "metrics": {
+        "selected_variant_rows": 0,
+        "property_prediction_rows": 5,
+        "ddg_result_rows": 2,
+        "artifact_ref_count": 8,
+        "reviewed_numbering_rows": 4,
+        "claim_eligible_training_rows": 0,
+        "strict_msa_site_feature_rows": 0,
+        "wet_lab_authorization_rows": 8
+      }
+    },
+    {
+      "case_id": "bad_go_recommendation_low_evidence",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "go_recommendation_requires_reviewed_training_and_authorization_gates"
+      ],
+      "warning_count": 2,
+      "metrics": {
+        "selected_variant_rows": 1,
+        "property_prediction_rows": 5,
+        "ddg_result_rows": 2,
+        "artifact_ref_count": 8,
+        "reviewed_numbering_rows": 4,
+        "claim_eligible_training_rows": 0,
+        "strict_msa_site_feature_rows": 0,
+        "wet_lab_authorization_rows": 8
+      }
+    },
+    {
+      "case_id": "bad_selected_variant_no_manual_review",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "selected_variant_manual_review_required_true"
+      ],
+      "warning_count": 2,
+      "metrics": {
+        "selected_variant_rows": 1,
+        "property_prediction_rows": 5,
+        "ddg_result_rows": 2,
+        "artifact_ref_count": 8,
+        "reviewed_numbering_rows": 4,
+        "claim_eligible_training_rows": 0,
+        "strict_msa_site_feature_rows": 0,
+        "wet_lab_authorization_rows": 8
+      }
+    },
+    {
+      "case_id": "bad_training_import_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "safe_for_training_import_false"
+      ],
+      "warning_count": 2,
+      "metrics": {
+        "selected_variant_rows": 0,
+        "property_prediction_rows": 5,
+        "ddg_result_rows": 2,
+        "artifact_ref_count": 8,
+        "reviewed_numbering_rows": 4,
+        "claim_eligible_training_rows": 0,
+        "strict_msa_site_feature_rows": 0,
+        "wet_lab_authorization_rows": 8
+      }
+    },
+    {
+      "case_id": "bad_model_claim_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "safe_for_model_claim_false"
+      ],
+      "warning_count": 2,
+      "metrics": {
+        "selected_variant_rows": 0,
+        "property_prediction_rows": 5,
+        "ddg_result_rows": 2,
+        "artifact_ref_count": 8,
+        "reviewed_numbering_rows": 4,
+        "claim_eligible_training_rows": 0,
+        "strict_msa_site_feature_rows": 0,
+        "wet_lab_authorization_rows": 8
+      }
+    },
+    {
+      "case_id": "bad_release_ready_true",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "release_ready_false"
+      ],
+      "warning_count": 2,
+      "metrics": {
+        "selected_variant_rows": 0,
+        "property_prediction_rows": 5,
+        "ddg_result_rows": 2,
+        "artifact_ref_count": 8,
+        "reviewed_numbering_rows": 4,
+        "claim_eligible_training_rows": 0,
+        "strict_msa_site_feature_rows": 0,
+        "wet_lab_authorization_rows": 8
+      }
+    },
+    {
+      "case_id": "bad_missing_required_forbidden_claim",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "required_forbidden_claims_present"
+      ],
+      "warning_count": 2,
+      "metrics": {
+        "selected_variant_rows": 0,
+        "property_prediction_rows": 5,
+        "ddg_result_rows": 2,
+        "artifact_ref_count": 8,
+        "reviewed_numbering_rows": 4,
+        "claim_eligible_training_rows": 0,
+        "strict_msa_site_feature_rows": 0,
+        "wet_lab_authorization_rows": 8
+      }
+    },
+    {
+      "case_id": "bad_artifact_refs_empty",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "artifact_refs_nonempty"
+      ],
+      "warning_count": 2,
+      "metrics": {
+        "selected_variant_rows": 0,
+        "property_prediction_rows": 5,
+        "ddg_result_rows": 2,
+        "artifact_ref_count": 0,
+        "reviewed_numbering_rows": 4,
+        "claim_eligible_training_rows": 0,
+        "strict_msa_site_feature_rows": 0,
+        "wet_lab_authorization_rows": 8
+      }
+    },
+    {
+      "case_id": "bad_manual_review_false",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "manual_review_required_true"
+      ],
+      "warning_count": 2,
+      "metrics": {
+        "selected_variant_rows": 0,
+        "property_prediction_rows": 5,
+        "ddg_result_rows": 2,
+        "artifact_ref_count": 8,
+        "reviewed_numbering_rows": 4,
+        "claim_eligible_training_rows": 0,
+        "strict_msa_site_feature_rows": 0,
+        "wet_lab_authorization_rows": 8
+      }
+    },
+    {
+      "case_id": "bad_resource_plan_validation_false",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "resource_plan_validation_success_true"
+      ],
+      "warning_count": 2,
+      "metrics": {
+        "selected_variant_rows": 0,
+        "property_prediction_rows": 5,
+        "ddg_result_rows": 2,
+        "artifact_ref_count": 8,
+        "reviewed_numbering_rows": 4,
+        "claim_eligible_training_rows": 0,
+        "strict_msa_site_feature_rows": 0,
+        "wet_lab_authorization_rows": 8
+      }
+    },
+    {
+      "case_id": "bad_physics_ddg_claim",
+      "expected_valid": false,
+      "actual_valid": false,
+      "expected_outcome_met": true,
+      "failure_checks": [
+        "physics_ddg_safe_for_model_claim_false",
+        "physics_ddg_ready_requires_manual_review_only_use"
+      ],
+      "warning_count": 2,
+      "metrics": {
+        "selected_variant_rows": 0,
+        "property_prediction_rows": 5,
+        "ddg_result_rows": 2,
+        "artifact_ref_count": 8,
+        "reviewed_numbering_rows": 4,
+        "claim_eligible_training_rows": 0,
+        "strict_msa_site_feature_rows": 0,
+        "wet_lab_authorization_rows": 8
+      }
+    }
+  ],
+  "cases_artifact": "datasets/governance/enzyme_agent_result_safety_regression_cases.jsonl",
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Regression suite proves the structured result validator rejects unsafe result mutations. It does not approve any recommendation, training import, model claim, customer delivery, or release."
+}

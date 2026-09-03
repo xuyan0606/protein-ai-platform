@@ -1,0 +1,13 @@
+{
+  "created_at": "2026-09-02T14:40:00+08:00",
+  "source_report": "reports/sci_open_candidates_20260902.json",
+  "records": [
+    {"pmcid": "PMC13051958", "table_count": 4, "mutation_mentions": 66, "kcat_mentions": 0, "stability_mentions": 63, "status": "pending_human_measurement_extraction"},
+    {"pmcid": "PMC13119103", "table_count": 4, "mutation_mentions": 51, "kcat_mentions": 0, "stability_mentions": 35, "status": "pending_human_measurement_extraction"},
+    {"pmcid": "PMC13234801", "table_count": 2, "mutation_mentions": 51, "kcat_mentions": 9, "stability_mentions": 50, "status": "pending_human_measurement_extraction"}
+  ],
+  "training_import_allowed": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Structural screening only; numeric measurements require locator-level human extraction and independent review."
+}

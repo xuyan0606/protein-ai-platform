@@ -1,0 +1,85 @@
+{
+  "accession": "Q14790",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00656",
+        "name": "Caspase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011600",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q14790",
+          "protein_length": 479,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 233,
+                  "end": 474,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00656",
+              "score": 1.5e-61
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01335",
+        "name": "Death effector domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001875",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q14790",
+          "protein_length": 479,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 3,
+                  "end": 84,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01335",
+              "score": 8.2e-21
+            },
+            {
+              "fragments": [
+                {
+                  "start": 101,
+                  "end": 180,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01335",
+              "score": 1e-20
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

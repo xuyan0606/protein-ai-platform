@@ -1,0 +1,73 @@
+{
+  "accession": "P54317",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00151",
+        "name": "Lipase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013818",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p54317",
+          "protein_length": 469,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 18,
+                  "end": 354,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00151",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01477",
+        "name": "PLAT/LH2 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001024",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p54317",
+          "protein_length": 469,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 359,
+                  "end": 460,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01477",
+              "score": 5.8e-18
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

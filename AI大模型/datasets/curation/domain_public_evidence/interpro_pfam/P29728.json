@@ -1,0 +1,85 @@
+{
+  "accession": "P29728",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01909",
+        "name": "Nucleotidyltransferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002934",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p29728",
+          "protein_length": 719,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 373,
+                  "end": 438,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01909",
+              "score": 1.3e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF10421",
+        "name": "2'-5'-oligoadenylate synthetase 1, domain 2, C-terminus",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR018952",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p29728",
+          "protein_length": 719,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 154,
+                  "end": 337,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10421",
+              "score": 1e-72
+            },
+            {
+              "fragments": [
+                {
+                  "start": 497,
+                  "end": 684,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10421",
+              "score": 2.2e-82
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

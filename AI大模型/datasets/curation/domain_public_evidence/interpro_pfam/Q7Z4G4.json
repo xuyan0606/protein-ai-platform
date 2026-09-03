@@ -1,0 +1,73 @@
+{
+  "accession": "Q7Z4G4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01170",
+        "name": "RMKL-like, methyltransferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000241",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q7z4g4",
+          "protein_length": 463,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 190,
+                  "end": 320,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01170",
+              "score": 3.8e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25904",
+        "name": "Tmrp11 THUMP N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR059073",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q7z4g4",
+          "protein_length": 463,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 9,
+                  "end": 180,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF25904",
+              "score": 1.1e-33
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

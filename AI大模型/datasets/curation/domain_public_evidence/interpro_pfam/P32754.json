@@ -1,0 +1,51 @@
+{
+  "accession": "P32754",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00903",
+        "name": "Glyoxalase/Bleomycin resistance protein/Dioxygenase superfamily",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004360",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p32754",
+          "protein_length": 393,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 19,
+                  "end": 123,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00903",
+              "score": 4.2e-05
+            },
+            {
+              "fragments": [
+                {
+                  "start": 181,
+                  "end": 301,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00903",
+              "score": 7.2e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

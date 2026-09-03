@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-09-03T07:34:01.798583+00:00",
+  "local_only": true,
+  "success": true,
+  "audit_rows": 11,
+  "blocked_claim_rows": 10,
+  "claims_allowed": 1,
+  "claims_blocked": 10,
+  "blocked_claim_ids": [
+    "local_safe_training_pipeline",
+    "model_quality_claim",
+    "five_head_training_run",
+    "active_learning_experiment_submission",
+    "customer_sequence_package",
+    "approved_for_ordering",
+    "ip_fto_cleared",
+    "biosecurity_screened",
+    "external_tool_production_use",
+    "local_release_review_package"
+  ],
+  "failures": [],
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "customer_delivery_ready": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "policy": "Validation only. Blocked claim rows remain non-authorizing until source requirements and promotion decisions pass."
+}

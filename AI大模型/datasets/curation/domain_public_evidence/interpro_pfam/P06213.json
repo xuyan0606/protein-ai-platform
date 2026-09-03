@@ -1,0 +1,153 @@
+{
+  "accession": "P06213",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00757",
+        "name": "Furin-like cysteine rich region",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006211",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p06213",
+          "protein_length": 1382,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 179,
+                  "end": 340,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00757",
+              "score": 2.9e-33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01030",
+        "name": "Receptor L domain",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR000494",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p06213",
+          "protein_length": 1382,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 52,
+                  "end": 163,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01030",
+              "score": 4.4e-24
+            },
+            {
+              "fragments": [
+                {
+                  "start": 359,
+                  "end": 470,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01030",
+              "score": 2.2e-27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07714",
+        "name": "Protein tyrosine and serine/threonine kinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001245",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p06213",
+          "protein_length": 1382,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1023,
+                  "end": 1289,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07714",
+              "score": 3e-93
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17870",
+        "name": "Insulin receptor trans-membrane segment",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040969",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p06213",
+          "protein_length": 1382,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 940,
+                  "end": 987,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF17870",
+              "score": 3.8e-17
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

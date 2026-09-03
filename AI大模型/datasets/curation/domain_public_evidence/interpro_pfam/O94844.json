@@ -1,0 +1,85 @@
+{
+  "accession": "O94844",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00071",
+        "name": "Ras family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001806",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94844",
+          "protein_length": 696,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 16,
+                  "end": 207,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00071",
+              "score": 6.8e-18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00651",
+        "name": "BTB/POZ domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000210",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94844",
+          "protein_length": 696,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 404,
+                  "end": 455,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00651",
+              "score": 0.26
+            },
+            {
+              "fragments": [
+                {
+                  "start": 476,
+                  "end": 581,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00651",
+              "score": 8e-12
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

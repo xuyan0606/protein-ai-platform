@@ -1,0 +1,150 @@
+{
+  "benchmark_rows": 15,
+  "created_at": "2026-09-03T07:33:53.717850+00:00",
+  "gap_queue": "datasets/benchmark/benchmark_gap_queue.jsonl",
+  "heads": [
+    {
+      "benchmark_data_ready_from_matrix": false,
+      "error_counts": {
+        "benchmark_status_not_present": 1
+      },
+      "expected": 3,
+      "gap_queue_id": "benchmark_head_gap::mutation_rank",
+      "head": "mutation_rank",
+      "missing": 1,
+      "missing_benchmarks": [
+        "KWB strict mutation holdout"
+      ],
+      "ready": false,
+      "ready_for_model_claim": false,
+      "required_benchmarks": [
+        "ProteinGym",
+        "FLIP/FLIP2-style protein/family/time split",
+        "KWB strict mutation holdout"
+      ],
+      "safe_for_model_claim": false,
+      "scorecard_ready_from_matrix": false,
+      "training_ready_from_matrix": false,
+      "valid": 2
+    },
+    {
+      "benchmark_data_ready_from_matrix": false,
+      "error_counts": {},
+      "expected": 3,
+      "gap_queue_id": null,
+      "head": "stability",
+      "missing": 0,
+      "missing_benchmarks": [],
+      "ready": true,
+      "ready_for_model_claim": false,
+      "required_benchmarks": [
+        "ThermoMPNN comparison",
+        "ATOM3D MSP",
+        "FireProt/ProTherm reviewed stability set"
+      ],
+      "safe_for_model_claim": false,
+      "scorecard_ready_from_matrix": false,
+      "training_ready_from_matrix": false,
+      "valid": 3
+    },
+    {
+      "benchmark_data_ready_from_matrix": false,
+      "error_counts": {},
+      "expected": 3,
+      "gap_queue_id": null,
+      "head": "activity_risk",
+      "missing": 0,
+      "missing_benchmarks": [],
+      "ready": true,
+      "ready_for_model_claim": false,
+      "required_benchmarks": [
+        "KWB activity numeric feedback smoke",
+        "KWB plate-level wet-lab feedback",
+        "CatPred/GotEnzymes predicted reference only"
+      ],
+      "safe_for_model_claim": false,
+      "scorecard_ready_from_matrix": false,
+      "training_ready_from_matrix": false,
+      "valid": 3
+    },
+    {
+      "benchmark_data_ready_from_matrix": false,
+      "error_counts": {
+        "benchmark_status_not_present": 1
+      },
+      "expected": 3,
+      "gap_queue_id": "benchmark_head_gap::substrate_fit",
+      "head": "substrate_fit",
+      "missing": 1,
+      "missing_benchmarks": [
+        "reviewed substrate identity set"
+      ],
+      "ready": false,
+      "ready_for_model_claim": false,
+      "required_benchmarks": [
+        "PDBbind/CASF/D3R-style affinity or pose benchmark",
+        "PoseBusters-style pose plausibility",
+        "reviewed substrate identity set"
+      ],
+      "safe_for_model_claim": false,
+      "scorecard_ready_from_matrix": false,
+      "training_ready_from_matrix": false,
+      "valid": 2
+    },
+    {
+      "benchmark_data_ready_from_matrix": false,
+      "error_counts": {},
+      "expected": 3,
+      "gap_queue_id": null,
+      "head": "assay_success",
+      "missing": 0,
+      "missing_benchmarks": [],
+      "ready": true,
+      "ready_for_model_claim": false,
+      "required_benchmarks": [
+        "KWB plate-level feedback",
+        "replicate consistency",
+        "QC fail-rate calibration"
+      ],
+      "safe_for_model_claim": false,
+      "scorecard_ready_from_matrix": false,
+      "training_ready_from_matrix": false,
+      "valid": 3
+    }
+  ],
+  "heads_ready": 3,
+  "input_errors": [],
+  "inputs": {
+    "benchmark_acquisition_plan": "datasets/benchmark/benchmark_acquisition_plan.jsonl",
+    "benchmark_matrix_report": "reports/benchmark_matrix_report.json",
+    "benchmark_score_cache_manifest": "reports/benchmark_score_cache_manifest.json",
+    "benchmark_score_cache_validation_report": "reports/benchmark_score_cache_validation_report.json"
+  },
+  "invalid_rows": 2,
+  "local_only": true,
+  "policy": "Benchmark coverage dashboard only. Benchmark artifacts are evaluation gates, not KWB training labels. Missing or invalid benchmark cache rows must be resolved through the existing benchmark acquisition, license review, scorecard, leakage-check, intake, and validation workflow. This dashboard never grants a model claim, training import, intake approval, or release readiness.",
+  "policy_checks": {
+    "benchmark_intake_modified": false,
+    "benchmark_is_training_label_source": false,
+    "model_claim_gate_opened": false,
+    "release_gate_opened": false
+  },
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "status": "blocked",
+  "summary": {
+    "benchmark_gap_rows": 2,
+    "error_counts": {
+      "benchmark_status_not_present": 2
+    },
+    "expected": 15,
+    "gap_queue_rows": 2,
+    "head_count": 5,
+    "heads_ready": 3,
+    "missing": 2,
+    "source_count_consistent": true,
+    "valid": 13
+  },
+  "valid_rows": 13
+}

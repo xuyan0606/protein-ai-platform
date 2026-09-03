@@ -1,0 +1,73 @@
+{
+  "accession": "P29466",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00619",
+        "name": "Caspase recruitment domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001315",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p29466",
+          "protein_length": 404,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 4,
+                  "end": 88,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00619",
+              "score": 3.6e-22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00656",
+        "name": "Caspase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011600",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p29466",
+          "protein_length": 404,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 162,
+                  "end": 399,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00656",
+              "score": 2.1e-59
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "accepted_rows": 3126,
+  "accepted_uniprots": 28,
+  "audit_all_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_deep_audit_all_stability_records.jsonl",
+  "audit_review_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_deep_audit_review_queue.jsonl",
+  "created_at": "2026-07-31T07:57:45.880086+00:00",
+  "ec_class_row_counts": {
+    "1": 213,
+    "2": 72,
+    "3": 2509,
+    "4": 332
+  },
+  "excluded_reason_counts": {
+    "missing_local_ec_link": 1941
+  },
+  "excluded_rows": 1941,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/fireprot_curated_kwb_schema_mapping_candidates.jsonl",
+  "input_rows": 5067,
+  "measurement_strength_counts": {
+    "moderate": 746,
+    "near_neutral": 1355,
+    "strong": 1025
+  },
+  "policy": "Only EC-confirmed FireProt enzyme candidates are shown; rows remain review-only until human decision and import approval.",
+  "priority_counts": {
+    "P0": 3115,
+    "P1": 3,
+    "P2": 8
+  },
+  "queue_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_curation_queue.jsonl",
+  "safe_for_model_claim": false,
+  "top_uniprot_groups": [
+    {
+      "rows": 1064,
+      "uniprot_id": "P00644"
+    },
+    {
+      "rows": 527,
+      "uniprot_id": "P00720"
+    },
+    {
+      "rows": 330,
+      "uniprot_id": "P00648"
+    },
+    {
+      "rows": 226,
+      "uniprot_id": "P61626"
+    },
+    {
+      "rows": 213,
+      "uniprot_id": "P0ABQ4"
+    },
+    {
+      "rows": 134,
+      "uniprot_id": "P0A7Y4"
+    },
+    {
+      "rows": 122,
+      "uniprot_id": "P00698"
+    },
+    {
+      "rows": 114,
+      "uniprot_id": "P00651"
+    },
+    {
+      "rows": 100,
+      "uniprot_id": "P61823"
+    },
+    {
+      "rows": 88,
+      "uniprot_id": "P0A877"
+    },
+    {
+      "rows": 38,
+      "uniprot_id": "P37001"
+    },
+    {
+      "rows": 28,
+      "uniprot_id": "O74035"
+    },
+    {
+      "rows": 18,
+      "uniprot_id": "P00560"
+    },
+    {
+      "rows": 16,
+      "uniprot_id": "P00918"
+    },
+    {
+      "rows": 14,
+      "uniprot_id": "P30289"
+    },
+    {
+      "rows": 12,
+      "uniprot_id": "P00593"
+    },
+    {
+      "rows": 12,
+      "uniprot_id": "P00750"
+    },
+    {
+      "rows": 12,
+      "uniprot_id": "P00782"
+    },
+    {
+      "rows": 8,
+      "uniprot_id": "P03958"
+    },
+    {
+      "rows": 8,
+      "uniprot_id": "P07170"
+    }
+  ],
+  "worklist_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_review_worklist.jsonl"
+}

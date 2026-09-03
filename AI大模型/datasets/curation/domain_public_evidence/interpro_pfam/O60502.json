@@ -1,0 +1,39 @@
+{
+  "accession": "O60502",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF07555",
+        "name": "beta-N-acetylglucosaminidase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR011496",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60502",
+          "protein_length": 916,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 62,
+                  "end": 342,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07555",
+              "score": 1.5e-86
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

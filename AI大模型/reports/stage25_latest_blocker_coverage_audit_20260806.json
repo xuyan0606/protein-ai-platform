@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-06",
+  "mode": "stage25_latest_blocker_coverage_audit",
+  "stage": 25,
+  "audit_valid": true,
+  "blocker_rows": 5,
+  "covered_by_current_receipt_rows": 5,
+  "covered_by_overall_index_rows": 5,
+  "covered_by_handoff_manifest_rows": 5,
+  "covered_by_operator_docs_rows": 5,
+  "covered_by_runner_or_rerun_rows": 5,
+  "uncovered_blockers": [],
+  "rows": [
+    {
+      "blocker_id": "stage25_new_paper_fulltext_source_table",
+      "status": "blocked",
+      "current_receipt": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_source_drop_extraction_readiness_candidate_validation_20260806.json",
+      "closure_condition": "Place legally obtained files in 酶数据库/incoming/fulltext or canonical AI大模型 source-drop paths, rerun intake/source-drop/reviewed-extraction validators, then require reviewed extraction and source locators before any SQLite apply.",
+      "expected_overall_terms": [
+        "source_drop_manifest_valid",
+        "source_acquisition_shortlist_valid",
+        "literature_web_search_receipt_valid",
+        "source_drop_extraction_readiness_candidates_valid"
+      ],
+      "matched_overall_terms": [
+        "source_drop_manifest_valid",
+        "source_acquisition_shortlist_valid",
+        "literature_web_search_receipt_valid",
+        "source_drop_extraction_readiness_candidates_valid"
+      ],
+      "missing_overall_terms": [],
+      "expected_runner_terms": [
+        "validate_stage25_source_drop_manifest",
+        "validate_stage25_source_acquisition_shortlist",
+        "validate_stage25_literature_web_search_receipt",
+        "validate_stage25_source_drop_extraction_readiness_candidates"
+      ],
+      "matched_runner_terms": [
+        "validate_stage25_source_drop_manifest",
+        "validate_stage25_source_acquisition_shortlist",
+        "validate_stage25_literature_web_search_receipt",
+        "validate_stage25_source_drop_extraction_readiness_candidates"
+      ],
+      "missing_runner_terms": [],
+      "expected_doc_terms": [
+        "fulltext/source-table",
+        "source-drop",
+        "Source acquisition shortlist",
+        "Literature search"
+      ],
+      "matched_doc_terms": [
+        "fulltext/source-table",
+        "source-drop",
+        "Source acquisition shortlist",
+        "Literature search"
+      ],
+      "missing_doc_terms": [],
+      "covered_by_current_receipt": true,
+      "covered_by_overall_index": true,
+      "covered_by_handoff_manifest": true,
+      "covered_by_operator_docs": true,
+      "covered_by_runner_or_rerun": true,
+      "coverage_complete": true
+    },
+    {
+      "blocker_id": "stage25_sqlite_apply",
+      "status": "blocked",
+      "current_receipt": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_family_apply_transaction_plan_validation_20260806.json",
+      "closure_condition": "Source evidence and allowlist approval must close before family transaction plans may emit write operations.",
+      "expected_overall_terms": [
+        "family_apply_transaction_plans_valid",
+        "family_apply_transaction_ready_to_apply_rows"
+      ],
+      "matched_overall_terms": [
+        "family_apply_transaction_plans_valid",
+        "family_apply_transaction_ready_to_apply_rows"
+      ],
+      "missing_overall_terms": [],
+      "expected_runner_terms": [
+        "validate_stage25_family_apply_transaction_plans",
+        "validate_stage25_approved_apply_report",
+        "validate_new_paper_proposal_set_consistency"
+      ],
+      "matched_runner_terms": [
+        "validate_stage25_family_apply_transaction_plans",
+        "validate_stage25_approved_apply_report",
+        "validate_new_paper_proposal_set_consistency"
+      ],
+      "missing_runner_terms": [],
+      "expected_doc_terms": [
+        "SQLite",
+        "apply",
+        "proposal set consistency"
+      ],
+      "matched_doc_terms": [
+        "SQLite",
+        "apply",
+        "proposal set consistency"
+      ],
+      "missing_doc_terms": [],
+      "covered_by_current_receipt": true,
+      "covered_by_overall_index": true,
+      "covered_by_handoff_manifest": true,
+      "covered_by_operator_docs": true,
+      "covered_by_runner_or_rerun": true,
+      "coverage_complete": true
+    },
+    {
+      "blocker_id": "stage25_formal_decisions",
+      "status": "blocked",
+      "current_receipt": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_hard_gate_formal_decision_draft_package_validation_20260806.json",
+      "closure_condition": "Human reviewer must fill formal decision rows with reviewer/time/basis/acceptance receipts; drafts alone do not close this blocker.",
+      "expected_overall_terms": [
+        "hard_gate_formal_decision_draft_package_valid",
+        "workstream_acceptance_decision_rows"
+      ],
+      "matched_overall_terms": [
+        "hard_gate_formal_decision_draft_package_valid",
+        "workstream_acceptance_decision_rows"
+      ],
+      "missing_overall_terms": [],
+      "expected_runner_terms": [
+        "validate_stage25_hard_gate_formal_decision_draft_package",
+        "validate_workstream_acceptance_decisions"
+      ],
+      "matched_runner_terms": [
+        "validate_stage25_hard_gate_formal_decision_draft_package",
+        "validate_workstream_acceptance_decisions"
+      ],
+      "missing_runner_terms": [],
+      "expected_doc_terms": [
+        "formal decision",
+        "needs_more_info"
+      ],
+      "matched_doc_terms": [
+        "formal decision",
+        "needs_more_info"
+      ],
+      "missing_doc_terms": [],
+      "covered_by_current_receipt": true,
+      "covered_by_overall_index": true,
+      "covered_by_handoff_manifest": true,
+      "covered_by_operator_docs": true,
+      "covered_by_runner_or_rerun": true,
+      "coverage_complete": true
+    },
+    {
+      "blocker_id": "stage25_foldx_runtime_receipt",
+      "status": "blocked",
+      "current_receipt": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_foldx_runtime_receipt_candidate_draft_validation_20260806.json",
+      "closure_condition": "Provide licensed FoldX executable, license review, config/probe review and smoke artifacts before writing a formal runtime receipt.",
+      "expected_overall_terms": [
+        "foldx_provision_manifest_candidate_valid",
+        "foldx_runtime_receipt_candidate_drafts_valid"
+      ],
+      "matched_overall_terms": [
+        "foldx_provision_manifest_candidate_valid",
+        "foldx_runtime_receipt_candidate_drafts_valid"
+      ],
+      "missing_overall_terms": [],
+      "expected_runner_terms": [
+        "validate_stage25_foldx_provision_manifest_candidate",
+        "validate_stage25_foldx_runtime_receipt_candidate_drafts"
+      ],
+      "matched_runner_terms": [
+        "validate_stage25_foldx_provision_manifest_candidate",
+        "validate_stage25_foldx_runtime_receipt_candidate_drafts"
+      ],
+      "missing_runner_terms": [],
+      "expected_doc_terms": [
+        "FoldX",
+        "runtime receipt"
+      ],
+      "matched_doc_terms": [
+        "FoldX",
+        "runtime receipt"
+      ],
+      "missing_doc_terms": [],
+      "covered_by_current_receipt": true,
+      "covered_by_overall_index": true,
+      "covered_by_handoff_manifest": true,
+      "covered_by_operator_docs": true,
+      "covered_by_runner_or_rerun": true,
+      "coverage_complete": true
+    },
+    {
+      "blocker_id": "stage25_model_release_claim",
+      "status": "blocked",
+      "current_receipt": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/stage25_claim_release_consistency_validation_20260806.json",
+      "closure_condition": "Benchmark/formal decision/runtime/release governance gates must close before model or release claims may open.",
+      "expected_overall_terms": [
+        "claim_release_consistency_valid",
+        "local_release_consistency_success"
+      ],
+      "matched_overall_terms": [
+        "claim_release_consistency_valid",
+        "local_release_consistency_success"
+      ],
+      "missing_overall_terms": [],
+      "expected_runner_terms": [
+        "validate_stage25_claim_release_consistency",
+        "validate_local_release_manifest_fail_closed_consistency"
+      ],
+      "matched_runner_terms": [
+        "validate_stage25_claim_release_consistency",
+        "validate_local_release_manifest_fail_closed_consistency"
+      ],
+      "missing_runner_terms": [],
+      "expected_doc_terms": [
+        "model",
+        "release"
+      ],
+      "matched_doc_terms": [
+        "model",
+        "release"
+      ],
+      "missing_doc_terms": [],
+      "covered_by_current_receipt": true,
+      "covered_by_overall_index": true,
+      "covered_by_handoff_manifest": true,
+      "covered_by_operator_docs": true,
+      "covered_by_runner_or_rerun": true,
+      "coverage_complete": true
+    }
+  ],
+  "external_sqlite_mutated": false,
+  "formal_decision_rows_written": 0,
+  "apply_executed": false,
+  "export_safe_released": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

@@ -1,0 +1,47 @@
+{
+  "generated_from": "reports/training_readiness_report.json",
+  "local_executable": [
+    {
+      "item": "rerun_consistency_and_regression",
+      "status": "available"
+    },
+    {
+      "item": "review_2_unresolved_domain_intervals",
+      "status": "human_required"
+    }
+  ],
+  "human_required": [
+    {
+      "item": "mutation_numbering_and_provenance",
+      "rows": 475
+    },
+    {
+      "item": "structure_chain_mapping",
+      "rows": 475
+    },
+    {
+      "item": "training_authorization",
+      "rows": 7
+    }
+  ],
+  "external_input_required": [
+    {
+      "item": "msa_conservation_features",
+      "missing": 0,
+      "status": "trusted_cache_ready",
+      "strict_join_blocked": true
+    },
+    {
+      "item": "construct_fasta_and_accessions"
+    },
+    {
+      "item": "gpu_or_long_md_runtime"
+    }
+  ],
+  "gates": {
+    "strict_ready_streams": 1,
+    "claim_ready": false,
+    "training_execution_allowed": false,
+    "release_ready": false
+  }
+}

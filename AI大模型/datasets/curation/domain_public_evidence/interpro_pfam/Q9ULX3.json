@@ -1,0 +1,107 @@
+{
+  "accession": "Q9ULX3",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF08772",
+        "name": "Nin one binding (NOB1) Zn-ribbon like",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014881",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ulx3",
+          "protein_length": 412,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 260,
+                  "end": 332,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08772",
+              "score": 8.2e-26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF15017",
+        "name": "Putative WW-binding domain and destruction box",
+        "source_database": "pfam",
+        "type": "disordered",
+        "integrated": "IPR033461",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ulx3",
+          "protein_length": 412,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 153,
+                  "end": 212,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF15017",
+              "score": 7.4e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17146",
+        "name": "PIN domain of ribonuclease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR033411",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ulx3",
+          "protein_length": 412,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 7,
+                  "end": 93,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17146",
+              "score": 2.1e-31
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-09-03T07:35:28.661752+00:00",
+  "local_only": true,
+  "curated_mapping_rows": 34,
+  "graph_rows": 34,
+  "failure_rows": 0,
+  "node_count_total": 8630,
+  "edge_count_total": 42858,
+  "mapping_status_counts": {
+    "reviewed_with_construct_or_tags": 13,
+    "reviewed_with_missing_residues": 15,
+    "exact_sequence_match": 6
+  },
+  "failures": [],
+  "manifest": "reports/reviewed_structure_graph_manifest.json",
+  "output": "datasets/features/reviewed_structure_graph_features.jsonl",
+  "safe_for_model_claim": false,
+  "policy": "Coordinate graph cache only. Mutation numbering, activity/stability labels and customer claims remain gated elsewhere."
+}

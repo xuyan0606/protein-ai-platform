@@ -1,0 +1,14 @@
+{
+  "created_at": "2026-09-03T07:33:45.055904+00:00",
+  "local_only": true,
+  "board": "reports/top_tier_hard_gate_execution_board.json",
+  "actions": "datasets/governance/top_tier_hard_gate_execution_actions.jsonl",
+  "validated_gate_rows": 6,
+  "failed_checks": 0,
+  "success": true,
+  "blocked_gate_rows": 6,
+  "model_claim_allowed_rows": 0,
+  "release_ready_rows": 0,
+  "failures": [],
+  "policy": "Validator only. It checks fail-closed semantics and does not create decisions, approvals, labels, claims, downloads, or deployments."
+}

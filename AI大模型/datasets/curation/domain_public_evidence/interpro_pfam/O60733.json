@@ -1,0 +1,119 @@
+{
+  "accession": "O60733",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00023",
+        "name": "Ankyrin repeat",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR002110",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60733",
+          "protein_length": 806,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 349,
+                  "end": 380,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00023",
+              "score": 0.0066
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01734",
+        "name": "Patatin-like phospholipase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002641",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60733",
+          "protein_length": 806,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 481,
+                  "end": 664,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01734",
+              "score": 7.8e-18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12796",
+        "name": "Ankyrin repeats (3 copies)",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR002110",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60733",
+          "protein_length": 806,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 161,
+                  "end": 248,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12796",
+              "score": 2.5e-09
+            },
+            {
+              "fragments": [
+                {
+                  "start": 259,
+                  "end": 345,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12796",
+              "score": 1.6e-07
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

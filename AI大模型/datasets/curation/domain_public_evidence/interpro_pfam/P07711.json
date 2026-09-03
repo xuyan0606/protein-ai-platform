@@ -1,0 +1,73 @@
+{
+  "accession": "P07711",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00112",
+        "name": "Papain family cysteine protease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000668",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07711",
+          "protein_length": 333,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 115,
+                  "end": 332,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00112",
+              "score": 5.4e-84
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08246",
+        "name": "Cathepsin propeptide inhibitor domain (I29)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013201",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p07711",
+          "protein_length": 333,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 29,
+                  "end": 88,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08246",
+              "score": 1e-12
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

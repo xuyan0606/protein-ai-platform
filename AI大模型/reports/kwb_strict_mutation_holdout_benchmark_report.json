@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-09-03T07:33:53.500733+00:00",
+  "local_only": true,
+  "benchmark_name": "KWB strict mutation holdout",
+  "head": "mutation_rank",
+  "dataset_rows": 0,
+  "primary_holdout_rows": 0,
+  "diagnostic_validation_rows": 0,
+  "leakage_check_status": "failed",
+  "intake": "datasets/benchmark/benchmark_score_cache_intake.local.jsonl",
+  "artifacts": {
+    "dataset": {
+      "path": "cache/advanced_features/benchmarks/kwb_strict_mutation_holdout/dataset.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "split_definition": {
+      "path": "cache/advanced_features/benchmarks/kwb_strict_mutation_holdout/split_definition.json",
+      "sha256": "1de9c4a665960ac740c49684c6e8de9237d8da24d0c4512fb5eaeb6e45722fe0"
+    },
+    "scorecard": {
+      "path": "cache/advanced_features/benchmarks/kwb_strict_mutation_holdout/scorecard.json",
+      "sha256": "0efffd904de7ec14b237cf8532a3d6ee2189f008eec807bebb6c3eb83d44c703"
+    },
+    "metric_report": {
+      "path": "cache/advanced_features/benchmarks/kwb_strict_mutation_holdout/metric_report.json",
+      "sha256": "a710ab3305a64bbe50f6d150966a264b293c37b644921c743d5510a3a3fb9937"
+    }
+  },
+  "ready_as_benchmark_scorecard": false,
+  "safe_for_model_claim": false
+}

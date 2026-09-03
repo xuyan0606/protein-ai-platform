@@ -1,0 +1,697 @@
+{
+  "local_only": true,
+  "registry": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/config/foreign_tool_registry.local.example.json",
+  "evidence_inputs": {
+    "license_report": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/external_license_review_decision_validation_report.json",
+    "runtime_receipt_report": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/ddg_backend_runtime_receipt_validation_report.json",
+    "pyrosetta_install_probe": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/pyrosetta_local_install_probe_report.json",
+    "pyrosetta_smoke": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/pyrosetta_physical_smoke_bootstrap_report.json",
+    "ddg_executable_probe": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/ddg_executable_probe_report.json",
+    "foldx_bootstrap": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/foldx_physical_smoke_bootstrap_report.json"
+  },
+  "tool_rows": 11,
+  "status_counts": {
+    "ready_for_local_evaluation": 2,
+    "not_installed": 4,
+    "blocked_by_runtime_or_data": 2,
+    "blocked_by_license_review": 1,
+    "blocked_by_license": 2
+  },
+  "panel_status_counts": {
+    "ready": 2,
+    "not_installed": 4,
+    "restricted": 4,
+    "license_review_required": 1
+  },
+  "ready_for_local_evaluation": 2,
+  "split_readiness_counts": {
+    "install_ready": 6,
+    "runtime_ready": 6,
+    "license_ready": 6,
+    "data_ready": 3,
+    "model_weight_ready": 5
+  },
+  "authorization_status_counts": {
+    "self_attested": 3,
+    "pending_verification": 0,
+    "verified": 0
+  },
+  "verified_license_clearance_tools": [],
+  "self_attested_capability_tools": {
+    "commercial_evaluation": [
+      "rosetta",
+      "pyrosetta",
+      "foldx"
+    ],
+    "training_import": [
+      "rosetta",
+      "pyrosetta",
+      "foldx"
+    ],
+    "customer_delivery": [
+      "rosetta",
+      "pyrosetta",
+      "foldx"
+    ],
+    "service_hosting": [
+      "rosetta",
+      "pyrosetta",
+      "foldx"
+    ],
+    "publication": [
+      "rosetta",
+      "pyrosetta",
+      "foldx"
+    ]
+  },
+  "commercial_evaluation_allowed_tools": [
+    "mmseqs2",
+    "boltz2",
+    "thermompnn"
+  ],
+  "license_review_required_tools": [
+    "chai1",
+    "rosetta",
+    "pyrosetta",
+    "foldx",
+    "clean",
+    "ligandmpnn"
+  ],
+  "restricted_tools": [
+    "alphafold3",
+    "esm3_open"
+  ],
+  "tools": [
+    {
+      "tool_id": "mmseqs2",
+      "display_name": "MMseqs2",
+      "category": "msa_conservation",
+      "recommended_priority": 1,
+      "license_gate": "commercial_evaluation_allowed",
+      "license_type": "MIT",
+      "license_evidence_url": "https://github.com/soedinglab/MMseqs2",
+      "weight_terms_url": null,
+      "commercial_status": "commercial_evaluation_allowed",
+      "status": "ready_for_local_evaluation",
+      "panel_status": "ready",
+      "ready_for_local_evaluation": true,
+      "install_ready": true,
+      "runtime_ready": true,
+      "license_ready": true,
+      "data_ready": true,
+      "model_weight_ready": true,
+      "runtime_requirements": {
+        "mac_local": true,
+        "linux_cpu": true,
+        "linux_cuda": "optional"
+      },
+      "data_requirements": [
+        "homolog_sequence_database",
+        "database_release",
+        "cache_manifest_checksums"
+      ],
+      "mac_local_ready": true,
+      "linux_cpu_ready": false,
+      "linux_cuda_ready": false,
+      "executables": {
+        "mmseqs": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/MMseqs2/bin/mmseqs"
+      },
+      "configured_executable_paths": {
+        "mmseqs": "cache/external/MMseqs2/bin/mmseqs"
+      },
+      "python_modules": {},
+      "missing_executables": [],
+      "missing_python_modules": [],
+      "expected_outputs": [
+        "msa_hit_table",
+        "conservation_features"
+      ],
+      "allowed_use": "Generate real homolog search and MSA/conservation inputs for KWB feature production.",
+      "forbidden_use": "Do not synthesize conservation values without real homolog evidence.",
+      "references": [
+        "https://github.com/soedinglab/MMseqs2"
+      ]
+    },
+    {
+      "tool_id": "boltz2",
+      "display_name": "Boltz-2",
+      "category": "structure_affinity",
+      "recommended_priority": 2,
+      "license_gate": "commercial_evaluation_allowed",
+      "license_type": "MIT",
+      "license_evidence_url": "https://github.com/jwohlwend/boltz",
+      "weight_terms_url": "https://github.com/jwohlwend/boltz",
+      "commercial_status": "commercial_evaluation_allowed",
+      "status": "not_installed",
+      "panel_status": "not_installed",
+      "ready_for_local_evaluation": false,
+      "install_ready": false,
+      "runtime_ready": true,
+      "license_ready": true,
+      "data_ready": false,
+      "model_weight_ready": false,
+      "runtime_requirements": {
+        "mac_local": "not_recommended",
+        "linux_cpu": "limited",
+        "linux_cuda": true
+      },
+      "data_requirements": [
+        "input_structure_or_sequence",
+        "msa_or_server_configuration"
+      ],
+      "mac_local_ready": true,
+      "linux_cpu_ready": false,
+      "linux_cuda_ready": false,
+      "executables": {
+        "boltz": null
+      },
+      "configured_executable_paths": {},
+      "python_modules": {
+        "boltz": false
+      },
+      "missing_executables": [
+        "boltz"
+      ],
+      "missing_python_modules": [
+        "boltz"
+      ],
+      "expected_outputs": [
+        "complex_structure",
+        "binding_affinity_proxy",
+        "confidence"
+      ],
+      "allowed_use": "Evaluate predicted structure and binding affinity evidence for substrate-fit ranking.",
+      "forbidden_use": "Do not treat predicted affinity as wet-lab activity or training label.",
+      "references": [
+        "https://github.com/jwohlwend/boltz"
+      ]
+    },
+    {
+      "tool_id": "chai1",
+      "display_name": "Chai-1",
+      "category": "structure_complex",
+      "recommended_priority": 3,
+      "license_gate": "license_review_required",
+      "license_type": "Apache-2.0 code / separate model terms",
+      "license_evidence_url": "https://github.com/chaidiscovery/chai-lab",
+      "weight_terms_url": "https://huggingface.co/chaidiscovery/chai-1",
+      "commercial_status": "license_review_required",
+      "status": "not_installed",
+      "panel_status": "not_installed",
+      "ready_for_local_evaluation": false,
+      "install_ready": false,
+      "runtime_ready": false,
+      "license_ready": false,
+      "data_ready": false,
+      "model_weight_ready": false,
+      "runtime_requirements": {
+        "mac_local": false,
+        "linux_cpu": false,
+        "linux_cuda": true
+      },
+      "data_requirements": [
+        "linux_cuda_host",
+        "model_weights",
+        "input_msa_or_server_path"
+      ],
+      "mac_local_ready": false,
+      "linux_cpu_ready": false,
+      "linux_cuda_ready": false,
+      "executables": {},
+      "configured_executable_paths": {},
+      "python_modules": {
+        "chai_lab": false
+      },
+      "missing_executables": [],
+      "missing_python_modules": [
+        "chai_lab"
+      ],
+      "expected_outputs": [
+        "complex_structure",
+        "confidence"
+      ],
+      "allowed_use": "Evaluate multimodal complex structure prediction as a local research backend when license and GPU requirements are cleared.",
+      "forbidden_use": "Do not deploy commercially until license review is complete.",
+      "references": [
+        "https://huggingface.co/chaidiscovery/chai-1"
+      ]
+    },
+    {
+      "tool_id": "thermompnn",
+      "display_name": "ThermoMPNN",
+      "category": "stability",
+      "recommended_priority": 4,
+      "license_gate": "commercial_evaluation_allowed",
+      "license_type": "MIT",
+      "license_evidence_url": "https://github.com/Kuhlman-Lab/ThermoMPNN",
+      "weight_terms_url": "https://github.com/Kuhlman-Lab/ThermoMPNN",
+      "commercial_status": "commercial_evaluation_allowed",
+      "status": "not_installed",
+      "panel_status": "not_installed",
+      "ready_for_local_evaluation": false,
+      "install_ready": false,
+      "runtime_ready": true,
+      "license_ready": true,
+      "data_ready": true,
+      "model_weight_ready": true,
+      "runtime_requirements": {
+        "mac_local": "possible_if_dependencies_installed",
+        "linux_cpu": true,
+        "linux_cuda": "optional"
+      },
+      "data_requirements": [
+        "reviewed_structure_or_model",
+        "chain_mapping"
+      ],
+      "mac_local_ready": true,
+      "linux_cpu_ready": true,
+      "linux_cuda_ready": false,
+      "executables": {},
+      "configured_executable_paths": {},
+      "python_modules": {
+        "torch": true,
+        "pandas": true,
+        "numpy": true,
+        "tqdm": false,
+        "omegaconf": false,
+        "Bio": false,
+        "pytorch_lightning": false,
+        "torchmetrics": false,
+        "wandb": false,
+        "joblib": false
+      },
+      "missing_executables": [],
+      "missing_python_modules": [
+        "tqdm",
+        "omegaconf",
+        "Bio",
+        "pytorch_lightning",
+        "torchmetrics",
+        "wandb",
+        "joblib"
+      ],
+      "expected_outputs": [
+        "ddg_proxy",
+        "direction",
+        "confidence"
+      ],
+      "allowed_use": "Use as an external stability baseline or teacher feature.",
+      "forbidden_use": "Do not use ddG proxy as an experimental stability label.",
+      "references": [
+        "https://github.com/Kuhlman-Lab/ThermoMPNN"
+      ]
+    },
+    {
+      "tool_id": "rosetta",
+      "display_name": "Rosetta ddG",
+      "category": "ddg_stability",
+      "recommended_priority": 4,
+      "license_gate": "license_review_required",
+      "license_type": "RosettaCommons non-commercial / commercial license required",
+      "license_evidence_url": "https://www.rosettacommons.org/software/license-and-download",
+      "weight_terms_url": null,
+      "commercial_status": "license_review_required",
+      "status": "blocked_by_runtime_or_data",
+      "panel_status": "restricted",
+      "ready_for_local_evaluation": false,
+      "install_ready": true,
+      "runtime_ready": true,
+      "license_ready": true,
+      "data_ready": false,
+      "model_weight_ready": true,
+      "runtime_requirements": {
+        "mac_local": "possible_if_licensed_binary_or_source_available",
+        "linux_cpu": true,
+        "linux_cuda": false
+      },
+      "data_requirements": [
+        "reviewed_structure_chain_mapping",
+        "mutation_list",
+        "relax_or_ddg_protocol_parameters"
+      ],
+      "mac_local_ready": false,
+      "linux_cpu_ready": false,
+      "linux_cuda_ready": false,
+      "executables": {
+        "cartesian_ddg": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/RosettaConda/bin/cartesian_ddg",
+        "rosetta_scripts": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/RosettaConda/bin/rosetta_scripts"
+      },
+      "configured_executable_paths": {
+        "cartesian_ddg": "cache/external/RosettaConda/bin/cartesian_ddg",
+        "rosetta_scripts": "cache/external/RosettaConda/bin/rosetta_scripts"
+      },
+      "python_modules": {},
+      "missing_executables": [],
+      "missing_python_modules": [],
+      "expected_outputs": [
+        "ddg_kcal_mol",
+        "replicate_scores",
+        "protocol_flags",
+        "runtime_log"
+      ],
+      "allowed_use": "Platform workflows are not non-commercial-only. Current Rosetta component authorization is self_attested for technical runtime probe and smoke preparation; verified delivery/release still require license-scope evidence.",
+      "forbidden_use": "Do not represent self_attested authorization as verified clearance; do not mark customer delivery, service hosting, publication, release, or training-label import ready without separate verified gates.",
+      "references": [
+        "https://docs.rosettacommons.org/docs/latest/getting_started/Getting-Started"
+      ],
+      "authorization_source": "user_attestation",
+      "authorization_status": "self_attested",
+      "verification_required": true,
+      "verification_status": "self_attested",
+      "capability_authorizations": {
+        "commercial_evaluation": "allowed",
+        "training_import": "allowed",
+        "customer_delivery": "allowed",
+        "service_hosting": "allowed",
+        "publication": "allowed"
+      },
+      "verified_license_clearance": false,
+      "rosetta_formal_license_decision": true,
+      "rosetta_executable_probe_found": true,
+      "rosetta_version_probe_succeeded": true
+    },
+    {
+      "tool_id": "pyrosetta",
+      "display_name": "PyRosetta ddG",
+      "category": "ddg_stability",
+      "recommended_priority": 4,
+      "license_gate": "license_review_required",
+      "license_type": "separate PyRosetta license required for commercial use",
+      "license_evidence_url": "https://www.rosettacommons.org/software/license-and-download",
+      "weight_terms_url": null,
+      "commercial_status": "license_review_required",
+      "status": "ready_for_local_evaluation",
+      "panel_status": "ready",
+      "ready_for_local_evaluation": true,
+      "install_ready": true,
+      "runtime_ready": true,
+      "license_ready": true,
+      "data_ready": true,
+      "model_weight_ready": true,
+      "runtime_requirements": {
+        "mac_local": "possible_if_licensed_package_installed",
+        "linux_cpu": true,
+        "linux_cuda": false
+      },
+      "data_requirements": [
+        "reviewed_structure_chain_mapping",
+        "mutation_list",
+        "pyrosetta_protocol_parameters"
+      ],
+      "mac_local_ready": false,
+      "linux_cpu_ready": false,
+      "linux_cuda_ready": false,
+      "executables": {},
+      "configured_executable_paths": {},
+      "python_modules": {
+        "pyrosetta": true
+      },
+      "missing_executables": [],
+      "missing_python_modules": [],
+      "expected_outputs": [
+        "ddg_kcal_mol",
+        "replicate_scores",
+        "protocol_parameters",
+        "runtime_log"
+      ],
+      "allowed_use": "Platform workflows are not non-commercial-only. Current PyRosetta component authorization is self_attested for technical evaluation and computed-feature validation; verified delivery/release still require license-scope evidence.",
+      "forbidden_use": "Do not represent self_attested authorization as verified clearance; do not mark customer delivery, service hosting, publication, release, or training-label import ready without separate verified gates.",
+      "references": [
+        "https://docs.rosettacommons.org/manuals/latest/all_else/d2/dfc/md_src_python__py_rosetta__r_e_a_d_m_e.html"
+      ],
+      "authorization_source": "user_attestation",
+      "authorization_status": "self_attested",
+      "verification_required": true,
+      "verification_status": "self_attested",
+      "capability_authorizations": {
+        "commercial_evaluation": "allowed",
+        "training_import": "allowed",
+        "customer_delivery": "allowed",
+        "service_hosting": "allowed",
+        "publication": "allowed"
+      },
+      "verified_license_clearance": false,
+      "pyrosetta_formal_license_decision": true,
+      "pyrosetta_import_probe_succeeded": true,
+      "pyrosetta_runtime_receipt_approved": true,
+      "pyrosetta_physical_smoke_passed": true
+    },
+    {
+      "tool_id": "foldx",
+      "display_name": "FoldX",
+      "category": "ddg_stability",
+      "recommended_priority": 4,
+      "license_gate": "license_review_required",
+      "license_type": "academic/evaluation/commercial license required",
+      "license_evidence_url": "https://foldxsuite.crg.eu/licensing-and-services",
+      "weight_terms_url": null,
+      "commercial_status": "license_review_required",
+      "status": "blocked_by_runtime_or_data",
+      "panel_status": "restricted",
+      "ready_for_local_evaluation": false,
+      "install_ready": true,
+      "runtime_ready": true,
+      "license_ready": true,
+      "data_ready": false,
+      "model_weight_ready": true,
+      "runtime_requirements": {
+        "mac_local": "possible_if_licensed_binary_available",
+        "linux_cpu": true,
+        "linux_cuda": false
+      },
+      "data_requirements": [
+        "reviewed_structure_chain_mapping",
+        "mutation_list",
+        "RepairPDB_or_BuildModel_parameters"
+      ],
+      "mac_local_ready": false,
+      "linux_cpu_ready": false,
+      "linux_cuda_ready": false,
+      "executables": {
+        "foldx": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/FoldX/foldx"
+      },
+      "configured_executable_paths": {
+        "foldx": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/cache/external/FoldX/foldx"
+      },
+      "python_modules": {},
+      "missing_executables": [],
+      "missing_python_modules": [],
+      "expected_outputs": [
+        "ddg_kcal_mol",
+        "BuildModel_raw",
+        "Average_Dif",
+        "runtime_log"
+      ],
+      "allowed_use": "Current FoldX component authorization is self_attested for local technical probing and personal-learning evaluation; verified delivery/release still require license-scope evidence.",
+      "forbidden_use": "Do not represent self_attested FoldX authorization as verified clearance; do not mark customer delivery, service hosting, publication, release, or training-label import ready without separate verified gates.",
+      "references": [
+        "https://foldxsuite.crg.eu/"
+      ],
+      "authorization_source": "user_attestation",
+      "authorization_status": "self_attested",
+      "verification_required": true,
+      "verification_status": "self_attested",
+      "capability_authorizations": {
+        "commercial_evaluation": "allowed",
+        "training_import": "allowed",
+        "customer_delivery": "allowed",
+        "service_hosting": "allowed",
+        "publication": "allowed"
+      },
+      "verified_license_clearance": false,
+      "foldx_formal_license_decision": true,
+      "foldx_executable_probe_found": true,
+      "foldx_help_probe_succeeded": true,
+      "foldx_physical_smoke_passed": false
+    },
+    {
+      "tool_id": "clean",
+      "display_name": "CLEAN",
+      "category": "enzyme_function",
+      "recommended_priority": 5,
+      "license_gate": "license_review_required",
+      "license_type": "research-use terms",
+      "license_evidence_url": "https://github.com/tttianhao/CLEAN",
+      "weight_terms_url": "https://github.com/tttianhao/CLEAN",
+      "commercial_status": "license_review_required",
+      "status": "not_installed",
+      "panel_status": "not_installed",
+      "ready_for_local_evaluation": false,
+      "install_ready": false,
+      "runtime_ready": false,
+      "license_ready": false,
+      "data_ready": false,
+      "model_weight_ready": false,
+      "runtime_requirements": {
+        "mac_local": "possible_if_dependencies_installed",
+        "linux_cpu": true,
+        "linux_cuda": "optional"
+      },
+      "data_requirements": [
+        "sequence_inputs",
+        "reference_database_version"
+      ],
+      "mac_local_ready": false,
+      "linux_cpu_ready": false,
+      "linux_cuda_ready": false,
+      "executables": {},
+      "configured_executable_paths": {},
+      "python_modules": {
+        "CLEAN": false
+      },
+      "missing_executables": [],
+      "missing_python_modules": [
+        "CLEAN"
+      ],
+      "expected_outputs": [
+        "ec_candidates",
+        "function_shift_risk"
+      ],
+      "allowed_use": "Use as enzyme function and EC consistency evidence after local installation and license review.",
+      "forbidden_use": "Do not overwrite reviewed enzyme annotations automatically.",
+      "references": [
+        "https://github.com/tttianhao/CLEAN"
+      ]
+    },
+    {
+      "tool_id": "ligandmpnn",
+      "display_name": "LigandMPNN",
+      "category": "ligand_aware_design",
+      "recommended_priority": 6,
+      "license_gate": "license_review_required",
+      "license_type": "MIT",
+      "license_evidence_url": "https://github.com/dauparas/LigandMPNN",
+      "weight_terms_url": "https://github.com/dauparas/LigandMPNN",
+      "commercial_status": "license_review_required",
+      "status": "blocked_by_license_review",
+      "panel_status": "license_review_required",
+      "ready_for_local_evaluation": false,
+      "install_ready": true,
+      "runtime_ready": false,
+      "license_ready": false,
+      "data_ready": false,
+      "model_weight_ready": false,
+      "runtime_requirements": {
+        "mac_local": "not_recommended",
+        "linux_cpu": "limited",
+        "linux_cuda": true
+      },
+      "data_requirements": [
+        "reviewed_structure_chain_mapping",
+        "ligand_coordinates",
+        "active_site_context"
+      ],
+      "mac_local_ready": false,
+      "linux_cpu_ready": false,
+      "linux_cuda_ready": false,
+      "executables": {},
+      "configured_executable_paths": {},
+      "python_modules": {},
+      "missing_executables": [],
+      "missing_python_modules": [],
+      "expected_outputs": [
+        "designed_sequences",
+        "ligand_context_scores"
+      ],
+      "allowed_use": "Generate ligand-context candidate mutations after chain mapping and substrate structure inputs are reviewed.",
+      "forbidden_use": "Do not directly convert generated candidates to Go decisions.",
+      "references": [
+        "https://github.com/dauparas/LigandMPNN"
+      ]
+    },
+    {
+      "tool_id": "alphafold3",
+      "display_name": "AlphaFold 3",
+      "category": "structure_complex_benchmark",
+      "recommended_priority": 99,
+      "license_gate": "non_commercial_or_restricted",
+      "license_type": "restricted model terms",
+      "license_evidence_url": "https://github.com/google-deepmind/alphafold3",
+      "weight_terms_url": "https://github.com/google-deepmind/alphafold3",
+      "commercial_status": "restricted",
+      "status": "blocked_by_license",
+      "panel_status": "restricted",
+      "ready_for_local_evaluation": false,
+      "install_ready": true,
+      "runtime_ready": false,
+      "license_ready": false,
+      "data_ready": false,
+      "model_weight_ready": false,
+      "runtime_requirements": {
+        "mac_local": false,
+        "linux_cpu": false,
+        "linux_cuda": true
+      },
+      "data_requirements": [
+        "isolated_benchmark_inputs",
+        "compliance_review"
+      ],
+      "mac_local_ready": false,
+      "linux_cpu_ready": false,
+      "linux_cuda_ready": false,
+      "executables": {},
+      "configured_executable_paths": {},
+      "python_modules": {},
+      "missing_executables": [],
+      "missing_python_modules": [],
+      "expected_outputs": [
+        "benchmark_only_structure_prediction"
+      ],
+      "allowed_use": "Use only as a compliance-reviewed benchmark or non-commercial research reference.",
+      "forbidden_use": "Do not use for commercial production or train competing models from its outputs without explicit legal approval.",
+      "references": [
+        "https://github.com/google-deepmind/alphafold3"
+      ]
+    },
+    {
+      "tool_id": "esm3_open",
+      "display_name": "ESM3-open",
+      "category": "sequence_structure_function_generation",
+      "recommended_priority": 99,
+      "license_gate": "non_commercial_or_restricted",
+      "license_type": "non-commercial model terms",
+      "license_evidence_url": "https://github.com/evolutionaryscale/esm",
+      "weight_terms_url": "https://github.com/evolutionaryscale/esm",
+      "commercial_status": "restricted",
+      "status": "blocked_by_license",
+      "panel_status": "restricted",
+      "ready_for_local_evaluation": false,
+      "install_ready": false,
+      "runtime_ready": false,
+      "license_ready": false,
+      "data_ready": false,
+      "model_weight_ready": false,
+      "runtime_requirements": {
+        "mac_local": "possible_if_dependencies_installed",
+        "linux_cpu": true,
+        "linux_cuda": "optional"
+      },
+      "data_requirements": [
+        "license-reviewed weights",
+        "sequence inputs"
+      ],
+      "mac_local_ready": false,
+      "linux_cpu_ready": false,
+      "linux_cuda_ready": false,
+      "executables": {},
+      "configured_executable_paths": {},
+      "python_modules": {
+        "esm": false
+      },
+      "missing_executables": [],
+      "missing_python_modules": [
+        "esm"
+      ],
+      "expected_outputs": [
+        "sequence_embedding",
+        "generation_candidates"
+      ],
+      "allowed_use": "Use only after license review; consider ESMC or commercial API path for production.",
+      "forbidden_use": "Do not assume open weights are commercially usable.",
+      "references": [
+        "https://github.com/evolutionaryscale/esm"
+      ]
+    }
+  ],
+  "policy": "No external model is invoked here. Platform policy is not non-commercial-only; readiness separates technical install/runtime from self_attested versus verified component authorization and delivery/release gates."
+}

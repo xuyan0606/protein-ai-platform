@@ -1,0 +1,32 @@
+{
+  "benchmark_name": "ATOM3D MSP",
+  "created_at": "2026-09-03T07:32:24.433943+00:00",
+  "future_training_exclusion_required": true,
+  "head": "stability",
+  "index_count_delta": {
+    "test": 0,
+    "train": 0,
+    "validation": 0
+  },
+  "index_counts": {
+    "test": 347,
+    "train": 2864,
+    "validation": 937
+  },
+  "leakage_basis": "Uses official ATOM3D MSP sequence-identity-30 split; this builder creates no KWB training labels.",
+  "leakage_check_status": "passed",
+  "local_only": true,
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "source": "ATOM3D MSP",
+  "source_doi": "10.5281/zenodo.4962515",
+  "source_receipt": "cache/advanced_features/benchmarks/atom3d_msp/source_receipt.json",
+  "source_url": "https://zenodo.org/records/4962515",
+  "split_counts": {
+    "test": 347,
+    "train": 2864,
+    "validation": 937
+  },
+  "split_strategy": "use_official_atom3d_msp_sequence_identity_30_split"
+}

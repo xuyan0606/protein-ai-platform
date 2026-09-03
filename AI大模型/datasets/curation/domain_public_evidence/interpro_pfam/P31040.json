@@ -1,0 +1,73 @@
+{
+  "accession": "P31040",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00890",
+        "name": "FAD binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003953",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p31040",
+          "protein_length": 664,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 63,
+                  "end": 457,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00890",
+              "score": 5.2e-125
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02910",
+        "name": "Fumarate reductase flavoprotein C-term",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015939",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p31040",
+          "protein_length": 664,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 513,
+                  "end": 664,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02910",
+              "score": 5.6e-37
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

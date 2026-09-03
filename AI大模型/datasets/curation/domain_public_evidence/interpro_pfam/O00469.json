@@ -1,0 +1,107 @@
+{
+  "accession": "O00469",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF03171",
+        "name": "2OG-Fe(II) oxygenase superfamily",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR044861",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00469",
+          "protein_length": 737,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 651,
+                  "end": 737,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03171",
+              "score": 1.6e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13704",
+        "name": "Glycosyltransferase family 25, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00469",
+          "protein_length": 737,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 382,
+                  "end": 518,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13704",
+              "score": 7.5e-20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25342",
+        "name": "PLOD GT domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057589",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o00469",
+          "protein_length": 737,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 36,
+                  "end": 279,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25342",
+              "score": 1.8e-111
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

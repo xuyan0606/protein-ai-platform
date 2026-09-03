@@ -1,0 +1,37 @@
+{
+  "all_checklist_rows_valid": false,
+  "authorized_rows": 0,
+  "claim_eligible_rows_now": 0,
+  "completion_ready_rows": 0,
+  "created_at": "2026-09-03T07:32:18.061363+00:00",
+  "duplicate_checklist_rows": 0,
+  "error_counts": {
+    "gap_validation_not_ready": 1
+  },
+  "expected_operator_checklist_rows": 12,
+  "gap_validation_all_rows_valid": false,
+  "invalid_checklist_rows": 0,
+  "local_only": true,
+  "missing_checklist_rows": 0,
+  "mode_counts": {
+    "positive_candidate_review_required": 3,
+    "tradeoff_review_required": 4,
+    "watch_candidate_review_required": 5
+  },
+  "negative_candidate_review_required_rows": 0,
+  "open_blocked_checklist_rows": 12,
+  "operator_checklist_rows": 12,
+  "policy": "Checklist validation proves operator guidance consistency only; it never authorizes rows, runs preflight, appends labels, or enables model claims.",
+  "positive_candidate_review_required_rows": 3,
+  "ready_for_feedback_intake_rows": 0,
+  "requires_human_input_rows": 12,
+  "safe_for_model_claim": false,
+  "status_counts": {
+    "open_blocked_waiting_for_human_review": 12
+  },
+  "status_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/wet_lab_mutant_library_feedback_authorization_operator_checklist_status.jsonl",
+  "tradeoff_review_required_rows": 4,
+  "unexpected_checklist_rows": 0,
+  "valid_checklist_rows": 12,
+  "watch_candidate_review_required_rows": 5
+}

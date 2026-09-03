@@ -1,0 +1,73 @@
+{
+  "accession": "O95822",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF05292",
+        "name": "Malonyl-CoA decarboxylase C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007956",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95822",
+          "protein_length": 493,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 193,
+                  "end": 489,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05292",
+              "score": 5.4e-70
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17408",
+        "name": "Malonyl-CoA decarboxylase N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR035372",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95822",
+          "protein_length": 493,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 95,
+                  "end": 190,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17408",
+              "score": 1.9e-08
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

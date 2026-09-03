@@ -1,0 +1,73 @@
+{
+  "accession": "P0DTE8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00128",
+        "name": "Alpha amylase, catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006047",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p0dte8",
+          "protein_length": 511,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 84,
+                  "end": 217,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00128",
+              "score": 5.3e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02806",
+        "name": "Alpha amylase, C-terminal all-beta domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006048",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p0dte8",
+          "protein_length": 511,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 423,
+                  "end": 507,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02806",
+              "score": 2.9e-15
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

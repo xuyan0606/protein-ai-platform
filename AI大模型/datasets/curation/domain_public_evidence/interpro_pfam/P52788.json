@@ -1,0 +1,107 @@
+{
+  "accession": "P52788",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01564",
+        "name": "Spermine/spermidine synthase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p52788",
+          "protein_length": 366,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 176,
+                  "end": 364,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01564",
+              "score": 6.5e-48
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17284",
+        "name": "Spermidine synthase tetramerisation domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR035246",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p52788",
+          "protein_length": 366,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 123,
+                  "end": 172,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17284",
+              "score": 6e-15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17950",
+        "name": "S-adenosylmethionine decarboxylase N -terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040900",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p52788",
+          "protein_length": 366,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 21,
+                  "end": 117,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17950",
+              "score": 8.9e-47
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

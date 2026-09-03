@@ -1,0 +1,73 @@
+{
+  "accession": "Q9HCN3",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF12036",
+        "name": "Protein of unknown function (DUF3522)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR021910",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hcn3",
+          "protein_length": 771,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 545,
+                  "end": 727,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12036",
+              "score": 2.7e-50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF31127",
+        "name": "PGAP6/TMEM8 beta-sandwich domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR063310",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hcn3",
+          "protein_length": 771,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 354,
+                  "end": 498,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF31127",
+              "score": 2.9e-41
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

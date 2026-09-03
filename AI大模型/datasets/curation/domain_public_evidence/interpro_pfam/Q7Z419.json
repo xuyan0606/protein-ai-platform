@@ -1,0 +1,73 @@
+{
+  "accession": "Q7Z419",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01485",
+        "name": "IBR domain, a half RING-finger domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002867",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q7z419",
+          "protein_length": 303,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 102,
+                  "end": 166,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01485",
+              "score": 5.3e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22191",
+        "name": "IBR domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q7z419",
+          "protein_length": 303,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 190,
+                  "end": 225,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22191",
+              "score": 4.8e-06
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

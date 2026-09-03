@@ -1,0 +1,73 @@
+{
+  "accession": "P53370",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00293",
+        "name": "NUDIX domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000086",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p53370",
+          "protein_length": 316,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 142,
+                  "end": 259,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00293",
+              "score": 1.7e-15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18290",
+        "name": "Nudix hydrolase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040618",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p53370",
+          "protein_length": 316,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 46,
+                  "end": 129,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18290",
+              "score": 2e-20
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

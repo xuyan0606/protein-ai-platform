@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB MSA Conservation Cache Manifest",
+  "type": "object",
+  "required": ["local_only", "status", "source", "source_database", "database_version", "targets"],
+  "properties": {
+    "local_only": { "type": "boolean" },
+    "status": {
+      "type": "string",
+      "enum": ["not_configured", "ready", "partial", "invalid"]
+    },
+    "source": { "type": "string" },
+    "source_database": { "type": ["string", "null"] },
+    "database_version": { "type": ["string", "null"] },
+    "created_at": { "type": ["string", "null"], "format": "date-time" },
+    "targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["uniprot_id", "sequence_length", "msa_path", "conservation_feature_path", "status"],
+        "properties": {
+          "uniprot_id": { "type": "string" },
+          "sequence_length": { "type": "integer", "minimum": 1 },
+          "msa_path": { "type": ["string", "null"] },
+          "msa_sha256": { "type": ["string", "null"] },
+          "conservation_feature_path": { "type": ["string", "null"] },
+          "conservation_sha256": { "type": ["string", "null"] },
+          "status": {
+            "type": "string",
+            "enum": ["present", "missing", "invalid"]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

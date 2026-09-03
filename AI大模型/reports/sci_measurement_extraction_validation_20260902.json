@@ -1,0 +1,55 @@
+{
+  "input_rows": 3,
+  "valid_rows": 0,
+  "invalid_rows": 3,
+  "records": [
+    {
+      "pmcid": "PMC13051958",
+      "valid": false,
+      "errors": [
+        "construct_missing",
+        "measurement_type_missing",
+        "unit_missing",
+        "assay_condition_missing",
+        "source_quote_missing",
+        "reviewer_missing",
+        "reviewed_at_missing",
+        "value_missing",
+        "status_not_reviewed"
+      ]
+    },
+    {
+      "pmcid": "PMC13119103",
+      "valid": false,
+      "errors": [
+        "construct_missing",
+        "measurement_type_missing",
+        "unit_missing",
+        "assay_condition_missing",
+        "source_quote_missing",
+        "reviewer_missing",
+        "reviewed_at_missing",
+        "value_missing",
+        "status_not_reviewed"
+      ]
+    },
+    {
+      "pmcid": "PMC13234801",
+      "valid": false,
+      "errors": [
+        "construct_missing",
+        "measurement_type_missing",
+        "unit_missing",
+        "assay_condition_missing",
+        "source_quote_missing",
+        "reviewer_missing",
+        "reviewed_at_missing",
+        "value_missing",
+        "status_not_reviewed"
+      ]
+    }
+  ],
+  "training_import_allowed": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

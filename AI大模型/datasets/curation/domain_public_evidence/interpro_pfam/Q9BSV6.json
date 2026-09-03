@@ -1,0 +1,73 @@
+{
+  "accession": "Q9BSV6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01974",
+        "name": "tRNA intron endonuclease, catalytic C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006677",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bsv6",
+          "protein_length": 310,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 218,
+                  "end": 301,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01974",
+              "score": 3.1e-20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF26577",
+        "name": "TSEN34-like, N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR059049",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bsv6",
+          "protein_length": 310,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 4,
+                  "end": 70,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF26577",
+              "score": 3.9e-19
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

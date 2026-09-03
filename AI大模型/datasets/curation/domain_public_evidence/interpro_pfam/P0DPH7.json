@@ -1,0 +1,73 @@
+{
+  "accession": "P0DPH7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00091",
+        "name": "Tubulin/FtsZ family, GTPase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003008",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p0dph7",
+          "protein_length": 450,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 3,
+                  "end": 213,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00091",
+              "score": 1.2e-58
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03953",
+        "name": "Tubulin C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR018316",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p0dph7",
+          "protein_length": 450,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 263,
+                  "end": 392,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03953",
+              "score": 6.1e-50
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

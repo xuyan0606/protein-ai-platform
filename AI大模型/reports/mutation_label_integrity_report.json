@@ -1,0 +1,35 @@
+{
+  "rows": 500,
+  "verified_rows": 25,
+  "weak_evidence_rows": 475,
+  "verified_ratio": 0.05,
+  "verified_groups": 23,
+  "label_distribution_verified": {
+    "go": 8,
+    "watch": 9,
+    "no_go": 8
+  },
+  "integrity_flag_counts": {
+    "wild_type_mismatch_current_sequence": 475
+  },
+  "domain_architecture": {
+    "rows": 1942,
+    "invalid_interval_rows": 1942,
+    "usable_for_position_features": false
+  },
+  "pdb_paths": {
+    "rows_with_paths": 113836,
+    "existing_local_files": 0,
+    "usable_for_coordinate_features": false
+  },
+  "audited_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curated/enzyme_mutation_training_table_audited.jsonl",
+  "verified_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curated/enzyme_mutation_training_table_verified.jsonl",
+  "weak_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curated/enzyme_mutation_weak_evidence.jsonl",
+  "decision": "blocked_for_supervised_claim",
+  "next_steps": [
+    "build UniProt isoform/version mapping for stability labels",
+    "repair or re-import domain architecture start/end coordinates",
+    "materialize local PDB/mmCIF files or connect read-only structure cache",
+    "treat unverified labels as weak evidence, not supervised labels"
+  ]
+}

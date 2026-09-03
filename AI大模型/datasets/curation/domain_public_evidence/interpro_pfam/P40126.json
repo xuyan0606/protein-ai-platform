@@ -1,0 +1,39 @@
+{
+  "accession": "P40126",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00264",
+        "name": "Common central domain of tyrosinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002227",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p40126",
+          "protein_length": 519,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 180,
+                  "end": 408,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00264",
+              "score": 1.1e-29
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

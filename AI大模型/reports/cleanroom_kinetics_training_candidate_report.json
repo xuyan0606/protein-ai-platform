@@ -1,0 +1,76 @@
+{
+  "artifacts_read": [],
+  "blockers": [
+    "candidate_layer_only",
+    "external_data_license_review_not_authorized",
+    "numbering_and_identity_review_not_authorized",
+    "dedup_and_qc_review_not_authorized",
+    "replicate_and_head_threshold_gate_not_satisfied"
+  ],
+  "created_at": "2026-08-04T08:53:20.395670+00:00",
+  "formal_training_rows": 0,
+  "local_only": true,
+  "normalized_input": {
+    "exists": false,
+    "parse_errors": [],
+    "path": "datasets/curation/cleanroom_kinetics_normalized.jsonl",
+    "ready_for_training_import_true_rows": 0,
+    "rows": 0,
+    "training_eligible_true_rows": 0,
+    "training_import_written_true_rows": 0
+  },
+  "normalized_quality_clean_rows": 0,
+  "normalized_rows": 0,
+  "policy": "Clean-room kinetics normalization and replicate summaries are candidate-layer evidence only. This report never writes training rows and cannot authorize training, model claims, or release.",
+  "ready_for_training_import": false,
+  "ready_for_training_import_rows": 0,
+  "release_ready": false,
+  "replicate_summary_candidate_rows": 0,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "schema_version": "cleanroom_kinetics_training_candidate.v1",
+  "source_contract": {
+    "normalizer_rows_training_eligible_zero": true,
+    "normalizer_training_eligible_false": true,
+    "summarizer_training_eligible_false": true,
+    "summarizer_training_eligible_rows_zero": true
+  },
+  "source_mode": "artifact_and_source_contract",
+  "source_scripts": {
+    "normalizer": {
+      "checks": {
+        "rows_training_eligible_zero": true,
+        "training_eligible_false": true
+      },
+      "exists": true,
+      "path": "scripts/normalize_kinetics_records_cleanroom.py",
+      "sha256": "13cd0997099c7d4253dd489f70d39057c3be527da3e84065531ca4da4ac5571d"
+    },
+    "summarizer": {
+      "checks": {
+        "training_eligible_false": true,
+        "training_eligible_rows_zero": true
+      },
+      "exists": true,
+      "path": "scripts/summarize_kinetics_replicates_cleanroom.py",
+      "sha256": "f7c4fcbad892735b70d11755f1b37b7349128e496d9dca904df16fc63d768129"
+    }
+  },
+  "summary_input": {
+    "exists": false,
+    "parse_errors": [],
+    "path": "datasets/curation/cleanroom_kinetics_replicate_summaries.jsonl",
+    "ready_for_training_import_true_rows": 0,
+    "rows": 0,
+    "training_eligible_true_rows": 0,
+    "training_import_written_true_rows": 0
+  },
+  "summary_observation_rows_retained": 0,
+  "summary_rows": 0,
+  "training_candidate_rows": 0,
+  "training_eligible": false,
+  "training_eligible_rows": 0,
+  "training_import_written_rows": 0,
+  "training_output_path": null,
+  "training_output_written": false
+}

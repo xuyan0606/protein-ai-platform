@@ -1,0 +1,23 @@
+# 进度
+
+- 已读取项目已有能力审计、酶工程基础画像和工具扩展路线。
+- 已核对平台已有工具：`catalytic_site_lookup`、`site_structure_function_features`、`mutation_priority_score`、`mutation_scan`、`protssn_score`、`rosetta_ddg`、`blast_search`、`structure_search_foldseek`。
+- 外部网站访问因 DNS 不可达失败；未作为实时可用证据。
+- 已形成工具对照表和接入优先级，详见 `findings.md` 。
+- 修正 `tool_capability_audit` 对 `catalytic_site_lookup` 和 `build_site_structure_function_features` 的漏登记；相关回归 2 passed。
+- 新增 `backend/app/tools/pocket_residue_lookup.py`：真实 P2Rank/fpocket 运行时适配，输出可审计残基坐标；运行时缺失返回 blocked，不伪造位点。
+- 将工具注册到 `ToolRegistry`、能力审计和酶工程规划；显式口袋/通道请求才触发，结果桥接到 `mutation_priority_score`。
+- 新增运行时缺失回归；结构、规划、工具 API 回归 `304 passed`，Python 编译与 `git diff --check` 通过。
+- 全量项目后端测试 `835 passed`；前端 `npm run build` 通过。
+- 补充 fpocket `pocket*_atm.pdb` 的链/作者残基解析；结构工具回归 `20 passed`，确保 fpocket 完成后也能产生真实位点坐标。
+- 修复口袋作者编号到输入序列位置的映射，覆盖负编号、插入边界和 SWISS-MODEL 非 1 起始编号；结构/规划回归 `176 passed`。
+- 最新全量后端回归 `837 passed`；编号桥接修复未引入其他工具或报告回归。
+- 增加 `P2RANK_BINARY` / `FPOCKET_BINARY` 环境变量解析，部署节点可通过挂载绝对路径接入真实专业运行时；未安装时仍返回 `RUNTIME_UNAVAILABLE`，不生成假位点。
+- 环境变量、运行时门控和 API/规划联合回归 `307 passed`；`git diff --check` 通过。
+- 全量后端回归最终为 `838 passed`；工具注册自检确认 `pocket_residue_lookup` 可被 `ToolRegistry` 发现。
+- 远端 `120.27.108.138` 已完成新 release 安装、镜像构建和 backend/worker 重建；`/api/health` 与 `/data?tab=enzymes` 均返回 200，容器健康。
+- 线上容器内已确认 `pocket_residue_lookup` 注册并真实执行；由于节点尚未安装 P2Rank/fpocket，实际返回 `blocked/RUNTIME_UNAVAILABLE` 和空位点。
+- 已把 `/opt/p2rank` 只读挂载及 `P2RANK_BINARY`/`FPOCKET_BINARY` 配置加入 Aliyun compose；官方 P2Rank 下载因远端网络超时未完成，未把半成品运行时投入服务。
+- 线上最终健康检查仍通过；本地结构/规划/API 定向回归 `307 passed`，`git diff --check` 通过。
+- 本机与远端均未发现完整 P2Rank/fpocket 安装包；继续安装需要可用的外部制品下载源或人工提供已校验二进制，当前不降级为伪造位点。
+- 通过远端源码构建并安装 canonical fpocket 4.0（含 molfile 插件），挂载到 backend/worker；线上 smoke PDB 实测 `status=completed`、`tool=fpocket`、`residue_count=129`、`artifact_manifest.total_count=12`，已返回真实口袋残基坐标。

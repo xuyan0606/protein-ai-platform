@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB enzyme agent structured result",
+  "type": "object",
+  "required": [
+    "result_id",
+    "created_at",
+    "local_only",
+    "source_plan_id",
+    "request_class",
+    "selected_variants",
+    "property_predictions",
+    "ddg_results",
+    "evidence_summary",
+    "manual_review_required",
+    "experimental_plan",
+    "forbidden_claims",
+    "artifact_refs",
+    "safe_for_training_import",
+    "safe_for_model_claim",
+    "release_ready"
+  ],
+  "properties": {
+    "result_id": {"type": "string"},
+    "created_at": {"type": "string"},
+    "local_only": {"const": true},
+    "source_plan_id": {"type": "string"},
+    "request_class": {"type": "string"},
+    "selected_variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "variant",
+          "recommendation",
+          "evidence_level",
+          "manual_review_required",
+          "artifact_refs"
+        ],
+        "properties": {
+          "variant": {"type": "string"},
+          "recommendation": {"enum": ["go", "watch", "no_go", "blocked"]},
+          "evidence_level": {"enum": ["reviewed_experimental", "reviewed_computational", "draft", "blocked"]},
+          "manual_review_required": {"type": "boolean"},
+          "artifact_refs": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "property_predictions": {"type": "array"},
+    "ddg_results": {"type": "array"},
+    "evidence_summary": {
+      "type": "object",
+      "required": [
+        "reviewed_numbering_rows",
+        "claim_eligible_training_rows",
+        "strict_msa_site_feature_rows",
+        "wet_lab_authorization_rows",
+        "resource_plan_validation_success"
+      ],
+      "properties": {
+        "reviewed_numbering_rows": {"type": "integer", "minimum": 0},
+        "claim_eligible_training_rows": {"type": "integer", "minimum": 0},
+        "strict_msa_site_feature_rows": {"type": "integer", "minimum": 0},
+        "wet_lab_authorization_rows": {"type": "integer", "minimum": 0},
+        "resource_plan_validation_success": {"type": "boolean"}
+      }
+    },
+    "manual_review_required": {"const": true},
+    "experimental_plan": {
+      "type": "object",
+      "required": ["status", "allowed_next_step", "blocked_reason"],
+      "properties": {
+        "status": {"enum": ["blocked_pending_review", "draft_only", "ready_after_human_review"]},
+        "allowed_next_step": {"type": "string"},
+        "blocked_reason": {"type": "string"}
+      }
+    },
+    "forbidden_claims": {"type": "array", "items": {"type": "string"}},
+    "artifact_refs": {"type": "array", "items": {"type": "string"}},
+    "safe_for_training_import": {"const": false},
+    "safe_for_model_claim": {"const": false},
+    "release_ready": {"const": false}
+  }
+}

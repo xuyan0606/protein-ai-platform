@@ -1,0 +1,230 @@
+{
+  "created_at": "2026-09-03T07:34:42.902695+00:00",
+  "local_only": true,
+  "contract_id": "ddg_model_consumption_contract",
+  "success": true,
+  "checked_reports": {
+    "backend_readiness": "reports/ddg_backend_readiness_report.json",
+    "backend_failure_diagnostic": "reports/ddg_backend_failure_diagnostic_report.json",
+    "proxy_not_physics_claim_validation": "reports/ddg_proxy_not_physics_claim_validation_report.json",
+    "thermompnn_venus15b_smoke": "reports/thermompnn_venus15b_smoke_report.json",
+    "pyrosetta_physical_smoke": "reports/pyrosetta_physical_smoke_bootstrap_report.json",
+    "runtime_receipt_validation": "reports/ddg_backend_runtime_receipt_validation_report.json",
+    "executable_probe": "reports/ddg_executable_probe_report.json"
+  },
+  "input_errors": [],
+  "source_forbidden_true_states": [],
+  "physics_ddg_state": {
+    "physics_ddg_ready": false,
+    "executable_ddg_backend_ready": false,
+    "physics_backends": [
+      {
+        "backend": "rosetta",
+        "readiness_ready_for_execution": false,
+        "diagnostic_ready_for_physics_ddg": false,
+        "blockers": [
+          "reviewed structure/mutation data gate not ready for this backend"
+        ]
+      },
+      {
+        "backend": "pyrosetta",
+        "readiness_ready_for_execution": true,
+        "diagnostic_ready_for_physics_ddg": true,
+        "blockers": []
+      },
+      {
+        "backend": "foldx",
+        "readiness_ready_for_execution": false,
+        "diagnostic_ready_for_physics_ddg": false,
+        "blockers": [
+          "reviewed structure/mutation data gate not ready for this backend"
+        ]
+      }
+    ],
+    "proxy_is_physics": false
+  },
+  "physics_ddg_consumption": {
+    "backend": "pyrosetta",
+    "physics_ready": true,
+    "manual_review_computational_feature": true,
+    "manual_review_required": true,
+    "training_label": false,
+    "training_label_source": false,
+    "safe_for_training_import": false,
+    "safe_for_model_claim": false,
+    "release_ready": false,
+    "evidence_level": "computational_physics_runtime_smoke",
+    "ddg_units": "REU",
+    "mutation_row_count": 1,
+    "artifact_paths": [
+      "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/ddg_table.json",
+      "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/input_structure.sha256",
+      "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/mutation_list.json",
+      "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/parameters.json",
+      "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/runtime.log"
+    ],
+    "artifact_sha256": {
+      "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/ddg_table.json": "6078bf9f94cc630f9043a6646291d9bc07f2179d9570060da58cbd273adc1de1",
+      "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/input_structure.sha256": "b952195ae30be5b063582bff5c6d0e7ce6e3ebab552aba0d12602c4fdbe90d7f",
+      "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/mutation_list.json": "5c5d41642db71584354e694f422498c0f292f304cbe8952f750197b6aec7b76e",
+      "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/parameters.json": "4af73daa6a1cb5ad05f1e33a4b97077ed2825e35a65861e5a411bd75080d735c",
+      "cache/advanced_features/ddg_physical_smoke/pyrosetta/10MH_A_T10A_bootstrap/runtime.log": "10d77c6b3a45a3600f159fb851c393e3111180e898a8265cf5578e5efb906ea8"
+    },
+    "rows": [
+      {
+        "backend": "pyrosetta",
+        "structure_id": "10MH",
+        "mutation": "T10A",
+        "chain_id": "A",
+        "pdb_position": 10,
+        "wild_type": "T",
+        "mutant": "A",
+        "ddg_reu": -1.884713732593724,
+        "ddg_units": "REU",
+        "manual_review": true,
+        "evidence_level": "computational_physics_runtime_smoke",
+        "negative_ddg_is_stabilizing": true,
+        "limitations": [
+          "single-mutation runtime smoke only",
+          "Rosetta Energy Units are not wet-lab kcal/mol labels",
+          "not training-import eligible without separate reviewed label authorization"
+        ],
+        "training_label": false,
+        "safe_for_model_claim": false,
+        "release_ready": false
+      }
+    ]
+  },
+  "proxy_ddg_consumption": {
+    "backend": "thermompnn",
+    "proxy_ready": true,
+    "proxy_is_physics": false,
+    "manual_review_computational_feature": true,
+    "manual_review_required": true,
+    "training_label": false,
+    "training_label_source": false,
+    "safe_for_training_import": false,
+    "safe_for_model_claim": false,
+    "release_ready": false,
+    "negative_ddg_is_stabilizing": true,
+    "evidence_level": "computational_proxy",
+    "mutation_row_count": 4,
+    "required_row_fields": [
+      "manual_review",
+      "evidence_level",
+      "negative_ddg_is_stabilizing",
+      "limitations"
+    ],
+    "rows_have_manual_review_evidence": true,
+    "rows": [
+      {
+        "mutation": "S265D",
+        "wild_type": "S",
+        "mutant": "D",
+        "canonical_position": 265,
+        "backend": "thermompnn",
+        "ddg_pred_kcal_mol": 1.2201781272888184,
+        "threshold_class": "destabilizing_watch",
+        "manual_review": true,
+        "evidence_level": "computational_proxy",
+        "negative_ddg_is_stabilizing": true,
+        "limitations": [
+          "ThermoMPNN predicted ddG proxy, not Rosetta/FoldX physics ddG",
+          "not a wet-lab stability label",
+          "single local smoke run; no replicate model ensemble"
+        ],
+        "proxy_is_physics": false,
+        "training_label": false,
+        "safe_for_model_claim": false,
+        "release_ready": false
+      },
+      {
+        "mutation": "D405N",
+        "wild_type": "D",
+        "mutant": "N",
+        "canonical_position": 405,
+        "backend": "thermompnn",
+        "ddg_pred_kcal_mol": -0.5451050400733948,
+        "threshold_class": "near_neutral_manual_review",
+        "manual_review": true,
+        "evidence_level": "computational_proxy",
+        "negative_ddg_is_stabilizing": true,
+        "limitations": [
+          "ThermoMPNN predicted ddG proxy, not Rosetta/FoldX physics ddG",
+          "not a wet-lab stability label",
+          "single local smoke run; no replicate model ensemble"
+        ],
+        "proxy_is_physics": false,
+        "training_label": false,
+        "safe_for_model_claim": false,
+        "release_ready": false
+      },
+      {
+        "mutation": "E331Q",
+        "wild_type": "E",
+        "mutant": "Q",
+        "canonical_position": 331,
+        "backend": "thermompnn",
+        "ddg_pred_kcal_mol": 0.14448201656341553,
+        "threshold_class": "near_neutral_manual_review",
+        "manual_review": true,
+        "evidence_level": "computational_proxy",
+        "negative_ddg_is_stabilizing": true,
+        "limitations": [
+          "ThermoMPNN predicted ddG proxy, not Rosetta/FoldX physics ddG",
+          "not a wet-lab stability label",
+          "single local smoke run; no replicate model ensemble"
+        ],
+        "proxy_is_physics": false,
+        "training_label": false,
+        "safe_for_model_claim": false,
+        "release_ready": false
+      },
+      {
+        "mutation": "M204H",
+        "wild_type": "M",
+        "mutant": "H",
+        "canonical_position": 204,
+        "backend": "thermompnn",
+        "ddg_pred_kcal_mol": 0.6317817568778992,
+        "threshold_class": "near_neutral_manual_review",
+        "manual_review": true,
+        "evidence_level": "computational_proxy",
+        "negative_ddg_is_stabilizing": true,
+        "limitations": [
+          "ThermoMPNN predicted ddG proxy, not Rosetta/FoldX physics ddG",
+          "not a wet-lab stability label",
+          "single local smoke run; no replicate model ensemble"
+        ],
+        "proxy_is_physics": false,
+        "training_label": false,
+        "safe_for_model_claim": false,
+        "release_ready": false
+      }
+    ]
+  },
+  "allowed_consumption": [
+    "PyRosetta computational physics runtime-smoke feature with manual review",
+    "manual-review computational feature",
+    "hypothesis prioritization pending human review"
+  ],
+  "prohibited_consumption": [
+    "training label",
+    "model claim",
+    "release decision",
+    "customer delivery without separate approval"
+  ],
+  "negative_protection_contract": {
+    "physics_ddg_ready_requires_pyrosetta_receipt_and_smoke": true,
+    "executable_ddg_backend_ready_requires_pyrosetta_receipt_and_smoke": true,
+    "proxy_is_physics_must_be_false": true,
+    "safe_for_model_claim_must_be_false": true,
+    "release_ready_must_be_false": true,
+    "thermompnn_rows_require_manual_review_evidence": true,
+    "pyrosetta_rows_not_training_labels": true
+  },
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "PyRosetta smoke output is computational physics runtime evidence only, and ThermoMPNN ddG values are proxy evidence only. Neither source may be consumed as a wet-lab training label, model claim, release decision, or customer-delivery approval."
+}

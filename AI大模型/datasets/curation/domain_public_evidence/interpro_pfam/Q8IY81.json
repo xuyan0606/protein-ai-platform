@@ -1,0 +1,107 @@
+{
+  "accession": "Q8IY81",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01728",
+        "name": "FtsJ-like methyltransferase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002877",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iy81",
+          "protein_length": 847,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 24,
+                  "end": 200,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01728",
+              "score": 4.5e-49
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07780",
+        "name": "Spb1 C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012920",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iy81",
+          "protein_length": 847,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 640,
+                  "end": 839,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF07780",
+              "score": 3.1e-69
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF11861",
+        "name": "Ribosomal RNA methyltransferase Spb1, DUF3381",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR024576",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iy81",
+          "protein_length": 847,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 232,
+                  "end": 400,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF11861",
+              "score": 5.6e-44
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

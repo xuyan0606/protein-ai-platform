@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-09-03T07:34:47.140306+00:00",
+  "success": true,
+  "case_rows": 3,
+  "passed_rows": 3,
+  "failed_rows": 0,
+  "real_inputs_mutated": false,
+  "results": [
+    {
+      "case_id": "duplicate_final_path",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 9,
+      "expected_check": "artifact_paths_unique",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "unsafe_absolute_path",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 6,
+      "expected_check": "artifact_paths_safe_relative",
+      "expected_check_observed": true
+    },
+    {
+      "case_id": "manifest_metadata_drift",
+      "tamper_rejected": true,
+      "validator_returncode": 1,
+      "failure_count": 6,
+      "expected_check": "data_lake_manifest_metadata_parity",
+      "expected_check_observed": true
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Regression mutates temporary data-lake and release copies only; canonical manifests remain byte-identical."
+}

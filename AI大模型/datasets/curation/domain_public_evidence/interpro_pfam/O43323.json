@@ -1,0 +1,73 @@
+{
+  "accession": "O43323",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01079",
+        "name": "Hint module",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001767",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43323",
+          "protein_length": 396,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 187,
+                  "end": 395,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF01079",
+              "score": 1.1e-70
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01085",
+        "name": "Hedgehog amino-terminal signalling domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000320",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o43323",
+          "protein_length": 396,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 23,
+                  "end": 185,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01085",
+              "score": 1.3e-79
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

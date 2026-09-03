@@ -1,0 +1,73 @@
+{
+  "accession": "P53597",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00549",
+        "name": "CoA-ligase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR005811",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p53597",
+          "protein_length": 346,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 199,
+                  "end": 324,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00549",
+              "score": 5.4e-28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02629",
+        "name": "CoA binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003781",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p53597",
+          "protein_length": 346,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 53,
+                  "end": 146,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02629",
+              "score": 3.9e-30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

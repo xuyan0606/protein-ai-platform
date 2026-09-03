@@ -1,0 +1,39 @@
+{
+  "case_id": "bench-assay-feedback-001",
+  "title": "Wet-lab feedback should change the next design round",
+  "input": {
+    "message": "上一轮 A42P 活性保留 92%，Tm 提高 2.8C；G88P 活性只剩 35%；K210E 表达失败。请给下一轮组合突变建议。",
+    "history_context": [
+      {
+        "role": "user",
+        "content": "feedback: A42P go; G88P no_go activity loss; K210E failed expression"
+      }
+    ],
+    "attachments": []
+  },
+  "expected_workflow": [
+    "data_lookup",
+    "mutation_epistasis_check",
+    "kwb_enzyme_designer"
+  ],
+  "must_have": [
+    "use A42P as validated single mutant",
+    "avoid G88P and K210E in default next-round recommendations",
+    "propose conservative combination or saturation around validated region"
+  ],
+  "must_not_have": [
+    "recommend G88P again without explaining failure",
+    "ignore expression failure",
+    "merge all mutations into one combination"
+  ],
+  "expected_output": {
+    "sections": [
+      "Feedback interpretation",
+      "Validated single mutants",
+      "Rejected candidates",
+      "Next-round design",
+      "Assay plan"
+    ]
+  },
+  "scoring_profile": "default"
+}

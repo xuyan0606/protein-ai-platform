@@ -1,0 +1,286 @@
+{
+  "created_at": "2026-09-01T10:00:28.236992+00:00",
+  "decision": "continue_local_contract_hardening_fail_closed_for_live_dependencies",
+  "destructive_actions": "not_executed",
+  "items": [
+    {
+      "evidence_tokens": [
+        "site_structure_function_features_v1",
+        "residue_distance_graph_v1",
+        "p2_structure_feature_gap_summary_v1"
+      ],
+      "external_blockers": [
+        "curated conservation database or MSA pipeline",
+        "validated pocket/channel/tunnel calculation",
+        "real ddG or MD RMSF artifacts"
+      ],
+      "must_not_claim": [
+        "complete residue feature table",
+        "DSSP/MD/conservation coverage when unavailable"
+      ],
+      "name": "residue_feature_table_contract",
+      "next_local_actions": [
+        "Expose a structure-feature gap summary in downstream SOP/status exports so pocket/channel/interface, conservation, ddG, and MD-derived fields remain explicit until computed.",
+        "Expose the calculator/source boundary in downstream SOP/status exports and continue widening residue feature fields only when a structured calculator or curated source exists."
+      ],
+      "phase": "P2",
+      "sources": [
+        {
+          "exists": true,
+          "path": "backend/app/tools/site_structure_function_features.py"
+        },
+        {
+          "exists": true,
+          "path": "backend/tests/test_mutation_objective_scores.py"
+        }
+      ],
+      "status": "ready_local_contract",
+      "summary": "Residue structure-function rows and residue distance graph are present as traceable contracts."
+    },
+    {
+      "evidence_tokens": [
+        "mutation_objective_score_v1",
+        "p2_objective_score_readiness_summary_v1",
+        "p2_objective_assay_gap_summary_v1",
+        "no_composite_score",
+        "unknown_policy"
+      ],
+      "external_blockers": [
+        "matched WT baseline for claim upgrade",
+        "objective-specific assay data"
+      ],
+      "must_not_claim": [
+        "single objective total score",
+        "measured improvement without assay"
+      ],
+      "name": "objective_score_contract",
+      "next_local_actions": [
+        "Expose unknown-component blocking state in downstream SOP/status exports and keep unknown objective components blocking instead of neutral.",
+        "Expose objective assay gaps beside project feedback readiness in downstream SOP/status exports."
+      ],
+      "phase": "P2",
+      "sources": [
+        {
+          "exists": true,
+          "path": "backend/app/tools/mutation_priority_score.py"
+        },
+        {
+          "exists": true,
+          "path": "backend/tests/test_mutation_objective_scores.py"
+        }
+      ],
+      "status": "ready_local_contract",
+      "summary": "Activity, stability, specificity, pH, expression, and risk scores are component-local; no total score is emitted."
+    },
+    {
+      "evidence_tokens": [
+        "candidate_table_generation_v1",
+        "p2_engineering_scorecard_contract_v1",
+        "p2_candidate_readiness_summary_v1",
+        "experiment_design_schedulability_policy_v1"
+      ],
+      "external_blockers": [
+        "wet-lab validation for candidate promotion"
+      ],
+      "must_not_claim": [
+        "blocked candidates are schedulable",
+        "candidate table is wet-lab validated"
+      ],
+      "name": "candidate_table_generation_contract",
+      "next_local_actions": [
+        "Expose experiment design schedulability policy in downstream SOP views.",
+        "Keep candidate table promotion tied to candidate_status and assay readiness."
+      ],
+      "phase": "P2",
+      "sources": [
+        {
+          "exists": true,
+          "path": "backend/app/tools/mutation_priority_score.py"
+        },
+        {
+          "exists": true,
+          "path": "frontend/src/components/analysis/MutationScoreCard.tsx"
+        },
+        {
+          "exists": true,
+          "path": "frontend/src/lib/report.ts"
+        }
+      ],
+      "status": "ready_local_contract",
+      "summary": "Candidate rows are grouped as high-confidence, exploratory, or blocked using residue features and objective score contracts."
+    },
+    {
+      "evidence_tokens": [
+        "dbtl_trace_v1",
+        "dbtl_project_model_v1",
+        "dbtl_project_memory_readiness_v1",
+        "dbtl_trace_summary_v1",
+        "dbtl_readiness_bridge_v1"
+      ],
+      "external_blockers": [
+        "product decision for formal DBTL write model"
+      ],
+      "must_not_claim": [
+        "formal Project/Round/Variant tables exist",
+        "trace has trained a model"
+      ],
+      "name": "dbtl_trace_contract",
+      "next_local_actions": [
+        "Expose raw-trace approval state in downstream SOP/status exports and keep raw trace read-only until formal DBTL tables are product-approved.",
+        "Expose project memory readiness in downstream SOP/status views."
+      ],
+      "phase": "P3",
+      "sources": [
+        {
+          "exists": true,
+          "path": "backend/app/services/dbtl_trace.py"
+        },
+        {
+          "exists": true,
+          "path": "backend/tests/test_project_dbtl_trace.py"
+        },
+        {
+          "exists": true,
+          "path": "frontend/src/pages/ProjectDetailPage.tsx"
+        },
+        {
+          "exists": true,
+          "path": "frontend/src/pages/ProjectListPage.tsx"
+        }
+      ],
+      "status": "ready_local_contract",
+      "summary": "Project DBTL trace aggregates existing checkpoints, feedback, calibration, formal decision, and next-round preview as read-only memory."
+    },
+    {
+      "evidence_tokens": [
+        "experiment_feedback_import_v1",
+        "dbtl_feedback_readiness_summary_v1",
+        "next_round_library_design_v1",
+        "next_round_combination_evidence_contract_v1"
+      ],
+      "external_blockers": [
+        "QC-passed replicated wet-lab feedback",
+        "assay condition completeness",
+        "formal Go/Watch/No-Go decisions"
+      ],
+      "must_not_claim": [
+        "trained epistasis model",
+        "higher-order combination readiness without pair data"
+      ],
+      "name": "feedback_import_and_next_round_contract",
+      "next_local_actions": [
+        "Expose feedback readiness in downstream SOP/status exports.",
+        "Expose pair/higher-order gate state in downstream SOP/status exports and keep pair/higher-order designs blocked until singleton and structure evidence pass."
+      ],
+      "phase": "P3",
+      "sources": [
+        {
+          "exists": true,
+          "path": "backend/app/services/experiment_feedback.py"
+        },
+        {
+          "exists": true,
+          "path": "backend/app/tools/feedback_iteration_planner.py"
+        },
+        {
+          "exists": true,
+          "path": "backend/tests/test_experiment_feedback_import_contract.py"
+        },
+        {
+          "exists": true,
+          "path": "frontend/src/pages/DataBrowser.tsx"
+        },
+        {
+          "exists": true,
+          "path": "frontend/src/pages/ProjectDetailPage.tsx"
+        }
+      ],
+      "status": "ready_local_contract",
+      "summary": "Experiment feedback import gates training/claim eligibility, and next-round library planning is constrained by validated singleton evidence."
+    },
+    {
+      "evidence_tokens": [
+        "p4_closed_loop_readiness_v1",
+        "p4_active_learning_batch_contract_v1",
+        "p4_model_calibration_registry_contract_v1",
+        "p4_manufacturing_constraint_schema_v1",
+        "live_gate_approval",
+        "model_retrained",
+        "p4_operator_review_contract_v1"
+      ],
+      "external_blockers": [
+        "approved production learning policy",
+        "sufficient training-eligible feedback",
+        "maintenance window and live gate approval",
+        "manufacturing/process constraint owner input"
+      ],
+      "must_not_claim": [
+        "P4 production loop is running",
+        "model is retrained",
+        "manufacturing constraints are validated"
+      ],
+      "name": "industrial_closed_loop_readiness",
+      "next_local_actions": [
+        "Expose P4 contract status and operator review state in downstream SOP/status exports.",
+        "Expose live-gate approval block state in downstream SOP/status exports and keep live gate approval blocked until an explicit operator review is recorded."
+      ],
+      "phase": "P4",
+      "sources": [
+        {
+          "exists": true,
+          "path": "backend/app/services/dbtl_trace.py"
+        },
+        {
+          "exists": true,
+          "path": "frontend/src/lib/report.ts"
+        },
+        {
+          "exists": true,
+          "path": "docs/manuals/remaining-backlog-go-no-go-summary.json"
+        }
+      ],
+      "status": "ready_local_contract",
+      "summary": "P4 is defined as production-grade closed-loop operation: active learning batches, model calibration registry, manufacturing constraints, and approved live-gate execution."
+    }
+  ],
+  "live_gate_execution_allowed": false,
+  "mode": "read_only_p2_p3_p4_roadmap",
+  "network_io": "not_executed",
+  "next_action": "Continue P2/P3 local contract hardening and define P4 contracts; do not execute live gates or claim wet-lab/model-training completion without external evidence.",
+  "phase_summary": {
+    "P2": {
+      "defined_not_started": 0,
+      "external_blocker_count": 6,
+      "item_count": 3,
+      "items": [
+        "residue_feature_table_contract",
+        "objective_score_contract",
+        "candidate_table_generation_contract"
+      ],
+      "partial": 0,
+      "ready_local_contract": 3
+    },
+    "P3": {
+      "defined_not_started": 0,
+      "external_blocker_count": 4,
+      "item_count": 2,
+      "items": [
+        "dbtl_trace_contract",
+        "feedback_import_and_next_round_contract"
+      ],
+      "partial": 0,
+      "ready_local_contract": 2
+    },
+    "P4": {
+      "defined_not_started": 0,
+      "external_blocker_count": 4,
+      "item_count": 1,
+      "items": [
+        "industrial_closed_loop_readiness"
+      ],
+      "partial": 0,
+      "ready_local_contract": 1
+    }
+  },
+  "secrets_printed": false
+}

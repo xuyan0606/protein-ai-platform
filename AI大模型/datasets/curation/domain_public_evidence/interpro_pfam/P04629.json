@@ -1,0 +1,141 @@
+{
+  "accession": "P04629",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF07714",
+        "name": "Protein tyrosine and serine/threonine kinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001245",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p04629",
+          "protein_length": 796,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 512,
+                  "end": 781,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07714",
+              "score": 1.3e-90
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13855",
+        "name": "Leucine rich repeat",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR001611",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p04629",
+          "protein_length": 796,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 92,
+                  "end": 150,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13855",
+              "score": 7e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF16920",
+        "name": "Leucine rich repeat C-terminal motif",
+        "source_database": "pfam",
+        "type": "conserved_site",
+        "integrated": "IPR031635",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p04629",
+          "protein_length": 796,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 151,
+                  "end": 192,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF16920",
+              "score": 8.9e-11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18613",
+        "name": "Tyrosine kinase receptor A trans-membrane domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040665",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p04629",
+          "protein_length": 796,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 417,
+                  "end": 438,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF18613",
+              "score": 0.00018
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

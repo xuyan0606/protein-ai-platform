@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-09-03T07:33:55.680823+00:00",
+  "local_only": true,
+  "success": true,
+  "audit_rows": 11,
+  "gap_action_rows": 5,
+  "sample_gap_rows": 5,
+  "ready_head_count": 0,
+  "total_head_training_rows": 6,
+  "training_import_eligible_rows": 6,
+  "missing_label_rows_total": 494,
+  "missing_replicates_total": 15,
+  "missing_groups_total": 48,
+  "failures": [],
+  "training_execution_allowed": false,
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "policy": "Validation only. P29 five-head training gaps remain blocking and do not authorize training, model claims, release, or production execution."
+}

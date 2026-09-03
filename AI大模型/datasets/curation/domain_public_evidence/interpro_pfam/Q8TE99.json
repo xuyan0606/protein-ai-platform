@@ -1,0 +1,39 @@
+{
+  "accession": "Q8TE99",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00328",
+        "name": "Histidine phosphatase superfamily (branch 2)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000560",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8te99",
+          "protein_length": 480,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 87,
+                  "end": 424,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00328",
+              "score": 4.6e-35
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

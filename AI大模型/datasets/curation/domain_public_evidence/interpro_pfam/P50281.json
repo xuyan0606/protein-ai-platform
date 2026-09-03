@@ -1,0 +1,177 @@
+{
+  "accession": "P50281",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00045",
+        "name": "Hemopexin",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR018487",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p50281",
+          "protein_length": 582,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 323,
+                  "end": 365,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00045",
+              "score": 2.3e-11
+            },
+            {
+              "fragments": [
+                {
+                  "start": 368,
+                  "end": 411,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00045",
+              "score": 1.3e-10
+            },
+            {
+              "fragments": [
+                {
+                  "start": 415,
+                  "end": 460,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00045",
+              "score": 2.7e-10
+            },
+            {
+              "fragments": [
+                {
+                  "start": 469,
+                  "end": 508,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00045",
+              "score": 1.7e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00413",
+        "name": "Matrixin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001818",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p50281",
+          "protein_length": 582,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 118,
+                  "end": 284,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00413",
+              "score": 1.8e-57
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01471",
+        "name": "Putative peptidoglycan binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002477",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p50281",
+          "protein_length": 582,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 37,
+                  "end": 88,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01471",
+              "score": 1.9e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF11857",
+        "name": "Domain of unknown function (DUF3377)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR021805",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p50281",
+          "protein_length": 582,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 514,
+                  "end": 582,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF11857",
+              "score": 2.4e-20
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

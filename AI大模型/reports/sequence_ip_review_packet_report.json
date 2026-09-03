@@ -1,0 +1,20 @@
+{
+  "local_only": true,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/kwb_venus15b_strict_holdout_review_packets.jsonl",
+  "default_input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curated/enzyme_mutation_supervised_repaired_verified.jsonl",
+  "fallback_input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/kwb_venus15b_strict_holdout_review_packets.jsonl",
+  "fallback_used": true,
+  "packets": 1,
+  "packet_rows": 3,
+  "packet_files": [
+    "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/sequence_ip_review_packets/sequence_ip_review_internal_labels_001.jsonl"
+  ],
+  "reviewed_fto_rows": 0,
+  "ready_for_customer_delivery": false,
+  "blockers": [
+    "sequence-level prior-art search is not performed locally",
+    "no human IP/FTO decision is present",
+    "candidate sequence hashes are not customer-delivery artifacts"
+  ],
+  "policy": "Packets support legal review; they do not provide FTO conclusions."
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "P10265",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00077",
+        "name": "Retroviral aspartyl protease",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR018061",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p10265",
+          "protein_length": 156,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 7,
+                  "end": 104,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00077",
+              "score": 2.3e-32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01585",
+        "name": "G-patch domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000467",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p10265",
+          "protein_length": 156,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 112,
+                  "end": 154,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01585",
+              "score": 2.7e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "local_only": true,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/workstream_acceptance_decisions.jsonl",
+  "template": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/workstream_acceptance_decisions.template.jsonl",
+  "expected_streams": [
+    "active_learning",
+    "biosecurity_customer_delivery",
+    "external_data_sources",
+    "msa_conservation",
+    "plate_feedback",
+    "structure_chain_mapping"
+  ],
+  "decision_rows": 1,
+  "valid_rows": 1,
+  "invalid_rows": 0,
+  "decided_streams": 1,
+  "decided_stream_ids": [
+    "active_learning"
+  ],
+  "all_streams_decided": false,
+  "accepted_streams": 0,
+  "accepted_stream_ids": [],
+  "accepted_for_model_claim_streams": [],
+  "accepted_for_customer_delivery_streams": [],
+  "accepted_for_experiment_submission_streams": [],
+  "all_streams_accepted": false,
+  "missing_stream_decisions": [
+    "biosecurity_customer_delivery",
+    "external_data_sources",
+    "msa_conservation",
+    "plate_feedback",
+    "structure_chain_mapping"
+  ],
+  "unaccepted_streams": [
+    "active_learning",
+    "biosecurity_customer_delivery",
+    "external_data_sources",
+    "msa_conservation",
+    "plate_feedback",
+    "structure_chain_mapping"
+  ],
+  "error_counts": {},
+  "records": [
+    {
+      "stream": "active_learning",
+      "acceptance_decision": "needs_more_info",
+      "valid": true,
+      "accepted": false,
+      "accepted_for_model_claim": false,
+      "accepted_for_customer_delivery": false,
+      "accepted_for_experiment_submission": false,
+      "errors": []
+    }
+  ],
+  "policy": "Workstream acceptance requires explicit human acceptance with evidence; technical readiness alone is not acceptance."
+}

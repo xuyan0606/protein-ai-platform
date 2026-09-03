@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB-EnzymeDesigner Contract",
+  "type": "object",
+  "required": ["request", "result"],
+  "properties": {
+    "request": {
+      "type": "object",
+      "required": ["objective"],
+      "properties": {
+        "enzyme_name": { "type": "string" },
+        "ec_number": { "type": "string" },
+        "sequence": { "type": "string" },
+        "structure_object": { "type": "string" },
+        "pdb_id": { "type": "string" },
+        "substrate": { "type": "string" },
+        "reaction": { "type": "string" },
+        "objective": { "type": "string" },
+        "assay_condition": {
+          "type": "object",
+          "properties": {
+            "ph": { "type": ["number", "string"] },
+            "temperature_c": { "type": ["number", "string"] },
+            "buffer": { "type": "string" },
+            "expression_system": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
+        "known_mutations": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "protected_sites": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "position": { "type": "integer" },
+              "reason": { "type": "string" },
+              "source": { "type": "string" }
+            },
+            "required": ["position", "reason"]
+          }
+        },
+        "evidence_context": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "source": { "type": "string" },
+              "source_id": { "type": "string" },
+              "evidence_type": { "type": "string" },
+              "summary": { "type": "string" },
+              "confidence": { "type": "number" }
+            },
+            "required": ["source", "summary"]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "result": {
+      "type": "object",
+      "required": ["model", "candidates", "evidence_summary"],
+      "properties": {
+        "model": {
+          "type": "object",
+          "required": ["name", "version"],
+          "properties": {
+            "name": { "const": "KWB-EnzymeDesigner" },
+            "version": { "type": "string" },
+            "data_version": { "type": "string" }
+          }
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["mutation", "overall_score", "confidence"],
+            "properties": {
+              "mutation": { "type": "string" },
+              "overall_score": { "type": "number" },
+              "stability_score": { "type": "number" },
+              "activity_risk_score": { "type": "number" },
+              "substrate_fit_score": { "type": "number" },
+              "assay_success_score": { "type": "number" },
+              "confidence": { "type": "number" },
+              "decision": {
+                "type": "string",
+                "enum": ["go", "watch", "no_go"]
+              },
+              "rationale": { "type": "string" },
+              "risk_flags": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "next_experiment": { "type": "string" }
+            }
+          }
+        },
+        "evidence_summary": {
+          "type": "object",
+          "properties": {
+            "kwb_private_records": { "type": "integer" },
+            "public_database_records": { "type": "integer" },
+            "structure_evidence": { "type": "string" },
+            "sequence_level_only": { "type": "boolean" },
+            "requires_wet_lab_validation": { "type": "boolean" }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
+

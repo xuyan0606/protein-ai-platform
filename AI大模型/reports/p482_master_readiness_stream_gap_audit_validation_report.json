@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-09-03T07:34:02.048255+00:00",
+  "local_only": true,
+  "success": true,
+  "audit_rows": 9,
+  "stream_audit_rows": 8,
+  "blocked_stream_rows": 7,
+  "overall_status": "blocked_for_model_claim",
+  "ready_streams": 1,
+  "total_streams": 8,
+  "failures": [],
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "customer_delivery_ready": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "policy": "Validation only. Master readiness stream gaps do not authorize training, claims, delivery, release, or production execution."
+}

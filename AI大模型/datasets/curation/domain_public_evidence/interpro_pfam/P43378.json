@@ -1,0 +1,73 @@
+{
+  "accession": "P43378",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00102",
+        "name": "Protein-tyrosine phosphatase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000242",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p43378",
+          "protein_length": 593,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 327,
+                  "end": 573,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00102",
+              "score": 2.5e-83
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00650",
+        "name": "CRAL/TRIO domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001251",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p43378",
+          "protein_length": 593,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 94,
+                  "end": 237,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00650",
+              "score": 1e-27
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

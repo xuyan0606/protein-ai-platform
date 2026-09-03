@@ -1,0 +1,107 @@
+{
+  "accession": "P49641",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01074",
+        "name": "Glycosyl hydrolases family 38 N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000602",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49641",
+          "protein_length": 1150,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 166,
+                  "end": 498,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01074",
+              "score": 6e-91
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07748",
+        "name": "Glycosyl hydrolases family 38 C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011682",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49641",
+          "protein_length": 1150,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 765,
+                  "end": 970,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07748",
+              "score": 1.3e-38
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09261",
+        "name": "Alpha mannosidase middle domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015341",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49641",
+          "protein_length": 1150,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 502,
+                  "end": 605,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09261",
+              "score": 6.3e-19
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

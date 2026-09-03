@@ -1,0 +1,40 @@
+{
+  "created_at": "2026-09-03T07:31:08.508428+00:00",
+  "local_only": true,
+  "stability_records_checked": 549,
+  "numbering_queue_rows_checked": 475,
+  "generated_source_fingerprint_rows": 542,
+  "fixture_source_rows": 7,
+  "current_uniprot_wt_mismatch_rows": 523,
+  "current_uniprot_wt_match_rows": 26,
+  "ddg_dtm_direction_conflict_rows": 546,
+  "pubmed_evidence_rows_available": 475,
+  "pubmed_found_rows": 458,
+  "mutation_mentioned_in_pubmed_rows": 0,
+  "uniprot_reference_linked_rows": 0,
+  "isoform_exact_candidate_rows": 8,
+  "existing_decision_rows": 4,
+  "existing_decision_semantic_conflict_rows": 0,
+  "recommended_reject_label_rows": 549,
+  "audit_flag_counts": {
+    "ddg_dtm_direction_conflict_under_kwb_convention": 546,
+    "isoform_residue_match_is_not_source_provenance": 8,
+    "mutation_not_mentioned_in_pubmed_title_or_abstract": 458,
+    "pmid_not_found_in_pubmed": 17,
+    "pmid_not_linked_from_current_uniprot_references": 458,
+    "pubmed_evidence_not_available_for_record": 74,
+    "reported_wild_type_mismatch_current_uniprot": 523,
+    "sample_fixture_literal_pmid": 7,
+    "synthetic_generator_fingerprint_prothermdb_pmid_310xxxxx": 542
+  },
+  "source_lineage_flag_counts": {
+    "sample_fixture_literal_pmid": 7,
+    "synthetic_generator_fingerprint_prothermdb_pmid_310xxxxx": 542
+  },
+  "safe_to_map_any_record": false,
+  "safe_for_model_claim": false,
+  "hard_gate_status": "blocked_generated_or_fixture_stability_source",
+  "all_records_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_deep_audit_all_stability_records.jsonl",
+  "review_queue_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_deep_audit_review_queue.jsonl",
+  "policy": "The current local stability_records table is generated or fixture data. It may support engineering smoke tests only and must not be repaired into claim-eligible supervised labels from numbering evidence."
+}

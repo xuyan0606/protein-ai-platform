@@ -1,0 +1,107 @@
+{
+  "accession": "Q92831",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00439",
+        "name": "Bromodomain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001487",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92831",
+          "protein_length": 832,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 733,
+                  "end": 814,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00439",
+              "score": 5.5e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00583",
+        "name": "Acetyltransferase (GNAT) family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000182",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92831",
+          "protein_length": 832,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 531,
+                  "end": 622,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00583",
+              "score": 1e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF06466",
+        "name": "PCAF (P300/CBP-associated factor) N-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR009464",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q92831",
+          "protein_length": 832,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 74,
+                  "end": 326,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF06466",
+              "score": 1.8e-108
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

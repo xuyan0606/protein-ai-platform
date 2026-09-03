@@ -1,0 +1,310 @@
+{
+  "error_counts": {},
+  "feature_rows": 29,
+  "invalid_rows": 0,
+  "policy": "Features remain manual-review computational inputs, not training labels or claims.",
+  "quality_blocked_reason_counts": {
+    "ddg_abs_gt_20_reu": 11,
+    "mutant_total_score_sanity_warning": 3,
+    "wild_total_score_sanity_warning": 3
+  },
+  "quality_blocked_records": [
+    {
+      "candidate_id": "stability:71::PDB:7DVQ",
+      "chain_id": "M",
+      "ddg_abs_reu": 243.2842626406782,
+      "ddg_reu": 243.2842626406782,
+      "feature_id": "pyrosetta::stability:71::PDB:7DVQ::7DVQ::M",
+      "mutation": "A286P",
+      "score_quality_reasons": [
+        "ddg_abs_gt_20_reu",
+        "wild_total_score_sanity_warning",
+        "mutant_total_score_sanity_warning"
+      ],
+      "score_quality_status": "quality_blocked"
+    },
+    {
+      "candidate_id": "stability:90::PDB:9DA2",
+      "chain_id": "A",
+      "ddg_abs_reu": 22.724209664154273,
+      "ddg_reu": 22.724209664154273,
+      "feature_id": "pyrosetta::stability:90::PDB:9DA2::4P5E::A",
+      "mutation": "G72H",
+      "score_quality_reasons": [
+        "ddg_abs_gt_20_reu"
+      ],
+      "score_quality_status": "quality_blocked"
+    },
+    {
+      "candidate_id": "stability:166::PDB:6ZJF",
+      "chain_id": "A",
+      "ddg_abs_reu": 97.91246925566074,
+      "ddg_reu": 97.91246925566074,
+      "feature_id": "pyrosetta::stability:166::PDB:6ZJF::6ZJF::A",
+      "mutation": "C122I",
+      "score_quality_reasons": [
+        "ddg_abs_gt_20_reu"
+      ],
+      "score_quality_status": "quality_blocked"
+    },
+    {
+      "candidate_id": "stability:227::PDB:9YB6",
+      "chain_id": "A",
+      "ddg_abs_reu": 421.7297132816336,
+      "ddg_reu": 421.7297132816336,
+      "feature_id": "pyrosetta::stability:227::PDB:9YB6::9YB6::A",
+      "mutation": "G252E",
+      "score_quality_reasons": [
+        "ddg_abs_gt_20_reu"
+      ],
+      "score_quality_status": "quality_blocked"
+    },
+    {
+      "candidate_id": "stability:227::PDB:9YB6",
+      "chain_id": "B",
+      "ddg_abs_reu": 569.3341322180926,
+      "ddg_reu": 569.3341322180926,
+      "feature_id": "pyrosetta::stability:227::PDB:9YB6::9YB6::B",
+      "mutation": "G252E",
+      "score_quality_reasons": [
+        "ddg_abs_gt_20_reu"
+      ],
+      "score_quality_status": "quality_blocked"
+    },
+    {
+      "candidate_id": "stability:248::PDB:9NSJ",
+      "chain_id": "A",
+      "ddg_abs_reu": 78.85587013601912,
+      "ddg_reu": 78.85587013601912,
+      "feature_id": "pyrosetta::stability:248::PDB:9NSJ::9NSJ::A",
+      "mutation": "C164K",
+      "score_quality_reasons": [
+        "ddg_abs_gt_20_reu"
+      ],
+      "score_quality_status": "quality_blocked"
+    },
+    {
+      "candidate_id": "stability:248::PDB:9NSJ",
+      "chain_id": "B",
+      "ddg_abs_reu": 173.70218175828848,
+      "ddg_reu": 173.70218175828848,
+      "feature_id": "pyrosetta::stability:248::PDB:9NSJ::9NSJ::B",
+      "mutation": "C164K",
+      "score_quality_reasons": [
+        "ddg_abs_gt_20_reu"
+      ],
+      "score_quality_status": "quality_blocked"
+    },
+    {
+      "candidate_id": "stability:278::PDB:8TCE",
+      "chain_id": "B",
+      "ddg_abs_reu": 22.41751797007555,
+      "ddg_reu": 22.41751797007555,
+      "feature_id": "pyrosetta::stability:278::PDB:8TCE::8TCE::B",
+      "mutation": "Q1394L",
+      "score_quality_reasons": [
+        "ddg_abs_gt_20_reu"
+      ],
+      "score_quality_status": "quality_blocked"
+    },
+    {
+      "candidate_id": "stability:401::PDB:4DO4",
+      "chain_id": "A",
+      "ddg_abs_reu": 178.93521248559318,
+      "ddg_reu": 178.93521248559318,
+      "feature_id": "pyrosetta::stability:401::PDB:4DO4::4DO4::A",
+      "mutation": "D141K",
+      "score_quality_reasons": [
+        "ddg_abs_gt_20_reu",
+        "wild_total_score_sanity_warning",
+        "mutant_total_score_sanity_warning"
+      ],
+      "score_quality_status": "quality_blocked"
+    },
+    {
+      "candidate_id": "stability:401::PDB:4DO4",
+      "chain_id": "B",
+      "ddg_abs_reu": 158.29043420695143,
+      "ddg_reu": 158.29043420695143,
+      "feature_id": "pyrosetta::stability:401::PDB:4DO4::4DO4::B",
+      "mutation": "D141K",
+      "score_quality_reasons": [
+        "ddg_abs_gt_20_reu",
+        "wild_total_score_sanity_warning",
+        "mutant_total_score_sanity_warning"
+      ],
+      "score_quality_status": "quality_blocked"
+    },
+    {
+      "candidate_id": "stability:425::PDB:2IJA",
+      "chain_id": "A",
+      "ddg_abs_reu": 740.8382460478917,
+      "ddg_reu": 740.8382460478917,
+      "feature_id": "pyrosetta::stability:425::PDB:2IJA::2IJA::A",
+      "mutation": "A78Y",
+      "score_quality_reasons": [
+        "ddg_abs_gt_20_reu"
+      ],
+      "score_quality_status": "quality_blocked"
+    }
+  ],
+  "quality_blocked_rows": 11,
+  "quality_gate_policy": {
+    "ddg_abs_sanity_limit_reu": 20.0,
+    "scientific_validity_claim": false,
+    "total_score_sanity_limit_reu": 5000.0
+  },
+  "quality_gate_status": "blocked",
+  "quality_passed_rows": 18,
+  "records": [
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:34::PDB:4YII::4YII::U",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:44::PDB:1WZV::1WZV::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:44::PDB:1WZV::1WZV::B",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:47::PDB:1WZV::1WZV::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:47::PDB:1WZV::1WZV::B",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:71::PDB:7DVQ::7DVQ::M",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:87::PDB:9DA2::4P5E::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:87::PDB:9DA2::4P5E::B",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:90::PDB:9DA2::4P5E::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:90::PDB:9DA2::4P5E::B",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:166::PDB:6ZJF::6ZJF::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:182::PDB:9EGE::9EGE::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:227::PDB:9YB6::9YB6::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:227::PDB:9YB6::9YB6::B",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:248::PDB:9NSJ::9NSJ::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:248::PDB:9NSJ::9NSJ::B",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:278::PDB:8TCE::8TCE::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:278::PDB:8TCE::8TCE::B",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:310::PDB:8EDE::8EDE::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:310::PDB:8EDE::8EDE::B",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:358::PDB:3CWW::3CWW::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:358::PDB:3CWW::3CWW::B",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:401::PDB:4DO4::4DO4::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:401::PDB:4DO4::4DO4::B",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:425::PDB:2IJA::2IJA::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:440::PDB:6H1A::6H1A::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:463::PDB:9FTW::9FTW::A",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:463::PDB:9FTW::9FTW::B",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "feature_id": "pyrosetta::stability:464::PDB:6S7P::6S7P::A",
+      "valid": true
+    }
+  ],
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "valid_rows": 29
+}

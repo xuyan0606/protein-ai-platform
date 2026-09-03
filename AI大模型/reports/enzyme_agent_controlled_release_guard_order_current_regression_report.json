@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "mode": "enzyme-agent-controlled-release-guard-order-current-regression-v1",
+  "created_at": "2026-09-03T07:35:31.050036+00:00",
+  "success": true,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_enzyme_agent_controlled_release_guard_order_current_regression.py",
+  "regression_script_sha256": "060334268b71fff4660757c88ff5c1f7d492eebee4b00a4efecba935d6680c66",
+  "current_validator_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_enzyme_agent_controlled_release_guard_order_current.py",
+  "current_validator_script_sha256": "bec4b7baa33e2a1cbc009d6ad4b17cc70c61c070baacc2691f989ee6a5aa88b2",
+  "output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/enzyme_agent_controlled_release_guard_order_current_regression_report.json",
+  "lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.enzyme_agent_controlled_release_guard_order.lock",
+  "lock_acquired": true,
+  "atomic_commit": true,
+  "case_count": 17,
+  "passed_case_count": 17,
+  "failed_case_count": 0,
+  "isolated_fixture": true,
+  "real_inputs_mutated": false,
+  "cases": [
+    {
+      "case_id": "control_current",
+      "expected_valid": true,
+      "observed_valid": true,
+      "passed": true,
+      "failure_checks": []
+    },
+    {
+      "case_id": "validation_success_drift",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_checks": [
+        "validation_success_current"
+      ]
+    },
+    {
+      "case_id": "validation_validator_sha_drift",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_checks": [
+        "validation_validator_script_sha256_current"
+      ]
+    },
+    {
+      "case_id": "validation_wave_sha_drift",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_checks": [
+        "validation_wave_script_sha256_current"
+      ]
+    },
+    {
+      "case_id": "validation_output_path_drift",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_checks": [
+        "validation_output_path_current"
+      ]
+    },
+    {
+      "case_id": "validation_lock_path_drift",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_checks": [
+        "validation_lock_path_current"
+      ]
+    },
+    {
+      "case_id": "validation_atomic_commit_drift",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_checks": [
+        "validation_atomic_commit_current"
+      ]
+    },
+    {
+      "case_id": "validation_contract_sha_drift",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_checks": [
+        "validation_observed_action_contract_sha256_current"
+      ]
+    },
+    {
+      "case_id": "regression_failed_rows_drift",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_checks": [
+        "regression_failed_rows_current"
+      ]
+    },
+    {
+      "case_id": "regression_script_sha_drift",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_checks": [
+        "regression_regression_script_sha256_current"
+      ]
+    },
+    {
+      "case_id": "regression_output_path_drift",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_checks": [
+        "regression_output_path_current"
+      ]
+    },
+    {
+      "case_id": "regression_atomic_commit_drift",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_checks": [
+        "regression_atomic_commit_current"
+      ]
+    },
+    {
+      "case_id": "live_wave_script_sha_drift",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_checks": [
+        "validation_wave_script_sha256_current",
+        "regression_wave_script_sha256_current"
+      ]
+    },
+    {
+      "case_id": "live_validator_script_sha_drift",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "failure_checks": [
+        "validation_validator_script_sha256_current",
+        "regression_validator_script_sha256_current"
+      ]
+    },
+    {
+      "case_id": "signer_interrupted_replace_preserves_prior",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "prior_output_preserved": true,
+      "temp_residue": []
+    },
+    {
+      "case_id": "regression_interrupted_replace_preserves_prior",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "prior_output_preserved": true,
+      "temp_residue": []
+    },
+    {
+      "case_id": "current_interrupted_replace_preserves_prior",
+      "expected_valid": false,
+      "observed_valid": false,
+      "passed": true,
+      "prior_output_preserved": true,
+      "temp_residue": []
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

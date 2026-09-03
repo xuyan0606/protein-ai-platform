@@ -45,6 +45,27 @@ def test_every_blocked_receipt_is_non_claim_and_non_release(tmp_path):
     assert result["release_ready"] is False
 
 
+def test_training_blocks_when_dataset_manifest_is_missing(tmp_path):
+    reports = tmp_path / "reports"
+    dataset_dir = tmp_path / "datasets" / "training"
+    reports.mkdir()
+    dataset_dir.mkdir(parents=True)
+    (reports / "production_model_gate.json").write_text(
+        json.dumps({"production_ready": True, "blockers": []})
+    )
+    (reports / "five_head_training_execution_contract_report.json").write_text(
+        json.dumps({"training_execution_allowed": True, "ready_head_count": 5})
+    )
+    (dataset_dir / "five_head_training_labels.jsonl").write_text(
+        json.dumps({"head": "activity_risk", "label_value": "low"}) + "\n"
+    )
+
+    result = run_training(tmp_path)
+
+    assert result["status"] == "blocked_missing_or_invalid_training_input_manifest"
+    assert result["training_executed"] is False
+
+
 def test_completed_training_receipt_does_not_authorize_claim_or_release(tmp_path, monkeypatch):
     reports = tmp_path / "reports"
     dataset_dir = tmp_path / "datasets" / "training"
@@ -56,8 +77,20 @@ def test_completed_training_receipt_does_not_authorize_claim_or_release(tmp_path
     (reports / "five_head_training_execution_contract_report.json").write_text(
         json.dumps({"training_execution_allowed": True, "ready_head_count": 5})
     )
-    (dataset_dir / "five_head_training_labels.jsonl").write_text(
+    dataset = dataset_dir / "five_head_training_labels.jsonl"
+    dataset.write_text(
         json.dumps({"head": "activity_risk", "label_value": "low"}) + "\n"
+    )
+    import hashlib
+
+    (reports / "five_head_training_input_manifest.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "kwb_five_head_training_input_manifest_v1",
+                "ready_for_training_execution": True,
+                "dataset_sha256": hashlib.sha256(dataset.read_bytes()).hexdigest(),
+            }
+        )
     )
     monkeypatch.setattr(
         "train_production_multitask.run_training_core",

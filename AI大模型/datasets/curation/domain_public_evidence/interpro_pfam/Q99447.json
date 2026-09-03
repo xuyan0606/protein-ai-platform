@@ -1,0 +1,51 @@
+{
+  "accession": "Q99447",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01467",
+        "name": "Cytidylyltransferase-like",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004821",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q99447",
+          "protein_length": 389,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 26,
+                  "end": 150,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01467",
+              "score": 1.9e-29
+            },
+            {
+              "fragments": [
+                {
+                  "start": 218,
+                  "end": 309,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01467",
+              "score": 1.4e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

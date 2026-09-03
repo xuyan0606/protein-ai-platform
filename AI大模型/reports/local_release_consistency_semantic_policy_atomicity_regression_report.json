@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "mode": "local_release_consistency_semantic_policy_atomicity_regression",
+  "success": true,
+  "isolated_fixture": true,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_consistency_semantic_policy_atomicity_regression.py",
+  "regression_script_sha256": "96bc74d4f37de1cdd3f8cac656b76d68c8a73c786361c10eec86df2437852af9",
+  "policy_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_consistency_semantic_policy.py",
+  "policy_script_sha256": "54471244ab5ab9ebe06ec342d2764aeec5db62fa1262b1103b9cec32a6fe0f25",
+  "current_validator_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_consistency_semantic_policy_current.py",
+  "current_validator_script_sha256": "c0e5714ef786ff4c4690f408017bba50fe9a9b2a707e45ac9ec0bc0199717584",
+  "case_count": 7,
+  "passed_case_count": 7,
+  "failed_case_count": 0,
+  "real_inputs_mutated": false,
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case": "policy_atomic_commit_complete_json",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "case": "policy_interrupted_replace_preserves_prior",
+      "passed": true,
+      "returncode": 1,
+      "prior_preserved": true,
+      "residual_temp_files": []
+    },
+    {
+      "case": "policy_lock_timeout_and_recovery",
+      "passed": true,
+      "blocked_returncode": 1,
+      "recovered_returncode": 0
+    },
+    {
+      "case": "double_policy_signer_serializes",
+      "passed": true,
+      "first_returncode": 0,
+      "second_returncode": 0
+    },
+    {
+      "case": "current_atomic_commit_complete_json",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "case": "current_interrupted_replace_preserves_prior",
+      "passed": true,
+      "returncode": 1,
+      "prior_preserved": true,
+      "residual_temp_files": []
+    },
+    {
+      "case": "current_lock_timeout_and_recovery",
+      "passed": true,
+      "blocked_returncode": 1,
+      "recovered_returncode": 0
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

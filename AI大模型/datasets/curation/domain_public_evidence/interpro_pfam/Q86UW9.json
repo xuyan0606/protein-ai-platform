@@ -1,0 +1,85 @@
+{
+  "accession": "Q86UW9",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02825",
+        "name": "WWE domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004170",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86uw9",
+          "protein_length": 622,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 20,
+                  "end": 97,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02825",
+              "score": 1e-11
+            },
+            {
+              "fragments": [
+                {
+                  "start": 110,
+                  "end": 174,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02825",
+              "score": 3.1e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18102",
+        "name": "Deltex C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR039396",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86uw9",
+          "protein_length": 622,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 480,
+                  "end": 614,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18102",
+              "score": 1.5e-55
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

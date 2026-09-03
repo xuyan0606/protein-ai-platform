@@ -1,0 +1,31 @@
+{
+  "checked_reports": {
+    "controlled_wave": "reports/enzyme_agent_controlled_execution_wave_report.json",
+    "diagnostic": "reports/ddg_backend_failure_diagnostic_report.json",
+    "executable_probe": "reports/ddg_executable_probe_report.json",
+    "license_validation": "reports/external_license_review_decision_validation_report.json",
+    "preflight_json": "reports/ddg_physical_runtime_receipt_preflight_report.json",
+    "preflight_md": "reports/ddg_physical_runtime_receipt_preflight.md",
+    "readiness": "reports/ddg_backend_readiness_report.json",
+    "runtime_discovery": "reports/ddg_local_runtime_discovery_report.json"
+  },
+  "contradictory_executable_physics_states": [],
+  "created_at": "2026-09-03T07:32:13.150517+00:00",
+  "executable_ddg_backend_ready": false,
+  "failures": [],
+  "local_only": true,
+  "physical_backends_checked": [
+    "foldx",
+    "pyrosetta",
+    "rosetta"
+  ],
+  "physics_ddg_ready": false,
+  "policy": "Fail-closed validator. PyRosetta may satisfy physical ddG only through approved runtime receipt and smoke artifacts; ThermoMPNN proxy readiness remains proxy-only and cannot satisfy physics ddG.",
+  "proxy_ddg_backend_ready": true,
+  "proxy_is_physics": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "success": true,
+  "thermompnn_proxy_ready": true,
+  "warnings": []
+}

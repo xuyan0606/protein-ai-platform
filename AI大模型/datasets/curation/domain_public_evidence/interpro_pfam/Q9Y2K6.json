@@ -1,0 +1,119 @@
+{
+  "accession": "Q9Y2K6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00443",
+        "name": "Ubiquitin carboxyl-terminal hydrolase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001394",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y2k6",
+          "protein_length": 914,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 145,
+                  "end": 682,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00443",
+              "score": 2.2e-63
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02148",
+        "name": "Zn-finger in ubiquitin-hydrolases and other protein",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001607",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y2k6",
+          "protein_length": 914,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 30,
+                  "end": 90,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02148",
+              "score": 2.6e-12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF06337",
+        "name": "DUSP domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006615",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y2k6",
+          "protein_length": 914,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 710,
+                  "end": 779,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF06337",
+              "score": 2.2e-08
+            },
+            {
+              "fragments": [
+                {
+                  "start": 817,
+                  "end": 889,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF06337",
+              "score": 1.3e-18
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

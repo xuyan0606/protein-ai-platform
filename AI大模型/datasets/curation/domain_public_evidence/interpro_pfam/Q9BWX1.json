@@ -1,0 +1,73 @@
+{
+  "accession": "Q9BWX1",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF13771",
+        "name": "PHD-like zinc-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bwx1",
+          "protein_length": 381,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 58,
+                  "end": 145,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13771",
+              "score": 2e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF26054",
+        "name": "G2E3-like, PHD zinc finger domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR059102",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bwx1",
+          "protein_length": 381,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 242,
+                  "end": 301,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF26054",
+              "score": 2.8e-17
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

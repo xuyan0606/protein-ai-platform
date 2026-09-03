@@ -1,0 +1,63 @@
+{
+  "accession": "Q6P1J6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00657",
+        "name": "GDSL-like Lipase/Acylhydrolase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001087",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6p1j6",
+          "protein_length": 1458,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 394,
+                  "end": 668,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00657",
+              "score": 4.8e-28
+            },
+            {
+              "fragments": [
+                {
+                  "start": 741,
+                  "end": 1015,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00657",
+              "score": 1.2e-24
+            },
+            {
+              "fragments": [
+                {
+                  "start": 1097,
+                  "end": 1361,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF00657",
+              "score": 2e-26
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

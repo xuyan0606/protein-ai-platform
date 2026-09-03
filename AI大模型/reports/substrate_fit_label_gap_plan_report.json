@@ -1,0 +1,349 @@
+{
+  "created_at": "2026-09-03T07:32:23.594682+00:00",
+  "local_only": true,
+  "status": "blocked",
+  "head": "substrate_fit",
+  "audit_only": true,
+  "does_not_read_training_label_tables": true,
+  "training_label_inputs_read": [],
+  "safe_pipeline_integrated": false,
+  "model_claim_released": false,
+  "label_gap": {
+    "label_fields": [
+      "substrate_fit_label"
+    ],
+    "current_training_rows": 0,
+    "minimum_rows": 100,
+    "ready_candidate_rows": 0,
+    "missing_to_minimum": 100,
+    "training_ready": false
+  },
+  "required_label_requirements": [
+    {
+      "requirement_id": "substrate_fit_assay_type",
+      "required_evidence": "assay_type is explicitly substrate_fit",
+      "observed_support_rows": 0,
+      "ready_rows": 0,
+      "status": "missing"
+    },
+    {
+      "requirement_id": "substrate_identity",
+      "required_evidence": "substrate name or substrate_smiles is explicit and source-traced",
+      "observed_support_rows": 1,
+      "ready_rows": 0,
+      "status": "context_only"
+    },
+    {
+      "requirement_id": "variant_or_mutation_identity",
+      "required_evidence": "variant_id or mutation set is linked to the substrate assay row",
+      "observed_support_rows": 7,
+      "ready_rows": 0,
+      "status": "blocked_until_assay_label_exists"
+    },
+    {
+      "requirement_id": "numbering_and_lineage_review",
+      "required_evidence": "numbering and source lineage are reviewed for the exact substrate assay",
+      "observed_support_rows": 0,
+      "ready_rows": 0,
+      "status": "missing"
+    },
+    {
+      "requirement_id": "condition_context",
+      "required_evidence": "pH, temperature, batch/control, replicate/QC, and protocol are preserved",
+      "observed_support_rows": 0,
+      "ready_rows": 0,
+      "status": "missing"
+    },
+    {
+      "requirement_id": "label_value",
+      "required_evidence": "reviewed go/watch/no_go/failed/inconclusive or numeric substrate-fit response",
+      "observed_support_rows": 0,
+      "ready_rows": 0,
+      "status": "missing"
+    },
+    {
+      "requirement_id": "legal_and_use_scope",
+      "required_evidence": "human/legal decisions approve any external substrate source or tool output use",
+      "observed_support_rows": 3,
+      "ready_rows": 0,
+      "status": "missing"
+    },
+    {
+      "requirement_id": "leakage_safe_evaluation",
+      "required_evidence": "substrate_fit benchmark scorecards exist only for evaluation, not labels",
+      "observed_support_rows": 2,
+      "ready_rows": 2,
+      "status": "missing"
+    }
+  ],
+  "candidate_sources": [
+    {
+      "source_id": "local_feedback_substrate_context",
+      "artifact": "datasets/feedback/experiment_feedback.local.jsonl",
+      "observed_rows": 7,
+      "substrate_context_rows": 1,
+      "candidate_rows": 0,
+      "ready_candidate_rows": 0,
+      "status": "blocked",
+      "blocker": "context-only feedback is not a substrate_fit assay label unless assay_type, substrate identity, outcome, provenance, and numbering are reviewed."
+    },
+    {
+      "source_id": "plate_level_substrate_fit_intake",
+      "artifact": "datasets/feedback/experiment_feedback_plate.local.jsonl",
+      "observed_rows": 0,
+      "substrate_context_rows": 0,
+      "candidate_rows": 0,
+      "ready_candidate_rows": 0,
+      "status": "blocked",
+      "blocker": "plate rows require assay_type=substrate_fit, substrate_smiles, reviewed status, usable QC, and raw signal."
+    },
+    {
+      "source_id": "wet_lab_metric_candidates",
+      "artifact": "datasets/feedback/wet_lab_mutant_library_feedback_candidates.jsonl",
+      "observed_rows": 445,
+      "substrate_text_rows": 0,
+      "candidate_rows": 0,
+      "ready_candidate_rows": 0,
+      "numeric_training_candidate_rows": 12,
+      "status": "blocked",
+      "blocker": "current wet-lab metric candidates are activity/stability focused; generic activity cannot be relabeled as substrate_fit."
+    },
+    {
+      "source_id": "wet_lab_authorization_worklist",
+      "artifact": "datasets/feedback/wet_lab_mutant_library_feedback_authorization_worklist.jsonl",
+      "observed_rows": 12,
+      "candidate_rows": 0,
+      "ready_candidate_rows": 0,
+      "authorized_rows": 0,
+      "status": "blocked",
+      "blocker": "authorization is metric-level and currently contains no approved substrate_fit metric rows."
+    },
+    {
+      "source_id": "substrate_fit_benchmark_scorecards",
+      "artifact": "reports/benchmark_score_cache_manifest.json",
+      "expected_benchmark_entries": 3,
+      "present_benchmark_entries": 2,
+      "valid_scorecard_rows": 2,
+      "candidate_rows": 0,
+      "ready_candidate_rows": 0,
+      "status": "blocked",
+      "blocker": "benchmarks validate model claims; they are not KWB training labels and substrate_fit scorecards are not present."
+    },
+    {
+      "source_id": "substrate_relevant_feature_adapters",
+      "artifact": "reports/advanced_feature_cache_manifest.json",
+      "relevant_feature_families": 3,
+      "ready_to_implement_feature_families": 1,
+      "blocked_feature_families": 2,
+      "candidate_rows": 0,
+      "ready_candidate_rows": 0,
+      "status": "blocked",
+      "blocker": "feature/proxy adapters can provide evidence after gates, but cannot be promoted into supervised substrate_fit labels."
+    },
+    {
+      "source_id": "external_license_and_use_gates",
+      "artifact": "reports/external_license_review_decision_validation_report.json",
+      "packet_rows": 19,
+      "observed_rows": 19,
+      "decision_rows": 3,
+      "approved_for_training_rows": 0,
+      "missing_substrate_relevant_decisions": [
+        "data_source:BRENDA",
+        "data_source:RCSB PDB",
+        "data_source:SABIO-RK",
+        "foreign_tool:alphafold3",
+        "foreign_tool:boltz2",
+        "foreign_tool:chai1",
+        "foreign_tool:clean",
+        "foreign_tool:ligandmpnn"
+      ],
+      "missing_substrate_relevant_decision_count": 8,
+      "candidate_rows": 0,
+      "ready_candidate_rows": 0,
+      "status": "blocked",
+      "blocker": "external substrate/function/ligand sources remain blocked without explicit human/legal decisions."
+    }
+  ],
+  "candidate_signal_summary": {
+    "local_feedback_rows": 7,
+    "local_feedback_substrate_context_rows": 1,
+    "plate_feedback_rows": 0,
+    "wet_lab_candidate_rows": 445,
+    "wet_lab_numeric_candidate_rows": 12,
+    "wet_lab_authorization_worklist_rows": 12,
+    "wet_lab_metric_class_counts": [
+      {
+        "value": "acid_activity",
+        "rows": 3
+      },
+      {
+        "value": "neutral_activity",
+        "rows": 3
+      },
+      {
+        "value": "thermal_stability",
+        "rows": 3
+      },
+      {
+        "value": "acid_retention",
+        "rows": 3
+      }
+    ],
+    "substrate_fit_benchmark_expected_entries": 3,
+    "substrate_fit_benchmark_present_entries": 2,
+    "substrate_fit_benchmark_valid_scorecard_rows": 2,
+    "substrate_relevant_feature_families": 3,
+    "substrate_relevant_license_missing_decisions": 8
+  },
+  "forbidden_shortcuts": [
+    {
+      "shortcut_id": "generic_activity_to_substrate_fit",
+      "observed_rows": 1,
+      "allowed": false,
+      "reason": "activity with a substrate context is not a substrate-fit label without an explicit substrate_fit assay definition."
+    },
+    {
+      "shortcut_id": "activity_or_stability_metric_relabel",
+      "observed_rows": 12,
+      "allowed": false,
+      "reason": "numeric activity/stability candidates cannot be reinterpreted as substrate selectivity or fit."
+    },
+    {
+      "shortcut_id": "benchmark_dataset_as_training_label",
+      "observed_rows": 3,
+      "allowed": false,
+      "reason": "PDBbind/CASF/D3R/PoseBusters-style assets are evaluation gates, not KWB supervised labels."
+    },
+    {
+      "shortcut_id": "affinity_or_pose_prediction_as_ground_truth",
+      "observed_rows": 3,
+      "allowed": false,
+      "reason": "Boltz/Chai/AlphaFold-style complex or affinity predictions may become features only after gates."
+    },
+    {
+      "shortcut_id": "function_or_ec_proxy_as_substrate_fit",
+      "observed_rows": 3,
+      "allowed": false,
+      "reason": "CatPred/CLEAN/EC-style function proxies do not supply substrate-fit labels."
+    },
+    {
+      "shortcut_id": "license_inference",
+      "observed_rows": 8,
+      "allowed": false,
+      "reason": "missing external source/tool decisions must remain blocked and cannot be inferred from availability."
+    },
+    {
+      "shortcut_id": "model_claim_unlock",
+      "observed_rows": 0,
+      "allowed": false,
+      "reason": "current labels, candidates, benchmark scorecards, and legal gates do not permit a substrate_fit model claim."
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "substrate-fit-label-schema-p0",
+      "priority": "P0",
+      "action": "Define substrate_fit label schema with explicit substrate identity, assay condition, value semantics, lineage, numbering, QC, and review status.",
+      "current_training_rows": 0,
+      "minimum_rows": 100,
+      "ready_candidate_rows": 0,
+      "missing_to_minimum": 100,
+      "blocked_by": "no approved substrate_fit label schema/source",
+      "owner_lane": "label_governance",
+      "training_unlocked": false,
+      "safe_for_model_claim": false,
+      "policy": "Action scaffold only; not a reviewed decision, training label, safe-pipeline integration, or model claim."
+    },
+    {
+      "action_id": "audit-existing-feedback-context-p0",
+      "priority": "P0",
+      "action": "Review existing feedback rows with substrate context and decide whether any require a new substrate_fit assay record rather than relabeling activity.",
+      "source": "datasets/feedback/experiment_feedback.local.jsonl",
+      "observed_rows": 7,
+      "substrate_context_rows": 1,
+      "ready_candidate_rows": 0,
+      "blocked_by": "context-only rows are not substrate_fit labels",
+      "owner_lane": "wet_lab_review",
+      "training_unlocked": false,
+      "safe_for_model_claim": false,
+      "policy": "Action scaffold only; not a reviewed decision, training label, safe-pipeline integration, or model claim."
+    },
+    {
+      "action_id": "build-substrate-fit-plate-intake-p0",
+      "priority": "P0",
+      "action": "Create reviewed plate-level substrate_fit intake rows only when substrate_smiles, raw signal, QC, replicate, and protocol are present.",
+      "source": "datasets/feedback/experiment_feedback_plate.local.jsonl",
+      "observed_rows": 0,
+      "candidate_rows": 0,
+      "ready_candidate_rows": 0,
+      "blocked_by": "no reviewed plate-level substrate_fit rows",
+      "owner_lane": "wet_lab_review",
+      "training_unlocked": false,
+      "safe_for_model_claim": false,
+      "policy": "Action scaffold only; not a reviewed decision, training label, safe-pipeline integration, or model claim."
+    },
+    {
+      "action_id": "separate-proxies-from-labels-p0",
+      "priority": "P0",
+      "action": "Keep activity/stability wet-lab metrics, benchmark assets, and affinity/function predictions out of substrate_fit labels.",
+      "wet_lab_numeric_candidate_rows": 12,
+      "substrate_fit_benchmark_entries": 3,
+      "forbidden_shortcut_count": 7,
+      "blocked_by": "proxy rows are not supervised substrate_fit ground truth",
+      "owner_lane": "model_governance",
+      "training_unlocked": false,
+      "safe_for_model_claim": false,
+      "policy": "Action scaffold only; not a reviewed decision, training label, safe-pipeline integration, or model claim."
+    },
+    {
+      "action_id": "external-substrate-source-legal-p1",
+      "priority": "P1",
+      "action": "Resolve human/legal decisions for substrate-relevant external sources before using them as evaluation data or feature evidence.",
+      "source": "reports/external_license_review_decision_validation_report.json",
+      "packet_rows": 19,
+      "decision_rows": 3,
+      "approved_for_training_rows": 0,
+      "missing_substrate_relevant_decision_count": 8,
+      "blocked_by": "missing substrate-relevant legal/source decisions",
+      "owner_lane": "legal_review",
+      "training_unlocked": false,
+      "safe_for_model_claim": false,
+      "policy": "Action scaffold only; not a reviewed decision, training label, safe-pipeline integration, or model claim."
+    },
+    {
+      "action_id": "substrate-fit-claim-remains-locked-p0",
+      "priority": "P0",
+      "action": "Keep substrate_fit training and model-claim gates locked until minimum reviewed labels and scorecards are present.",
+      "current_training_rows": 0,
+      "ready_candidate_rows": 0,
+      "missing_to_minimum": 100,
+      "valid_substrate_fit_scorecard_rows": 2,
+      "blocked_by": "label gap and evaluation scorecard gap both remain open",
+      "owner_lane": "model_governance",
+      "training_unlocked": false,
+      "safe_for_model_claim": false,
+      "policy": "Action scaffold only; not a reviewed decision, training label, safe-pipeline integration, or model claim."
+    }
+  ],
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Substrate_fit labels require explicit substrate identity, reviewed assay context, provenance, QC, and legal/use gates. This scaffold quantifies gaps only and never converts candidates, proxies, benchmarks, or context-only activity rows into labels.",
+  "audit_inputs": [
+    "reports/multitask_training_readiness_report.json",
+    "reports/benchmark_score_cache_manifest.json",
+    "reports/benchmark_score_cache_validation_report.json",
+    "reports/advanced_feature_cache_manifest.json",
+    "reports/external_license_review_decision_validation_report.json",
+    "datasets/feedback/experiment_feedback.local.jsonl",
+    "datasets/feedback/experiment_feedback_plate.local.jsonl",
+    "datasets/feedback/wet_lab_mutant_library_feedback_candidates.jsonl",
+    "datasets/feedback/wet_lab_mutant_library_feedback_authorization_worklist.jsonl",
+    "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl"
+  ],
+  "audit_outputs": [
+    "reports/substrate_fit_label_gap_plan_report.json",
+    "reports/substrate_fit_label_gap_plan.md",
+    "datasets/governance/substrate_fit_label_gap_actions.jsonl"
+  ]
+}

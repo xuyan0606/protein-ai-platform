@@ -1,0 +1,73 @@
+{
+  "accession": "Q01581",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01154",
+        "name": "Hydroxymethylglutaryl-coenzyme A synthase N terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013528",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q01581",
+          "protein_length": 520,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 13,
+                  "end": 186,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01154",
+              "score": 1.6e-103
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08540",
+        "name": "Hydroxymethylglutaryl-coenzyme A synthase C terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013746",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q01581",
+          "protein_length": 520,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 187,
+                  "end": 469,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08540",
+              "score": 9.8e-127
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

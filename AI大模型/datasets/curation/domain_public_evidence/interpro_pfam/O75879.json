@@ -1,0 +1,73 @@
+{
+  "accession": "O75879",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02637",
+        "name": "GatB domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR018027",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75879",
+          "protein_length": 557,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 406,
+                  "end": 555,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02637",
+              "score": 6.9e-43
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02934",
+        "name": "GatB/GatE catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006075",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75879",
+          "protein_length": 557,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 66,
+                  "end": 350,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02934",
+              "score": 7.7e-99
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "created_at": "2026-08-26T02:58:47.666044+00:00",
+  "decision_missing_fields": [
+    "automatic_failed_zero=true",
+    "automatic_blocked_zero=true",
+    "maintenance_evidence_complete=true",
+    "offsite_restore_evidence_complete=true",
+    "external_storage_evidence_complete=true",
+    "rollback_path_ready=true",
+    "approvals_complete=true",
+    "release_owner_signature",
+    "reviewer_signature",
+    "business_owner_signature",
+    "final_decision=go|no-go|defer"
+  ],
+  "destructive_actions": "not_executed",
+  "evidence_complete": false,
+  "final_decision": null,
+  "gates": [
+    {
+      "missing_fields": [
+        "maintenance_window_id",
+        "authorization_evidence_path",
+        "rollback_plan_path",
+        "restore_drill_path",
+        "backup_verify_path",
+        "pg_restore_list_path",
+        "status=passed",
+        "conclusion=passed"
+      ],
+      "name": "production_rollback_drill_gate",
+      "ready": false
+    },
+    {
+      "missing_fields": [
+        "backup_target",
+        "restore_target",
+        "copy_evidence_path",
+        "checksum_evidence_path",
+        "restore_evidence_path",
+        "application_readonly_smoke_path",
+        "status=passed",
+        "conclusion=passed"
+      ],
+      "name": "offsite_backup_restore_drill_gate",
+      "ready": false
+    },
+    {
+      "missing_fields": [
+        "backup_ref",
+        "restore_target",
+        "shadow_restore_evidence_path",
+        "sample_object_read_evidence_path",
+        "application_readonly_smoke_path",
+        "status=passed",
+        "conclusion=passed",
+        "production_path_switched=false"
+      ],
+      "name": "external_storage_restore_validation_gate",
+      "ready": false
+    }
+  ],
+  "missing_sections": [
+    "release",
+    "release_acceptance",
+    "production_rollback_drill_gate",
+    "offsite_backup_restore_drill_gate",
+    "external_storage_restore_validation_gate",
+    "decision"
+  ],
+  "mode": "read_only_release_manual_gate_evidence_validation",
+  "network_io": "not_executed",
+  "ready_for_go": false,
+  "release_acceptance_missing_fields": [
+    "status",
+    "json_output_path",
+    "failed=0",
+    "blocked=0",
+    "manual_required=0",
+    "skipped=0",
+    "status=passed"
+  ],
+  "release_missing_fields": [
+    "release_date",
+    "release_owner",
+    "reviewer",
+    "business_owner",
+    "release_package",
+    "release_package_sha256_evidence",
+    "database_backup",
+    "database_backup_sha256_evidence",
+    "evidence_archive_dir"
+  ],
+  "secrets_printed": false,
+  "status": "manual_required"
+}

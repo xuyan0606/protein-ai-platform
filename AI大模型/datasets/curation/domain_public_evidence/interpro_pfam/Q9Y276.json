@@ -1,0 +1,107 @@
+{
+  "accession": "Q9Y276",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00004",
+        "name": "ATPase family associated with various cellular activities (AAA)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003959",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y276",
+          "protein_length": 419,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 226,
+                  "end": 354,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00004",
+              "score": 3.9e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08740",
+        "name": "BCS1 N terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014851",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y276",
+          "protein_length": 419,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 25,
+                  "end": 191,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08740",
+              "score": 8.3e-42
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF25426",
+        "name": "Mitochondrial chaperone BCS1-like, ATPase lid domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057495",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9y276",
+          "protein_length": 419,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 358,
+                  "end": 415,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF25426",
+              "score": 2.8e-19
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

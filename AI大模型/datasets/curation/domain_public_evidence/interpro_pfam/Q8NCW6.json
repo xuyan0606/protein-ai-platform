@@ -1,0 +1,73 @@
+{
+  "accession": "Q8NCW6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00535",
+        "name": "Glycosyl transferase family 2",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001173",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8ncw6",
+          "protein_length": 608,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 154,
+                  "end": 337,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00535",
+              "score": 2.8e-32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00652",
+        "name": "Ricin-type beta-trefoil lectin domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000772",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8ncw6",
+          "protein_length": 608,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 483,
+                  "end": 604,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00652",
+              "score": 1e-19
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

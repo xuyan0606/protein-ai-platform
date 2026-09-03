@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kwb-advanced-model-feature.schema.json",
+  "title": "KWB advanced model feature row",
+  "type": "object",
+  "required": [
+    "case_id",
+    "mutation",
+    "feature_version",
+    "evidence_tier",
+    "sequence_features",
+    "structure_features",
+    "msa_features",
+    "ddg_features",
+    "feedback_features",
+    "adapter_readiness"
+  ],
+  "properties": {
+    "case_id": {"type": "string"},
+    "mutation": {"type": "string"},
+    "feature_version": {"type": "string"},
+    "evidence_tier": {"type": "string"},
+    "sequence_features": {"type": "object"},
+    "structure_features": {"type": "object"},
+    "msa_features": {"type": "object"},
+    "ddg_features": {"type": "object"},
+    "feedback_features": {"type": "object"},
+    "adapter_readiness": {"type": "object"},
+    "missing_modalities": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}

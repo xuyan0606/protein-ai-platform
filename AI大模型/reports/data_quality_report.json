@@ -1,0 +1,13 @@
+{
+  "overall_score": 84.0,
+  "ready_for_training": true,
+  "lipase_score": 100,
+  "deploy_data_score": 60,
+  "warnings": [],
+  "recommended_next_steps": [
+    "extract read-only lipase variant and mutation rows",
+    "extract experiment_feedback_records from local app DB if present",
+    "keep benchmark cases out of training split",
+    "use family-level split before claiming model performance"
+  ]
+}

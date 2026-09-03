@@ -1,0 +1,141 @@
+{
+  "accession": "O94830",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00536",
+        "name": "SAM domain (Sterile alpha motif)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001660",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94830",
+          "protein_length": 711,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 390,
+                  "end": 440,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00536",
+              "score": 9.1e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02825",
+        "name": "WWE domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004170",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94830",
+          "protein_length": 711,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 43,
+                  "end": 112,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02825",
+              "score": 3.8e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02862",
+        "name": "DDHD domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR004177",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94830",
+          "protein_length": 711,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 496,
+                  "end": 699,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02862",
+              "score": 4.8e-54
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23464",
+        "name": "WWE domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057825",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94830",
+          "protein_length": 711,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 117,
+                  "end": 199,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF23464",
+              "score": 1.9e-30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

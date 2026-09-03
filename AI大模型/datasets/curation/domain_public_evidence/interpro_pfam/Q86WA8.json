@@ -1,0 +1,141 @@
+{
+  "accession": "Q86WA8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00004",
+        "name": "ATPase family associated with various cellular activities (AAA)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003959",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86wa8",
+          "protein_length": 852,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 371,
+                  "end": 509,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00004",
+              "score": 3.4e-20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02190",
+        "name": "ATP-dependent protease La (LON) substrate-binding domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR003111",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86wa8",
+          "protein_length": 852,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 13,
+                  "end": 220,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02190",
+              "score": 1.9e-26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05362",
+        "name": "Lon protease (S16) C-terminal proteolytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR008269",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86wa8",
+          "protein_length": 852,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 629,
+                  "end": 835,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF05362",
+              "score": 5.3e-76
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22667",
+        "name": "Lon protease AAA+ ATPase lid domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR054594",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86wa8",
+          "protein_length": 852,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 532,
+                  "end": 586,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22667",
+              "score": 4.4e-16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

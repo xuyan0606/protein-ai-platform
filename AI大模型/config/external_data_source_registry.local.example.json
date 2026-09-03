@@ -1,0 +1,110 @@
+{
+  "local_only": true,
+  "policy": "External sources are evidence inputs with separate license and provenance gates. Do not merge them into training labels without source-specific review.",
+  "sources": [
+    {
+      "source_name": "UniProt",
+      "source_type": "sequence_annotation",
+      "url": "https://www.uniprot.org/",
+      "license": "UniProt terms",
+      "commercial_use_status": "review_required",
+      "redistribution_status": "review_required",
+      "attribution_required": true,
+      "version": "not_configured",
+      "retrieved_at": null,
+      "allowed_uses": ["sequence identity review", "annotation provenance", "numbering curation support"],
+      "forbidden_uses": ["automatic upgrade of weak labels", "unattributed redistribution"]
+    },
+    {
+      "source_name": "RCSB PDB",
+      "source_type": "structure_database",
+      "url": "https://www.rcsb.org/",
+      "license": "RCSB PDB terms",
+      "commercial_use_status": "review_required",
+      "redistribution_status": "review_required",
+      "attribution_required": true,
+      "version": "not_configured",
+      "retrieved_at": null,
+      "allowed_uses": ["local structure cache", "chain mapping review", "structure feature provenance"],
+      "forbidden_uses": ["chain-level claims without reviewed mapping", "license-free customer redistribution"]
+    },
+    {
+      "source_name": "BRENDA",
+      "source_type": "enzyme_knowledgebase",
+      "url": "https://www.brenda-enzymes.org/",
+      "license": "BRENDA terms",
+      "commercial_use_status": "license_review_required",
+      "redistribution_status": "restricted_until_reviewed",
+      "attribution_required": true,
+      "version": "not_configured",
+      "retrieved_at": null,
+      "allowed_uses": ["enzyme annotation enrichment after license review"],
+      "forbidden_uses": ["commercial redistribution without license clearance", "unreviewed supervised labels"]
+    },
+    {
+      "source_name": "SABIO-RK",
+      "source_type": "kinetics_database",
+      "url": "https://sabiork.h-its.org/",
+      "license": "SABIO-RK terms",
+      "commercial_use_status": "license_review_required",
+      "redistribution_status": "restricted_until_reviewed",
+      "attribution_required": true,
+      "version": "not_configured",
+      "retrieved_at": null,
+      "allowed_uses": ["kinetics evidence enrichment after compound mapping review"],
+      "forbidden_uses": ["wet-lab label substitution", "unreviewed compound identity claims"]
+    },
+    {
+      "source_name": "MaveDB",
+      "source_type": "variant_effect_database",
+      "url": "https://www.mavedb.org/",
+      "license": "MaveDB dataset-specific terms",
+      "commercial_use_status": "dataset_specific_review_required",
+      "redistribution_status": "dataset_specific_review_required",
+      "attribution_required": true,
+      "version": "not_configured",
+      "retrieved_at": null,
+      "allowed_uses": ["benchmark planning", "score-set schema reference"],
+      "forbidden_uses": ["mixing score sets into KWB wet-lab feedback", "ignoring dataset-specific license"]
+    },
+    {
+      "source_name": "ProteinGym",
+      "source_type": "benchmark",
+      "url": "https://proteingym.org/",
+      "license": "MIT / dataset-specific terms",
+      "commercial_use_status": "review_required",
+      "redistribution_status": "dataset_specific_review_required",
+      "attribution_required": true,
+      "version": "not_configured",
+      "retrieved_at": null,
+      "allowed_uses": ["mutation ranking benchmark design"],
+      "forbidden_uses": ["KWB training label substitution", "random split model-quality claims"]
+    },
+    {
+      "source_name": "FireProtDB",
+      "source_type": "stability_database",
+      "url": "https://loschmidt.chemi.muni.cz/fireprotdb/",
+      "license": "FireProtDB terms",
+      "commercial_use_status": "review_required",
+      "redistribution_status": "review_required",
+      "attribution_required": true,
+      "version": "not_configured",
+      "retrieved_at": null,
+      "allowed_uses": ["stability benchmark planning", "literature-backed evidence review"],
+      "forbidden_uses": ["automatic supervised label import without numbering and license review"]
+    },
+    {
+      "source_name": "ProThermDB",
+      "source_type": "stability_database",
+      "url": "https://web.iitm.ac.in/bioinfo2/prothermdb/",
+      "license": "ProThermDB terms",
+      "commercial_use_status": "review_required",
+      "redistribution_status": "review_required",
+      "attribution_required": true,
+      "version": "not_configured",
+      "retrieved_at": null,
+      "allowed_uses": ["stability evidence review", "legacy label audit"],
+      "forbidden_uses": ["weak label promotion without sequence-numbering review"]
+    }
+  ]
+}

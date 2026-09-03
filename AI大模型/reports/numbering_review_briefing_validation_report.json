@@ -1,0 +1,26 @@
+{
+  "local_only": true,
+  "briefing_json": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/numbering_review_briefing.json",
+  "briefing_md": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/numbering_review_briefing.md",
+  "packet_report": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/numbering_review_packet_report.json",
+  "briefing_rows": 33,
+  "expected_rows": 33,
+  "expected_packet_ids": [
+    "numbering_review_isoform_exact_001",
+    "numbering_review_abstract_signal_001"
+  ],
+  "packet_counts": {
+    "numbering_review_isoform_exact_001": 8,
+    "numbering_review_abstract_signal_001": 25
+  },
+  "valid_rows": 33,
+  "invalid_rows": 0,
+  "error_counts": {},
+  "all_rows_valid": true,
+  "completion_ready_rows": 0,
+  "ready_for_decision_write_rows": 0,
+  "claim_eligible_rows_now": 0,
+  "safe_for_model_claim": false,
+  "row_errors": [],
+  "policy": "Briefing validation only; it never writes reviewed numbering decisions or supervised labels."
+}

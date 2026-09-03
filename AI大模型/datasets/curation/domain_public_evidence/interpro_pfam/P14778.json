@@ -1,0 +1,107 @@
+{
+  "accession": "P14778",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01582",
+        "name": "TIR domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000157",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p14778",
+          "protein_length": 569,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 387,
+                  "end": 549,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01582",
+              "score": 6.3e-21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13895",
+        "name": "Immunoglobulin domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p14778",
+          "protein_length": 569,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 137,
+                  "end": 207,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13895",
+              "score": 0.0032
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF18452",
+        "name": "Immunoglobulin domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041416",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p14778",
+          "protein_length": 569,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 40,
+                  "end": 108,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF18452",
+              "score": 0.0051
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

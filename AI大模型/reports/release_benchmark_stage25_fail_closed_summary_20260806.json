@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-06",
+  "mode": "read_only_release_benchmark_fail_closed_summary",
+  "stage": 25,
+  "summary_valid": true,
+  "failure_count": 0,
+  "failures": [],
+  "reports": [
+    {
+      "name": "human_decision_backlog_fail_closed",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/human_decision_backlog_fail_closed_consistency_validation_report.json",
+      "failure_count": 0,
+      "failures": 0
+    },
+    {
+      "name": "release_benchmark_worklist",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/release_benchmark_human_decision_worklist_validation_report_20260806.json",
+      "failure_count": 0,
+      "failures": 0
+    },
+    {
+      "name": "benchmark_readiness_packet",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/benchmark_readiness_packet_validation_report.json",
+      "failure_count": 0,
+      "failures": 0
+    },
+    {
+      "name": "local_release_manifest_fail_closed",
+      "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/local_release_manifest_fail_closed_consistency_validation_report.json",
+      "failure_count": 0,
+      "failures": 0
+    }
+  ],
+  "human_backlog_open_items": 11,
+  "human_backlog_missing_rows": 1202,
+  "worklist_item_count": 13,
+  "worklist_non_backlog_gap_count": 2,
+  "benchmark_status": "blocked",
+  "benchmark_packet_rows": 2,
+  "benchmark_blocked_rows": 2,
+  "benchmark_completion_ready_rows": 0,
+  "benchmark_score_values_recorded": 0,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "benchmark_ready_for_model_claim": false,
+  "formal_decision_rows_written": 0
+}

@@ -1,0 +1,52 @@
+{
+  "created_at": "2026-09-03T07:33:55.808687+00:00",
+  "local_only": true,
+  "audit_rows": 7,
+  "action_audit_rows": 6,
+  "summary_audit_rows": 1,
+  "queue_rows": 6,
+  "queue_ready": false,
+  "decision_rows": 0,
+  "valid_rows": 0,
+  "completed_rows": 0,
+  "all_actions_decided": false,
+  "all_actions_completed": false,
+  "missing_action_decisions": [
+    "review_action_001",
+    "review_action_002",
+    "review_action_003",
+    "review_action_004",
+    "review_action_005",
+    "review_action_006"
+  ],
+  "incomplete_action_ids": [
+    "review_action_001",
+    "review_action_002",
+    "review_action_003",
+    "review_action_004",
+    "review_action_005",
+    "review_action_006"
+  ],
+  "status_ready": false,
+  "status_completed_action_rows": 0,
+  "stream_counts": {
+    "active_learning": 1,
+    "biosecurity_customer_delivery": 1,
+    "external_data_sources": 1,
+    "msa_conservation": 1,
+    "plate_feedback": 1,
+    "structure_chain_mapping": 1
+  },
+  "priority_counts": {
+    "P0": 3,
+    "P1": 3
+  },
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "customer_delivery_ready": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "audit_jsonl": "datasets/governance/p477_operator_review_action_gap_audit.jsonl",
+  "policy": "P477 audit only. Operator action queues remain open until explicit completion decisions reference required evidence and validation reports."
+}

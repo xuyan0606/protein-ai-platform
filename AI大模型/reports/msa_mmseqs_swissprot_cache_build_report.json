@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-09-03T07:32:03.291833+00:00",
+  "local_only": true,
+  "targets": 158,
+  "targets_with_hits": 158,
+  "targets_missing_hits": [],
+  "raw_hit_rows": 22410,
+  "max_hits_per_target": 128,
+  "hits": "cache/msa/mmseqs_swissprot_hits.m8",
+  "hits_sha256": "f7747f2f6c91bec538f5732b86d3eae52504904f3631b69cddf4041054f4e3cb",
+  "intake_output": "datasets/curation/msa_trusted_cache_intake.local.jsonl",
+  "ready_to_apply_trusted_cache_intake": true,
+  "search_probe": {
+    "returncode": null,
+    "stdout": "",
+    "stderr": "hits_file_reused"
+  },
+  "policy": "MSA/conservation cache is built from real MMseqs2 Swiss-Prot alignments; final manifest validator remains authoritative."
+}

@@ -1,0 +1,131 @@
+{
+  "accession": "Q8WTS6",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00856",
+        "name": "SET domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001214",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wts6",
+          "protein_length": 366,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 227,
+                  "end": 336,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00856",
+              "score": 1.3e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02493",
+        "name": "MORN repeat",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR003409",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wts6",
+          "protein_length": 366,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 19,
+                  "end": 34,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02493",
+              "score": 40000
+            },
+            {
+              "fragments": [
+                {
+                  "start": 36,
+                  "end": 58,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02493",
+              "score": 9.3
+            },
+            {
+              "fragments": [
+                {
+                  "start": 60,
+                  "end": 81,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02493",
+              "score": 3.9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22648",
+        "name": "Histone H3 K4-specific methyltransferase SET7 N-terminal",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR054533",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8wts6",
+          "protein_length": 366,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 110,
+                  "end": 183,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22648",
+              "score": 7.3e-40
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

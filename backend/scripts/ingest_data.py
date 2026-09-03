@@ -31,6 +31,7 @@ async def main():
     import app.data.ingestors.pdb  # noqa
     import app.data.ingestors.pubchem  # noqa
     import app.data.ingestors.rhea  # noqa
+    import app.data.ingestors.local_annotations  # noqa
 
     await init_db()
     logger.info("database initialized")

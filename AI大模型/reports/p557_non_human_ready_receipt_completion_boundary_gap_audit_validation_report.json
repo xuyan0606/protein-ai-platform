@@ -1,0 +1,32 @@
+{
+  "created_at": "2026-09-03T07:33:57.005766+00:00",
+  "local_only": true,
+  "success": true,
+  "audit_rows": 1,
+  "summary_audit_rows": 1,
+  "failures": [],
+  "policy": "Validation only. P557 gap audit does not authorize training, claims, delivery, release, deployment, sync, restart, or production execution.",
+  "ready_receipt_boundary_audit_rows": 1,
+  "receipt_rows": 3,
+  "valid_receipt_rows": 3,
+  "invalid_receipt_rows": 0,
+  "board_ready_to_verify_workstreams": [
+    "nhc_data_lake_cache_governance",
+    "nhc_ddg_physics_backend",
+    "nhc_structure_gnn_features"
+  ],
+  "verification_passed_workstreams": 3,
+  "blocked_workstreams_not_executed": true,
+  "source_success": true,
+  "source_validation_success": true,
+  "source_safe_for_training_import": false,
+  "source_safe_for_model_claim": false,
+  "source_release_ready": false,
+  "training_import_allowed": false,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "customer_delivery_ready": false,
+  "release_ready": false,
+  "production_execution_allowed": false,
+  "completion_ready": false
+}

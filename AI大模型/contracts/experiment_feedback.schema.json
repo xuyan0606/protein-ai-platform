@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "KWB Experiment Feedback Record",
+  "type": "object",
+  "required": ["feedback_id", "enzyme_id", "mutation", "assay_type", "outcome", "recorded_at"],
+  "properties": {
+    "feedback_id": { "type": "string" },
+    "enzyme_id": { "type": "string" },
+    "uniprot_id": { "type": ["string", "null"] },
+    "project_id": { "type": ["string", "null"] },
+    "mutation": { "type": "string" },
+    "canonical_position": { "type": ["integer", "null"], "minimum": 1 },
+    "numbering_verified": { "type": "boolean" },
+    "assay_type": {
+      "type": "string",
+      "enum": ["expression", "purification", "activity", "stability", "substrate_fit", "combined"]
+    },
+    "assay_condition": {
+      "type": "object",
+      "properties": {
+        "ph": { "type": ["number", "null"] },
+        "temperature_c": { "type": ["number", "null"] },
+        "buffer": { "type": ["string", "null"] },
+        "substrate": { "type": ["string", "null"] },
+        "expression_system": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["go", "watch", "no_go", "failed", "inconclusive"]
+    },
+    "activity_relative_to_wt": { "type": ["number", "null"] },
+    "stability_delta_tm_c": { "type": ["number", "null"] },
+    "expression_yield_relative": { "type": ["number", "null"] },
+    "notes": { "type": "string" },
+    "source": {
+      "type": "string",
+      "enum": ["kwb_wet_lab", "kwb_historical", "public_literature", "local_fixture"]
+    },
+    "recorded_at": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": false
+}

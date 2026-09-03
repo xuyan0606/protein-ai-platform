@@ -1,0 +1,73 @@
+{
+  "accession": "Q9UM21",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04666",
+        "name": "MGAT4 conserved region",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR057279",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9um21",
+          "protein_length": 535,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 104,
+                  "end": 380,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF04666",
+              "score": 4e-130
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23524",
+        "name": "MGAT4 C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR056576",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9um21",
+          "protein_length": 535,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 394,
+                  "end": 527,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF23524",
+              "score": 3.1e-46
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

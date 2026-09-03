@@ -1,0 +1,699 @@
+{
+  "project_root": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台",
+  "summary": {
+    "status": "passed-with-manual-gates",
+    "failed": 0,
+    "blocked": 0,
+    "manual_required": 3,
+    "skipped": 1,
+    "total": 9
+  },
+  "results": [
+    {
+      "name": "upgrade_readiness",
+      "category": "upgrade",
+      "status": "passed",
+      "detail": "ready-with-manual-gates: 1 manual gate checks",
+      "command": [
+        "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+        "scripts/check_upgrade_readiness.py",
+        "--json"
+      ],
+      "duration_seconds": 0.25,
+      "data": {
+        "project_root": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台",
+        "checks": [
+          {
+            "label": "git",
+            "status": "manual_required",
+            "detail": "revision=25679eb; dirty_files=407",
+            "data": {
+              "revision": "25679eb",
+              "dirty": true
+            }
+          },
+          {
+            "label": "project.version",
+            "status": "ok",
+            "detail": "version=0.1.0",
+            "data": {
+              "version": "0.1.0"
+            }
+          },
+          {
+            "label": "frontend.version",
+            "status": "ok",
+            "detail": "version=0.1.0; project_version=0.1.0",
+            "data": {
+              "version": "0.1.0",
+              "project_version": "0.1.0"
+            }
+          },
+          {
+            "label": "alembic",
+            "status": "ok",
+            "detail": "revisions=13; heads=a7c4e2f9b601",
+            "data": {
+              "heads": [
+                "a7c4e2f9b601"
+              ],
+              "revision_count": 13,
+              "errors": []
+            }
+          },
+          {
+            "label": "env.files",
+            "status": "ok",
+            "detail": "docker.env=yes, docker.env_example=yes, docker.env_deploy_data=yes, aliyun.app=yes, aliyun.gpu=yes",
+            "data": {
+              "docker.env": true,
+              "docker.env_example": true,
+              "docker.env_deploy_data": true,
+              "aliyun.app": true,
+              "aliyun.gpu": true
+            }
+          },
+          {
+            "label": "deploy.package",
+            "status": "ok",
+            "detail": "latest=dist/packages/protein-ai-platform-20260824T010950Z-25679eb.tar.gz; checksum=yes",
+            "data": {
+              "latest": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/dist/packages/protein-ai-platform-20260824T010950Z-25679eb.tar.gz",
+              "checksum": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/dist/packages/protein-ai-platform-20260824T010950Z-25679eb.tar.gz.sha256"
+            }
+          },
+          {
+            "label": "production.config",
+            "status": "ok",
+            "detail": "ready; critical=0; warning=0; checks=11",
+            "data": {
+              "summary": {
+                "status": "ready",
+                "critical": 0,
+                "warning": 0
+              },
+              "secrets_printed": false
+            }
+          },
+          {
+            "label": "environment",
+            "status": "ok",
+            "detail": "environment preflight passed",
+            "data": null
+          }
+        ],
+        "summary": {
+          "label": "summary",
+          "status": "ready-with-manual-gates",
+          "detail": "1 manual gate checks",
+          "data": null
+        }
+      }
+    },
+    {
+      "name": "acceptance_matrix",
+      "category": "testing",
+      "status": "passed",
+      "detail": "passed-with-skips: 0 failed / 21 total",
+      "command": [
+        "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+        "scripts/run_acceptance_matrix.py",
+        "--json"
+      ],
+      "duration_seconds": 13.09,
+      "data": {
+        "summary": {
+          "status": "passed-with-skips",
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 7,
+          "planned": 0,
+          "total": 21
+        },
+        "results": [
+          {
+            "name": "environment_preflight",
+            "category": "environment",
+            "status": "passed",
+            "detail": "summary\tready\tenvironment preflight passed",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "scripts/check_environment.py"
+            ],
+            "duration_seconds": 0.15
+          },
+          {
+            "name": "production_config_gate",
+            "category": "security",
+            "status": "passed",
+            "detail": "ready",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "scripts/check_production_config.py",
+              "--json",
+              "--mode",
+              "production",
+              "--require-production-safe",
+              "--skip-domain-https",
+              "--env-file",
+              "docker/.env",
+              "--env-file",
+              "docker/.env.aliyun.app"
+            ],
+            "duration_seconds": 0.02
+          },
+          {
+            "name": "file_download_permissions",
+            "category": "security",
+            "status": "passed",
+            "detail": "4 passed in 1.20s",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "-m",
+              "pytest",
+              "tests/test_tools_api.py::test_tool_task_polling_records_md_artifact_owner_for_download",
+              "tests/test_tools_api.py::test_tool_task_artifact_bundle_download_rejects_other_user",
+              "tests/test_tools_api.py::test_file_download_rejects_md_artifact_without_owner_binding",
+              "tests/test_tools_api.py::test_file_download_rejects_md_artifact_bound_to_other_user",
+              "-q"
+            ],
+            "duration_seconds": 1.59
+          },
+          {
+            "name": "md_artifact_whitebox",
+            "category": "md",
+            "status": "passed",
+            "detail": "28 passed in 0.09s",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "-m",
+              "pytest",
+              "tests/test_gromacs_md_artifacts.py",
+              "-q"
+            ],
+            "duration_seconds": 0.3
+          },
+          {
+            "name": "ligand_preprocess_contract",
+            "category": "ligand",
+            "status": "passed",
+            "detail": "6 passed in 1.45s",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "-m",
+              "pytest",
+              "tests/test_tools_api.py::test_ligand_preprocess_preflight_blocks_missing_runtime_without_fake_3d",
+              "tests/test_tools_api.py::test_ligand_preprocess_stage_contract_reports_missing_parameters",
+              "tests/test_tools_api.py::test_ligand_preprocess_api_call_rejects_async_execution",
+              "tests/test_tools_api.py::test_ligand_preprocess_submit_rejects_unowned_object_and_local_path",
+              "tests/test_tools_api.py::test_ligand_preprocess_submit_creates_ligand_cpu_audit",
+              "tests/test_tools_api.py::test_ligand_task_polling_records_artifact_owner_for_download",
+              "-q"
+            ],
+            "duration_seconds": 1.76
+          },
+          {
+            "name": "ligand_toolchain_smoke",
+            "category": "ligand",
+            "status": "passed",
+            "detail": "blocked_toolchain_missing",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "scripts/smoke_ligand_toolchain.py",
+              "--json"
+            ],
+            "duration_seconds": 0.02
+          },
+          {
+            "name": "enzyme_report_quality_contract",
+            "category": "report_quality",
+            "status": "passed",
+            "detail": "17 passed in 0.19s",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "-m",
+              "pytest",
+              "tests/test_report_quality_contract.py",
+              "tests/test_agent_binder.py::TestEnzymeReportQualityEvalSet::test_report_quality_contract_cases",
+              "tests/test_agent_binder.py::TestEnzymeReportQualityEvalSet::test_report_quality_review_uses_checkpoint_step_results_and_report_preview",
+              "tests/test_agent_binder.py::TestEnzymeReportQualityEvalSet::test_checkpoint_execution_summary_contains_step_results_and_report_headings",
+              "tests/test_agent_binder.py::TestBinderSkillsAndReport::test_plan_confirmation_audits_pdb_plus_fasta_as_consistency_gate",
+              "tests/test_agent_binder.py::TestBinderSkillsAndReport::test_plan_confirmation_audits_fasta_plus_uniprot_before_numbering_claims",
+              "-q"
+            ],
+            "duration_seconds": 0.43
+          },
+          {
+            "name": "tool_capability_audit_gate",
+            "category": "report_quality",
+            "status": "passed",
+            "detail": "2 passed in 0.48s",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "-m",
+              "pytest",
+              "tests/test_data_api.py::TestBenchmarkEndpoints::test_tool_capabilities_endpoint_exposes_scientific_boundaries",
+              "tests/test_tools_api.py::test_tool_capability_audit_labels_proxy_and_runtime_gated_tools",
+              "-q"
+            ],
+            "duration_seconds": 0.77
+          },
+          {
+            "name": "user_isolation_contract",
+            "category": "security",
+            "status": "passed",
+            "detail": "7 passed in 3.75s",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "-m",
+              "pytest",
+              "tests/test_project_acl.py::test_non_member_cannot_discover_project",
+              "tests/test_project_acl.py::test_chat_project_binding_requires_write_access",
+              "tests/test_publish_api.py::test_shared_project_viewer_can_list_files_but_cannot_write",
+              "tests/test_publish_api.py::test_non_member_cannot_list_project_files",
+              "tests/test_tools_api.py::test_tool_task_polling_rejects_other_user_task",
+              "tests/test_tools_api.py::test_tool_task_audit_rejects_other_user",
+              "tests/test_data_api.py::TestBenchmarkEndpoints::test_experiment_feedback_records_go_decision_and_user_isolation",
+              "-q"
+            ],
+            "duration_seconds": 4.07
+          },
+          {
+            "name": "wiki_checkpoint_contract",
+            "category": "wiki",
+            "status": "passed",
+            "detail": "7 passed in 2.25s",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "-m",
+              "pytest",
+              "tests/test_publish_api.py::test_collection_publish_preserves_active_strategy_checkpoint",
+              "tests/test_llm_gateway.py::test_chat_stream_persists_and_restores_strategy_checkpoint",
+              "tests/test_llm_gateway.py::test_chat_stream_confirmed_payload_marks_checkpoint_executing",
+              "tests/test_llm_gateway.py::test_chat_stream_execute_confirmed_prefers_active_checkpoint_over_stale_client_payload",
+              "tests/test_llm_gateway.py::test_chat_stream_execute_confirmed_prefers_active_checkpoint_over_malformed_client_payload",
+              "tests/test_llm_gateway.py::test_chat_strategy_checkpoint_active_response_masks_uploaded_object_paths",
+              "tests/test_llm_gateway.py::test_chat_strategy_checkpoint_history_returns_revisions",
+              "-q"
+            ],
+            "duration_seconds": 2.55
+          },
+          {
+            "name": "hm_pdb_deep_quality_gate",
+            "category": "report_quality",
+            "status": "passed",
+            "detail": "2 passed in 0.11s",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "-m",
+              "pytest",
+              "tests/test_hm_pdb_deep_quality_gate.py",
+              "-q"
+            ],
+            "duration_seconds": 0.33
+          },
+          {
+            "name": "data_admin_readiness",
+            "category": "data",
+            "status": "passed",
+            "detail": "2 passed in 0.74s",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "-m",
+              "pytest",
+              "tests/test_data_api.py::TestBenchmarkEndpoints::test_data_readiness_endpoint_reports_components",
+              "tests/test_data_api.py::TestBenchmarkEndpoints::test_admin_data_updates_filter_and_import_dry_run",
+              "-q"
+            ],
+            "duration_seconds": 1.04
+          },
+          {
+            "name": "browser_smoke_contract",
+            "category": "frontend",
+            "status": "passed",
+            "detail": "passed; failed=0; planned=0; total=5",
+            "command": [
+              "node",
+              "frontend/tests/live-contract.mjs",
+              "--json"
+            ],
+            "duration_seconds": 0.02
+          },
+          {
+            "name": "oss_compatibility",
+            "category": "storage",
+            "status": "passed",
+            "detail": "MinIO/S3 env shape is compatible with local and OSS-style endpoints.",
+            "command": null,
+            "duration_seconds": 0.0
+          },
+          {
+            "name": "browser_live_smoke",
+            "category": "frontend",
+            "status": "skipped",
+            "detail": "browser gate not armed; pass --include-browser-smoke with FRONTEND_BASE_URL",
+            "command": [
+              "node",
+              "frontend/tests/live-smoke.mjs"
+            ],
+            "duration_seconds": 0.0
+          },
+          {
+            "name": "md_blackbox",
+            "category": "md",
+            "status": "skipped",
+            "detail": "MD black-box gate not armed; pass --include-md-blackbox with resume inputs or explicit submit permission",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "scripts/verify_md_blackbox.py"
+            ],
+            "duration_seconds": 0.0
+          },
+          {
+            "name": "ai_chat_blackbox_live",
+            "category": "ai",
+            "status": "skipped",
+            "detail": "skipped by default; pass --include-ai-blackbox with LIVE_AI_EMAIL/LIVE_AI_PASSWORD for bounded live chat stream checks",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "scripts/smoke_ai_blackbox_live.py",
+              "--json",
+              "--require-live"
+            ],
+            "duration_seconds": 0.0
+          },
+          {
+            "name": "live_file_download_e2e",
+            "category": "storage",
+            "status": "skipped",
+            "detail": "skipped by default; pass --include-file-download-e2e with LIVE_AI_EMAIL/LIVE_AI_PASSWORD to upload/download/delete a small file through /api/files",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "scripts/smoke_file_download_live.py",
+              "--json",
+              "--require-live"
+            ],
+            "duration_seconds": 0.0
+          },
+          {
+            "name": "benchmark_bundle_head_live",
+            "category": "data",
+            "status": "skipped",
+            "detail": "skipped by default; pass --include-benchmark-bundle-live with FRONTEND_BASE_URL/BACKEND_BASE_URL to validate HEAD and Range without full download",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "scripts/smoke_benchmark_bundle_live.py",
+              "--json"
+            ],
+            "duration_seconds": 0.0
+          },
+          {
+            "name": "deploy_live_gate",
+            "category": "data",
+            "status": "skipped",
+            "detail": "skipped by default; pass --include-live only on a host with real deploy_data/Foldseek/SIFTS readiness",
+            "command": [
+              "make",
+              "deploy-live-gate"
+            ],
+            "duration_seconds": 0.0
+          },
+          {
+            "name": "oss_minio_e2e_contract",
+            "category": "storage",
+            "status": "skipped",
+            "detail": "skipped by default; pass --include-oss-e2e to run the guarded OSS/MinIO object write/read/delete gate",
+            "command": [
+              "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+              "scripts/smoke_oss_minio_contract.py",
+              "--json"
+            ],
+            "duration_seconds": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "package_deploy_bundle_dry_run",
+      "category": "packaging",
+      "status": "passed",
+      "detail": "summary\tdry-run",
+      "command": [
+        "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+        "scripts/package_deploy_bundle.py",
+        "--dry-run"
+      ],
+      "duration_seconds": 8.64,
+      "data": null
+    },
+    {
+      "name": "rollback_plan",
+      "category": "rollback",
+      "status": "passed",
+      "detail": "ready-for-manual-review; blocked=none",
+      "command": [
+        "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+        "scripts/rollback_plan.py",
+        "--json"
+      ],
+      "duration_seconds": 0.02,
+      "data": {
+        "project_root": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台",
+        "current_version": "0.1.0",
+        "mode": "local",
+        "summary": "ready-for-manual-review",
+        "blocked_reasons": [],
+        "assets": [
+          {
+            "label": "deploy_package",
+            "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/dist/packages/protein-ai-platform-20260824T010950Z-25679eb.tar.gz",
+            "exists": true,
+            "detail": "checksum=yes"
+          },
+          {
+            "label": "database_backup",
+            "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backups/protein_ai_20260708T001139Z.dump",
+            "exists": true,
+            "detail": "checksum=yes"
+          }
+        ],
+        "maintenance_gate": {
+          "maintenance_window_id": null,
+          "allow_production_drill": false,
+          "destructive_steps_executable": false,
+          "missing_inputs": [
+            "MAINTENANCE_WINDOW_ID",
+            "ALLOW_PRODUCTION_DRILL=true"
+          ]
+        },
+        "drill_readiness": [
+          {
+            "name": "production_rollback_drill",
+            "status": "manual_required",
+            "missing_inputs": [
+              "MAINTENANCE_WINDOW_ID",
+              "ALLOW_PRODUCTION_DRILL=true"
+            ],
+            "current_safe_actions": [
+              "generate rollback plan",
+              "verify backup checksum/list",
+              "run restore drill against a temporary database"
+            ],
+            "executable_when": [
+              "maintenance window is approved",
+              "ALLOW_PRODUCTION_DRILL=true is set for the operator session",
+              "rollback package and database backup have both been verified"
+            ]
+          },
+          {
+            "name": "offsite_backup_restore_drill",
+            "status": "manual_required",
+            "missing_inputs": [
+              "OFFSITE_BACKUP_TARGET",
+              "OFFSITE_RESTORE_TARGET"
+            ],
+            "current_safe_actions": [
+              "verify local backup before upload",
+              "document offsite target, object key, checksum, RTO and RPO",
+              "restore into an independent temporary/staging target only"
+            ],
+            "executable_when": [
+              "offsite target is configured",
+              "backup has been copied out of the primary host",
+              "restore target is independent from production"
+            ]
+          },
+          {
+            "name": "external_storage_restore_validation",
+            "status": "manual_required",
+            "missing_inputs": [
+              "EXTERNAL_STORAGE_BACKUP_REF",
+              "EXTERNAL_STORAGE_RESTORE_TARGET"
+            ],
+            "current_safe_actions": [
+              "list required object prefixes and sample artifact keys",
+              "validate credentials with read-only/list-only permissions first",
+              "restore into a shadow bucket/prefix before any production path switch"
+            ],
+            "executable_when": [
+              "storage backup reference/snapshot is known",
+              "restore target bucket or prefix is separate from production",
+              "application smoke checks can read restored sample artifacts"
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "name": "freeze_traffic",
+            "command": "put upstream/load-balancer into maintenance mode",
+            "destructive": false
+          },
+          {
+            "name": "verify_backup",
+            "command": "make verify-backup BACKUP_FILE=/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backups/protein_ai_20260708T001139Z.dump",
+            "destructive": false
+          },
+          {
+            "name": "restore_drill",
+            "command": "make restore-drill BACKUP_FILE=/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backups/protein_ai_20260708T001139Z.dump",
+            "destructive": false
+          },
+          {
+            "name": "stop_current_services",
+            "command": "cd docker && docker compose --env-file .env --env-file .env.deploy-data down",
+            "destructive": true
+          },
+          {
+            "name": "restore_database",
+            "command": "./scripts/restore.sh --yes /Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backups/protein_ai_20260708T001139Z.dump",
+            "destructive": true
+          },
+          {
+            "name": "redeploy_previous_package",
+            "command": "extract /Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/dist/packages/protein-ai-platform-20260824T010950Z-25679eb.tar.gz to release directory and restart compose/deploy role=local",
+            "destructive": true
+          },
+          {
+            "name": "post_rollback_checks",
+            "command": "python3 scripts/check_environment.py && python3 scripts/check_upgrade_readiness.py",
+            "destructive": false
+          }
+        ],
+        "safety_notes": [
+          "This script is read-only and does not execute rollback.",
+          "Real restore is destructive; run verify-backup and restore-drill first.",
+          "Do not run restore.sh against production without an approved maintenance window."
+        ]
+      }
+    },
+    {
+      "name": "restore_drill_dry_run",
+      "category": "backup",
+      "status": "passed",
+      "detail": "summary\tok\trestore drill completed",
+      "command": [
+        "./scripts/restore_drill.sh",
+        "--dry-run",
+        "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backups/protein_ai_20260708T001139Z.dump"
+      ],
+      "duration_seconds": 0.01,
+      "data": null
+    },
+    {
+      "name": "backup_verify",
+      "category": "backup",
+      "status": "skipped",
+      "detail": "skipped by default; pass --include-backup-verify to run pg_restore/checksum verification",
+      "command": null,
+      "duration_seconds": 0.0,
+      "data": null
+    },
+    {
+      "name": "production_rollback_drill_gate",
+      "category": "maintenance",
+      "status": "manual_required",
+      "detail": "manual inputs required: MAINTENANCE_WINDOW_ID, ALLOW_PRODUCTION_DRILL=true",
+      "command": null,
+      "duration_seconds": 0.0,
+      "data": {
+        "required_inputs": {
+          "MAINTENANCE_WINDOW_ID": null,
+          "ALLOW_PRODUCTION_DRILL=true": false,
+          "deploy_package": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/dist/packages/protein-ai-platform-20260824T010950Z-25679eb.tar.gz",
+          "backup_file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backups/protein_ai_20260708T001139Z.dump"
+        },
+        "missing_inputs": [
+          "MAINTENANCE_WINDOW_ID",
+          "ALLOW_PRODUCTION_DRILL=true"
+        ],
+        "current_safe_actions": [
+          "review rollback_plan output",
+          "run backup verification",
+          "run restore drill against a temporary database"
+        ]
+      }
+    },
+    {
+      "name": "offsite_backup_restore_drill_gate",
+      "category": "backup",
+      "status": "manual_required",
+      "detail": "manual inputs required: OFFSITE_BACKUP_TARGET, OFFSITE_RESTORE_TARGET",
+      "command": null,
+      "duration_seconds": 0.0,
+      "data": {
+        "required_inputs": {
+          "backup_file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backups/protein_ai_20260708T001139Z.dump",
+          "OFFSITE_BACKUP_TARGET": null,
+          "OFFSITE_RESTORE_TARGET": null
+        },
+        "missing_inputs": [
+          "OFFSITE_BACKUP_TARGET",
+          "OFFSITE_RESTORE_TARGET"
+        ],
+        "current_safe_actions": [
+          "verify local backup checksum and pg_restore list",
+          "copy backup to offsite target with checksum metadata",
+          "restore from offsite copy into an independent temporary/staging target"
+        ]
+      }
+    },
+    {
+      "name": "external_storage_restore_validation_gate",
+      "category": "storage",
+      "status": "manual_required",
+      "detail": "manual inputs required: EXTERNAL_STORAGE_BACKUP_REF, EXTERNAL_STORAGE_RESTORE_TARGET",
+      "command": null,
+      "duration_seconds": 0.0,
+      "data": {
+        "required_inputs": {
+          "EXTERNAL_STORAGE_BACKUP_REF": null,
+          "EXTERNAL_STORAGE_RESTORE_TARGET": null
+        },
+        "missing_inputs": [
+          "EXTERNAL_STORAGE_BACKUP_REF",
+          "EXTERNAL_STORAGE_RESTORE_TARGET"
+        ],
+        "current_safe_actions": [
+          "enumerate required object prefixes and sample artifact keys",
+          "restore into a shadow bucket or prefix",
+          "run application smoke checks against restored sample artifacts before any production path switch"
+        ]
+      }
+    }
+  ],
+  "safety": {
+    "destructive_actions": "not_executed",
+    "real_restore": false,
+    "real_rollback": false,
+    "backup_verify_default": false,
+    "maintenance_window_required_for_destructive_steps": true,
+    "offsite_backup_drill_default": "manual gate",
+    "external_storage_restore_default": "manual gate"
+  },
+  "manual_next": [
+    "Review rollback_plan output before any production rollback.",
+    "Provide MAINTENANCE_WINDOW_ID and ALLOW_PRODUCTION_DRILL=true before a production rollback drill.",
+    "Provide OFFSITE_BACKUP_TARGET and OFFSITE_RESTORE_TARGET before an offsite backup restore drill.",
+    "Provide EXTERNAL_STORAGE_BACKUP_REF and EXTERNAL_STORAGE_RESTORE_TARGET before external storage restore validation."
+  ]
+}

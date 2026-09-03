@@ -1,0 +1,43 @@
+{
+  "created_at": "2026-09-03T07:35:06.706948+00:00",
+  "success": true,
+  "isolated_fixture": true,
+  "control_valid": true,
+  "case_rows": 4,
+  "passed_rows": 4,
+  "failed_rows": 0,
+  "real_inputs_mutated": false,
+  "results": [
+    {
+      "case_id": "stale_policy_module_sha",
+      "tamper_rejected": true,
+      "expected_check": "contract_policy_module_sha256_current",
+      "expected_check_observed": true,
+      "failure_count": 2
+    },
+    {
+      "case_id": "release_summary_module_sha_drift",
+      "tamper_rejected": true,
+      "expected_check": "contract_policy_summary_matches_report",
+      "expected_check_observed": true,
+      "failure_count": 1
+    },
+    {
+      "case_id": "noncanonical_policy_module_path",
+      "tamper_rejected": true,
+      "expected_check": "contract_policy_module_path_canonical",
+      "expected_check_observed": true,
+      "failure_count": 2
+    },
+    {
+      "case_id": "policy_test_vector_sha_drift",
+      "tamper_rejected": true,
+      "expected_check": "contract_policy_test_vector_sha256_exact",
+      "expected_check_observed": true,
+      "failure_count": 2
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Temporary policy/release fixtures only; canonical module and reports remain unchanged."
+}

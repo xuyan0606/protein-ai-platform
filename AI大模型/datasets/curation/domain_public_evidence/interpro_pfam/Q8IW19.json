@@ -1,0 +1,85 @@
+{
+  "accession": "Q8IW19",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF10283",
+        "name": "PBZ domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019406",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iw19",
+          "protein_length": 511,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 376,
+                  "end": 401,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF10283",
+              "score": 3.9e-10
+            },
+            {
+              "fragments": [
+                {
+                  "start": 418,
+                  "end": 442,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF10283",
+              "score": 1.6e-08
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17913",
+        "name": "FHA domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR041388",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8iw19",
+          "protein_length": 511,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 17,
+                  "end": 64,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17913",
+              "score": 0.022
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q9BVS4",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01163",
+        "name": "RIO domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR018934",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bvs4",
+          "protein_length": 552,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 108,
+                  "end": 279,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01163",
+              "score": 2.9e-55
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF09202",
+        "name": "Rio2, N-terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015285",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bvs4",
+          "protein_length": 552,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 9,
+                  "end": 91,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF09202",
+              "score": 1.9e-27
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

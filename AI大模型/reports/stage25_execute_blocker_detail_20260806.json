@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-06",
+  "mode": "stage25_execute_blocker_detail",
+  "stage": 25,
+  "source_report": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶数据库/stage25_approved_apply_report_20260806.json",
+  "execute_requested": true,
+  "executor_status": "blocked",
+  "executor_failure_count": 24,
+  "failure_check_counts": {
+    "approved_for_family_importer": 4,
+    "human_review_status": 4,
+    "intake_approval": 4,
+    "paper_pdf": 4,
+    "payload_draft": 4,
+    "source_locators": 4
+  },
+  "proposal_blocker_rows": [
+    {
+      "proposal_id": "LIP_CAND_20260805_003",
+      "blocker_count": 6,
+      "checks": [
+        "approved_for_family_importer",
+        "human_review_status",
+        "intake_approval",
+        "paper_pdf",
+        "payload_draft",
+        "source_locators"
+      ]
+    },
+    {
+      "proposal_id": "LIP_CAND_20260805_004",
+      "blocker_count": 6,
+      "checks": [
+        "approved_for_family_importer",
+        "human_review_status",
+        "intake_approval",
+        "paper_pdf",
+        "payload_draft",
+        "source_locators"
+      ]
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_001",
+      "blocker_count": 6,
+      "checks": [
+        "approved_for_family_importer",
+        "human_review_status",
+        "intake_approval",
+        "paper_pdf",
+        "payload_draft",
+        "source_locators"
+      ]
+    },
+    {
+      "proposal_id": "XYN_CAND_20260805_002",
+      "blocker_count": 6,
+      "checks": [
+        "approved_for_family_importer",
+        "human_review_status",
+        "intake_approval",
+        "paper_pdf",
+        "payload_draft",
+        "source_locators"
+      ]
+    }
+  ],
+  "db_before_integrity_ok_count": 3,
+  "backup_count": 0,
+  "apply_result_count": 0,
+  "after_present": false,
+  "external_sqlite_mutated": false,
+  "formal_decision_rows_written": 0,
+  "apply_executed": false,
+  "export_safe_released": false,
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

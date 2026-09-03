@@ -1,0 +1,16 @@
+{
+  "evidence_rows": 1942,
+  "decided_rows": 1787,
+  "raw_unresolved_rows": 155,
+  "raw_unresolved_bucket_counts": {
+    "multi_interval_sidecar_resolved_for_feature_use": 155
+  },
+  "multi_occurrence_sidecar_rows": 155,
+  "multi_occurrence_sidecar_resolved_rows": 155,
+  "unresolved_rows": 0,
+  "unresolved_bucket_counts": {},
+  "packets": 0,
+  "packet_rows": 0,
+  "packet_reports": [],
+  "policy": "Review packets are generated only for rows still unresolved for position feature use. Valid repeated Pfam rows may be resolved by domain_multi_occurrence_features sidecar, which preserves all occurrences without creating single-interval decisions."
+}

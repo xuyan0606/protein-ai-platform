@@ -1,0 +1,51 @@
+{
+  "accession": "Q9UFF9",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04857",
+        "name": "CAF1 family ribonuclease",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR006941",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9uff9",
+          "protein_length": 292,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 15,
+                  "end": 132,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04857",
+              "score": 2e-11
+            },
+            {
+              "fragments": [
+                {
+                  "start": 147,
+                  "end": 238,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04857",
+              "score": 3.5e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

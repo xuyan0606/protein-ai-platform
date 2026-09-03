@@ -1,0 +1,30 @@
+{
+  "imported_feedback_id": "venus15b-e331q-ph45-ph60-ratio-observation-001",
+  "feedback_rows_before": 7,
+  "feedback_rows_after": 7,
+  "new_or_updated": true,
+  "evidence": {
+    "project_dir": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/Venus-15B淀粉酶项目",
+    "sequence_file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/Venus-15B淀粉酶项目/淀粉酶15B序列.txt",
+    "background_file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/Venus-15B淀粉酶项目/淀粉酶背景.txt",
+    "structure_file": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/Venus-15B淀粉酶项目/15B-AAP-noCa.pdb",
+    "sequence_sha256": "15a4430c8325d35c38f31f81e6f850757bd423f5b1964285ebeb7ec03ed9c2da",
+    "background_sha256": "63e807ae7ab83fafbea7af6765f3781f404337247ea4da0623567934276e50bb",
+    "structure_sha256": "327eacf9cab8703f13bd7dc72e052278a509ba4fe6ce594245565425db7f2454",
+    "sequence_length": 486,
+    "mutation": "E331Q",
+    "numbering_verified": true,
+    "observed_sequence_residue": "E",
+    "evidence_phrase_present": true,
+    "training_eligible_under_current_validator": true,
+    "limitations": [
+      "qualitative historical activity observation only",
+      "no numeric activity ratio in source text",
+      "no replicate/QC/raw plate table in source folder",
+      "not plate-level training data"
+    ]
+  },
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/feedback/experiment_feedback.local.jsonl",
+  "safe_for_model_claim": false,
+  "policy": "Imports one reviewed historical KWB feedback observation; does not create plate-level data or numeric assay values."
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "P43251",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00795",
+        "name": "Carbon-nitrogen hydrolase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR003010",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p43251",
+          "protein_length": 523,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 67,
+                  "end": 255,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00795",
+              "score": 8.9e-11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF19018",
+        "name": "Vanin C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR043957",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p43251",
+          "protein_length": 523,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 374,
+                  "end": 523,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF19018",
+              "score": 4.2e-27
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

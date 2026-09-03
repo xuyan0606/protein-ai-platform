@@ -1,0 +1,73 @@
+{
+  "accession": "P18054",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00305",
+        "name": "Lipoxygenase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013819",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p18054",
+          "protein_length": 663,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 211,
+                  "end": 644,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00305",
+              "score": 2.3e-58
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01477",
+        "name": "PLAT/LH2 domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001024",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p18054",
+          "protein_length": 663,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 4,
+                  "end": 103,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01477",
+              "score": 7.5e-19
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "accession": "P09884",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00136",
+        "name": "DNA polymerase family B",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR006134",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p09884",
+          "protein_length": 1462,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 775,
+                  "end": 1227,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00136",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03104",
+        "name": "DNA polymerase family B, exonuclease domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR006133",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p09884",
+          "protein_length": 1462,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 475,
+                  "end": 710,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03104",
+              "score": 1.4e-46
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08996",
+        "name": "DNA Polymerase alpha zinc finger",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR015088",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p09884",
+          "protein_length": 1462,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1266,
+                  "end": 1455,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF08996",
+              "score": 9.6e-51
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12254",
+        "name": "DNA polymerase alpha subunit p180 N terminal",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR024647",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p09884",
+          "protein_length": 1462,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 35,
+                  "end": 96,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12254",
+              "score": 8.6e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

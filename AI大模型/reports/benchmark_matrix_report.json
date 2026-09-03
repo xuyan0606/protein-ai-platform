@@ -1,0 +1,103 @@
+{
+  "local_only": true,
+  "matrix_artifact_ready": true,
+  "ready_for_model_claim": false,
+  "heads": [
+    {
+      "head": "mutation_rank",
+      "label_rows": 0,
+      "minimum_rows": 100,
+      "training_ready": false,
+      "required_benchmarks": [
+        "ProteinGym",
+        "FLIP/FLIP2-style protein/family/time split",
+        "KWB strict mutation holdout"
+      ],
+      "benchmark_data_ready": false,
+      "scorecard_ready": false,
+      "status": "blocked",
+      "blockers": [
+        "benchmark dataset is not configured locally",
+        "head is not training-ready with reviewed labels",
+        "external predicted/reference data cannot substitute for wet-lab labels"
+      ]
+    },
+    {
+      "head": "stability",
+      "label_rows": 0,
+      "minimum_rows": 100,
+      "training_ready": false,
+      "required_benchmarks": [
+        "ThermoMPNN comparison",
+        "ATOM3D MSP",
+        "FireProt/ProTherm reviewed stability set"
+      ],
+      "benchmark_data_ready": false,
+      "scorecard_ready": false,
+      "status": "blocked",
+      "blockers": [
+        "benchmark dataset is not configured locally",
+        "head is not training-ready with reviewed labels",
+        "external predicted/reference data cannot substitute for wet-lab labels"
+      ]
+    },
+    {
+      "head": "activity_risk",
+      "label_rows": 6,
+      "minimum_rows": 100,
+      "training_ready": false,
+      "required_benchmarks": [
+        "KWB activity numeric feedback smoke",
+        "KWB plate-level wet-lab feedback",
+        "CatPred/GotEnzymes predicted reference only"
+      ],
+      "benchmark_data_ready": false,
+      "scorecard_ready": false,
+      "status": "blocked",
+      "blockers": [
+        "benchmark dataset is not configured locally",
+        "head is not training-ready with reviewed labels",
+        "external predicted/reference data cannot substitute for wet-lab labels"
+      ]
+    },
+    {
+      "head": "substrate_fit",
+      "label_rows": 0,
+      "minimum_rows": 100,
+      "training_ready": false,
+      "required_benchmarks": [
+        "PDBbind/CASF/D3R-style affinity or pose benchmark",
+        "PoseBusters-style pose plausibility",
+        "reviewed substrate identity set"
+      ],
+      "benchmark_data_ready": false,
+      "scorecard_ready": false,
+      "status": "blocked",
+      "blockers": [
+        "benchmark dataset is not configured locally",
+        "head is not training-ready with reviewed labels",
+        "external predicted/reference data cannot substitute for wet-lab labels"
+      ]
+    },
+    {
+      "head": "assay_success",
+      "label_rows": 0,
+      "minimum_rows": 100,
+      "training_ready": false,
+      "required_benchmarks": [
+        "KWB plate-level feedback",
+        "replicate consistency",
+        "QC fail-rate calibration"
+      ],
+      "benchmark_data_ready": false,
+      "scorecard_ready": false,
+      "status": "blocked",
+      "blockers": [
+        "benchmark dataset is not configured locally",
+        "head is not training-ready with reviewed labels",
+        "external predicted/reference data cannot substitute for wet-lab labels"
+      ]
+    }
+  ],
+  "policy": "Smoke tests remain useful, but model claims require head-level benchmark scorecards and leakage-safe splits."
+}

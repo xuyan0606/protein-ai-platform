@@ -1,0 +1,20 @@
+{
+  "benchmark_name": "FireProt/ProTherm reviewed stability set",
+  "created_at": "2026-09-03T07:32:23.883171+00:00",
+  "future_training_exclusion_required": true,
+  "head": "stability",
+  "leakage_basis": "Only FireProt non-train source splits are materialized; rows are evaluation-only and never admitted into KWB training labels by this builder.",
+  "leakage_check_status": "passed",
+  "local_only": true,
+  "safe_for_model_claim": false,
+  "source_splits_allowed": [
+    "HF",
+    "test",
+    "val"
+  ],
+  "split_strategy": "external_eval_only_non_train_splits_unique_mutation_key",
+  "test_rows": 2138,
+  "train_rows": 0,
+  "unique_mutation_key_rows": 2138,
+  "validation_rows": 0
+}

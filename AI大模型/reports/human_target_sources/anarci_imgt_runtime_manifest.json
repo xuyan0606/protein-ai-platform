@@ -1,0 +1,26 @@
+{
+  "created_at": "2026-09-03T07:33:59.721724+00:00",
+  "local_only": true,
+  "source_id": "anarci_imgt_runtime",
+  "lane": "antibody_humanization",
+  "display_name": "ANARCI/IMGT numbering runtime",
+  "status": "blocked",
+  "blocked_reason": "required_runtime_executable_missing",
+  "runtime_signal": {
+    "required": true,
+    "present": false,
+    "present_names": [],
+    "resolved_paths": {}
+  },
+  "required_artifacts": [
+    "runtime receipt",
+    "numbering scheme",
+    "VH/VL chain mapping",
+    "failure log"
+  ],
+  "source_ready": false,
+  "claim_eligible": false,
+  "customer_ready": false,
+  "release_ready": false,
+  "policy": "Split source/runtime manifest only. This is still blocked and does not imply data availability."
+}

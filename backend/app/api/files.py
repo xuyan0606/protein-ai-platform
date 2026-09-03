@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import uuid
 from datetime import datetime, timezone
+from urllib.parse import unquote
 
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from sqlalchemy import select, delete
@@ -12,11 +13,34 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.database import get_session
 from app.core.security import get_current_user
 from app.services import storage
+from app.services.tool_task_store import get_tool_artifact_owner
 
 router = APIRouter()
 
-ALLOWED_EXTENSIONS = {".pdb", ".fasta", ".fa", ".cif", ".sdf", ".mol", ".mol2", ".txt", ".csv"}
+ALLOWED_EXTENSIONS = {".pdb", ".fasta", ".fa", ".cif", ".sdf", ".mol", ".mol2", ".txt", ".csv", ".json"}
 MAX_FILE_SIZE = 50 * 1024 * 1024  # 50 MB
+
+
+def _user_upload_prefix(user_id: int) -> str:
+    return f"uploads/user_{user_id}/"
+
+
+def _assert_user_upload_access(object_name: str, user_id: int) -> None:
+    """Only allow generic file APIs to access user-scoped uploads."""
+    if not object_name.startswith(_user_upload_prefix(user_id)):
+        raise HTTPException(status_code=403, detail="Access denied for this file")
+
+
+async def _assert_file_download_access(object_name: str, user_id: int) -> None:
+    """Allow user uploads plus generated tool artifacts explicitly bound to the user."""
+    if object_name.startswith(_user_upload_prefix(user_id)):
+        return
+
+    artifact_owner = await get_tool_artifact_owner(object_name)
+    if artifact_owner and artifact_owner["user_id"] == int(user_id):
+        return
+
+    raise HTTPException(status_code=403, detail="Access denied for this file")
 
 
 @router.get("")
@@ -56,6 +80,7 @@ async def upload_file(
             content,
             file.filename,
             content_type=file.content_type or "application/octet-stream",
+            folder=_user_upload_prefix(current_user["id"]).rstrip("/"),
         )
     except RuntimeError as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -74,10 +99,12 @@ async def upload_file(
 @router.get("/{object_name:path}/download")
 async def download_file(
     object_name: str,
+    filename: str | None = None,
     current_user: dict = Depends(get_current_user),
 ):
     """Download a stored file directly."""
     from fastapi.responses import Response
+    await _assert_file_download_access(object_name, current_user["id"])
     try:
         data = await storage.download_file(object_name)
         ext = object_name.rsplit(".", 1)[-1] if "." in object_name else "bin"
@@ -88,11 +115,22 @@ async def download_file(
             "cif": "chemical/x-cif",
             "txt": "text/plain",
             "csv": "text/csv",
+            "xvg": "text/plain",
+            "gro": "text/plain",
+            "log": "text/plain",
+            "mdp": "text/plain",
+            "json": "application/json",
+            "xtc": "application/octet-stream",
+            "tpr": "application/octet-stream",
+            "edr": "application/octet-stream",
         }
+        download_name = unquote(filename).strip() if filename else object_name.split("/")[-1]
+        if not download_name:
+            download_name = object_name.split("/")[-1]
         return Response(
             content=data,
             media_type=media_types.get(ext, "application/octet-stream"),
-            headers={"Content-Disposition": f"attachment; filename={object_name.split('/')[-1]}"},
+            headers={"Content-Disposition": f"attachment; filename={download_name}"},
         )
     except RuntimeError as e:
         raise HTTPException(status_code=404 if "not found" in str(e).lower() else 500, detail=str(e))
@@ -104,6 +142,7 @@ async def delete_file(
     current_user: dict = Depends(get_current_user),
 ):
     """Delete a stored file."""
+    _assert_user_upload_access(object_name, current_user["id"])
     try:
         deleted = await storage.delete_file(object_name)
         if not deleted:

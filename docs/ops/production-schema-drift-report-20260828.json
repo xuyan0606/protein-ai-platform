@@ -1,0 +1,318 @@
+{
+  "read_only": true,
+  "production_alembic_versions": [
+    "9c8d7e6f5a41"
+  ],
+  "revision_count": 14,
+  "migrations": [
+    {
+      "revision": "0d4a9f1c8b23",
+      "down_revision": "f1b9c8d2a704",
+      "file": "0d4a9f1c8b23_add_project_members.py",
+      "tables": [
+        "project_members"
+      ],
+      "indexes": [],
+      "tables_present": true,
+      "indexes_present": true,
+      "missing_tables": [],
+      "missing_indexes": [],
+      "schema_status": "complete"
+    },
+    {
+      "revision": "1a2b3c4d5e6f",
+      "down_revision": "a7c4e2f9b601",
+      "file": "1a2b3c4d5e6f_add_workflow_shadow_audits.py",
+      "tables": [
+        "workflow_shadow_audits"
+      ],
+      "indexes": [
+        "ix_workflow_shadow_audits_conversation_id",
+        "ix_workflow_shadow_audits_created_at",
+        "ix_workflow_shadow_audits_message_fingerprint",
+        "ix_workflow_shadow_audits_project_id",
+        "ix_workflow_shadow_audits_user_id",
+        "ix_workflow_shadow_audits_workflow_id"
+      ],
+      "tables_present": false,
+      "indexes_present": false,
+      "missing_tables": [
+        "workflow_shadow_audits"
+      ],
+      "missing_indexes": [
+        "ix_workflow_shadow_audits_conversation_id",
+        "ix_workflow_shadow_audits_created_at",
+        "ix_workflow_shadow_audits_message_fingerprint",
+        "ix_workflow_shadow_audits_project_id",
+        "ix_workflow_shadow_audits_user_id",
+        "ix_workflow_shadow_audits_workflow_id"
+      ],
+      "schema_status": "incomplete"
+    },
+    {
+      "revision": "2f6c8d9e0a12",
+      "down_revision": "b9a4c2d7e8f1",
+      "file": "2f6c8d9e0a12_add_lipase_curation_records.py",
+      "tables": [
+        "lipase_curation_batches",
+        "lipase_curation_records"
+      ],
+      "indexes": [
+        "ix_lipase_curation_batches_batch_key",
+        "ix_lipase_curation_batches_created_by_user_id",
+        "ix_lipase_curation_batches_published_by_user_id",
+        "ix_lipase_curation_batches_source_type",
+        "ix_lipase_curation_batches_status",
+        "ix_lipase_curation_records_created_by_user_id",
+        "ix_lipase_curation_records_linked_task_id",
+        "ix_lipase_curation_records_mutation_code",
+        "ix_lipase_curation_records_paper_key",
+        "ix_lipase_curation_records_position",
+        "ix_lipase_curation_records_reviewed_by_user_id",
+        "ix_lipase_curation_records_source_type",
+        "ix_lipase_curation_records_status"
+      ],
+      "tables_present": true,
+      "indexes_present": true,
+      "missing_tables": [],
+      "missing_indexes": [],
+      "schema_status": "complete"
+    },
+    {
+      "revision": "7c2a1d4e9b66",
+      "down_revision": "0d4a9f1c8b23",
+      "file": "7c2a1d4e9b66_add_user_status_controls.py",
+      "tables": [],
+      "indexes": [],
+      "tables_present": true,
+      "indexes_present": true,
+      "missing_tables": [],
+      "missing_indexes": [],
+      "schema_status": "complete"
+    },
+    {
+      "revision": "8eb683a67e73",
+      "down_revision": null,
+      "file": "8eb683a67e73_add_literature_tables.py",
+      "tables": [
+        "enzyme_literature_links",
+        "papers"
+      ],
+      "indexes": [
+        "ix_litlink_enzyme",
+        "ix_litlink_paper",
+        "ix_litlink_type",
+        "ix_paper_doi",
+        "ix_paper_journal",
+        "ix_paper_year"
+      ],
+      "tables_present": true,
+      "indexes_present": true,
+      "missing_tables": [],
+      "missing_indexes": [],
+      "schema_status": "complete"
+    },
+    {
+      "revision": "9c8d7e6f5a41",
+      "down_revision": "2f6c8d9e0a12",
+      "file": "9c8d7e6f5a41_add_experiment_feedback_records.py",
+      "tables": [
+        "experiment_feedback_records"
+      ],
+      "indexes": [
+        "ix_experiment_feedback_records_created_by_user_id",
+        "ix_experiment_feedback_records_enzyme_name",
+        "ix_experiment_feedback_records_linked_task_id",
+        "ix_experiment_feedback_records_parent_variant",
+        "ix_experiment_feedback_records_project_id",
+        "ix_experiment_feedback_records_variant_name"
+      ],
+      "tables_present": true,
+      "indexes_present": true,
+      "missing_tables": [],
+      "missing_indexes": [],
+      "schema_status": "complete"
+    },
+    {
+      "revision": "a3f7c9e2b1d4",
+      "down_revision": "8eb683a67e73",
+      "file": "a3f7c9e2b1d4_add_wiki_knowledgebase_schema.py",
+      "tables": [
+        "project_files"
+      ],
+      "indexes": [
+        "ix_conversations_project_id",
+        "ix_project_files_project_id"
+      ],
+      "tables_present": true,
+      "indexes_present": true,
+      "missing_tables": [],
+      "missing_indexes": [],
+      "schema_status": "complete"
+    },
+    {
+      "revision": "a7c4e2f9b601",
+      "down_revision": "f8a1c2d3e4b5",
+      "file": "a7c4e2f9b601_add_analysis_evidence_snapshots.py",
+      "tables": [
+        "analysis_evidence_snapshots"
+      ],
+      "indexes": [
+        "ix_analysis_evidence_snapshots_base_analysis_fingerprint",
+        "ix_analysis_evidence_snapshots_conversation_id",
+        "ix_analysis_evidence_snapshots_evidence_snapshot_fingerprint",
+        "ix_analysis_evidence_snapshots_snapshot_id",
+        "ix_analysis_evidence_snapshots_user_id"
+      ],
+      "tables_present": true,
+      "indexes_present": true,
+      "missing_tables": [],
+      "missing_indexes": [],
+      "schema_status": "complete"
+    },
+    {
+      "revision": "b9a4c2d7e8f1",
+      "down_revision": "7c2a1d4e9b66",
+      "file": "b9a4c2d7e8f1_add_organization_permissions.py",
+      "tables": [
+        "organization_members",
+        "organizations",
+        "permission_audits",
+        "project_organization_grants"
+      ],
+      "indexes": [],
+      "tables_present": true,
+      "indexes_present": true,
+      "missing_tables": [],
+      "missing_indexes": [],
+      "schema_status": "complete"
+    },
+    {
+      "revision": "c4d9e1b2f7aa",
+      "down_revision": "a3f7c9e2b1d4",
+      "file": "c4d9e1b2f7aa_add_annotation_and_signal_tables.py",
+      "tables": [
+        "catalytic_residues",
+        "catalytic_sites",
+        "enzyme_interpro_links",
+        "interpro_entries",
+        "signal_peptide_predictions"
+      ],
+      "indexes": [
+        "ix_catalytic_residue_pos",
+        "ix_catalytic_site_enzyme",
+        "ix_enzyme_interpro_enzyme",
+        "ix_interpro_entries_interpro_id",
+        "ix_signal_peptide_enzyme",
+        "ix_signal_peptide_predictions_sequence_hash"
+      ],
+      "tables_present": true,
+      "indexes_present": true,
+      "missing_tables": [],
+      "missing_indexes": [],
+      "schema_status": "complete"
+    },
+    {
+      "revision": "d6f4b8c2a901",
+      "down_revision": "9c8d7e6f5a41",
+      "file": "d6f4b8c2a901_add_enzyme_metadata_curation.py",
+      "tables": [
+        "enzyme_metadata_curation_batches",
+        "enzyme_metadata_curation_records"
+      ],
+      "indexes": [
+        "ix_enzyme_metadata_curation_batches_archived_by_user_id",
+        "ix_enzyme_metadata_curation_batches_batch_key",
+        "ix_enzyme_metadata_curation_batches_created_by_user_id",
+        "ix_enzyme_metadata_curation_batches_family",
+        "ix_enzyme_metadata_curation_batches_record_type",
+        "ix_enzyme_metadata_curation_batches_status",
+        "ix_enzyme_metadata_curation_records_created_by_user_id",
+        "ix_enzyme_metadata_curation_records_decision",
+        "ix_enzyme_metadata_curation_records_family",
+        "ix_enzyme_metadata_curation_records_paper_id",
+        "ix_enzyme_metadata_curation_records_record_type",
+        "ix_enzyme_metadata_curation_records_reviewed_by_user_id",
+        "ix_enzyme_metadata_curation_records_status"
+      ],
+      "tables_present": true,
+      "indexes_present": true,
+      "missing_tables": [],
+      "missing_indexes": [],
+      "schema_status": "complete"
+    },
+    {
+      "revision": "e7a2d4c9b601",
+      "down_revision": "c4d9e1b2f7aa",
+      "file": "e7a2d4c9b601_add_tool_task_audits.py",
+      "tables": [
+        "tool_task_audits"
+      ],
+      "indexes": [
+        "ix_tool_task_audits_status",
+        "ix_tool_task_audits_task_id",
+        "ix_tool_task_audits_tool_name",
+        "ix_tool_task_audits_user_id"
+      ],
+      "tables_present": true,
+      "indexes_present": true,
+      "missing_tables": [],
+      "missing_indexes": [],
+      "schema_status": "complete"
+    },
+    {
+      "revision": "f1b9c8d2a704",
+      "down_revision": "e7a2d4c9b601",
+      "file": "f1b9c8d2a704_add_user_roles.py",
+      "tables": [],
+      "indexes": [],
+      "tables_present": true,
+      "indexes_present": true,
+      "missing_tables": [],
+      "missing_indexes": [],
+      "schema_status": "complete"
+    },
+    {
+      "revision": "f8a1c2d3e4b5",
+      "down_revision": "d6f4b8c2a901",
+      "file": "f8a1c2d3e4b5_add_strategy_checkpoints_and_wet_lab_calibration.py",
+      "tables": [
+        "strategy_checkpoints",
+        "wet_lab_calibration_runs"
+      ],
+      "indexes": [
+        "ix_strategy_checkpoints_conversation_id",
+        "ix_strategy_checkpoints_next_action",
+        "ix_strategy_checkpoints_project_id",
+        "ix_strategy_checkpoints_status",
+        "ix_strategy_checkpoints_strategy_signature",
+        "ix_strategy_checkpoints_task_fingerprint",
+        "ix_strategy_checkpoints_user_id",
+        "ix_wet_lab_calibration_runs_assay_key",
+        "ix_wet_lab_calibration_runs_dataset_fingerprint",
+        "ix_wet_lab_calibration_runs_enzyme_name",
+        "ix_wet_lab_calibration_runs_objective",
+        "ix_wet_lab_calibration_runs_project_id",
+        "ix_wet_lab_calibration_runs_user_id"
+      ],
+      "tables_present": true,
+      "indexes_present": true,
+      "missing_tables": [],
+      "missing_indexes": [],
+      "schema_status": "complete"
+    }
+  ],
+  "summary": {
+    "complete_migrations": 13,
+    "incomplete_migrations": 1,
+    "pending_objects": [
+      "ix_workflow_shadow_audits_conversation_id",
+      "ix_workflow_shadow_audits_created_at",
+      "ix_workflow_shadow_audits_message_fingerprint",
+      "ix_workflow_shadow_audits_project_id",
+      "ix_workflow_shadow_audits_user_id",
+      "ix_workflow_shadow_audits_workflow_id",
+      "workflow_shadow_audits"
+    ]
+  }
+}

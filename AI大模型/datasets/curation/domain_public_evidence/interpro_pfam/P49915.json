@@ -1,0 +1,107 @@
+{
+  "accession": "P49915",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00117",
+        "name": "Glutamine amidotransferase class-I",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR017926",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49915",
+          "protein_length": 693,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 29,
+                  "end": 209,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00117",
+              "score": 5e-42
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00958",
+        "name": "GMP synthase C terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001674",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49915",
+          "protein_length": 693,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 599,
+                  "end": 692,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00958",
+              "score": 1.8e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02540",
+        "name": "NAD synthase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022310",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p49915",
+          "protein_length": 693,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 225,
+                  "end": 300,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02540",
+              "score": 2.6e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

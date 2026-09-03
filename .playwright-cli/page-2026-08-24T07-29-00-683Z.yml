@@ -1,0 +1,105 @@
+- generic [active] [ref=f2e1]:
+  - generic:
+    - generic:
+      - link "跳到主要内容" [ref=f2e2] [cursor=pointer]
+      - link "无障碍功能帮助" [ref=f2e3] [cursor=pointer]:
+        - /url: https://support.google.com/websearch/answer/181196?hl=zh-CN
+  - generic [ref=f2e8]:
+    - search [ref=f2e9]:
+      - generic [ref=f2e11]:
+        - link "Google 首页" [ref=f2e13] [cursor=pointer]:
+          - /url: https://www.google.com/webhp?hl=zh-CN&sa=X&ved=0ahUKEwjO3bGC37iWAxVqh1YBHStMMUgQPAgI
+        - generic [ref=f2e21]:
+          - generic [ref=f2e22]:
+            - combobox "搜索" [ref=f2e25]: site:alphafold.ebi.ac.uk pLDDT confidence score not B-factor site:alphafold.ebi.ac.uk pLDDT confidence score not B-factor
+            - generic [ref=f2e26]:
+              - button "清除" [ref=f2e28] [cursor=pointer]
+              - generic [ref=f2e33]:
+                - button "按语音搜索" [ref=f2e34] [cursor=pointer]
+                - button "按图搜索" [ref=f2e37] [cursor=pointer]
+          - button "搜索" [ref=f2e40] [cursor=pointer]
+    - generic [ref=f2e45]:
+      - button "设置" [ref=f2e47] [cursor=pointer]
+      - generic [ref=f2e53]:
+        - button "Google 应用" [ref=f2e55] [cursor=pointer]
+        - link "登录" [ref=f2e60] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=zh-CN&passive=true&continue=https://www.google.com/search%3Fq%3Dsite%253Aalphafold.ebi.ac.uk%2BpLDDT%2Bconfidence%2Bscore%2Bnot%2BB-factor%26sei%3DtvKLaqnCOPGm2roPkdmxyQg&ec=futura_srp_og_si_72236_p
+  - generic [ref=f2e62]:
+    - navigation [ref=f2e68]:
+      - generic [ref=f2e74]:
+        - list [ref=f2e75]:
+          - listitem [ref=f2e76]:
+            - link "AI 模式" [ref=f2e79] [cursor=pointer]:
+              - /url: /search?q=site:alphafold.ebi.ac.uk+pLDDT+confidence+score+not+B-factor&sca_esv=c43d336a116f8bd5&sxsrf=APpeQnue82I4o6tv1CRKOX1nbqcq7UgOaA:1787556535260&udm=50&fbs=ABfTbFUhNGvvPEUFOvrsPMHwBXgOm668fbRC_a7Vhb8DCgbMq8eqV8bT1VY7Sa-SsVne4NkpLkz0HZk_YZmMHm1pm89LCRSdMAYFTXeLTYtVyQTqQ245DBoLc2QDBQPIolU10zWxPISX1lwSgurSjfKY69UPOCXup1niYbDuBj5N5AFUFwEg80k8B0gm0S_f2s7rv3hSwUXGtusLUHOIUUT7VH2Mxq49HA&aep=1&ntc=1&cs=0&sa=X&ved=2ahUKEwjO3bGC37iWAxVqh1YBHStMMUgQ2J8OegQIEBAD
+          - listitem [ref=f2e83]:
+            - link "全部" [disabled] [ref=f2e84]
+          - listitem [ref=f2e87]:
+            - link "图片" [ref=f2e88] [cursor=pointer]:
+              - /url: /search?sca_esv=c43d336a116f8bd5&sxsrf=APpeQnue82I4o6tv1CRKOX1nbqcq7UgOaA:1787556535260&udm=2&fbs=ABfTbFUhNGvvPEUFOvrsPMHwBXgOm668fbRC_a7Vhb8DCgbMq8eqV8bT1VY7Sa-SsVne4NkpLkz0HZk_YZmMHm1pm89LCRSdMAYFTXeLTYtVyQTqQ245DBoLc2QDBQPIolU10zWxPISX1lwSgurSjfKY69UPOCXup1niYbDuBj5N5AFUFwEg80k8B0gm0S_f2s7rv3hSwUXGtusLUHOIUUT7VH2Mxq49HA&q=site:alphafold.ebi.ac.uk+pLDDT+confidence+score+not+B-factor&sa=X&ved=2ahUKEwjO3bGC37iWAxVqh1YBHStMMUgQtKgLegQIFBAB
+          - listitem [ref=f2e91]:
+            - link "购物" [ref=f2e92] [cursor=pointer]:
+              - /url: /search?sca_esv=c43d336a116f8bd5&sxsrf=APpeQnue82I4o6tv1CRKOX1nbqcq7UgOaA:1787556535260&udm=28&fbs=ABfTbFUhNGvvPEUFOvrsPMHwBXgOm668fbRC_a7Vhb8DCgbMq8eqV8bT1VY7Sa-SsVne4NkpLkz0HZk_YZmMHm1pm89LCRSdMAYFTXeLTYtVyQTqQ245DBoLc2QDBQPIolU10zWxPISX1lwSgurSjfKY69UPOCXup1niYbDuBj5N5AFUFwEg80k8B0gm0S_f2s7rv3hSwUXGtusLUHOIUUT7VH2Mxq49HA&q=site:alphafold.ebi.ac.uk+pLDDT+confidence+score+not+B-factor&ved=1t:220175&ictx=111
+          - listitem [ref=f2e95]:
+            - link "视频" [ref=f2e96] [cursor=pointer]:
+              - /url: /search?sca_esv=c43d336a116f8bd5&sxsrf=APpeQnue82I4o6tv1CRKOX1nbqcq7UgOaA:1787556535260&udm=7&fbs=ABfTbFUhNGvvPEUFOvrsPMHwBXgOm668fbRC_a7Vhb8DCgbMq8eqV8bT1VY7Sa-SsVne4NkpLkz0HZk_YZmMHm1pm89LCRSdMAYFTXeLTYtVyQTqQ245DBoLc2QDBQPIolU10zWxPISX1lwSgurSjfKY69UPOCXup1niYbDuBj5N5AFUFwEg80k8B0gm0S_f2s7rv3hSwUXGtusLUHOIUUT7VH2Mxq49HA&q=site:alphafold.ebi.ac.uk+pLDDT+confidence+score+not+B-factor&sa=X&ved=2ahUKEwjO3bGC37iWAxVqh1YBHStMMUgQtKgLegQIExAB
+          - listitem [ref=f2e99]:
+            - link "短视频" [ref=f2e100] [cursor=pointer]:
+              - /url: /search?sca_esv=c43d336a116f8bd5&sxsrf=APpeQnue82I4o6tv1CRKOX1nbqcq7UgOaA:1787556535260&udm=39&fbs=ABfTbFUhNGvvPEUFOvrsPMHwBXgOm668fbRC_a7Vhb8DCgbMq8eqV8bT1VY7Sa-SsVne4NkpLkz0HZk_YZmMHm1pm89LCRSdMAYFTXeLTYtVyQTqQ245DBoLc2QDBQPIolU10zWxPISX1lwSgurSjfKY69UPOCXup1niYbDuBj5N5AFUFwEg80k8B0gm0S_f2s7rv3hSwUXGtusLUHOIUUT7VH2Mxq49HA&q=site:alphafold.ebi.ac.uk+pLDDT+confidence+score+not+B-factor&sa=X&ved=2ahUKEwjO3bGC37iWAxVqh1YBHStMMUgQs6gLegQIFRAB
+          - listitem [ref=f2e103]:
+            - link "新闻" [ref=f2e104] [cursor=pointer]:
+              - /url: /search?sca_esv=c43d336a116f8bd5&sxsrf=APpeQnue82I4o6tv1CRKOX1nbqcq7UgOaA:1787556535260&q=site:alphafold.ebi.ac.uk+pLDDT+confidence+score+not+B-factor&tbm=nws&source=lnms&fbs=ABfTbFUhNGvvPEUFOvrsPMHwBXgOm668fbRC_a7Vhb8DCgbMq8eqV8bT1VY7Sa-SsVne4NkpLkz0HZk_YZmMHm1pm89LCRSdMAYFTXeLTYtVyQTqQ245DBoLc2QDBQPIolU10zWxPISX1lwSgurSjfKY69UPOCXup1niYbDuBj5N5AFUFwEg80k8B0gm0S_f2s7rv3hSwUXGtusLUHOIUUT7VH2Mxq49HA&sa=X&ved=2ahUKEwjO3bGC37iWAxVqh1YBHStMMUgQ0pQJegQIEhAB
+          - listitem [ref=f2e107]:
+            - button [ref=f2e108] [cursor=pointer]:
+              - generic "更多过滤条件" [ref=f2e109]: 更多
+        - button "工具" [ref=f2e116] [cursor=pointer]
+    - heading "搜索结果" [level=1] [ref=f2e123]
+    - main [ref=f2e129]:
+      - generic [ref=f2e136]:
+        - heading "Web results" [level=2] [ref=f2e137]
+        - generic [ref=f2e138]:
+          - generic [ref=f2e141]:
+            - link "FAQs - AlphaFold Protein Structure Database AlphaFold Protein Structure Database https://alphafold.ebi.ac.uk › faq" [ref=f2e143] [cursor=pointer]:
+              - /url: https://alphafold.ebi.ac.uk/faq
+              - heading "FAQs - AlphaFold Protein Structure Database" [level=3] [ref=f2e144]
+              - generic [ref=f2e150]:
+                - generic [ref=f2e151]: AlphaFold Protein Structure Database
+                - generic [ref=f2e153]: https://alphafold.ebi.ac.uk › faq
+            - generic [ref=f2e155]:
+              - generic [ref=f2e156]: ·
+              - link "翻译此页" [ref=f2e157] [cursor=pointer]:
+                - /url: https://alphafold.ebi.ac.uk/faq
+            - button "关于这条结果的详细信息" [ref=f2e162] [cursor=pointer]
+          - generic [ref=f2e169]:
+            - text: Regions with
+            - emphasis [ref=f2e170]: pLDDT
+            - text: between 50 and 70 are low
+            - emphasis [ref=f2e171]: confidence
+            - text: and should be treated with caution. The 3D coordinates of regions with
+            - emphasis [ref=f2e172]: pLDDT
+            - text: < 50 often have a ribbon- ...
+      - generic:
+        - generic:
+          - navigation
+      - navigation
+    - contentinfo [ref=f2e173]:
+      - heading "页脚链接" [level=1] [ref=f2e174]
+      - generic [ref=f2e178]:
+        - generic [ref=f2e180]:
+          - text: 日本
+          - generic [ref=f2e182]:
+            - button "港区 东京都 - 是根据您的 IP 地址推断出来的" [ref=f2e184] [cursor=pointer]:
+              - generic [ref=f2e185]: 港区 东京都
+              - generic [ref=f2e187]:
+                - text: "-"
+                - generic [ref=f2e188]: 是根据您的 IP 地址推断出来的
+            - text: "-"
+            - button "更新位置信息" [ref=f2e190] [cursor=pointer]
+        - generic [ref=f2e193]:
+          - link "帮助" [ref=f2e194] [cursor=pointer]:
+            - /url: https://support.google.com/websearch/?p=ws_results_help&hl=zh-CN&fg=1
+          - link "发送反馈" [ref=f2e195] [cursor=pointer]:
+            - /url: "#"
+          - link "隐私权" [ref=f2e196] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=zh-CN&fg=1
+          - link "条款" [ref=f2e197] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=zh-CN&fg=1

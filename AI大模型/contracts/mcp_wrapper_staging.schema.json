@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kwb:mcp_wrapper_staging.schema.json",
+  "title": "KWB MCP Wrapper Staging Row",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "wrapper_id",
+    "source_project",
+    "source_url",
+    "source_checksum",
+    "license_review_status",
+    "runtime_lock_status",
+    "output_schema_status",
+    "forbidden_writes_declared",
+    "smoke_status",
+    "staging_status",
+    "production_allowed",
+    "agent_exposure_allowed",
+    "training_write_allowed",
+    "safe_for_model_claim",
+    "release_ready",
+    "blockers"
+  ],
+  "properties": {
+    "wrapper_id": {"type": "string", "minLength": 1},
+    "source_project": {"type": "string", "minLength": 1},
+    "source_url": {"type": "string", "minLength": 1},
+    "source_checksum": {"type": "string"},
+    "license_review_status": {"type": "string"},
+    "runtime_lock_status": {"type": "string"},
+    "output_schema_status": {"type": "string"},
+    "forbidden_writes_declared": {"type": "boolean"},
+    "smoke_status": {"type": "string"},
+    "staging_status": {"type": "string"},
+    "production_allowed": {"const": false},
+    "agent_exposure_allowed": {"const": false},
+    "training_write_allowed": {"const": false},
+    "safe_for_model_claim": {"const": false},
+    "release_ready": {"const": false},
+    "blockers": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+  }
+}

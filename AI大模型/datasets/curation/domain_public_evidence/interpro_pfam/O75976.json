@@ -1,0 +1,121 @@
+{
+  "accession": "O75976",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00246",
+        "name": "Zinc carboxypeptidase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000834",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75976",
+          "protein_length": 1380,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 71,
+                  "end": 371,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00246",
+              "score": 5.2e-66
+            },
+            {
+              "fragments": [
+                {
+                  "start": 510,
+                  "end": 783,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00246",
+              "score": 4.7e-81
+            },
+            {
+              "fragments": [
+                {
+                  "start": 941,
+                  "end": 1202,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00246",
+              "score": 2.4e-47
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13620",
+        "name": "Carboxypeptidase regulatory-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o75976",
+          "protein_length": 1380,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 384,
+                  "end": 460,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13620",
+              "score": 1.5e-10
+            },
+            {
+              "fragments": [
+                {
+                  "start": 796,
+                  "end": 870,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13620",
+              "score": 6.5e-12
+            },
+            {
+              "fragments": [
+                {
+                  "start": 1215,
+                  "end": 1285,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13620",
+              "score": 2.4e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

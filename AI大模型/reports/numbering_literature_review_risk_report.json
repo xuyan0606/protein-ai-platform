@@ -1,0 +1,44 @@
+{
+  "input_rows": 475,
+  "risk_class_counts": {
+    "high_risk": 455,
+    "possible_relevance": 20
+  },
+  "high_risk_rows": 455,
+  "possible_relevance_rows": 20,
+  "reported_mutation_title_mentions": 0,
+  "priority_high_risk_counts": {
+    "P0": 201,
+    "P1": 241,
+    "P2": 13
+  },
+  "priority_possible_counts": {
+    "P0": 12,
+    "P1": 8
+  },
+  "risk_reason_counts": {
+    "no_protein_or_mutation_title_signal": 436,
+    "only_ambiguous_title_keywords:expression": 3,
+    "only_ambiguous_title_keywords:activity": 7,
+    "strong_title_keywords:protein": 7,
+    "only_ambiguous_title_keywords:variant": 5,
+    "strong_title_keywords:enzyme": 2,
+    "strong_title_keywords:oxidase,protein": 1,
+    "only_ambiguous_title_keywords:receptor": 4,
+    "strong_title_keywords:amylase": 1,
+    "also_ambiguous_keywords:activity,expression": 1,
+    "strong_title_keywords:enzyme,protein": 1,
+    "strong_title_keywords:mutation": 1,
+    "strong_title_keywords:catalytic": 3,
+    "also_ambiguous_keywords:activity": 1,
+    "strong_title_keywords:dehydrogenase": 1,
+    "strong_title_keywords:reductase": 1,
+    "strong_title_keywords:hydrolase": 1,
+    "also_ambiguous_keywords:expression": 2,
+    "strong_title_keywords:amino": 1,
+    "also_ambiguous_keywords:receptor": 1
+  },
+  "high_risk_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_literature_high_risk_queue.jsonl",
+  "possible_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/numbering_literature_possible_relevance_queue.jsonl",
+  "policy": "high-risk literature rows must remain weak unless source review resolves the mismatch"
+}

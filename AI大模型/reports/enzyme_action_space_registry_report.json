@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-09-03T07:34:03.316872+00:00",
+  "local_only": true,
+  "action_rows": 12,
+  "contract_rows": 12,
+  "categories": [
+    "benchmark",
+    "external_data",
+    "external_tool",
+    "feature_generation",
+    "human_curation",
+    "know_how",
+    "pipeline",
+    "safety_guard"
+  ],
+  "human_confirmation_required_actions": 6,
+  "formal_decision_actions": 3,
+  "training_write_actions": 0,
+  "safe_for_model_claim_actions": 0,
+  "blocked_by_policy": true,
+  "safe_for_training_import": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "outputs": {
+    "actions": "datasets/governance/enzyme_action_space_registry.jsonl",
+    "contracts": "datasets/governance/enzyme_tool_contracts.jsonl"
+  },
+  "policy": "This registry describes controlled enzyme AI actions inspired by Biomni. It is metadata only and does not execute tools, write formal decisions, write training rows, or release model claims."
+}

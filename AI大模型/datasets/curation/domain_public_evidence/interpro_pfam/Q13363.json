@@ -1,0 +1,78 @@
+{
+  "accession": "Q13363",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00389",
+        "name": "D-isomer specific 2-hydroxyacid dehydrogenase, catalytic domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006139",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13363",
+          "protein_length": 440,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 38,
+                  "end": 134,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 318,
+                  "end": 352,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": false,
+              "model": "PF00389",
+              "score": 7.3e-25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02826",
+        "name": "D-isomer specific 2-hydroxyacid dehydrogenase, NAD binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006140",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13363",
+          "protein_length": 440,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 135,
+                  "end": 317,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02826",
+              "score": 2.7e-49
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

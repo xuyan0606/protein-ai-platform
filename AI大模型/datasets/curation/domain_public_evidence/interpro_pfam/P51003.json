@@ -1,0 +1,107 @@
+{
+  "accession": "P51003",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04926",
+        "name": "Poly(A) polymerase predicted RNA binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007010",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p51003",
+          "protein_length": 745,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 366,
+                  "end": 434,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04926",
+              "score": 1.7e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04928",
+        "name": "Poly(A) polymerase central domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR007012",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p51003",
+          "protein_length": 745,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 219,
+                  "end": 363,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04928",
+              "score": 5.1e-68
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF20750",
+        "name": "Poly(A) polymerase nucleotidyltransferase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR048840",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p51003",
+          "protein_length": 745,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 21,
+                  "end": 214,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF20750",
+              "score": 9.7e-84
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

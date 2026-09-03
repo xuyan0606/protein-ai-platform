@@ -1,0 +1,107 @@
+{
+  "accession": "P06576",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00006",
+        "name": "ATP synthase alpha/beta family, nucleotide-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000194",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p06576",
+          "protein_length": 529,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 186,
+                  "end": 405,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00006",
+              "score": 1.8e-67
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02874",
+        "name": "ATP synthase alpha/beta family, beta-barrel domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004100",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p06576",
+          "protein_length": 529,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 63,
+                  "end": 129,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02874",
+              "score": 1.6e-16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF22919",
+        "name": "C-terminal domain of V and A type ATP synthase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR055190",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p06576",
+          "protein_length": 529,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 411,
+                  "end": 493,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF22919",
+              "score": 1.1e-12
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

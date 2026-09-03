@@ -1,0 +1,73 @@
+{
+  "accession": "P30566",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00206",
+        "name": "Lyase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022761",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p30566",
+          "protein_length": 484,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 98,
+                  "end": 308,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00206",
+              "score": 2e-22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF10397",
+        "name": "Adenylosuccinate lyase C-terminus",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR019468",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p30566",
+          "protein_length": 484,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 378,
+                  "end": 460,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10397",
+              "score": 1.5e-18
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

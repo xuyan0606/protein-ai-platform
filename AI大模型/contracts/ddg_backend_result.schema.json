@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kwb-ddg-backend-result.schema.json",
+  "title": "KWB ddG backend result",
+  "type": "object",
+  "required": [
+    "case_id",
+    "backend",
+    "status",
+    "negative_ddg_is_stabilizing",
+    "inputs",
+    "outputs",
+    "artifacts",
+    "manual_review_required",
+    "local_only"
+  ],
+  "properties": {
+    "case_id": { "type": "string" },
+    "backend": {
+      "type": "string",
+      "enum": ["rosetta", "pyrosetta", "foldx", "thermompnn", "none"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["blocked", "ready_to_execute", "completed", "failed"]
+    },
+    "negative_ddg_is_stabilizing": { "type": "boolean" },
+    "inputs": { "type": "object" },
+    "outputs": { "type": "object" },
+    "artifacts": { "type": "object" },
+    "manual_review_required": { "type": "boolean" },
+    "local_only": { "type": "boolean" },
+    "reason": { "type": "string" },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}

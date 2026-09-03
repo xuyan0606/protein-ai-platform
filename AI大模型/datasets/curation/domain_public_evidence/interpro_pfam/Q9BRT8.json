@@ -1,0 +1,73 @@
+{
+  "accession": "Q9BRT8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02492",
+        "name": "CobW/HypB/UreG, nucleotide-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003495",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9brt8",
+          "protein_length": 395,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 43,
+                  "end": 229,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02492",
+              "score": 7.3e-48
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07683",
+        "name": "Cobalamin synthesis protein cobW C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011629",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9brt8",
+          "protein_length": 395,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 274,
+                  "end": 374,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07683",
+              "score": 3e-13
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

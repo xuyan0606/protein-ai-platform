@@ -1,0 +1,51 @@
+{
+  "accession": "Q9ULR3",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00481",
+        "name": "Protein phosphatase 2C",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001932",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9ulr3",
+          "protein_length": 514,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 240,
+                  "end": 316,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00481",
+              "score": 1.4e-08
+            },
+            {
+              "fragments": [
+                {
+                  "start": 379,
+                  "end": 474,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00481",
+              "score": 1.6e-08
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

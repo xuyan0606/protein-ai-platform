@@ -1,0 +1,18 @@
+{
+  "already_represented_rows": 6,
+  "apply_plan_rows": 8,
+  "audit_rows": 8,
+  "created_at": "2026-09-03T07:32:18.649312+00:00",
+  "existing_feedback_rows": 7,
+  "failures": [],
+  "local_only": true,
+  "new_feedback_only_rows": 2,
+  "policy": "A passing duplicate audit does not append feedback. It proves current apply-plan rows are either already represented or remain feedback-only, and that no row can enter training import through the apply-plan path.",
+  "preflight_rows": 8,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "safe_to_append_rows": 0,
+  "success": true,
+  "training_import_eligible_from_apply_plan_rows": 0,
+  "unrepresented_activity_candidate_rows": 0
+}

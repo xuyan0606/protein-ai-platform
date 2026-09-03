@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-09-03T07:33:56.352955+00:00",
+  "local_only": true,
+  "lane_rows": 4,
+  "executed_blocked_rows": 4,
+  "claimed_breakthrough_rows": 0,
+  "eligibility_changed_rows": 0,
+  "formal_decision_written_rows": 1,
+  "runtime_receipt_written_rows": 1,
+  "training_import_written_rows": 0,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "output": "datasets/governance/next_hard_gate_attack_wave.jsonl",
+  "policy": "Next hard-gate attack wave records real local probes and reviewed receipts only. PyRosetta runtime can be marked as a local computational ddG breakthrough, but benchmark scores, head labels, training imports, model claims, and release readiness remain separately gated."
+}

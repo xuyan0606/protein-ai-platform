@@ -1,0 +1,15 @@
+{
+  "status": "running",
+  "endpoint": "http://127.0.0.1:8766",
+  "health": "ok",
+  "version": "0.3.0-gated-local-dashboard",
+  "mode": "local-only-gated",
+  "production_integration": false,
+  "smoke": {
+    "uploaded_structure": "completed",
+    "sequence_only": "pending_structure",
+    "status_endpoint": "ok",
+    "status": "ok"
+  },
+  "policy": "local deployment only; no server sync or production platform modification"
+}

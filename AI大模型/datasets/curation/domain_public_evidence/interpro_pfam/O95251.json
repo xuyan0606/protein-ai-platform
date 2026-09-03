@@ -1,0 +1,107 @@
+{
+  "accession": "O95251",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01530",
+        "name": "Zinc finger, C2HC type",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002515",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95251",
+          "protein_length": 611,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 184,
+                  "end": 212,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01530",
+              "score": 1.1e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF01853",
+        "name": "MOZ/SAS family",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002717",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95251",
+          "protein_length": 611,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 392,
+                  "end": 602,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01853",
+              "score": 1.1e-93
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF17772",
+        "name": "MYST family zinc finger domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR040706",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o95251",
+          "protein_length": 611,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 337,
+                  "end": 388,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF17772",
+              "score": 7.2e-20
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "mode": "release_manual_gate_inputs_template",
+  "options": {
+    "BACKUP_FILE": "",
+    "BACKUP_VERIFY_COMPOSE": true
+  },
+  "policy": "Fill release approval identifiers, restore targets, and backup/storage references only. Do not paste cloud access keys, database passwords, or OIDC secrets into this file.",
+  "required_inputs": {
+    "external_storage_restore_validation_gate": {
+      "EXTERNAL_STORAGE_BACKUP_REF": "<fill>",
+      "EXTERNAL_STORAGE_RESTORE_TARGET": "<fill-shadow-bucket-or-prefix>"
+    },
+    "offsite_backup_restore_drill_gate": {
+      "OFFSITE_BACKUP_TARGET": "<fill>",
+      "OFFSITE_RESTORE_TARGET": "<fill-independent-restore-target>"
+    },
+    "production_rollback_drill_gate": {
+      "ALLOW_PRODUCTION_DRILL": false,
+      "MAINTENANCE_WINDOW_ID": "<fill>"
+    }
+  }
+}

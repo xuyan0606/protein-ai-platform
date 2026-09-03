@@ -1,0 +1,73 @@
+{
+  "accession": "Q9HAT8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04710",
+        "name": "Pellino, FHA domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR048334",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hat8",
+          "protein_length": 420,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 12,
+                  "end": 272,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF04710",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF20723",
+        "name": "Pellino, RING domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR048335",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9hat8",
+          "protein_length": 420,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 277,
+                  "end": 420,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF20723",
+              "score": 4.1e-68
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

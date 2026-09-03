@@ -1,0 +1,60 @@
+{
+  "command": [
+    "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend/.venv/bin/python",
+    "-m",
+    "pytest",
+    "tests/",
+    "-x",
+    "-v",
+    "--tb=short"
+  ],
+  "coverage": "unavailable",
+  "destructive_actions": "not_executed",
+  "exit_code": 0,
+  "mode": "execute",
+  "network_io": "not_executed",
+  "secrets_printed": false,
+  "stderr_tail": [],
+  "stdout_tail": [
+    "tests/test_tools_api.py::test_literature_live_search_marks_runtime_failure_as_degraded PASSED [ 98%]",
+    "tests/test_tools_api.py::test_literature_live_search_keeps_partial_live_failure_as_live PASSED [ 98%]",
+    "tests/test_tools_api.py::test_literature_live_search_blocks_missing_lookup_input PASSED [ 98%]",
+    "tests/test_tools_api.py::test_interpro_live_lookup_marks_successful_run_as_live PASSED [ 98%]",
+    "tests/test_tools_api.py::test_interpro_live_lookup_blocks_sequence_only_input PASSED [ 98%]",
+    "tests/test_tools_api.py::test_interpro_live_lookup_marks_runtime_failure_as_degraded PASSED [ 98%]",
+    "tests/test_tools_api.py::test_interproscan_sequence_submit_returns_live_job_id PASSED [ 98%]",
+    "tests/test_tools_api.py::test_interproscan_sequence_submit_blocks_missing_sequence PASSED [ 98%]",
+    "tests/test_tools_api.py::test_interproscan_sequence_submit_marks_network_failure_degraded PASSED [ 98%]",
+    "tests/test_tools_api.py::test_interproscan_sequence_status_pending_returns_live_without_results PASSED [ 99%]",
+    "tests/test_tools_api.py::test_interproscan_sequence_status_finished_parses_json_results PASSED [ 99%]",
+    "tests/test_tools_api.py::test_interproscan_sequence_status_blocks_missing_job_id PASSED [ 99%]",
+    "tests/test_tools_api.py::test_interproscan_sequence_status_marks_network_failure_degraded PASSED [ 99%]",
+    "tests/test_wt_baseline_registry.py::test_registry_rejects_kinetic_row_without_preparation_and_batch PASSED [ 99%]",
+    "tests/test_wt_baseline_registry.py::test_registry_accepts_exact_qc_passed_wt_feedback PASSED [ 99%]",
+    "tests/test_wt_baseline_registry.py::test_registry_conflicts_on_incompatible_exact_wt_feedback PASSED [ 99%]",
+    "tests/test_wt_baseline_registry.py::test_registry_unknown_enzyme_emits_complete_missing_report_contract PASSED [ 99%]",
+    "tests/test_wt_baseline_registry.py::test_tool_emits_same_report_contract PASSED [100%]",
+    "",
+    "======================= 852 passed in 181.32s (0:03:01) ========================"
+  ],
+  "summary": {
+    "coverage": "unavailable",
+    "detail": "pytest exit=0",
+    "runner": "local_mirror_of_github_actions_backend_test",
+    "status": "passed",
+    "workflow_contract": "passed"
+  },
+  "workflow": {
+    "missing_markers": [],
+    "path": ".github/workflows/ci.yml",
+    "required_markers": [
+      "backend_test_job",
+      "isolated_sqlite",
+      "isolated_test_database",
+      "pytest_command",
+      "coverage_artifact"
+    ],
+    "status": "passed"
+  },
+  "working_directory": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/backend"
+}

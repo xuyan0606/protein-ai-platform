@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "mode": "local_release_consistency_semantic_policy_current_regression",
+  "success": true,
+  "isolated_fixture": true,
+  "case_count": 16,
+  "passed_case_count": 16,
+  "failed_case_count": 0,
+  "real_inputs_mutated": false,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_consistency_semantic_policy_current_regression.py",
+  "regression_script_sha256": "91e3c709a7b2e2f5891840f19b5e2ca2b03920e0a1a7f15fa3e232777cce14ff",
+  "current_validator_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_consistency_semantic_policy_current.py",
+  "current_validator_script_sha256": "c0e5714ef786ff4c4690f408017bba50fe9a9b2a707e45ac9ec0bc0199717584",
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case": "fixture_control",
+      "passed": true,
+      "policy_returncode": 0,
+      "current_returncode": 0
+    },
+    {
+      "case": "recorded_policy_script_sha_drift",
+      "passed": true,
+      "expected_check": "policy_script_sha256_current",
+      "observed_checks": [
+        "policy_script_sha256_current"
+      ]
+    },
+    {
+      "case": "live_policy_script_sha_drift",
+      "passed": true,
+      "expected_check": "policy_script_sha256_current",
+      "observed_checks": [
+        "policy_script_sha256_current"
+      ]
+    },
+    {
+      "case": "recorded_contract_sha_drift",
+      "passed": true,
+      "expected_check": "contract_module_sha256_current",
+      "observed_checks": [
+        "contract_module_sha256_current"
+      ]
+    },
+    {
+      "case": "live_contract_sha_drift",
+      "passed": true,
+      "expected_check": "contract_module_sha256_current",
+      "observed_checks": [
+        "contract_module_sha256_current"
+      ]
+    },
+    {
+      "case": "contract_path_drift",
+      "passed": true,
+      "expected_check": "contract_module_path_current",
+      "observed_checks": [
+        "contract_module_path_current"
+      ]
+    },
+    {
+      "case": "policy_output_path_drift",
+      "passed": true,
+      "expected_check": "policy_output_path_canonical",
+      "observed_checks": [
+        "policy_output_path_canonical"
+      ]
+    },
+    {
+      "case": "policy_lock_path_drift",
+      "passed": true,
+      "expected_check": "policy_lock_path_canonical",
+      "observed_checks": [
+        "policy_lock_path_canonical"
+      ]
+    },
+    {
+      "case": "policy_lock_acquired_drift",
+      "passed": true,
+      "expected_check": "policy_lock_acquired",
+      "observed_checks": [
+        "policy_lock_acquired"
+      ]
+    },
+    {
+      "case": "policy_atomic_commit_drift",
+      "passed": true,
+      "expected_check": "policy_atomic_commit",
+      "observed_checks": [
+        "policy_atomic_commit"
+      ]
+    },
+    {
+      "case": "policy_success_drift",
+      "passed": true,
+      "expected_check": "policy_success",
+      "observed_checks": [
+        "policy_success"
+      ]
+    },
+    {
+      "case": "policy_failure_count_drift",
+      "passed": true,
+      "expected_check": "policy_failure_count_zero",
+      "observed_checks": [
+        "policy_failure_count_zero"
+      ]
+    },
+    {
+      "case": "expected_version_drift",
+      "passed": true,
+      "expected_check": "expected_contract_version_exact",
+      "observed_checks": [
+        "expected_contract_version_exact"
+      ]
+    },
+    {
+      "case": "expected_policy_sha_drift",
+      "passed": true,
+      "expected_check": "expected_canonical_policy_sha256_exact",
+      "observed_checks": [
+        "expected_canonical_policy_sha256_exact"
+      ]
+    },
+    {
+      "case": "observed_policy_sha_drift",
+      "passed": true,
+      "expected_check": "observed_canonical_policy_sha256_exact",
+      "observed_checks": [
+        "observed_canonical_policy_sha256_exact"
+      ]
+    },
+    {
+      "case": "safe_for_model_claim_drift",
+      "passed": true,
+      "expected_check": "safe_for_model_claim_exact",
+      "observed_checks": [
+        "safe_for_model_claim_exact"
+      ]
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

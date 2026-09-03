@@ -1,0 +1,107 @@
+{
+  "accession": "Q16206",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00076",
+        "name": "RNA recognition motif",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000504",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q16206",
+          "protein_length": 610,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 130,
+                  "end": 186,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00076",
+              "score": 4.8e-05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF23267",
+        "name": "ENOX1-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR056611",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q16206",
+          "protein_length": 610,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 410,
+                  "end": 504,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF23267",
+              "score": 6.4e-25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF27602",
+        "name": "ENOX1-like, C-terminal helix-turn-helix domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR060245",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q16206",
+          "protein_length": 610,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 531,
+                  "end": 598,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF27602",
+              "score": 9.1e-31
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

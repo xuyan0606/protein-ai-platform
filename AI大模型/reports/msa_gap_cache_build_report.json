@@ -1,0 +1,16 @@
+{
+  "local_only": true,
+  "target_rows": 17,
+  "targets_with_hits": 17,
+  "targets_missing_hits": [],
+  "raw_hit_rows": 1655,
+  "max_hits_per_target": 128,
+  "intake": "datasets/curation/msa_gap_trusted_cache_intake.local.jsonl",
+  "msa_root": "cache/msa/coverage_gap",
+  "conservation_root": "datasets/curation/msa_conservation_gap",
+  "ready_for_manual_intake_review": true,
+  "training_import_allowed": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Isolated real MMseqs2 Swiss-Prot alignment stack; final trusted-cache validator and human review remain authoritative."
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "Q8IVS8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF05161",
+        "name": "MOFRL family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR007835",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8ivs8",
+          "protein_length": 523,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 402,
+                  "end": 514,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05161",
+              "score": 3.9e-31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13660",
+        "name": "Domain of unknown function (DUF4147)",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR025286",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8ivs8",
+          "protein_length": 523,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 38,
+                  "end": 288,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13660",
+              "score": 9.8e-76
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

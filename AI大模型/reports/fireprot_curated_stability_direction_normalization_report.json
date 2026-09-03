@@ -1,0 +1,32 @@
+{
+  "created_at": "2026-09-03T07:33:50.158943+00:00",
+  "local_only": true,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/fireprot_curated_stability_import_candidates.jsonl",
+  "output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/fireprot_curated_stability_direction_normalized_candidates.jsonl",
+  "candidate_rows": 5067,
+  "direction_normalized_rows": 5067,
+  "claim_eligible_rows_now": 0,
+  "kwb_negative_ddg_is_stabilizing": true,
+  "dtm_sanity_counts": {
+    "no_dtm_reference": 4991,
+    "direction_consistent_with_negative_ddg_stabilizing": 62,
+    "direction_conflict_with_dtm": 11,
+    "zero_reference": 3
+  },
+  "threshold_class_counts": {
+    "near_neutral_manual_review": 2535,
+    "stabilizing_hypothesis": 277,
+    "destabilizing_no_go": 1296,
+    "destabilizing_watch": 959
+  },
+  "ready_for_schema_mapping": true,
+  "ready_for_training_import": false,
+  "remaining_blockers": [
+    "license_scope_not_selected",
+    "reviewed_import_receipt_missing",
+    "not_written_to_kwb_supervised_schema",
+    "leakage_review_not_approved_for_training"
+  ],
+  "safe_for_model_claim": false,
+  "policy": "Direction-normalized candidates remain blocked from training until reviewed import approval."
+}

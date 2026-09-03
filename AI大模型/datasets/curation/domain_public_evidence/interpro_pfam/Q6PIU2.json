@@ -1,0 +1,51 @@
+{
+  "accession": "Q6PIU2",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF07859",
+        "name": "alpha/beta hydrolase fold",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013094",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6piu2",
+          "protein_length": 408,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 109,
+                  "end": 262,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07859",
+              "score": 1.3e-31
+            },
+            {
+              "fragments": [
+                {
+                  "start": 320,
+                  "end": 381,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07859",
+              "score": 1.6e-08
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

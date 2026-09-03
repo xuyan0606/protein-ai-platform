@@ -1,0 +1,73 @@
+{
+  "accession": "Q96L96",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02816",
+        "name": "Alpha-kinase family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR004166",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96l96",
+          "protein_length": 1705,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1420,
+                  "end": 1617,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02816",
+              "score": 8.3e-29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07679",
+        "name": "Immunoglobulin I-set domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013098",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96l96",
+          "protein_length": 1705,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 78,
+                  "end": 169,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07679",
+              "score": 3.1e-14
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

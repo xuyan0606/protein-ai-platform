@@ -1,0 +1,112 @@
+{
+  "accession": "Q969Y2",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01926",
+        "name": "50S ribosome-binding GTPase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR006073",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q969y2",
+          "protein_length": 492,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 251,
+                  "end": 344,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01926",
+              "score": 7.1e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF10396",
+        "name": "GTP-binding protein TrmE N-terminus",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR018948",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q969y2",
+          "protein_length": 492,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 35,
+                  "end": 152,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF10396",
+              "score": 3.4e-33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12631",
+        "name": "MnmE helical domain",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR025867",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q969y2",
+          "protein_length": 492,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 155,
+                  "end": 250,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 345,
+                  "end": 489,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": false,
+              "model": "PF12631",
+              "score": 1.3e-41
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

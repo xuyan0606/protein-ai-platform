@@ -1,0 +1,73 @@
+{
+  "accession": "Q96I99",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00549",
+        "name": "CoA-ligase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR005811",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96i99",
+          "protein_length": 432,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 307,
+                  "end": 426,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00549",
+              "score": 7.1e-33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08442",
+        "name": "ATP-grasp domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013650",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q96i99",
+          "protein_length": 432,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 39,
+                  "end": 245,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08442",
+              "score": 9.8e-74
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "accession": "Q9BQS7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF07731",
+        "name": "Multicopper oxidase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011706",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bqs7",
+          "protein_length": 1158,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 963,
+                  "end": 1062,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07731",
+              "score": 1.4e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07732",
+        "name": "Multicopper oxidase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011707",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9bqs7",
+          "protein_length": 1158,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 98,
+                  "end": 204,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07732",
+              "score": 0.0014
+            },
+            {
+              "fragments": [
+                {
+                  "start": 455,
+                  "end": 559,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07732",
+              "score": 0.002
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

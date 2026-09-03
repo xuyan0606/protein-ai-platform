@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-08-26T02:23:27.868386+00:00",
+  "task": "masked_amino_acid_self_supervised_pretraining",
+  "artifact_kind": "pretraining_only",
+  "safe_for_supervised_training": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "input": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/derived/pretraining_batches/batch_0015.fasta",
+  "config": {
+    "max_sequences": 512,
+    "seed": 20260825,
+    "epochs": 1,
+    "mask_probability": 0.15,
+    "validation_fraction": 0.1
+  },
+  "input_sha256": "c9f77985d28aa99ea0a3560e7176efa96e7f15808ef5be5654d63c30a7835177",
+  "sequence_count": 512,
+  "sequence_lengths": {
+    "min": 94,
+    "max": 1019
+  },
+  "train_sequence_count": 461,
+  "validation_sequence_count": 51,
+  "status": "completed_pretraining_only",
+  "steps": 461,
+  "final_loss": 2.989882,
+  "validation_loss": 2.913426,
+  "checkpoint_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/sequence_mlm_batch_0015.checkpoint.pt",
+  "torch_version": "2.8.0"
+}

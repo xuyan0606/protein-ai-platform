@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-09-03T07:33:50.056929+00:00",
+  "local_only": true,
+  "source": "ThermoMPNN bundled FireProt CSVs",
+  "candidate_output": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curation/fireprot_curated_stability_import_candidates.jsonl",
+  "source_files": [
+    {
+      "source_file": "cache/external/ThermoMPNN/data_all/training/fireprot_train.csv",
+      "sha256": "1ad709696e4c563cb93301b3c01cd8bd048a64aca1987f646abbae6ff28409e1",
+      "rows": 2669,
+      "accepted_candidates": 2335
+    },
+    {
+      "source_file": "cache/external/ThermoMPNN/data_all/training/fireprot_val.csv",
+      "sha256": "4688dcb52b75408402d206f8c8b7fa795b640a047e3666ce8184c96e03a1e55b",
+      "rows": 387,
+      "accepted_candidates": 333
+    },
+    {
+      "source_file": "cache/external/ThermoMPNN/data_all/testing/fireprot_test.csv",
+      "sha256": "09e008e139b26286a21e91ae250761c020aa942bdecd04ab7cc188d8af5ca790",
+      "rows": 348,
+      "accepted_candidates": 232
+    },
+    {
+      "source_file": "cache/external/ThermoMPNN/data_all/testing/fireprot_HF.csv",
+      "sha256": "abbc54558142cd4f67fbf8314f5723ebb4e73be42a15dbc4c8e42a24410a18dd",
+      "rows": 2578,
+      "accepted_candidates": 2167
+    }
+  ],
+  "candidate_rows": 5067,
+  "claim_eligible_rows_now": 0,
+  "excluded_reason_counts": {
+    "missing_publication_reference": 4,
+    "not_fireprot_curated": 911
+  },
+  "leakage_report": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/fireprot_curated_stability_import_leakage_report.json",
+  "ready_for_training_import": false,
+  "next_steps": [
+    "Review license scope for FireProt-derived labels.",
+    "Normalize ddG direction to KWB label convention.",
+    "Map to KWB supervised schema with source receipt.",
+    "Approve leakage policy before training."
+  ],
+  "policy": "Receipt documents candidate provenance only; it is not a reviewed import approval."
+}

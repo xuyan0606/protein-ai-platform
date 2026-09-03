@@ -1,0 +1,14 @@
+{
+  "model": "KWB-EnzymeDesigner-supervised-mutation-baseline",
+  "version": "0.4.0-centroid-baseline",
+  "status": "blocked_empty_train_split",
+  "trained_on_rows": 0,
+  "training_source": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curated/enzyme_mutation_supervised_repaired_verified.jsonl",
+  "split_source": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/supervised_mutation_split_report.json",
+  "features": [],
+  "safe_for_model_claim": false,
+  "limitations": [
+    "no real-source strict supervised rows available",
+    "training skipped fail-closed instead of fabricating labels"
+  ]
+}

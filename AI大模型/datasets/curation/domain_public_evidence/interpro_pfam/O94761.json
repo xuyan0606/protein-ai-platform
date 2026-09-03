@@ -1,0 +1,107 @@
+{
+  "accession": "O94761",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00270",
+        "name": "DEAD/DEAH box helicase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011545",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94761",
+          "protein_length": 1208,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 482,
+                  "end": 650,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00270",
+              "score": 5.9e-18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00271",
+        "name": "Helicase conserved C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001650",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94761",
+          "protein_length": 1208,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 688,
+                  "end": 809,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00271",
+              "score": 9.2e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF11719",
+        "name": "DNA replication and checkpoint protein",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR021110",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o94761",
+          "protein_length": 1208,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 6,
+                  "end": 100,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF11719",
+              "score": 5.2e-05
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

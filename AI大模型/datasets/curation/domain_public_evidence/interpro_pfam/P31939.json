@@ -1,0 +1,73 @@
+{
+  "accession": "P31939",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01808",
+        "name": "AICARFT/IMPCHase bienzyme",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002695",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p31939",
+          "protein_length": 592,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 135,
+                  "end": 461,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01808",
+              "score": 2e-86
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF02142",
+        "name": "MGS-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011607",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p31939",
+          "protein_length": 592,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 16,
+                  "end": 130,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02142",
+              "score": 7.2e-19
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "mode": "local-release-safety-guard-links-current-regression-v1",
+  "created_at": "2026-09-03T07:47:24.272634+00:00",
+  "success": true,
+  "isolated_fixture": true,
+  "regression_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_safety_guard_links_current_regression.py",
+  "regression_script_sha256": "80b61e9b9b505a60530697978029b1da1670e5e11d3450d418ffca851d21e00e",
+  "current_validator_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_safety_guard_links_current.py",
+  "current_validator_script_sha256": "8f7ebb001af864f9ff59ecea7d6634cc1ad9ca34c92654773a172fbadfceb2f8",
+  "signer_script_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/scripts/validate_local_release_safety_guard_links.py",
+  "signer_script_sha256": "6459bca875d1d301b4073fa8ad0622710bb7f4ee3466bb331ada59a4b49490dd",
+  "output_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/local_release_safety_guard_links_current_regression_report.json",
+  "lock_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/.local_release_safety_guard_links.lock",
+  "lock_acquired": true,
+  "atomic_commit": true,
+  "case_count": 12,
+  "passed_case_count": 12,
+  "failed_case_count": 0,
+  "real_inputs_mutated": false,
+  "failure_count": 0,
+  "failures": [],
+  "cases": [
+    {
+      "case": "fixture_control",
+      "passed": true
+    },
+    {
+      "case": "validator_sha_drift",
+      "passed": true,
+      "expected_check": "receipt_validator_sha"
+    },
+    {
+      "case": "release_sha_drift",
+      "passed": true,
+      "expected_check": "receipt_release_sha"
+    },
+    {
+      "case": "consistency_sha_drift",
+      "passed": true,
+      "expected_check": "receipt_consistency_sha"
+    },
+    {
+      "case": "data_lake_snapshot_malformed",
+      "passed": true,
+      "expected_check": "receipt_data_lake_snapshot_sha_valid"
+    },
+    {
+      "case": "output_path_drift",
+      "passed": true,
+      "expected_check": "receipt_output_path"
+    },
+    {
+      "case": "lock_path_drift",
+      "passed": true,
+      "expected_check": "receipt_lock_path"
+    },
+    {
+      "case": "atomic_flag_false",
+      "passed": true,
+      "expected_check": "receipt_atomic_commit"
+    },
+    {
+      "case": "checked_links_drift",
+      "passed": true,
+      "expected_check": "checked_guard_links_current"
+    },
+    {
+      "case": "lock_timeout_preserves_prior",
+      "passed": true
+    },
+    {
+      "case": "replace_interrupt_preserves_prior",
+      "passed": true
+    },
+    {
+      "case": "recovery_commits_current",
+      "passed": true
+    }
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false
+}

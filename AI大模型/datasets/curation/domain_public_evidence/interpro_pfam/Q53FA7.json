@@ -1,0 +1,73 @@
+{
+  "accession": "Q53FA7",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00107",
+        "name": "Zinc-binding dehydrogenase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013149",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q53fa7",
+          "protein_length": 332,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 152,
+                  "end": 277,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00107",
+              "score": 2.4e-22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08240",
+        "name": "Alcohol dehydrogenase GroES-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013154",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q53fa7",
+          "protein_length": 332,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 26,
+                  "end": 111,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08240",
+              "score": 2.4e-10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

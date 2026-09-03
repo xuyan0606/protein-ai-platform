@@ -1,0 +1,107 @@
+{
+  "accession": "O15516",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00010",
+        "name": "Helix-loop-helix DNA-binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR011598",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15516",
+          "protein_length": 846,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 35,
+                  "end": 83,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00010",
+              "score": 3.1e-06
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00989",
+        "name": "PAS fold",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013767",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15516",
+          "protein_length": 846,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 110,
+                  "end": 177,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00989",
+              "score": 0.00014
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14598",
+        "name": "PAS domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15516",
+          "protein_length": 846,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 274,
+                  "end": 377,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14598",
+              "score": 4.3e-18
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

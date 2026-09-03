@@ -1,0 +1,84 @@
+{
+  "blocking_items": [
+    "manual_gate_inputs",
+    "manual_gate_evidence"
+  ],
+  "checks": [
+    {
+      "env_files_checked": [
+        "docker/.env",
+        "docker/.env.aliyun.app"
+      ],
+      "missing": [],
+      "name": "production_config_gate",
+      "ready": true,
+      "returncode": 0,
+      "status": "ready"
+    },
+    {
+      "missing": [
+        "production_rollback_drill_gate",
+        "offsite_backup_restore_drill_gate",
+        "external_storage_restore_validation_gate"
+      ],
+      "name": "manual_gate_inputs",
+      "ready": false,
+      "status": "manual_required"
+    },
+    {
+      "missing": [
+        "release",
+        "release_acceptance",
+        "production_rollback_drill_gate",
+        "offsite_backup_restore_drill_gate",
+        "external_storage_restore_validation_gate",
+        "decision"
+      ],
+      "name": "manual_gate_evidence",
+      "ready": false,
+      "status": "manual_required"
+    },
+    {
+      "missing": [],
+      "name": "operator_packet_manifest",
+      "ready": true,
+      "status": "ready-for-operator-review"
+    }
+  ],
+  "created_at": "2026-08-25T06:06:27.710771+00:00",
+  "destructive_actions": "not_executed",
+  "mode": "read_only_release_go_no_go_summary",
+  "network_io": "not_executed",
+  "next_action": "complete production config, manual gate inputs, and evidence; do not deploy production",
+  "production_deployed": false,
+  "ready_for_go_review": false,
+  "secrets_printed": false,
+  "sources": {
+    "manual_gate_evidence_validation": {
+      "exists": true,
+      "invalid_json": null,
+      "invalid_shape": null,
+      "path": "docs/manuals/release-manual-gate-evidence-validation-report.json"
+    },
+    "manual_gate_input_validation": {
+      "exists": true,
+      "invalid_json": null,
+      "invalid_shape": null,
+      "path": "docs/manuals/release-manual-gate-input-validation-report.json"
+    },
+    "operator_packet_manifest": {
+      "exists": true,
+      "invalid_json": null,
+      "invalid_shape": null,
+      "path": "docs/manuals/release-operator-packet-manifest-2026-08-17.json"
+    },
+    "production_config_gate": {
+      "env_files_checked": [
+        "docker/.env",
+        "docker/.env.aliyun.app"
+      ],
+      "returncode": 0
+    }
+  },
+  "status": "manual_required"
+}

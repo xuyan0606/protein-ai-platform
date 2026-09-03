@@ -1,0 +1,73 @@
+{
+  "accession": "Q13496",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02893",
+        "name": "GRAM domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004182",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13496",
+          "protein_length": 603,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 38,
+                  "end": 143,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02893",
+              "score": 1.3e-17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF06602",
+        "name": "Myotubularin-like phosphatase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR010569",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q13496",
+          "protein_length": 603,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 151,
+                  "end": 486,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF06602",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

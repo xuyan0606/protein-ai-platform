@@ -1,0 +1,491 @@
+{
+  "created_at": "2026-09-03T07:34:02.244004+00:00",
+  "local_only": true,
+  "planning_artifact_ready": true,
+  "capability_unlocks_ready": 2,
+  "blocked_unlocks": 5,
+  "action_rows": 12,
+  "jsonl": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/governance/next_unlock_actions.jsonl",
+  "source_reports": [
+    "reports/human_decision_backlog_report.json",
+    "reports/claim_readiness_matrix.json",
+    "reports/master_readiness_board.json",
+    "reports/safe_training_entrypoint_check.json",
+    "reports/msa_runtime_readiness_report.json",
+    "reports/msa_conservation_cache_validation_report.json"
+  ],
+  "summary": {
+    "strict_rows": 0,
+    "strict_row_threshold": 100,
+    "strict_rows_needed": 100,
+    "human_backlog_open_items": 11,
+    "human_backlog_missing_rows": 1392,
+    "claims_allowed": 1,
+    "claims_blocked": 10,
+    "master_overall_status": "blocked_for_model_claim",
+    "msa_runtime_ready": true,
+    "msa_cache_validation_ready": true
+  },
+  "stages": [
+    {
+      "order": 1,
+      "stage_id": "unlock_training_threshold",
+      "phase": "P26/P29",
+      "title": "Reach the strict supervised-row threshold",
+      "depends_on": [],
+      "unlock_ready_now": false,
+      "status": "blocked",
+      "current_state": {
+        "strict_rows": 0,
+        "threshold": 100,
+        "additional_strict_rows_needed": 100,
+        "numbering_missing_rows": 471,
+        "first_packet_ids": [
+          "numbering_review_isoform_exact_001",
+          "numbering_review_abstract_signal_001",
+          "numbering_review_abstract_signal_002",
+          "numbering_review_abstract_signal_003"
+        ]
+      },
+      "blockers": [
+        "strict supervised rows are 0/100",
+        "numbering curation still has 471 missing reviewed rows"
+      ],
+      "actions": [
+        {
+          "action_id": "P43-A001",
+          "stage_id": "unlock_training_threshold",
+          "workstream": "numbering_curation",
+          "priority": "P0",
+          "action_type": "review_numbering_decisions",
+          "target_rows": 100,
+          "source_artifact": "datasets/curation/numbering_review_packets/",
+          "decision_input": "datasets/curation/numbering_curation_decisions.jsonl",
+          "validator_report": "reports/numbering_curation_validation_report.json",
+          "human_review_required": true,
+          "acceptance_check": "strict supervised rows >= 100 and safe entrypoint has no failures",
+          "policy": "Do not promote weak evidence without reviewed canonical/isoform/literature mapping decisions."
+        }
+      ],
+      "exit_conditions": [
+        "append reviewed numbering decisions only after source evidence is checked",
+        "rerun safe pipeline",
+        "safe_training_entrypoint_check.rows >= 100"
+      ],
+      "evidence_reports": [
+        "reports/repaired_supervised_table_report.json",
+        "reports/safe_training_entrypoint_check.json",
+        "reports/numbering_curation_validation_report.json"
+      ],
+      "policy": "This stage unlocks only the row-count gate; model-quality claims still require heads, benchmarks, and governance."
+    },
+    {
+      "order": 2,
+      "stage_id": "unlock_coordinate_features",
+      "phase": "P26/P27",
+      "title": "Expand reviewed structure chain mappings",
+      "depends_on": [],
+      "unlock_ready_now": false,
+      "status": "blocked",
+      "current_state": {
+        "worklist_rows": 500,
+        "decision_rows": 34,
+        "valid_rows": 34,
+        "reviewed_chain_mapping_rows": 34,
+        "usable_for_coordinate_features": 34,
+        "missing_rows": 466,
+        "first_packet_ids": [
+          "structure_chain_single_close_001",
+          "structure_chain_single_close_002",
+          "structure_chain_single_close_003",
+          "structure_chain_single_close_004"
+        ]
+      },
+      "blockers": [
+        "structure chain mapping still has 466 missing reviewed rows"
+      ],
+      "actions": [
+        {
+          "action_id": "P43-A002",
+          "stage_id": "unlock_coordinate_features",
+          "workstream": "structure_chain_mapping",
+          "priority": "P0",
+          "action_type": "review_chain_mapping_decisions",
+          "target_rows": 25,
+          "source_artifact": "datasets/curation/structure_chain_review_packets/",
+          "decision_input": "datasets/curation/structure_chain_mapping_decisions.jsonl",
+          "validator_report": "reports/structure_chain_mapping_decision_validation_report.json",
+          "human_review_required": true,
+          "acceptance_check": "reviewed_chain_mapping_rows increases and invalid_rows remains 0",
+          "policy": "Parsed coordinate files cannot support residue-level claims until chain and numbering mappings are reviewed."
+        }
+      ],
+      "exit_conditions": [
+        "append reviewed chain mapping decisions with confidence >= 0.7",
+        "rerun validation and apply scripts",
+        "usable coordinate mapping rows increase without invalid decisions"
+      ],
+      "evidence_reports": [
+        "reports/structure_chain_mapping_decision_validation_report.json",
+        "reports/structure_chain_mapping_apply_report.json",
+        "reports/structure_chain_review_packet_report.json"
+      ],
+      "policy": "This stage prepares coordinate features; it does not approve model-quality or customer-facing structural conclusions."
+    },
+    {
+      "order": 3,
+      "stage_id": "complete_domain_tail",
+      "phase": "P27",
+      "title": "Finish unresolved domain occurrence selection",
+      "depends_on": [],
+      "unlock_ready_now": true,
+      "status": "ready_to_verify",
+      "current_state": {
+        "queue_rows": 1942,
+        "usable_for_position_features": 1785,
+        "unresolved_rows": 0,
+        "missing_rows": 0,
+        "unresolved_bucket_counts": {},
+        "first_packet_ids": []
+      },
+      "blockers": [],
+      "actions": [
+        {
+          "action_id": "P43-A003",
+          "stage_id": "complete_domain_tail",
+          "workstream": "domain_interval_occurrence_selection",
+          "priority": "P1",
+          "action_type": "review_domain_occurrence_selection",
+          "target_rows": 0,
+          "source_artifact": "datasets/curation/domain_interpro_review_packets/",
+          "decision_input": "datasets/curation/domain_interval_decisions.jsonl",
+          "validator_report": "reports/domain_interval_decision_validation_report.json",
+          "human_review_required": true,
+          "acceptance_check": "unresolved domain rows decrease and usable_for_position_features stays valid",
+          "policy": "Multi-interval domain evidence needs occurrence selection; do not collapse it automatically."
+        }
+      ],
+      "exit_conditions": [
+        "review multi-interval and no-exact Pfam packets",
+        "rerun domain interval validation and apply",
+        "domain tail missing_rows reaches 0 or explicitly reviewed unresolved rows are preserved"
+      ],
+      "evidence_reports": [
+        "reports/domain_interpro_review_packet_report.json",
+        "reports/domain_interval_decision_validation_report.json",
+        "reports/domain_interval_apply_report.json"
+      ],
+      "policy": "Program-reviewed single-interval domain rows can be used locally; unresolved tails still need review."
+    },
+    {
+      "order": 4,
+      "stage_id": "unlock_msa_conservation",
+      "phase": "P27",
+      "title": "Make MSA/conservation runtime or cache ready",
+      "depends_on": [
+        "unlock_training_threshold"
+      ],
+      "unlock_ready_now": true,
+      "status": "ready_to_verify",
+      "current_state": {
+        "target_rows": 158,
+        "runtime_ready": true,
+        "selected_runtime": "local_binary",
+        "cache_validation_ready": true,
+        "cache_valid_rows": 158,
+        "cache_invalid_rows": 0,
+        "manifest_errors": []
+      },
+      "blockers": [
+        "docker daemon not reachable or not running"
+      ],
+      "actions": [
+        {
+          "action_id": "P43-A004",
+          "stage_id": "unlock_msa_conservation",
+          "workstream": "msa_conservation",
+          "priority": "P0",
+          "action_type": "provide_msa_runtime_or_validated_cache",
+          "target_rows": 158,
+          "source_artifact": "reports/msa_conservation_manifest.json",
+          "decision_input": null,
+          "validator_report": "reports/msa_conservation_cache_validation_report.json",
+          "human_review_required": true,
+          "acceptance_check": "msa_runtime_readiness.runtime_ready is true or trusted cache validation ready is true",
+          "policy": "Do not generate conservation features from single sequences or incomplete cache manifests."
+        }
+      ],
+      "exit_conditions": [
+        "configure local MMseqs2 plus homolog database, start a permitted Docker runtime, or provide trusted cache",
+        "cache validation ready is true with checksums and source database metadata",
+        "runtime readiness selects a non-null runtime"
+      ],
+      "evidence_reports": [
+        "reports/msa_runtime_readiness_report.json",
+        "reports/msa_conservation_cache_validation_report.json",
+        "reports/msa_runtime_command_report.json"
+      ],
+      "policy": "Runtime readiness reads validator results; file counts alone are not sufficient."
+    },
+    {
+      "order": 5,
+      "stage_id": "unlock_feedback_loop",
+      "phase": "P28/P29",
+      "title": "Create verified experiment feedback intake",
+      "depends_on": [
+        "unlock_training_threshold"
+      ],
+      "unlock_ready_now": false,
+      "status": "blocked",
+      "current_state": {
+        "source_packet_rows": 308,
+        "feedback_input_rows": 7,
+        "feedback_training_eligible_rows": 7,
+        "plate_packet_rows": 110,
+        "plate_input_rows": 0,
+        "plate_training_eligible_rows": 0
+      },
+      "blockers": [
+        "experiment feedback intake has 0 eligible rows",
+        "plate feedback intake has 0 eligible rows"
+      ],
+      "actions": [
+        {
+          "action_id": "P43-A005",
+          "stage_id": "unlock_feedback_loop",
+          "workstream": "experiment_feedback_source_review",
+          "priority": "P0",
+          "action_type": "transcribe_reviewed_feedback_sources",
+          "target_rows": 25,
+          "source_artifact": "datasets/feedback/source_review_packets/",
+          "decision_input": "datasets/feedback/experiment_feedback.local.jsonl",
+          "validator_report": "reports/experiment_feedback_intake_validation_report.json",
+          "human_review_required": true,
+          "acceptance_check": "training_eligible_rows > 0 with numbering-verified feedback rows",
+          "policy": "Source review packets are not labels; only schema-valid local feedback rows can enter training."
+        },
+        {
+          "action_id": "P43-A006",
+          "stage_id": "unlock_feedback_loop",
+          "workstream": "plate_feedback_intake",
+          "priority": "P0",
+          "action_type": "transcribe_plate_feedback_rows",
+          "target_rows": 50,
+          "source_artifact": "datasets/feedback/plate_review_packets/feedback_plate_review_priority_001.jsonl",
+          "decision_input": "datasets/feedback/experiment_feedback_plate.local.jsonl",
+          "validator_report": "reports/experiment_feedback_plate_intake_validation_report.json",
+          "human_review_required": true,
+          "acceptance_check": "plate training_eligible_rows > 0 with QC-classified wells",
+          "policy": "Plate drafts require manual extraction and QC classification before intake."
+        }
+      ],
+      "exit_conditions": [
+        "review source packets and transcribe real KWB wet-lab rows",
+        "validate sample IDs, units, conditions, batches, replicates, and QC flags",
+        "feedback and plate validators report training_eligible_rows > 0"
+      ],
+      "evidence_reports": [
+        "reports/experiment_feedback_source_review_packet_report.json",
+        "reports/experiment_feedback_intake_validation_report.json",
+        "reports/experiment_feedback_plate_intake_validation_report.json"
+      ],
+      "policy": "Feedback rows remain blocked until they are schema-valid, numbering-verified, and QC-classified."
+    },
+    {
+      "order": 6,
+      "stage_id": "unlock_governance_delivery",
+      "phase": "P30",
+      "title": "Complete governance, delivery, and operator decisions",
+      "depends_on": [
+        "unlock_feedback_loop",
+        "unlock_msa_conservation"
+      ],
+      "unlock_ready_now": false,
+      "status": "blocked",
+      "current_state": {
+        "governance_ready": false,
+        "customer_delivery_ready": false,
+        "license_decision_rows": 3,
+        "biosecurity_decision_rows": 0,
+        "ip_fto_decision_rows": 0,
+        "human_accepted_streams": 0,
+        "completed_operator_actions": 0
+      },
+      "blockers": [
+        "external data source commercial/redistribution review is incomplete",
+        "external data source registry validation is not ready",
+        "verified external data/tool customer-delivery authorization scope is not ready",
+        "head-level benchmark matrix is not ready for model claims",
+        "biosecurity/order approval is not ready",
+        "sequence IP/FTO decisions are not ready for customer delivery",
+        "master readiness board is blocked for model claim",
+        "data_license_clearance",
+        "tool_license_clearance",
+        "verified_component_customer_delivery_scope",
+        "ip_fto_review",
+        "biosecurity_approval",
+        "human_delivery_approval",
+        "allowed_claims_review",
+        "benchmark_scorecards"
+      ],
+      "actions": [
+        {
+          "action_id": "P43-A007",
+          "stage_id": "unlock_governance_delivery",
+          "workstream": "external_license_review",
+          "priority": "P0",
+          "action_type": "record_license_decisions",
+          "target_rows": 19,
+          "source_artifact": "datasets/governance/external_license_review_packets.jsonl",
+          "decision_input": "datasets/governance/external_license_review_decisions.jsonl",
+          "validator_report": "reports/external_license_review_decision_validation_report.json",
+          "human_review_required": true,
+          "acceptance_check": "license validator ready for customer delivery",
+          "policy": "License packets do not grant training, evaluation, or delivery use."
+        },
+        {
+          "action_id": "P43-A008",
+          "stage_id": "unlock_governance_delivery",
+          "workstream": "biosecurity_screening",
+          "priority": "P0",
+          "action_type": "record_biosecurity_decisions",
+          "target_rows": 3,
+          "source_artifact": "datasets/governance/biosecurity_screening_drafts.jsonl",
+          "decision_input": "datasets/governance/biosecurity_screening_decisions.jsonl",
+          "validator_report": "reports/biosecurity_screening_decision_validation_report.json",
+          "human_review_required": true,
+          "acceptance_check": "biosecurity validator ready_for_ordering is true",
+          "policy": "No order-ready output is permitted without explicit screening decisions."
+        },
+        {
+          "action_id": "P43-A009",
+          "stage_id": "unlock_governance_delivery",
+          "workstream": "sequence_ip_fto",
+          "priority": "P0",
+          "action_type": "record_ip_fto_decisions",
+          "target_rows": 3,
+          "source_artifact": "datasets/curation/sequence_ip_review_packets/",
+          "decision_input": "datasets/governance/sequence_ip_fto_decisions.jsonl",
+          "validator_report": "reports/sequence_ip_fto_decision_validation_report.json",
+          "human_review_required": true,
+          "acceptance_check": "IP/FTO validator ready_for_customer_delivery is true",
+          "policy": "The system can prepare packets but cannot issue legal FTO conclusions."
+        },
+        {
+          "action_id": "P43-A010",
+          "stage_id": "unlock_governance_delivery",
+          "workstream": "workstream_acceptance",
+          "priority": "P1",
+          "action_type": "record_workstream_acceptance",
+          "target_rows": 6,
+          "source_artifact": "reports/workstream_acceptance_gates.json",
+          "decision_input": "datasets/governance/workstream_acceptance_decisions.jsonl",
+          "validator_report": "reports/workstream_acceptance_decision_validation_report.json",
+          "human_review_required": true,
+          "acceptance_check": "all workstreams human accepted",
+          "policy": "Technical readiness alone is not human acceptance."
+        },
+        {
+          "action_id": "P43-A011",
+          "stage_id": "unlock_governance_delivery",
+          "workstream": "operator_review_actions",
+          "priority": "P1",
+          "action_type": "record_operator_action_completion",
+          "target_rows": 6,
+          "source_artifact": "datasets/governance/operator_review_action_queue.jsonl",
+          "decision_input": "datasets/governance/operator_review_action_decisions.jsonl",
+          "validator_report": "reports/operator_review_action_decision_validation_report.json",
+          "human_review_required": true,
+          "acceptance_check": "all operator actions completed with evidence",
+          "policy": "The action queue is not completion evidence."
+        }
+      ],
+      "exit_conditions": [
+        "license, biosecurity, IP/FTO, workstream acceptance, and operator action validators are ready",
+        "customer delivery readiness is true",
+        "local release remains explicitly local-only until all gates pass"
+      ],
+      "evidence_reports": [
+        "reports/governance_readiness_report.json",
+        "reports/customer_delivery_readiness_report.json",
+        "reports/operator_review_status_report.json"
+      ],
+      "policy": "This stage can only record validated decisions; it cannot create legal, biosecurity, or operator approvals."
+    },
+    {
+      "order": 7,
+      "stage_id": "unlock_model_claim",
+      "phase": "P29/P30",
+      "title": "Re-evaluate model-quality and release claims",
+      "depends_on": [
+        "unlock_training_threshold",
+        "unlock_coordinate_features",
+        "complete_domain_tail",
+        "unlock_msa_conservation",
+        "unlock_feedback_loop",
+        "unlock_governance_delivery"
+      ],
+      "unlock_ready_now": false,
+      "status": "blocked",
+      "current_state": {
+        "claims_allowed": 1,
+        "claims_blocked": 10,
+        "blocked_claim_ids": [
+          "local_safe_training_pipeline",
+          "model_quality_claim",
+          "five_head_training_run",
+          "active_learning_experiment_submission",
+          "customer_sequence_package",
+          "approved_for_ordering",
+          "ip_fto_cleared",
+          "biosecurity_screened",
+          "external_tool_production_use",
+          "local_release_review_package"
+        ],
+        "multitask_status": "blocked",
+        "missing_head_labels": [
+          "mutation_rank",
+          "stability",
+          "activity_risk",
+          "substrate_fit",
+          "assay_success"
+        ],
+        "benchmark_ready_for_model_claim": false,
+        "master_overall_status": "blocked_for_model_claim",
+        "local_release_ready": false
+      },
+      "blockers": [
+        "blocked claims remain: ['local_safe_training_pipeline', 'model_quality_claim', 'five_head_training_run', 'active_learning_experiment_submission', 'customer_sequence_package', 'approved_for_ordering', 'ip_fto_cleared', 'biosecurity_screened', 'external_tool_production_use', 'local_release_review_package']"
+      ],
+      "actions": [
+        {
+          "action_id": "P43-A012",
+          "stage_id": "unlock_model_claim",
+          "workstream": "model_claim",
+          "priority": "P2",
+          "action_type": "rerun_claim_matrix_after_upstream_unlocks",
+          "target_rows": 10,
+          "source_artifact": "reports/claim_readiness_matrix.json",
+          "decision_input": null,
+          "validator_report": "reports/claim_readiness_matrix.json",
+          "human_review_required": true,
+          "acceptance_check": "blocked_claims reaches 0 for requested claim scope",
+          "policy": "No model-quality, ordering, customer, or production-tool claim is allowed until every explicit validator chain is ready."
+        }
+      ],
+      "exit_conditions": [
+        "five-head readiness and benchmark matrix pass",
+        "claim matrix has no blocked claim in the requested release scope",
+        "local_release_manifest.release_ready is true"
+      ],
+      "evidence_reports": [
+        "reports/claim_readiness_matrix.json",
+        "reports/multitask_training_readiness_report.json",
+        "reports/benchmark_matrix_report.json",
+        "reports/local_release_manifest.json"
+      ],
+      "policy": "This final stage only re-checks claims after upstream validators pass; it does not override blocked claims."
+    }
+  ],
+  "policy": "This plan orders local work and validator checks only; it does not create reviewed decisions, approvals, downloads, deployments, or customer-ready claims."
+}

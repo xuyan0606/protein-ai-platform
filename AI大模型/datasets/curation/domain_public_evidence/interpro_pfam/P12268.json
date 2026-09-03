@@ -1,0 +1,95 @@
+{
+  "accession": "P12268",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00478",
+        "name": "IMP dehydrogenase / GMP reductase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001093",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p12268",
+          "protein_length": 514,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 29,
+                  "end": 115,
+                  "dc-status": "C_TERMINAL_DISC"
+                },
+                {
+                  "start": 164,
+                  "end": 175,
+                  "dc-status": "NC_TERMINAL_DISC"
+                },
+                {
+                  "start": 230,
+                  "end": 504,
+                  "dc-status": "N_TERMINAL_DISC"
+                }
+              ],
+              "representative": false,
+              "model": "PF00478",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00571",
+        "name": "CBS domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000644",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p12268",
+          "protein_length": 514,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 116,
+                  "end": 163,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00571",
+              "score": 0.96
+            },
+            {
+              "fragments": [
+                {
+                  "start": 176,
+                  "end": 229,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00571",
+              "score": 0.00036
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

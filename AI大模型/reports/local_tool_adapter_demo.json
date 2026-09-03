@@ -1,0 +1,1097 @@
+{
+  "uploaded_structure": {
+    "status": "completed",
+    "error_code": null,
+    "model": {
+      "name": "KWB-EnzymeDesigner",
+      "version": "0.1.0-rule-mvp",
+      "data_version": "local-dev"
+    },
+    "context": {
+      "session_id": "adapter-session",
+      "conversation_id": "adapter-conversation",
+      "request_turn_id": "turn-uploaded"
+    },
+    "workflow": {
+      "status": "planned",
+      "error_code": null,
+      "structure_source": "uploaded_structure",
+      "structure_ready": true,
+      "numbering_verified": true,
+      "steps": [
+        {
+          "tool_name": "input_parser",
+          "stage": "input_parsing",
+          "status": "planned",
+          "task_id": "input_parser:adapter-session:turn-uploaded:08a280798723",
+          "depends_on": [],
+          "conclusion_scope": "sequence"
+        },
+        {
+          "tool_name": "structure_file_parser",
+          "stage": "structure_gate",
+          "status": "planned",
+          "task_id": "structure_file_parser:adapter-session:turn-uploaded:26767b02db6a",
+          "depends_on": [
+            "input_parser"
+          ],
+          "conclusion_scope": "structure"
+        },
+        {
+          "tool_name": "residue_numbering_gate",
+          "stage": "residue_numbering",
+          "status": "completed",
+          "task_id": "residue_numbering_gate:adapter-session:turn-uploaded:074b195e82c1",
+          "depends_on": [
+            "structure_file_parser"
+          ],
+          "conclusion_scope": "structure"
+        },
+        {
+          "tool_name": "annotation_bundle",
+          "stage": "evidence_retrieval",
+          "status": "planned",
+          "task_id": "annotation_bundle:adapter-session:turn-uploaded:5fa7d94747c8",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "conclusion_scope": "structure"
+        },
+        {
+          "tool_name": "structure_search_foldseek",
+          "stage": "feature_enrichment",
+          "status": "planned",
+          "task_id": "structure_search_foldseek:adapter-session:turn-uploaded:70bfcfd8ef94",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "conclusion_scope": "structure"
+        },
+        {
+          "tool_name": "kwb_enzyme_designer",
+          "stage": "multi_head_scoring",
+          "status": "planned",
+          "task_id": "kwb_enzyme_designer:adapter-session:turn-uploaded:38e4c1416ba4",
+          "depends_on": [
+            "annotation_bundle",
+            "structure_search_foldseek"
+          ],
+          "conclusion_scope": "structure"
+        }
+      ],
+      "current_result_refs": [],
+      "ignored_stale_task_refs": [],
+      "allowed_conclusion_scopes": [
+        "sequence",
+        "structure",
+        "experimental"
+      ],
+      "forbidden_before_structure_ready": [
+        "annotation_bundle",
+        "structure_search_foldseek",
+        "pocket_analysis",
+        "distance_network",
+        "catalytic_network",
+        "residue_exposure",
+        "kwb_enzyme_designer"
+      ],
+      "policy": {
+        "uploaded_structure_precedes_prediction": true,
+        "sequence_level_analysis_may_precede_prediction": true,
+        "structure_claims_require_current_structure_result": true,
+        "task_refs_are_turn_scoped": true
+      }
+    },
+    "result": {
+      "model": {
+        "name": "KWB-EnzymeDesigner",
+        "version": "0.1.0-rule-mvp",
+        "data_version": "local-dev"
+      },
+      "candidates": [
+        {
+          "mutation": "A42P",
+          "overall_score": 58.6,
+          "stability_score": 66.0,
+          "activity_risk_score": 68.0,
+          "substrate_fit_score": 50.0,
+          "assay_success_score": 60.0,
+          "confidence": 0.53,
+          "decision": "watch",
+          "rationale": "proline substitution may improve loop rigidity.",
+          "risk_flags": [
+            "loop_rigidification",
+            "substrate_not_evaluated"
+          ],
+          "evidence_refs": [],
+          "next_experiment": "Test A42P as a single mutant under the stated assay condition before combination."
+        }
+      ],
+      "evidence_summary": {
+        "kwb_private_records": 0,
+        "public_database_records": 0,
+        "structure_evidence": "uploaded_pdb_numbering_verified",
+        "sequence_level_only": false,
+        "requires_wet_lab_validation": true,
+        "structure_quality_flags": []
+      }
+    },
+    "events": [
+      {
+        "event_id": "evt-input_parser:adapter-session:turn-uploaded:08a280798723",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "input_parser",
+        "tool_params": {
+          "task_id": "input_parser:adapter-session:turn-uploaded:08a280798723",
+          "depends_on": [],
+          "local_only": true
+        },
+        "stage": "input_parsing",
+        "stage_title": "input_parser",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-structure_file_parser:adapter-session:turn-uploaded:26767b02db6a",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "structure_file_parser",
+        "tool_params": {
+          "task_id": "structure_file_parser:adapter-session:turn-uploaded:26767b02db6a",
+          "depends_on": [
+            "input_parser"
+          ],
+          "local_only": true
+        },
+        "stage": "structure_gate",
+        "stage_title": "structure_file_parser",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-residue_numbering_gate:adapter-session:turn-uploaded:074b195e82c1",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "residue_numbering_gate",
+        "tool_params": {
+          "task_id": "residue_numbering_gate:adapter-session:turn-uploaded:074b195e82c1",
+          "depends_on": [
+            "structure_file_parser"
+          ],
+          "local_only": true
+        },
+        "stage": "residue_numbering",
+        "stage_title": "residue_numbering_gate",
+        "progress_percent": 100,
+        "status": "completed",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-annotation_bundle:adapter-session:turn-uploaded:5fa7d94747c8",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "annotation_bundle",
+        "tool_params": {
+          "task_id": "annotation_bundle:adapter-session:turn-uploaded:5fa7d94747c8",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "local_only": true
+        },
+        "stage": "evidence_retrieval",
+        "stage_title": "annotation_bundle",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-structure_search_foldseek:adapter-session:turn-uploaded:70bfcfd8ef94",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "structure_search_foldseek",
+        "tool_params": {
+          "task_id": "structure_search_foldseek:adapter-session:turn-uploaded:70bfcfd8ef94",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "local_only": true
+        },
+        "stage": "feature_enrichment",
+        "stage_title": "structure_search_foldseek",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-kwb_enzyme_designer:adapter-session:turn-uploaded:38e4c1416ba4",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "kwb_enzyme_designer",
+        "tool_params": {
+          "task_id": "kwb_enzyme_designer:adapter-session:turn-uploaded:38e4c1416ba4",
+          "depends_on": [
+            "annotation_bundle",
+            "structure_search_foldseek"
+          ],
+          "local_only": true
+        },
+        "stage": "multi_head_scoring",
+        "stage_title": "kwb_enzyme_designer",
+        "progress_percent": 100,
+        "status": "completed",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00",
+        "result_ref": "kwb_enzyme_designer:adapter-session:turn-uploaded:38e4c1416ba4"
+      }
+    ],
+    "quality_flags": [
+      "local_only",
+      "no_production_integration"
+    ]
+  },
+  "uploaded_structure_unverified": {
+    "status": "blocked",
+    "error_code": "numbering_not_verified",
+    "model": {
+      "name": "KWB-EnzymeDesigner",
+      "version": "0.1.0-rule-mvp",
+      "data_version": "local-dev"
+    },
+    "context": {
+      "session_id": "adapter-session",
+      "conversation_id": "adapter-conversation",
+      "request_turn_id": "turn-unverified"
+    },
+    "workflow": {
+      "status": "blocked",
+      "error_code": null,
+      "structure_source": "uploaded_structure",
+      "structure_ready": false,
+      "numbering_verified": false,
+      "steps": [
+        {
+          "tool_name": "input_parser",
+          "stage": "input_parsing",
+          "status": "planned",
+          "task_id": "input_parser:adapter-session:turn-unverified:c56bab8c427c",
+          "depends_on": [],
+          "conclusion_scope": "sequence"
+        },
+        {
+          "tool_name": "structure_file_parser",
+          "stage": "structure_gate",
+          "status": "planned",
+          "task_id": "structure_file_parser:adapter-session:turn-unverified:d620bd1f72d4",
+          "depends_on": [
+            "input_parser"
+          ],
+          "conclusion_scope": "structure"
+        },
+        {
+          "tool_name": "residue_numbering_gate",
+          "stage": "residue_numbering",
+          "status": "planned",
+          "task_id": "residue_numbering_gate:adapter-session:turn-unverified:b4d7c4d0eded",
+          "depends_on": [
+            "structure_file_parser"
+          ],
+          "conclusion_scope": "structure",
+          "blocked_reason": "numbering_not_verified"
+        },
+        {
+          "tool_name": "annotation_bundle",
+          "stage": "feature_enrichment",
+          "status": "blocked",
+          "task_id": "annotation_bundle:adapter-session:turn-unverified:6d2f3481e0e2",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "conclusion_scope": "structure",
+          "blocked_reason": "numbering_not_verified"
+        },
+        {
+          "tool_name": "structure_search_foldseek",
+          "stage": "feature_enrichment",
+          "status": "blocked",
+          "task_id": "structure_search_foldseek:adapter-session:turn-unverified:0a2cfb737bc7",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "conclusion_scope": "structure",
+          "blocked_reason": "numbering_not_verified"
+        },
+        {
+          "tool_name": "kwb_enzyme_designer",
+          "stage": "multi_head_scoring",
+          "status": "blocked",
+          "task_id": "kwb_enzyme_designer:adapter-session:turn-unverified:2084092c64f6",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "conclusion_scope": "structure",
+          "blocked_reason": "numbering_not_verified"
+        }
+      ],
+      "current_result_refs": [],
+      "ignored_stale_task_refs": [],
+      "allowed_conclusion_scopes": [
+        "sequence"
+      ],
+      "forbidden_before_structure_ready": [
+        "annotation_bundle",
+        "structure_search_foldseek",
+        "pocket_analysis",
+        "distance_network",
+        "catalytic_network",
+        "residue_exposure",
+        "kwb_enzyme_designer"
+      ],
+      "policy": {
+        "uploaded_structure_precedes_prediction": true,
+        "sequence_level_analysis_may_precede_prediction": true,
+        "structure_claims_require_current_structure_result": true,
+        "task_refs_are_turn_scoped": true
+      }
+    },
+    "result": null,
+    "events": [
+      {
+        "event_id": "evt-input_parser:adapter-session:turn-unverified:c56bab8c427c",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "input_parser",
+        "tool_params": {
+          "task_id": "input_parser:adapter-session:turn-unverified:c56bab8c427c",
+          "depends_on": [],
+          "local_only": true
+        },
+        "stage": "input_parsing",
+        "stage_title": "input_parser",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-structure_file_parser:adapter-session:turn-unverified:d620bd1f72d4",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "structure_file_parser",
+        "tool_params": {
+          "task_id": "structure_file_parser:adapter-session:turn-unverified:d620bd1f72d4",
+          "depends_on": [
+            "input_parser"
+          ],
+          "local_only": true
+        },
+        "stage": "structure_gate",
+        "stage_title": "structure_file_parser",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-residue_numbering_gate:adapter-session:turn-unverified:b4d7c4d0eded",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "residue_numbering_gate",
+        "tool_params": {
+          "task_id": "residue_numbering_gate:adapter-session:turn-unverified:b4d7c4d0eded",
+          "depends_on": [
+            "structure_file_parser"
+          ],
+          "local_only": true
+        },
+        "stage": "residue_numbering",
+        "stage_title": "residue_numbering_gate",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00",
+        "error_code": "numbering_not_verified"
+      },
+      {
+        "event_id": "evt-annotation_bundle:adapter-session:turn-unverified:6d2f3481e0e2",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "annotation_bundle",
+        "tool_params": {
+          "task_id": "annotation_bundle:adapter-session:turn-unverified:6d2f3481e0e2",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "local_only": true
+        },
+        "stage": "feature_enrichment",
+        "stage_title": "annotation_bundle",
+        "progress_percent": 0,
+        "status": "blocked",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00",
+        "error_code": "numbering_not_verified"
+      },
+      {
+        "event_id": "evt-structure_search_foldseek:adapter-session:turn-unverified:0a2cfb737bc7",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "structure_search_foldseek",
+        "tool_params": {
+          "task_id": "structure_search_foldseek:adapter-session:turn-unverified:0a2cfb737bc7",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "local_only": true
+        },
+        "stage": "feature_enrichment",
+        "stage_title": "structure_search_foldseek",
+        "progress_percent": 0,
+        "status": "blocked",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00",
+        "error_code": "numbering_not_verified"
+      },
+      {
+        "event_id": "evt-kwb_enzyme_designer:adapter-session:turn-unverified:2084092c64f6",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "kwb_enzyme_designer",
+        "tool_params": {
+          "task_id": "kwb_enzyme_designer:adapter-session:turn-unverified:2084092c64f6",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "local_only": true
+        },
+        "stage": "multi_head_scoring",
+        "stage_title": "kwb_enzyme_designer",
+        "progress_percent": 0,
+        "status": "blocked",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00",
+        "error_code": "numbering_not_verified"
+      }
+    ],
+    "quality_flags": [
+      "local_only",
+      "no_production_integration"
+    ]
+  },
+  "sequence_only_pending": {
+    "status": "pending_structure",
+    "error_code": "pending_structure_prediction",
+    "model": {
+      "name": "KWB-EnzymeDesigner",
+      "version": "0.1.0-rule-mvp",
+      "data_version": "local-dev"
+    },
+    "context": {
+      "session_id": "adapter-session",
+      "conversation_id": "adapter-conversation",
+      "request_turn_id": "turn-sequence"
+    },
+    "workflow": {
+      "status": "pending_structure",
+      "error_code": null,
+      "structure_source": "none",
+      "structure_ready": false,
+      "numbering_verified": false,
+      "steps": [
+        {
+          "tool_name": "input_parser",
+          "stage": "input_parsing",
+          "status": "planned",
+          "task_id": "input_parser:adapter-session:turn-sequence:a57068c4d561",
+          "depends_on": [],
+          "conclusion_scope": "sequence"
+        },
+        {
+          "tool_name": "sequence_basic_analysis",
+          "stage": "input_parsing",
+          "status": "planned",
+          "task_id": "sequence_basic_analysis:adapter-session:turn-sequence:c9b3bd3a5a8a",
+          "depends_on": [
+            "input_parser"
+          ],
+          "conclusion_scope": "sequence"
+        },
+        {
+          "tool_name": "predict_properties",
+          "stage": "feature_enrichment",
+          "status": "planned",
+          "task_id": "predict_properties:adapter-session:turn-sequence:9b60f55fb748",
+          "depends_on": [
+            "sequence_basic_analysis"
+          ],
+          "conclusion_scope": "sequence"
+        },
+        {
+          "tool_name": "esmfold_folding",
+          "stage": "structure_gate",
+          "status": "planned",
+          "task_id": "esmfold_folding:adapter-session:turn-sequence:d217a1b600bf",
+          "depends_on": [
+            "predict_properties"
+          ],
+          "conclusion_scope": "predicted_structure"
+        },
+        {
+          "tool_name": "annotation_bundle",
+          "stage": "evidence_retrieval",
+          "status": "blocked",
+          "task_id": "annotation_bundle:adapter-session:turn-sequence:2468dd7480a2",
+          "depends_on": [
+            "esmfold_folding"
+          ],
+          "conclusion_scope": "predicted_structure",
+          "blocked_reason": "pending_structure_prediction"
+        },
+        {
+          "tool_name": "kwb_enzyme_designer",
+          "stage": "multi_head_scoring",
+          "status": "blocked",
+          "task_id": "kwb_enzyme_designer:adapter-session:turn-sequence:fd9fc5b41acb",
+          "depends_on": [
+            "annotation_bundle"
+          ],
+          "conclusion_scope": "predicted_structure",
+          "blocked_reason": "pending_structure_prediction"
+        }
+      ],
+      "current_result_refs": [],
+      "ignored_stale_task_refs": [],
+      "allowed_conclusion_scopes": [
+        "sequence"
+      ],
+      "forbidden_before_structure_ready": [
+        "annotation_bundle",
+        "structure_search_foldseek",
+        "pocket_analysis",
+        "distance_network",
+        "catalytic_network",
+        "residue_exposure",
+        "kwb_enzyme_designer"
+      ],
+      "policy": {
+        "uploaded_structure_precedes_prediction": true,
+        "sequence_level_analysis_may_precede_prediction": true,
+        "structure_claims_require_current_structure_result": true,
+        "task_refs_are_turn_scoped": true
+      }
+    },
+    "result": null,
+    "events": [
+      {
+        "event_id": "evt-input_parser:adapter-session:turn-sequence:a57068c4d561",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "input_parser",
+        "tool_params": {
+          "task_id": "input_parser:adapter-session:turn-sequence:a57068c4d561",
+          "depends_on": [],
+          "local_only": true
+        },
+        "stage": "input_parsing",
+        "stage_title": "input_parser",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-sequence_basic_analysis:adapter-session:turn-sequence:c9b3bd3a5a8a",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "sequence_basic_analysis",
+        "tool_params": {
+          "task_id": "sequence_basic_analysis:adapter-session:turn-sequence:c9b3bd3a5a8a",
+          "depends_on": [
+            "input_parser"
+          ],
+          "local_only": true
+        },
+        "stage": "input_parsing",
+        "stage_title": "sequence_basic_analysis",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-predict_properties:adapter-session:turn-sequence:9b60f55fb748",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "predict_properties",
+        "tool_params": {
+          "task_id": "predict_properties:adapter-session:turn-sequence:9b60f55fb748",
+          "depends_on": [
+            "sequence_basic_analysis"
+          ],
+          "local_only": true
+        },
+        "stage": "feature_enrichment",
+        "stage_title": "predict_properties",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-esmfold_folding:adapter-session:turn-sequence:d217a1b600bf",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "esmfold_folding",
+        "tool_params": {
+          "task_id": "esmfold_folding:adapter-session:turn-sequence:d217a1b600bf",
+          "depends_on": [
+            "predict_properties"
+          ],
+          "local_only": true
+        },
+        "stage": "structure_gate",
+        "stage_title": "esmfold_folding",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-annotation_bundle:adapter-session:turn-sequence:2468dd7480a2",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "annotation_bundle",
+        "tool_params": {
+          "task_id": "annotation_bundle:adapter-session:turn-sequence:2468dd7480a2",
+          "depends_on": [
+            "esmfold_folding"
+          ],
+          "local_only": true
+        },
+        "stage": "evidence_retrieval",
+        "stage_title": "annotation_bundle",
+        "progress_percent": 0,
+        "status": "blocked",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00",
+        "error_code": "pending_structure_prediction"
+      },
+      {
+        "event_id": "evt-kwb_enzyme_designer:adapter-session:turn-sequence:fd9fc5b41acb",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "kwb_enzyme_designer",
+        "tool_params": {
+          "task_id": "kwb_enzyme_designer:adapter-session:turn-sequence:fd9fc5b41acb",
+          "depends_on": [
+            "annotation_bundle"
+          ],
+          "local_only": true
+        },
+        "stage": "multi_head_scoring",
+        "stage_title": "kwb_enzyme_designer",
+        "progress_percent": 0,
+        "status": "blocked",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00",
+        "error_code": "pending_structure_prediction"
+      }
+    ],
+    "quality_flags": [
+      "local_only",
+      "no_production_integration"
+    ]
+  },
+  "sequence_only_after_esmfold": {
+    "status": "completed",
+    "error_code": null,
+    "model": {
+      "name": "KWB-EnzymeDesigner",
+      "version": "0.1.0-rule-mvp",
+      "data_version": "local-dev"
+    },
+    "context": {
+      "session_id": "adapter-session",
+      "conversation_id": "adapter-conversation",
+      "request_turn_id": "turn-predicted"
+    },
+    "workflow": {
+      "status": "planned",
+      "error_code": null,
+      "structure_source": "uploaded_structure",
+      "structure_ready": true,
+      "numbering_verified": true,
+      "steps": [
+        {
+          "tool_name": "input_parser",
+          "stage": "input_parsing",
+          "status": "planned",
+          "task_id": "input_parser:adapter-session:turn-predicted:120a02aca83a",
+          "depends_on": [],
+          "conclusion_scope": "sequence"
+        },
+        {
+          "tool_name": "structure_file_parser",
+          "stage": "structure_gate",
+          "status": "planned",
+          "task_id": "structure_file_parser:adapter-session:turn-predicted:3b68dd12f986",
+          "depends_on": [
+            "input_parser"
+          ],
+          "conclusion_scope": "structure"
+        },
+        {
+          "tool_name": "residue_numbering_gate",
+          "stage": "residue_numbering",
+          "status": "completed",
+          "task_id": "residue_numbering_gate:adapter-session:turn-predicted:a1530029a2bf",
+          "depends_on": [
+            "structure_file_parser"
+          ],
+          "conclusion_scope": "structure"
+        },
+        {
+          "tool_name": "annotation_bundle",
+          "stage": "evidence_retrieval",
+          "status": "planned",
+          "task_id": "annotation_bundle:adapter-session:turn-predicted:ead48dd635f5",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "conclusion_scope": "structure"
+        },
+        {
+          "tool_name": "structure_search_foldseek",
+          "stage": "feature_enrichment",
+          "status": "planned",
+          "task_id": "structure_search_foldseek:adapter-session:turn-predicted:cd1625e772b0",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "conclusion_scope": "structure"
+        },
+        {
+          "tool_name": "kwb_enzyme_designer",
+          "stage": "multi_head_scoring",
+          "status": "planned",
+          "task_id": "kwb_enzyme_designer:adapter-session:turn-predicted:2b02836b63d2",
+          "depends_on": [
+            "annotation_bundle",
+            "structure_search_foldseek"
+          ],
+          "conclusion_scope": "structure"
+        }
+      ],
+      "current_result_refs": [],
+      "ignored_stale_task_refs": [],
+      "allowed_conclusion_scopes": [
+        "sequence",
+        "structure",
+        "experimental"
+      ],
+      "forbidden_before_structure_ready": [
+        "annotation_bundle",
+        "structure_search_foldseek",
+        "pocket_analysis",
+        "distance_network",
+        "catalytic_network",
+        "residue_exposure",
+        "kwb_enzyme_designer"
+      ],
+      "policy": {
+        "uploaded_structure_precedes_prediction": true,
+        "sequence_level_analysis_may_precede_prediction": true,
+        "structure_claims_require_current_structure_result": true,
+        "task_refs_are_turn_scoped": true
+      }
+    },
+    "result": {
+      "model": {
+        "name": "KWB-EnzymeDesigner",
+        "version": "0.1.0-rule-mvp",
+        "data_version": "local-dev"
+      },
+      "candidates": [
+        {
+          "mutation": "A42P",
+          "overall_score": 58.6,
+          "stability_score": 66.0,
+          "activity_risk_score": 68.0,
+          "substrate_fit_score": 50.0,
+          "assay_success_score": 60.0,
+          "confidence": 0.53,
+          "decision": "watch",
+          "rationale": "proline substitution may improve loop rigidity.",
+          "risk_flags": [
+            "loop_rigidification",
+            "substrate_not_evaluated"
+          ],
+          "evidence_refs": [],
+          "next_experiment": "Test A42P as a single mutant under the stated assay condition before combination."
+        }
+      ],
+      "evidence_summary": {
+        "kwb_private_records": 0,
+        "public_database_records": 0,
+        "structure_evidence": "esmfold_structure",
+        "sequence_level_only": false,
+        "requires_wet_lab_validation": true,
+        "structure_quality_flags": []
+      }
+    },
+    "events": [
+      {
+        "event_id": "evt-input_parser:adapter-session:turn-predicted:120a02aca83a",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "input_parser",
+        "tool_params": {
+          "task_id": "input_parser:adapter-session:turn-predicted:120a02aca83a",
+          "depends_on": [],
+          "local_only": true
+        },
+        "stage": "input_parsing",
+        "stage_title": "input_parser",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-structure_file_parser:adapter-session:turn-predicted:3b68dd12f986",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "structure_file_parser",
+        "tool_params": {
+          "task_id": "structure_file_parser:adapter-session:turn-predicted:3b68dd12f986",
+          "depends_on": [
+            "input_parser"
+          ],
+          "local_only": true
+        },
+        "stage": "structure_gate",
+        "stage_title": "structure_file_parser",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-residue_numbering_gate:adapter-session:turn-predicted:a1530029a2bf",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "residue_numbering_gate",
+        "tool_params": {
+          "task_id": "residue_numbering_gate:adapter-session:turn-predicted:a1530029a2bf",
+          "depends_on": [
+            "structure_file_parser"
+          ],
+          "local_only": true
+        },
+        "stage": "residue_numbering",
+        "stage_title": "residue_numbering_gate",
+        "progress_percent": 100,
+        "status": "completed",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-annotation_bundle:adapter-session:turn-predicted:ead48dd635f5",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "annotation_bundle",
+        "tool_params": {
+          "task_id": "annotation_bundle:adapter-session:turn-predicted:ead48dd635f5",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "local_only": true
+        },
+        "stage": "evidence_retrieval",
+        "stage_title": "annotation_bundle",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-structure_search_foldseek:adapter-session:turn-predicted:cd1625e772b0",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "structure_search_foldseek",
+        "tool_params": {
+          "task_id": "structure_search_foldseek:adapter-session:turn-predicted:cd1625e772b0",
+          "depends_on": [
+            "residue_numbering_gate"
+          ],
+          "local_only": true
+        },
+        "stage": "feature_enrichment",
+        "stage_title": "structure_search_foldseek",
+        "progress_percent": 0,
+        "status": "planned",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00"
+      },
+      {
+        "event_id": "evt-kwb_enzyme_designer:adapter-session:turn-predicted:2b02836b63d2",
+        "session_id": "adapter-session",
+        "conversation_id": "adapter-conversation",
+        "model_name": "KWB-EnzymeDesigner",
+        "model_version": "0.1.0-rule-mvp",
+        "tool_name": "kwb_enzyme_designer",
+        "tool_params": {
+          "task_id": "kwb_enzyme_designer:adapter-session:turn-predicted:2b02836b63d2",
+          "depends_on": [
+            "annotation_bundle",
+            "structure_search_foldseek"
+          ],
+          "local_only": true
+        },
+        "stage": "multi_head_scoring",
+        "stage_title": "kwb_enzyme_designer",
+        "progress_percent": 100,
+        "status": "completed",
+        "quality_flags": [
+          "local_only",
+          "workflow_gate_enforced"
+        ],
+        "created_at": "2026-07-24T00:00:00+08:00",
+        "result_ref": "kwb_enzyme_designer:adapter-session:turn-predicted:2b02836b63d2"
+      }
+    ],
+    "quality_flags": [
+      "local_only",
+      "no_production_integration"
+    ]
+  },
+  "assertions": {
+    "uploaded_structure_calls_kwb_without_esmfold": true,
+    "unverified_numbering_blocks_kwb": true,
+    "sequence_only_returns_pending_without_prediction": true,
+    "sequence_only_can_call_kwb_after_prediction": true,
+    "tool_events_match_contract_shape": true
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "case_id": "bench-catalytic-guardrail-001",
+  "title": "Catalytic guardrail must force no-go on protected catalytic mutations",
+  "input": {
+    "message": "请评估 S153A、D180N、A42P 三个突变是否适合用于脂肪酶耐热性改造。已知 S153 是催化残基。",
+    "history_context": [
+      {
+        "role": "assistant",
+        "content": "protected_sites: S153 catalytic residue; D180 catalytic network adjacent; A42 loop region"
+      }
+    ],
+    "attachments": []
+  },
+  "expected_workflow": [
+    "annotation_bundle",
+    "residue_numbering_gate",
+    "mutation_epistasis_check",
+    "kwb_enzyme_designer"
+  ],
+  "must_have": [
+    "mark S153A as no_go",
+    "mark D180N as at least watch or high risk",
+    "allow A42P only if evidence supports loop rigidification"
+  ],
+  "must_not_have": [
+    "rank S153A as a top go candidate",
+    "omit catalytic risk flag",
+    "claim all three mutations are safe to combine"
+  ],
+  "expected_output": {
+    "sections": [
+      "Protected sites",
+      "Mutation decisions",
+      "Risk flags",
+      "Combination policy"
+    ]
+  },
+  "scoring_profile": "default"
+}
+

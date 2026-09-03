@@ -1,0 +1,73 @@
+{
+  "accession": "P51690",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00884",
+        "name": "Sulfatase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000917",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p51690",
+          "protein_length": 589,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 38,
+                  "end": 423,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00884",
+              "score": 7.5e-58
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14707",
+        "name": "C-terminal region of aryl-sulfatase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p51690",
+          "protein_length": 589,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 448,
+                  "end": 582,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14707",
+              "score": 2.7e-42
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "accession": "Q8N0W3",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00288",
+        "name": "GHMP kinases N terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR006204",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n0w3",
+          "protein_length": 1084,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 817,
+                  "end": 889,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00288",
+              "score": 3.4e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07959",
+        "name": "Fucose pyrophosphorylase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012887",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n0w3",
+          "protein_length": 1084,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 82,
+                  "end": 496,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF07959",
+              "score": 9.9e-111
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF08544",
+        "name": "GHMP kinases C terminal",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013750",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8n0w3",
+          "protein_length": 1084,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 971,
+                  "end": 1046,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF08544",
+              "score": 0.81
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

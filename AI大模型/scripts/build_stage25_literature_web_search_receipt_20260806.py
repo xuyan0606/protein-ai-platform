@@ -1,0 +1,123 @@
+#!/usr/bin/env python3
+"""Build a Stage 25 receipt for public web literature search results."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+
+AI_ROOT = Path(__file__).resolve().parents[1]
+OUT = AI_ROOT / "reports" / "stage25_literature_web_search_receipt_20260806.json"
+
+
+ROWS = [
+    {
+        "pmid": "39743673",
+        "doi": "10.1021/acs.jafc.4c10256",
+        "title": "Improving the Thermal Stability of GH11 Xylanase XynASP through Cord Region Engineering",
+        "primary_pages_found": [
+            "https://pubmed.ncbi.nlm.nih.gov/39743673/",
+            "https://pubs.acs.org/doi/10.1021/acs.jafc.4c10256",
+        ],
+        "supporting_information_url": "https://pubs.acs.org/doi/suppl/10.1021/acs.jafc.4c10256/suppl_file/jf4c10256_si_001.doc",
+        "search_findings": [
+            "ACS metadata page lists free Supporting Information file jf4c10256_si_001.doc and describes Tables S1-S2/Figures S1-S10.",
+            "Direct local download remains blocked by publisher HTTP 403 in prior breakthrough receipt.",
+            "ResearchGate page reports no full-text available and only offers author-request flow; 科研通 shows a literature-help record with a pending uploaded PDF, not a validated source file in this workspace.",
+            "DSM4 mutation composition remains not locally source-table verified.",
+        ],
+        "evidence_level": "primary_metadata_plus_abstract_only",
+        "importer_decision": "web_search_receipt_only_until_local_si_or_fulltext",
+    },
+    {
+        "pmid": "42134585",
+        "doi": "10.1016/j.biortech.2026.134883",
+        "title": "Computationally assisted combinatorial rational design of xylanase with improved thermostability and catalytic performance for lignocellulosic biomass hydrolysis",
+        "primary_pages_found": [
+            "https://pubmed.ncbi.nlm.nih.gov/42134585/",
+            "https://www.sciencedirect.com/science/article/pii/S096085242600965X",
+        ],
+        "search_findings": [
+            "ScienceDirect abstract confirms variant 9K-XynB2 (HFBI-A52C/T205C-F31Y/A50F/A143P).",
+            "ScienceDirect public preview exposes article metadata, highlights, abstract and partial Materials/Introduction text, but no source table/SI file was available through public search.",
+            "ResearchGate and 科研通 pages did not provide a locally usable fulltext/source-table file; ResearchGate only offers request-full-text flow.",
+            "Source tables, WT absolute baselines, units, assay conditions and locators remain unavailable locally.",
+        ],
+        "evidence_level": "primary_abstract_only",
+        "importer_decision": "non_exportable_variant_draft_only_until_fulltext_source_locator",
+    },
+    {
+        "pmid": "42235695",
+        "doi": "10.1016/j.biortech.2026.135069",
+        "title": "Efficient biomanufacturing of vitamin E succinate in non-aqueous media via synergistic computational evolution and immobilization of lipase",
+        "primary_pages_found": [
+            "https://pubmed.ncbi.nlm.nih.gov/42235695/",
+            "https://www.sciencedirect.com/science/article/abs/pii/S096085242601151X",
+        ],
+        "secondary_pages_found": [
+            "https://b.460.net.cn/a/581563.html",
+        ],
+        "search_findings": [
+            "ScienceDirect abstract confirms CM5 performance metrics but does not disclose exact substitutions.",
+            "A Nanjing Tech University news repost reports CM5 as L15R/S45T/K85P/K231R and includes figure-level summaries.",
+            "ResearchGate page reports no full-text available and only offers author-request flow.",
+            "The secondary page is not a citable source-table substitute; exact residues remain pending primary fulltext/source locator review.",
+        ],
+        "evidence_level": "primary_abstract_plus_secondary_lead",
+        "importer_decision": "secondary_residue_lead_only_do_not_apply_until_primary_source_locator",
+    },
+    {
+        "pmid": "42248057",
+        "doi": "10.1016/j.enzmictec.2026.110921",
+        "title": "Discovery and characterization of a thermostable CALB-type lipase for efficient ethyl hexanoate synthesis in aqueous systems",
+        "primary_pages_found": [
+            "https://pubmed.ncbi.nlm.nih.gov/42248057/",
+            "https://www.sciencedirect.com/science/article/abs/pii/S0141022926001043",
+        ],
+        "search_findings": [
+            "ScienceDirect public preview exposes highlights, abstract, Introduction, Strains/plasmids and bioinformatic-mining text for XyEst/rXyEst.",
+            "ResearchGate page does not provide a locally usable fulltext/source-table file.",
+            "ScienceDirect abstract/highlights confirm XyEst/rXyEst characterization and no mutation-engineering payload.",
+            "This remains source-enzyme/benchmark-only, not variant importer material.",
+        ],
+        "evidence_level": "primary_abstract_only",
+        "importer_decision": "benchmark_source_only_no_variant",
+    },
+]
+
+
+def main() -> int:
+    report = {
+        "schema_version": 1,
+        "created_at": "2026-08-06",
+        "mode": "stage25_literature_web_search_receipt",
+        "stage": 25,
+        "search_engine_requested": "google_or_general_web_search",
+        "paper_rows": len(ROWS),
+        "primary_page_rows": sum(len(row.get("primary_pages_found") or []) for row in ROWS),
+        "secondary_lead_rows": sum(1 for row in ROWS if row.get("secondary_pages_found")),
+        "local_source_files_downloaded": 0,
+        "source_table_locators_verified": 0,
+        "ready_for_sqlite_apply_rows": 0,
+        "formal_decision_rows_written": 0,
+        "external_sqlite_mutated": False,
+        "apply_executed": False,
+        "export_safe_released": False,
+        "safe_for_model_claim": False,
+        "release_ready": False,
+        "rows": ROWS,
+        "policy": "Public web search receipt only. Primary abstracts and secondary pages may guide manual acquisition/review but do not substitute for local fulltext/SI/source-table evidence, source locators, formal decisions, SQLite apply approval, benchmark intake, model claims, customer delivery, or release.",
+    }
+    OUT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps({
+        "output": str(OUT),
+        "paper_rows": report["paper_rows"],
+        "secondary_lead_rows": report["secondary_lead_rows"],
+        "ready_for_sqlite_apply_rows": report["ready_for_sqlite_apply_rows"],
+    }, ensure_ascii=False, sort_keys=True))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,1021 @@
+{
+  "action_rows": 12,
+  "actions": [
+    {
+      "assay_type": "activity",
+      "authorization_head_template": [
+        "activity_risk_head"
+      ],
+      "authorization_state": {
+        "approval_requirements": [
+          "Set qc_decision to pass or pass_with_conditions.",
+          "Set source_trace_reviewed, numbering_reviewed, unit_condition_reviewed, batch_control_reviewed, and replicate_policy_reviewed to true.",
+          "Provide reviewer, reviewed_at, and authorization_basis.",
+          "Keep allow_append_to_experiment_feedback_local false.",
+          "Keep approved_training_heads aligned with activity_risk_head."
+        ],
+        "authorized_for_feedback_intake": false,
+        "decision_present": false,
+        "decision_write_target": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+        "human_must_choose_one_of": [
+          "approved_for_feedback_intake",
+          "rejected",
+          "needs_more_info"
+        ],
+        "missing_or_invalid_fields": [
+          "authorization_decision_row",
+          "authorization_decision",
+          "qc_decision",
+          "reviewer",
+          "reviewed_at",
+          "authorization_basis",
+          "source_trace_reviewed",
+          "numbering_reviewed",
+          "unit_condition_reviewed",
+          "batch_control_reviewed",
+          "replicate_policy_reviewed"
+        ],
+        "valid": false
+      },
+      "authorization_template_id": "wetlab-mutlib-auth-399056b37800644f9a7b",
+      "authorization_worklist_id": "wetlab-mutlib-auth-worklist-399056b37800644f9a7b",
+      "batch_id": "WSQ_B07",
+      "claim_eligible_now": false,
+      "conflicting_property_signal": true,
+      "control_value_numeric": 1080.0,
+      "current_head_label_fields": [
+        "activity_relative_to_wt",
+        "activity_risk_label"
+      ],
+      "execution_order": 1,
+      "executor_action_id": "wetlab-head-gap-wetlab-mutlib-399056b37800644f9a7b",
+      "expected_authorization_head": "activity_risk_head",
+      "feedback_candidate_id": "wetlab-mutlib-399056b37800644f9a7b",
+      "feedback_measurement_after_intake": "activity_relative_to_wt",
+      "head_current_training_rows": 6,
+      "head_entry_status": "blocked_pending_human_authorization_feedback_intake_and_head_mapping",
+      "head_minimum_rows": 100,
+      "head_missing_to_minimum": 94,
+      "head_schema_gap": "Current head contract also requires activity_risk_label. This plan does not derive that label from the wet-lab ratio.",
+      "metric_class": "acid_activity",
+      "metric_name": "pH4.8绝对酶活(U/mL)",
+      "outcome_candidate": "watch",
+      "path_after_human_authorization": [
+        "python3 scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_preflight.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_intake_apply_plan.py",
+        "Require a separate explicit user-authorized apply action outside this plan.",
+        "Validate the resulting feedback record and perform a separate reviewed head-target mapping."
+      ],
+      "policy": "Executor-plan row only. It does not write an authorization decision, preflight row, apply-plan row, experiment feedback record, head label, or training import.",
+      "raw_value_numeric": 1159.0,
+      "ready_for_feedback_intake": false,
+      "ready_for_training_import": false,
+      "review_priority": "critical_tradeoff_review",
+      "sample_id": "WSQ_B07::E331Q",
+      "source_file": "酶改造突变体库-湿实验数据/15B_database-提高低pH条件下酶活及稳定性/03_相对2A派生分析表.csv",
+      "source_row_index": 156,
+      "target_head": "activity_risk",
+      "upstream_state": {
+        "applied_rows": 0,
+        "apply_plan_rows": 8,
+        "authorization_report_rows": 8,
+        "authorized_candidate_rows": 8,
+        "preflight_rows": 8
+      },
+      "variant": "E331Q",
+      "variant_property_call": "tradeoff_go_and_no_go",
+      "vs_control_ratio": 1.0731481481481482
+    },
+    {
+      "assay_type": "activity",
+      "authorization_head_template": [
+        "activity_risk_head"
+      ],
+      "authorization_state": {
+        "approval_requirements": [
+          "Set qc_decision to pass or pass_with_conditions.",
+          "Set source_trace_reviewed, numbering_reviewed, unit_condition_reviewed, batch_control_reviewed, and replicate_policy_reviewed to true.",
+          "Provide reviewer, reviewed_at, and authorization_basis.",
+          "Keep allow_append_to_experiment_feedback_local false.",
+          "Keep approved_training_heads aligned with activity_risk_head."
+        ],
+        "authorized_for_feedback_intake": false,
+        "decision_present": false,
+        "decision_write_target": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+        "human_must_choose_one_of": [
+          "approved_for_feedback_intake",
+          "rejected",
+          "needs_more_info"
+        ],
+        "missing_or_invalid_fields": [
+          "authorization_decision_row",
+          "authorization_decision",
+          "qc_decision",
+          "reviewer",
+          "reviewed_at",
+          "authorization_basis",
+          "source_trace_reviewed",
+          "numbering_reviewed",
+          "unit_condition_reviewed",
+          "batch_control_reviewed",
+          "replicate_policy_reviewed"
+        ],
+        "valid": false
+      },
+      "authorization_template_id": "wetlab-mutlib-auth-1ef673443b70ab8e84e1",
+      "authorization_worklist_id": "wetlab-mutlib-auth-worklist-1ef673443b70ab8e84e1",
+      "batch_id": "WSQ_B07",
+      "claim_eligible_now": false,
+      "conflicting_property_signal": true,
+      "control_value_numeric": 2226.0,
+      "current_head_label_fields": [
+        "activity_relative_to_wt",
+        "activity_risk_label"
+      ],
+      "execution_order": 2,
+      "executor_action_id": "wetlab-head-gap-wetlab-mutlib-1ef673443b70ab8e84e1",
+      "expected_authorization_head": "activity_risk_head",
+      "feedback_candidate_id": "wetlab-mutlib-1ef673443b70ab8e84e1",
+      "feedback_measurement_after_intake": "activity_relative_to_wt",
+      "head_current_training_rows": 6,
+      "head_entry_status": "blocked_pending_human_authorization_feedback_intake_and_head_mapping",
+      "head_minimum_rows": 100,
+      "head_missing_to_minimum": 94,
+      "head_schema_gap": "Current head contract also requires activity_risk_label. This plan does not derive that label from the wet-lab ratio.",
+      "metric_class": "neutral_activity",
+      "metric_name": "pH6.0绝对酶活(U/mL)",
+      "outcome_candidate": "watch",
+      "path_after_human_authorization": [
+        "python3 scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_preflight.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_intake_apply_plan.py",
+        "Require a separate explicit user-authorized apply action outside this plan.",
+        "Validate the resulting feedback record and perform a separate reviewed head-target mapping."
+      ],
+      "policy": "Executor-plan row only. It does not write an authorization decision, preflight row, apply-plan row, experiment feedback record, head label, or training import.",
+      "raw_value_numeric": 1685.0,
+      "ready_for_feedback_intake": false,
+      "ready_for_training_import": false,
+      "review_priority": "critical_tradeoff_review",
+      "sample_id": "WSQ_B07::E331Q",
+      "source_file": "酶改造突变体库-湿实验数据/15B_database-提高低pH条件下酶活及稳定性/03_相对2A派生分析表.csv",
+      "source_row_index": 148,
+      "target_head": "activity_risk",
+      "upstream_state": {
+        "applied_rows": 0,
+        "apply_plan_rows": 8,
+        "authorization_report_rows": 8,
+        "authorized_candidate_rows": 8,
+        "preflight_rows": 8
+      },
+      "variant": "E331Q",
+      "variant_property_call": "tradeoff_go_and_no_go",
+      "vs_control_ratio": 0.75696316262354
+    },
+    {
+      "assay_type": "stability",
+      "authorization_head_template": [
+        "stability_head"
+      ],
+      "authorization_state": {
+        "approval_requirements": [
+          "Set qc_decision to pass or pass_with_conditions.",
+          "Set source_trace_reviewed, numbering_reviewed, unit_condition_reviewed, batch_control_reviewed, and replicate_policy_reviewed to true.",
+          "Provide reviewer, reviewed_at, and authorization_basis.",
+          "Keep allow_append_to_experiment_feedback_local false.",
+          "Keep approved_training_heads aligned with stability_head."
+        ],
+        "authorized_for_feedback_intake": false,
+        "decision_present": false,
+        "decision_write_target": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+        "human_must_choose_one_of": [
+          "approved_for_feedback_intake",
+          "rejected",
+          "needs_more_info"
+        ],
+        "missing_or_invalid_fields": [
+          "authorization_decision_row",
+          "authorization_decision",
+          "qc_decision",
+          "reviewer",
+          "reviewed_at",
+          "authorization_basis",
+          "source_trace_reviewed",
+          "numbering_reviewed",
+          "unit_condition_reviewed",
+          "batch_control_reviewed",
+          "replicate_policy_reviewed"
+        ],
+        "valid": false
+      },
+      "authorization_template_id": "wetlab-mutlib-auth-2d7589e3dadaf8660d61",
+      "authorization_worklist_id": "wetlab-mutlib-auth-worklist-2d7589e3dadaf8660d61",
+      "batch_id": "WSQ_B07",
+      "claim_eligible_now": false,
+      "conflicting_property_signal": true,
+      "control_value_numeric": 107.0,
+      "current_head_label_fields": [
+        "label_stability_delta_tm_c",
+        "label_ddg"
+      ],
+      "execution_order": 3,
+      "executor_action_id": "wetlab-head-gap-wetlab-mutlib-2d7589e3dadaf8660d61",
+      "expected_authorization_head": "stability_head",
+      "feedback_candidate_id": "wetlab-mutlib-2d7589e3dadaf8660d61",
+      "feedback_measurement_after_intake": "stability_relative_to_wt",
+      "head_current_training_rows": 0,
+      "head_entry_status": "blocked_pending_human_authorization_feedback_intake_and_head_mapping",
+      "head_minimum_rows": 100,
+      "head_missing_to_minimum": 100,
+      "head_schema_gap": "Current head contract expects label_stability_delta_tm_c or label_ddg. An 85C/3min relative-retention metric is not automatically converted to either target.",
+      "metric_class": "thermal_stability",
+      "metric_name": "热稳定性_85C_3min(%)",
+      "outcome_candidate": "no_go",
+      "path_after_human_authorization": [
+        "python3 scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_preflight.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_intake_apply_plan.py",
+        "Require a separate explicit user-authorized apply action outside this plan.",
+        "Validate the resulting feedback record and perform a separate reviewed head-target mapping."
+      ],
+      "policy": "Executor-plan row only. It does not write an authorization decision, preflight row, apply-plan row, experiment feedback record, head label, or training import.",
+      "raw_value_numeric": 65.0,
+      "ready_for_feedback_intake": false,
+      "ready_for_training_import": false,
+      "review_priority": "critical_tradeoff_review",
+      "sample_id": "WSQ_B07::E331Q",
+      "source_file": "酶改造突变体库-湿实验数据/15B_database-提高低pH条件下酶活及稳定性/03_相对2A派生分析表.csv",
+      "source_row_index": 170,
+      "target_head": "stability",
+      "upstream_state": {
+        "applied_rows": 0,
+        "apply_plan_rows": 8,
+        "authorization_report_rows": 8,
+        "authorized_candidate_rows": 8,
+        "preflight_rows": 8
+      },
+      "variant": "E331Q",
+      "variant_property_call": "tradeoff_go_and_no_go",
+      "vs_control_ratio": 0.6074766355140186
+    },
+    {
+      "assay_type": "activity",
+      "authorization_head_template": [
+        "activity_risk_head"
+      ],
+      "authorization_state": {
+        "approval_requirements": [
+          "Set qc_decision to pass or pass_with_conditions.",
+          "Set source_trace_reviewed, numbering_reviewed, unit_condition_reviewed, batch_control_reviewed, and replicate_policy_reviewed to true.",
+          "Provide reviewer, reviewed_at, and authorization_basis.",
+          "Keep allow_append_to_experiment_feedback_local false.",
+          "Keep approved_training_heads aligned with activity_risk_head."
+        ],
+        "authorized_for_feedback_intake": false,
+        "decision_present": false,
+        "decision_write_target": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+        "human_must_choose_one_of": [
+          "approved_for_feedback_intake",
+          "rejected",
+          "needs_more_info"
+        ],
+        "missing_or_invalid_fields": [
+          "authorization_decision_row",
+          "authorization_decision",
+          "qc_decision",
+          "reviewer",
+          "reviewed_at",
+          "authorization_basis",
+          "source_trace_reviewed",
+          "numbering_reviewed",
+          "unit_condition_reviewed",
+          "batch_control_reviewed",
+          "replicate_policy_reviewed"
+        ],
+        "valid": false
+      },
+      "authorization_template_id": "wetlab-mutlib-auth-5db27d128e6360106b1f",
+      "authorization_worklist_id": "wetlab-mutlib-auth-worklist-5db27d128e6360106b1f",
+      "batch_id": "WSQ_B07",
+      "claim_eligible_now": false,
+      "conflicting_property_signal": true,
+      "control_value_numeric": 49.0,
+      "current_head_label_fields": [
+        "activity_relative_to_wt",
+        "activity_risk_label"
+      ],
+      "execution_order": 4,
+      "executor_action_id": "wetlab-head-gap-wetlab-mutlib-5db27d128e6360106b1f",
+      "expected_authorization_head": "activity_risk_head",
+      "feedback_candidate_id": "wetlab-mutlib-5db27d128e6360106b1f",
+      "feedback_measurement_after_intake": "activity_relative_to_wt",
+      "head_current_training_rows": 6,
+      "head_entry_status": "blocked_pending_human_authorization_feedback_intake_and_head_mapping",
+      "head_minimum_rows": 100,
+      "head_missing_to_minimum": 94,
+      "head_schema_gap": "Current head contract also requires activity_risk_label. This plan does not derive that label from the wet-lab ratio.",
+      "metric_class": "acid_retention",
+      "metric_name": "酸性保持率_pH4.8/pH6.0(%)",
+      "outcome_candidate": "go",
+      "path_after_human_authorization": [
+        "python3 scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_preflight.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_intake_apply_plan.py",
+        "Require a separate explicit user-authorized apply action outside this plan.",
+        "Validate the resulting feedback record and perform a separate reviewed head-target mapping."
+      ],
+      "policy": "Executor-plan row only. It does not write an authorization decision, preflight row, apply-plan row, experiment feedback record, head label, or training import.",
+      "raw_value_numeric": 69.0,
+      "ready_for_feedback_intake": false,
+      "ready_for_training_import": false,
+      "review_priority": "critical_tradeoff_review",
+      "sample_id": "WSQ_B07::E331Q",
+      "source_file": "酶改造突变体库-湿实验数据/15B_database-提高低pH条件下酶活及稳定性/03_相对2A派生分析表.csv",
+      "source_row_index": 164,
+      "target_head": "activity_risk",
+      "upstream_state": {
+        "applied_rows": 0,
+        "apply_plan_rows": 8,
+        "authorization_report_rows": 8,
+        "authorized_candidate_rows": 8,
+        "preflight_rows": 8
+      },
+      "variant": "E331Q",
+      "variant_property_call": "tradeoff_go_and_no_go",
+      "vs_control_ratio": 1.4081632653061225
+    },
+    {
+      "assay_type": "activity",
+      "authorization_head_template": [
+        "activity_risk_head"
+      ],
+      "authorization_state": {
+        "approval_requirements": [
+          "Set qc_decision to pass or pass_with_conditions.",
+          "Set source_trace_reviewed, numbering_reviewed, unit_condition_reviewed, batch_control_reviewed, and replicate_policy_reviewed to true.",
+          "Provide reviewer, reviewed_at, and authorization_basis.",
+          "Keep allow_append_to_experiment_feedback_local false.",
+          "Keep approved_training_heads aligned with activity_risk_head."
+        ],
+        "authorized_for_feedback_intake": true,
+        "decision_present": true,
+        "decision_write_target": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+        "human_must_choose_one_of": [
+          "approved_for_feedback_intake",
+          "rejected",
+          "needs_more_info"
+        ],
+        "missing_or_invalid_fields": [],
+        "valid": true
+      },
+      "authorization_template_id": "wetlab-mutlib-auth-010c4b4508a7cc7d3457",
+      "authorization_worklist_id": "wetlab-mutlib-auth-worklist-010c4b4508a7cc7d3457",
+      "batch_id": "WSQ_B07",
+      "claim_eligible_now": false,
+      "conflicting_property_signal": false,
+      "control_value_numeric": 1080.0,
+      "current_head_label_fields": [
+        "activity_relative_to_wt",
+        "activity_risk_label"
+      ],
+      "execution_order": 5,
+      "executor_action_id": "wetlab-head-gap-wetlab-mutlib-010c4b4508a7cc7d3457",
+      "expected_authorization_head": "activity_risk_head",
+      "feedback_candidate_id": "wetlab-mutlib-010c4b4508a7cc7d3457",
+      "feedback_measurement_after_intake": "activity_relative_to_wt",
+      "head_current_training_rows": 6,
+      "head_entry_status": "blocked_pending_human_authorization_feedback_intake_and_head_mapping",
+      "head_minimum_rows": 100,
+      "head_missing_to_minimum": 94,
+      "head_schema_gap": "Current head contract also requires activity_risk_label. This plan does not derive that label from the wet-lab ratio.",
+      "metric_class": "acid_activity",
+      "metric_name": "pH4.8绝对酶活(U/mL)",
+      "outcome_candidate": "go",
+      "path_after_human_authorization": [
+        "python3 scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_preflight.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_intake_apply_plan.py",
+        "Require a separate explicit user-authorized apply action outside this plan.",
+        "Validate the resulting feedback record and perform a separate reviewed head-target mapping."
+      ],
+      "policy": "Executor-plan row only. It does not write an authorization decision, preflight row, apply-plan row, experiment feedback record, head label, or training import.",
+      "raw_value_numeric": 1506.0,
+      "ready_for_feedback_intake": false,
+      "ready_for_training_import": false,
+      "review_priority": "medium_mixed_benefit_review",
+      "sample_id": "WSQ_B07::D105N",
+      "source_file": "酶改造突变体库-湿实验数据/15B_database-提高低pH条件下酶活及稳定性/03_相对2A派生分析表.csv",
+      "source_row_index": 154,
+      "target_head": "activity_risk",
+      "upstream_state": {
+        "applied_rows": 0,
+        "apply_plan_rows": 8,
+        "authorization_report_rows": 8,
+        "authorized_candidate_rows": 8,
+        "preflight_rows": 8
+      },
+      "variant": "D105N",
+      "variant_property_call": "contains_go",
+      "vs_control_ratio": 1.3944444444444444
+    },
+    {
+      "assay_type": "activity",
+      "authorization_head_template": [
+        "activity_risk_head"
+      ],
+      "authorization_state": {
+        "approval_requirements": [
+          "Set qc_decision to pass or pass_with_conditions.",
+          "Set source_trace_reviewed, numbering_reviewed, unit_condition_reviewed, batch_control_reviewed, and replicate_policy_reviewed to true.",
+          "Provide reviewer, reviewed_at, and authorization_basis.",
+          "Keep allow_append_to_experiment_feedback_local false.",
+          "Keep approved_training_heads aligned with activity_risk_head."
+        ],
+        "authorized_for_feedback_intake": true,
+        "decision_present": true,
+        "decision_write_target": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+        "human_must_choose_one_of": [
+          "approved_for_feedback_intake",
+          "rejected",
+          "needs_more_info"
+        ],
+        "missing_or_invalid_fields": [],
+        "valid": true
+      },
+      "authorization_template_id": "wetlab-mutlib-auth-5418c885e1db554d00ee",
+      "authorization_worklist_id": "wetlab-mutlib-auth-worklist-5418c885e1db554d00ee",
+      "batch_id": "WSQ_B07",
+      "claim_eligible_now": false,
+      "conflicting_property_signal": false,
+      "control_value_numeric": 2226.0,
+      "current_head_label_fields": [
+        "activity_relative_to_wt",
+        "activity_risk_label"
+      ],
+      "execution_order": 6,
+      "executor_action_id": "wetlab-head-gap-wetlab-mutlib-5418c885e1db554d00ee",
+      "expected_authorization_head": "activity_risk_head",
+      "feedback_candidate_id": "wetlab-mutlib-5418c885e1db554d00ee",
+      "feedback_measurement_after_intake": "activity_relative_to_wt",
+      "head_current_training_rows": 6,
+      "head_entry_status": "blocked_pending_human_authorization_feedback_intake_and_head_mapping",
+      "head_minimum_rows": 100,
+      "head_missing_to_minimum": 94,
+      "head_schema_gap": "Current head contract also requires activity_risk_label. This plan does not derive that label from the wet-lab ratio.",
+      "metric_class": "neutral_activity",
+      "metric_name": "pH6.0绝对酶活(U/mL)",
+      "outcome_candidate": "go",
+      "path_after_human_authorization": [
+        "python3 scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_preflight.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_intake_apply_plan.py",
+        "Require a separate explicit user-authorized apply action outside this plan.",
+        "Validate the resulting feedback record and perform a separate reviewed head-target mapping."
+      ],
+      "policy": "Executor-plan row only. It does not write an authorization decision, preflight row, apply-plan row, experiment feedback record, head label, or training import.",
+      "raw_value_numeric": 2560.0,
+      "ready_for_feedback_intake": false,
+      "ready_for_training_import": false,
+      "review_priority": "medium_mixed_benefit_review",
+      "sample_id": "WSQ_B07::D105N",
+      "source_file": "酶改造突变体库-湿实验数据/15B_database-提高低pH条件下酶活及稳定性/03_相对2A派生分析表.csv",
+      "source_row_index": 146,
+      "target_head": "activity_risk",
+      "upstream_state": {
+        "applied_rows": 0,
+        "apply_plan_rows": 8,
+        "authorization_report_rows": 8,
+        "authorized_candidate_rows": 8,
+        "preflight_rows": 8
+      },
+      "variant": "D105N",
+      "variant_property_call": "contains_go",
+      "vs_control_ratio": 1.1500449236298294
+    },
+    {
+      "assay_type": "stability",
+      "authorization_head_template": [
+        "stability_head"
+      ],
+      "authorization_state": {
+        "approval_requirements": [
+          "Set qc_decision to pass or pass_with_conditions.",
+          "Set source_trace_reviewed, numbering_reviewed, unit_condition_reviewed, batch_control_reviewed, and replicate_policy_reviewed to true.",
+          "Provide reviewer, reviewed_at, and authorization_basis.",
+          "Keep allow_append_to_experiment_feedback_local false.",
+          "Keep approved_training_heads aligned with stability_head."
+        ],
+        "authorized_for_feedback_intake": true,
+        "decision_present": true,
+        "decision_write_target": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+        "human_must_choose_one_of": [
+          "approved_for_feedback_intake",
+          "rejected",
+          "needs_more_info"
+        ],
+        "missing_or_invalid_fields": [],
+        "valid": true
+      },
+      "authorization_template_id": "wetlab-mutlib-auth-103574eeceae648b63a6",
+      "authorization_worklist_id": "wetlab-mutlib-auth-worklist-103574eeceae648b63a6",
+      "batch_id": "WSQ_B07",
+      "claim_eligible_now": false,
+      "conflicting_property_signal": false,
+      "control_value_numeric": 107.0,
+      "current_head_label_fields": [
+        "label_stability_delta_tm_c",
+        "label_ddg"
+      ],
+      "execution_order": 7,
+      "executor_action_id": "wetlab-head-gap-wetlab-mutlib-103574eeceae648b63a6",
+      "expected_authorization_head": "stability_head",
+      "feedback_candidate_id": "wetlab-mutlib-103574eeceae648b63a6",
+      "feedback_measurement_after_intake": "stability_relative_to_wt",
+      "head_current_training_rows": 0,
+      "head_entry_status": "blocked_pending_human_authorization_feedback_intake_and_head_mapping",
+      "head_minimum_rows": 100,
+      "head_missing_to_minimum": 100,
+      "head_schema_gap": "Current head contract expects label_stability_delta_tm_c or label_ddg. An 85C/3min relative-retention metric is not automatically converted to either target.",
+      "metric_class": "thermal_stability",
+      "metric_name": "热稳定性_85C_3min(%)",
+      "outcome_candidate": "watch",
+      "path_after_human_authorization": [
+        "python3 scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_preflight.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_intake_apply_plan.py",
+        "Require a separate explicit user-authorized apply action outside this plan.",
+        "Validate the resulting feedback record and perform a separate reviewed head-target mapping."
+      ],
+      "policy": "Executor-plan row only. It does not write an authorization decision, preflight row, apply-plan row, experiment feedback record, head label, or training import.",
+      "raw_value_numeric": 112.0,
+      "ready_for_feedback_intake": false,
+      "ready_for_training_import": false,
+      "review_priority": "medium_mixed_benefit_review",
+      "sample_id": "WSQ_B07::D105N",
+      "source_file": "酶改造突变体库-湿实验数据/15B_database-提高低pH条件下酶活及稳定性/03_相对2A派生分析表.csv",
+      "source_row_index": 168,
+      "target_head": "stability",
+      "upstream_state": {
+        "applied_rows": 0,
+        "apply_plan_rows": 8,
+        "authorization_report_rows": 8,
+        "authorized_candidate_rows": 8,
+        "preflight_rows": 8
+      },
+      "variant": "D105N",
+      "variant_property_call": "contains_go",
+      "vs_control_ratio": 1.0467289719626167
+    },
+    {
+      "assay_type": "activity",
+      "authorization_head_template": [
+        "activity_risk_head"
+      ],
+      "authorization_state": {
+        "approval_requirements": [
+          "Set qc_decision to pass or pass_with_conditions.",
+          "Set source_trace_reviewed, numbering_reviewed, unit_condition_reviewed, batch_control_reviewed, and replicate_policy_reviewed to true.",
+          "Provide reviewer, reviewed_at, and authorization_basis.",
+          "Keep allow_append_to_experiment_feedback_local false.",
+          "Keep approved_training_heads aligned with activity_risk_head."
+        ],
+        "authorized_for_feedback_intake": true,
+        "decision_present": true,
+        "decision_write_target": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+        "human_must_choose_one_of": [
+          "approved_for_feedback_intake",
+          "rejected",
+          "needs_more_info"
+        ],
+        "missing_or_invalid_fields": [],
+        "valid": true
+      },
+      "authorization_template_id": "wetlab-mutlib-auth-3c133ffbbdc5d53764ed",
+      "authorization_worklist_id": "wetlab-mutlib-auth-worklist-3c133ffbbdc5d53764ed",
+      "batch_id": "WSQ_B07",
+      "claim_eligible_now": false,
+      "conflicting_property_signal": false,
+      "control_value_numeric": 49.0,
+      "current_head_label_fields": [
+        "activity_relative_to_wt",
+        "activity_risk_label"
+      ],
+      "execution_order": 8,
+      "executor_action_id": "wetlab-head-gap-wetlab-mutlib-3c133ffbbdc5d53764ed",
+      "expected_authorization_head": "activity_risk_head",
+      "feedback_candidate_id": "wetlab-mutlib-3c133ffbbdc5d53764ed",
+      "feedback_measurement_after_intake": "activity_relative_to_wt",
+      "head_current_training_rows": 6,
+      "head_entry_status": "blocked_pending_human_authorization_feedback_intake_and_head_mapping",
+      "head_minimum_rows": 100,
+      "head_missing_to_minimum": 94,
+      "head_schema_gap": "Current head contract also requires activity_risk_label. This plan does not derive that label from the wet-lab ratio.",
+      "metric_class": "acid_retention",
+      "metric_name": "酸性保持率_pH4.8/pH6.0(%)",
+      "outcome_candidate": "go",
+      "path_after_human_authorization": [
+        "python3 scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_preflight.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_intake_apply_plan.py",
+        "Require a separate explicit user-authorized apply action outside this plan.",
+        "Validate the resulting feedback record and perform a separate reviewed head-target mapping."
+      ],
+      "policy": "Executor-plan row only. It does not write an authorization decision, preflight row, apply-plan row, experiment feedback record, head label, or training import.",
+      "raw_value_numeric": 59.0,
+      "ready_for_feedback_intake": false,
+      "ready_for_training_import": false,
+      "review_priority": "medium_mixed_benefit_review",
+      "sample_id": "WSQ_B07::D105N",
+      "source_file": "酶改造突变体库-湿实验数据/15B_database-提高低pH条件下酶活及稳定性/03_相对2A派生分析表.csv",
+      "source_row_index": 162,
+      "target_head": "activity_risk",
+      "upstream_state": {
+        "applied_rows": 0,
+        "apply_plan_rows": 8,
+        "authorization_report_rows": 8,
+        "authorized_candidate_rows": 8,
+        "preflight_rows": 8
+      },
+      "variant": "D105N",
+      "variant_property_call": "contains_go",
+      "vs_control_ratio": 1.2040816326530612
+    },
+    {
+      "assay_type": "activity",
+      "authorization_head_template": [
+        "activity_risk_head"
+      ],
+      "authorization_state": {
+        "approval_requirements": [
+          "Set qc_decision to pass or pass_with_conditions.",
+          "Set source_trace_reviewed, numbering_reviewed, unit_condition_reviewed, batch_control_reviewed, and replicate_policy_reviewed to true.",
+          "Provide reviewer, reviewed_at, and authorization_basis.",
+          "Keep allow_append_to_experiment_feedback_local false.",
+          "Keep approved_training_heads aligned with activity_risk_head."
+        ],
+        "authorized_for_feedback_intake": true,
+        "decision_present": true,
+        "decision_write_target": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+        "human_must_choose_one_of": [
+          "approved_for_feedback_intake",
+          "rejected",
+          "needs_more_info"
+        ],
+        "missing_or_invalid_fields": [],
+        "valid": true
+      },
+      "authorization_template_id": "wetlab-mutlib-auth-aeb771ff3269fd7596c4",
+      "authorization_worklist_id": "wetlab-mutlib-auth-worklist-aeb771ff3269fd7596c4",
+      "batch_id": "WSQ_B07",
+      "claim_eligible_now": false,
+      "conflicting_property_signal": false,
+      "control_value_numeric": 1080.0,
+      "current_head_label_fields": [
+        "activity_relative_to_wt",
+        "activity_risk_label"
+      ],
+      "execution_order": 9,
+      "executor_action_id": "wetlab-head-gap-wetlab-mutlib-aeb771ff3269fd7596c4",
+      "expected_authorization_head": "activity_risk_head",
+      "feedback_candidate_id": "wetlab-mutlib-aeb771ff3269fd7596c4",
+      "feedback_measurement_after_intake": "activity_relative_to_wt",
+      "head_current_training_rows": 6,
+      "head_entry_status": "blocked_pending_human_authorization_feedback_intake_and_head_mapping",
+      "head_minimum_rows": 100,
+      "head_missing_to_minimum": 94,
+      "head_schema_gap": "Current head contract also requires activity_risk_label. This plan does not derive that label from the wet-lab ratio.",
+      "metric_class": "acid_activity",
+      "metric_name": "pH4.8绝对酶活(U/mL)",
+      "outcome_candidate": "watch",
+      "path_after_human_authorization": [
+        "python3 scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_preflight.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_intake_apply_plan.py",
+        "Require a separate explicit user-authorized apply action outside this plan.",
+        "Validate the resulting feedback record and perform a separate reviewed head-target mapping."
+      ],
+      "policy": "Executor-plan row only. It does not write an authorization decision, preflight row, apply-plan row, experiment feedback record, head label, or training import.",
+      "raw_value_numeric": 1099.0,
+      "ready_for_feedback_intake": false,
+      "ready_for_training_import": false,
+      "review_priority": "standard_multi_property_review",
+      "sample_id": "WSQ_B07::S265T",
+      "source_file": "酶改造突变体库-湿实验数据/15B_database-提高低pH条件下酶活及稳定性/03_相对2A派生分析表.csv",
+      "source_row_index": 155,
+      "target_head": "activity_risk",
+      "upstream_state": {
+        "applied_rows": 0,
+        "apply_plan_rows": 8,
+        "authorization_report_rows": 8,
+        "authorized_candidate_rows": 8,
+        "preflight_rows": 8
+      },
+      "variant": "S265T",
+      "variant_property_call": "watch_only",
+      "vs_control_ratio": 1.0175925925925926
+    },
+    {
+      "assay_type": "activity",
+      "authorization_head_template": [
+        "activity_risk_head"
+      ],
+      "authorization_state": {
+        "approval_requirements": [
+          "Set qc_decision to pass or pass_with_conditions.",
+          "Set source_trace_reviewed, numbering_reviewed, unit_condition_reviewed, batch_control_reviewed, and replicate_policy_reviewed to true.",
+          "Provide reviewer, reviewed_at, and authorization_basis.",
+          "Keep allow_append_to_experiment_feedback_local false.",
+          "Keep approved_training_heads aligned with activity_risk_head."
+        ],
+        "authorized_for_feedback_intake": true,
+        "decision_present": true,
+        "decision_write_target": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+        "human_must_choose_one_of": [
+          "approved_for_feedback_intake",
+          "rejected",
+          "needs_more_info"
+        ],
+        "missing_or_invalid_fields": [],
+        "valid": true
+      },
+      "authorization_template_id": "wetlab-mutlib-auth-26b0011bb960c350680a",
+      "authorization_worklist_id": "wetlab-mutlib-auth-worklist-26b0011bb960c350680a",
+      "batch_id": "WSQ_B07",
+      "claim_eligible_now": false,
+      "conflicting_property_signal": false,
+      "control_value_numeric": 2226.0,
+      "current_head_label_fields": [
+        "activity_relative_to_wt",
+        "activity_risk_label"
+      ],
+      "execution_order": 10,
+      "executor_action_id": "wetlab-head-gap-wetlab-mutlib-26b0011bb960c350680a",
+      "expected_authorization_head": "activity_risk_head",
+      "feedback_candidate_id": "wetlab-mutlib-26b0011bb960c350680a",
+      "feedback_measurement_after_intake": "activity_relative_to_wt",
+      "head_current_training_rows": 6,
+      "head_entry_status": "blocked_pending_human_authorization_feedback_intake_and_head_mapping",
+      "head_minimum_rows": 100,
+      "head_missing_to_minimum": 94,
+      "head_schema_gap": "Current head contract also requires activity_risk_label. This plan does not derive that label from the wet-lab ratio.",
+      "metric_class": "neutral_activity",
+      "metric_name": "pH6.0绝对酶活(U/mL)",
+      "outcome_candidate": "watch",
+      "path_after_human_authorization": [
+        "python3 scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_preflight.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_intake_apply_plan.py",
+        "Require a separate explicit user-authorized apply action outside this plan.",
+        "Validate the resulting feedback record and perform a separate reviewed head-target mapping."
+      ],
+      "policy": "Executor-plan row only. It does not write an authorization decision, preflight row, apply-plan row, experiment feedback record, head label, or training import.",
+      "raw_value_numeric": 2140.0,
+      "ready_for_feedback_intake": false,
+      "ready_for_training_import": false,
+      "review_priority": "standard_multi_property_review",
+      "sample_id": "WSQ_B07::S265T",
+      "source_file": "酶改造突变体库-湿实验数据/15B_database-提高低pH条件下酶活及稳定性/03_相对2A派生分析表.csv",
+      "source_row_index": 147,
+      "target_head": "activity_risk",
+      "upstream_state": {
+        "applied_rows": 0,
+        "apply_plan_rows": 8,
+        "authorization_report_rows": 8,
+        "authorized_candidate_rows": 8,
+        "preflight_rows": 8
+      },
+      "variant": "S265T",
+      "variant_property_call": "watch_only",
+      "vs_control_ratio": 0.9613656783468104
+    },
+    {
+      "assay_type": "stability",
+      "authorization_head_template": [
+        "stability_head"
+      ],
+      "authorization_state": {
+        "approval_requirements": [
+          "Set qc_decision to pass or pass_with_conditions.",
+          "Set source_trace_reviewed, numbering_reviewed, unit_condition_reviewed, batch_control_reviewed, and replicate_policy_reviewed to true.",
+          "Provide reviewer, reviewed_at, and authorization_basis.",
+          "Keep allow_append_to_experiment_feedback_local false.",
+          "Keep approved_training_heads aligned with stability_head."
+        ],
+        "authorized_for_feedback_intake": true,
+        "decision_present": true,
+        "decision_write_target": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+        "human_must_choose_one_of": [
+          "approved_for_feedback_intake",
+          "rejected",
+          "needs_more_info"
+        ],
+        "missing_or_invalid_fields": [],
+        "valid": true
+      },
+      "authorization_template_id": "wetlab-mutlib-auth-1f3e60aa54df2a4ae993",
+      "authorization_worklist_id": "wetlab-mutlib-auth-worklist-1f3e60aa54df2a4ae993",
+      "batch_id": "WSQ_B07",
+      "claim_eligible_now": false,
+      "conflicting_property_signal": false,
+      "control_value_numeric": 107.0,
+      "current_head_label_fields": [
+        "label_stability_delta_tm_c",
+        "label_ddg"
+      ],
+      "execution_order": 11,
+      "executor_action_id": "wetlab-head-gap-wetlab-mutlib-1f3e60aa54df2a4ae993",
+      "expected_authorization_head": "stability_head",
+      "feedback_candidate_id": "wetlab-mutlib-1f3e60aa54df2a4ae993",
+      "feedback_measurement_after_intake": "stability_relative_to_wt",
+      "head_current_training_rows": 0,
+      "head_entry_status": "blocked_pending_human_authorization_feedback_intake_and_head_mapping",
+      "head_minimum_rows": 100,
+      "head_missing_to_minimum": 100,
+      "head_schema_gap": "Current head contract expects label_stability_delta_tm_c or label_ddg. An 85C/3min relative-retention metric is not automatically converted to either target.",
+      "metric_class": "thermal_stability",
+      "metric_name": "热稳定性_85C_3min(%)",
+      "outcome_candidate": "watch",
+      "path_after_human_authorization": [
+        "python3 scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_preflight.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_intake_apply_plan.py",
+        "Require a separate explicit user-authorized apply action outside this plan.",
+        "Validate the resulting feedback record and perform a separate reviewed head-target mapping."
+      ],
+      "policy": "Executor-plan row only. It does not write an authorization decision, preflight row, apply-plan row, experiment feedback record, head label, or training import.",
+      "raw_value_numeric": 81.0,
+      "ready_for_feedback_intake": false,
+      "ready_for_training_import": false,
+      "review_priority": "standard_multi_property_review",
+      "sample_id": "WSQ_B07::S265T",
+      "source_file": "酶改造突变体库-湿实验数据/15B_database-提高低pH条件下酶活及稳定性/03_相对2A派生分析表.csv",
+      "source_row_index": 169,
+      "target_head": "stability",
+      "upstream_state": {
+        "applied_rows": 0,
+        "apply_plan_rows": 8,
+        "authorization_report_rows": 8,
+        "authorized_candidate_rows": 8,
+        "preflight_rows": 8
+      },
+      "variant": "S265T",
+      "variant_property_call": "watch_only",
+      "vs_control_ratio": 0.7570093457943925
+    },
+    {
+      "assay_type": "activity",
+      "authorization_head_template": [
+        "activity_risk_head"
+      ],
+      "authorization_state": {
+        "approval_requirements": [
+          "Set qc_decision to pass or pass_with_conditions.",
+          "Set source_trace_reviewed, numbering_reviewed, unit_condition_reviewed, batch_control_reviewed, and replicate_policy_reviewed to true.",
+          "Provide reviewer, reviewed_at, and authorization_basis.",
+          "Keep allow_append_to_experiment_feedback_local false.",
+          "Keep approved_training_heads aligned with activity_risk_head."
+        ],
+        "authorized_for_feedback_intake": true,
+        "decision_present": true,
+        "decision_write_target": "datasets/feedback/wet_lab_mutant_library_feedback_authorizations.jsonl",
+        "human_must_choose_one_of": [
+          "approved_for_feedback_intake",
+          "rejected",
+          "needs_more_info"
+        ],
+        "missing_or_invalid_fields": [],
+        "valid": true
+      },
+      "authorization_template_id": "wetlab-mutlib-auth-eb02f4bf1f0cf8791612",
+      "authorization_worklist_id": "wetlab-mutlib-auth-worklist-eb02f4bf1f0cf8791612",
+      "batch_id": "WSQ_B07",
+      "claim_eligible_now": false,
+      "conflicting_property_signal": false,
+      "control_value_numeric": 49.0,
+      "current_head_label_fields": [
+        "activity_relative_to_wt",
+        "activity_risk_label"
+      ],
+      "execution_order": 12,
+      "executor_action_id": "wetlab-head-gap-wetlab-mutlib-eb02f4bf1f0cf8791612",
+      "expected_authorization_head": "activity_risk_head",
+      "feedback_candidate_id": "wetlab-mutlib-eb02f4bf1f0cf8791612",
+      "feedback_measurement_after_intake": "activity_relative_to_wt",
+      "head_current_training_rows": 6,
+      "head_entry_status": "blocked_pending_human_authorization_feedback_intake_and_head_mapping",
+      "head_minimum_rows": 100,
+      "head_missing_to_minimum": 94,
+      "head_schema_gap": "Current head contract also requires activity_risk_label. This plan does not derive that label from the wet-lab ratio.",
+      "metric_class": "acid_retention",
+      "metric_name": "酸性保持率_pH4.8/pH6.0(%)",
+      "outcome_candidate": "watch",
+      "path_after_human_authorization": [
+        "python3 scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_preflight.py",
+        "python3 scripts/build_wet_lab_mutant_library_feedback_intake_apply_plan.py",
+        "Require a separate explicit user-authorized apply action outside this plan.",
+        "Validate the resulting feedback record and perform a separate reviewed head-target mapping."
+      ],
+      "policy": "Executor-plan row only. It does not write an authorization decision, preflight row, apply-plan row, experiment feedback record, head label, or training import.",
+      "raw_value_numeric": 51.0,
+      "ready_for_feedback_intake": false,
+      "ready_for_training_import": false,
+      "review_priority": "standard_multi_property_review",
+      "sample_id": "WSQ_B07::S265T",
+      "source_file": "酶改造突变体库-湿实验数据/15B_database-提高低pH条件下酶活及稳定性/03_相对2A派生分析表.csv",
+      "source_row_index": 163,
+      "target_head": "activity_risk",
+      "upstream_state": {
+        "applied_rows": 0,
+        "apply_plan_rows": 8,
+        "authorization_report_rows": 8,
+        "authorized_candidate_rows": 8,
+        "preflight_rows": 8
+      },
+      "variant": "S265T",
+      "variant_property_call": "watch_only",
+      "vs_control_ratio": 1.0408163265306123
+    }
+  ],
+  "authorization_path": [
+    "Human writes one reviewed authorization decision per metric to the existing authorization input.",
+    "python3 scripts/validate_wet_lab_mutant_library_feedback_authorizations.py",
+    "python3 scripts/build_wet_lab_mutant_library_feedback_preflight.py",
+    "python3 scripts/build_wet_lab_mutant_library_feedback_intake_apply_plan.py",
+    "Separate explicit user-authorized apply action outside this plan.",
+    "Separate reviewed mapping from feedback record to head-specific target fields."
+  ],
+  "created_at": "2026-09-03T07:33:44.719852+00:00",
+  "head_action_counts": {
+    "activity_risk": 9,
+    "stability": 3
+  },
+  "head_summaries": [
+    {
+      "authorization_head": "activity_risk_head",
+      "candidate_rows": 9,
+      "current_head_label_fields": [
+        "activity_relative_to_wt",
+        "activity_risk_label"
+      ],
+      "current_training_rows": 6,
+      "head": "activity_risk",
+      "minimum_rows": 100,
+      "missing_to_minimum": 94,
+      "ready_candidate_rows": 6,
+      "schema_gap": "Current head contract also requires activity_risk_label. This plan does not derive that label from the wet-lab ratio.",
+      "training_rows_added_by_plan": 0
+    },
+    {
+      "authorization_head": "stability_head",
+      "candidate_rows": 3,
+      "current_head_label_fields": [
+        "label_stability_delta_tm_c",
+        "label_ddg"
+      ],
+      "current_training_rows": 0,
+      "head": "stability",
+      "minimum_rows": 100,
+      "missing_to_minimum": 100,
+      "ready_candidate_rows": 2,
+      "schema_gap": "Current head contract expects label_stability_delta_tm_c or label_ddg. An 85C/3min relative-retention metric is not automatically converted to either target.",
+      "training_rows_added_by_plan": 0
+    }
+  ],
+  "local_only": true,
+  "missing_authorization_field_counts": {
+    "authorization_basis": 4,
+    "authorization_decision": 4,
+    "authorization_decision_row": 4,
+    "batch_control_reviewed": 4,
+    "numbering_reviewed": 4,
+    "qc_decision": 4,
+    "replicate_policy_reviewed": 4,
+    "reviewed_at": 4,
+    "reviewer": 4,
+    "source_trace_reviewed": 4,
+    "unit_condition_reviewed": 4
+  },
+  "policy": "This executor plan is read-only with respect to authorization, preflight, apply-plan, feedback, and training inputs. It only emits planning artifacts and remains fail-closed.",
+  "review_priority_counts": {
+    "critical_tradeoff_review": 4,
+    "medium_mixed_benefit_review": 4,
+    "standard_multi_property_review": 4
+  },
+  "safe_for_feedback_intake": false,
+  "safe_for_model_claim": false,
+  "safe_for_training_import": false,
+  "source_state": {
+    "applied_rows": 0,
+    "apply_plan_rows": 8,
+    "authorization_rows": 8,
+    "authorized_candidate_rows": 8,
+    "missing_candidate_authorization_rows": 4,
+    "preflight_rows": 8,
+    "valid_preflight_rows": 8
+  },
+  "status": "blocked_fail_closed",
+  "training_rows_added_by_plan": 0,
+  "variant_rows": 3
+}

@@ -1,0 +1,1405 @@
+{
+  "mode": "tool_orchestration_coverage_report",
+  "contract_version": "tool_orchestration_v1",
+  "registered_tool_count": 58,
+  "alias_count": 1,
+  "async_tool_count": 13,
+  "capability_audited_count": 58,
+  "unknown_capability_tools": [],
+  "rows": [
+    {
+      "tool": "alphafold2_folding",
+      "category": "prediction",
+      "registry_timeout_seconds": 300,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model version",
+        "MSA/template provenance",
+        "PDB/mmCIF",
+        "PAE/pLDDT",
+        "logs"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "alphafold_folding",
+      "category": "structure",
+      "registry_timeout_seconds": 600,
+      "async": true,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy_or_external_lookup",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "source",
+        "database version or runtime logs",
+        "structure artifact"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "async_worker",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "annotation_bundle",
+      "category": "data",
+      "registry_timeout_seconds": 45,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "evidence_synthesis",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "record provenance",
+        "coordinate status",
+        "source versions when available"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "runtime_or_source_evidence",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "bio_specialty_input_gate",
+      "category": "analysis",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "input_gate",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "normalized input",
+        "missing-input report"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "blast_search",
+      "category": "search",
+      "registry_timeout_seconds": 600,
+      "async": true,
+      "queue": "default",
+      "task_time_limit_seconds": 600,
+      "capability_audited": true,
+      "capability_status": "external_service_or_cache",
+      "license_class": "external_service_only",
+      "commercial_use_status": "service_terms_and_rate_limits_apply",
+      "minimum_artifacts": [
+        "query provenance",
+        "database/program",
+        "terminal status",
+        "hit identity/coverage/e-value",
+        "evidence source"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "async_worker",
+      "license_status": "service_terms_and_rate_limits_apply"
+    },
+    {
+      "tool": "boltz1_predict",
+      "category": "prediction",
+      "registry_timeout_seconds": 300,
+      "async": true,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "runtime_unverified",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model version",
+        "input hash",
+        "structure artifact",
+        "confidence",
+        "logs"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "async_worker",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "build_site_structure_function_features",
+      "category": "structure",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "residue_geometry_feature_table",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "PDB/model provenance",
+        "chain",
+        "residue numbering",
+        "CA features",
+        "mapping confidence",
+        "nonpolymer proximity"
+      ],
+      "requires": [
+        "numbering",
+        "structure"
+      ],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "catalytic_site_lookup",
+      "category": "engineering",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "curated_or_motif_guardrail",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "source provenance",
+        "coordinate system",
+        "mapped positions",
+        "curated-versus-inferred status"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "chroma_design",
+      "category": "design",
+      "registry_timeout_seconds": 300,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model/checkpoint",
+        "condition",
+        "seed",
+        "sequences",
+        "scores"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "diffdock_docking",
+      "category": "docking",
+      "registry_timeout_seconds": 60,
+      "async": true,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model version",
+        "3D ligand source",
+        "pose ensemble",
+        "confidence",
+        "logs"
+      ],
+      "requires": [
+        "ligand_3d",
+        "structure"
+      ],
+      "provides": [
+        "docking_pose"
+      ],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "async_worker",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "enzyme_function",
+      "category": "prediction",
+      "registry_timeout_seconds": 300,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "foundation_or_proxy_prediction",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "identity profile or proxy label",
+        "prediction source",
+        "confidence/limitations"
+      ],
+      "requires": [
+        "identity_profile"
+      ],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "enzyme_identity_profile",
+      "category": "analysis",
+      "registry_timeout_seconds": 60,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "evidence_synthesis",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "family candidates",
+        "key residues",
+        "numbering status",
+        "evidence table"
+      ],
+      "requires": [],
+      "provides": [
+        "identity_profile"
+      ],
+      "evidence_level": "runtime_or_source_evidence",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "enzyme_objective_module_plan",
+      "category": "analysis",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "objective_gate",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "objective modules",
+        "assay context",
+        "missing evidence",
+        "candidate output decision"
+      ],
+      "requires": [
+        "identity_profile"
+      ],
+      "provides": [
+        "objective_module"
+      ],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "esm1v_predict",
+      "category": "prediction",
+      "registry_timeout_seconds": 300,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model version",
+        "input hash",
+        "mutation list",
+        "scores"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "esm2_predict",
+      "category": "prediction",
+      "registry_timeout_seconds": 600,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model version",
+        "mode",
+        "input hash",
+        "scores"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "esm3_generate",
+      "category": "design",
+      "registry_timeout_seconds": 300,
+      "async": true,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model version",
+        "prompt/constraints",
+        "seed",
+        "sequences"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "async_worker",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "esm_if1_design",
+      "category": "design",
+      "registry_timeout_seconds": 300,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model version",
+        "structure hash",
+        "seed",
+        "FASTA",
+        "scores"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "esmfold_folding",
+      "category": "structure",
+      "registry_timeout_seconds": 600,
+      "async": true,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "runtime_unverified",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model version",
+        "PDB",
+        "pLDDT",
+        "logs"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "async_worker",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "evodiff_generate",
+      "category": "design",
+      "registry_timeout_seconds": 300,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model version",
+        "conditioning",
+        "seed",
+        "FASTA"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "external_connectivity_check",
+      "category": "research",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "connectivity_only",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "endpoint",
+        "timestamp",
+        "status",
+        "runtime"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "external_research_evidence",
+      "category": "governance",
+      "registry_timeout_seconds": 10,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "external_service_only",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "source",
+        "query",
+        "retrieval timestamp",
+        "citation/provenance"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "feedback_iteration_planner",
+      "category": "engineering",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "decision_support",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "feedback records",
+        "objective",
+        "decision rationale"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "get_kinetic_params",
+      "category": "data",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "data_lookup",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "source",
+        "assay context",
+        "record provenance"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "get_stability_data",
+      "category": "data",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "data_lookup",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "source",
+        "temperature/pH context",
+        "record provenance"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "gromacs_md",
+      "category": "simulation",
+      "registry_timeout_seconds": 5400,
+      "async": true,
+      "queue": "md_cpu",
+      "task_time_limit_seconds": 5400,
+      "capability_audited": true,
+      "capability_status": "real_runtime_gated",
+      "license_class": "open_local",
+      "commercial_use_status": "allowed_with_runtime_and_input_provenance",
+      "minimum_artifacts": [
+        "MDP",
+        "TPR",
+        "XTC/TRR",
+        "EDR/XVG",
+        "stdout/stderr",
+        "runtime versions"
+      ],
+      "requires": [
+        "structure",
+        "topology"
+      ],
+      "provides": [
+        "md_artifacts"
+      ],
+      "evidence_level": "unverified",
+      "runtime_mode": "async_worker",
+      "license_status": "allowed_with_runtime_and_input_provenance"
+    },
+    {
+      "tool": "interpro_annotation",
+      "category": "data",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "evidence_synthesis",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "dataset version",
+        "input hash",
+        "annotation records"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "runtime_or_source_evidence",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "interpro_live_lookup",
+      "category": "data",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "external_service_only",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "request",
+        "terminal response",
+        "database/version",
+        "raw result"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "interproscan_sequence_status",
+      "category": "data",
+      "registry_timeout_seconds": 45,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "external_service_only",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "job id",
+        "terminal status",
+        "raw result",
+        "database/version"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "interproscan_sequence_submit",
+      "category": "data",
+      "registry_timeout_seconds": 45,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "external_service_only",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "job id",
+        "input hash",
+        "submission timestamp"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "kcat_predict",
+      "category": "prediction",
+      "registry_timeout_seconds": 300,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model card or proxy label",
+        "training/validation scope",
+        "input hash"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "ligand_preprocess",
+      "category": "molecular_dynamics",
+      "registry_timeout_seconds": 1800,
+      "async": true,
+      "queue": "ligand_cpu",
+      "task_time_limit_seconds": 2700,
+      "capability_audited": true,
+      "capability_status": "real_runtime_gated",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "stage results",
+        "tool versions",
+        "PDBQT/pose/topology files",
+        "logs"
+      ],
+      "requires": [
+        "ligand_3d_or_sdf"
+      ],
+      "provides": [
+        "ligand_3d",
+        "topology"
+      ],
+      "evidence_level": "unverified",
+      "runtime_mode": "async_worker",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "ligandmpnn_design",
+      "category": "design",
+      "registry_timeout_seconds": 300,
+      "async": true,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model version",
+        "protein/ligand hash",
+        "seed",
+        "FASTA",
+        "scores"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "async_worker",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "list_ec_proteins",
+      "category": "data",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "data_lookup",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "database/source",
+        "query",
+        "retrieved records"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "literature_live_search",
+      "category": "data",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "external_service_only",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "query",
+        "citation",
+        "retrieval timestamp",
+        "claim mapping"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "lookup_protein",
+      "category": "data",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "data_lookup",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "identifier",
+        "source",
+        "retrieved record",
+        "sequence concordance"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "mutation_epistasis_check",
+      "category": "engineering",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "decision_support",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "mutation set",
+        "distance/mechanism inputs",
+        "feedback provenance",
+        "decision rationale"
+      ],
+      "requires": [
+        "candidate_set"
+      ],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "mutation_priority_score",
+      "category": "engineering",
+      "registry_timeout_seconds": 60,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy_ranker",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "identity_gate",
+        "protected positions",
+        "ranking rationale"
+      ],
+      "requires": [
+        "identity_profile",
+        "numbering",
+        "objective_module"
+      ],
+      "provides": [
+        "candidate_set"
+      ],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "mutation_scan",
+      "category": "engineering",
+      "registry_timeout_seconds": 600,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "sequence provenance",
+        "positions scanned",
+        "candidate gate status",
+        "scoring method"
+      ],
+      "requires": [
+        "identity_profile",
+        "numbering",
+        "objective_module"
+      ],
+      "provides": [
+        "candidate_set"
+      ],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "pocket_residue_lookup",
+      "category": "engineering",
+      "registry_timeout_seconds": 210,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "real_runtime_gated",
+      "license_class": "open_local",
+      "commercial_use_status": "verify_backend_and_database_terms",
+      "minimum_artifacts": [
+        "engine/version",
+        "input structure hash",
+        "raw output artifact",
+        "parsed pocket residue coordinates"
+      ],
+      "requires": [
+        "structure"
+      ],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "verify_backend_and_database_terms"
+    },
+    {
+      "tool": "predict_properties",
+      "category": "analysis",
+      "registry_timeout_seconds": 60,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "background_baseline",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "input sequence provenance",
+        "calculation method",
+        "assay measurements for target claims"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "progen2_generate",
+      "category": "design",
+      "registry_timeout_seconds": 300,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model version",
+        "conditioning",
+        "seed",
+        "FASTA"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "protein_benchmark",
+      "category": "analysis",
+      "registry_timeout_seconds": 60,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "foundation_dependent_explainer",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "identity_profile reference",
+        "foundation_gate"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "proteinmpnn_design",
+      "category": "design",
+      "registry_timeout_seconds": 120,
+      "async": true,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "checkpoint/model",
+        "fixed/designed chains",
+        "FASTA",
+        "scores",
+        "seed",
+        "logs"
+      ],
+      "requires": [],
+      "provides": [
+        "designed_sequence"
+      ],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "async_worker",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "protssn_score",
+      "category": "prediction",
+      "registry_timeout_seconds": 600,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "runtime type",
+        "model version",
+        "score provenance"
+      ],
+      "requires": [
+        "identity_profile",
+        "objective_module"
+      ],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "residue_mapping_sifts",
+      "category": "structure",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "numbering_evidence_gated",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "mapping source",
+        "chain",
+        "PDB residue",
+        "sequence/UniProt position",
+        "mapping confidence"
+      ],
+      "requires": [
+        "structure"
+      ],
+      "provides": [
+        "residue_mapping"
+      ],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "residue_numbering_gate",
+      "category": "engineering",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "numbering_evidence_gated",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "mapping source",
+        "chain",
+        "requested positions",
+        "gate result"
+      ],
+      "requires": [
+        "residue_mapping"
+      ],
+      "provides": [
+        "numbering"
+      ],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "rfdiffusion_design",
+      "category": "design",
+      "registry_timeout_seconds": 300,
+      "async": true,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "checkpoint hash",
+        "Hydra config",
+        "backbone PDB",
+        "TRB",
+        "trajectory",
+        "GPU runtime"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "async_worker",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "rosetta_ddg",
+      "category": "engineering",
+      "registry_timeout_seconds": 1200,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "real_runtime_gated",
+      "license_class": "academic_or_commercial_license",
+      "commercial_use_status": "blocked_without_commercial_authorization",
+      "minimum_artifacts": [
+        "Rosetta binary",
+        "mutation file",
+        "scorefile",
+        "logs"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "blocked_without_commercial_authorization"
+    },
+    {
+      "tool": "rosettafold_allatom",
+      "category": "prediction",
+      "registry_timeout_seconds": 300,
+      "async": true,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "runtime_unverified",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model/version",
+        "input entities",
+        "structure artifact",
+        "logs"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "async_worker",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "rosettafold_folding",
+      "category": "prediction",
+      "registry_timeout_seconds": 300,
+      "async": true,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "runtime_unverified",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model/version",
+        "sequence hash",
+        "structure artifact",
+        "confidence",
+        "logs"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "async_worker",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "scientific_claim_gate",
+      "category": "analysis",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "claim_gate",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "claims",
+        "required schemas",
+        "gate decision",
+        "blocking reasons"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "search_substrate",
+      "category": "data",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "data_lookup",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "query",
+        "source",
+        "retrieved records",
+        "reaction context"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "sequence_search",
+      "category": "search",
+      "registry_timeout_seconds": 300,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "external_service_or_cache",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "query hash",
+        "database/program",
+        "terminal status",
+        "hit table"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "signal_peptide_predict",
+      "category": "prediction",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model/version",
+        "sequence hash",
+        "prediction",
+        "confidence"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "soluble_mpnn_design",
+      "category": "design",
+      "registry_timeout_seconds": 300,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "proxy",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "model version",
+        "input hash",
+        "seed",
+        "FASTA",
+        "scores"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "proxy_or_ranking_only",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "structure_search_foldseek",
+      "category": "structure",
+      "registry_timeout_seconds": 60,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "structure_similarity_search",
+      "license_class": "open_local",
+      "commercial_use_status": "verify_database_terms",
+      "minimum_artifacts": [
+        "query structure summary",
+        "hit table",
+        "TM-score/alignment coverage",
+        "template provenance"
+      ],
+      "requires": [],
+      "provides": [
+        "structure"
+      ],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "verify_database_terms"
+    },
+    {
+      "tool": "tool_capability_audit",
+      "category": "analysis",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "governance",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "tool name",
+        "capability row",
+        "audit timestamp"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    },
+    {
+      "tool": "wt_baseline_registry",
+      "category": "data",
+      "registry_timeout_seconds": 30,
+      "async": false,
+      "queue": "default",
+      "task_time_limit_seconds": 900,
+      "capability_audited": true,
+      "capability_status": "data_registry",
+      "license_class": null,
+      "commercial_use_status": null,
+      "minimum_artifacts": [
+        "assay context",
+        "preparation/batch",
+        "QC status",
+        "source records"
+      ],
+      "requires": [],
+      "provides": [],
+      "evidence_level": "unverified",
+      "runtime_mode": "inline_sync",
+      "license_status": "review_required"
+    }
+  ],
+  "network_io": "not_executed",
+  "destructive_actions": "not_executed",
+  "secrets_printed": false
+}

@@ -1,0 +1,39 @@
+{
+  "accession": "O15120",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01553",
+        "name": "Acyltransferase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR002123",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15120",
+          "protein_length": 278,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 77,
+                  "end": 205,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01553",
+              "score": 1.3e-35
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

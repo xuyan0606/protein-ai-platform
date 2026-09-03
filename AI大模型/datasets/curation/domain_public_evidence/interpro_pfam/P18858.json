@@ -1,0 +1,107 @@
+{
+  "accession": "P18858",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01068",
+        "name": "ATP dependent DNA ligase domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012310",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p18858",
+          "protein_length": 919,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 542,
+                  "end": 746,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01068",
+              "score": 2e-69
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04675",
+        "name": "DNA ligase N terminus",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR012308",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p18858",
+          "protein_length": 919,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 288,
+                  "end": 464,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04675",
+              "score": 9.7e-42
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF04679",
+        "name": "ATP dependent DNA ligase C terminal region",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR012309",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p18858",
+          "protein_length": 919,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 771,
+                  "end": 882,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04679",
+              "score": 1.6e-17
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

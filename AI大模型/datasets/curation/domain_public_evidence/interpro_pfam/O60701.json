@@ -1,0 +1,107 @@
+{
+  "accession": "O60701",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00984",
+        "name": "UDP-glucose/GDP-mannose dehydrogenase family, central domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014026",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60701",
+          "protein_length": 494,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 214,
+                  "end": 308,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00984",
+              "score": 2e-29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03720",
+        "name": "UDP-glucose/GDP-mannose dehydrogenase family, UDP binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR014027",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60701",
+          "protein_length": 494,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 332,
+                  "end": 446,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03720",
+              "score": 2.5e-27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03721",
+        "name": "UDP-glucose/GDP-mannose dehydrogenase family, NAD binding domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001732",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60701",
+          "protein_length": 494,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 5,
+                  "end": 202,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03721",
+              "score": 5.3e-57
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

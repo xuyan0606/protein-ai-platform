@@ -1,0 +1,51 @@
+{
+  "accession": "Q9UPQ8",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF28421",
+        "name": "Dolichol kinase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": null,
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q9upq8",
+          "protein_length": 538,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 2,
+                  "end": 409,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF28421",
+              "score": 0
+            },
+            {
+              "fragments": [
+                {
+                  "start": 413,
+                  "end": 453,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF28421",
+              "score": 3.3e-09
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

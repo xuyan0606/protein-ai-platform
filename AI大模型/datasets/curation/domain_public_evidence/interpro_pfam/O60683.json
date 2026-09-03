@@ -1,0 +1,73 @@
+{
+  "accession": "O60683",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF04757",
+        "name": "Pex2 / Pex12 amino terminal region",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR006845",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60683",
+          "protein_length": 326,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 18,
+                  "end": 242,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF04757",
+              "score": 6.9e-40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13639",
+        "name": "Ring finger domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001841",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o60683",
+          "protein_length": 326,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 272,
+                  "end": 311,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13639",
+              "score": 4.5e-06
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

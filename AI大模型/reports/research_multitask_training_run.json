@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-09-03T03:34:42.147878+00:00",
+  "created_at": "2026-09-03T08:00:26.243564+00:00",
   "mode": "smoke",
   "artifact_kind": "research_multitask_smoke_only",
   "source_row_count": 6,
@@ -56,13 +56,46 @@
   ],
   "feature_schema": [
     "canonical_position_scaled",
-    "ph_scaled",
     "enzyme_identity_hash",
-    "wt_aa_hash",
+    "metric_or_assay_hash",
     "mutant_aa_hash",
-    "metric_or_assay_hash"
+    "ph_scaled",
+    "wt_aa_hash"
   ],
-  "feature_schema_sha256": "1cc0c78d2d73e075f0f07f0d0263947e59692f3265f5f35ea5736371e72252e0",
+  "feature_schema_sha256": "1798f4bc4af27dea444464138a2574ba52bea1a603151534203813b8471d21f0",
+  "training_input_manifest": {
+    "schema_version": "kwb_five_head_training_input_v1",
+    "normalized_label_row_count": 6,
+    "head_label_rows": {
+      "mutation_rank": 0,
+      "stability": 0,
+      "activity_risk": 6,
+      "substrate_fit": 0,
+      "assay_success": 0
+    },
+    "group_count": 2,
+    "explicit_replicate_count": 0,
+    "feature_schema": [
+      "canonical_position_scaled",
+      "enzyme_identity_hash",
+      "metric_or_assay_hash",
+      "mutant_aa_hash",
+      "ph_scaled",
+      "wt_aa_hash"
+    ],
+    "canonical_rows_sha256": "76ca8d88e0a9e6d6cced33e35918624fdcd887e9c2721ddcf0664e90ec68a667",
+    "label_fields_excluded_from_features": [
+      "activity_relative_to_wt",
+      "activity_risk_label",
+      "assay_success",
+      "label_ddg",
+      "label_decision",
+      "label_stability_delta_tm_c",
+      "label_value",
+      "substrate_fit_label"
+    ]
+  },
+  "training_input_manifest_sha256": "76e6e43d0ea2795d2262cc82507b2ff4b51c32363a78899f74f416ff2f4bdff5",
   "thresholds": {
     "minimum_samples": 100,
     "minimum_groups": 10,
@@ -80,8 +113,15 @@
   "status": "completed_smoke_only",
   "epochs": 3,
   "steps": 18,
-  "final_loss": 0.337548,
+  "final_loss": 0.50331,
   "validation_loss": null,
   "checkpoint_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/research_multitask_smoke.checkpoint.pt",
-  "checkpoint_sha256": "3458291499a18c7feb435e4d48cbc7241a216434f5c2603bdd4bb538171d6e44"
+  "checkpoint_sha256": "9a928ebb84321a384551c690fb94699b21524d5bc8f4f858135b88cc70ce0394",
+  "checkpoint_receipt": {
+    "path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/research_multitask_smoke.checkpoint.pt",
+    "sha256": "9a928ebb84321a384551c690fb94699b21524d5bc8f4f858135b88cc70ce0394",
+    "size_bytes": 5077,
+    "training_input_manifest_sha256": "76e6e43d0ea2795d2262cc82507b2ff4b51c32363a78899f74f416ff2f4bdff5",
+    "feature_schema_sha256": "1798f4bc4af27dea444464138a2574ba52bea1a603151534203813b8471d21f0"
+  }
 }

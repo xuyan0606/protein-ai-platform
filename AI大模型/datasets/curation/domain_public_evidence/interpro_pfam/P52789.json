@@ -1,0 +1,97 @@
+{
+  "accession": "P52789",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00349",
+        "name": "Hexokinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022672",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p52789",
+          "protein_length": 917,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 22,
+                  "end": 219,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00349",
+              "score": 4e-73
+            },
+            {
+              "fragments": [
+                {
+                  "start": 471,
+                  "end": 666,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00349",
+              "score": 2.3e-71
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF03727",
+        "name": "Hexokinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR022673",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p52789",
+          "protein_length": 917,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 225,
+                  "end": 459,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03727",
+              "score": 2.4e-78
+            },
+            {
+              "fragments": [
+                {
+                  "start": 674,
+                  "end": 907,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF03727",
+              "score": 1.1e-77
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

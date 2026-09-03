@@ -1,0 +1,26 @@
+{
+  "created_at": "2026-09-03T07:33:59.721716+00:00",
+  "local_only": true,
+  "source_id": "hpa_expression",
+  "lane": "human_target_intelligence",
+  "display_name": "Human Protein Atlas expression/subcellular source",
+  "status": "blocked",
+  "blocked_reason": "source_manifest_or_runtime_receipt_missing",
+  "runtime_signal": {
+    "required": false,
+    "present": false,
+    "present_names": [],
+    "resolved_paths": {}
+  },
+  "required_artifacts": [
+    "source manifest",
+    "version",
+    "normal tissue/cell type units",
+    "license scope"
+  ],
+  "source_ready": false,
+  "claim_eligible": false,
+  "customer_ready": false,
+  "release_ready": false,
+  "policy": "Split source/runtime manifest only. This is still blocked and does not imply data availability."
+}

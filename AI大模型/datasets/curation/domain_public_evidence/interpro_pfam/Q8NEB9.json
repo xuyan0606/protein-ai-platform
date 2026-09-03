@@ -1,0 +1,107 @@
+{
+  "accession": "Q8NEB9",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00454",
+        "name": "Phosphatidylinositol 3- and 4-kinase",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR000403",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8neb9",
+          "protein_length": 887,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 631,
+                  "end": 831,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00454",
+              "score": 4.3e-58
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00613",
+        "name": "Phosphoinositide 3-kinase family, accessory domain (PIK domain)",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR001263",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8neb9",
+          "protein_length": 887,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 285,
+                  "end": 521,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00613",
+              "score": 5.7e-52
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00792",
+        "name": "Phosphoinositide 3-kinase C2",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR002420",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q8neb9",
+          "protein_length": 887,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 54,
+                  "end": 198,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00792",
+              "score": 1.1e-46
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

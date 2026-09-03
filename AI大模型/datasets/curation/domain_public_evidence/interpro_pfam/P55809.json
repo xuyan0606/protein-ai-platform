@@ -1,0 +1,51 @@
+{
+  "accession": "P55809",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF01144",
+        "name": "Coenzyme A transferase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR004165",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p55809",
+          "protein_length": 520,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 46,
+                  "end": 271,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01144",
+              "score": 2.8e-75
+            },
+            {
+              "fragments": [
+                {
+                  "start": 303,
+                  "end": 500,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF01144",
+              "score": 1.2e-51
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

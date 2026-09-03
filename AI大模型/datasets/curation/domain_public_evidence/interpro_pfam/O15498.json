@@ -1,0 +1,73 @@
+{
+  "accession": "O15498",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00957",
+        "name": "Synaptobrevin",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR042855",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15498",
+          "protein_length": 198,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 139,
+                  "end": 190,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00957",
+              "score": 2e-09
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF13774",
+        "name": "Regulated-SNARE-like domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR010908",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "o15498",
+          "protein_length": 198,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 26,
+                  "end": 118,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF13774",
+              "score": 1.3e-17
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

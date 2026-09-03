@@ -1,0 +1,26 @@
+{
+  "created_at": "2026-09-03T07:33:59.721722+00:00",
+  "local_only": true,
+  "source_id": "ligand_receptor_graph",
+  "lane": "human_target_intelligence",
+  "display_name": "Ligand-receptor evidence graph",
+  "status": "blocked",
+  "blocked_reason": "source_manifest_or_runtime_receipt_missing",
+  "runtime_signal": {
+    "required": false,
+    "present": false,
+    "present_names": [],
+    "resolved_paths": {}
+  },
+  "required_artifacts": [
+    "edge source",
+    "evidence type",
+    "affinity/assay condition when claimed",
+    "version"
+  ],
+  "source_ready": false,
+  "claim_eligible": false,
+  "customer_ready": false,
+  "release_ready": false,
+  "policy": "Split source/runtime manifest only. This is still blocked and does not imply data availability."
+}

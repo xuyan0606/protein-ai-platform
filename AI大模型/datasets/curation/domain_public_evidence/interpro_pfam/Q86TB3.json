@@ -1,0 +1,85 @@
+{
+  "accession": "Q86TB3",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF02816",
+        "name": "Alpha-kinase family",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR004166",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86tb3",
+          "protein_length": 2170,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1926,
+                  "end": 2125,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF02816",
+              "score": 2.8e-39
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07679",
+        "name": "Immunoglobulin I-set domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR013098",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q86tb3",
+          "protein_length": 2170,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 16,
+                  "end": 104,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07679",
+              "score": 5.1e-10
+            },
+            {
+              "fragments": [
+                {
+                  "start": 1803,
+                  "end": 1874,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07679",
+              "score": 0.00026
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

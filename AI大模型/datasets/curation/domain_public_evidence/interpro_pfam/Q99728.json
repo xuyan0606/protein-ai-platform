@@ -1,0 +1,107 @@
+{
+  "accession": "Q99728",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00533",
+        "name": "BRCA1 C Terminus (BRCT) domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001357",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q99728",
+          "protein_length": 777,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 571,
+                  "end": 640,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00533",
+              "score": 0.038
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF12796",
+        "name": "Ankyrin repeats (3 copies)",
+        "source_database": "pfam",
+        "type": "repeat",
+        "integrated": "IPR002110",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q99728",
+          "protein_length": 777,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 432,
+                  "end": 521,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF12796",
+              "score": 2.6e-19
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF14835",
+        "name": "zf-RING of BARD1-type protein",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR039503",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q99728",
+          "protein_length": 777,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 41,
+                  "end": 105,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF14835",
+              "score": 2.1e-40
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "accession": "P21399",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00330",
+        "name": "Aconitase family (aconitate hydratase)",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR001030",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p21399",
+          "protein_length": 889,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 63,
+                  "end": 564,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00330",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF00694",
+        "name": "Aconitase C-terminal domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR000573",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p21399",
+          "protein_length": 889,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 693,
+                  "end": 818,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00694",
+              "score": 6e-39
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

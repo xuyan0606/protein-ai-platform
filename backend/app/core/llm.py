@@ -15,14 +15,32 @@ import asyncio
 import json
 import logging
 import time
+import warnings
 from collections.abc import AsyncGenerator
 from dataclasses import dataclass, field
 from enum import Enum
 
 import tiktoken
-from litellm import acompletion, completion
+
+# LiteLLM currently emits a Pydantic v2 deprecation warning while importing
+# legacy proxy models. Keep this compatibility suppression scoped to its import;
+# application and test deprecations must remain visible.
+with warnings.catch_warnings():
+    warnings.filterwarnings(
+        "ignore",
+        category=DeprecationWarning,
+        module=r"pydantic\.",
+    )
+    from litellm import acompletion, completion
 
 from app.core.config import settings
+from app.core.llm_policy import (
+    candidate_provider_chain,
+    get_api_base,
+    get_api_key,
+    mark_model_unavailable,
+    model_string,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -183,43 +201,6 @@ def _sanitize_messages(messages: list[dict]) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# Provider API key mapping
-# ---------------------------------------------------------------------------
-
-def _get_api_key(provider: str) -> str | None:
-    mapping = {
-        "openai": settings.OPENAI_API_KEY,
-        "anthropic": settings.ANTHROPIC_API_KEY,
-        "deepseek": settings.DEEPSEEK_API_KEY,
-        "kuaPao": settings.KUAPAO_API_KEY,
-        "miniMax": settings.MINIMAX_API_KEY,
-        "dashscope": settings.DASHSCOPE_API_KEY,
-    }
-    return mapping.get(provider)
-
-
-def _get_api_base(provider: str) -> str | None:
-    """Return custom base URL for providers that use relays/proxies."""
-    mapping = {
-        "kuaPao": settings.KUAPAO_BASE_URL,
-        "miniMax": settings.MINIMAX_BASE_URL,
-        "dashscope": settings.DASHSCOPE_BASE_URL,
-    }
-    return mapping.get(provider) or None
-
-
-def _model_string(provider: str, model: str) -> str:
-    """Build LiteLLM model identifier.
-
-    Custom OpenAI-compatible relays (kuaPao, miniMax) use 'openai/' prefix
-    so LiteLLM uses the OpenAI chat-completion protocol.
-    """
-    if provider in ("kuaPao", "miniMax", "dashscope"):
-        return f"openai/{model}"
-    return f"{provider}/{model}"
-
-
-# ---------------------------------------------------------------------------
 # Core async completion with fallback & retry
 # ---------------------------------------------------------------------------
 
@@ -241,7 +222,7 @@ async def chat_completion(
         temperature: LLM temperature override.
         max_tokens: Max tokens override.
         provider: Override the default provider (e.g. 'kuaPao', 'miniMax').
-        model: Override the default model (e.g. 'gpt-5.4', 'miniMax').
+        model: Override the default model (e.g. 'gpt-5.5', 'miniMax').
 
     Returns:
         LiteLLM response object (or async generator if stream=True).
@@ -258,27 +239,20 @@ async def chat_completion(
             f"{settings.RATE_LIMIT_WINDOW_SECONDS}s)"
         )
 
-    # Resolve provider/model: runtime override > settings default
-    use_provider = provider or settings.LLM_PROVIDER
-    use_model = model or settings.LLM_MODEL
-
     # Sanitize messages for API compatibility (Dashscope/Qwen requires string content)
     messages = _sanitize_messages(messages)
 
-    providers: list[tuple[str, str]] = [
-        (use_provider, use_model),
-    ]
-    fallback = (settings.LLM_FALLBACK_PROVIDER, settings.LLM_FALLBACK_MODEL)
-    if fallback != providers[0]:
-        providers.append(fallback)
+    providers = candidate_provider_chain(provider, model)
+    if not providers:
+        raise AllProvidersFailed("No available LLM providers are configured")
 
     last_error: Exception | None = None
 
     for prov, mod in providers:
-        api_key = _get_api_key(prov)
-        api_base = _get_api_base(prov)
+        api_key = get_api_key(prov)
+        api_base = get_api_base(prov)
         kwargs: dict = dict(
-            model=_model_string(prov, mod),
+            model=model_string(prov, mod),
             messages=messages,
             temperature=temperature,
             max_tokens=max_tokens,
@@ -310,6 +284,7 @@ async def chat_completion(
                     "access denied", "account", "billing",
                 ))
                 if is_permanent:
+                    mark_model_unavailable(prov, mod)
                     logger.warning(
                         "LLM provider %s/%s permanently unavailable: %s",
                         prov, mod, exc,
@@ -351,26 +326,20 @@ def chat_completion_sync(
             f"{settings.RATE_LIMIT_WINDOW_SECONDS}s)"
         )
 
-    use_provider = provider or settings.LLM_PROVIDER
-    use_model = model or settings.LLM_MODEL
-
     # Sanitize messages for API compatibility (Dashscope/Qwen requires string content)
     messages = _sanitize_messages(messages)
 
-    providers: list[tuple[str, str]] = [
-        (use_provider, use_model),
-    ]
-    fallback = (settings.LLM_FALLBACK_PROVIDER, settings.LLM_FALLBACK_MODEL)
-    if fallback != providers[0]:
-        providers.append(fallback)
+    providers = candidate_provider_chain(provider, model)
+    if not providers:
+        raise AllProvidersFailed("No available LLM providers are configured")
 
     last_error: Exception | None = None
 
     for prov, mod in providers:
-        api_key = _get_api_key(prov)
-        api_base = _get_api_base(prov)
+        api_key = get_api_key(prov)
+        api_base = get_api_base(prov)
         kwargs: dict = dict(
-            model=_model_string(prov, mod),
+            model=model_string(prov, mod),
             messages=messages,
             temperature=temperature,
             max_tokens=max_tokens,
@@ -381,6 +350,8 @@ def chat_completion_sync(
             kwargs["api_base"] = api_base
         if tools:
             kwargs["tools"] = tools
+
+        kwargs["timeout"] = settings.LLM_REQUEST_TIMEOUT
 
         for attempt in range(1, settings.LLM_MAX_RETRIES + 1):
             try:
@@ -394,6 +365,7 @@ def chat_completion_sync(
                     "access denied", "account", "billing",
                 ))
                 if is_permanent:
+                    mark_model_unavailable(prov, mod)
                     logger.warning(
                         "LLM sync provider %s/%s permanently unavailable: %s",
                         prov, mod, exc,
@@ -468,65 +440,5 @@ async def stream_sse(
     })
 
 
-# ---------------------------------------------------------------------------
-# Model registry — available models exposed to the frontend
-# ---------------------------------------------------------------------------
-
-@dataclass
-class ModelInfo:
-    id: str          # unique key used in API calls (e.g. "deepseek", "kuaPao")
-    name: str        # display name (e.g. "DeepSeek V4 Pro")
-    provider: str    # backend provider key
-    model: str       # model identifier
-    description: str = ""
-    available: bool = True
-
-
-MODEL_REGISTRY: list[ModelInfo] = [
-    ModelInfo(
-        id="deepseek",
-        name="DeepSeek V4 Pro",
-        provider="deepseek",
-        model=settings.LLM_MODEL if settings.LLM_MODEL != "gpt-4o" else "deepseek-v4-pro",
-        description="1M context, 384K output — primary model",
-    ),
-    ModelInfo(
-        id="kuaPao",
-        name="KuaPao GPT-5.4",
-        provider="kuaPao",
-        model=settings.KUAPAO_MODEL,
-        description="OpenAI-compatible relay at kuaipao.ai",
-        available=bool(settings.KUAPAO_API_KEY),
-    ),
-    ModelInfo(
-        id="miniMax",
-        name="MiniMax-M2.7",
-        provider="miniMax",
-        model=settings.MINIMAX_MODEL,
-        description="MiniMax M2.7 via relay",
-        available=bool(settings.MINIMAX_API_KEY),
-    ),
-    ModelInfo(
-        id="dashscope",
-        name="阿里云千问 (Qwen)",
-        provider="dashscope",
-        model=settings.DASHSCOPE_MODEL,
-        description="阿里云百炼 DashScope — qwen3.7-max 旗舰模型",
-        available=bool(settings.DASHSCOPE_API_KEY),
-    ),
-]
-
-
-def get_available_models() -> list[dict]:
-    """Return the list of models that have API keys configured."""
-    return [
-        {
-            "id": m.id,
-            "name": m.name,
-            "provider": m.provider,
-            "model": m.model,
-            "description": m.description,
-            "available": m.available,
-        }
-        for m in MODEL_REGISTRY
-    ]
+from app.core.llm_gateway import get_available_models, llm_gateway
+from app.core.llm_registry import MODEL_REGISTRY, ModelInfo, get_model_info

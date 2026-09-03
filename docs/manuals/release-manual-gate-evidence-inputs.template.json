@@ -1,0 +1,69 @@
+{
+  "decision": {
+    "approvals_complete": null,
+    "automatic_blocked_zero": null,
+    "automatic_failed_zero": null,
+    "business_owner_signature": "<name / timestamp>",
+    "external_storage_evidence_complete": null,
+    "final_decision": "<go/no-go/defer>",
+    "maintenance_evidence_complete": null,
+    "offsite_restore_evidence_complete": null,
+    "release_owner_signature": "<name / timestamp>",
+    "reviewer_signature": "<name / timestamp>",
+    "rollback_path_ready": null
+  },
+  "gates": {
+    "external_storage_restore_validation_gate": {
+      "application_readonly_smoke_path": "<path>",
+      "backup_ref": "<snapshot / backup ref>",
+      "conclusion": "<passed>",
+      "production_path_switched": null,
+      "restore_target": "<shadow bucket / prefix>",
+      "sample_object_read_evidence_path": "<path>",
+      "shadow_restore_evidence_path": "<path>",
+      "status": "<passed>"
+    },
+    "offsite_backup_restore_drill_gate": {
+      "application_readonly_smoke_path": "<path>",
+      "backup_target": "<redacted target / object ref>",
+      "checksum_evidence_path": "<path>",
+      "conclusion": "<passed>",
+      "copy_evidence_path": "<path>",
+      "restore_evidence_path": "<path>",
+      "restore_target": "<independent restore target>",
+      "status": "<passed>"
+    },
+    "production_rollback_drill_gate": {
+      "authorization_evidence_path": "<path>",
+      "backup_verify_path": "<path>",
+      "conclusion": "<passed>",
+      "maintenance_window_id": "<fill>",
+      "pg_restore_list_path": "<path>",
+      "restore_drill_path": "<path>",
+      "rollback_plan_path": "<path>",
+      "status": "<passed>"
+    }
+  },
+  "mode": "release_manual_gate_evidence_template",
+  "policy": "Record references to evidence only. Do not paste cloud access keys, database passwords, OIDC secrets, or raw tokens into this file. The validator does not contact external systems.",
+  "release": {
+    "business_owner": "<name / team>",
+    "database_backup": "<backups/protein_ai_...dump>",
+    "database_backup_sha256_evidence": "<path>",
+    "evidence_archive_dir": "<docs/manuals/drill-records/YYYY-MM-DD-.../>",
+    "maintenance_window_id": "<MAINTENANCE_WINDOW_ID>",
+    "release_date": "<YYYY-MM-DD>",
+    "release_owner": "<name / team>",
+    "release_package": "<dist/packages/...tar.gz>",
+    "release_package_sha256_evidence": "<path>",
+    "reviewer": "<name / team>"
+  },
+  "release_acceptance": {
+    "blocked": null,
+    "failed": null,
+    "json_output_path": "<path>",
+    "manual_required": null,
+    "skipped": null,
+    "status": "<passed>"
+  }
+}

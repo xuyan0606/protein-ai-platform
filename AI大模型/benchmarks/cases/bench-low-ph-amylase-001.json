@@ -1,0 +1,46 @@
+{
+  "case_id": "bench-low-ph-amylase-001",
+  "title": "Low-pH amylase engineering must balance acid stability and activity",
+  "input": {
+    "message": "酶的名称：GH13 淀粉酶。目标：把最适 pH 从 6.0 降到 4.5-5.0，同时保留淀粉水解活性。已有序列和 AlphaFold 结构。",
+    "history_context": [
+      {
+        "role": "user",
+        "content": "sequence: MSTNPKPQRKTKRNTNRRPQDVKFPGGGQIVGGYKVVGQLVGEDNINVVEGNEQFISASKSIVHPSYNSNTLNNDIMLIKLAQKVGLVQ"
+      },
+      {
+        "role": "assistant",
+        "content": "alphafold_id: AF-DEMOAMY-F1"
+      }
+    ],
+    "attachments": []
+  },
+  "expected_workflow": [
+    "predict_properties",
+    "annotation_bundle",
+    "residue_numbering_gate",
+    "structure_search_foldseek",
+    "kwb_enzyme_designer"
+  ],
+  "must_have": [
+    "identify GH13 catalytic and calcium-binding guardrails",
+    "separate pH-shift hypotheses from experimentally validated facts",
+    "prefer surface electrostatic and loop candidates before catalytic-core changes"
+  ],
+  "must_not_have": [
+    "recommend catalytic acid/base or nucleophile mutation as a normal candidate",
+    "claim pH optimum improvement without assay validation",
+    "ignore activity preservation constraint"
+  ],
+  "expected_output": {
+    "sections": [
+      "Low-pH objective",
+      "Catalytic guardrails",
+      "Candidate mutations",
+      "Activity tradeoff risk",
+      "Assay plan"
+    ]
+  },
+  "scoring_profile": "default"
+}
+

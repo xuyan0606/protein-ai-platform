@@ -1,0 +1,73 @@
+{
+  "accession": "Q6UW63",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00630",
+        "name": "Filamin/ABP280 repeat",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR017868",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6uw63",
+          "protein_length": 502,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 27,
+                  "end": 126,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00630",
+              "score": 1.6e-13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF05686",
+        "name": "Glycosyl transferase family 90",
+        "source_database": "pfam",
+        "type": "family",
+        "integrated": "IPR006598",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "q6uw63",
+          "protein_length": 502,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 150,
+                  "end": 484,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF05686",
+              "score": 2.2e-114
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

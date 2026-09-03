@@ -1,0 +1,45 @@
+{
+  "model": "KWB-EnzymeDesigner-baseline-ranker",
+  "version": "0.1.0-linear-baseline",
+  "trained_on_rows": 12,
+  "training_source": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/datasets/curated/training_table.jsonl",
+  "bias": 25.0,
+  "weights": {
+    "has_sequence": 3.0,
+    "has_structure": 5.0,
+    "numbering_verified": 8.0,
+    "has_substrate": 3.0,
+    "kwb_private_records": 2.5,
+    "public_database_records": 1.2,
+    "tool_result_count": 0.8,
+    "has_ligand_tool_result": 4.0,
+    "has_md_tool_result": 3.0,
+    "has_annotation_result": 5.0,
+    "assay_completeness": 2.0,
+    "is_proline_mutation": 8.0,
+    "is_charge_mutation": 2.0,
+    "has_prior_go": 15.0,
+    "has_prior_no_go": -22.0,
+    "risk_protected_catalytic": -60.0,
+    "risk_near_active_site": -20.0,
+    "risk_near_pocket": -6.0,
+    "risk_numbering_uncertain": -25.0,
+    "risk_low_structure_confidence": -10.0
+  },
+  "score_summary": {
+    "min": 0.0,
+    "max": 64.4,
+    "mean": 38.675
+  },
+  "decision_thresholds": {
+    "go": 80,
+    "watch": 45,
+    "no_go": 0
+  },
+  "limitations": [
+    "rule-calibrated baseline only",
+    "not a trained neural model",
+    "requires wet-lab validation",
+    "benchmark cases are synthetic local R&D fixtures"
+  ]
+}

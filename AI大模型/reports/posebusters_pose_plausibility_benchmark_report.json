@@ -1,0 +1,45 @@
+{
+  "all_checks_passed_fraction": 0.15555555555555556,
+  "all_checks_passed_rows": 1197,
+  "benchmark_name": "PoseBusters-style pose plausibility",
+  "created_at": "2026-09-03T07:33:43.961683+00:00",
+  "dataset_counts": {
+    "astex": 1275,
+    "posebuster": 6420
+  },
+  "dataset_rows": 7695,
+  "head": "substrate_fit",
+  "local_only": true,
+  "method_counts": {
+    "crystal_structures": 513,
+    "deepdock": 1026,
+    "diffdock": 1026,
+    "equibind": 1026,
+    "gold": 1026,
+    "tankbind": 1026,
+    "unimol": 1026,
+    "vina": 1026
+  },
+  "outputs": {
+    "dataset": "cache/advanced_features/benchmarks/posebusters_style_pose_plausibility/dataset.jsonl",
+    "metric_report": "cache/advanced_features/benchmarks/posebusters_style_pose_plausibility/metric_report.json",
+    "scorecard": "cache/advanced_features/benchmarks/posebusters_style_pose_plausibility/scorecard.json",
+    "source_receipt": "cache/advanced_features/benchmarks/posebusters_style_pose_plausibility/source_receipt.json",
+    "split": "cache/advanced_features/benchmarks/posebusters_style_pose_plausibility/split_definition.json"
+  },
+  "parse_errors": {},
+  "policy": "Evaluation-only PoseBusters-style pose plausibility benchmark. It does not create KWB labels, execute PoseBusters locally, or open model/release claims.",
+  "posebusters_runtime_executed_locally": false,
+  "post_processing_counts": {
+    "energy minimization": 3591,
+    "none": 4104
+  },
+  "ready_for_model_claim": false,
+  "release_ready": false,
+  "safe_for_model_claim": false,
+  "source_csv_failures": [],
+  "source_csv_verified": true,
+  "substrate_fit_training_label_rows_written": 0,
+  "training_import_written_rows": 0,
+  "unique_complexes": 513
+}

@@ -1,0 +1,119 @@
+{
+  "accession": "P08922",
+  "results": [
+    {
+      "metadata": {
+        "accession": "PF00041",
+        "name": "Fibronectin type III domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR003961",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p08922",
+          "protein_length": 2347,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 204,
+                  "end": 280,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00041",
+              "score": 7.5e-08
+            },
+            {
+              "fragments": [
+                {
+                  "start": 1669,
+                  "end": 1745,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF00041",
+              "score": 0.006
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF07714",
+        "name": "Protein tyrosine and serine/threonine kinase",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR001245",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p08922",
+          "protein_length": 2347,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1948,
+                  "end": 2215,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": false,
+              "model": "PF07714",
+              "score": 1.3e-91
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "accession": "PF28033",
+        "name": "ROS1, fibronectin type III domain",
+        "source_database": "pfam",
+        "type": "domain",
+        "integrated": "IPR060587",
+        "member_databases": null,
+        "go_terms": null
+      },
+      "proteins": [
+        {
+          "accession": "p08922",
+          "protein_length": 2347,
+          "source_database": "reviewed",
+          "organism": "9606",
+          "in_alphafold": true,
+          "entry_protein_locations": [
+            {
+              "fragments": [
+                {
+                  "start": 1451,
+                  "end": 1545,
+                  "dc-status": "CONTINUOUS"
+                }
+              ],
+              "representative": true,
+              "model": "PF28033",
+              "score": 3.6e-08
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
