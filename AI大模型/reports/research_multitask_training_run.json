@@ -1,0 +1,87 @@
+{
+  "created_at": "2026-09-03T03:34:42.147878+00:00",
+  "mode": "smoke",
+  "artifact_kind": "research_multitask_smoke_only",
+  "source_row_count": 6,
+  "normalized_label_row_count": 6,
+  "head_metrics": {
+    "mutation_rank": {
+      "sample_count": 0,
+      "group_count": 0,
+      "replicate_count": 0,
+      "class_count": 0
+    },
+    "stability": {
+      "sample_count": 0,
+      "group_count": 0,
+      "replicate_count": 0,
+      "class_count": 0
+    },
+    "activity_risk": {
+      "sample_count": 6,
+      "group_count": 2,
+      "replicate_count": 0,
+      "class_count": 2
+    },
+    "substrate_fit": {
+      "sample_count": 0,
+      "group_count": 0,
+      "replicate_count": 0,
+      "class_count": 0
+    },
+    "assay_success": {
+      "sample_count": 0,
+      "group_count": 0,
+      "replicate_count": 0,
+      "class_count": 0
+    }
+  },
+  "unknown_heads": [],
+  "trained_heads": [
+    "activity_risk"
+  ],
+  "training_executed": true,
+  "safe_for_supervised_training": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "excluded_feature_fields": [
+    "activity_relative_to_wt",
+    "activity_risk_label",
+    "assay_success",
+    "label_ddg",
+    "label_decision",
+    "label_stability_delta_tm_c",
+    "label_value",
+    "substrate_fit_label"
+  ],
+  "feature_schema": [
+    "canonical_position_scaled",
+    "ph_scaled",
+    "enzyme_identity_hash",
+    "wt_aa_hash",
+    "mutant_aa_hash",
+    "metric_or_assay_hash"
+  ],
+  "feature_schema_sha256": "1cc0c78d2d73e075f0f07f0d0263947e59692f3265f5f35ea5736371e72252e0",
+  "thresholds": {
+    "minimum_samples": 100,
+    "minimum_groups": 10,
+    "minimum_replicates": 3
+  },
+  "policy": "Research and smoke artifacts are isolated from production. Missing labels are masked, label/near-label fields are excluded from numeric features, and each head is gated independently.",
+  "split": {
+    "strategy": "group_holdout",
+    "train_rows": 6,
+    "validation_rows": 0,
+    "train_groups": 2,
+    "validation_groups": 0,
+    "group_overlap_count": 0
+  },
+  "status": "completed_smoke_only",
+  "epochs": 3,
+  "steps": 18,
+  "final_loss": 0.337548,
+  "validation_loss": null,
+  "checkpoint_path": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台/AI大模型/reports/research_multitask_smoke.checkpoint.pt",
+  "checkpoint_sha256": "3458291499a18c7feb435e4d48cbc7241a216434f5c2603bdd4bb538171d6e44"
+}

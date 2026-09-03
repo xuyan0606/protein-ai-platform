@@ -1,0 +1,151 @@
+{
+  "created_at": "2026-09-03T03:34:43.311690+00:00",
+  "schema_version": "1.0",
+  "local_only": true,
+  "canonical_status_source": true,
+  "sources": {
+    "multitask": {
+      "path": "reports/multitask_training_readiness_report.json",
+      "present": true,
+      "sha256": "fd3df4321bbcc8caf7181c1f83f1a557a28876b88671585667d22ecbb14bccb4"
+    },
+    "execution": {
+      "path": "reports/five_head_training_execution_contract_report.json",
+      "present": true,
+      "sha256": "0b08afea37ea342a2831b964f6127868048647e6aedf6c2fd279bb1b2ea201b7"
+    },
+    "features": {
+      "path": "reports/advanced_model_feature_contract_validation_report.json",
+      "present": true,
+      "sha256": "a7cb1340dd265e9e5de47f406d83646dbeb7855bdc1c85e6fbe17f0d801d0a44"
+    },
+    "pretraining": {
+      "path": "reports/sequence_pretraining_continuous_selection.json",
+      "present": true,
+      "sha256": "bab350dc47981c1432ad0d3f28b28638be80acc0ce46f2cdc6caabaa9d33bb2e"
+    },
+    "ddg": {
+      "path": "reports/ddg_backend_readiness_report.json",
+      "present": true,
+      "sha256": "7c7890a7a1cd5c036ef0c2cbc4a24dd602ddd43603868b488cad3a283c5b5ff8"
+    },
+    "unlock": {
+      "path": "reports/model_quality_unlock_requirements_report.json",
+      "present": true,
+      "sha256": "ebd7c620f8c593b0a7facd17929a2219436fb3141c561f54732ba42913d3e18b"
+    },
+    "production": {
+      "path": "reports/production_model_gate_20260829.json",
+      "present": true,
+      "sha256": "d954266f7cd314db194643810740ea192ffd13d9cbd5aeb00b607ed4a6d7e9b7"
+    }
+  },
+  "stages": {
+    "rule_mvp": {
+      "status": "baseline_only",
+      "safe_for_model_claim": false
+    },
+    "pretraining": {
+      "status": "completed_pretraining_only",
+      "selected_checkpoint": "reports/sequence_mlm_continuous_full_v6.checkpoint.pt",
+      "sequence_count": 12830,
+      "safe_for_supervised_training": false,
+      "safe_for_model_claim": false
+    },
+    "research_training": {
+      "status": "blocked_head_thresholds_not_met",
+      "ready_head_count": 0,
+      "training_execution_allowed": false,
+      "safe_for_model_claim": false
+    },
+    "production": {
+      "status": "blocked",
+      "ready": false,
+      "strict_supervised_rows": 0,
+      "safe_for_model_claim": false,
+      "release_ready": false
+    }
+  },
+  "heads": {
+    "mutation_rank": {
+      "label_rows": 0,
+      "minimum_rows": 100,
+      "ready": false
+    },
+    "stability": {
+      "label_rows": 0,
+      "minimum_rows": 100,
+      "ready": false
+    },
+    "activity_risk": {
+      "label_rows": 6,
+      "minimum_rows": 100,
+      "ready": false
+    },
+    "substrate_fit": {
+      "label_rows": 0,
+      "minimum_rows": 100,
+      "ready": false
+    },
+    "assay_success": {
+      "label_rows": 0,
+      "minimum_rows": 100,
+      "ready": false
+    }
+  },
+  "features": {
+    "msa_conservation": {
+      "ready_rows": 158,
+      "input_only": true,
+      "label_rows": 0
+    },
+    "pyrosetta_ddg_reu_input": {
+      "ready_rows": 11,
+      "input_only": true,
+      "label_rows": 0
+    },
+    "structure_graph": {
+      "ready_rows": 34,
+      "input_only": true,
+      "label_rows": 0
+    },
+    "structure_site": {
+      "ready_rows": 7,
+      "input_only": true,
+      "label_rows": 0
+    }
+  },
+  "tools": {
+    "thermompnn": {
+      "installed": true,
+      "runtime_ready": true,
+      "data_ready": true,
+      "model_weight_ready": true,
+      "execution_ready": true,
+      "claim_eligible": false,
+      "commercial_status": "commercial_evaluation_allowed"
+    }
+  },
+  "consistency": {
+    "missing_sources": [],
+    "conflicts": [
+      {
+        "key": "thermompnn_ready",
+        "current_value": true,
+        "current_source": "reports/ddg_backend_readiness_report.json",
+        "stale_value": false,
+        "stale_source": "reports/model_quality_unlock_requirements_report.json",
+        "resolution": "use dimensioned current ddG readiness; do not use legacy aggregate boolean"
+      }
+    ],
+    "feature_rows_counted_as_labels": 0
+  },
+  "next_actions": [
+    "obtain reviewed, provenance-backed labels with explicit assay conditions",
+    "reach per-head sample, replicate, and independent-group thresholds",
+    "run research shadow evaluation before any production model claim"
+  ],
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "This is the canonical status projection. Rule baselines, unlabeled pretraining, features, proxy tools, and research smoke runs never count as production labels or model-quality evidence."
+}
