@@ -31,3 +31,9 @@ Acquired 2026-09-11:
 
 The exact URLs, SHA-256 hashes, row/table locators, and import statuses are in
 `datasets/curation/google_literature_source_manifest.jsonl`.
+
+For the Zenodo rows, seven unique UniProt accessions were resolved through the
+official UniProt REST FASTA endpoint. The downloaded FASTA files and per-accession
+hashes are under `uniprot_fasta/`; the resolution ledger is
+`datasets/curation/uniprot_sequence_resolution_20260911.jsonl`. Resolution by
+accession does not repair missing assay conditions or authorize training by itself.
