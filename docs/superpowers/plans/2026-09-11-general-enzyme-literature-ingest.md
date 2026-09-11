@@ -42,7 +42,7 @@
 - 创建：`AI大模型/datasets/curation/google_literature_source_manifest.jsonl`
 - 测试：`AI大模型/tests/test_literature_source_registration.py`
 
-- [ ] **步骤 1：先写失败测试，锁定 Google 发现结果不能直接成为训练数据。**
+- [x] **步骤 1：先写失败测试，锁定 Google 发现结果不能直接成为训练数据。**
 
 ```python
 def test_search_result_is_not_training_source(tmp_path):
@@ -60,23 +60,23 @@ def test_search_result_is_not_training_source(tmp_path):
     assert "search_result_not_primary_evidence" in result["errors"]
 ```
 
-- [ ] **步骤 2：运行测试确认失败。**
+- [x] **步骤 2：运行测试确认失败。**
 
 运行：`PYTHONPATH=AI大模型/scripts python3 -m pytest -q AI大模型/tests/test_literature_source_registration.py`
 
 预期：FAIL，`validate_source_manifest` 尚不存在。
 
-- [ ] **步骤 3：实现最小来源验证器。**
+- [x] **步骤 3：实现最小来源验证器。**
 
 实现 `validate_source_manifest(path)`，逐行验证：`source_id`、`discovery_engine`、`query`、`result_url`、`primary_evidence_url`、`source_file`、`source_file_sha256`、`license`、`training_import_status`。当 `evidence_type` 为 `search_result`、缺少原始文件或哈希不匹配时，强制 `training_import_allowed=false`。`register_literature_sources.py` 只允许复制已存在的本地原始文件，不自动伪造下载结果。
 
-- [ ] **步骤 4：运行测试确认通过，并增加哈希 mismatch 负例。**
+- [x] **步骤 4：运行测试确认通过，并增加哈希 mismatch 负例。**
 
 运行：`PYTHONPATH=AI大模型/scripts python3 -m pytest -q AI大模型/tests/test_literature_source_registration.py`
 
 预期：PASS，至少 3 个测试覆盖搜索结果阻断、文件哈希通过、哈希不匹配阻断。
 
-- [ ] **步骤 5：提交。**
+- [x] **步骤 5：提交。**
 
 ```bash
 git add AI大模型/contracts/literature_source_manifest.schema.json AI大模型/scripts/register_literature_sources.py AI大模型/datasets/curation/google_literature_source_manifest.jsonl AI大模型/tests/test_literature_source_registration.py
@@ -91,21 +91,21 @@ git commit -m "feat: add auditable literature source registration"
 - 创建：`AI大模型/reports/google_literature_source_receipt_20260911.json`
 - 测试：复用 `AI大模型/tests/test_literature_source_registration.py`
 
-- [ ] **步骤 1：建立查询集，不把搜索摘要当数据。**
+- [x] **步骤 1：建立查询集，不把搜索摘要当数据。**
 
 记录以下查询及日期：`enzyme Km pH temperature assay dataset`、`enzyme kcat Km supplementary table sequence`、`protein thermostability Tm sequence dataset license`、`experimental protein mutation effect DMS enzyme`、`enzyme optimum pH activity mutant supplementary data`。每条结果填入 `discovery_engine=google_search`、`query`、`result_url`、`title`，仅当打开论文/仓库并取得原始文件后补齐 `primary_evidence_url` 和 `source_file_sha256`。
 
-- [ ] **步骤 2：为每个权威来源保存原始文件和许可证据。**
+- [x] **步骤 2：为每个权威来源保存原始文件和许可证据。**
 
 把论文 XML/PDF、补充 CSV/Excel、作者仓库导出文件放入 `AI大模型/datasets/source_drops/google_literature_20260911/`，旁边保存许可证文本或来源页面快照；禁止把 Google HTML 搜索页放入原始测量文件。
 
-- [ ] **步骤 3：运行注册器生成 receipt。**
+- [x] **步骤 3：运行注册器生成 receipt。**
 
 运行：`python3 AI大模型/scripts/register_literature_sources.py --manifest AI大模型/datasets/curation/google_literature_source_manifest.jsonl --source-root AI大模型/datasets/source_drops/google_literature_20260911 --receipt AI大模型/reports/google_literature_source_receipt_20260911.json`
 
 预期：缺少原始文件的发现项保留为 `needs_review`，有文件且哈希、许可证和主证据齐全的来源才标记 `research_candidate`；不允许出现未经证据升级的 `training_import_allowed=true`。
 
-- [ ] **步骤 4：提交来源审计产物。**
+- [x] **步骤 4：提交来源审计产物。**
 
 ```bash
 git add AI大模型/datasets/curation/google_literature_source_manifest.jsonl AI大模型/datasets/source_drops/google_literature_20260911/README.md AI大模型/reports/google_literature_source_receipt_20260911.json
@@ -121,7 +121,7 @@ git commit -m "data: record google literature source receipts"
 - 创建：`AI大模型/datasets/curation/literature_measurements_extracted.jsonl`
 - 测试：`AI大模型/tests/test_normalize_literature_measurements.py`
 
-- [ ] **步骤 1：先写规范化失败测试。**
+- [x] **步骤 1：先写规范化失败测试。**
 
 ```python
 def test_normalize_preserves_original_unit_and_converts_km(tmp_path):
@@ -133,23 +133,23 @@ def test_normalize_preserves_original_unit_and_converts_km(tmp_path):
     assert normalized["training_import_status"] == "needs_review"
 ```
 
-- [ ] **步骤 2：运行测试确认失败。**
+- [x] **步骤 2：运行测试确认失败。**
 
 运行：`PYTHONPATH=AI大模型/scripts python3 -m pytest -q AI大模型/tests/test_normalize_literature_measurements.py`
 
 预期：FAIL，`normalize_row` 尚不存在。
 
-- [ ] **步骤 3：实现规范化器和 JSON Schema。**
+- [x] **步骤 3：实现规范化器和 JSON Schema。**
 
 实现 `normalize_row(row)`：标准化蛋白序列大小写、计算 `sequence_hash`、解析 `mutation` 为 WT/position/mutant、保留 `original_value/original_unit`、仅对白名单单位执行显式转换；缺序列、缺来源定位、缺单位、缺实验条件或许可证时设置 `training_import_status=needs_review`，不删除记录。对同一来源、序列、突变、指标和条件生成 deterministic `record_id`。
 
-- [ ] **步骤 4：运行单元测试和 schema 校验。**
+- [x] **步骤 4：运行单元测试和 schema 校验。**
 
 运行：`PYTHONPATH=AI大模型/scripts python3 -m pytest -q AI大模型/tests/test_normalize_literature_measurements.py`
 
 预期：PASS，覆盖 Km、Tm、突变效应、缺单位、非法序列和非法突变位置。
 
-- [ ] **步骤 5：提交。**
+- [x] **步骤 5：提交。**
 
 ```bash
 git add AI大模型/contracts/enzyme_experimental_record.schema.json AI大模型/scripts/normalize_literature_measurements.py AI大模型/datasets/curation/sci_open_measurement_extraction_templates_20260902.jsonl AI大模型/tests/test_normalize_literature_measurements.py
@@ -164,7 +164,7 @@ git commit -m "feat: normalize enzyme literature measurements"
 - 测试：`AI大模型/tests/test_audit_general_enzyme_dataset.py`
 - 修改：`AI大模型/scripts/build_literature_measurement_approved_preview.py`
 
-- [ ] **步骤 1：先写失败测试，锁定同 WT 不跨 split。**
+- [x] **步骤 1：先写失败测试，锁定同 WT 不跨 split。**
 
 ```python
 def test_same_sequence_mutants_are_grouped_together():
@@ -177,23 +177,23 @@ def test_same_sequence_mutants_are_grouped_together():
     assert "sequence_group_cross_split" in audit["errors"]
 ```
 
-- [ ] **步骤 2：运行测试确认失败。**
+- [x] **步骤 2：运行测试确认失败。**
 
 运行：`PYTHONPATH=AI大模型/scripts python3 -m pytest -q AI大模型/tests/test_audit_general_enzyme_dataset.py`
 
 预期：FAIL，`audit_rows` 尚不存在。
 
-- [ ] **步骤 3：实现 fail-closed 审计。**
+- [x] **步骤 3：实现 fail-closed 审计。**
 
 审计检查序列字符、突变一致性、数值范围、单位白名单、来源哈希、许可证状态、重复键、同 `sequence_hash`/同论文跨 split、同一派生标签作为独立证据等。输出每个任务的样本数、蛋白组数、显式 replicate 数、可训练数和阻断原因；任何错误都将总状态设为 `blocked_quality_check`。
 
-- [ ] **步骤 4：接入现有文献 preview 并运行回归。**
+- [x] **步骤 4：接入现有文献 preview 并运行回归。**
 
 运行：`PYTHONPATH=AI大模型/scripts python3 -m pytest -q AI大模型/tests/test_audit_general_enzyme_dataset.py AI大模型/tests/test_import_public_experimental_research_labels.py`
 
 预期：PASS；preview 仍输出 `training_import_allowed=false`，只新增来源哈希和许可证审计字段。
 
-- [ ] **步骤 5：提交。**
+- [x] **步骤 5：提交。**
 
 ```bash
 git add AI大模型/scripts/audit_general_enzyme_dataset.py AI大模型/reports/general_enzyme_dataset_audit_20260911.json AI大模型/scripts/build_literature_measurement_approved_preview.py AI大模型/tests/test_audit_general_enzyme_dataset.py
@@ -207,7 +207,7 @@ git commit -m "feat: audit general enzyme dataset quality and leakage"
 - 创建：`AI大模型/reports/general_enzyme_training_manifest_20260911.json`
 - 创建：`AI大模型/tests/test_general_enzyme_dataset_manifest.py`
 
-- [ ] **步骤 1：先写失败测试，锁定审计失败不能生成可训练 manifest。**
+- [x] **步骤 1：先写失败测试，锁定审计失败不能生成可训练 manifest。**
 
 ```python
 def test_manifest_stays_blocked_when_audit_has_errors(tmp_path):
@@ -218,23 +218,23 @@ def test_manifest_stays_blocked_when_audit_has_errors(tmp_path):
     assert result["training_import_allowed"] is False
 ```
 
-- [ ] **步骤 2：运行测试确认失败。**
+- [x] **步骤 2：运行测试确认失败。**
 
 运行：`PYTHONPATH=AI大模型/scripts python3 -m pytest -q AI大模型/tests/test_general_enzyme_dataset_manifest.py`
 
 预期：FAIL，`build_manifest` 尚不存在。
 
-- [ ] **步骤 3：实现 manifest 生成器。**
+- [x] **步骤 3：实现 manifest 生成器。**
 
 只读取审计报告、来源 receipt 和规范化 JSONL，记录文件 SHA-256、行数、任务覆盖、许可证分层、group split、审计报告路径和 `execution_scope=research_only`。审计非 `passed` 时输出 `status=blocked`、`training_import_allowed=false`；此脚本不得导入 torch、启动训练或写入模型 checkpoint。
 
-- [ ] **步骤 4：运行全阶段验证。**
+- [x] **步骤 4：运行全阶段验证。**
 
 运行：`PYTHONPATH=AI大模型/scripts python3 -m pytest -q AI大模型/tests/test_literature_source_registration.py AI大模型/tests/test_normalize_literature_measurements.py AI大模型/tests/test_audit_general_enzyme_dataset.py AI大模型/tests/test_general_enzyme_dataset_manifest.py`
 
 预期：全部 PASS；manifest 明确显示研究范围和阻断项。
 
-- [ ] **步骤 5：提交阶段 A。**
+- [x] **步骤 5：提交阶段 A。**
 
 ```bash
 git add AI大模型/scripts/build_general_enzyme_dataset_manifest.py AI大模型/reports/general_enzyme_training_manifest_20260911.json AI大模型/tests/test_general_enzyme_dataset_manifest.py
@@ -243,9 +243,9 @@ git commit -m "feat: freeze research-only enzyme dataset manifest"
 
 ## 交付验收
 
-- [ ] `git diff --check` 通过。
-- [ ] 四组新增测试全部通过。
-- [ ] 所有来源有查询日期、权威 URL、文件哈希和许可证状态；缺失项明确为 `needs_review` 或 `blocked_license`。
-- [ ] 统一记录保留原始单位和原始值，任何转换均可复算。
-- [ ] 同一 WT 序列、同一论文和派生标签没有跨 split 泄漏。
-- [ ] 最终 manifest 为 `research_only`；本阶段没有训练进程、模型 checkpoint 或生产注册变更。
+- [x] `git diff --check` 通过。
+- [x] 四组新增测试全部通过。
+- [x] 所有来源有查询日期、权威 URL、文件哈希和许可证状态；缺失项明确为 `needs_review` 或 `blocked_license`。
+- [x] 统一记录保留原始单位和原始值，任何转换均可复算。
+- [x] 同一 WT 序列、同一论文和派生标签没有跨 split 泄漏。
+- [x] 最终 manifest 为 `research_only`；本阶段没有训练进程、模型 checkpoint 或生产注册变更。

@@ -1,0 +1,33 @@
+{
+  "schema_version": "general-enzyme-training-manifest.v1",
+  "status": "blocked",
+  "execution_scope": "research_only",
+  "production_registration": "forbidden",
+  "training_import_allowed": false,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "audit_status": "blocked_no_records",
+  "row_count": 0,
+  "metric_counts": {},
+  "files": [
+    {
+      "path": "AI大模型/reports/general_enzyme_dataset_audit_20260911.json",
+      "sha256": "0090f89e083d1f620e4535d839722e34dba3ef8104aa119cef406104f59099af",
+      "kind": "audit"
+    },
+    {
+      "path": "AI大模型/reports/google_literature_source_receipt_20260911.json",
+      "sha256": "11cae0d760380d18a6f62eab39ee271bb38aaaf158c92ea57226961d848ff658",
+      "kind": "source_receipt"
+    },
+    {
+      "path": "AI大模型/datasets/curation/literature_measurements_extracted.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "normalized_records"
+    }
+  ],
+  "blockers": [
+    "dataset_audit_not_passed"
+  ],
+  "policy": "This manifest describes research data readiness only and never authorizes production registration."
+}
