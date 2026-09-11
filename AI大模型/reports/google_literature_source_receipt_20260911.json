@@ -1,6 +1,6 @@
 {
-  "source_rows": 5,
-  "valid_rows": 0,
+  "source_rows": 7,
+  "valid_rows": 2,
   "errors": [
     "missing_license",
     "missing_primary_evidence_type",
@@ -63,6 +63,16 @@
         "source_file_missing"
       ],
       "training_import_allowed": false
+    },
+    {
+      "source_id": "google-literature-gotenzymes2-km-20260911",
+      "errors": [],
+      "training_import_allowed": true
+    },
+    {
+      "source_id": "google-literature-skid-brenda-km-20260911",
+      "errors": [],
+      "training_import_allowed": true
     }
   ],
   "training_import_allowed": false,

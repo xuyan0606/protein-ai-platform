@@ -6,23 +6,25 @@
   "training_import_allowed": false,
   "safe_for_model_claim": false,
   "release_ready": false,
-  "audit_status": "blocked_no_records",
-  "row_count": 0,
-  "metric_counts": {},
+  "audit_status": "blocked_quality_check",
+  "row_count": 50,
+  "metric_counts": {
+    "km": 50
+  },
   "files": [
     {
       "path": "AI大模型/reports/general_enzyme_dataset_audit_20260911.json",
-      "sha256": "0090f89e083d1f620e4535d839722e34dba3ef8104aa119cef406104f59099af",
+      "sha256": "c2e204b7eaf8c7369d55434abeec1c8c9f6c2bb6522bb768c93d2325ff651700",
       "kind": "audit"
     },
     {
       "path": "AI大模型/reports/google_literature_source_receipt_20260911.json",
-      "sha256": "11cae0d760380d18a6f62eab39ee271bb38aaaf158c92ea57226961d848ff658",
+      "sha256": "ef9e628ee70ee343d9236644d37eb39ca809dccb05958a84221c0bfce7cc12ee",
       "kind": "source_receipt"
     },
     {
-      "path": "AI大模型/datasets/curation/literature_measurements_extracted.jsonl",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "AI大模型/datasets/curation/literature_measurements_normalized.jsonl",
+      "sha256": "f91bd3de953b6cf1de5fffcfa63017cedb3773abe9111becf9ec6c3cb7bd5c99",
       "kind": "normalized_records"
     }
   ],

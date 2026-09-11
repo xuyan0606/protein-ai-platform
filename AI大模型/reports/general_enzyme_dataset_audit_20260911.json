@@ -1,10 +1,16 @@
 {
-  "status": "blocked_no_records",
-  "row_count": 0,
-  "group_count": 0,
+  "status": "blocked_quality_check",
+  "row_count": 50,
+  "group_count": 13,
   "replicate_count": 0,
-  "metric_counts": {},
-  "errors": [],
+  "metric_counts": {
+    "km": 50
+  },
+  "errors": [
+    "duplicate_record",
+    "invalid_sequence",
+    "row_quality_flags"
+  ],
   "training_import_allowed": false,
   "safe_for_model_claim": false,
   "release_ready": false,

@@ -13,3 +13,17 @@ Rules:
 - A missing primary file, hash, license, or row/table locator remains
   `needs_review` and cannot enter training.
 - No credentials, private data, or unverified generated tables belong here.
+
+Acquired 2026-09-11:
+
+- `gotenzymes2_km_data_0.4simi_10fold.csv`: author repository data file from
+  LiLabTsinghua/GotEnzymes2; accompanying `gotenzymes2_LICENSE.txt`. The table
+  contains sequences and Km(M), but the extracted rows do not contain assay pH
+  or temperature, so they remain `needs_review` for model training.
+- `skid_BRENDA_Km_data_all_v1.csv`: author repository sample output from the
+  SKiD pipeline; accompanying `skid_README_license_capture.md`. The table has
+  pH, temperature, and references, but its protein field is an accession
+  object rather than a sequence; it is research-only under CC BY-NC-ND 4.0.
+
+The exact URLs, SHA-256 hashes, row/table locators, and import statuses are in
+`datasets/curation/google_literature_source_manifest.jsonl`.
