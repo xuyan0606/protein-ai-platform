@@ -32,3 +32,12 @@ def test_empty_dataset_is_blocked():
     audit = audit_rows([])
     assert audit["status"] == "blocked_no_records"
     assert audit["training_import_allowed"] is False
+
+
+def test_distinct_substrates_are_not_duplicate_records():
+    rows = [
+        {"record_id": "a", "sequence_hash": "wt1", "metric": "km", "value_si": 1.0, "source_id": "s1", "source_record_id": "r1", "substrate": "A", "license_status": "approved", "quality_flags": [], "source_file_sha256": "a" * 64},
+        {"record_id": "b", "sequence_hash": "wt1", "metric": "km", "value_si": 1.0, "source_id": "s1", "source_record_id": "r2", "substrate": "B", "license_status": "approved", "quality_flags": [], "source_file_sha256": "a" * 64},
+    ]
+    audit = audit_rows(rows)
+    assert "duplicate_record" not in audit["errors"]

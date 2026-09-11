@@ -29,7 +29,17 @@ def audit_rows(rows: Iterable[Dict[str, Any]]) -> Dict[str, Any]:
         metric = str(row.get("metric") or "").lower()
         sequence_hash = str(row.get("sequence_hash") or "")
         split = str(row.get("split") or "")
-        key = (sequence_hash, row.get("mutation"), metric, row.get("value_si"), row.get("source_id"))
+        # Include the experimental identity fields so different substrates or
+        # source rows are not mistaken for duplicate observations.
+        key = (
+            sequence_hash,
+            row.get("mutation"),
+            metric,
+            row.get("value_si"),
+            row.get("source_id"),
+            row.get("source_record_id") or row.get("source_row_or_table"),
+            row.get("substrate"),
+        )
         if key in seen:
             errors.append("duplicate_record")
         seen.add(key)
