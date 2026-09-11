@@ -1,0 +1,16 @@
+{
+  "schema_version": "skid_review_candidate_audit.v1",
+  "input_sha256": "2ceeaab1228512ff1da3c2ab06554fcd528b4535f0a004ee2716f60b9fcb7038",
+  "input_rows": 1830,
+  "quality_pass_rows": 1184,
+  "review_rows": 646,
+  "duplicate_groups": 109,
+  "review_reason_counts": {
+    "duplicate_measurement_key": 218,
+    "missing_assay_ph": 208,
+    "missing_assay_temperature": 229,
+    "mutation_wild_type_mismatch": 160
+  },
+  "training_import_allowed": false,
+  "production_registration": "forbidden"
+}
