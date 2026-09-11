@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kwb-literature-source-manifest.schema.json",
+  "type": "object",
+  "required": ["source_id", "discovery_engine", "query", "result_url", "evidence_type", "training_import_status"],
+  "properties": {
+    "source_id": {"type": "string", "minLength": 1},
+    "discovery_engine": {"const": "google_search"},
+    "query": {"type": "string", "minLength": 1},
+    "result_url": {"type": "string", "format": "uri"},
+    "primary_evidence_url": {"type": ["string", "null"], "format": "uri"},
+    "evidence_type": {"enum": ["search_result", "primary_data_file", "paper_fulltext", "supplementary_table", "author_repository"]},
+    "source_file": {"type": ["string", "null"]},
+    "source_file_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "license": {"type": ["string", "null"]},
+    "training_import_status": {"enum": ["needs_review", "research_candidate", "research_only", "blocked_license"]}
+  },
+  "additionalProperties": true
+}
