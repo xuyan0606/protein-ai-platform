@@ -42,7 +42,7 @@ def main():
     for metric in ('km','kcat'):
       data=[r for r in rows if r.get('metric')==metric and not r.get('quality_flags') and r.get('value_si') is not None]
       ys=np.log10(np.array([float(r['value_si']) for r in data],dtype=float)); groups=[str(r.get('sequence_hash') or r.get('uniprot_id') or r.get('source_id') or r.get('record_id')) for r in data]
-      folds=[]; conditions=condition_matrix(data)
+      folds=[]; conditions=condition_matrix(data); ablation={k:[] for k in ('ph','temperature','ph_temperature')}
       tree_results=[]
       for fold in range(sp['folds']):
         tr=np.array([i for i,g in enumerate(groups) if sp['assignments'].get(g)!=fold]); te=np.array([i for i,g in enumerate(groups) if sp['assignments'].get(g)==fold])
@@ -65,6 +65,18 @@ def main():
                  'median':metrics(ys[te],np.full(len(te),median)),
                  'ridge':metrics(ys[te],X[te]@ridge) if ridge is not None else None,
                  'random_forest':tree}
+        for name, columns in (('ph',(1,)), ('temperature',(2,)), ('ph_temperature',(1,2))):
+          Xa=X[:, (0,)+columns]
+          try:
+            coef=np.linalg.solve(Xa[tr].T@Xa[tr]+0.1*np.eye(Xa.shape[1]), Xa[tr].T@ys[tr])
+            ridge_ab=metrics(ys[te], Xa[te]@coef)
+          except np.linalg.LinAlgError:
+            ridge_ab=None
+          rf_ab=None
+          if RandomForestRegressor is not None:
+            model=RandomForestRegressor(n_estimators=200,max_depth=4,min_samples_leaf=2,random_state=20260911,n_jobs=1)
+            model.fit(Xa[tr],ys[tr]); rf_ab=metrics(ys[te],model.predict(Xa[te]))
+          ablation[name].append({'fold':fold,'ridge':ridge_ab,'random_forest':rf_ab})
         folds.append(foldres)
         if tree is not None:
           tree_results.append(tree)
@@ -75,6 +87,7 @@ def main():
                          'mae_log10_mean':float(np.mean([x['mae_log10'] for x in tree_results])) if tree_results else None,
                          'folds_evaluated':len(tree_results)}} if RandomForestRegressor is not None else {'status':'unavailable','reason':'scikit-learn not installed'}
       results.append({'metric':metric,'rows':len(data),'folds':folds,
+                      'feature_ablation':ablation,
                       'condition_parse':{
                         'ph_numeric':int(np.isfinite(conditions[:, 0]).sum()),
                         'temperature_numeric':int(np.isfinite(conditions[:, 1]).sum()),
