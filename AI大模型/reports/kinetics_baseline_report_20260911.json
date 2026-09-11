@@ -1,0 +1,176 @@
+{
+  "schema_version": "kinetics_baseline_report.v1",
+  "research_only": true,
+  "input_sha256": "dde0067d8475265d389d0fd87f54d23107960530d78ebaccd7f96131a647e257",
+  "split_sha256": "bb2f190a51854007337b3777829a7b1d1361a3a99fa7b06de2fee827daa53d7e",
+  "training_run_started": false,
+  "production_registration": "forbidden",
+  "results": [
+    {
+      "metric": "km",
+      "rows": 31,
+      "folds": [
+        {
+          "fold": 0,
+          "train_n": 18,
+          "test_n": 13,
+          "median": {
+            "rmse_log10": 3.5481210468953455,
+            "mae_log10": 3.4519609837145535,
+            "r2": -17.702470830743277,
+            "n": 13
+          },
+          "ridge": {
+            "rmse_log10": 2.3110446351427383,
+            "mae_log10": 2.0700751175398655,
+            "r2": -6.93448598868298,
+            "n": 13
+          }
+        },
+        {
+          "fold": 1,
+          "train_n": 19,
+          "test_n": 12,
+          "median": {
+            "rmse_log10": 3.9878209298497573,
+            "mae_log10": 3.9340388294200537,
+            "r2": -36.32556476359927,
+            "n": 12
+          },
+          "ridge": {
+            "rmse_log10": 4.208756027627267,
+            "mae_log10": 4.157832733880208,
+            "r2": -40.575989448002545,
+            "n": 12
+          }
+        },
+        {
+          "fold": 2,
+          "train_n": 30,
+          "test_n": 1,
+          "median": {
+            "rmse_log10": 0.31648599486114604,
+            "mae_log10": 0.31648599486114604,
+            "r2": null,
+            "n": 1
+          },
+          "ridge": {
+            "rmse_log10": 1.3929085846575946,
+            "mae_log10": 1.3929085846575946,
+            "r2": null,
+            "n": 1
+          }
+        },
+        {
+          "fold": 3,
+          "train_n": 26,
+          "test_n": 5,
+          "median": {
+            "rmse_log10": 1.455594993402519,
+            "mae_log10": 1.4088559460023113,
+            "r2": -14.825588221061713,
+            "n": 5
+          },
+          "ridge": {
+            "rmse_log10": 2.0920702147509176,
+            "mae_log10": 2.0799208885300984,
+            "r2": -31.691230499166608,
+            "n": 5
+          }
+        }
+      ],
+      "condition_parse": {
+        "ph_numeric": 19,
+        "temperature_numeric": 31,
+        "temperature_ranges_averaged": 12
+      },
+      "tree_model": {
+        "status": "unavailable",
+        "reason": "scikit-learn not installed; no substitute implemented"
+      }
+    },
+    {
+      "metric": "kcat",
+      "rows": 24,
+      "folds": [
+        {
+          "fold": 1,
+          "train_n": 9,
+          "test_n": 15,
+          "median": {
+            "rmse_log10": 0.8208932077331947,
+            "mae_log10": 0.7503179562637733,
+            "r2": -5.07695938687763,
+            "n": 15
+          },
+          "ridge": {
+            "rmse_log10": 0.6224172246739501,
+            "mae_log10": 0.5258465351793945,
+            "r2": -2.493624422891619,
+            "n": 15
+          }
+        },
+        {
+          "fold": 2,
+          "train_n": 23,
+          "test_n": 1,
+          "median": {
+            "rmse_log10": 1.951216054809137,
+            "mae_log10": 1.951216054809137,
+            "r2": null,
+            "n": 1
+          },
+          "ridge": {
+            "rmse_log10": 1.0169554727560255,
+            "mae_log10": 1.0169554727560255,
+            "r2": null,
+            "n": 1
+          }
+        },
+        {
+          "fold": 3,
+          "train_n": 23,
+          "test_n": 1,
+          "median": {
+            "rmse_log10": 2.375663613960885,
+            "mae_log10": 2.375663613960885,
+            "r2": null,
+            "n": 1
+          },
+          "ridge": {
+            "rmse_log10": 1.3648013502861822,
+            "mae_log10": 1.3648013502861822,
+            "r2": null,
+            "n": 1
+          }
+        },
+        {
+          "fold": 4,
+          "train_n": 17,
+          "test_n": 7,
+          "median": {
+            "rmse_log10": 0.8423456436966718,
+            "mae_log10": 0.8349577758988064,
+            "r2": -56.259812376386236,
+            "n": 7
+          },
+          "ridge": {
+            "rmse_log10": 1.0027142108114542,
+            "mae_log10": 0.9965159771134423,
+            "r2": -80.13786805155239,
+            "n": 7
+          }
+        }
+      ],
+      "condition_parse": {
+        "ph_numeric": 24,
+        "temperature_numeric": 24,
+        "temperature_ranges_averaged": 0
+      },
+      "tree_model": {
+        "status": "unavailable",
+        "reason": "scikit-learn not installed; no substitute implemented"
+      }
+    }
+  ]
+}
