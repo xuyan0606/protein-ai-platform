@@ -1,0 +1,39 @@
+{
+  "schema_version": "general-enzyme-research-training-manifest.v1",
+  "status": "research_only_ready",
+  "execution_scope": "research_learning_only",
+  "user_declared_use": "internal learning and noncommercial research",
+  "training_import_allowed": true,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "production_registration": "forbidden",
+  "row_count": 55,
+  "metric_counts": {
+    "km": 31,
+    "kcat": 24
+  },
+  "source_ids": [
+    "google-literature-skid-brenda-km-20260911",
+    "google-literature-skid-zenodo-main-20260911"
+  ],
+  "full_dataset_audit": "blocked_quality_check",
+  "full_dataset_training_import_allowed": false,
+  "files": [
+    {
+      "path": "AI大模型/datasets/curation/literature_measurements_training_candidates_20260911.jsonl",
+      "sha256": "dde0067d8475265d389d0fd87f54d23107960530d78ebaccd7f96131a647e257",
+      "kind": "research_candidate_records"
+    },
+    {
+      "path": "AI大模型/reports/general_enzyme_candidate_audit_20260911.json",
+      "sha256": "060ac39efaf90ba02f3d78cc44d3a019bb424cf0654ad9c963eb8e8c1fc4ac95",
+      "kind": "candidate_audit"
+    }
+  ],
+  "constraints": [
+    "noncommercial/internal learning only",
+    "retain CC BY-NC-ND attribution and no-derivatives restrictions",
+    "do not report benchmark as general model quality",
+    "do not register or deploy as production model"
+  ]
+}
