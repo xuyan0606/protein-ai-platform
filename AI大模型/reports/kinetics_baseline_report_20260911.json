@@ -25,6 +25,12 @@
             "mae_log10": 2.0700751175398655,
             "r2": -6.93448598868298,
             "n": 13
+          },
+          "random_forest": {
+            "rmse_log10": 0.8046801518661465,
+            "mae_log10": 0.5403085293105349,
+            "r2": 0.038058394473051815,
+            "n": 13
           }
         },
         {
@@ -42,6 +48,12 @@
             "mae_log10": 4.157832733880208,
             "r2": -40.575989448002545,
             "n": 12
+          },
+          "random_forest": {
+            "rmse_log10": 4.266390830348365,
+            "mae_log10": 4.216163713628483,
+            "r2": -41.72247116712498,
+            "n": 12
           }
         },
         {
@@ -57,6 +69,12 @@
           "ridge": {
             "rmse_log10": 1.3929085846575946,
             "mae_log10": 1.3929085846575946,
+            "r2": null,
+            "n": 1
+          },
+          "random_forest": {
+            "rmse_log10": 0.5294609115821287,
+            "mae_log10": 0.5294609115821287,
             "r2": null,
             "n": 1
           }
@@ -76,6 +94,12 @@
             "mae_log10": 2.0799208885300984,
             "r2": -31.691230499166608,
             "n": 5
+          },
+          "random_forest": {
+            "rmse_log10": 0.32183956381849366,
+            "mae_log10": 0.2941225364117321,
+            "r2": 0.22632668639791054,
+            "n": 5
           }
         }
       ],
@@ -85,8 +109,21 @@
         "temperature_ranges_averaged": 12
       },
       "tree_model": {
-        "status": "unavailable",
-        "reason": "scikit-learn not installed; no substitute implemented"
+        "status": "available",
+        "library": "scikit-learn",
+        "version": "1.6.1",
+        "model": "RandomForestRegressor",
+        "params": {
+          "n_estimators": 200,
+          "max_depth": 4,
+          "min_samples_leaf": 2,
+          "random_state": 20260911
+        },
+        "aggregate": {
+          "rmse_log10_mean": 1.4805928644037836,
+          "mae_log10_mean": 1.3950139227332194,
+          "folds_evaluated": 4
+        }
       }
     },
     {
@@ -108,6 +145,12 @@
             "mae_log10": 0.5258465351793945,
             "r2": -2.493624422891619,
             "n": 15
+          },
+          "random_forest": {
+            "rmse_log10": 0.6407014155798758,
+            "mae_log10": 0.547366130588483,
+            "r2": -2.701897388396984,
+            "n": 15
           }
         },
         {
@@ -123,6 +166,12 @@
           "ridge": {
             "rmse_log10": 1.0169554727560255,
             "mae_log10": 1.0169554727560255,
+            "r2": null,
+            "n": 1
+          },
+          "random_forest": {
+            "rmse_log10": 2.577133472134988,
+            "mae_log10": 2.577133472134988,
             "r2": null,
             "n": 1
           }
@@ -142,6 +191,12 @@
             "mae_log10": 1.3648013502861822,
             "r2": null,
             "n": 1
+          },
+          "random_forest": {
+            "rmse_log10": 2.667921849057719,
+            "mae_log10": 2.667921849057719,
+            "r2": null,
+            "n": 1
           }
         },
         {
@@ -159,6 +214,12 @@
             "mae_log10": 0.9965159771134423,
             "r2": -80.13786805155239,
             "n": 7
+          },
+          "random_forest": {
+            "rmse_log10": 1.1762396044378445,
+            "mae_log10": 1.1709602517281354,
+            "r2": -110.65054532341686,
+            "n": 7
           }
         }
       ],
@@ -168,8 +229,21 @@
         "temperature_ranges_averaged": 0
       },
       "tree_model": {
-        "status": "unavailable",
-        "reason": "scikit-learn not installed; no substitute implemented"
+        "status": "available",
+        "library": "scikit-learn",
+        "version": "1.6.1",
+        "model": "RandomForestRegressor",
+        "params": {
+          "n_estimators": 200,
+          "max_depth": 4,
+          "min_samples_leaf": 2,
+          "random_state": 20260911
+        },
+        "aggregate": {
+          "rmse_log10_mean": 1.765499085302607,
+          "mae_log10_mean": 1.7408454258773312,
+          "folds_evaluated": 4
+        }
       }
     }
   ]

@@ -5,6 +5,13 @@ import argparse, hashlib, json, math, re
 from pathlib import Path
 import numpy as np
 
+try:
+    from sklearn.ensemble import RandomForestRegressor
+    import sklearn
+except ImportError:
+    RandomForestRegressor = None
+    sklearn = None
+
 def metrics(y,p):
     err=y-p; rmse=float(np.sqrt(np.mean(err*err))); mae=float(np.mean(np.abs(err))); r2=float(1-np.sum(err*err)/np.sum((y-y.mean())**2)) if len(y)>1 and np.sum((y-y.mean())**2)>0 else None
     return {'rmse_log10':rmse,'mae_log10':mae,'r2':r2,'n':int(len(y))}
@@ -36,6 +43,7 @@ def main():
       data=[r for r in rows if r.get('metric')==metric and not r.get('quality_flags') and r.get('value_si') is not None]
       ys=np.log10(np.array([float(r['value_si']) for r in data],dtype=float)); groups=[str(r.get('sequence_hash') or r.get('uniprot_id') or r.get('source_id') or r.get('record_id')) for r in data]
       folds=[]; conditions=condition_matrix(data)
+      tree_results=[]
       for fold in range(sp['folds']):
         tr=np.array([i for i,g in enumerate(groups) if sp['assignments'].get(g)!=fold]); te=np.array([i for i,g in enumerate(groups) if sp['assignments'].get(g)==fold])
         if len(te)==0 or len(tr)==0: continue
@@ -48,15 +56,31 @@ def main():
         X=np.column_stack([np.ones(len(data)), Xconditions[:, 0]/14, Xconditions[:, 1]/100])
         try: ridge=np.linalg.solve(X[tr].T@X[tr]+0.1*np.eye(X.shape[1]),X[tr].T@ys[tr])
         except np.linalg.LinAlgError: ridge=None
-        foldres={'fold':fold,'train_n':int(len(tr)),'test_n':int(len(te)),'median':metrics(ys[te],np.full(len(te),median)),'ridge':metrics(ys[te],X[te]@ridge) if ridge is not None else None}
+        tree=None
+        if RandomForestRegressor is not None:
+          tree_model=RandomForestRegressor(n_estimators=200, max_depth=4, min_samples_leaf=2, random_state=20260911, n_jobs=1)
+          tree_model.fit(X[tr], ys[tr])
+          tree=metrics(ys[te], tree_model.predict(X[te]))
+        foldres={'fold':fold,'train_n':int(len(tr)),'test_n':int(len(te)),
+                 'median':metrics(ys[te],np.full(len(te),median)),
+                 'ridge':metrics(ys[te],X[te]@ridge) if ridge is not None else None,
+                 'random_forest':tree}
         folds.append(foldres)
+        if tree is not None:
+          tree_results.append(tree)
+      tree_status = {'status':'available','library':'scikit-learn','version':sklearn.__version__,
+                     'model':'RandomForestRegressor','params':{'n_estimators':200,'max_depth':4,'min_samples_leaf':2,'random_state':20260911},
+                     'aggregate':{
+                         'rmse_log10_mean':float(np.mean([x['rmse_log10'] for x in tree_results])) if tree_results else None,
+                         'mae_log10_mean':float(np.mean([x['mae_log10'] for x in tree_results])) if tree_results else None,
+                         'folds_evaluated':len(tree_results)}} if RandomForestRegressor is not None else {'status':'unavailable','reason':'scikit-learn not installed'}
       results.append({'metric':metric,'rows':len(data),'folds':folds,
                       'condition_parse':{
                         'ph_numeric':int(np.isfinite(conditions[:, 0]).sum()),
                         'temperature_numeric':int(np.isfinite(conditions[:, 1]).sum()),
                         'temperature_ranges_averaged':int(sum(isinstance(r.get('temperature'), str) and len(re.findall(r"(?<!\d)[-+]?\d+(?:\.\d*)?|(?<!\d)\.\d+", re.sub(r"(?<=\d)\s*[-\u2013]\s*(?=\d)", " ", r.get('temperature')))) > 1 for r in data)),
                       },
-                      'tree_model':{'status':'unavailable','reason':'scikit-learn not installed; no substitute implemented'}})
+                      'tree_model':tree_status})
     out={'schema_version':'kinetics_baseline_report.v1','research_only':True,'input_sha256':hashlib.sha256(a.input.read_bytes()).hexdigest(),'split_sha256':hashlib.sha256(a.splits.read_bytes()).hexdigest(),'training_run_started':False,'production_registration':'forbidden','results':results}
     a.output.parent.mkdir(parents=True,exist_ok=True); a.output.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); print(json.dumps({'metrics':[x['metric'] for x in results]})); return 0
 if __name__=='__main__': main()
