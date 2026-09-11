@@ -7,24 +7,25 @@
   "safe_for_model_claim": false,
   "release_ready": false,
   "audit_status": "blocked_quality_check",
-  "row_count": 50,
+  "row_count": 100,
   "metric_counts": {
-    "km": 50
+    "km": 75,
+    "kcat": 25
   },
   "files": [
     {
       "path": "AI大模型/reports/general_enzyme_dataset_audit_20260911.json",
-      "sha256": "c2e204b7eaf8c7369d55434abeec1c8c9f6c2bb6522bb768c93d2325ff651700",
+      "sha256": "057c054465530d8e67e8cc60ba6bc2934cfc2ca3b9d258e7cbf2f8cf87f38198",
       "kind": "audit"
     },
     {
       "path": "AI大模型/reports/google_literature_source_receipt_20260911.json",
-      "sha256": "ef9e628ee70ee343d9236644d37eb39ca809dccb05958a84221c0bfce7cc12ee",
+      "sha256": "28a8e20896e58b8c5f7b6760b4aa9fb19fdc034e4eaa46ef44157d17469367e6",
       "kind": "source_receipt"
     },
     {
       "path": "AI大模型/datasets/curation/literature_measurements_normalized.jsonl",
-      "sha256": "f91bd3de953b6cf1de5fffcfa63017cedb3773abe9111becf9ec6c3cb7bd5c99",
+      "sha256": "e314ffa9e988355cb4e523484edef0432a48f8bbc88c82728eacecdfadb04e0a",
       "kind": "normalized_records"
     }
   ],

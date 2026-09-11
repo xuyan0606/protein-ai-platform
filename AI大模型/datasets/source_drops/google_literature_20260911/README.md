@@ -24,6 +24,10 @@ Acquired 2026-09-11:
   SKiD pipeline; accompanying `skid_README_license_capture.md`. The table has
   pH, temperature, and references, but its protein field is an accession
   object rather than a sequence; it is research-only under CC BY-NC-ND 4.0.
+- `skid_Main_dataset_v1.xlsx`: official Zenodo record 16874765 (CC BY 4.0),
+  containing kcat and Km sheets with values, pH/temperature, UniProt IDs,
+  PDB filenames, and references. It does not embed amino-acid sequences, so
+  sequence resolution remains a separate provenance step.
 
 The exact URLs, SHA-256 hashes, row/table locators, and import statuses are in
 `datasets/curation/google_literature_source_manifest.jsonl`.
