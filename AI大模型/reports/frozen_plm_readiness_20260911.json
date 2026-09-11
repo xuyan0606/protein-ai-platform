@@ -1,0 +1,33 @@
+{
+  "schema_version": "frozen_plm_readiness.v1",
+  "research_only": true,
+  "input_sha256": "dde0067d8475265d389d0fd87f54d23107960530d78ebaccd7f96131a647e257",
+  "requested_model": "ESM-2 (frozen sequence representation)",
+  "status": "blocked_missing_local_runtime_or_weights",
+  "blocking_requirements": [
+    "fair-esm",
+    "transformers",
+    "local_esm2_weights"
+  ],
+  "runtime": {
+    "torch": {
+      "available": true,
+      "version": "2.8.0"
+    },
+    "fair_esm": {
+      "available": false,
+      "version": null
+    },
+    "transformers": {
+      "available": false,
+      "version": null
+    }
+  },
+  "weights": {
+    "path": null,
+    "exists": false
+  },
+  "embedding_written": false,
+  "training_run_started": false,
+  "production_registration": "forbidden"
+}
