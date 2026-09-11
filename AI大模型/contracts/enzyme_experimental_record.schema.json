@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kwb-enzyme-experimental-record.schema.json",
+  "type": "object",
+  "required": ["record_id", "protein_sequence", "sequence_hash", "metric", "original_value", "original_unit", "value_si", "quality_flags", "training_import_status"],
+  "properties": {
+    "record_id": {"type": "string", "minLength": 1},
+    "protein_sequence": {"type": "string", "pattern": "^[ACDEFGHIKLMNPQRSTVWY]+$"},
+    "sequence_hash": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "metric": {"type": "string", "minLength": 1},
+    "original_value": {"type": ["number", "null"]},
+    "original_unit": {"type": ["string", "null"]},
+    "value_si": {"type": ["number", "null"]},
+    "quality_flags": {"type": "array", "items": {"type": "string"}},
+    "training_import_status": {"enum": ["training_candidate", "needs_review", "research_only", "blocked_license"]}
+  },
+  "additionalProperties": true
+}
