@@ -1,0 +1,144 @@
+{
+  "schema_version": "esm_kinetics_baseline.v1",
+  "research_only": true,
+  "input_sha256": "dde0067d8475265d389d0fd87f54d23107960530d78ebaccd7f96131a647e257",
+  "split_sha256": "bb2f190a51854007337b3777829a7b1d1361a3a99fa7b06de2fee827daa53d7e",
+  "embedding_file_sha256": "aab423a44da6445a552905053c2d91c2c9d93a0f278dfb751dd05f2cf9d3550e",
+  "embedding_model": "esm2_t6_8M_UR50D",
+  "results": [
+    {
+      "metric": "km",
+      "rows": 31,
+      "folds": [
+        {
+          "fold": 0,
+          "train_n": 18,
+          "test_n": 13,
+          "ridge": {
+            "rmse_log10": 2.42674447017483,
+            "mae_log10": 2.1830817139126624,
+            "n": 13
+          },
+          "random_forest": {
+            "rmse_log10": 1.9828185006944192,
+            "mae_log10": 1.8314430194386957,
+            "n": 13
+          }
+        },
+        {
+          "fold": 1,
+          "train_n": 19,
+          "test_n": 12,
+          "ridge": {
+            "rmse_log10": 3.9195496712084723,
+            "mae_log10": 3.86481763708294,
+            "n": 12
+          },
+          "random_forest": {
+            "rmse_log10": 3.865211122427219,
+            "mae_log10": 3.809698513501036,
+            "n": 12
+          }
+        },
+        {
+          "fold": 2,
+          "train_n": 30,
+          "test_n": 1,
+          "ridge": {
+            "rmse_log10": 1.9013749670736702,
+            "mae_log10": 1.9013749670736702,
+            "n": 1
+          },
+          "random_forest": {
+            "rmse_log10": 1.5309939769360992,
+            "mae_log10": 1.5309939769360992,
+            "n": 1
+          }
+        },
+        {
+          "fold": 3,
+          "train_n": 26,
+          "test_n": 5,
+          "ridge": {
+            "rmse_log10": 3.805368113695015,
+            "mae_log10": 3.7877361012211956,
+            "n": 5
+          },
+          "random_forest": {
+            "rmse_log10": 3.4354629802112795,
+            "mae_log10": 3.4159221566320497,
+            "n": 5
+          }
+        }
+      ]
+    },
+    {
+      "metric": "kcat",
+      "rows": 24,
+      "folds": [
+        {
+          "fold": 1,
+          "train_n": 9,
+          "test_n": 15,
+          "ridge": {
+            "rmse_log10": 0.8778847296176351,
+            "mae_log10": 0.8505457182528523,
+            "n": 15
+          },
+          "random_forest": {
+            "rmse_log10": 0.4444054341021416,
+            "mae_log10": 0.40162557560405554,
+            "n": 15
+          }
+        },
+        {
+          "fold": 2,
+          "train_n": 23,
+          "test_n": 1,
+          "ridge": {
+            "rmse_log10": 0.9093239645647895,
+            "mae_log10": 0.9093239645647895,
+            "n": 1
+          },
+          "random_forest": {
+            "rmse_log10": 1.7521469956514486,
+            "mae_log10": 1.7521469956514486,
+            "n": 1
+          }
+        },
+        {
+          "fold": 3,
+          "train_n": 23,
+          "test_n": 1,
+          "ridge": {
+            "rmse_log10": 0.7735640432081488,
+            "mae_log10": 0.7735640432081488,
+            "n": 1
+          },
+          "random_forest": {
+            "rmse_log10": 2.4152904046189616,
+            "mae_log10": 2.4152904046189616,
+            "n": 1
+          }
+        },
+        {
+          "fold": 4,
+          "train_n": 17,
+          "test_n": 7,
+          "ridge": {
+            "rmse_log10": 0.3815735420669845,
+            "mae_log10": 0.3649748924031156,
+            "n": 7
+          },
+          "random_forest": {
+            "rmse_log10": 1.1788216019647368,
+            "mae_log10": 1.1735538646938326,
+            "n": 7
+          }
+        }
+      ]
+    }
+  ],
+  "training_run_started": false,
+  "production_registration": "forbidden"
+}

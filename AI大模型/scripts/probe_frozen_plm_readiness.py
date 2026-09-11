@@ -29,8 +29,6 @@ def main():
         missing = []
         if not esm['available']:
             missing.append('fair-esm')
-        if not transformers['available']:
-            missing.append('transformers')
         if not weights_exists:
             missing.append('local_esm2_weights')
         reason = missing
