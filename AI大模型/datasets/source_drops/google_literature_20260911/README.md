@@ -37,3 +37,9 @@ through the official UniProt REST FASTA endpoint. The downloaded FASTA files and
 per-accession hashes are under `uniprot_fasta/`; the resolution ledger is
 `datasets/curation/uniprot_sequence_resolution_20260911.jsonl`. Resolution by
 accession does not repair missing assay conditions or authorize training by itself.
+
+A derived 55-row candidate preview is stored at
+`datasets/curation/literature_measurements_training_candidates_20260911.jsonl`.
+Its isolated audit passes on sequence, value, license, and provenance fields,
+but it remains a research-only preview because the full 100-row audit is still
+blocked and the source receipt includes discovery-only Google rows.

@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "row_count": 55,
+  "group_count": 7,
+  "replicate_count": 0,
+  "metric_counts": {
+    "km": 31,
+    "kcat": 24
+  },
+  "errors": [],
+  "training_import_allowed": true,
+  "safe_for_model_claim": false,
+  "release_ready": false,
+  "policy": "Any unresolved quality, license, provenance, or split error blocks training import.",
+  "candidate_scope": "rows with empty quality_flags only; derived preview, not a release dataset",
+  "training_run_started": false,
+  "production_registration": "forbidden",
+  "source_receipt_training_import_allowed": false,
+  "notes": "This passing subset does not authorize training. The full 100-row audit remains blocked and source receipt contains discovery-only rows."
+}
