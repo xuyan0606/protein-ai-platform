@@ -13,7 +13,7 @@ def build_preview(queue: list[dict[str, Any]], decisions: list[dict[str, Any]]) 
     for decision in decisions:
         task_id = str(decision.get("review_task_id")); source = by_id.get(task_id)
         if source and decision.get("decision") == "approved_for_intake" and not validate_decision(decision, source):
-            rows.append({"review_task_id": task_id, "measurement_ids": source.get("measurement_ids"), "pmcid": source.get("pmcid"), "doi": source.get("doi"), "reviewer": decision.get("reviewer"), "reviewed_at": decision.get("reviewed_at"), "review_basis": decision.get("review_basis"), "authorization_receipt": decision.get("authorization_receipt"), "evidence_only": True})
+            rows.append({"review_task_id": task_id, "measurement_ids": source.get("measurement_ids"), "pmcid": source.get("pmcid"), "doi": source.get("doi"), "source_file_sha256": source.get("source_file_sha256"), "license": source.get("license"), "training_import_status": "needs_review", "reviewer": decision.get("reviewer"), "reviewed_at": decision.get("reviewed_at"), "review_basis": decision.get("review_basis"), "authorization_receipt": decision.get("authorization_receipt"), "evidence_only": True})
     return {"rows": rows, "approved_preview_rows": len(rows), "formal_intake_authorized": False, "training_import_allowed": False, "safe_for_model_claim": False, "release_ready": False, "policy": "Read-only preview; separate authorization and formal intake gates remain required."}
 
 def main() -> int:
