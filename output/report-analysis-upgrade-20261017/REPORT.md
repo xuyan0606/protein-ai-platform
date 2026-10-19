@@ -147,6 +147,12 @@
 - 旧 `/data/chroma.sqlite3` 在 0.6.3 中仍无法读取，`KeyError('_type')`。后续对备份做只读审计确认其 collection 有 0 条 embedding、0 条 embedding metadata 和 0 条全文索引内容，因此该备份没有历史文献 payload 需要迁移；当前服务已创建同名空 collection。
 - 报告优化应用版本仍未发布。隔离候选已形成 clean 本地提交 `4321caac4e6efeacd8a0cae8bf7b5eec395d8ab9`（后续有版本记录文档提交），但正式 `RELEASE-MANIFEST.json`、生产配置检查、不可变应用镜像 digest 和完整线上 7DVJ 报告验收仍未通过。
 
+### 生产配置门诊断（只读，2026-10-19）
+
+- 在 ECS 当前 release 使用真实 `.env` 和 `.env.deploy-data` 执行 production config gate：11 项中仅 `PUBLIC_BASE_URL_HTTPS` 为 critical，其余密钥存在性、数据库、Redis、对象存储、LLM key、OIDC 和 Outline 检查均通过；输出没有包含密钥值。
+- 仅作诊断地加 `--skip-domain-https` 后为 `ready`、0 critical、0 warning；这不是生产放行。部署记录确认主入口仍为 `http://120.27.108.138`，4243 仅为自签 TLS 技术验证端口，正式域名和可信证书尚未部署。
+- 因此报告应用 release 的外部配置门需要正式 HTTPS 域名/证书；版本材料还需要 registry 可引用的五个 immutable application image digests 和可验证 rollback manifest。没有以临时占位值生成正式 manifest。
+
 ### LiteratureStore 实链路烟测
 
 - 使用线上 backend 的真实 `LiteratureStore` 完成临时文献写入、统计、语义查询和删除：`before=0`、`indexed=1`、`after=1`、查询返回临时 PMID、删除成功、`final=0`。

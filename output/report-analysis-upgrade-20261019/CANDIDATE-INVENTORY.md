@@ -61,6 +61,7 @@ The tracked patch passes `git apply --check --cached` against the current index.
 
 ## Latest verification
 
+- Read-only production config gate on ECS reports 1 critical: `PUBLIC_BASE_URL_HTTPS`; all other 10 checks pass. With `--skip-domain-https` for diagnosis only, the check is ready, but this is not production approval. The deployed main entry remains HTTP and port 4243 uses a self-signed technical-validation certificate.
 - Isolated candidate code commit: `4321caac4e6efeacd8a0cae8bf7b5eec395d8ab9`; verification record commit: `077f4866129e4ffb4f2fd0080da2733a9aa225d2` (detached worktree; not pushed or deployed).
 - Backend Python 3.12 report/structure/BLAST/Chroma/release suite: `113 passed`.
 - Frontend candidate `npm run build` and `npm run lint`: passed using the existing dependency tree; generated `frontend/dist` is candidate-local output.
