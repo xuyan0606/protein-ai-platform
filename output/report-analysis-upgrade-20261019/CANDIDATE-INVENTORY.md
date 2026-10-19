@@ -61,6 +61,7 @@ The tracked patch passes `git apply --check --cached` against the current index.
 
 ## Latest verification
 
+- Isolated clean candidate commit: `4321caac4e6efeacd8a0cae8bf7b5eec395d8ab9` (detached worktree; not pushed or deployed).
 - Backend Python 3.12 report/structure/BLAST/Chroma/release suite: `113 passed`.
 - Frontend candidate `npm run build` and `npm run lint`: passed using the existing dependency tree; generated `frontend/dist` is candidate-local output.
 - Chroma compatibility adapter handles both legacy Collection-like objects and 0.6.x string collection names; focused LiteratureStore tests pass.
