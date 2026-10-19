@@ -25,6 +25,7 @@ const plan = [
   },
 ]
 const mutationResult = {
+  engineering_goal: 'general',
   candidate_table_status: 'blocked_by_identity_gate',
   identity_gate: {
     status: 'blocked',
@@ -32,6 +33,7 @@ const mutationResult = {
     reason: 'Mocked PDB-only run: numbering evidence has not been mapped.',
   },
   summary: {
+    total_positions: 36,
     tier_1_count: 0,
     tier_2_count: 0,
     tier_3_count: 0,
@@ -263,8 +265,13 @@ async function run() {
   const reportBody = await page.locator('body').innerText()
   await page.screenshot({ path: path.join(outputDir, 'report-before-export.png'), fullPage: true })
   check('completed_tool_result_rendered',
-    reportBody.includes('blocked_by_identity_gate') || reportBody.includes('突变候选输出门控'),
-    { contains_gate: reportBody.includes('突变候选输出门控'), tail: reportBody.slice(-1800) },
+    (reportBody.includes('blocked_by_identity_gate') || reportBody.includes('突变候选输出门控'))
+      && !reportBody.includes('undefined'),
+    {
+      contains_gate: reportBody.includes('突变候选输出门控'),
+      has_undefined: reportBody.includes('undefined'),
+      tail: reportBody.slice(-1800),
+    },
   )
 
   const downloadPromise = page.waitForEvent('download', { timeout: 15000 })
