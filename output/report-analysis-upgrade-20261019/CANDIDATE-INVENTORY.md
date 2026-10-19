@@ -62,6 +62,10 @@ The tracked patch was an inventory aid only. The audited candidate is recorded i
 ## Latest verification
 
 - Isolated candidate branch: `report-analysis-release-candidate-20261019` (clean local worktree; not pushed or deployed). Candidate code commit: `fbb1d45e4c99d9c8b20fcf1e7d4359ea98e1e171`; later commits on this branch record release-gate evidence and inventory corrections.
+- Full Python 3.12.13 backend suite after correcting checkpoint context isolation, residue-numbering evidence gates, mmCIF coordinate parsing, structure demo fixture selection, and capability coverage: `1070 passed` (one dependency deprecation warning).
+- Frontend `npm run lint` and `npm run build`: passed. The report/chat visual layout was not changed.
+- Acceptance matrix with isolated Python 3.12 and non-production OIDC test keys: `20/21` passed or skipped; the sole failure remains the missing production environment/config gate.
+- Latest deploy-bundle dry-run: 660 files, 16,736,481 bytes; no bundle created.
 - Expanded backend Python 3.12 release/report/structure/BLAST/Chroma suite: `124 passed`.
 - Acceptance matrix with the isolated Python 3.12 environment and non-production OIDC test keys: `20/21` checks passed or skipped; the sole failure is `production_config_gate`, because the candidate intentionally has no production env files/secrets.
 - Full non-destructive release acceptance with the same test-only configuration: `3 failed`, `5 manual_required`, `1 skipped`, `2 passed`; failures are the expected production config/readiness, missing-manifest alignment, acceptance-matrix propagation, and package-dependent rollback planning gates. No destructive action or live rollback was executed.

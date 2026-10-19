@@ -196,6 +196,7 @@ _CAPABILITIES: dict[str, dict[str, Any]] = {
 # required artifacts; they do not make proxy or runtime-unverified outputs
 # report-grade evidence.
 _CAPABILITIES.update({
+    "disulfide_saltbridge_scan": {"capability_status": "structure_geometry_feature_table", "boundary": "Reports coordinate-derived disulfide, salt-bridge, and histidine contacts; it does not prove catalytic function or solution-state stability.", "minimum_artifacts": ["PDB/model provenance", "chain", "residue coordinates", "distance thresholds", "contact table"]},
     "bio_specialty_input_gate": {"capability_status": "input_gate", "boundary": "Validates input completeness only; it does not establish enzyme identity or function.", "minimum_artifacts": ["normalized input", "missing-input report"]},
     "boltz1_predict": {"capability_status": "runtime_unverified", "boundary": "Structure prediction hypothesis unless model/runtime/version and raw structure artifacts are recorded.", "minimum_artifacts": ["model version", "input hash", "structure artifact", "confidence", "logs"]},
     "chroma_design": {"capability_status": "proxy", "boundary": "Generative design hypothesis; does not establish foldability, activity, or safety.", "minimum_artifacts": ["model/checkpoint", "condition", "seed", "sequences", "scores"]},
@@ -214,6 +215,7 @@ _CAPABILITIES.update({
     "interproscan_sequence_status": {"capability_status": "external_service_only", "boundary": "Pending job status is a receipt, not annotation evidence; only finished results may be interpreted.", "minimum_artifacts": ["job id", "terminal status", "raw result", "database/version"]},
     "interproscan_sequence_submit": {"capability_status": "external_service_only", "boundary": "Submission creates a job only and must not enter report conclusions.", "minimum_artifacts": ["job id", "input hash", "submission timestamp"]},
     "ligandmpnn_design": {"capability_status": "proxy", "boundary": "Ligand-conditioned sequence hypothesis; requires structure, ligand provenance, and downstream validation.", "minimum_artifacts": ["model version", "protein/ligand hash", "seed", "FASTA", "scores"]},
+    "ligand_contact_analysis": {"capability_status": "structure_geometry_feature_table", "boundary": "Reports coordinate-derived ligand contacts and distances; contact geometry is not binding energy, catalytic proof, or experimental affinity.", "minimum_artifacts": ["PDB/model provenance", "ligand component", "chain", "contact cutoff", "contact table"]},
     "list_ec_proteins": {"capability_status": "data_lookup", "boundary": "EC listing is catalog evidence, not identity confirmation for the current sequence.", "minimum_artifacts": ["database/source", "query", "retrieved records"]},
     "literature_live_search": {"capability_status": "external_service_only", "boundary": "Search hits are not evidence until the cited source and claim context are verified.", "minimum_artifacts": ["query", "citation", "retrieval timestamp", "claim mapping"]},
     "lookup_protein": {"capability_status": "data_lookup", "boundary": "Identifier lookup supports candidate identity only; sequence/structure concordance remains required.", "minimum_artifacts": ["identifier", "source", "retrieved record", "sequence concordance"]},
@@ -228,6 +230,7 @@ _CAPABILITIES.update({
     "signal_peptide_predict": {"capability_status": "proxy", "boundary": "Signal peptide prediction is a localization hypothesis, not proof of secretion or processing.", "minimum_artifacts": ["model/version", "sequence hash", "prediction", "confidence"]},
     "soluble_mpnn_design": {"capability_status": "proxy", "boundary": "Solubility-conditioned design hypothesis; requires structure and wet-lab validation.", "minimum_artifacts": ["model version", "input hash", "seed", "FASTA", "scores"]},
     "tool_capability_audit": {"capability_status": "governance", "boundary": "Reports capability metadata; it does not validate tool outputs.", "minimum_artifacts": ["tool name", "capability row", "audit timestamp"]},
+    "structure_pocket_interface_analysis": {"capability_status": "structure_geometry_feature_table", "boundary": "Reports coordinate-derived pocket/interface and channel clues; it does not establish binding energy, mechanism, or mutation benefit.", "minimum_artifacts": ["PDB/model provenance", "chain/interface scope", "distance thresholds", "feature table"]},
     "wt_baseline_registry": {"capability_status": "data_registry", "boundary": "Registers compatible WT baselines; it does not generalize assay performance across conditions.", "minimum_artifacts": ["assay context", "preparation/batch", "QC status", "source records"]},
 })
 

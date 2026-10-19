@@ -16,8 +16,8 @@ def _load_builder():
 
 def test_registered_tools_have_explicit_capability_contracts():
     report = _load_builder().build_report()
-    assert report["registered_tool_count"] == 59
-    assert report["capability_audited_count"] == 59
+    assert report["registered_tool_count"] == 62
+    assert report["capability_audited_count"] == 62
     assert report["unknown_capability_tools"] == []
     assert report["async_tool_count"] == 13
     assert all(row["minimum_artifacts"] for row in report["rows"])

@@ -146,7 +146,7 @@ def test_llm_gateway_list_models_reflects_runtime_health(monkeypatch):
     listed = gateway_module.llm_gateway.list_models()
     models = {item["id"]: item for item in listed}
 
-    assert list(models) == ["gpt55", "gpt56", "gpt56-sol", "deepseek-v4ro"]
+    assert list(models) == ["gpt55", "gpt56", "gpt56-sol", "gpt6-sol", "deepseek-v4ro"]
     assert models["gpt55"]["available"] is True
     assert models["gpt55"]["name"] == "GPT-5.5"
     assert models["gpt55"]["provider"] == "model-relay"
@@ -159,6 +159,10 @@ def test_llm_gateway_list_models_reflects_runtime_health(monkeypatch):
     assert models["gpt56-sol"]["name"] == "GPT-5.6 sol"
     assert models["gpt56-sol"]["provider"] == "model-relay"
     assert models["gpt56-sol"]["model"] == "gpt-5.6-sol"
+    assert models["gpt6-sol"]["available"] is True
+    assert models["gpt6-sol"]["name"] == "GPT-6-sol"
+    assert models["gpt6-sol"]["provider"] == "model-relay"
+    assert models["gpt6-sol"]["model"] == "gpt-6-sol"
     assert models["deepseek-v4ro"]["available"] is False
     assert models["deepseek-v4ro"]["name"] == "DeepSeek-v4ro"
     assert models["deepseek-v4ro"]["provider"] == "deepseek"

@@ -10,7 +10,7 @@ def test_scheduler_execution_mode_is_distinct_from_registry_async_flag():
     from app.tools.registry import ToolRegistry
 
     ToolRegistry.discover()
-    assert len(ToolRegistry._tools) == 59
+    assert len(ToolRegistry._tools) == 62
     assert get_execution_mode("gromacs_md") == "async_worker"
     assert get_execution_mode("mutation_priority_score") == "inline_sync"
 

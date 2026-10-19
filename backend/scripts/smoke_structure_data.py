@@ -106,6 +106,7 @@ async def _smoke_sifts(pdb_text: str) -> bool:
             pdb_id=pdb_id,
             chain_id=os.getenv("SIFTS_SMOKE_CHAIN", "").strip(),
             uniprot_id=os.getenv("SIFTS_SMOKE_UNIPROT_ID", "").strip(),
+            input_sequence="MA" if _use_demo_sifts() else "",
         )
     finally:
         settings.SIFTS_MAPPING_PATH = original_mapping_path
@@ -177,7 +178,7 @@ async def _smoke_foldseek(pdb_text: str) -> bool:
 
 
 async def main() -> int:
-    pdb_text = _load_pdb_text()
+    pdb_text = MINI_PDB if _use_demo_sifts() else _load_pdb_text()
     results = [
         await _smoke_sifts(pdb_text),
         await _smoke_foldseek(pdb_text),

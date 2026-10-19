@@ -36,6 +36,25 @@ STREAM_HEARTBEAT_SECONDS = 15.0
 SSE_HEARTBEAT_FRAME = ": heartbeat\n\n"
 
 
+def _checkpoint_task_text(message: str, history: list[dict] | None) -> str:
+    """Build checkpoint text without carrying an old task into a new upload."""
+    text = str(message or "")
+    if not orchestrator._message_requests_continuation(text):
+        return text
+    if orchestrator._message_starts_new_task(text):
+        return text
+    prior_summary = next(
+        (
+            orchestrator._display_task_summary(item.get("content", ""))
+            for item in reversed(history or [])
+            if item.get("role") == "user"
+            and not str(item.get("content") or "").startswith(("确认执行", "修改分析策略"))
+        ),
+        "",
+    )
+    return f"{text}\n[Prior user request summary: {prior_summary}]" if prior_summary else text
+
+
 def _checkpoint_for_display(checkpoint: dict[str, Any] | None) -> dict[str, Any] | None:
     if not checkpoint:
         return None
@@ -266,24 +285,11 @@ async def stream_chat(
                 current_message_id=user_msg.id,
                 request_history=req.history,
             )
-            checkpoint_task_text = req.message
-            if (
-                req.agent_control != "execute_confirmed"
-                and orchestrator._message_requests_continuation(req.message)
-            ):
-                prior_summary = next(
-                    (
-                        orchestrator._display_task_summary(item.get("content", ""))
-                        for item in reversed(agent_history)
-                        if item.get("role") == "user"
-                        and not str(item.get("content") or "").startswith(("确认执行", "修改分析策略"))
-                    ),
-                    "",
-                )
-                if prior_summary:
-                    checkpoint_task_text = (
-                        f"{req.message}\n[Prior user request summary: {prior_summary}]"
-                    )
+            checkpoint_task_text = (
+                req.message
+                if req.agent_control == "execute_confirmed"
+                else _checkpoint_task_text(req.message, agent_history)
+            )
 
             events = orchestrator.stream_chat(
                 message_for_orchestrator,

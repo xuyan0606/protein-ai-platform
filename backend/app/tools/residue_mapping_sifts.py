@@ -15,7 +15,7 @@ from typing import Any
 
 from app.core.config import settings
 from app.services import storage
-from app.services.pdb_parser import _AA3TO1, _POLYMER_HETATM_RESIDUES
+from app.services.pdb_parser import _AA3TO1, _POLYMER_HETATM_RESIDUES, pdb_coordinate_text
 from app.tools.registry import ToolRegistry
 
 
@@ -152,18 +152,15 @@ def _build_numbering_registry_rows(
             "method": source,
             "source": source,
         }
-        rows.append({
-            **base,
-            "source_scheme": "user_sequence",
-            "source_position": uniprot_position,
-            "source_coordinate": f"user_sequence:{uniprot_position}",
-            "target_coordinate": f"{mapping.get('chain_id') or '_'}:{pdb_position}{mapping.get('insertion_code') or ''}",
-            "mapping_basis": (
-                "assumed_user_sequence_matches_uniprot_coordinate"
-                if source == "local_sifts_mapping"
-                else f"coordinate_order_uniprot_start_{uniprot_start or 1}"
-            ),
-        })
+        if source != "local_sifts_mapping":
+            rows.append({
+                **base,
+                "source_scheme": "user_sequence",
+                "source_position": uniprot_position,
+                "source_coordinate": f"user_sequence:{uniprot_position}",
+                "target_coordinate": f"{mapping.get('chain_id') or '_'}:{pdb_position}{mapping.get('insertion_code') or ''}",
+                "mapping_basis": "assumed_user_sequence_matches_uniprot_coordinate",
+            })
         if mapping.get("uniprot_id") or uniprot_id:
             rows.append({
                 **base,
@@ -332,6 +329,18 @@ async def residue_mapping_sifts(
             "mappings": [],
         })
 
+    if pdb_data.lstrip().startswith("data_"):
+        try:
+            pdb_data = pdb_coordinate_text(pdb_data)
+        except Exception as exc:
+            return _with_report_contract({
+                "found": False,
+                "status": "failed",
+                "error_code": "MMCIF_PARSE_FAILED",
+                "error": str(exc),
+                "mappings": [],
+            })
+
     start = max(1, int(uniprot_start or 1))
     chain_filter = chain_id.strip() or None
     local_mappings, mapping_source = _load_local_sifts_mappings(
@@ -340,6 +349,26 @@ async def residue_mapping_sifts(
         uniprot_id=uniprot_id,
     )
     if local_mappings:
+        coordinate_rows = {
+            (row["chain_id"], row["pdb_residue_no"], row.get("insertion_code")): row
+            for row in _iter_pdb_residues(pdb_data, chain_filter)
+        }
+        for mapping in local_mappings:
+            coordinate = coordinate_rows.get(
+                (mapping["chain_id"], mapping["pdb_residue_no"], mapping.get("insertion_code"))
+            )
+            if coordinate is None or (
+                mapping.get("residue_aa") not in {None, "", "X"}
+                and coordinate.get("residue_aa") != mapping.get("residue_aa")
+            ):
+                return _with_report_contract({
+                    "found": False,
+                    "status": "blocked",
+                    "error_code": "LOCAL_MAPPING_COORDINATE_MISMATCH",
+                    "error": "Local residue mapping does not match the uploaded coordinate residue.",
+                    "numbering_registry_rows": [],
+                    "mappings": [],
+                })
         registry_rows = _build_numbering_registry_rows(
             local_mappings,
             source="local_sifts_mapping",
@@ -357,8 +386,10 @@ async def residue_mapping_sifts(
             "mapping_count": len(local_mappings),
             "mappings": local_mappings,
             "numbering_registry_rows": registry_rows,
-            "numbering_registry_status": "ready",
-            "coordinate_systems": ["user_sequence", "uniprot", "pdb_author"],
+            "numbering_registry_status": (
+                "ready" if input_sequence else "uniprot_only_requires_input_alignment"
+            ),
+            "coordinate_systems": ["uniprot", "pdb_author"],
             "limitations": [],
         })
 
@@ -380,6 +411,7 @@ async def residue_mapping_sifts(
             {
                 **residue,
                 "user_sequence_position": idx,
+                "coordinate_sequence_position": idx,
                 "uniprot_id": None,
                 "uniprot_position": None,
                 "mapping_confidence": "exact_input_sequence_match",
@@ -389,9 +421,9 @@ async def residue_mapping_sifts(
         registry_rows = []
         for mapping in mappings:
             registry_rows.append({
-                "source_scheme": "user_sequence",
+                "source_scheme": "coordinate_sequence",
                 "source_position": mapping["user_sequence_position"],
-                "source_coordinate": f"user_sequence:{mapping['user_sequence_position']}",
+                "source_coordinate": f"coordinate_sequence:{mapping['user_sequence_position']}",
                 "target_scheme": "pdb_author",
                 "target_position": mapping["pdb_residue_no"],
                 "target_chain_id": mapping["chain_id"],
@@ -421,9 +453,21 @@ async def residue_mapping_sifts(
             "mappings": mappings,
             "numbering_registry_rows": registry_rows,
             "numbering_registry_status": "ready",
-            "coordinate_systems": ["user_sequence", "pdb_author"],
+                "coordinate_systems": ["coordinate_sequence", "pdb_author"],
             "sequence_match": {"status": "exact", "length": len(mappings)},
             "limitations": ["No UniProt coordinate mapping was established."],
+        })
+
+    if normalized_input_sequence:
+        return _with_report_contract({
+            "found": False,
+            "status": "blocked",
+            "error_code": "INPUT_SEQUENCE_MISMATCH",
+            "error": "Input sequence does not match the selected PDB coordinate sequence.",
+            "mapping_count": 0,
+            "mappings": [],
+            "numbering_registry_rows": [],
+            "numbering_registry_status": "blocked",
         })
 
     mappings = []
@@ -431,8 +475,9 @@ async def residue_mapping_sifts(
         mappings.append(
             {
                 **residue,
-                "uniprot_id": uniprot_id or None,
-                "uniprot_position": start + idx,
+                "coordinate_sequence_position": idx + 1,
+                "uniprot_id": None,
+                "uniprot_position": None,
                 "mapping_confidence": "inferred_from_coordinate_order",
             }
         )
@@ -444,6 +489,28 @@ async def residue_mapping_sifts(
         uniprot_id=uniprot_id,
         uniprot_start=start,
     )
+    inferred_registry_rows = [
+        {
+            "source_scheme": "coordinate_sequence",
+            "source_position": mapping["coordinate_sequence_position"],
+            "source_coordinate": f"coordinate_sequence:{mapping['coordinate_sequence_position']}",
+            "target_scheme": "pdb_author",
+            "target_position": mapping["pdb_residue_no"],
+            "target_chain_id": mapping["chain_id"],
+            "target_insertion_code": mapping.get("insertion_code"),
+            "target_residue_aa": mapping["residue_aa"],
+            "coordinate_system": "pdb_author_residue_number",
+            "mapping_scope": "chain",
+            "gap_status": "present",
+            "has_gap": False,
+            "missing_in_structure": False,
+            "confidence": "inferred",
+            "method": "coordinate_order_inference",
+            "source": "local_sifts_style_inference",
+            "mapping_basis": f"coordinate_order_uniprot_start_{start}",
+        }
+        for mapping in mappings
+    ]
     return _with_report_contract({
         "found": True,
         "status": "completed",
@@ -454,9 +521,9 @@ async def residue_mapping_sifts(
         "uniprot_start": start,
         "mapping_count": len(mappings),
         "mappings": mappings,
-        "numbering_registry_rows": registry_rows,
+        "numbering_registry_rows": inferred_registry_rows,
         "numbering_registry_status": "inferred_requires_confirmation",
-        "coordinate_systems": ["user_sequence", "uniprot", "pdb_author"],
+            "coordinate_systems": ["coordinate_sequence", "pdb_author"],
         "limitations": [
             "External SIFTS residue records were not downloaded in this phase.",
             "UniProt positions are inferred from coordinate order and uniprot_start.",

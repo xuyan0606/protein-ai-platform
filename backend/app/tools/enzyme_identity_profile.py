@@ -557,18 +557,16 @@ def enzyme_identity_profile(
     # Coordinate-order numbering is useful for local reasoning, but it is not
     # external annotation evidence. Only an explicitly verified coordinate
     # mapping may unlock the verified status used by candidate gating.
-    numbering_status = (
-        "verified_for_input_sequence"
-        if mapping_status == "ready"
-        else
-        "verified_for_input_sequence"
-        if not evidence_bundle or coordinate_status == "verified"
-        else (
-            "external_annotation_mapping_required"
-            if coordinate_status == "mapping_required"
-            else "inferred_for_input_sequence"
-        )
-    )
+    if mapping_status == "ready":
+        numbering_status = "verified_for_input_sequence"
+    elif mapping_status in {"uniprot_only_requires_input_alignment", "inferred_requires_confirmation"}:
+        numbering_status = "inferred_for_input_sequence"
+    elif coordinate_status == "mapping_required":
+        numbering_status = "external_annotation_mapping_required"
+    elif not evidence_bundle or coordinate_status == "verified":
+        numbering_status = "verified_for_input_sequence"
+    else:
+        numbering_status = "inferred_for_input_sequence"
     guardrail_ready = identity_status == "identified" and numbering_status == "verified_for_input_sequence"
 
     return {

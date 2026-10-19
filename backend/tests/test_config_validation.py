@@ -317,8 +317,8 @@ class TestRequirementsFiles:
             "local_capable": 2,
         }
         assert payload["summary"]["counts"] == {
-            "external_required": 8,
-            "ready": 1,
+            "external_required": 7,
+            "ready": 2,
         }
         names = {item["name"] for item in payload["results"]}
         assert "real_deploy_data" in names
@@ -4192,7 +4192,7 @@ class TestProductionConfigGate:
         assert payload["phase_summary"]["P4"]["ready_local_contract"] == 1
         assert payload["phase_summary"]["P0"]["covered_local_gap_count"] >= 1
         assert "open_local_gap_count" in payload["phase_summary"]["P2"]
-        assert payload["remaining_backlog_summary"]["counts"]["external_required"] == 8
+        assert payload["remaining_backlog_summary"]["counts"]["external_required"] == 7
         by_name = {item["name"]: item for item in payload["items"]}
         assert "specified_mutation_reviews" in by_name["specified_mutation_review"]["evidence_tokens"]
         assert "unified_numbering_registry_v1" in by_name["numbering_registry"]["evidence_tokens"]
@@ -4304,7 +4304,7 @@ class TestProductionConfigGate:
         assert payload["status_export_contract"]["contract_status_items_are_source_bound"] is True
         assert payload["status_export_contract"]["covered_followups_do_not_clear_external_blockers"] is True
         assert payload["status_export_contract"]["local_followups_are_not_capability_completion"] is True
-        assert payload["remaining_backlog_summary"]["counts"]["external_required"] == 8
+        assert payload["remaining_backlog_summary"]["counts"]["external_required"] == 7
         assert "formal_domain_https" in payload["external_followups"]
         assert "ready local contract means production complete" in payload["must_not_claim"]
         md = output_md.read_text(encoding="utf-8")
