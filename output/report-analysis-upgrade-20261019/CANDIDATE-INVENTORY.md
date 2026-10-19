@@ -36,7 +36,7 @@ The candidate does not include the unrelated model training, external research d
 - Production image references must be immutable digests and must match the manifest.
 - The production Chroma service is now pinned to `chromadb/chroma:0.6.3` (digest `sha256:e0e78dc7609a599b63c99753442c7d01b1d3d369ce0e3bf3e0540536fec4fa7a`) and is healthy. The old container is retained as `docker-chromadb-legacy-20261019` for rollback evidence.
 - A stopped-window backup of the actual live SQLite path `/data/chroma.sqlite3` exists at `chroma-live-data-stopped-20261019T003540Z.sqlite3`, SHA-256 `5b1ad20275d1ddf0961e0ec35a8671014ec9e2b192efa7e4883a7108feebc630`.
-- The old SQLite schema is not readable by 0.6.3 (`KeyError('_type')`); the new empty 0.6.3 database passes heartbeat, collection creation, and add/get checks. Historical collection migration/rebuild remains required before claiming literature data recovery.
+- The old SQLite schema is not readable by 0.6.3 (`KeyError('_type')`); the new 0.6.3 database passes heartbeat, collection creation, and add/get checks. A read-only audit scoped to the retained backup SHA-256 found zero embedding, metadata, and full-text rows, so no historical literature payload was present in that backup to migrate.
 
 ## Maintenance update
 
@@ -61,7 +61,7 @@ The tracked patch was an inventory aid only. The audited candidate is recorded i
 
 ## Latest verification
 
-- Latest isolated candidate commit: `fbb1d45e4c99d9c8b20fcf1e7d4359ea98e1e171` on `report-analysis-release-candidate-20261019` (clean local worktree; not pushed or deployed).
+- Isolated candidate branch: `report-analysis-release-candidate-20261019` (clean local worktree; not pushed or deployed). Candidate code commit: `fbb1d45e4c99d9c8b20fcf1e7d4359ea98e1e171`; later commits on this branch record release-gate evidence and inventory corrections.
 - Expanded backend Python 3.12 release/report/structure/BLAST/Chroma suite: `124 passed`.
 - `package_deploy_bundle.py --dry-run`: 660 files, 16,731,806 bytes; no package was created.
 - `check_upgrade_readiness.py --require-ready --json` remains blocked: candidate production env files are missing, sample config has six critical findings, and formal provenance/alignment manifests are missing.
