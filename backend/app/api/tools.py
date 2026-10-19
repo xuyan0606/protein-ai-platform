@@ -51,6 +51,7 @@ from app.services.model_runtime_readiness import collect_model_runtime_readiness
 from app.services.remediation_readiness import collect_remediation_readiness
 from app.models.conversation import Conversation
 from app.models.strategy_checkpoint import AnalysisEvidenceSnapshot
+from app.services.blast_jobs import read_blast_job, job_status, save_blast_job, cancel_blast_job
 from app.services.tool_task_store import (
     record_tool_artifact_owner,
     get_tool_task_owner,
@@ -92,6 +93,10 @@ class AnalysisRecomputeDecisionRequest(BaseModel):
 
 class MdProtocolResolveRequest(BaseModel):
     overrides: dict = {}
+
+
+class BlastReportRevisionRequest(BaseModel):
+    conversation_id: int = Field(ge=1)
 
 
 class MdReplicateBatchSubmitRequest(BaseModel):
@@ -332,13 +337,25 @@ def _artifact_archive_path(artifact: dict, category_lookup: dict[str, str], seen
         index += 1
 
 
-async def _require_task_owner(task_id: str, current_user: dict) -> dict:
+async def _require_task_owner(task_id: str, current_user: dict, session: AsyncSession | None = None) -> dict:
     owner = await get_tool_task_owner(task_id)
+    if owner is None and session is not None:
+        audit = await get_any_task_audit(session, task_id=task_id)
+        if audit and audit["tool"] == "blast_search":
+            owner = {**audit, **audit["runtime_policy"], "cancel_requested": bool(audit.get("cancel_requested_at"))}
     if owner is None:
         raise HTTPException(404, "Tool task not found")
     if owner["user_id"] != int(current_user["id"]):
         raise HTTPException(403, "Task does not belong to current user")
     return owner
+
+
+async def _read_task_status(session: AsyncSession, task_id: str, owner: dict) -> dict:
+    if owner.get("tool") == "blast_search":
+        _, job = await read_blast_job(session, task_id)
+        if job:
+            return job_status(job)
+    return get_task_status(task_id)
 
 
 async def _load_owned_task_results_for_recompute(
@@ -354,14 +371,14 @@ async def _load_owned_task_results_for_recompute(
     """
     records: list[dict] = []
     for task_id in dict.fromkeys(str(item).strip() for item in task_ids if str(item).strip()):
-        owner = await _require_task_owner(task_id, current_user)
+        owner = await _require_task_owner(task_id, current_user, session)
         try:
-            status = get_task_status(task_id)
+            status = await _read_task_status(session, task_id, owner)
         except Exception as exc:
             raise HTTPException(500, f"Failed to read task {task_id}: {exc}")
         status["tool"] = owner.get("tool")
         _coerce_cancel_requested_terminal_status(owner, status)
-        if status.get("status") in {"completed", "failed", "canceled"}:
+        if status.get("status") in {"completed", "failed", "canceled", "degraded"}:
             owner = await record_tool_task_terminal_state(task_id, status["status"]) or owner
         await update_task_audit_from_status(session, task_id=task_id, owner=owner, status=status)
         records.append({
@@ -556,6 +573,44 @@ async def request_analysis_recompute_decision(
         "only when status is recompute_ready."
     )
     return decision
+
+
+@router.post("/tasks/{task_id}/report-revision")
+async def create_tool_report_revision(
+    task_id: str, req: BlastReportRevisionRequest,
+    current_user: dict = Depends(get_current_user), session: AsyncSession = Depends(get_session),
+):
+    from app.services.blast_report_revision import create_blast_report_revision
+    records = await _load_owned_task_results_for_recompute(task_ids=[task_id], current_user=current_user, session=session)
+    try:
+        return await create_blast_report_revision(session, user_id=int(current_user["id"]),
+            conversation_id=req.conversation_id, task=records[0])
+    except ValueError as exc:
+        raise HTTPException(409, str(exc))
+
+
+@router.post("/tasks/{task_id}/resume")
+async def resume_blast_task(
+    task_id: str, current_user: dict = Depends(get_current_user), session: AsyncSession = Depends(get_session),
+):
+    import time
+    from app.core.config import settings
+    from app.services.scheduler import run_tool_task
+    owner = await _require_task_owner(task_id, current_user, session)
+    if owner.get("tool") != "blast_search":
+        raise HTTPException(400, "Only BLAST tasks support RID retrieval resume")
+    row, job = await read_blast_job(session, task_id, lock=True)
+    if not row or not job.get("rid") or job["status"] != "degraded":
+        raise HTTPException(409, "Task is not resumable")
+    now = time.time()
+    job.update(status="waiting", result=None, error=None, stage="ncbi_waiting",
+               message="已恢复原 NCBI 任务查询。", deadline_at=now + settings.BLAST_BACKGROUND_WAIT_SECONDS,
+               next_poll_at=max(now, job.get("next_poll_at", 0)))
+    await save_blast_job(session, row, job)
+    profile = get_task_profile("blast_search")
+    run_tool_task.apply_async(args=["blast_search", job["params"]], task_id=task_id, queue=profile.queue,
+        countdown=max(1, job["next_poll_at"] - now), soft_time_limit=profile.soft_time_limit, time_limit=profile.time_limit)
+    return job_status(job)
 
 
 @router.get("/tasks/{task_id}/audit")
@@ -1248,10 +1303,10 @@ async def get_tool_task(
     session: AsyncSession = Depends(get_session),
 ):
     """Poll the status of an async tool task."""
-    owner = await _require_task_owner(task_id, current_user)
+    owner = await _require_task_owner(task_id, current_user, session)
 
     try:
-        status = get_task_status(task_id)
+        status = await _read_task_status(session, task_id, owner)
     except Exception as e:
         raise HTTPException(500, str(e))
 
@@ -1265,7 +1320,7 @@ async def get_tool_task(
     status["terminal_status"] = owner.get("terminal_status")
     _coerce_cancel_requested_terminal_status(owner, status)
     await _record_task_artifact_access(task_id, owner, status)
-    if status["status"] in {"completed", "failed", "canceled"}:
+    if status["status"] in {"completed", "failed", "canceled", "degraded"}:
         owner = await record_tool_task_terminal_state(task_id, status["status"]) or owner
         status["terminal_status"] = owner.get("terminal_status")
         status["cancel_effective_at"] = owner.get("cancel_effective_at")
@@ -1275,9 +1330,9 @@ async def get_tool_task(
 
 
 @router.get("/tasks/{task_id}/artifacts/download")
-async def download_tool_task_artifacts(task_id: str, current_user: dict = Depends(get_current_user)):
+async def download_tool_task_artifacts(task_id: str, current_user: dict = Depends(get_current_user), session: AsyncSession = Depends(get_session)):
     """Download all generated artifacts for a completed async tool task as a zip archive."""
-    owner = await _require_task_owner(task_id, current_user)
+    owner = await _require_task_owner(task_id, current_user, session)
 
     try:
         status = get_task_status(task_id)
@@ -1338,7 +1393,10 @@ async def cancel_tool_task(
     session: AsyncSession = Depends(get_session),
 ):
     """Request cancellation of an async tool task owned by the current user."""
-    owner = await _require_task_owner(task_id, current_user)
+    owner = await _require_task_owner(task_id, current_user, session)
+
+    if owner.get("tool") == "blast_search":
+        await cancel_blast_job(session, task_id)
 
     try:
         cancel_task(task_id)

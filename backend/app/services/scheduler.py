@@ -13,6 +13,8 @@ from typing import Any
 
 from celery import Celery
 from celery.result import AsyncResult
+from celery.exceptions import Retry
+from celery.signals import worker_ready
 
 from app.core.config import settings
 from app.core.metrics import tool_calls_total, tool_call_duration_seconds
@@ -186,11 +188,17 @@ def get_task_status(task_id: str) -> dict[str, Any]:
         normalized_status = "failed"
     elif status == "SUCCESS" and payload_status in {"canceled", "cancelled", "revoked"}:
         normalized_status = "canceled"
+    elif status == "SUCCESS" and payload_status in {"degraded", "stale_cache", "blocked"}:
+        normalized_status = "degraded"
+    if status == "SUCCESS" and normalized_status == "completed" and isinstance(payload_result, dict):
+        source = payload_result.get("evidence_source")
+        if isinstance(source, dict) and source.get("status") in {"degraded", "blocked"}:
+            normalized_status = "degraded"
     return {
         "task_id": task_id,
         "status": normalized_status,
         "result": info.get("result") if status == "SUCCESS" and not backend_error else None,
-        "error": payload_error if normalized_status in {"failed", "canceled"} else None,
+        "error": (payload_error or (payload_result or {}).get("warning")) if normalized_status in {"failed", "canceled", "degraded"} else None,
         "progress": info.get("progress", 100 if status in {"SUCCESS", "FAILURE", "REVOKED"} else 0),
         "message": info.get("message") if isinstance(info.get("message"), str) else None,
         "stage": info.get("stage") if isinstance(info.get("stage"), str) else None,
@@ -206,7 +214,42 @@ def cancel_task(task_id: str) -> bool:
     return True
 
 
-@celery_app.task(bind=True, name="protein_ai.run_tool")
+@worker_ready.connect
+def recover_blast_jobs_on_worker_ready(sender=None, **kwargs):
+    """Recover DB checkpoints even if restart lost an ETA message in the broker."""
+    import asyncio
+    import json
+    import time
+    from sqlalchemy import select
+    from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+    from sqlalchemy.pool import NullPool
+    from app.models.domain import KVStore
+    from app.services.blast_jobs import TERMINAL
+
+    if sender is None or "default" not in {q.name for q in sender.task_consumer.queues}:
+        return
+
+    async def recover():
+        engine = create_async_engine(settings.DATABASE_URL, poolclass=NullPool)
+        try:
+            async with AsyncSession(engine) as session:
+                rows = (await session.execute(select(KVStore).where(KVStore.key.like("blast-job:%")))).scalars()
+                for row in rows:
+                    job = json.loads(row.value)
+                    if job.get("status") not in TERMINAL:
+                        profile = get_task_profile("blast_search")
+                        run_tool_task.apply_async(args=["blast_search", job["params"]], task_id=job["task_id"],
+                            countdown=max(1, job.get("next_poll_at", 0) - time.time()), queue=profile.queue,
+                            soft_time_limit=profile.soft_time_limit, time_limit=profile.time_limit)
+        finally:
+            await engine.dispose()
+    try:
+        asyncio.run(recover())
+    except Exception:
+        logger.exception("Failed to recover BLAST checkpoints on worker startup")
+
+
+@celery_app.task(bind=True, name="protein_ai.run_tool", max_retries=None)
 def run_tool_task(self, tool_name: str, params: dict[str, Any]) -> dict[str, Any]:
     """Execute an async protein tool and return results.
 
@@ -248,6 +291,13 @@ def run_tool_task(self, tool_name: str, params: dict[str, Any]) -> dict[str, Any
     t0 = time.monotonic()
 
     try:
+        if tool_name == "blast_search":
+            from app.services.blast_jobs import run_worker_blast_step, TERMINAL
+            job = asyncio.run(run_worker_blast_step(task_id, params))
+            if job["status"] not in TERMINAL:
+                # Retry preserves task ID and survives normal worker/API restarts.
+                raise self.retry(countdown=max(1, job["next_poll_at"] - time.time()), max_retries=None)
+            return {"status": job["status"], "tool": tool_name, "result": job.get("result")}
         _ensure_tool_registry_ready(tool_name)
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
@@ -263,6 +313,8 @@ def run_tool_task(self, tool_name: str, params: dict[str, Any]) -> dict[str, Any
         tool_calls_total.labels(tool_name=tool_name, status="success").inc()
         tool_call_duration_seconds.labels(tool_name=tool_name).observe(time.monotonic() - t0)
         return {"status": "completed", "tool": tool_name, "result": result}
+    except Retry:
+        raise
     except Exception as exc:
         logger.exception("Task %s (%s) failed", self.request.id, tool_name)
         # Celery's result backend expects exception metadata for FAILURE

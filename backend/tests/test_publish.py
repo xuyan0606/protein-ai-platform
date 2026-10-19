@@ -87,6 +87,54 @@ class TestReportGenerator:
         assert "Simple report" in md
         assert "参考文献" not in md  # no citations
 
+    def test_report_front_matter_contains_revision_and_evidence_summary(self):
+        from app.services.report_generator import ReportGenerator
+
+        md = ReportGenerator().generate_conversation_report(
+            project_name="EvidenceProject",
+            conversation_title="Revision metadata",
+            user_message="继续查询同源",
+            research_notes="",
+            plan=[
+                {"tool_name": "blast_search", "status": "submitted"},
+                {"tool_name": "predict_properties", "status": "completed"},
+            ],
+            tool_results=[
+                {"tool_name": "blast_search", "status": "submitted", "result": {"task_id": "rid-1"}},
+                {"tool_name": "predict_properties", "status": "completed", "result": {"mw": 36.5}},
+            ],
+            final_report="报告正文",
+        )
+
+        assert "report_schema_version: 1.1" in md
+        assert "report_revision_id: " in md
+        assert '"waiting": 1' in md
+        assert '"completed": 1' in md
+        assert "### Report Reproducibility Manifest" in md
+
+    def test_waiting_blast_is_not_rendered_as_no_hit_evidence(self):
+        from app.services.report_generator import ReportGenerator
+
+        md = ReportGenerator().generate_conversation_report(
+            project_name="EvidenceProject",
+            conversation_title="BLAST waiting",
+            user_message="查询同源",
+            research_notes="",
+            plan=[{"tool_name": "blast_search", "status": "waiting"}],
+            tool_results=[
+                {
+                    "tool_name": "blast_search",
+                    "status": "waiting",
+                    "result": {"status": "waiting", "rid": "D34BH4R9014"},
+                }
+            ],
+            final_report="NCBI 尚未返回结果。",
+        )
+
+        assert "等待/未完成" in md
+        assert "已完成（无命中）" not in md
+        assert "未获得可用同源命中" not in md
+
     def test_report_includes_evidence_source_status_table(self):
         from app.services.report_generator import ReportGenerator
         gen = ReportGenerator()

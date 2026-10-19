@@ -1,6 +1,6 @@
 services:
   md-worker:
-    image: protein-ai-backend:aliyun
+    image: ${MD_WORKER_IMAGE:-protein-ai-backend:aliyun}
     platform: linux/amd64
     build:
       context: ..
@@ -37,7 +37,7 @@ services:
       MINIO_REGION: ${ALIYUN_OSS_REGION}
       FOLDSEEK_BINARY: ${FOLDSEEK_BINARY:-/usr/local/bin/foldseek}
     volumes:
-      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+      - ${DEPLOY_DATA_HOST_PATH:-/opt/protein-ai-platform/deploy_data}:/app/deploy_data:ro
       - md_scratch:/app/storage
     networks:
       - app_network
@@ -56,7 +56,7 @@ services:
     restart: unless-stopped
 
   ligand-worker:
-    image: protein-ai-ligand-worker:aliyun
+    image: ${LIGAND_WORKER_IMAGE:-protein-ai-ligand-worker:aliyun}
     platform: linux/amd64
     build:
       context: ..
@@ -96,7 +96,7 @@ services:
       LIGAND_RUNTIME_BOUNDARY: ligand_worker_only
       LIGAND_RUNTIME_CHECK: /usr/local/bin/ligand-runtime-check
     volumes:
-      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+      - ${DEPLOY_DATA_HOST_PATH:-/opt/protein-ai-platform/deploy_data}:/app/deploy_data:ro
       - ligand_scratch:/app/storage
     networks:
       - app_network

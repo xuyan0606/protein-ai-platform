@@ -11,6 +11,14 @@ from dataclasses import dataclass
 import re
 from typing import Iterable
 
+from app.services.report_evidence_contract import (
+    EVIDENCE_TYPES,
+    make_evidence_record,
+)
+
+
+REPORT_SCHEMA_VERSION = "1.1"
+
 
 CORE_SECTION_ORDER: tuple[str, ...] = (
     "## 任务理解",
@@ -48,6 +56,35 @@ class ReportQualityViolation:
 
     code: str
     message: str
+
+
+def validate_evidence_records(records: Iterable[dict] | None) -> list[ReportQualityViolation]:
+    """Validate structured evidence before it is rendered or published.
+
+    This is intentionally separate from the legacy Markdown quality gate so
+    historical reports remain readable while new producers can fail closed.
+    """
+    violations: list[ReportQualityViolation] = []
+    for index, record in enumerate(records or ()):
+        if not isinstance(record, dict):
+            violations.append(ReportQualityViolation("invalid_evidence_record", f"evidence[{index}] must be an object"))
+            continue
+        evidence_type = record.get("evidence_type")
+        status = record.get("status")
+        if evidence_type not in EVIDENCE_TYPES:
+            violations.append(ReportQualityViolation("invalid_evidence_type", f"evidence[{index}] has unsupported type"))
+            continue
+        try:
+            make_evidence_record(
+                evidence_type=evidence_type,
+                status=str(status or ""),
+                source=record.get("source"),
+                derived_from=record.get("derived_from"),
+                value=record.get("value"),
+            )
+        except ValueError as exc:
+            violations.append(ReportQualityViolation("invalid_evidence_record", f"evidence[{index}]: {exc}"))
+    return violations
 
 
 def is_structured_enzyme_report(report: str) -> bool:

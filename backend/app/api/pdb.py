@@ -68,8 +68,14 @@ def _validate_pdb_content(filename: str, text: str) -> None:
     ext = filename.rsplit(".", 1)[-1].lower() if "." in filename else ""
     if ext not in ALLOWED_PDB_EXTENSIONS:
         raise HTTPException(status_code=400, detail=f"Unsupported format: .{ext}")
-    if not text.strip().startswith(("HEADER", "ATOM", "MODEL", "CRYST1", "TITLE", "REMARK", "data_")):
+    if not text.strip():
         raise HTTPException(status_code=400, detail="Not a valid PDB/CIF file")
+
+
+def _require_parsed_protein(analysis: dict) -> None:
+    """Do not report metadata-only or unsupported structures as parsed proteins."""
+    if not analysis.get("total_atoms") or not analysis.get("total_residues") or not analysis.get("chains"):
+        raise HTTPException(status_code=400, detail="No protein coordinates found in PDB/CIF file")
 
 
 def _infer_pdb_id_from_object_name(object_name: str) -> str:
@@ -103,6 +109,10 @@ async def _summarize_pdb_analysis(analysis: dict, model_id: str | None) -> dict:
         "r_factor": analysis.get("r_factor"),
         "space_group": analysis.get("space_group"),
         "b_factor_stats": analysis.get("b_factor_stats"),
+        "b_factor_boundary": (
+            "B-factor is a source-dependent raw PDB field. Its meaning is unknown unless the structure source and convention are established; "
+            "do not infer thermostability, flexibility, or model confidence from it."
+        ),
         "chains": chain_preview,
     }
 
@@ -112,8 +122,9 @@ async def _summarize_pdb_analysis(analysis: dict, model_id: str | None) -> dict:
             "content": (
                 "You are a structural biology assistant. "
                 "Write a concise Chinese summary of a PDB structure analysis. "
-                "Focus on structure quality, chain composition, flexibility/stability signals, "
-                "and practical follow-up suggestions. Keep it to 4 short bullet points."
+                "Focus on chain composition, experimental metadata, data limitations, and practical follow-up suggestions. "
+                "Never infer thermostability, flexibility, or model confidence from B-factor alone. "
+                "Keep it to 4 short bullet points."
             ),
         },
         {
@@ -165,6 +176,7 @@ async def analyze_pdb(
         analysis = parse_pdb(text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"PDB parsing failed: {e}")
+    _require_parsed_protein(analysis)
 
     # Store in MinIO for later reference
     try:
@@ -203,6 +215,7 @@ async def parse_pdb_text(
         analysis = parse_pdb(pdb_text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"PDB parsing failed: {e}")
+    _require_parsed_protein(analysis)
 
     return analysis
 
@@ -319,6 +332,7 @@ async def analyze_by_name(
         analysis = parse_pdb(text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"PDB parsing failed: {e}")
+    _require_parsed_protein(analysis)
 
     summary = await _summarize_pdb_analysis(analysis, payload.model)
     return {**analysis, **summary}

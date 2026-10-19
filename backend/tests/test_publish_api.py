@@ -161,6 +161,47 @@ async def test_collection_publish_requires_collection_id(client, session):
     assert response.status_code == 401
 
 
+async def test_wiki_collection_auth_failure_is_actionable(client, session, monkeypatch):
+    from app.api import publish as publish_api
+    from app.services.outline_client import OutlineAuthenticationError
+
+    user = await _create_user(session, "wiki-auth-failure@example.com")
+    await session.commit()
+
+    class FakeOutlineClient:
+        async def list_collections(self):
+            raise OutlineAuthenticationError("expired")
+
+    monkeypatch.setattr("app.services.outline_client.get_outline_client", lambda: FakeOutlineClient())
+    token = create_access_token(user.id)
+    response = await client.get("/api/wiki/collections", headers={"Authorization": f"Bearer {token}"})
+
+    assert response.status_code == 503
+    assert "认证已失效" in response.json()["detail"]
+
+
+async def test_wiki_publish_auth_failure_is_actionable(client, session, monkeypatch):
+    from app.api import publish as publish_api
+    from app.services.outline_client import OutlineAuthenticationError
+
+    user = await _create_user(session, "wiki-publish-auth-failure@example.com")
+    await session.commit()
+
+    async def reject_publish(*_args, **_kwargs):
+        raise OutlineAuthenticationError("expired")
+
+    monkeypatch.setattr(publish_api.publish_service, "publish_report", reject_publish)
+    token = create_access_token(user.id)
+    response = await client.post(
+        "/api/wiki/publish",
+        json={"title": "Test", "content": "# Test", "collection_id": "collection-1"},
+        headers={"Authorization": f"Bearer {token}"},
+    )
+
+    assert response.status_code == 503
+    assert "认证已失效" in response.json()["detail"]
+
+
 async def test_shared_project_viewer_can_list_files_but_cannot_write(client, session, monkeypatch):
     from app.api import publish as publish_api
 

@@ -29,6 +29,7 @@ from app.models.conversation import Conversation
 from app.services import publish_service
 from app.services.project_acl import can_perform_project_action, get_project_access
 from app.services.report_generator import ReportGenerator
+from app.services.outline_client import OutlineAuthenticationError, OutlineUnavailableError
 
 router = APIRouter(tags=["publish"])  # mounted under /api/projects
 conv_router = APIRouter(tags=["publish"])  # mounted under /api
@@ -131,6 +132,10 @@ async def publish_to_wiki(
         )
     except publish_service.ReportQualityGateError as e:
         raise HTTPException(400, str(e)) from e
+    except OutlineAuthenticationError as e:
+        raise HTTPException(503, "Wiki 服务认证已失效，请联系管理员轮换 Outline API key") from e
+    except OutlineUnavailableError as e:
+        raise HTTPException(503, "Wiki 服务暂时不可用，请稍后重试") from e
     return PublishResponse(**result)
 
 
@@ -169,6 +174,10 @@ async def publish_to_collection(
         )
     except publish_service.ReportQualityGateError as e:
         raise HTTPException(400, str(e)) from e
+    except OutlineAuthenticationError as e:
+        raise HTTPException(503, "Wiki 服务认证已失效，请联系管理员轮换 Outline API key") from e
+    except OutlineUnavailableError as e:
+        raise HTTPException(503, "Wiki 服务暂时不可用，请稍后重试") from e
     return PublishResponse(**result)
 
 
@@ -355,7 +364,11 @@ async def list_wiki_collections(
 ):
     """List existing Outline collections the backend API token can access."""
     try:
-        from app.services.outline_client import get_outline_client
+        from app.services.outline_client import (
+            OutlineAuthenticationError,
+            OutlineUnavailableError,
+            get_outline_client,
+        )
 
         client = get_outline_client()
         collections = await client.list_collections()
@@ -370,6 +383,12 @@ async def list_wiki_collections(
             for item in collections
             if item.get("id")
         ]
+    except OutlineAuthenticationError as e:
+        logger.error("Outline authentication failed while listing collections: %s", e)
+        raise HTTPException(503, "Wiki 服务认证已失效，请联系管理员轮换 Outline API key") from e
+    except OutlineUnavailableError as e:
+        logger.warning("Outline unavailable while listing collections: %s", e)
+        raise HTTPException(503, "Wiki 服务暂时不可用，请稍后重试") from e
     except Exception as e:
         logger.warning("Failed to list wiki collections for user %s: %s", user["id"], e)
         raise HTTPException(502, "加载 Wiki collection 失败")
@@ -382,7 +401,11 @@ async def get_collection_tree(
 ):
     """Get the Outline document tree for an existing collection."""
     try:
-        from app.services.outline_client import get_outline_client
+        from app.services.outline_client import (
+            OutlineAuthenticationError,
+            OutlineUnavailableError,
+            get_outline_client,
+        )
 
         client = get_outline_client()
         docs = await client.get_collection_tree(collection_id)
@@ -408,6 +431,12 @@ async def get_collection_tree(
             "root_doc_id": None,
             "documents": tree,
         }
+    except OutlineAuthenticationError as e:
+        logger.error("Outline authentication failed while loading collection %s: %s", collection_id, e)
+        raise HTTPException(503, "Wiki 服务认证已失效，请联系管理员轮换 Outline API key") from e
+    except OutlineUnavailableError as e:
+        logger.warning("Outline unavailable while loading collection %s: %s", collection_id, e)
+        raise HTTPException(503, "Wiki 服务暂时不可用，请稍后重试") from e
     except Exception as e:
         logger.warning(
             "Failed to load wiki tree for collection %s user %s: %s",
@@ -462,6 +491,10 @@ async def get_wiki_tree(
             "root_doc_id": project.outline_root_doc_id,
             "documents": tree,
         }
+    except OutlineAuthenticationError as e:
+        raise HTTPException(503, "Wiki 服务认证已失效，请联系管理员轮换 Outline API key") from e
+    except OutlineUnavailableError as e:
+        raise HTTPException(503, "Wiki 服务暂时不可用，请稍后重试") from e
     except Exception as e:
         logger.warning("Outline wiki tree failed for project %s: %s", project_id, e)
         return {
@@ -486,29 +519,20 @@ async def get_wiki_page(
         raise HTTPException(400, "Project has no wiki collection")
 
     try:
-        import httpx
-        from app.services.outline_client import OUTLINE_API_URL, OUTLINE_API_TOKEN
-
-        async with httpx.AsyncClient(timeout=httpx.Timeout(30.0)) as client:
-            resp = await client.post(
-                f"{OUTLINE_API_URL}/documents.info",
-                headers={
-                    "Authorization": f"Bearer {OUTLINE_API_TOKEN}",
-                    "Content-Type": "application/json",
-                },
-                json={"id": doc_id},
-            )
-            resp.raise_for_status()
-            data = resp.json().get("data", {})
-            return {
-                "id": data.get("id"),
-                "title": data.get("title"),
-                "text": data.get("text", ""),
-                "updated_at": data.get("updatedAt"),
-                "url_id": data.get("urlId"),
-            }
-    except Exception as e:
-        raise HTTPException(502, f"Outline API error: {e}")
+        from app.services.outline_client import get_outline_client
+        data = await get_outline_client().get_document(doc_id)
+        if data.get("collectionId") != project.outline_collection_id:
+            raise HTTPException(404, "Wiki document not found")
+        return {
+            "id": data.get("id"),
+            "title": data.get("title"),
+            "text": data.get("text", ""),
+            "updated_at": data.get("updatedAt"),
+            "url_id": data.get("urlId"),
+        }
+    except (OutlineAuthenticationError, OutlineUnavailableError) as e:
+        detail = "Wiki 服务认证已失效，请联系管理员轮换 Outline API key" if isinstance(e, OutlineAuthenticationError) else "Wiki 服务暂时不可用，请稍后重试"
+        raise HTTPException(503, detail) from e
 
 
 # ---------------------------------------------------------------------------

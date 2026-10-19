@@ -11,9 +11,26 @@ from __future__ import annotations
 import json
 import logging
 from datetime import datetime
+import platform
 from typing import Any
 
+from app.core.config import settings
 from app.services.platform_manifest import collect_platform_manifest
+from app.services.report_evidence_contract import make_evidence_record
+from app.services.report_manifest import build_report_manifest, manifest_sha256
+
+
+REPORT_SCHEMA_VERSION = "1.1"
+_EXTERNAL_EVIDENCE_TOOLS = frozenset(
+    {
+        "annotation_bundle",
+        "blast_search",
+        "literature_live_search",
+        "residue_mapping_sifts",
+        "sequence_search",
+        "structure_search_foldseek",
+    }
+)
 
 logger = logging.getLogger(__name__)
 
@@ -32,6 +49,118 @@ class ReportGenerator:
             return parsed if isinstance(parsed, dict) else {}
         except Exception:
             return {}
+
+    @staticmethod
+    def _evidence_status(status: Any) -> str:
+        """Map tool lifecycle states into the conservative report contract."""
+        value = str(status or "not_available").strip().lower()
+        if value in {"completed", "completed_no_hit", "completed_with_hits"}:
+            return value
+        if value in {"submitted", "running", "pending", "waiting", "queued", "degraded"}:
+            return "waiting"
+        if value in {"failed", "blocked", "canceled", "cancelled", "error"}:
+            return "failed"
+        if value in {"not_run", "skipped"}:
+            return "not_run"
+        return "not_available"
+
+    @classmethod
+    def _evidence_records(cls, plan: list[dict], tool_results: list[dict]) -> list[dict[str, Any]]:
+        """Create one traceable evidence row per planned or executed tool."""
+        rows: list[dict[str, Any]] = []
+        seen: set[str] = set()
+        entries = list(tool_results) + [item for item in plan if isinstance(item, dict)]
+        for item in entries:
+            tool = str(item.get("tool_name") or item.get("tool") or "unknown")
+            if tool in seen:
+                continue
+            seen.add(tool)
+            payload = cls._safe_payload(item.get("result"))
+            raw_status = item.get("status")
+            payload_status = payload.get("evidence_status") or payload.get("status")
+            status = cls._evidence_status(
+                (payload_status or raw_status)
+                if str(raw_status or "").lower() in {"completed", "submitted", "waiting"}
+                else raw_status
+            )
+            evidence_type = "database_evidence" if tool in _EXTERNAL_EVIDENCE_TOOLS else "computed_result"
+            source = item.get("evidence_source")
+            if not isinstance(source, dict):
+                source = payload.get("evidence_source") if isinstance(payload.get("evidence_source"), dict) else {}
+            source_name = source.get("source") or source.get("mode") or tool
+            record = make_evidence_record(
+                evidence_type=evidence_type,
+                status=status,
+                source=str(source_name),
+                value={
+                    "tool": tool,
+                    "raw_status": str(item.get("status") or "not_available"),
+                    "live_query_executed": bool(source.get("live_query_executed")),
+                },
+            ).to_dict()
+            record["evidence_id"] = f"tool:{tool}"
+            rows.append(record)
+        return rows
+
+    @classmethod
+    def _evidence_summary(cls, records: list[dict[str, Any]]) -> dict[str, Any]:
+        counts = {"completed": 0, "waiting": 0, "failed": 0, "not_run": 0, "not_available": 0}
+        for record in records:
+            status = str(record.get("status") or "not_available")
+            if status in {"completed_no_hit", "completed_with_hits"}:
+                status = "completed"
+            counts[status] = counts.get(status, 0) + 1
+        return {
+            "total": len(records),
+            "completed": counts["completed"],
+            "waiting": counts["waiting"],
+            "failed": counts["failed"],
+            "not_run": counts["not_run"],
+            "not_available": counts["not_available"],
+        }
+
+    @staticmethod
+    def _report_manifest_markdown(manifest: dict[str, Any]) -> str:
+        return "\n".join(
+            [
+                "### Report Reproducibility Manifest",
+                "",
+                f"- report_schema_version: `{manifest['report_schema_version']}`",
+                f"- report_revision_id: `{manifest['report_revision_id']}`",
+                "",
+                "```json",
+                json.dumps(manifest["manifest"], ensure_ascii=False, indent=2),
+                "```",
+            ]
+        ) + "\n"
+
+    @staticmethod
+    def _evidence_contract_markdown(records: list[dict[str, Any]], summary: dict[str, Any]) -> str:
+        rows = [
+            "### Evidence Contract",
+            "",
+            "| Evidence ID | Type | Status | Render status | Source |",
+            "|---|---|---|---|---|",
+        ]
+        for record in records:
+            rows.append(
+                "| {id} | {type} | {status} | {render} | {source} |".format(
+                    id=str(record.get("evidence_id") or "").replace("|", "/"),
+                    type=str(record.get("evidence_type") or ""),
+                    status=str(record.get("status") or ""),
+                    render=str(record.get("render_status") or "").replace("|", "/"),
+                    source=str(record.get("source") or "").replace("|", "/"),
+                )
+            )
+        rows.extend(
+            [
+                "",
+                "```json",
+                json.dumps(summary, ensure_ascii=False, indent=2),
+                "```",
+            ]
+        )
+        return "\n".join(rows) + "\n"
 
     @classmethod
     def _collect_evidence_sources(cls, tool_results: list[dict]) -> list[dict[str, Any]]:
@@ -278,6 +407,66 @@ class ReportGenerator:
         now = datetime.now().strftime("%Y-%m-%d %H:%M")
         date_short = datetime.now().strftime("%Y-%m-%d")
 
+        evidence_records = self._evidence_records(plan, tool_results)
+        evidence_summary = self._evidence_summary(evidence_records)
+        generated_at = datetime.now().astimezone().isoformat(timespec="seconds")
+        manifest = build_report_manifest(
+            inputs={
+                "user_message": str(user_message or ""),
+                "research_notes": str(research_notes or ""),
+                "tool_results": json.dumps(tool_results, ensure_ascii=False, sort_keys=True, default=str),
+                "final_report": str(final_report or ""),
+            },
+            report_schema_version=REPORT_SCHEMA_VERSION,
+            tools=[
+                {
+                    "name": str(item.get("tool_name") or item.get("tool") or "unknown"),
+                    "status": str(item.get("status") or "not_available"),
+                    "version": item.get("version") or item.get("tool_version") or "",
+                }
+                for item in plan
+                if isinstance(item, dict)
+            ],
+            models=(
+                [{
+                    "provider": str(getattr(settings, "LLM_PROVIDER", "") or ""),
+                    "model": str(getattr(settings, "LLM_MODEL", "") or ""),
+                }]
+                + [
+                    {
+                        "provider": str(item.get("provider") or ""),
+                        "model": str(item.get("model") or item.get("model_id") or ""),
+                    }
+                    for item in tool_results
+                    if isinstance(item, dict)
+                    and (item.get("model") or item.get("model_id") or item.get("provider"))
+                ]
+            ),
+            databases=[
+                {
+                    "name": str(source.get("source") or ""),
+                    "endpoint": str(source.get("endpoint") or ""),
+                    "status": str(source.get("status") or ""),
+                }
+                for item in tool_results
+                if isinstance(item, dict)
+                for source in [
+                    item.get("evidence_source")
+                    if isinstance(item.get("evidence_source"), dict)
+                    else self._safe_payload(item.get("result")).get("evidence_source")
+                ]
+                if isinstance(source, dict) and source.get("source")
+            ],
+            runtime={"python": platform.python_version(), "generator": self.__class__.__name__},
+            generated_at=generated_at,
+        )
+        revision_id = manifest_sha256(manifest)
+        manifest_bundle = {
+            "report_schema_version": REPORT_SCHEMA_VERSION,
+            "report_revision_id": revision_id,
+            "manifest": manifest,
+        }
+
         # Build pipeline summary
         pipeline_lines = []
         for i, step in enumerate(plan, 1):
@@ -329,6 +518,9 @@ class ReportGenerator:
             f'project: "{project_name}"\n'
             f'title: "{conversation_title}"\n'
             f"date: {now}\n"
+            f"report_schema_version: {REPORT_SCHEMA_VERSION}\n"
+            f"report_revision_id: {revision_id}\n"
+            f"evidence_summary: {json.dumps(evidence_summary, ensure_ascii=False, sort_keys=True)}\n"
             f"pipeline: {pipeline_json}\n"
             f"tags: {tags_str}\n"
             f"---\n"
@@ -358,6 +550,9 @@ class ReportGenerator:
                 appendix_sections.append(f"### 研究背景\n\n{research_notes.strip()}\n")
             if pipeline_lines:
                 appendix_sections.append("### 分析管线\n\n" + "\n".join(pipeline_lines) + "\n")
+
+            appendix_sections.append(self._evidence_contract_markdown(evidence_records, evidence_summary))
+            appendix_sections.append(self._report_manifest_markdown(manifest_bundle))
 
             evidence_block = appendix_heading_block(self._evidence_sources_markdown(tool_results))
             if evidence_block:
@@ -393,6 +588,9 @@ class ReportGenerator:
             sections.append("## 分析管线\n\n" + "\n".join(pipeline_lines) + "\n")
 
         sections.append(f"## 分析报告\n\n{final_report}\n")
+
+        sections.append(self._evidence_contract_markdown(evidence_records, evidence_summary))
+        sections.append(self._report_manifest_markdown(manifest_bundle))
 
         evidence_block = self._evidence_sources_markdown(tool_results)
         if evidence_block:

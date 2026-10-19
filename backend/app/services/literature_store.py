@@ -18,8 +18,13 @@ import json
 import logging
 from typing import Any
 
-from chromadb import HttpClient, Collection
-from chromadb.config import Settings as ChromaSettings
+try:
+    from chromadb import HttpClient, Collection
+    from chromadb.config import Settings as ChromaSettings
+except ImportError:
+    HttpClient = None
+    Collection = Any
+    ChromaSettings = None
 
 from app.core.config import settings
 from app.services.embedding_models import (
@@ -41,8 +46,40 @@ def _collection_name_for(embedding_model: str | None) -> str:
     return f"{_BASE_COLLECTION_NAME}_{embedding_model.lower().strip()}"
 
 
+def _collection_name(value: Any) -> str | None:
+    """Extract a collection name from old and current Chroma list results.
+
+    Chroma clients before 0.6 returned ``Collection`` objects, while 0.6.x
+    returns collection names as strings.  A mapping is accepted as well for
+    lightweight API/test doubles.
+    """
+    if isinstance(value, str):
+        return value
+    if isinstance(value, dict):
+        name = value.get("name")
+    else:
+        name = getattr(value, "name", None)
+    return name if isinstance(name, str) and name else None
+
+
+def _list_collection_names(client: Any) -> set[str]:
+    """Return collection names across Chroma client return-shape versions."""
+    try:
+        collections = client.list_collections()
+    except Exception as exc:  # noqa: BLE001 - discovery is only an optimization
+        logger.debug("Unable to list ChromaDB collections: %s", exc)
+        return set()
+    return {
+        name
+        for item in collections or []
+        if (name := _collection_name(item)) is not None
+    }
+
+
 def _get_client() -> HttpClient | None:
     """Get ChromaDB HTTP client (same config as vectordb.py)."""
+    if HttpClient is None or ChromaSettings is None:
+        return None
     try:
         client = HttpClient(
             host=settings.CHROMA_HOST,
@@ -85,6 +122,12 @@ def _get_collection(
     }
 
     try:
+        # `list_collections()` changed from Collection objects to names in
+        # Chroma 0.6.x.  Resolve an existing collection explicitly so either
+        # client shape works, while retaining get_or_create as the fallback
+        # for older servers/test doubles that do not support listing.
+        if name in _list_collection_names(client):
+            return client.get_collection(name=name)
         return client.get_or_create_collection(**kwargs)
     except Exception as e:
         logger.warning("Failed to get/create ChromaDB collection '%s': %s", name, e)

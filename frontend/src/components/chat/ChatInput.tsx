@@ -21,12 +21,14 @@ const MODEL_ICONS: Record<string, typeof Sparkles> = {
   gpt55: Sparkles,
   gpt56: Sparkles,
   'gpt56-sol': Sparkles,
+  'gpt6-sol': Sparkles,
 }
 
 const MODEL_COLORS: Record<string, string> = {
   gpt55: 'text-amber-500 bg-amber-500/10 border-amber-500/20',
   gpt56: 'text-orange-500 bg-orange-500/10 border-orange-500/20',
   'gpt56-sol': 'text-yellow-500 bg-yellow-500/10 border-yellow-500/20',
+  'gpt6-sol': 'text-emerald-600 bg-emerald-500/10 border-emerald-500/20',
 }
 
 const STRUCTURE_FILE_EXTENSIONS = new Set(['pdb', 'ent', 'cif'])
@@ -251,7 +253,7 @@ export function ChatInput() {
   }
 
   const currentModel = availableModels.find((m) => m.id === selectedModel)
-  const modelLabel = currentModel?.name || 'GPT-5.5'
+  const modelLabel = currentModel?.name || 'GPT-6-sol'
   const Icon = MODEL_ICONS[selectedModel] || Sparkles
   const colorClass = MODEL_COLORS[selectedModel] || MODEL_COLORS.gpt55
   const busy = streaming || submitting

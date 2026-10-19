@@ -1,6 +1,8 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import type { ReactElement } from 'react'
 import type { ToolCall } from '@/stores/chat'
+import { useChatStore } from '@/stores/chat'
+import { api } from '@/lib/api'
 import { Loader2, CheckCircle2, XCircle, Clock, Dna, ChevronDown, ChevronUp } from 'lucide-react'
 import { ProteinViewer } from '@/components/viewer/ProteinViewer'
 import { BenchmarkReport } from '@/components/analysis/BenchmarkReport'
@@ -28,6 +30,7 @@ import {
 
 interface Props {
   toolCall: ToolCall
+  conversationId?: string | null
 }
 
 interface EvidenceSource {
@@ -55,9 +58,9 @@ function extractPdbData(resultPreview: string): string | null {
 function tryParseResult(preview: string | undefined): unknown | null {
   if (!preview) return null
   try {
-    return JSON.parse(preview.replace(/'/g, '"'))
+    return JSON.parse(preview)
   } catch {
-    return null
+    try { return JSON.parse(preview.replace(/'/g, '"')) } catch { return null }
   }
 }
 
@@ -98,6 +101,8 @@ const ANALYSIS_TOOLS = [
   'interpro_annotation',
   'annotation_bundle',
   'build_site_structure_function_features',
+  'ligand_contact_analysis',
+  'structure_pocket_interface_analysis',
 ]
 
 function isRosettaResult(data: unknown): data is Record<string, unknown> {
@@ -150,6 +155,40 @@ function RosettaDdgCard({ data }: { data: Record<string, unknown> }) {
   )
 }
 
+function isGeometryEvidenceResult(data: unknown): data is Record<string, unknown> {
+  if (!data || typeof data !== 'object') return false
+  const record = data as Record<string, unknown>
+  return record.geometry_only === true && typeof record.evidence_level === 'string'
+}
+
+function GeometryEvidenceCard({ data, kind }: { data: Record<string, unknown>; kind: 'ligand' | 'pocket' }) {
+  const isLigand = kind === 'ligand'
+  const contacts = Array.isArray(data.contacts) ? data.contacts as Array<Record<string, unknown>> : []
+  const pocket = data.pocket && typeof data.pocket === 'object' ? data.pocket as Record<string, unknown> : {}
+  const pocketResidues = Array.isArray(pocket.residues) ? pocket.residues as Array<Record<string, unknown>> : []
+  const interfaces = Array.isArray(data.chain_interfaces) ? data.chain_interfaces as Array<Record<string, unknown>> : []
+  return (
+    <div className="space-y-3 text-xs">
+      <div className="grid grid-cols-2 gap-2">
+        <div><p className="text-[10px] uppercase text-muted-foreground">状态</p><p className="font-medium">{String(data.status || 'unknown')}</p></div>
+        <div><p className="text-[10px] uppercase text-muted-foreground">证据等级</p><p className="font-medium">{String(data.evidence_level || 'GEOMETRY_ONLY')}</p></div>
+      </div>
+      {isLigand ? (
+        <>
+          <p className="text-muted-foreground">接触残基 {contacts.length} 个；距离阈值 {String((data.thresholds as Record<string, unknown> | undefined)?.contact_distance_angstrom || '-')} Å。</p>
+          {contacts.length > 0 && <div className="overflow-x-auto"><table className="w-full border-collapse text-left"><thead><tr className="border-b border-border"><th className="py-1 pr-3 font-medium">残基</th><th className="py-1 pr-3 font-medium">配体</th><th className="py-1 pr-3 font-medium">距离 Å</th></tr></thead><tbody>{contacts.slice(0, 10).map((row, index) => <tr key={index} className="border-b border-border/50"><td className="py-1 pr-3 font-mono">{String(row.chain_id || '?')}:{String(row.residue_name || '?')}{String(row.residue_number || '?')}</td><td className="py-1 pr-3">{String(row.instance_id || row.component_id || '-')}</td><td className="py-1 pr-3 font-mono">{String(row.distance_angstrom ?? '-')}</td></tr>)}</tbody></table></div>}
+        </>
+      ) : (
+        <>
+          <p className="text-muted-foreground">口袋残基 {pocketResidues.length} 个；链界面 {interfaces.length} 个；通道结果仅为几何线索。</p>
+          {pocketResidues.length > 0 && <p>口袋预览：{pocketResidues.slice(0, 10).map((row) => `${String(row.chain_id || '?')}:${String(row.residue_name || '?')}${String(row.residue_number || '?')}`).join('；')}</p>}
+        </>
+      )}
+      <p className="text-amber-600">{String(data.interpretation_boundary || '仅表示坐标几何邻近关系，不能证明结合能、催化机制或实验收益。')}</p>
+    </div>
+  )
+}
+
 const ANALYSIS_RENDERERS = {
   protein_benchmark: (data: unknown) => isBenchmarkResult(data) ? <BenchmarkReport data={data} /> : null,
   mutation_priority_score: (data: unknown) => isMutationScoreResult(data) ? <MutationScoreCard data={data} /> : null,
@@ -162,10 +201,78 @@ const ANALYSIS_RENDERERS = {
   interpro_annotation: (data: unknown) => isInterProAnnotationResult(data) ? <InterProAnnotationCard data={data} /> : null,
   annotation_bundle: (data: unknown) => isAnnotationBundleResult(data) ? <AnnotationBundleCard data={data} /> : null,
   build_site_structure_function_features: (data: unknown) => isSiteStructureFunctionFeaturesResult(data) ? <SiteStructureFunctionFeaturesCard data={data} /> : null,
+  ligand_contact_analysis: (data: unknown) => isGeometryEvidenceResult(data) ? <GeometryEvidenceCard data={data} kind="ligand" /> : null,
+  structure_pocket_interface_analysis: (data: unknown) => isGeometryEvidenceResult(data) ? <GeometryEvidenceCard data={data} kind="pocket" /> : null,
 } satisfies Record<string, (data: unknown) => ReactElement | null>
 
-export function ToolCallCard({ toolCall }: Props) {
+export function ToolCallCard({ toolCall, conversationId }: Props) {
   const [expanded, setExpanded] = useState(false)
+  const [taskState, setTaskState] = useState<{ status: string; result?: unknown; error?: string | null; message?: string | null; rid?: string | null; canResume?: boolean } | null>(null)
+  const [pollGeneration, setPollGeneration] = useState(0)
+  const [actionBusy, setActionBusy] = useState(false)
+  const [actionError, setActionError] = useState<string | null>(null)
+  const [revisionCreated, setRevisionCreated] = useState(false)
+  const taskId = useMemo(() => {
+    if (toolCall.status !== 'submitted') return null
+    const value = tryParseResult(toolCall.rawResult) || tryParseResult(toolCall.resultPreview)
+    if (!value || typeof value !== 'object') return null
+    const id = (value as Record<string, unknown>).task_id
+    return typeof id === 'string' && id ? id : null
+  }, [toolCall.status, toolCall.rawResult, toolCall.resultPreview])
+  useEffect(() => {
+    if (!taskId) return
+    let active = true
+    let timer: ReturnType<typeof setTimeout> | undefined
+    let pollAttempt = 0
+    let errorAttempt = 0
+    const poll = async () => {
+      try {
+        const response = await api.getToolTask(taskId)
+        if (!active) return
+        pollAttempt += 1
+        errorAttempt = 0
+        setTaskState({ status: response.status, result: response.result, error: response.error,
+          message: response.message, rid: response.rid, canResume: response.can_resume })
+        if (!['completed', 'failed', 'canceled', 'degraded'].includes(response.status)) {
+          // Keep early progress responsive, then back off for long-running tasks.
+          const delay = Math.min(30000, 5000 * 2 ** Math.min(pollAttempt - 1, 3))
+          timer = setTimeout(() => void poll(), delay)
+        }
+      } catch (error) {
+        if (active) {
+          errorAttempt += 1
+          setTaskState({ status: 'poll_error', message: '暂时无法连接，正在重试。后台任务将继续处理。', error: error instanceof Error ? error.message : 'Unable to load task status' })
+          const delay = Math.min(60000, 15000 * 2 ** Math.min(errorAttempt - 1, 2))
+          timer = setTimeout(() => void poll(), delay)
+        }
+      }
+    }
+    void poll()
+    return () => { active = false; if (timer) clearTimeout(timer) }
+  }, [taskId, pollGeneration])
+  const updateReport = async () => {
+    if (!taskId || !conversationId || actionBusy) return
+    setActionBusy(true); setActionError(null)
+    try {
+      await api.createBlastReportRevision(taskId, Number(conversationId))
+      setRevisionCreated(true)
+      if (useChatStore.getState().currentId === conversationId && !useChatStore.getState().streaming) {
+        await useChatStore.getState().setCurrentId(conversationId)
+      }
+    } catch (error) { setActionError(error instanceof Error ? error.message : '报告更新失败，请重试') }
+    finally { setActionBusy(false) }
+  }
+  const resume = async () => {
+    if (!taskId || actionBusy) return
+    setActionBusy(true); setActionError(null)
+    try {
+      await api.resumeBlastTask(taskId)
+      setTaskState({ status: 'waiting', message: '已恢复原 NCBI 任务查询。' })
+      setPollGeneration((value) => value + 1)
+    } catch (error) { setActionError(error instanceof Error ? error.message : '恢复查询失败') }
+    finally { setActionBusy(false) }
+  }
+  const displayedStatus = taskState?.status || toolCall.status
   const statusIcon = {
     pending: <Clock className="w-4 h-4 text-muted-foreground" />,
     running: <Loader2 className="w-4 h-4 text-blue-500 animate-spin" />,
@@ -178,16 +285,26 @@ export function ToolCallCard({ toolCall }: Props) {
   const pdbData = toolCall.resultPreview ? extractPdbData(toolCall.resultPreview) : null
   const hasStructure = isFolding && toolCall.status === 'completed' && pdbData
   const parsedResult = useMemo(() => {
+    if (taskState?.status === 'completed' || taskState?.status === 'degraded') {
+      const result = taskState.result
+      if (result && typeof result === 'object') {
+        const record = result as Record<string, unknown>
+        return record.tool === toolCall.name && record.result ? record.result : result
+      }
+    }
     if (toolCall.status !== 'completed') return null
+    if (toolCall.name === 'build_site_structure_function_features' && toolCall.rawResult) {
+      return tryParseResult(toolCall.rawResult)
+    }
     return tryParseResult(toolCall.resultPreview)
-  }, [toolCall.status, toolCall.resultPreview])
+  }, [toolCall.name, toolCall.status, toolCall.resultPreview, toolCall.rawResult, taskState])
   const evidenceSource = useMemo(() => extractEvidenceSource(parsedResult), [parsedResult])
 
   // Parse result for analysis tools
   const analysisResult = useMemo(() => {
-    if (!ANALYSIS_TOOLS.includes(toolCall.name) || toolCall.status !== 'completed') return null
+    if (!ANALYSIS_TOOLS.includes(toolCall.name) || !['completed', 'degraded'].includes(displayedStatus)) return null
     return parsedResult
-  }, [parsedResult, toolCall.name, toolCall.status])
+  }, [parsedResult, toolCall.name, displayedStatus])
 
   const analysisView = useMemo(() => {
     if (!analysisResult) return null
@@ -205,7 +322,13 @@ export function ToolCallCard({ toolCall }: Props) {
     submitted: 'Submitted',
     completed: 'Complete',
     failed: 'Failed',
-  }[toolCall.status]
+    canceled: 'Canceled',
+    degraded: 'Degraded',
+    poll_error: 'Status unavailable',
+    waiting: 'NCBI 正在处理',
+    submitting: '正在提交 NCBI',
+    retry: '等待后台续查',
+  }[displayedStatus] || displayedStatus
 
   return (
     <div className="overflow-hidden rounded-2xl border border-border/70 bg-background/55 shadow-[0_6px_20px_rgba(15,23,42,0.03)]">
@@ -213,7 +336,7 @@ export function ToolCallCard({ toolCall }: Props) {
         onClick={() => setExpanded(!expanded)}
         className="flex w-full items-center gap-2 px-4 py-3 text-left transition-colors hover:bg-secondary/15"
       >
-        {statusIcon[toolCall.status]}
+        {['waiting', 'submitting', 'retry'].includes(displayedStatus) ? <Clock className="w-4 h-4 text-blue-500" /> : displayedStatus === 'completed' ? statusIcon.completed : displayedStatus === 'degraded' ? <XCircle className="w-4 h-4 text-amber-500" /> : statusIcon[toolCall.status]}
         <span className="flex items-center gap-1.5 text-[13px] font-medium text-foreground/88">
           {toolCall.name}
           {hasStructure && <Dna className="w-3 h-3 text-blue-400" />}
@@ -248,9 +371,23 @@ export function ToolCallCard({ toolCall }: Props) {
         </div>
       )}
 
-      {toolCall.error && (
-        <p className="px-3 pb-2 text-xs text-red-500">{toolCall.error}</p>
+      {(taskState?.error || toolCall.error) && (
+        <p className="px-3 pb-2 text-xs text-red-500">{taskState?.error || toolCall.error}</p>
       )}
+      {taskState?.message && (
+        <p role="status" className="px-3 pb-2 text-xs text-muted-foreground">{taskState.message}</p>
+      )}
+      {taskState?.rid && <p className="px-3 pb-2 text-xs text-muted-foreground">NCBI 任务编号：{taskState.rid}</p>}
+      {toolCall.name === 'blast_search' && taskState?.status === 'completed' && conversationId && (
+        <div className="px-3 pb-3">
+          <p role="status" className="mb-2 text-xs text-emerald-600">同源搜索已完成，可以将结果纳入更新报告。原报告将保留。</p>
+          <button type="button" disabled={actionBusy || revisionCreated} onClick={() => void updateReport()} className="rounded-md border border-border px-3 py-1.5 text-xs disabled:opacity-50">
+            {revisionCreated ? '更新报告已保存' : actionBusy ? '正在生成…' : '生成更新报告'}
+          </button>
+        </div>
+      )}
+      {taskState?.canResume && <button type="button" disabled={actionBusy} onClick={() => void resume()} className="mx-3 mb-3 rounded-md border border-border px-3 py-1.5 text-xs">继续查询原任务</button>}
+      {actionError && <p role="alert" className="px-3 pb-2 text-xs text-red-500">{actionError}</p>}
 
       {expanded && hasStructure && (
         <div className="px-3 pb-3">

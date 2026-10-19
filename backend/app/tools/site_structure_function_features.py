@@ -15,7 +15,7 @@ from Bio.PDB import PDBParser
 from Bio.PDB.SASA import ShrakeRupley
 
 from app.services import storage
-from app.services.pdb_parser import _AA3TO1
+from app.services.pdb_parser import _AA3TO1, pdb_coordinate_text
 from app.tools.registry import ToolRegistry
 
 
@@ -678,8 +678,9 @@ def _with_report_contract(payload: dict[str, Any]) -> dict[str, Any]:
         "report_boundary",
         (
             "位点特征表只来自 PDB 坐标、PDB HELIX/SHEET 记录、输入结构 SASA 和可选编号映射；"
-            "CA 距离、B-factor、接触数、relSASA、文件内二级结构注释和非聚合 HETATM 原子近邻"
+            "CA 距离、接触数、relSASA、文件内二级结构注释和非聚合 HETATM 原子近邻"
             "可用于人工复核；HETATM 近邻不等于已确认底物、辅因子、金属功能位点或口袋。"
+            "B-factor 仅保留为 PDB 原始字段；其含义依赖结构来源和文件约定，不能单独解释为柔性、模型置信度或热稳定性。"
             "pocket/channel/interface 当前仍为 not_computed，不能写成已确认通路或结合界面。"
             "这些字段不能单独证明酶身份、突变收益或湿实验结论。"
         ),
@@ -702,6 +703,9 @@ def _build_feature_table_contract(payload: dict[str, Any]) -> dict[str, Any]:
         "feature_table_status": status,
         "feature_count": feature_count or 0,
         "capability_status": payload.get("capability_status") or "structure_feature_table",
+        "must_not_claim": [
+            "b_factor_as_thermostability_or_model_confidence_without_source_provenance",
+        ],
         "field_state": {
             "ca_geometry": "ready" if computed else "blocked",
             "mapping_projection": (
@@ -782,6 +786,17 @@ async def build_site_structure_function_features(
             "status": "failed",
             "error_code": "MISSING_PDB",
             "error": "Provide pdb_data or pdb_object_name.",
+            "features": [],
+        })
+
+    try:
+        pdb_data = pdb_coordinate_text(pdb_data)
+    except Exception as exc:
+        return _with_report_contract({
+            "found": False,
+            "status": "failed",
+            "error_code": "INVALID_STRUCTURE",
+            "error": f"Unable to read structure coordinates: {exc}",
             "features": [],
         })
 
@@ -1014,9 +1029,6 @@ async def build_site_structure_function_features(
             risk_flags.append("missing_uniprot_mapping")
         if str(feature["mapping_evidence"].get("confidence")) == "inferred_from_coordinate_order":
             risk_flags.append("coordinate_order_inference_not_uniprot_evidence")
-        b_factor = feature.get("b_factor")
-        if isinstance(b_factor, (int, float)) and b_factor >= 60.0:
-            risk_flags.append("high_ca_b_factor_review_structure_quality")
         nonpolymer_distance = feature.get("nearest_nonpolymer_heteroatom_distance_angstrom")
         if isinstance(nonpolymer_distance, (int, float)) and nonpolymer_distance <= 4.0:
             risk_flags.append("within_4A_of_nonpolymer_heteroatom_review_component_role")
@@ -1056,6 +1068,7 @@ async def build_site_structure_function_features(
                 or item["uniprot_coordinate"]["status"] == "inferred_requires_confirmation"
             ),
             "ca_available_count": sum(1 for item in features if item["has_ca"]),
+            "b_factor_interpretation": "raw_source_dependent_field_not_a_thermostability_measure",
             "protected_count": sum(1 for item in features if item["is_protected"]),
             "secondary_structure_source": "pdb_helix_sheet_records" if secondary_ranges else "not_available",
             "rel_sasa_status": sasa_status,
@@ -1098,7 +1111,7 @@ ToolRegistry.register(
     name="build_site_structure_function_features",
     description=(
         "Build a residue-level structure/function feature table from PDB coordinates. "
-        "Reports CA coordinates, CA B-factor, nearest catalytic CA distance, CA contact "
+        "Reports CA coordinates, raw CA B-factor field (uninterpreted), nearest catalytic CA distance, CA contact "
         "count within a configurable radius, local CA contact environment, optional "
         "PDB HELIX/SHEET secondary-structure annotation, protected/catalytic flags, "
         "non-water/non-polymer HETATM heavy-atom proximity, and numbering mapping "

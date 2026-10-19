@@ -79,9 +79,12 @@ ALLOWED_ROOT_DIRS = {
 ALLOWED_ROOT_FILES = {
     ".dockerignore",
     ".gitignore",
+    "RELEASE-MANIFEST.json",
+    "VERSION",
     "deploy-aliyun.sh",
     "Makefile",
     "README.md",
+    "RELEASE-MANIFEST.json",
 }
 
 

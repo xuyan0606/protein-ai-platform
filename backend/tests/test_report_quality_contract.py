@@ -127,3 +127,28 @@ def test_assess_enzyme_report_completion_rejects_explicitly_empty_delivery_field
         "empty_completion_priority",
         "empty_completion_experimental_action",
     }
+
+
+def test_validate_evidence_records_is_fail_closed_for_inference_and_unknown_status():
+    from app.services.report_quality_contract import validate_evidence_records
+
+    violations = validate_evidence_records([
+        {"evidence_type": "inference", "status": "completed"},
+        {"evidence_type": "computed_result", "status": "maybe"},
+        {"evidence_type": "opinion", "status": "completed"},
+    ])
+
+    assert len(violations) == 3
+    assert all(item.code in {"invalid_evidence_record", "invalid_evidence_type"} for item in violations)
+
+
+def test_validate_evidence_records_accepts_waiting_database_evidence():
+    from app.services.report_quality_contract import validate_evidence_records
+
+    assert validate_evidence_records([
+        {
+            "evidence_type": "database_evidence",
+            "status": "waiting",
+            "source": "NCBI BLAST",
+        }
+    ]) == []

@@ -10,6 +10,7 @@ from typing import TypedDict, Annotated, Any, AsyncGenerator
 import asyncio
 from contextlib import suppress
 import functools
+import copy
 import hashlib
 import json
 import logging
@@ -25,6 +26,7 @@ from app.services.strategy_checkpoint import list_recent_strategy_memory
 from app.services.task_evidence import classify_task_evidence
 from app.services.tool_orchestration_contract import validate_tool_plan
 from app.services.report_quality_contract import assess_enzyme_report_completion
+from app.services.wet_lab_report_contract import build_wet_lab_plan, render_wet_lab_plan_markdown
 from app.services.identity_consistency import check_identity_consistency, sequence_hash
 from app.tools.registry import ToolRegistry
 from app.tools.scientific_claim_gate import scientific_claim_gate
@@ -60,6 +62,9 @@ _PDB_REQUIRED_TOOLS = frozenset({
     "esm_if1_design",
     "gromacs_md",
     "build_site_structure_function_features",
+    "ligand_contact_analysis",
+    "structure_pocket_interface_analysis",
+    "disulfide_saltbridge_scan",
     "pocket_residue_lookup",
 })
 
@@ -68,6 +73,7 @@ _STRUCTURE_GATE_TOOLS = frozenset({
     "residue_mapping_sifts",
     "residue_numbering_gate",
     "build_site_structure_function_features",
+    "disulfide_saltbridge_scan",
     "pocket_residue_lookup",
 })
 
@@ -157,6 +163,13 @@ class AgentOrchestrator:
     def __init__(self):
         self._snapshot: ChatSnapshot | None = None
         self._coordinator = CoordinatorAgent()
+
+    def for_request(self):
+        """Keep request state isolated, including deferred checkpoint/wiki work."""
+        instance = copy.copy(self)
+        instance._snapshot = None
+        instance._coordinator = CoordinatorAgent()
+        return instance
 
     @staticmethod
     def _is_governance_evidence_request(message: str) -> bool:
@@ -987,6 +1000,11 @@ class AgentOrchestrator:
         message: str = "",
     ) -> str:
         """Recover raw task anchors for continuation planning from server checkpoints."""
+        if (self._extract_attached_object_name(message)
+                or self._extract_pdb_id_reference(message)
+                or self._extract_uniprot_reference(message)
+                or self._extract_explicit_sequence(message)):
+            return ""
         if self._message_starts_new_task(message) and not self._message_requests_continuation(message):
             return ""
         if not self._message_requests_continuation(message):
@@ -1227,7 +1245,7 @@ class AgentOrchestrator:
         lower = message.lower()
         explicit_new = any(token in lower for token in policy_tokens("new_task_tokens"))
         concrete_current_input = bool(
-            cls._extract_sequence(message)
+            cls._extract_explicit_sequence(message)
             or cls._extract_attached_object_name(message)
             or cls._extract_uniprot_reference(message)
             or cls._extract_pdb_id_reference(message)
@@ -1251,7 +1269,40 @@ class AgentOrchestrator:
         lower = message.lower()
         if any(term in lower for term in policy_tokens("execution_tokens")):
             return False
-        return any(term in lower for term in policy_tokens("followup_synthesis_tokens"))
+        return any(term in lower for term in (*policy_tokens("followup_synthesis_tokens"), "说说", "谈谈"))
+
+    @classmethod
+    def _history_report_reply(cls, history: list[dict], message: str) -> str:
+        """Answer an explanation follow-up from the latest completed report when LLM is unavailable."""
+        last_upload = max((
+            index for index, item in enumerate(history)
+            if isinstance(item, dict) and item.get("role") == "user"
+            and cls._extract_attached_object_name(str(item.get("content") or ""))
+        ), default=-1)
+        scoped_history = history[last_upload:] if last_upload >= 0 else history
+        report = next((
+            str(item.get("content") or "") for item in reversed(scoped_history)
+            if isinstance(item, dict) and item.get("role") == "assistant"
+            and str(item.get("content") or "").lstrip().startswith((
+                "# 蛋白性质分析报告", "# 酶蛋白工程分析报告", "# 多结构分析报告",
+            ))
+        ), "")
+        if not report:
+            return "当前对象还没有已完成的报告可供解释；已确认的分析策略需先执行。"
+        wanted = (
+            "上传结构摘要", "序列覆盖", "PDB 文件直接注释", "PDB SEQADV",
+            "结构来源/方法", "结构质量字段", "非聚合组分", "分子量",
+            "等电点", "GRAVY", "稳定性指数判读", "序列长度",
+        )
+        facts = [line for line in report.splitlines() if line.startswith("- ") and any(term in line for term in wanted)]
+        lines = ["根据当前蛋白上一份已完成报告：", *facts[:12]]
+        lower = message.lower()
+        if any(term in lower for term in ("比活", "活性", "kcat", "activity")):
+            lines.append("比活力需在指定底物、pH 和温度下测初始速率，并按纯化蛋白量归一化；现有结构不能给出 U/mg。")
+        if any(term in lower for term in ("热稳定", "耐热", "tm", "thermal")):
+            lines.append("热稳定性需测目标温度下残余活性或半衰期；Tm 需单独测定，B-factor 不能代替。")
+        lines.append("以上仅复述既有证据，本次没有运行新工具。")
+        return "\n\n".join(lines)
 
     @classmethod
     def _is_report_quality_review_followup(cls, message: str, context: str, history: list[dict] | None = None) -> bool:
@@ -1301,7 +1352,7 @@ class AgentOrchestrator:
             return False
         lower = message.lower()
         concrete_current_input = bool(
-            cls._extract_sequence(message)
+            cls._extract_explicit_sequence(message)
             or cls._extract_attached_object_name(message)
             or cls._extract_uniprot_reference(message)
             or cls._extract_pdb_id_reference(message)
@@ -1483,7 +1534,7 @@ class AgentOrchestrator:
             "",
             "## 解释口径",
             "- **活性**：说明是否来自催化簇距离、口袋/通道人工复核线索或目标模块假设；没有反应/底物证据时不声明比活提升。",
-            "- **稳定性**：说明是否来自 CA B-factor、接触数、relSASA、ΔΔG 或保护位点风险；没有真实结果时只写复核需求。",
+            "- **稳定性**：B-factor 是来源依赖的 PDB 原始字段，不能作为热稳定性指标；只报告已测的 Tm/Tagg、热半衰期或热处理残余活性。接触数、relSASA、ΔΔG 和保护位点仅可作为结构假设，不能证明耐热性提升。",
             "- **风险**：保护位点、催化位点、编号不明、mapping inferred、pocket/channel unknown 都必须写成风险或降级原因。",
             "- **实验动作**：只给单点验证、WT 同批 baseline、表达/纯化 QC 和后续补证据路线，不直接承诺组合突变。",
         ]
@@ -1715,9 +1766,60 @@ class AgentOrchestrator:
     @classmethod
     def _build_context_for_message(cls, message: str, history: list[dict]) -> str:
         """Use prior context only for explicit follow-up turns or missing current input."""
+        current_object = cls._extract_attached_object_name(message)
+        prior_uploads = [
+            cls._extract_attached_object_name(str(item.get("content") or ""))
+            for item in history if isinstance(item, dict) and item.get("role") == "user"
+        ]
+        prior_uploads = [name for name in prior_uploads if name]
+        sequence_supplement = bool(
+            cls._extract_explicit_sequence(message)
+            and prior_uploads
+            and not any(token in message.lower() for token in policy_tokens("new_task_tokens"))
+        )
+        if current_object:
+            previous_objects = [
+                (index, cls._extract_attached_object_name(str(item.get("content") or "")))
+                for index, item in enumerate(history)
+                if isinstance(item, dict) and item.get("role") == "user"
+            ]
+            previous_objects = [(index, name) for index, name in previous_objects if name]
+            if not previous_objects:
+                return ""
+            if current_object != previous_objects[-1][1]:
+                return "[Context boundary: current upload is a different protein structure; prior protein context ignored]"
+            last_foreign_index = max(
+                (index for index, name in previous_objects if name != current_object),
+                default=-1,
+            )
+            history = history[last_foreign_index + 1:]
+        elif (
+            (cls._extract_explicit_sequence(message) and not sequence_supplement)
+            or cls._extract_pdb_id_reference(message)
+            or cls._extract_uniprot_reference(message)
+        ):
+            return "[Context boundary: current message starts a new protein task; prior protein context ignored]"
         context_parts = []
         prior_user_summaries: list[str] = []
-        wants_continuation = cls._message_requests_continuation(message)
+        wants_continuation = cls._message_requests_continuation(message) or sequence_supplement
+        if sequence_supplement:
+            last_object = prior_uploads[-1]
+            last_foreign_index = max(
+                (index for index, item in enumerate(history)
+                 if isinstance(item, dict) and item.get("role") == "user"
+                 and (name := cls._extract_attached_object_name(str(item.get("content") or "")))
+                 and name != last_object),
+                default=-1,
+            )
+            history = history[last_foreign_index + 1:]
+        elif not current_object and prior_uploads:
+            latest_object = prior_uploads[-1]
+            latest_upload_index = max(
+                index for index, item in enumerate(history)
+                if isinstance(item, dict) and item.get("role") == "user"
+                and cls._extract_attached_object_name(str(item.get("content") or "")) == latest_object
+            )
+            history = history[latest_upload_index:]
         policy = get_agent_strategy_policy()["policy"]
         raw_requires_continuation = bool(policy.get("raw_sequence_history_requires_continuation", True))
 
@@ -1743,14 +1845,14 @@ class AgentOrchestrator:
             if not isinstance(content, str):
                 continue
             object_name = cls._extract_attached_object_name(content)
-            if object_name:
+            if object_name and msg.get("role") == "user":
                 context_parts.append(f"[Uploaded structure object_name: {object_name}]")
             if wants_continuation and msg.get("role") == "user" and not _is_context_noise(content):
                 summary = cls._display_task_summary(content)
                 if summary and summary not in {"[空任务]", "[只包含上传附件元数据]"}:
                     prior_user_summaries.append(summary[:240])
             can_use_raw_sequence = (not raw_requires_continuation) or wants_continuation
-            if msg.get("role") == "user" and cls._extract_sequence(content) and (">" in content or can_use_raw_sequence):
+            if msg.get("role") == "user" and cls._extract_explicit_sequence(content) and (">" in content or can_use_raw_sequence):
                 context_parts.append("[Prior FASTA input present]")
             if any(kw in content.lower() for kw in ["pd-l1", "egfr", "her2", "kras", "p53"]):
                 context_parts.append("[Known protein target discussed]")
@@ -1759,11 +1861,11 @@ class AgentOrchestrator:
         base_context = "\n".join(context_parts)
         if not base_context:
             return ""
-        if cls._message_starts_new_task(message) and not cls._message_requests_continuation(message):
+        if cls._message_starts_new_task(message) and not wants_continuation:
             return "[Context boundary: current message starts a new protein task; prior protein context ignored]"
         if wants_continuation:
             return base_context
-        if cls._extract_sequence(message) or cls._extract_attached_object_name(message):
+        if cls._extract_explicit_sequence(message) or cls._extract_attached_object_name(message):
             return ""
         return base_context
 
@@ -1810,6 +1912,11 @@ class AgentOrchestrator:
         if matches:
             return max(matches, key=len).upper()
         return None
+
+    @classmethod
+    def _extract_explicit_sequence(cls, text: str) -> str | None:
+        """Only user-authored sequence text can count as independent FASTA."""
+        return cls._extract_sequence(cls._strip_attachment_metadata(text))
 
     @staticmethod
     def _clean_literature_query(text: str) -> str:
@@ -1925,7 +2032,7 @@ class AgentOrchestrator:
 
     @classmethod
     def _build_extraction_only_reply(cls, message: str) -> str:
-        sequence = cls._extract_sequence(message)
+        sequence = cls._extract_explicit_sequence(message)
         pdb_object_name = cls._extract_attached_object_name(message)
         protein_name = cls._extract_named_protein_reference(message)
         uniprot_id = cls._extract_uniprot_reference(message)
@@ -1962,8 +2069,18 @@ class AgentOrchestrator:
     def _extract_forbidden_tools(cls, text: str) -> set[str]:
         if not cls._is_negative_tool_context(text):
             return set()
-        lower = text.lower()
+        # Negation applies to its clause/list, never to earlier positive clauses.
+        clauses = re.split(r"[；;。！？!\n]|\b(?:but|however)\b|但是|但要|只做|仅做", text, flags=re.I)
+        negative_parts = []
+        for clause in clauses:
+            marker = re.search(r"禁止|不要|不允许|别|无需|不能|不得|do not|don't|without|\bno\s|not call|forbid", clause, re.I)
+            if marker:
+                negative_parts.append(clause[marker.start():])
+        lower = "\n".join(negative_parts).lower()
         forbidden: set[str] = set()
+        for tool_name in ToolRegistry._tools:
+            if re.search(r"(?<![a-z0-9_])" + re.escape(tool_name) + r"(?![a-z0-9_])", lower):
+                forbidden.add(tool_name)
         tool_groups: list[tuple[tuple[str, ...], tuple[str, ...]]] = [
             (("esmfold", "folding", "结构预测", "折叠预测", "折叠"), ("esmfold_folding", "alphafold_folding", "alphafold2_folding", "rosettafold_folding")),
             (("blast", "同源", "比对"), ("blast_search",)),
@@ -1972,6 +2089,7 @@ class AgentOrchestrator:
             (("mutation_priority_score",), ("mutation_priority_score",)),
             (("mutation_scan", "突变扫描", "饱和突变"), ("mutation_scan",)),
             (("protssn",), ("protssn_score",)),
+            (("interproscan", "interpro"), ("interproscan_sequence_submit", "interpro_annotation")),
             (("predict_properties", "理化性质", "性质预测"), ("predict_properties",)),
             (("sequence_search", "序列搜索", "查库", "检索序列"), ("sequence_search",)),
             (("gromacs", "分子动力学", "rmsd", "rmsf"), ("gromacs_md",)),
@@ -2043,18 +2161,18 @@ class AgentOrchestrator:
             return {}
         lower = text.lower()
         context: dict[str, Any] = {}
-        if re.search(r"\btm\s*[=:]?\s*\d{2,3}", lower) or "熔解温度" in lower:
+        if re.search(r"(?:\btm\b|熔解温度)\s*(?:[=:：]|为)?\s*\d{2,3}(?:\.\d+)?\s*(?:°c|℃|c)?", lower):
             context["tm"] = True
-        if any(kw in lower for kw in ["half-life", "half life", "半衰期"]):
+        if re.search(r"(?:half[- ]life|半衰期)\s*(?:[=:：]|为)?\s*\d+(?:\.\d+)?\s*(?:h|hr|hours?|min|分钟|小时)", lower):
             context["half_life"] = True
-        if any(kw in lower for kw in ["residual activity", "残余活性", "热处理后活性"]):
+        if re.search(r"(?:residual activity|残余活性|热处理后活性)\s*(?:[=:：]|为)?\s*\d+(?:\.\d+)?\s*%", lower):
             context["residual_activity"] = True
-        if any(kw in lower for kw in ["specific activity", "比活", "protein-normalized", "蛋白归一化"]):
+        if re.search(r"\d+(?:\.\d+)?\s*(?:u|units?|μmol\s*/\s*min)\s*/\s*mg\b", lower):
             context["specific_activity"] = True
             context["protein_normalized"] = True
-        if any(kw in lower for kw in ["kcat", "k_cat"]):
+        if re.search(r"(?:kcat|k_cat)\s*(?:[=:：]|为)?\s*\d+(?:\.\d+)?\s*(?:s\s*[-^]?\s*1|min\s*[-^]?\s*1)", lower):
             context["kcat"] = True
-        if re.search(r"\bkm\b", lower) or "米氏常数" in lower:
+        if re.search(r"(?:\bkm\b|米氏常数)\s*(?:[=:：]|为)?\s*\d+(?:\.\d+)?\s*(?:mm|μm|um|nm)\b", lower):
             context["km"] = True
         if any(kw in lower for kw in ["ph curve", "ph-activity curve", "ph 活性曲线", "ph曲线", "完整ph"]):
             context["ph_curve"] = True
@@ -2419,6 +2537,17 @@ class AgentOrchestrator:
         return None
 
     @classmethod
+    def _extract_attached_object_names(cls, text: str) -> list[str]:
+        if not isinstance(text, str) or "object_name" not in text:
+            return []
+        names = re.findall(r"['\"]?object_name['\"]?\s*[:=]\s*['\"]?([^'\"\s,\]\}]+)", text)
+        return list(dict.fromkeys(
+            name.strip().strip("'\"") for name in names
+            if not cls._is_uploaded_object_placeholder(name.strip().strip("'\""))
+            and name.strip().strip("'\"").startswith("uploads/")
+        ))
+
+    @classmethod
     def _has_concrete_protein_input(cls, text: str, context: str = "") -> bool:
         """Return true only when a request contains actionable protein input.
 
@@ -2427,7 +2556,7 @@ class AgentOrchestrator:
         sequence_search using the whole sentence as a keyword query.
         """
         combined = f"{text}\n{context}".strip()
-        if cls._extract_sequence(combined):
+        if cls._extract_explicit_sequence(text):
             return True
         if cls._extract_attached_object_name(combined):
             return True
@@ -2494,6 +2623,7 @@ class AgentOrchestrator:
         patterns = [
             r"(?:pdb(?:\s*(?:id|编号|号))?|PDB编号)\s*[:：=]?\s*([0-9][A-Za-z0-9]{3})",
             r"(?:PDB|pdb)\s+([0-9][A-Za-z0-9]{3})",
+            r"\b([0-9][A-Za-z0-9]{3})\s+PDB\b",
         ]
         for pattern in patterns:
             match = re.search(pattern, text, re.IGNORECASE)
@@ -2558,6 +2688,19 @@ class AgentOrchestrator:
             "catalytic", "substrate", "kcat", "km", "specificity", "optimum",
             "突变", "耐酸", "耐碱", "耐热", "热稳定", "比活力",
         ])
+
+    @staticmethod
+    def _is_optimization_request(message: str) -> bool:
+        clauses = re.split(r"[；;。！？!\n]", str(message or ""))
+        positive_text = " ".join(
+            clause for clause in clauses
+            if not re.search(r"禁止|不要|不允许|别|无需|不得|do not|don't|without|forbid", clause, re.I)
+        )
+        lower = positive_text.lower()
+        return any(token in lower for token in (
+            "提高", "提升", "改善", "增强", "改造", "优化", "突变",
+            "increase", "improve", "enhance", "engineer", "mutate", "mutation", "mutant",
+        ))
 
     @classmethod
     def _should_clarify_before_tools(cls, message: str, route: str, context: str = "") -> bool:
@@ -2812,7 +2955,7 @@ class AgentOrchestrator:
     def _task_fingerprint(cls, task: str, context: str = "") -> str:
         """Fingerprint task identity from durable anchors, not a fixed workflow."""
         combined = f"{task}\n{context}".strip()
-        sequence = cls._extract_sequence(combined) or ""
+        sequence = cls._extract_explicit_sequence(task) or ""
         object_name = cls._extract_attached_object_name(combined) or ""
         uniprot = cls._extract_uniprot_reference(combined) or ""
         pdb_id = cls._extract_pdb_id_reference(combined) or ""
@@ -2820,7 +2963,7 @@ class AgentOrchestrator:
         if sequence:
             identity = {"sequence_sha256": hashlib.sha256(sequence.encode("utf-8")).hexdigest()}
         else:
-            compact = re.sub(r"\s+", " ", combined.lower()).strip()[:1200]
+            compact = re.sub(r"\s+", " ", cls._strip_attachment_metadata(combined).lower()).strip()[:1200]
             identity = {"task_text": compact}
         identity.update({
             "object_name": object_name,
@@ -2861,6 +3004,21 @@ class AgentOrchestrator:
         if not steps:
             raise ValueError("confirmed_plan is empty")
         return steps
+
+    @classmethod
+    def _foreign_uploaded_objects_in_plan(cls, task: str, plan: list[PlanStep]) -> list[str]:
+        current_objects = set(cls._extract_attached_object_names(task))
+        if not current_objects:
+            return []
+        return sorted({
+            str(step.params[key])
+            for step in plan
+            if isinstance(step.params, dict)
+            for key in ("pdb_object_name", "object_name", "structure_file")
+            if isinstance(step.params.get(key), str)
+            and str(step.params[key]).startswith("uploads/")
+            and step.params[key] not in current_objects
+        })
 
     @classmethod
     def _confirmed_checkpoint_error(
@@ -2962,10 +3120,6 @@ class AgentOrchestrator:
             return round(sum(counts.get(aa, 0) for aa in chars) * 100.0 / length, 1)
 
         motifs: list[str] = []
-        if re.search(r"G[A-Z]S[A-Z]G", seq):
-            motifs.append("GXSXG-like serine hydrolase motif present; catalytic-near residues must be protected until identity is confirmed")
-        if re.search(r"D[ST]G", seq):
-            motifs.append("D[ST]G-like acidic protease motif present; Asp-centered catalytic hypotheses need numbering confirmation")
         ngly = [match.start() + 1 for match in re.finditer(r"N[^P][ST]", seq)]
         if ngly:
             motifs.append(f"{len(ngly)} potential N-glycosylation motif(s), first positions {ngly[:4]}")
@@ -3010,7 +3164,7 @@ class AgentOrchestrator:
 
     @classmethod
     def _build_customization_lines(cls, task: str) -> list[str]:
-        seq = cls._extract_sequence(task) or ""
+        seq = cls._extract_explicit_sequence(task) or ""
         profile = cls._sequence_strategy_profile(seq)
         pdb_object_name = cls._extract_attached_object_name(task)
         attached_file_name = cls._extract_attached_file_name(task)
@@ -3052,7 +3206,7 @@ class AgentOrchestrator:
         task: str,
         pdb_preflight: dict[str, Any] | None = None,
     ) -> str:
-        has_sequence = bool(cls._extract_sequence(task))
+        has_sequence = bool(cls._extract_explicit_sequence(task))
         has_uploaded_pdb = bool(cls._extract_attached_object_name(task))
         has_pdb_id = bool(cls._extract_pdb_id_reference(task))
         has_uniprot = bool(cls._extract_uniprot_reference(task))
@@ -3133,8 +3287,8 @@ class AgentOrchestrator:
         objectives = sorted(cls._classify_engineering_objectives(task))
         if not objectives:
             return [
-                "- **识别目标**：未识别到可门控的具体工程目标。",
-                "- **处理方式**：先补充目标和 assay，再进入候选工具；不生成通用突变表。",
+                "- **分析范围**：结构质量、构建体、序列性质、家族注释、编号和位点几何特征。",
+                "- **输出方式**：展示已完成的证据、计算方法和未完成项；实验数据用于后续定量性质判断。",
             ]
         labels = [cls._objective_label(item) for item in objectives]
         lines = [f"- **识别目标**：{'；'.join(labels)}。"]
@@ -3156,14 +3310,17 @@ class AgentOrchestrator:
 
     @staticmethod
     def _sequence_preview_from_pdb_analysis(analysis: dict[str, Any]) -> str:
-        seqres = analysis.get("seqres_sequence")
-        if isinstance(seqres, str) and seqres.strip():
-            return seqres.strip()
+        # Structure-dependent tools and reports must be bound to residues that
+        # actually have coordinates. SEQRES can include unresolved construct
+        # residues, so it is metadata rather than the coordinate sequence.
         chains = analysis.get("chains")
         if isinstance(chains, list):
             for chain in chains:
                 if isinstance(chain, dict) and isinstance(chain.get("sequence"), str) and chain["sequence"].strip():
                     return chain["sequence"].strip()
+        seqres = analysis.get("seqres_sequence")
+        if isinstance(seqres, str) and seqres.strip():
+            return seqres.strip()
         return ""
 
     async def _build_pdb_preflight_summary(self, task: str) -> dict[str, Any] | None:
@@ -3193,6 +3350,7 @@ class AgentOrchestrator:
                 "sequence_length": len(sequence) if sequence else 0,
                 "sequence_preview": sequence[:40] if sequence else "",
                 "coordinate_sequence": sequence,
+                "seqres_sequence": analysis.get("seqres_sequence") or "",
             }
         except Exception as exc:
             logger.exception("Uploaded PDB preflight failed for plan confirmation")
@@ -3206,14 +3364,14 @@ class AgentOrchestrator:
         self,
         plan: list[PlanStep],
         task: str,
+        *,
+        current_message: str | None = None,
     ) -> list[PlanStep]:
-        """Freeze a readable uploaded chain sequence into the pre-confirmation plan.
+        """Bind sequence inputs in a plan to the current upload before signing.
 
-        The sequence is deterministically derived from the uploaded PDB's
-        SEQRES/ATOM records before strategy signing. It is therefore an explicit
-        plan input, not an execution-time parameter rewrite. It remains a
-        PDB-coordinate-derived sequence until a separate external mapping is
-        validated.
+        A readable PDB chain takes precedence over planner/history sequences.
+        If the PDB cannot provide a sequence, only a sequence explicitly present
+        in the current user message may be used; stale plan values are removed.
         """
         if not plan or not self._extract_attached_object_name(task):
             return plan
@@ -3222,6 +3380,10 @@ class AgentOrchestrator:
             step.tool_name in {
                 "predict_properties",
                 "annotation_bundle",
+                "interproscan_sequence_submit",
+                "interpro_annotation",
+                "catalytic_site_lookup",
+                "signal_peptide_predict",
                 "enzyme_identity_profile",
                 "protein_benchmark",
                 "enzyme_function",
@@ -3239,12 +3401,33 @@ class AgentOrchestrator:
 
         preflight = await self._build_pdb_preflight_summary(task)
         sequence = str(preflight.get("coordinate_sequence") or "") if isinstance(preflight, dict) else ""
-        if len(sequence) < 10:
-            return plan
+        # Only a sequence explicitly supplied in this turn is an independent
+        # FASTA candidate. Sequences already present in a planner payload or
+        # prior conversation context may belong to a different protein.
+        independent_sequence = self._extract_explicit_sequence(current_message or task)
+        has_coordinate_sequence = len(sequence) >= 10
+        seqres_sequence = str(preflight.get("seqres_sequence") or "") if isinstance(preflight, dict) else ""
+        sequence_conflict = bool(
+            has_coordinate_sequence and independent_sequence
+            and independent_sequence not in {sequence, seqres_sequence}
+        )
+        if not has_coordinate_sequence:
+            # A failed PDB preflight must never leave a planner-inherited sequence
+            # attached to this structure. A current-turn FASTA remains usable as
+            # sequence evidence; otherwise remove stale values and fail closed.
+            sequence = independent_sequence or ""
+        sequence_provenance = (
+            "user_fasta_exact_pdb_match" if has_coordinate_sequence and independent_sequence == sequence
+            else "pdb_coordinate_derived" if has_coordinate_sequence else "user_fasta"
+        ) if sequence else ""
 
         parameter_names = {
             "predict_properties": "sequence",
             "annotation_bundle": "sequence",
+            "interproscan_sequence_submit": "sequence",
+            "interpro_annotation": "sequence",
+            "catalytic_site_lookup": "sequence",
+            "signal_peptide_predict": "sequence",
             "enzyme_identity_profile": "sequence",
             "protein_benchmark": "query_sequence",
             "enzyme_function": "sequence",
@@ -3256,17 +3439,31 @@ class AgentOrchestrator:
             "rosetta_ddg": "sequence",
         }
         for step in plan:
-            if step.tool_name == "residue_mapping_sifts" and not step.params.get("input_sequence"):
-                step.params = {
-                    **step.params,
-                    "input_sequence": sequence,
-                }
+            if step.tool_name == "residue_mapping_sifts":
+                mapping_params = dict(step.params)
+                if sequence:
+                    mapping_params["input_sequence"] = sequence
+                    mapping_params["sequence_provenance"] = sequence_provenance
+                else:
+                    mapping_params.pop("input_sequence", None)
+                    mapping_params.pop("sequence_provenance", None)
+                step.params = mapping_params
             parameter = parameter_names.get(step.tool_name)
-            if parameter and not step.params.get(parameter):
+            if parameter:
+                sequence_params = dict(step.params)
+                if sequence:
+                    sequence_params[parameter] = sequence
+                    sequence_params["sequence_provenance"] = sequence_provenance
+                else:
+                    sequence_params.pop(parameter, None)
+                    sequence_params.pop("sequence_provenance", None)
+                step.params = sequence_params
+            if not sequence and (parameter or step.tool_name == "residue_mapping_sifts"):
+                step.params = {**step.params, "_pdb_sequence_unavailable": True}
+            if sequence_conflict and (parameter or step.tool_name == "residue_mapping_sifts"):
                 step.params = {
                     **step.params,
-                    parameter: sequence,
-                    "sequence_provenance": "pdb_coordinate_derived",
+                    "_sequence_input_conflict": True,
                 }
         return plan
 
@@ -3400,8 +3597,17 @@ class AgentOrchestrator:
         for item in cls._build_objective_decomposition_lines(task):
             lines.append(item)
         lines.append("")
-        strategy = cls._build_strategy_checkpoint(task)
-        lines.append("### 改造策略（先确认方向，再执行分析）")
+        analysis_only = not cls._is_optimization_request(task)
+        strategy = cls._build_strategy_checkpoint(task) if not analysis_only else {
+            "title": "结构、序列与性质证据核验",
+            "logic": [
+                "逐文件核对结构来源、构建体、坐标残基与 SEQRES，并注明编号依据。",
+                "报告实际完成的结构、序列和功能证据；失败或后台未完成结果保留原状态。",
+                "比活力和热稳定性的定量值只从对应实验数据读取；结构线索单独标注解释边界。",
+            ],
+            "output": "逐项展示可追溯结果、局限和必要测定条件。",
+        }
+        lines.append("### 性质分析策略" if analysis_only else "### 改造策略（先确认方向，再执行分析）")
         lines.append(f"**{strategy['title']}**")
         lines.append("")
         lines.append("#### 本轮定制化依据")
@@ -3413,7 +3619,8 @@ class AgentOrchestrator:
         lines.append("#### 策略逻辑")
         for item in strategy["logic"]:
             lines.append(f"- {item}")
-        lines.append(f"- **候选输出边界：** {strategy['output']}")
+        boundary_label = "输出边界" if analysis_only else "候选输出边界"
+        lines.append(f"- **{boundary_label}：** {strategy['output']}")
         lines.append("")
         lines.append("### 执行流程")
         if not plan:
@@ -3465,9 +3672,33 @@ class AgentOrchestrator:
             control = "plan_only"
         effective_message = self._normalize_confirmed_task(user_message, control)
         protein_context = self._build_context_for_message(effective_message, history)
+        runtime_history = history
+        current_sequence = self._extract_explicit_sequence(effective_message)
+        if current_sequence and not self._extract_attached_object_name(effective_message):
+            previous_object = next((
+                self._extract_attached_object_name(str(item.get("content") or ""))
+                for item in reversed(history)
+                if isinstance(item, dict) and item.get("role") == "user"
+                and self._extract_attached_object_name(str(item.get("content") or ""))
+            ), None)
+            if previous_object and "Uploaded structure object_name" in protein_context:
+                prior_structure = await self._build_pdb_preflight_summary(
+                    f"[Attached files:\nobject_name: {previous_object}]"
+                )
+                if prior_structure and prior_structure.get("status") == "readable":
+                    related_sequences = {
+                        str(prior_structure.get("coordinate_sequence") or ""),
+                        str(prior_structure.get("seqres_sequence") or ""),
+                    }
+                    if current_sequence not in related_sequences:
+                        protein_context = (
+                            "[Context boundary: sequence differs from the previous uploaded PDB; "
+                            "prior protein context ignored]"
+                        )
+                        runtime_history = []
         self._snapshot.task_contract = evaluate_enzyme_workflow_runtime(
             effective_message,
-            history=history,
+            history=runtime_history,
             session_id=conversation_id,
         )
         if control in {"plan_only", "revise_plan"}:
@@ -3512,6 +3743,8 @@ class AgentOrchestrator:
                 history,
                 model_id,
             )
+            if reply.startswith("Hello! I'm a protein engineering AI assistant"):
+                reply = self._history_report_reply(history, effective_message)
             for chunk in self._iter_text_stream_chunks(reply):
                 yield json.dumps({"type": "text", "content": chunk}, ensure_ascii=False)
             yield json.dumps({"type": "done"})
@@ -3583,6 +3816,8 @@ class AgentOrchestrator:
                 f"{memory_block}"
             )
             reply = await self._chat_reply(followup_prompt, history, model_id)
+            if reply.startswith("Hello! I'm a protein engineering AI assistant"):
+                reply = self._history_report_reply(history, effective_message)
             for chunk in self._iter_text_stream_chunks(reply):
                 yield json.dumps({"type": "text", "content": chunk}, ensure_ascii=False)
             yield json.dumps({"type": "done"})
@@ -3677,10 +3912,44 @@ class AgentOrchestrator:
                 self._snapshot.research_notes = ""
                 plan = await self._plan_cb(effective_message, "", history, model_id, protein_context, analysis_depth=analysis_depth)
 
-            plan = await self._hydrate_uploaded_pdb_sequence_for_plan(
-                plan,
-                f"{effective_message}\n{protein_context}".strip(),
+            attached_objects = self._extract_attached_object_names(effective_message)
+            if len(attached_objects) > 1:
+                # Each input gets its own frozen, hydrated steps and result identity.
+                base_task = re.sub(r"\[Attached files:[\s\S]*?\]", "", effective_message, flags=re.I).strip()
+                plan = []
+                for input_index, object_name in enumerate(attached_objects):
+                    scoped_task = f"{base_task}\n[Attached files:\nname: {object_name.rsplit('/', 1)[-1]}, object_name: {object_name}]"
+                    scoped_plan = self._generate_fallback_plan(scoped_task, analysis_depth=analysis_depth)
+                    scoped_plan = self._apply_tool_constraints(scoped_plan, effective_message)
+                    scoped_plan = await self._hydrate_uploaded_pdb_sequence_for_plan(
+                        scoped_plan, scoped_task, current_message=scoped_task,
+                    )
+                    for step in scoped_plan:
+                        step.id = len(plan) + 1
+                        step.params = {**step.params, "input_id": f"pdb:{input_index}", "pdb_object_name": object_name}
+                        plan.append(step)
+            else:
+                plan = await self._hydrate_uploaded_pdb_sequence_for_plan(
+                    plan,
+                    f"{effective_message}\n{protein_context}".strip(),
+                    current_message=effective_message,
+                )
+
+        foreign_objects = self._foreign_uploaded_objects_in_plan(effective_message, plan)
+        if foreign_objects:
+            self._snapshot.stage = "done"
+            self._snapshot.waiting_for = "clarification"
+            self._snapshot.plan = []
+            self._snapshot.raw_plan_payload = []
+            yield self._emit_state()
+            reply = (
+                "当前分析策略混入了其他上传结构，已阻止执行全部工具。"
+                "请重新生成只绑定本轮 PDB 的策略；跨结构比较需明确指定全部目标文件。"
             )
+            for chunk in self._iter_text_stream_chunks(reply):
+                yield json.dumps({"type": "text", "content": chunk}, ensure_ascii=False)
+            yield json.dumps({"type": "done"})
+            return
 
         # Scientific preflight: reject plans that cannot even satisfy their
         # declared input/gate prerequisites before confirmation or dispatch.
@@ -3692,8 +3961,16 @@ class AgentOrchestrator:
                 for step in plan
             ],
             evidence={
+                "sequence_structure_conflict": any(
+                    isinstance(step.params, dict) and step.params.get("_sequence_input_conflict") is True
+                    for step in plan
+                ),
+                "pdb_sequence_unavailable": any(
+                    isinstance(step.params, dict) and step.params.get("_pdb_sequence_unavailable") is True
+                    for step in plan
+                ),
                 "has_sequence": bool(
-                    self._extract_sequence(f"{effective_message}\n{protein_context}")
+                    self._extract_explicit_sequence(effective_message)
                     or any(isinstance(step.params, dict) and step.params.get("sequence") for step in plan)
                 ),
                 "has_pdb": bool(
@@ -3742,10 +4019,21 @@ class AgentOrchestrator:
             self._snapshot.plan = []
             yield self._emit_state()
             reasons = ", ".join(sorted({item["code"] for item in plan_contract["violations"]}))
-            blocked_reply = (
-                "当前工具组合未通过科学前置检查，未执行任何工具。"
-                f" 阻断原因：{reasons}。请补充所需序列/结构输入后再确认。"
-            )
+            if "sequence_structure_conflict" in reasons:
+                blocked_reply = (
+                    "本轮提供的 FASTA 与 PDB 坐标序列不一致，已停止序列相关分析，未执行工具。"
+                    "请确认二者是否属于同一构建体；若结构只覆盖成熟蛋白或片段，请提供边界/编号映射后重试。"
+                )
+            elif "pdb_sequence_unavailable" in reasons:
+                blocked_reply = (
+                    "当前 PDB 无法可靠提取蛋白链序列，且本轮没有独立 FASTA；已移除规划器继承的序列并停止分析。"
+                    "请重新上传可解析的结构或提供本轮 FASTA。"
+                )
+            else:
+                blocked_reply = (
+                    "当前工具组合未通过科学前置检查，未执行任何工具。"
+                    f" 阻断原因：{reasons}。请补充所需序列/结构输入后再确认。"
+                )
             for chunk in self._iter_text_stream_chunks(blocked_reply):
                 yield json.dumps({"type": "text", "content": chunk}, ensure_ascii=False)
             yield json.dumps({"type": "done"})
@@ -3904,6 +4192,17 @@ class AgentOrchestrator:
                             ToolRegistry.execute(step.tool_name, step.params),
                             timeout=step_timeout,
                         )
+                        if (step.tool_name == "residue_mapping_sifts" and isinstance(result, dict)
+                                and step.params.get("sequence_provenance") == "pdb_coordinate_derived"
+                                and result.get("source") == "input_sequence_exact_coordinate_mapping"):
+                            result = {
+                                **result,
+                                "sequence_provenance": "pdb_coordinate_derived",
+                                "report_boundary": (
+                                    "PDB 坐标派生序列与同一坐标链一致；这是链内作者编号对应，"
+                                    "不是独立 FASTA 验证，也不是 UniProt/SIFTS 映射。"
+                                ),
+                            }
                         step.status = "completed"
                     step.result = result
                     step.duration = round(time.time() - start, 2)
@@ -4020,6 +4319,21 @@ class AgentOrchestrator:
             )
 
         # Collect results in order and build tool_messages
+        plan_object_by_input_id = {
+            str(step.params["input_id"]): str(step.params["pdb_object_name"])
+            for step in plan
+            if isinstance(step.params, dict) and step.params.get("input_id") and step.params.get("pdb_object_name")
+        }
+        current_upload_object = self._extract_attached_object_name(effective_message)
+
+        def _result_object_name(params: dict[str, Any] | None) -> str | None:
+            values = params if isinstance(params, dict) else {}
+            if values.get("pdb_object_name"):
+                return str(values["pdb_object_name"])
+            if values.get("input_id"):
+                return plan_object_by_input_id.get(str(values["input_id"]))
+            return current_upload_object
+
         tool_messages = []
         for res in results:
             if isinstance(res, Exception):
@@ -4034,13 +4348,20 @@ class AgentOrchestrator:
                 if isinstance(result_payload_dict, dict) and isinstance(result_payload_dict.get("evidence_source"), dict)
                 else None
             )
+            await self._attach_site_features_artifact(step, current_user)
             result_preview = self._sanitize_uploaded_metadata_text(
                 self._compact_result(step.tool_name, step.result) if step.result else step.error,
                 limit=2000,
             )
-            raw_result = self._sanitize_uploaded_metadata_text(
-                self._raw_tool_result(step.result) if step.result else (step.error or ""),
-                limit=120000,
+            raw_source = (
+                self._compact_result(step.tool_name, step.result)
+                if step.tool_name == "build_site_structure_function_features" and step.result else
+                self._raw_tool_result(step.result) if step.result else (step.error or "")
+            )
+            raw_result = (
+                raw_source[:120000]
+                if step.tool_name == "build_site_structure_function_features" else
+                self._sanitize_uploaded_metadata_text(raw_source, limit=120000)
             )
             self._snapshot.step_results.append({
                 "step": i + 1, "tool": step.tool_name,
@@ -4090,14 +4411,21 @@ class AgentOrchestrator:
             if step.status == "submitted":
                 self._snapshot.task_contract.setdefault("fallback_trace", [])
             self._append_artifact_handoff(step_index=i, step=step)
-            result_payload = self._sanitize_uploaded_metadata_text(
-                self._compact_result(step.tool_name, step.result) if step.result else step.error
+            result_payload = (
+                self._compact_result(step.tool_name, step.result)
+                if step.tool_name == "build_site_structure_function_features" and step.result else
+                self._sanitize_uploaded_metadata_text(
+                    self._compact_result(step.tool_name, step.result) if step.result else step.error
+                )
             )
             tool_messages.append({
                 "role": "tool",
                 "tool_name": step.tool_name,
                 "result": result_payload,
                 "status": step.status,
+                "pdb_object_name": _result_object_name(step.params),
+                "input_id": (step.params or {}).get("input_id"),
+                "input_sequence_sha256": self._step_sequence_sha256(step.params),
             })
 
         yield self._emit_state()
@@ -4136,7 +4464,7 @@ class AgentOrchestrator:
                 break
 
             # SC found gaps — execute supplementary tools
-            has_sequence = bool(self._extract_sequence(effective_message))
+            has_sequence = bool(self._extract_explicit_sequence(effective_message))
             has_pdb = any(
                 "pdb" in str(r.get("result", "")).lower() and "ATOM" in str(r.get("result", ""))
                 for r in tool_messages
@@ -4276,6 +4604,9 @@ class AgentOrchestrator:
                             self._compact_result(extra_step.tool_name, result)
                         ),
                         "status": extra_step.status,
+                        "pdb_object_name": _result_object_name(extra_step.params),
+                        "input_id": (extra_step.params or {}).get("input_id"),
+                        "input_sequence_sha256": self._step_sequence_sha256(extra_step.params),
                     })
                 except asyncio.TimeoutError:
                     extra_step.status = "failed"
@@ -4368,7 +4699,7 @@ class AgentOrchestrator:
         """Record this execution as an experience for future reference."""
         try:
             store, ExperienceRecord = _get_experience_store()
-            sequence = self._extract_sequence(user_message) or ""
+            sequence = self._extract_explicit_sequence(user_message) or ""
             protein_name = self._extract_protein_name(user_message)
 
             # Determine task type from route
@@ -4398,7 +4729,7 @@ class AgentOrchestrator:
         try:
             store, _ = _get_experience_store()
             protein_name = self._extract_protein_name(user_message)
-            sequence = self._extract_sequence(user_message) or ""
+            sequence = self._extract_explicit_sequence(user_message) or ""
 
             experiences = await store.search_similar(
                 task_type=task_type,
@@ -4506,7 +4837,7 @@ class AgentOrchestrator:
             return "research"
 
         # Messages with protein sequences → analyze or research
-        if self._extract_sequence(message):
+        if self._extract_explicit_sequence(message):
             return "analyze"
 
         # Short messages without protein context → general chat
@@ -4590,7 +4921,7 @@ class AgentOrchestrator:
         ])
 
         # Extract sequence from message to help the LLM fill params
-        seq = self._extract_sequence(message)
+        seq = self._extract_explicit_sequence(message)
         seq_hint = f"\n\nDetected protein sequence: {seq}" if seq else ""
 
         plan_prompt = CB_SYSTEM_PROMPT.format(
@@ -4691,7 +5022,7 @@ class AgentOrchestrator:
             analysis_depth = "standard"
         depth_allows_slow = analysis_depth == "deep"
         tool_names = set(ToolRegistry._tools.keys())
-        seq = self._extract_sequence(combined_task) or ""
+        seq = self._extract_explicit_sequence(task) or ""
         pdb_object_name = self._extract_attached_object_name(combined_task)
         requested_positions = self._extract_requested_positions(combined_task)
         requested_mutations = self._extract_requested_mutations(combined_task)
@@ -4742,6 +5073,7 @@ class AgentOrchestrator:
         objectives = self._classify_engineering_objectives(combined_task)
         eng_goal = self._primary_engineering_goal(objectives)
         objective_signals = sorted(objectives)
+        wants_optimization = self._is_optimization_request(combined_task) or bool(requested_mutations)
 
         # Detect binder / de novo protein design intent
         is_binder_design = any(kw in lower for kw in [
@@ -4809,7 +5141,7 @@ class AgentOrchestrator:
             if "structure_search_foldseek" in tool_names:
                 step_id += 1
                 steps.append(PlanStep(step_id, "structure_search_foldseek",
-                    "Parse and summarize the uploaded experimental structure before any structure-dependent analysis",
+                    "Parse and summarize the uploaded structure and its source before any structure-dependent analysis",
                     {
                         "pdb_object_name": pdb_object_name,
                         **({"pdb_id": query_pdb_id} if query_pdb_id else {}),
@@ -4834,13 +5166,18 @@ class AgentOrchestrator:
                         "requested_positions": requested_positions,
                         "user_confirmed": False,
                     }))
+            if ("thermostability" in objectives or "disulfide" in lower or "二硫键" in lower or "盐桥" in lower) and "disulfide_saltbridge_scan" in tool_names:
+                step_id += 1
+                steps.append(PlanStep(step_id, "disulfide_saltbridge_scan",
+                    "Scan uploaded coordinates for disulfide and charged side-chain geometry",
+                    {"pdb_object_name": pdb_object_name, "chain_id": "A"}))
             # PDB-only deep analysis must continue after structure parsing. The
             # coordinate-derived chain sequence is hydrated into these empty
             # sequence parameters before the strategy is signed, so confirmation
             # executes the exact frozen inputs rather than an execution-time
             # rewrite. It remains explicitly PDB-coordinate-derived, not
             # UniProt-numbered.
-            if wants_deep and is_enzyme_eng and not has_sequence:
+            if wants_deep and not has_sequence:
                 pdb_sequence_params = {"sequence": ""}
                 annotation_uniprot_id = self._extract_uniprot_reference(combined_task)
                 assay_context = self._extract_assay_context(combined_task)
@@ -4881,7 +5218,7 @@ class AgentOrchestrator:
                         "Identify enzyme family, catalytic motifs, protected residues, and PDB-coordinate numbering guardrails before ranking",
                         profile_params,
                     ))
-                if "enzyme_objective_module_plan" in tool_names:
+                if is_enzyme_eng and wants_optimization and "enzyme_objective_module_plan" in tool_names:
                     step_id += 1
                     steps.append(PlanStep(
                         step_id,
@@ -4910,8 +5247,24 @@ class AgentOrchestrator:
                     steps.append(PlanStep(
                         step_id,
                         "build_site_structure_function_features",
-                        "Build residue-level CA geometry, B-factor, contact, and protected-site features before mutation ranking",
+                        "Build residue-level CA geometry, raw B-factor field, contact, and protected-site features before mutation ranking",
                         {"pdb_object_name": pdb_object_name, "chain_id": "A"},
+                    ))
+                if "ligand_contact_analysis" in tool_names:
+                    step_id += 1
+                    steps.append(PlanStep(
+                        step_id,
+                        "ligand_contact_analysis",
+                        "Map coordinate-only ligand instances and protein contacts before interpreting binding geometry",
+                        {"pdb_object_name": pdb_object_name, "chain_id": "A"},
+                    ))
+                if "structure_pocket_interface_analysis" in tool_names:
+                    step_id += 1
+                    steps.append(PlanStep(
+                        step_id,
+                        "structure_pocket_interface_analysis",
+                        "Compute geometry-only pocket, channel, and chain-interface clues from the uploaded structure",
+                        {"pdb_object_name": pdb_object_name},
                     ))
                 if "pocket_residue_lookup" in tool_names and wants_pocket:
                     step_id += 1
@@ -4922,9 +5275,9 @@ class AgentOrchestrator:
                         {"pdb_object_name": pdb_object_name, "chain_id": "A", "engine": "auto"},
                     ))
 
-                run_priority = bool(objectives & {
+                run_priority = wants_optimization and (bool(objectives & {
                     "thermostability", "ph_lowering", "ph_raising", "activity", "specificity",
-                }) or any(kw in lower for kw in ["突变", "mutation", "mutant", "variant", "位点", "residue"])
+                }) or any(kw in lower for kw in ["突变", "mutation", "mutant", "variant", "位点", "residue"]))
                 if run_priority and "mutation_priority_score" in tool_names:
                     step_id += 1
                     priority_params = {"sequence": "", "engineering_goal": eng_goal, "objective_signals": objective_signals}
@@ -4936,7 +5289,7 @@ class AgentOrchestrator:
                         f"Rank PDB-coordinate residue hypotheses for {eng_goal} after identity and objective gates",
                         priority_params,
                     ))
-                if "activity" in objectives and "kcat_predict" in tool_names:
+                if wants_optimization and "activity" in objectives and "kcat_predict" in tool_names:
                     step_id += 1
                     steps.append(PlanStep(
                         step_id,
@@ -4944,7 +5297,7 @@ class AgentOrchestrator:
                         "Estimate the wild-type catalytic baseline from the recovered PDB chain sequence",
                         {"protein_sequence": ""},
                     ))
-                if "activity" in objectives and "mutation_scan" in tool_names:
+                if wants_optimization and "activity" in objectives and "mutation_scan" in tool_names:
                     step_id += 1
                     steps.append(PlanStep(
                         step_id,
@@ -4952,13 +5305,13 @@ class AgentOrchestrator:
                         "Scan substitutions only if identity and objective gates permit candidate generation",
                         {"sequence": "", "scan_type": "saturation"},
                     ))
-                if "protssn_score" in tool_names:
+                if requested_mutations and "protssn_score" in tool_names:
                     step_id += 1
                     steps.append(PlanStep(
                         step_id,
                         "protssn_score",
                         "Run secondary sequence-based variant scoring only if identity and objective gates permit it",
-                        {"sequence": "", "mutations": []},
+                        {"sequence": "", "mutations": requested_mutations},
                     ))
                 if "blast_search" in tool_names:
                     step_id += 1
@@ -5066,7 +5419,7 @@ class AgentOrchestrator:
 
             # 4.5. Objective module gate — separates thermostability, activity,
             # specificity, pH, and expression evidence before candidate tables.
-            if "enzyme_objective_module_plan" in tool_names and is_enzyme_eng:
+            if "enzyme_objective_module_plan" in tool_names and is_enzyme_eng and wants_optimization:
                 step_id += 1
                 assay_context = self._extract_assay_context(combined_task)
                 if objective_signals:
@@ -5090,14 +5443,24 @@ class AgentOrchestrator:
             if is_enzyme_eng and "enzyme_function" in tool_names:
                 step_id += 1
                 steps.append(PlanStep(step_id, "enzyme_function",
-                    "Predict EC number and enzyme class from sequence using curated motifs and ESM-2 embeddings",
+                    "Classify enzyme function using motif and sequence-composition evidence",
                     {"sequence": seq}))
 
             if pdb_object_name and wants_deep and is_enzyme_eng and "build_site_structure_function_features" in tool_names:
                 step_id += 1
                 steps.append(PlanStep(step_id, "build_site_structure_function_features",
-                    "Build residue-level CA geometry, B-factor, contact, and protected-site features before mutation ranking",
+                    "Build residue-level CA geometry, raw B-factor field, contact, and protected-site features before mutation ranking",
                     {"pdb_object_name": pdb_object_name, "chain_id": "A"}))
+            if pdb_object_name and wants_deep and is_enzyme_eng and "ligand_contact_analysis" in tool_names:
+                step_id += 1
+                steps.append(PlanStep(step_id, "ligand_contact_analysis",
+                    "Map coordinate-only ligand instances and protein contacts before interpreting binding geometry",
+                    {"pdb_object_name": pdb_object_name, "chain_id": "A"}))
+            if pdb_object_name and wants_deep and is_enzyme_eng and "structure_pocket_interface_analysis" in tool_names:
+                step_id += 1
+                steps.append(PlanStep(step_id, "structure_pocket_interface_analysis",
+                    "Compute geometry-only pocket, channel, and chain-interface clues from the uploaded structure",
+                    {"pdb_object_name": pdb_object_name}))
             if pdb_object_name and is_enzyme_eng and "pocket_residue_lookup" in tool_names and wants_pocket:
                 step_id += 1
                 steps.append(PlanStep(step_id, "pocket_residue_lookup",
@@ -5114,7 +5477,7 @@ class AgentOrchestrator:
                     {"sequence": seq}))
 
             # 8. Mutation priority scoring — target-specific residue ranking
-            run_priority = is_enzyme_eng and (
+            run_priority = is_enzyme_eng and wants_optimization and (
                 bool(objectives & {
                     "thermostability",
                     "ph_lowering",
@@ -5146,7 +5509,7 @@ class AgentOrchestrator:
                     }))
 
             # 6. Enzyme kinetics prediction — activity/kinetics-focused only.
-            if is_enzyme_eng and (
+            if is_enzyme_eng and wants_optimization and (
                 "activity" in objectives
                 or (run_kinetics and "specificity" not in objectives)
             ) and "kcat_predict" in tool_names:
@@ -5156,7 +5519,7 @@ class AgentOrchestrator:
                     {"protein_sequence": seq}))
 
             # 7. Residue scan — default for activity/specificity redesign, explicit/deep otherwise
-            if (run_scan or bool(objectives & {"activity", "specificity"})) and "mutation_scan" in tool_names:
+            if wants_optimization and (run_scan or bool(objectives & {"activity", "specificity"})) and "mutation_scan" in tool_names:
                 step_id += 1
                 steps.append(PlanStep(step_id, "mutation_scan",
                     "Scan substitutions around candidate residues for activity/specificity engineering",
@@ -5170,7 +5533,7 @@ class AgentOrchestrator:
                     {"sequence": seq, "mode": "soluble", "temperature": 0.1}))
 
             # 9. ML-enhanced mutation scoring — only when explicitly requested or deep mode
-            if is_enzyme_eng and run_protssn and "protssn_score" in tool_names:
+            if is_enzyme_eng and wants_optimization and requested_mutations and run_protssn and "protssn_score" in tool_names:
                 step_id += 1
                 steps.append(PlanStep(step_id, "protssn_score",
                     "ML-enhanced mutation scoring with sequence-structure fusion for higher accuracy",
@@ -5402,6 +5765,17 @@ class AgentOrchestrator:
         model_id: str | None = None,
     ) -> str:
         """SC: Synthesize phase — validate and create final report."""
+        result_objects = {
+            str(result.get("pdb_object_name"))
+            for result in tool_results if result.get("pdb_object_name")
+        }
+        structure_result_count = sum(
+            result.get("tool_name") == "structure_search_foldseek"
+            and result.get("status") == "completed"
+            for result in tool_results
+        )
+        if len(result_objects) > 1 or (structure_result_count > 1 and not result_objects):
+            return self._build_fallback_report(task, tool_results)
         connectivity_reply = self._build_connectivity_reply(tool_results)
         if connectivity_reply is not None:
             return connectivity_reply
@@ -5447,13 +5821,17 @@ class AgentOrchestrator:
                 f"{evidence_context}"
                 f"{claim_audit_context}"
                 f"{mutation_boundary_context}"
-                "Synthesize a comprehensive scientific report with SPECIFIC residue-level "
-                "recommendations. Include: enzyme family classification, catalytic residue "
-                "identification, proposed mutations with positions and rationales, tiered "
-                "priority ranking, experimental validation plan. "
+                "Synthesize a scientific report from current-object evidence only. "
+                "Give residue-level mutation recommendations only when sequence identity, "
+                "numbering, protected catalytic positions, and objective gates are ready. "
+                "Otherwise report verified findings, conflicts, missing evidence, and an "
+                "experimental validation plan without inventing candidate positions. "
                 "Use explicit evidence sections named 序列级结论, 预测结构结论, 实验结构结论, "
-                "and 编号/映射门控 when those evidence types are present. Do not mix predicted "
-                "structure evidence with uploaded experimental structure evidence, and do not "
+                "and 编号/映射门控 when those evidence types are present. Determine the uploaded "
+                "structure source from its EXPDTA/method metadata. A SWISS-MODEL theoretical "
+                "model is predicted structure evidence, never experimental structure evidence. "
+                "Do not infer thermostability, flexibility, or model confidence from B-factor alone. "
+                "Do not "
                 "reuse task_id/status from prior turns unless it appears in the current Tool results. "
                 "Always separate facts, analysis-based inferences, uncertainties, and "
                 "items requiring wet-lab validation. If tool evidence is empty or weak, "
@@ -5484,8 +5862,18 @@ class AgentOrchestrator:
         """Avoid slow LLM synthesis for uploaded-PDB structure/search gate outputs."""
         if not cls._extract_attached_object_name(task):
             return False
-        if cls._extract_sequence(task):
+        if cls._extract_explicit_sequence(task):
             return False
+        # A submitted BLAST job is a receipt, not a reason to hold the report
+        # open.  Generate the structure-grounded report immediately and let a
+        # later revision add completed NCBI evidence.  This also protects the
+        # browser/SSE request from an external poller that remains pending.
+        if any(
+            str(result.get("tool_name") or "") == "blast_search"
+            and str(result.get("status") or "").lower() in {"submitted", "waiting"}
+            for result in tool_results
+        ):
+            return True
         tool_names = {
             str(result.get("tool_name") or "")
             for result in tool_results
@@ -5498,6 +5886,8 @@ class AgentOrchestrator:
             "residue_mapping_sifts",
             "residue_numbering_gate",
             "blast_search",
+            "ligand_contact_analysis",
+            "structure_pocket_interface_analysis",
         })
 
     @classmethod
@@ -5582,6 +5972,8 @@ class AgentOrchestrator:
                 predicted_structure_tools.append(f"{tool_name}:{status}")
             if tool_name == "structure_search_foldseek":
                 uploaded_structure_tools.append(f"{tool_name}:{status}")
+            if tool_name in {"ligand_contact_analysis", "structure_pocket_interface_analysis", "build_site_structure_function_features"}:
+                uploaded_structure_tools.append(f"{tool_name}:{status}(geometry_only)")
             if tool_name in {"residue_mapping_sifts", "residue_numbering_gate"}:
                 numbering_tools.append(f"{tool_name}:{status}")
             if tool_name == "enzyme_identity_profile":
@@ -6261,6 +6653,135 @@ class AgentOrchestrator:
 
     def _build_fallback_report(self, task: str, tool_results: list[dict]) -> str:
         """Build a structured scientific report from tool results when LLM fails."""
+        analysis_only = not self._is_optimization_request(task)
+        attached_objects = self._extract_attached_object_names(task)
+        if len(attached_objects) > 1:
+            base_task = re.sub(r"\[Attached files:[\s\S]*?\]", "", task, flags=re.I).strip()
+            sections = ["# 多结构分析报告\n", "各结构的工具结果分别归属；未测得的性质不能作跨结构定量比较。\n"]
+            display_names = {
+                object_name: file_name.strip()
+                for file_name, object_name in re.findall(
+                    r"name:\s*([^,\n]+),\s*object_name:\s*([^\s,\]]+)", task, flags=re.I,
+                )
+            }
+            for index, object_name in enumerate(attached_objects):
+                scoped_results = [
+                    result for result in tool_results
+                    if result.get("pdb_object_name") == object_name
+                    or (not result.get("pdb_object_name") and result.get("input_id") == f"pdb:{index}")
+                ]
+                display_name = display_names.get(object_name, object_name.rsplit('/', 1)[-1])
+                scoped_task = f"{base_task}\n[Attached files:\nname: {display_name}, object_name: {object_name}]"
+                sections.append(f"\n## 结构 {index + 1}: {display_name}\n")
+                scoped_report = self._build_fallback_report(scoped_task, scoped_results) if scoped_results else "本轮没有此结构的工具结果。"
+                sections.append("\n".join(
+                    "### " + line[3:] if line.startswith("## ")
+                    else "#### " + line[4:] if line.startswith("### ")
+                    else line for line in scoped_report.splitlines() if not line.startswith("# ")
+                ))
+            return "\n".join(sections)
+        current_object = self._extract_attached_object_name(task)
+        object_by_input_id = {
+            str(result.get("input_id")): str(result.get("pdb_object_name"))
+            for result in tool_results
+            if result.get("input_id") and result.get("pdb_object_name")
+        }
+        known_objects = set(object_by_input_id.values())
+        known_objects.update(
+            str(result.get("pdb_object_name")) for result in tool_results if result.get("pdb_object_name")
+        )
+        if len(known_objects) > 1 and not current_object:
+            return (
+                "# 蛋白分析报告\n\n"
+                "## 对象归属未确认\n\n"
+                "本轮工具结果包含多个不同的上传结构，当前任务未指定目标对象。"
+                "已停止合并报告；请明确目标 PDB 或发起逐结构比较。\n"
+            )
+        if current_object and known_objects and current_object not in known_objects:
+            return (
+                "# 蛋白分析报告\n\n"
+                "## 对象归属未确认\n\n"
+                "本轮工具结果不属于当前上传结构。已停止生成科学结论，请重新运行当前结构分析。\n"
+            )
+        if current_object and known_objects:
+            tool_results = [
+                result for result in tool_results
+                if result.get("pdb_object_name") == current_object
+                or (not result.get("pdb_object_name") and object_by_input_id.get(str(result.get("input_id"))) == current_object)
+            ]
+        elif not known_objects and sum(
+            result.get("tool_name") == "structure_search_foldseek" and result.get("status") == "completed"
+            for result in tool_results
+        ) > 1:
+            return (
+                "# 蛋白分析报告\n\n"
+                "## 对象归属未确认\n\n"
+                "本轮存在多份结构解析结果，但工具结果未记录对象归属。"
+                "已停止合并报告，请重新运行带对象标识的分析。\n"
+            )
+        coordinate_length = None
+        coordinate_sequence_sha256 = None
+        for result in tool_results:
+            if result.get("tool_name") != "structure_search_foldseek" or result.get("status") != "completed":
+                continue
+            payload = self._safe_parse_json(str(result.get("result", "")))
+            structure = payload.get("query_structure") if isinstance(payload, dict) else None
+            chains = structure.get("chains") if isinstance(structure, dict) else None
+            if isinstance(chains, list) and len(chains) == 1 and isinstance(chains[0], dict):
+                try:
+                    coordinate_length = int(chains[0].get("residue_count"))
+                except (TypeError, ValueError):
+                    pass
+                coordinate_sequence_sha256 = chains[0].get("sequence_sha256")
+            break
+
+        mismatched_tools: list[str] = []
+        if coordinate_length or coordinate_sequence_sha256:
+            checked_results = []
+            for result in tool_results:
+                tool = str(result.get("tool_name") or "")
+                payload = self._safe_parse_json(str(result.get("result", "")))
+                query = payload.get("query") if isinstance(payload.get("query"), dict) else {}
+                query_info = payload.get("query_info") if isinstance(payload.get("query_info"), dict) else {}
+                length_key = {
+                    "predict_properties": payload.get("length"),
+                    "annotation_bundle": query.get("sequence_length"),
+                    "interproscan_sequence_submit": query.get("sequence_length"),
+                    "enzyme_identity_profile": query.get("sequence_length"),
+                    "enzyme_function": payload.get("query_length"),
+                    "protein_benchmark": query_info.get("length"),
+                }.get(tool)
+                try:
+                    sequence_length = int(length_key) if length_key is not None else None
+                except (TypeError, ValueError):
+                    sequence_length = None
+                length_mismatch = bool(coordinate_length and sequence_length and sequence_length != coordinate_length)
+                input_sequence_sha256 = result.get("input_sequence_sha256")
+                identity_mismatch = bool(
+                    coordinate_sequence_sha256 and input_sequence_sha256
+                    and input_sequence_sha256 != coordinate_sequence_sha256
+                )
+                if result.get("status") == "completed" and (length_mismatch or identity_mismatch):
+                    mismatched_tools.append(tool)
+                    error_code = (
+                        "SEQUENCE_STRUCTURE_LENGTH_MISMATCH"
+                        if length_mismatch else "SEQUENCE_STRUCTURE_IDENTITY_MISMATCH"
+                    )
+                    checked_results.append({
+                        **result,
+                        "status": "blocked",
+                        "result": json.dumps({
+                            "status": "blocked",
+                            "error_code": error_code,
+                            "error": (
+                                f"Result sequence length {sequence_length} aa differs from "
+                                f"uploaded coordinate chain {coordinate_length} aa."
+                            ) if length_mismatch else "Result sequence differs from the uploaded coordinate chain.",
+                        }),
+                    })
+                else:
+                    checked_results.append(result)
+            tool_results = checked_results
         # Extract data from results
         seq_data = {}
         props_data = {}
@@ -6280,9 +6801,13 @@ class AgentOrchestrator:
         blast_data = {}
         blast_submitted_data: dict[str, Any] = {}
         structure_data = {}
+        structure_input_data = {}
         mapping_data = {}
         numbering_data = {}
         site_feature_data = {}
+        stability_network_data = {}
+        ligand_contact_data = {}
+        pocket_interface_data = {}
         failed_tool_data: list[dict[str, Any]] = []
         submitted_tool_data: list[dict[str, Any]] = []
         task_evidence = classify_task_evidence(tool_results)
@@ -6324,12 +6849,25 @@ class AgentOrchestrator:
                 md_data = self._safe_parse_json(result_str)
             elif tool == "structure_search_foldseek" and status == "completed":
                 structure_data = self._safe_parse_json(result_str)
+            elif tool == "structure_search_foldseek" and status == "blocked":
+                # A failed similarity search does not invalidate coordinates
+                # parsed from the uploaded file. Keep only the input QC facts.
+                rejected_structure = self._safe_parse_json(result_str)
+                candidate = rejected_structure.get("query_structure")
+                if isinstance(candidate, dict) and candidate.get("total_atoms") and candidate.get("total_residues"):
+                    structure_input_data = candidate
             elif tool == "residue_mapping_sifts" and status == "completed":
                 mapping_data = self._safe_parse_json(result_str)
             elif tool == "residue_numbering_gate" and status == "completed":
                 numbering_data = self._safe_parse_json(result_str)
             elif tool == "build_site_structure_function_features" and status == "completed":
                 site_feature_data = self._safe_parse_json(result_str)
+            elif tool == "ligand_contact_analysis" and status == "completed":
+                ligand_contact_data = self._safe_parse_json(result_str)
+            elif tool == "structure_pocket_interface_analysis" and status == "completed":
+                pocket_interface_data = self._safe_parse_json(result_str)
+            elif tool == "disulfide_saltbridge_scan" and status == "completed":
+                stability_network_data = self._safe_parse_json(result_str)
             elif tool == "rosetta_ddg" and status == "completed":
                 rosetta_data = self._safe_parse_json(result_str)
             elif tool in ("proteinmpnn_design", "rfdiffusion_design", "chroma_design") and status == "completed":
@@ -6337,8 +6875,13 @@ class AgentOrchestrator:
             elif tool == "blast_search" and status == "completed":
                 blast_data = self._safe_parse_json(result_str)
                 blast_sections.append(f"```\n{self._sanitize_uploaded_metadata_text(result_str, limit=500)}\n```\n")
-            elif tool == "blast_search" and status == "submitted":
+            elif tool == "blast_search" and status in {"submitted", "waiting"}:
                 blast_submitted_data = self._safe_parse_json(result_str)
+                blast_submitted_data.setdefault("task_status", status)
+            elif tool == "blast_search" and status in {"failed", "blocked", "degraded"}:
+                blast_data = self._safe_parse_json(result_str)
+                blast_data.setdefault("status", status)
+                blast_data.setdefault("evidence_status", "failed" if status != "degraded" else "degraded")
             if status == "submitted":
                 submitted_tool_data.append({
                     "tool": tool,
@@ -6366,10 +6909,37 @@ class AgentOrchestrator:
         summary_gate = claim_audit.get("summary_gate", {})
         body_gate = claim_audit.get("body_gate", {})
 
-        has_uploaded_structure_evidence = bool(structure_data or mapping_data or numbering_data)
+        has_uploaded_structure_evidence = bool(
+            structure_data or structure_input_data or mapping_data or numbering_data
+            or ligand_contact_data or pocket_interface_data
+        )
 
         def _first_screen_summary() -> list[str]:
             summary: list[str] = []
+            if analysis_only:
+                # Use the same payload-aware partition as scientific claims and
+                # the detailed tool table. A Celery SUCCESS wrapper can carry
+                # a blocked/failed tool payload and must not count as complete.
+                completed = sorted({
+                    str(row.get("tool_name"))
+                    for row in task_evidence["scientific_evidence"]
+                    if row.get("tool_name")
+                })
+                pending = sorted({
+                    str(row.get("tool_name"))
+                    for row in task_evidence["task_receipts"]
+                    if row.get("tool_name")
+                })
+                failed = sorted({
+                    str(row.get("tool_name"))
+                    for row in task_evidence["rejected_terminal_results"]
+                    if row.get("tool_name")
+                })
+                summary.append(f"- **分析状态**：已完成 {len(completed)} 项；等待 {len(pending)} 项；失败或受阻 {len(failed)} 项。\n")
+                summary.append("- **定量边界**：结构与序列不能直接给出比活力、Tm 或热半衰期；这些指标需要指定条件下的实测值。\n")
+                if pending or failed:
+                    summary.append(f"- **待处理工具**：{', '.join(pending + failed)}。\n")
+                return summary
             mutation_rows_raw = []
             if isinstance(mutation_data, dict):
                 raw_rows = mutation_data.get("experiment_design_table")
@@ -6459,19 +7029,15 @@ class AgentOrchestrator:
             }
             if pending_names:
                 summary.append(
-                    "- **本轮变化**：没有可升级的新证据；后台工具仍未完成（"
+                    "- **执行状态**：已有完成结果；后台工具仍未完成（"
                     f"{', '.join(sorted(pending_names))}），当前结果不能视为最终结论。\n"
                 )
-            elif objective_data and isinstance(objective_data, dict) and objective_data.get("status") == "blocked":
-                summary.append(
-                    "- **本轮变化**：工具结果已完成，但目标门控仍为 blocked；"
-                    "在补齐目标实验基线前，候选不会升级或改变。\n"
-                )
+            elif failed_tool_data:
+                summary.append("- **执行状态**：部分工具失败或受阻；详见工具状态与原因。\n")
+            elif objective_data and objective_data.get("status") == "blocked":
+                summary.append("- **执行状态**：目标门控受阻，详情见门控证据。\n")
             elif completed_names:
-                summary.append(
-                    "- **本轮变化**：本轮工具均已完成；如输入指纹和实验上下文未变化，"
-                    "重复运行将保持相同候选与证据等级。\n"
-                )
+                summary.append("- **执行状态**：本轮计划中的工具已返回完成结果。\n")
 
             gaps: list[str] = []
             identity_status = identity_data.get("identity_status") if isinstance(identity_data, dict) else None
@@ -6480,7 +7046,7 @@ class AgentOrchestrator:
             numbering = identity_data.get("numbering", {}) if isinstance(identity_data, dict) else {}
             if isinstance(numbering, dict):
                 numbering_status = numbering.get("status")
-                if numbering_status and str(numbering_status).lower() not in {"ready", "confirmed"}:
+                if numbering_status and str(numbering_status).lower() not in {"ready", "confirmed", "verified_for_input_sequence"}:
                     gaps.append(f"编号={numbering_status}")
             objective_missing = []
             if isinstance(objective_data, dict):
@@ -6505,10 +7071,16 @@ class AgentOrchestrator:
                 summary.append("- **下一步**：先补齐 FASTA/同源身份、催化/保护位点、编号映射和目标实验基线，再生成可执行突变表。\n")
             return summary
 
-        lines = ["# 酶蛋白工程分析报告\n"]
+        lines = ["# 蛋白性质分析报告\n" if analysis_only else "# 酶蛋白工程分析报告\n"]
         lines.append("## 任务理解\n")
         lines.append(f"- 用户目标：{self._display_task_summary(task)}\n")
         lines.append("- 报告边界：本报告只整合本轮已完成工具输出；失败、未运行或缺证据的内容不会写成确定结论。\n")
+        if mismatched_tools:
+            lines.append(
+                f"- **对象一致性**：当前结构坐标链为 {coordinate_length} aa；"
+                f"已隔离长度或序列指纹不符的结果（{', '.join(dict.fromkeys(mismatched_tools))}），"
+                "它们不能作为此结构的性质或身份依据。\n"
+            )
         lines.extend(_first_screen_summary())
         lines.append("\n")
 
@@ -6517,6 +7089,7 @@ class AgentOrchestrator:
             "residue_mapping_sifts": "残基编号映射",
             "residue_numbering_gate": "编号门控",
             "build_site_structure_function_features": "位点结构-功能特征表",
+            "disulfide_saltbridge_scan": "二硫键与电荷接触扫描",
             "predict_properties": "理化性质基线",
             "annotation_bundle": "家族/功能/位点注释证据",
             "enzyme_identity_profile": "酶身份与保护位点画像",
@@ -6536,6 +7109,7 @@ class AgentOrchestrator:
             "residue_mapping_sifts": "编号证据",
             "residue_numbering_gate": "编号门控",
             "build_site_structure_function_features": "结构几何特征",
+            "disulfide_saltbridge_scan": "结构几何证据",
             "predict_properties": "背景基线",
             "annotation_bundle": "身份/功能证据",
             "enzyme_identity_profile": "身份/保护位点门控",
@@ -6690,7 +7264,7 @@ class AgentOrchestrator:
                 else "未见结构特征风险标记"
             )
             return (
-                "CA B-factor="
+                "PDB B-factor(原始字段,不作稳定性解释)="
                 f"{_format_structure_feature_value(row.get('ca_b_factor'))}；"
                 "最近催化CA距离="
                 f"{_format_structure_feature_value(row.get('nearest_catalytic_distance_ca_angstrom')) if row.get('nearest_catalytic_distance_ca_angstrom') is not None else 'NA（无可靠催化位点）'} A；"
@@ -6719,6 +7293,13 @@ class AgentOrchestrator:
         mutation_rows = _mutation_experiment_rows() if mutation_data else []
         if has_uploaded_structure_evidence:
             lines.append("## 输入与结构证据\n\n")
+            if structure_input_data and not structure_data:
+                lines.append(
+                    f"- **上传结构本地解析**：链数={structure_input_data.get('chain_count', 'N/A')}；"
+                    f"残基数={structure_input_data.get('total_residues', 'N/A')}；"
+                    f"原子数={structure_input_data.get('total_atoms', 'N/A')}。"
+                    "这些数字来自上传文件坐标解析；Foldseek 同源检索降级，当前没有可用的结构同源命中。\n"
+                )
             if structure_data:
                 query_structure = structure_data.get("query_structure") if isinstance(structure_data.get("query_structure"), dict) else {}
                 chains = query_structure.get("chains") if isinstance(query_structure, dict) else []
@@ -6730,6 +7311,79 @@ class AgentOrchestrator:
                         f"残基数={query_structure.get('total_residues', 'N/A')}；"
                         f"原子数={query_structure.get('total_atoms', 'N/A')}。\n"
                     )
+                    seqres_length = query_structure.get("seqres_length")
+                    coordinate_residues = query_structure.get("total_residues")
+                    if query_structure.get("title"):
+                        title = self._sanitize_uploaded_metadata_text(query_structure["title"], limit=350)
+                        lines.append(f"- **PDB 标题**：{title}。\n")
+                    if seqres_length and coordinate_residues:
+                        chain_count = len(chains) if isinstance(chains, list) else 0
+                        if chain_count > 1:
+                            lines.append(
+                                f"- **序列覆盖总数**：SEQRES={seqres_length} aa；坐标={coordinate_residues} aa。"
+                                "这是多链合计；需逐链核对缺失残基、标签和构建体，不能由总数差直接推断原因。\n"
+                            )
+                            seqres_by_chain = query_structure.get("seqres_by_chain")
+                            if isinstance(seqres_by_chain, dict):
+                                chain_bits = [
+                                    f"链{item.get('chain_id', '?')} SEQRES={seqres_by_chain.get(item.get('chain_id'), '未提供')} aa、"
+                                    f"坐标={item.get('residue_count', '未提供')} aa"
+                                    for item in chains[:8] if isinstance(item, dict)
+                                ]
+                                if chain_bits:
+                                    lines.append(f"- **逐链覆盖**：{'；'.join(chain_bits)}。\n")
+                            lines.append("- **后续序列分析范围**：默认使用链 A 的坐标序列；其他链的序列性质和身份需分别分析。\n")
+                        else:
+                            coverage_note = (
+                                "两者长度相同，但仍需按作者编号核对逐残基一致性。"
+                                if seqres_length == coordinate_residues else
+                                "长度差可能来自未建模残基、标签或构建体差异，需按作者编号核对。"
+                            )
+                            lines.append(
+                                f"- **序列覆盖**：SEQRES={seqres_length} aa；坐标={coordinate_residues} aa。"
+                                f"{coverage_note}\n"
+                            )
+                    compound = query_structure.get("compound_annotation")
+                    if isinstance(compound, dict) and compound:
+                        annotations = [
+                            f"分子={compound['molecule']}" if compound.get("molecule") else "",
+                            f"EC={compound['ec']}" if compound.get("ec") else "",
+                            f"engineered={compound['engineered']}" if compound.get("engineered") else "",
+                        ]
+                        lines.append(
+                            f"- **PDB 文件直接注释**：{'；'.join(item for item in annotations if item)}。"
+                            "这是上传文件的构建体注释，功能和活性仍需独立证据复核。\n"
+                        )
+                    engineered_mutations = query_structure.get("engineered_mutations")
+                    if isinstance(engineered_mutations, list) and engineered_mutations:
+                        mutation_bits = [
+                            f"{item.get('chain_id', '?')}:{item.get('pdb_residue_aa', '?')}"
+                            f"{item.get('pdb_residue_no', '?')}（参考 "
+                            f"{item.get('reference_residue_aa', '?')}{item.get('reference_position', '?')}）"
+                            for item in engineered_mutations[:8] if isinstance(item, dict)
+                        ]
+                        lines.append(
+                            f"- **PDB SEQADV 工程突变注释**：{'；'.join(mutation_bits)}。"
+                            "当前结构不能未经核对就当作 WT。\n"
+                        )
+                    method = str(query_structure.get("method") or "")
+                    if method:
+                        lines.append(f"- **结构来源/方法**：{method}。\n")
+                        if "THEORETICAL MODEL" in method.upper() or "PREDICTION" in method.upper():
+                            lines.append(
+                                "- **模型边界**：这是预测/同源建模结构，不是该输入的实验测定结构；"
+                                "几何接触和 B-factor 原始字段不能证明比活力或热稳定性。\n"
+                            )
+                    quality = [
+                        f"分辨率={query_structure['resolution']} Å" if query_structure.get("resolution") is not None else "",
+                        f"R-factor={query_structure['r_factor']}" if query_structure.get("r_factor") is not None else "",
+                        f"空间群={query_structure['space_group']}" if query_structure.get("space_group") else "",
+                    ]
+                    b_stats = query_structure.get("b_factor_stats")
+                    if isinstance(b_stats, dict) and b_stats.get("mean") is not None:
+                        quality.append(f"原始 B-factor 均值={b_stats['mean']}")
+                    if any(quality):
+                        lines.append(f"- **结构质量字段**：{'；'.join(value for value in quality if value)}。这些字段不能直接换算为活性或 Tm。\n")
                 if isinstance(chains, list) and chains:
                     chain_bits = []
                     for item in chains[:6]:
@@ -6748,7 +7402,9 @@ class AgentOrchestrator:
                 )
                 if nonpolymer_components:
                     component_bits = [
-                        f"{item.get('component_id', '?')}链{item.get('chain_id', '?')}"
+                        f"{item.get('component_id', '?')} "
+                        f"{item.get('chain_id', '?')}:{item.get('residue_number', '?')}"
+                        f"{item.get('insertion_code') or ''}"
                         for item in nonpolymer_components[:12]
                         if isinstance(item, dict)
                     ]
@@ -6849,19 +7505,29 @@ class AgentOrchestrator:
                 lines.append("\n## 结构同源与编号映射\n\n")
                 if mapping_data:
                     lines.append(
-                        f"- **SIFTS/编号映射状态**：found={mapping_data.get('found', 'N/A')}；"
+                        f"- **残基编号映射状态**：found={mapping_data.get('found', 'N/A')}；"
                         f"source={mapping_data.get('source', 'N/A')}；"
                         f"mapping_count={mapping_data.get('mapping_count', 'N/A')}。\n"
                     )
                     mappings = mapping_data.get("mappings") if isinstance(mapping_data.get("mappings"), list) else []
                     if mappings:
                         preview = []
-                        for item in mappings[:5]:
+                        source = str(mapping_data.get("source") or "")
+                        for index, item in enumerate(mappings[:5], start=1):
                             if not isinstance(item, dict):
                                 continue
+                            if source == "input_sequence_exact_coordinate_mapping":
+                                label = "PDB坐标序列" if mapping_data.get("sequence_provenance") == "pdb_coordinate_derived" else "输入序列"
+                                destination = f"{label} {item.get('user_sequence_position', index)}"
+                            elif source == "local_sifts_style_inference":
+                                destination = f"坐标链顺序 {item.get('coordinate_sequence_position', index)}"
+                            elif item.get("uniprot_id") and item.get("uniprot_position") is not None:
+                                destination = f"UniProt {item['uniprot_id']}:{item['uniprot_position']}"
+                            else:
+                                destination = "外部编号未确认"
                             preview.append(
                                 f"{item.get('chain_id', '?')}:{item.get('residue_aa', item.get('residue_name', '?'))}"
-                                f"{item.get('pdb_residue_no', '?')}->UniProt {item.get('uniprot_position', 'N/A')}"
+                                f"{item.get('pdb_residue_no', '?')}->{destination}"
                             )
                         if preview:
                             lines.append(f"- **映射预览**：{'；'.join(preview)}。\n")
@@ -6875,6 +7541,39 @@ class AgentOrchestrator:
                     )
                     if numbering_data.get("reason"):
                         lines.append(f"- **编号门控原因**：{numbering_data.get('reason')}\n")
+            if not site_feature_data and (ligand_contact_data or pocket_interface_data):
+                if ligand_contact_data:
+                    lines.append("\n## 配体接触几何证据\n\n")
+                    instances = ligand_contact_data.get("ligand_instances") if isinstance(ligand_contact_data.get("ligand_instances"), list) else []
+                    contacts = ligand_contact_data.get("contacts") if isinstance(ligand_contact_data.get("contacts"), list) else []
+                    lines.append(
+                        f"- **状态**：{ligand_contact_data.get('status', 'N/A')}；证据等级={ligand_contact_data.get('evidence_level', 'GEOMETRY_ONLY')}；"
+                        f"配体实例={len(instances)}；接触残基={len(contacts)}；"
+                        f"阈值={ligand_contact_data.get('thresholds', {}).get('contact_distance_angstrom', 'N/A')} Å。\n"
+                    )
+                    if contacts:
+                        lines.append("| 链/残基 | 配体 | 距离 Å | 接触类型 |\n|---|---|---:|---|\n")
+                        for row in contacts[:12]:
+                            if isinstance(row, dict):
+                                lines.append(
+                                    f"| {row.get('chain_id', '?')}:{row.get('residue_name', '?')}{row.get('residue_number', '?')} | "
+                                    f"{row.get('instance_id', row.get('component_id', '?'))} | {row.get('distance_angstrom', 'N/A')} | "
+                                    f"{row.get('contact_type', 'N/A')} |\n"
+                                )
+                    lines.append(f"- **解释边界**：{ligand_contact_data.get('interpretation_boundary', '仅表示坐标几何邻近关系，不能证明结合能、催化机制或实验收益。')}\n\n")
+                if pocket_interface_data:
+                    pocket = pocket_interface_data.get("pocket") if isinstance(pocket_interface_data.get("pocket"), dict) else {}
+                    pocket_residues = pocket.get("residues") if isinstance(pocket.get("residues"), list) else []
+                    interfaces = pocket_interface_data.get("chain_interfaces") if isinstance(pocket_interface_data.get("chain_interfaces"), list) else []
+                    lines.append("## 口袋、通道与链界面几何线索\n\n")
+                    lines.append(
+                        f"- **状态**：{pocket_interface_data.get('status', 'N/A')}；证据等级={pocket_interface_data.get('evidence_level', 'GEOMETRY_ONLY')}；"
+                        f"口袋残基={len(pocket_residues)}；链界面={len(interfaces)}；通道结果仅为几何线索。\n"
+                    )
+                    if pocket_residues:
+                        preview = [f"{row.get('chain_id', '?')}:{row.get('residue_name', '?')}{row.get('residue_number', '?')}" for row in pocket_residues[:12] if isinstance(row, dict)]
+                        lines.append(f"- **口袋残基预览**：{'；'.join(preview)}。\n")
+                    lines.append(f"- **解释边界**：{pocket_interface_data.get('interpretation_boundary', '几何线索不能证明结合能、催化机制或催化功能。')}\n\n")
             if site_feature_data:
                 lines.append("\n## 位点结构-功能特征表\n\n")
                 summary = site_feature_data.get("summary") if isinstance(site_feature_data.get("summary"), dict) else {}
@@ -6897,8 +7596,20 @@ class AgentOrchestrator:
                     lines.append(f"- **解释边界**：{site_feature_data.get('report_boundary')}\n")
                 features = site_feature_data.get("features") if isinstance(site_feature_data.get("features"), list) else []
                 if features:
+                    if len(features) > 8:
+                        feature_total = site_feature_data.get("feature_count") or len(features)
+                        if site_feature_data.get("full_features_download_url"):
+                            scope_note = "完整位点特征可从对应工具卡下载 JSON。"
+                        elif feature_total == len(features):
+                            scope_note = "工具卡可下载本轮返回的全部位点特征。"
+                        else:
+                            scope_note = (
+                                f"本轮只返回 {len(features)} 条位点特征，完整数据未保存；"
+                                "请在登录状态下重新执行。"
+                            )
+                        lines.append(f"- **表格范围**：下表预览前 8/{feature_total} 行；{scope_note}\n")
                     distance_header = "最近推断保护位点CA距离(A)" if protected_count else "催化位点距离(A)"
-                    lines.append(f"| 位点 | WT | PDB编号 | UniProt | CA坐标 | B-factor | relSASA | {distance_header} | 非聚合HETATM距离(A) | phi/psi | 8A接触数 | CA环境 | 二级结构 | 风险 |\n")
+                    lines.append(f"| 位点 | WT | PDB编号 | UniProt | CA坐标 | B-factor原始字段(不作稳定性解释) | relSASA | {distance_header} | 非聚合HETATM距离(A) | phi/psi | 8A接触数 | CA环境 | 二级结构 | 风险 |\n")
                     lines.append("|------|----|---------|---------|--------|----------|---------|-------------------|-----------------------|---------|----------|--------|----------|------|\n")
                     for feature in features[:8]:
                         if not isinstance(feature, dict):
@@ -6913,20 +7624,76 @@ class AgentOrchestrator:
                         catalytic_distance = feature.get('nearest_catalytic_distance_ca_angstrom', 'N/A')
                         if not protected_count and catalytic_distance in (None, "", "N/A"):
                             catalytic_distance = "NA（无可靠催化位点）"
+                        hetero_distance = feature.get("nearest_nonpolymer_heteroatom_distance_angstrom")
+                        hetero_component = feature.get("nearest_nonpolymer_component_id")
+                        hetero_text = (
+                            f"{hetero_distance} {hetero_component or '组分未注明'}"
+                            if hetero_distance is not None else "未检出"
+                        )
                         lines.append(
                             f"| {feature.get('position', 'N/A')} | {feature.get('wild_type', 'N/A')} | "
-                            f"{feature.get('pdb_position', 'N/A')} | {feature.get('uniprot_position', '未映射')} | "
+                            f"{feature.get('pdb_position', 'N/A')} | {feature.get('uniprot_position') or '未映射'} | "
                             f"{coord_text} | {feature.get('b_factor', 'N/A')} | "
                             f"{feature.get('rel_sasa', feature.get('rel_sasa_status', 'N/A'))} | "
                             f"{catalytic_distance} | "
-                            f"{feature.get('nearest_nonpolymer_heteroatom_distance_angstrom', 'N/A')} "
-                            f"{feature.get('nearest_nonpolymer_component_id', '')} | "
+                            f"{hetero_text} | "
                             f"{feature.get('phi_deg', 'N/A')}/{feature.get('psi_deg', 'N/A')} | "
                             f"{feature.get('contact_count_ca_8a', 'N/A')} | "
                             f"{feature.get('ca_contact_environment', 'N/A')} | "
                             f"{feature.get('secondary_structure', 'unknown')} | "
                             f"{self._sanitize_uploaded_metadata_text(risk_text, limit=160).replace('|', '/')} |\n"
                         )
+                lines.append("\n")
+            if ligand_contact_data:
+                lines.append("\n## 配体接触几何证据\n\n")
+                instances = ligand_contact_data.get("ligand_instances") if isinstance(ligand_contact_data.get("ligand_instances"), list) else []
+                contacts = ligand_contact_data.get("contacts") if isinstance(ligand_contact_data.get("contacts"), list) else []
+                lines.append(
+                    f"- **状态**：{ligand_contact_data.get('status', 'N/A')}；证据等级={ligand_contact_data.get('evidence_level', 'GEOMETRY_ONLY')}；"
+                    f"配体实例={len(instances)}；接触残基={len(contacts)}；"
+                    f"阈值={ligand_contact_data.get('thresholds', {}).get('contact_distance_angstrom', 'N/A')} Å。\n"
+                )
+                if instances:
+                    lines.append("- **配体实例**：" + "；".join(
+                        f"{item.get('instance_id', 'N/A')} ({item.get('atom_count', 'N/A')} atoms)"
+                        for item in instances[:8] if isinstance(item, dict)
+                    ) + "。\n")
+                if contacts:
+                    lines.append("| 链/残基 | 配体 | 距离 Å | 接触类型 |\n|---|---|---:|---|\n")
+                    for row in contacts[:12]:
+                        if not isinstance(row, dict):
+                            continue
+                        lines.append(
+                            f"| {row.get('chain_id', '?')}:{row.get('residue_name', '?')}{row.get('residue_number', '?')} | "
+                            f"{row.get('instance_id', row.get('component_id', '?'))} | {row.get('distance_angstrom', 'N/A')} | "
+                            f"{row.get('contact_type', 'N/A')} |\n"
+                        )
+                if ligand_contact_data.get("interpretation_boundary"):
+                    lines.append(f"- **解释边界**：{ligand_contact_data['interpretation_boundary']}\n")
+                lines.append("\n")
+            if pocket_interface_data:
+                lines.append("## 口袋、通道与链界面几何线索\n\n")
+                pocket = pocket_interface_data.get("pocket") if isinstance(pocket_interface_data.get("pocket"), dict) else {}
+                channels = pocket_interface_data.get("channels") if isinstance(pocket_interface_data.get("channels"), dict) else {}
+                interfaces = pocket_interface_data.get("chain_interfaces") if isinstance(pocket_interface_data.get("chain_interfaces"), list) else []
+                pocket_residues = pocket.get("residues") if isinstance(pocket.get("residues"), list) else []
+                lines.append(
+                    f"- **状态**：{pocket_interface_data.get('status', 'N/A')}；证据等级={pocket_interface_data.get('evidence_level', 'GEOMETRY_ONLY')}；"
+                    f"口袋残基={len(pocket_residues)}；通道线索={len(channels.get('clues', []) or [])}；链界面={len(interfaces)}。\n"
+                )
+                if pocket_residues:
+                    preview = []
+                    for row in pocket_residues[:12]:
+                        if isinstance(row, dict):
+                            preview.append(f"{row.get('chain_id', '?')}:{row.get('residue_name', '?')}{row.get('residue_number', '?')}")
+                    lines.append(f"- **口袋残基预览**：{'；'.join(preview)}。\n")
+                if interfaces:
+                    lines.append("- **链界面**：" + "；".join(
+                        f"{'/'.join(map(str, row.get('chain_ids', [])))}，最小距离={row.get('min_distance_angstrom', 'N/A')} Å"
+                        for row in interfaces[:6] if isinstance(row, dict)
+                    ) + "。\n")
+                if pocket_interface_data.get("interpretation_boundary"):
+                    lines.append(f"- **解释边界**：{pocket_interface_data['interpretation_boundary']}\n")
                 lines.append("\n")
             # PDB geometry alone is never a candidate-generation authority.  The
             # former fallback emitted residue substitutions even when identity,
@@ -6960,14 +7727,28 @@ class AgentOrchestrator:
                 if blast_data or blast_submitted_data:
                     lines.append("\n## 序列级专业库检索（BLAST）\n\n")
                 if blast_submitted_data:
-                    lines.append(
-                        "- **状态**：已提交后台专业库检索任务，当前报告不把 BLAST 结果写成已完成证据。\n"
-                    )
+                    task_status = str(blast_submitted_data.get("task_status") or "submitted").lower()
+                    status_text = {
+                        "submitted": "已提交后台专业库检索任务",
+                        "waiting": "NCBI 仍在处理，当前不能判定无命中",
+                    }.get(task_status, f"后台任务状态={task_status}")
+                    lines.append(f"- **状态**：{status_text}；当前报告不把 BLAST 结果写成已完成证据。\n")
                     lines.append(
                         f"- **任务 ID**：{blast_submitted_data.get('task_id', 'N/A')}；"
                         f"队列={blast_submitted_data.get('queue', 'N/A')}；"
                         f"状态查询={blast_submitted_data.get('status_url', 'N/A')}。\n"
                     )
+                    source = blast_submitted_data.get("evidence_source") if isinstance(blast_submitted_data.get("evidence_source"), dict) else {}
+                    details = source.get("details") if isinstance(source.get("details"), dict) else {}
+                    trace = []
+                    if source.get("checked_at"):
+                        trace.append(f"checked_at={source['checked_at']}")
+                    if source.get("endpoint"):
+                        trace.append(f"endpoint={source['endpoint']}")
+                    if details.get("rid"):
+                        trace.append(f"RID={details['rid']}")
+                    if trace:
+                        lines.append("- **查询追溯**：" + "；".join(trace) + "。\n")
                     lines.append(
                         "- **解释边界**：待任务完成并返回命中表后，才能用序列级同源证据修正 Foldseek 弱结构命中的家族判断；"
                         "submitted 状态只证明任务进入队列，不证明已获得 NCBI 结果。\n"
@@ -6980,8 +7761,27 @@ class AgentOrchestrator:
                         f"- **数据库**：{blast_data.get('database', 'N/A')}；"
                         f"程序={blast_data.get('program', 'blastp')}；"
                         f"状态={blast_data.get('status', 'N/A')}；"
+                        f"证据状态={blast_data.get('evidence_status', '未标记')}；"
                         f"命中数={blast_data.get('results_count', len(hits))}。\n"
                     )
+                    evidence_status = str(blast_data.get("evidence_status") or "")
+                    if evidence_status == "completed_no_hit":
+                        lines.append("- **同源判读**：NCBI 已明确返回完成且本次参数下无命中；这不等于不存在远缘同源。\n")
+                    elif evidence_status in {"waiting", "submitted"}:
+                        lines.append("- **同源判读**：NCBI 仍在处理，当前不能判定无命中。\n")
+                    elif evidence_status in {"failed", "degraded"}:
+                        lines.append("- **同源判读**：NCBI 查询失败或降级，当前不能判定无命中。\n")
+                    source = blast_data.get("evidence_source") if isinstance(blast_data.get("evidence_source"), dict) else {}
+                    details = source.get("details") if isinstance(source.get("details"), dict) else {}
+                    trace = []
+                    if source.get("checked_at"):
+                        trace.append(f"checked_at={source['checked_at']}")
+                    if source.get("endpoint"):
+                        trace.append(f"endpoint={source['endpoint']}")
+                    if details.get("rid"):
+                        trace.append(f"RID={details['rid']}")
+                    if trace:
+                        lines.append("- **查询追溯**：" + "；".join(trace) + "。\n")
                     if hits:
                         lines.append("| Rank | 命中 | 注释 | E-value | Identity | Coverage |\n")
                         lines.append("|------|------|------|---------|----------|----------|\n")
@@ -7006,9 +7806,10 @@ class AgentOrchestrator:
                             "如果 BLAST 与 Foldseek 家族不一致，报告应把 Foldseek 命中降级为结构模板假设。\n"
                         )
                 lines.append("\n## 当前不能下结论的事项\n\n")
-                lines.append("- 当前没有序列级身份画像、催化残基、底物/反应条件、结构质量指标和候选打分工具结果，因此不能给出高置信具体突变或声称比活力会提升。\n")
+                lines.append("- 已完成的结构或身份注释不能证明性质改善；缺少可靠功能位点、目标条件和实验比较证据时，不能给出高置信具体突变。\n")
                 lines.append("- 上传 PDB 可用于后续提取链、口袋、二壳层和编号体系；但在活性位点和编号未确认前，不能把文件名、哈希或自动解析片段当作残基位点。\n")
-                lines.append("- 如果目标是提高比活力，下一步应先确定酶家族/催化残基/底物结合口袋，再围绕口袋入口、通道和二壳层做单点假设，而不是直接改催化核心。\n\n")
+                if not analysis_only:
+                    lines.append("- 如果目标是提高比活力，下一步应先确定酶家族/催化残基/底物结合口袋，再围绕口袋入口、通道和二壳层做单点假设，而不是直接改催化核心。\n\n")
                 if exploratory_sites:
                     lines.append("## PDB坐标探索性位点预筛（低置信，不等于最终突变推荐）\n\n")
                     lines.append(f"- 下面位点只使用当前 {structure_display_name} 的链和残基编号，用于深度模式下的首轮人工审查/口袋定位优先级；它们不能直接等同于 UniProt、基因构建体或文献编号。\n")
@@ -7039,17 +7840,22 @@ class AgentOrchestrator:
             lines.append("## 工具执行结果与失败原因\n\n")
             for item in failed_tool_data[:8]:
                 payload = item.get("payload") if isinstance(item.get("payload"), dict) else {}
+                foundation_gate = payload.get("foundation_gate") if isinstance(payload.get("foundation_gate"), dict) else {}
                 reason = (
                     payload.get("error")
                     or payload.get("reason")
                     or payload.get("message")
+                    or foundation_gate.get("message")
+                    or foundation_gate.get("reason")
+                    or payload.get("report_boundary")
                     or payload.get("status")
                     or item.get("raw")
                     or "未返回结构化失败原因"
                 )
                 reason = self._sanitize_uploaded_metadata_text(reason, limit=500)
+                reason = re.sub(r"\s+", " ", reason).strip()
                 lines.append(f"- **{item.get('tool')}**：状态={item.get('status')}；原因/摘要={reason}。\n")
-            lines.append("- 失败工具不作为科学证据；如果需要 MD、ΔΔG 或对接，应在运行环境和输入门控通过后重新提交。\n\n")
+            lines.append("- 失败或阻断工具不能作为科学证据；需按上面的原因补齐输入或运行环境后再执行。\n\n")
 
         strategy = mutation_data.get("strategy", {}) if isinstance(mutation_data, dict) else {}
         if isinstance(strategy, dict) and strategy:
@@ -7318,6 +8124,29 @@ class AgentOrchestrator:
 
         lines = report_lines
 
+        if stability_network_data:
+            lines.append("## 热稳定性结构线索\n\n")
+            lines.append(f"- **扫描范围**：{stability_network_data.get('residue_count', 'N/A')} 个蛋白残基；以下均为 PDB author 编号。\n")
+            for key, title, distance_key in (
+                ("disulfide_bonds", "二硫键几何接触", "sg_distance_angstrom"),
+                ("salt_bridges", "盐桥几何接触", "distance_angstrom"),
+                ("histidine_acidic_contacts", "His 与酸性残基接触", "distance_angstrom"),
+            ):
+                rows = stability_network_data.get(key) or []
+                lines.append(f"- **{title}**：{len(rows)} 对。\n")
+                for row in rows:
+                    if not isinstance(row, dict):
+                        continue
+                    left = f"{row.get('residue_1_name', 'CYS')} {row.get('residue_1')}"
+                    right = f"{row.get('residue_2_name', 'CYS')} {row.get('residue_2')}"
+                    lines.append(f"  - {left} ↔ {right}：{row.get(distance_key)} Å。\n")
+            lines.append("- **解释边界**：这些是首个坐标模型的原子几何接触；His 质子化状态未确认，不能量化其能量贡献或证明耐热性提升。\n\n")
+
+        if analysis_only and self._classify_engineering_objectives(task) & {"activity"}:
+            lines.append("## 比活力分析\n\n")
+            lines.append("- **当前证据**：本轮没有同一底物与反应条件下、按蛋白质量归一化的初始速率数据，不能从结构计算 U/mg，也不能判断比活力高低或改善幅度。\n")
+            lines.append("- **比较口径**：记录底物及浓度、pH、反应温度、蛋白纯度与浓度；同批测当前构建体和参考 WT 的初始速率，再换算 U/mg。\n\n")
+
         # Properties section
         if props_data:
             lines.append("## Physicochemical Properties\n")
@@ -7335,12 +8164,26 @@ class AgentOrchestrator:
             protected_positions = identity_data.get("protected_positions", [])
             if family_candidates and isinstance(family_candidates[0], dict):
                 top_family = family_candidates[0]
-                lines.append(f"- **家族候选**：{top_family.get('name', 'N/A')}\n")
-                lines.append(f"- **家族置信度**：{top_family.get('confidence', 'N/A')}\n")
+                direct_entity = top_family.get("status") == "direct_experimental_structure_identity"
+                label = "结构实体注释" if direct_entity else "家族候选"
+                confidence_label = "实体匹配证据值" if direct_entity else "家族置信度"
+                lines.append(f"- **{label}**：{top_family.get('name', 'N/A')}\n")
+                lines.append(f"- **{confidence_label}**：{top_family.get('confidence', 'N/A')}\n")
+                lines.append(f"- **候选依据**：{top_family.get('source') or '未标明来源'}；此置信度只属于该候选证据，不是 PDB 文件注释或酶活性的置信度。\n")
             if ec_candidates and isinstance(ec_candidates[0], dict):
                 top_ec = ec_candidates[0]
                 lines.append(f"- **EC 候选**：{top_ec.get('ec', 'N/A')}（{top_ec.get('status', 'N/A')}）\n")
             lines.append(f"- **身份状态**：{identity_data.get('identity_status', 'N/A')}\n")
+            if structure_data and isinstance(structure_data.get("query_structure"), dict):
+                compound = structure_data["query_structure"].get("compound_annotation")
+                if isinstance(compound, dict) and (compound.get("molecule") or compound.get("ec")):
+                    identity_status = str(identity_data.get("identity_status") or "unresolved")
+                    lines.append(
+                        "- **身份解释**：上方 PDB 文件注释描述该结构的申报构建体；"
+                        "这里的身份状态表示身份画像汇总的证据是否通过门控。"
+                        f"当前状态={identity_status}；文件注释和身份门控的来源及判定范围不同。"
+                        "具体功能位点和突变设计仍需独立保护位点证据。\n"
+                    )
             numbering = identity_data.get("numbering", {})
             if isinstance(numbering, dict):
                 lines.append(f"- **编号状态**：{numbering.get('status', 'N/A')}\n")
@@ -7458,6 +8301,23 @@ class AgentOrchestrator:
                     lines.append(f"  - {item}\n")
             lines.append("\n")
 
+        # Keep the experimental handoff machine-readable and explicitly
+        # planned.  PDB metadata may identify an engineered construct, but it
+        # never supplies WT, activity, Tm, or thermal inactivation results.
+        # Wet-lab handoff is attached to structure-grounded reports (where
+        # construct metadata can be read) or to an explicit experimental
+        # planning request.  A generic activity/stability mutation report
+        # must keep its existing section contract and must not gain a second
+        # Go/Watch/No-Go block implicitly.
+        explicit_wet_lab_request = any(
+            token in str(task).lower()
+            for token in ("湿实验", "wet lab", "assay", "实验计划", "验证计划", "实验建议")
+        )
+        if explicit_wet_lab_request:
+            wet_lab_plan = build_wet_lab_plan(structure_data=structure_data or structure_input_data)
+            lines.append(render_wet_lab_plan_markdown(wet_lab_plan))
+            lines.append("\n")
+
         if mutation_core_lines:
             lines.extend(mutation_core_lines)
 
@@ -7466,9 +8326,19 @@ class AgentOrchestrator:
             lines.append("## 家族与保守性分析\n\n")
             family = benchmark_data.get("family", {})
             if family:
-                lines.append(f"- **家族**：{family.get('name', 'Unknown')}\n")
-                lines.append(f"- **EC**: {family.get('ec', 'N/A')}\n")
-                lines.append(f"- **机制**：{family.get('mechanism', 'N/A')}\n\n")
+                top_identity = (
+                    identity_data.get("family_candidates", [{}])[0]
+                    if isinstance(identity_data.get("family_candidates"), list)
+                    and identity_data.get("family_candidates") else {}
+                )
+                direct_entity = isinstance(top_identity, dict) and top_identity.get("status") == "direct_experimental_structure_identity"
+                if direct_entity:
+                    lines.append(f"- **身份背景**：{family.get('name', '未确认')}（RCSB 结构实体名称，不等于家族鉴定）。\n")
+                    lines.append("- **家族/保守性边界**：当前未据此确认 GH 家族或位点保守性。\n")
+                else:
+                    lines.append(f"- **家族**：{family.get('name') or '未确认'}\n")
+                lines.append(f"- **EC**: {family.get('ec') or '未确认'}\n")
+                lines.append(f"- **机制**：{family.get('mechanism') or '未确认'}\n\n")
 
             motifs_found = benchmark_data.get("family_motifs", [])
             if motifs_found:
@@ -7616,24 +8486,34 @@ class AgentOrchestrator:
         if not mutation_data:
             # Recommendations
             lines.append("## 下一步专业分析建议\n\n")
-            if has_uploaded_structure_evidence:
-                lines.append("- **位点表使用方式**：上面的 PDB 坐标预筛位点可作为深度分析的人工审查清单；当前仍不足以升级为高置信具体突变或直接湿实验排单。\n")
+            if analysis_only:
+                lines.append("- 核对构建体与参考 WT 的序列、链和编号；文件内注释及结构几何只作当前构建体证据。\n")
+                lines.append("- 比活力需同一底物、pH、温度下测初始速率并按纯化蛋白质量归一化。\n")
+                lines.append("- 热稳定性需测指定温度下半衰期或热处理后残余活性；需要热转变信息时另测 Tm。\n")
+                if submitted_tool_data:
+                    lines.append("- 背景任务终态返回后再增补其证据；submitted 不是完成结果。\n")
+                if failed_tool_data:
+                    lines.append("- 失败或阻断的工具需排查原因后重试，不能补写成完成结果。\n")
+                lines.append("\n")
+            else:
+                if has_uploaded_structure_evidence and exploratory_sites:
+                    lines.append("- **位点表使用方式**：上面的 PDB 坐标预筛位点可作为深度分析的人工审查清单；当前仍不足以升级为高置信具体突变或直接湿实验排单。\n")
                 lines.append("- **比活力方向**：在催化核心受保护的前提下，优先检查口袋入口、底物通道、二壳层氢键/疏水网络和可能影响产物释放的柔性区域。\n")
                 lines.append("- **工具顺序**：完成结构质量审查和编号确认后，再运行酶身份画像、口袋/保守性分析、候选打分；MD 只用于验证柔性假设，失败或未运行时不能作为结论。\n\n")
-            lines.append("### 不建议直接突变的区域\n")
-            lines.append("- 已确认或疑似催化残基，包括亲核残基、酸碱残基和稳定过渡态的残基。\n")
-            lines.append("- Ca2+/Zn2+ 等金属或辅因子结合残基。\n")
-            lines.append("- 保守半胱氨酸、二硫键、核心折叠支架和结构质量异常区域。\n\n")
+                lines.append("### 不建议直接突变的区域\n")
+                lines.append("- 已确认或疑似催化残基，包括亲核残基、酸碱残基和稳定过渡态的残基。\n")
+                lines.append("- Ca2+/Zn2+ 等金属或辅因子结合残基。\n")
+                lines.append("- 保守半胱氨酸、二硫键、核心折叠支架和结构质量异常区域。\n\n")
 
-            lines.append("### 实验验证流程\n")
-            lines.append("1. **设计确认**：人工确认序列/PDB/UniProt 编号、链 ID、催化残基、辅因子、二硫键和最终突变列表。\n")
-            lines.append("2. **单点构建**：先做优先级最高的单点突变；设置 WT、空载体和已知阳性/阴性对照。\n")
-            lines.append("3. **表达与可溶性检查**：比较表达量、可溶组分、SDS-PAGE/Western、SEC 单体比例和聚集/降解。\n")
-            lines.append("4. **主活性筛选**：目标条件与原始条件并行检测，建议 n>=3。\n")
-            lines.append("5. **稳定性筛选**：检测 Tm/DSF、热处理或 pH 处理后的残余活性，以及工艺相关半衰期。\n")
-            lines.append("6. **动力学确认**：对 Top hit 测 kcat/Km，并复核底物特异性或抑制风险。\n")
-            lines.append("7. **组合梯度**：单点通过后先做二点组合；高阶组合必须等待二点数据通过 Go/No-Go。\n")
-            lines.append("8. **最终复核**：Top 3 候选重新纯化，重复完整动力学、稳定性和结构/MD 复核。\n\n")
+                lines.append("### 实验验证流程\n")
+                lines.append("1. **设计确认**：人工确认序列/PDB/UniProt 编号、链 ID、催化残基、辅因子、二硫键和最终突变列表。\n")
+                lines.append("2. **单点构建**：先做优先级最高的单点突变；设置 WT、空载体和已知阳性/阴性对照。\n")
+                lines.append("3. **表达与可溶性检查**：比较表达量、可溶组分、SDS-PAGE/Western、SEC 单体比例和聚集/降解。\n")
+                lines.append("4. **主活性筛选**：目标条件与原始条件并行检测，建议 n>=3。\n")
+                lines.append("5. **稳定性筛选**：检测 Tm/DSF、热处理或 pH 处理后的残余活性，以及工艺相关半衰期。\n")
+                lines.append("6. **动力学确认**：对 Top hit 测 kcat/Km，并复核底物特异性或抑制风险。\n")
+                lines.append("7. **组合梯度**：单点通过后先做二点组合；高阶组合必须等待二点数据通过 Go/No-Go。\n")
+                lines.append("8. **最终复核**：Top 3 候选重新纯化，重复完整动力学、稳定性和结构/MD 复核。\n\n")
 
         if audit_appendix_lines:
             lines.append("## 附录：证据审计与工具原始输出\n\n")
@@ -7655,6 +8535,45 @@ class AgentOrchestrator:
         return str(result)
 
     @staticmethod
+    def _step_sequence_sha256(params: dict[str, Any] | None) -> str | None:
+        if not isinstance(params, dict):
+            return None
+        for key in ("sequence", "query_sequence", "protein_sequence", "input_sequence"):
+            value = params.get(key)
+            if isinstance(value, str) and value.strip():
+                normalized = "".join(value.split()).upper()
+                return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+        return None
+
+    @staticmethod
+    async def _attach_site_features_artifact(step: PlanStep, current_user: dict | None) -> None:
+        if step.tool_name != "build_site_structure_function_features" or not isinstance(step.result, dict):
+            return
+        features = step.result.get("features")
+        if not isinstance(features, list) or len(features) <= 20:
+            return
+        try:
+            user_id = int(current_user["id"]) if current_user else None
+        except (KeyError, TypeError, ValueError):
+            user_id = None
+        if user_id is None:
+            step.result["full_features_download_status"] = "unavailable_without_user_context"
+            return
+        try:
+            from app.services import storage
+
+            content = json.dumps(step.result, ensure_ascii=False, default=str).encode("utf-8")
+            stored = await storage.upload_file(
+                content, "site-structure-features.json", content_type="application/json",
+                folder=f"uploads/user_{user_id}/reports",
+            )
+            step.result["full_features_download_status"] = "ready"
+            step.result["full_features_download_url"] = stored["download_url"]
+        except Exception as exc:
+            logger.warning("Could not store complete site feature table: %s", type(exc).__name__)
+            step.result["full_features_download_status"] = "storage_failed"
+
+    @staticmethod
     def _compact_result(tool_name: str, result: Any) -> str:
         """Build a compact JSON string from a tool result, prioritizing key fields.
 
@@ -7668,6 +8587,7 @@ class AgentOrchestrator:
         if tool_name == "enzyme_identity_profile":
             compact = {}
             for key in (
+                "query",
                 "profile_version",
                 "identity_status",
                 "family_candidates",
@@ -7745,12 +8665,13 @@ class AgentOrchestrator:
                 "found", "status", "source", "capability_status", "evidence_level",
                 "report_boundary", "chain_id", "contact_radius_angstrom",
                 "catalytic_positions", "protected_positions", "target_positions",
-                "feature_count", "summary", "features",
+                "feature_count", "summary", "features", "full_features_download_status",
+                "full_features_download_url",
             ):
                 if key in result:
                     compact[key] = result[key]
             if isinstance(compact.get("features"), list):
-                compact["features"] = compact["features"][:50]
+                compact["features"] = compact["features"][:20]
             try:
                 return json.dumps(compact, ensure_ascii=False, default=str)
             except Exception:

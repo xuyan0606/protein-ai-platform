@@ -5,6 +5,7 @@ Uses pytest + unittest.mock — no real database or ChromaDB connections needed.
 
 from __future__ import annotations
 
+from types import SimpleNamespace
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -241,6 +242,43 @@ class TestFormatCitations:
 
 class TestLiteratureStore:
     """Tests for LiteratureStore graceful degradation when ChromaDB is unavailable."""
+
+    @pytest.mark.parametrize(
+        "listed",
+        [
+            [SimpleNamespace(name="protein_literature_specter2")],
+            ["protein_literature_specter2"],
+        ],
+        ids=["legacy-collection-objects", "chroma-0.6-string-names"],
+    )
+    def test_existing_collection_lookup_accepts_old_and_current_list_shapes(self, listed):
+        from app.services import literature_store
+
+        client = MagicMock()
+        client.list_collections.return_value = listed
+        existing = MagicMock(name="existing-collection")
+        client.get_collection.return_value = existing
+
+        with patch.object(literature_store, "_get_client", return_value=client):
+            result = literature_store._get_collection("specter2")
+
+        assert result is existing
+        client.get_collection.assert_called_once_with(name="protein_literature_specter2")
+        client.get_or_create_collection.assert_not_called()
+
+    def test_collection_lookup_falls_back_when_listing_is_unavailable(self):
+        from app.services import literature_store
+
+        client = MagicMock()
+        client.list_collections.side_effect = RuntimeError("list endpoint unavailable")
+        created = MagicMock(name="created-collection")
+        client.get_or_create_collection.return_value = created
+
+        with patch.object(literature_store, "_get_client", return_value=client):
+            result = literature_store._get_collection("specter2")
+
+        assert result is created
+        client.get_or_create_collection.assert_called_once()
 
     @patch("app.services.literature_store._get_collection", return_value=None)
     def test_store_unavailable(self, mock_get_collection):

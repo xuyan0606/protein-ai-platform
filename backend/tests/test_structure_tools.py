@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
 
 
@@ -23,6 +24,31 @@ HETATM    4  C2  XYP B   1       1.500   0.000   0.000  1.00 15.00           C
 HETATM    5  C1  XYP C   1       2.000   0.000   0.000  1.00 15.00           C
 END
 """
+
+
+async def test_disulfide_saltbridge_scan_uses_first_model_and_separates_histidine():
+    from app.tools.disulfide_saltbridge_scan import disulfide_saltbridge_scan
+
+    def atom(serial, atom_name, residue, number, x, y, z):
+        return (f"ATOM  {serial:5d} {atom_name:<4s} {residue:>3s} A{number:4d}    "
+                f"{x:8.3f}{y:8.3f}{z:8.3f}{1.0:6.2f}{20.0:6.2f}          {atom_name[0]:>2s}\n")
+
+    pdb = ("MODEL        1\n"
+           + atom(1, 'SG', 'CYS', 2, 0, 0, 0)
+           + atom(2, 'SG', 'CYS', 8, 2.02, 0, 0)
+           + atom(3, 'NZ', 'LYS', 3, 0, 5, 0)
+           + atom(4, 'OD1', 'ASP', 6, 0, 8, 0)
+           + atom(5, 'ND1', 'HIS', 10, 0, 11, 0)
+           + 'ENDMDL\nMODEL        2\n'
+           + atom(6, 'SG', 'CYS', 2, 0, 0, 0)
+           + atom(7, 'SG', 'CYS', 8, 12, 0, 0)
+           + 'ENDMDL\n')
+    result = await disulfide_saltbridge_scan(pdb_data=pdb, chain_id='A')
+    assert result['status'] == 'completed'
+    assert result['residue_count'] == 5
+    assert result['disulfide_bonds'][0]['sg_distance_angstrom'] == 2.02
+    assert result['salt_bridges'][0]['distance_angstrom'] == 3.0
+    assert result['histidine_acidic_contacts'][0]['residue_1'] == 'A:10'
 
 
 class TestResidueMappingSifts:
@@ -111,6 +137,7 @@ class TestResidueMappingSifts:
                 "source_position": 10,
                 "target_position": 109,
                 "target_residue_aa": "A",
+                "confidence": "exact",
             }
         ]
         result = enzyme_identity_profile(
@@ -134,6 +161,23 @@ class TestResidueMappingSifts:
         assert 10 in result["protected_positions"]
         assert result["structure_ligands"][0]["component_id"] == "XYP"
 
+    def test_uniprot_only_mapping_does_not_verify_input_sequence_numbering(self):
+        from app.tools.enzyme_identity_profile import enzyme_identity_profile
+
+        result = enzyme_identity_profile(
+            sequence="A" * 12,
+            residue_mapping={
+                "numbering_registry_status": "uniprot_only_requires_input_alignment",
+                "numbering_registry_rows": [{
+                    "source_scheme": "uniprot", "source_position": 205,
+                    "target_scheme": "pdb_author", "target_position": 5,
+                }],
+            },
+        )
+
+        assert result["numbering"]["status"] != "verified_for_input_sequence"
+        assert result["guardrail"]["status"] == "blocked"
+
     async def test_maps_chain_with_uniprot_offset(self):
         from app.tools.residue_mapping_sifts import residue_mapping_sifts
 
@@ -150,15 +194,29 @@ class TestResidueMappingSifts:
         assert "不是外部 SIFTS/UniProt 实证映射" in result["report_boundary"]
         assert result["mapping_count"] == 2
         assert result["mappings"][0]["pdb_residue_no"] == 5
-        assert result["mappings"][0]["uniprot_position"] == 101
+        assert result["mappings"][0]["uniprot_position"] is None
+        assert result["mappings"][0]["coordinate_sequence_position"] == 1
         assert result["mappings"][1]["residue_aa"] == "A"
         assert result["numbering_registry_status"] == "inferred_requires_confirmation"
-        assert result["coordinate_systems"] == ["user_sequence", "uniprot", "pdb_author"]
-        assert result["numbering_registry_rows"][0]["source_scheme"] == "user_sequence"
-        assert result["numbering_registry_rows"][0]["source_position"] == 101
+        assert result["coordinate_systems"] == ["coordinate_sequence", "pdb_author"]
+        assert result["numbering_registry_rows"][0]["source_scheme"] == "coordinate_sequence"
+        assert result["numbering_registry_rows"][0]["source_position"] == 1
         assert result["numbering_registry_rows"][0]["target_scheme"] == "pdb_author"
         assert result["numbering_registry_rows"][0]["target_position"] == 5
         assert result["numbering_registry_rows"][0]["confidence"] == "inferred"
+
+    async def test_mismatched_input_sequence_blocks_mapping(self):
+        from app.tools.residue_mapping_sifts import residue_mapping_sifts
+
+        result = await residue_mapping_sifts(
+            pdb_data=MINI_PDB, chain_id="A", input_sequence="MAA"
+        )
+
+        assert result["status"] == "blocked"
+        assert result["error_code"] == "INPUT_SEQUENCE_MISMATCH"
+        assert result["mapping_count"] == 0
+        assert result["mappings"] == []
+        assert result["numbering_registry_rows"] == []
 
     async def test_missing_pdb_returns_error_contract(self):
         from app.tools.residue_mapping_sifts import residue_mapping_sifts
@@ -208,16 +266,116 @@ class TestResidueMappingSifts:
         assert "核对来源、链、缺失残基" in result["report_boundary"]
         assert result["mapping_count"] == 1
         assert result["mappings"][0]["uniprot_position"] == 205
-        assert result["numbering_registry_status"] == "ready"
-        assert result["numbering_registry_rows"][0]["source_scheme"] == "user_sequence"
+        assert result["numbering_registry_status"] == "uniprot_only_requires_input_alignment"
+        assert result["numbering_registry_rows"][0]["source_scheme"] == "uniprot"
         assert result["numbering_registry_rows"][0]["source_position"] == 205
         assert result["numbering_registry_rows"][0]["target_scheme"] == "pdb_author"
         assert result["numbering_registry_rows"][0]["target_position"] == 5
         assert result["numbering_registry_rows"][0]["confidence"] == "sifts"
+        assert result["coordinate_systems"] == ["uniprot", "pdb_author"]
         assert result["limitations"] == []
+
+    async def test_local_sifts_row_with_wrong_residue_is_blocked(self, monkeypatch, tmp_path):
+        from app.core.config import settings
+        from app.tools.residue_mapping_sifts import residue_mapping_sifts
+
+        mapping_file = tmp_path / "1abc.csv"
+        mapping_file.write_text(
+            "pdb_id,chain_id,pdb_residue_no,residue_aa,uniprot_id,uniprot_position\n"
+            "1abc,A,5,G,PTEST1,205\n",
+            encoding="utf-8",
+        )
+        monkeypatch.setattr(settings, "SIFTS_MAPPING_PATH", str(mapping_file), raising=False)
+
+        result = await residue_mapping_sifts(
+            pdb_data=MINI_PDB, pdb_id="1abc", chain_id="A", uniprot_id="PTEST1"
+        )
+
+        assert result["status"] == "blocked"
+        assert result["error_code"] == "LOCAL_MAPPING_COORDINATE_MISMATCH"
+        assert result["numbering_registry_rows"] == []
 
 
 class TestStructureSearchFoldseek:
+    def test_multiline_title_and_seqres_are_preserved_per_chain(self):
+        from app.tools.structure_search_foldseek import _structure_summary
+
+        pdb = "\n".join([
+            "TITLE     STRUCTURE OF BETA-MANNANASE",
+            "TITLE    2 WITH MANNOBIOSE",
+            "SEQRES   1 A    2  ALA ASN",
+            "SEQRES   1 B    3  GLY LEU VAL",
+            "ATOM      1  CA  ALA A   1      10.000  10.000  10.000  1.00 20.00           C",
+            "ATOM      2  CA  GLY B   1      11.000  10.000  10.000  1.00 20.00           C",
+            "END",
+        ])
+        summary = _structure_summary(pdb)
+
+        assert summary["title"] == "STRUCTURE OF BETA-MANNANASE WITH MANNOBIOSE"
+        assert summary["seqres_by_chain"] == {"A": 2, "B": 3}
+
+    def test_structure_summary_preserves_direct_pdb_construct_annotations(self):
+        from app.tools.structure_search_foldseek import _structure_summary
+
+        pdb = "\n".join([
+            "HEADER    HYDROLASE                               07-JAN-98   1BLI",
+            "COMPND    MOL_ID: 1;",
+            "COMPND   2 MOLECULE: ALPHA-AMYLASE;",
+            "COMPND   3 EC: 3.2.1.1;",
+            "COMPND   4 ENGINEERED: YES;",
+            "SEQADV 1BLI PHE A  190  UNP  P06278    ASN   219 ENGINEERED MUTATION",
+            "SEQRES   1 A    3  ALA ASN LEU",
+            "ATOM      1  CA  ASN A   2      10.000  10.000  10.000  1.00 20.00           C",
+            "ATOM      2  CA  LEU A   3      11.000  10.000  10.000  1.00 20.00           C",
+            "END",
+        ])
+        summary = _structure_summary(pdb)
+
+        assert summary["total_residues"] == 2
+        assert summary["seqres_length"] == 3
+        assert summary["compound_annotation"]["molecule"] == "ALPHA-AMYLASE"
+        assert summary["compound_annotation"]["ec"] == "3.2.1.1"
+        assert summary["compound_annotation"]["engineered"] == "YES"
+        assert summary["engineered_mutations"] == [
+            {"chain_id": "A", "pdb_residue_no": 190, "pdb_residue_aa": "PHE",
+             "reference_residue_aa": "ASN", "reference_position": 219}
+        ]
+
+    def test_multiple_compound_entities_do_not_become_one_identity(self):
+        from app.services.pdb_parser import parse_pdb
+
+        parsed = parse_pdb("\n".join([
+            "COMPND    MOL_ID: 1;",
+            "COMPND   2 MOLECULE: ALPHA-AMYLASE;",
+            "COMPND   3 MOL_ID: 2;",
+            "COMPND   4 MOLECULE: OTHER PROTEIN;",
+            "END",
+        ]))
+
+        assert parsed["compound_annotation"] == {}
+
+    async def test_cache_key_distinguishes_structures_with_same_prefix(self, monkeypatch):
+        from app.core.config import settings
+        from app.tools import structure_search_foldseek as module
+
+        cache_params = []
+
+        async def fake_get_cached_result(_tool, params, **_kwargs):
+            cache_params.append(params)
+            return None
+
+        monkeypatch.setattr(module, "get_cached_result", fake_get_cached_result)
+        monkeypatch.setattr(settings, "FOLDSEEK_API_URL", "", raising=False)
+        monkeypatch.setattr(settings, "FOLDSEEK_BINARY", "", raising=False)
+        prefix = "HEADER    TEST\n" + "REMARK    " + "X" * 2100 + "\n"
+        for residue in ("ALA", "GLY"):
+            await module.structure_search_foldseek(
+                pdb_data=prefix + f"ATOM      1  CA  {residue} A   1      11.104  13.207  12.411  1.00 20.00           C\nEND\n"
+            )
+
+        assert len(cache_params) >= 2
+        assert cache_params[0]["pdb_sha256"] != cache_params[1]["pdb_sha256"]
+
     async def test_foldseek_without_endpoint_returns_degraded_summary(self, monkeypatch):
         from app.core.config import settings
         from app.tools.structure_search_foldseek import structure_search_foldseek
@@ -237,6 +395,7 @@ class TestStructureSearchFoldseek:
         assert "不能单独确认" in result["report_boundary"]
         assert result["query_structure"]["chain_count"] == 2
         assert result["query_structure"]["total_residues"] == 3
+        assert result["query_structure"]["chains"][0]["sequence_sha256"] == hashlib.sha256(b"MA").hexdigest()
 
     async def test_foldseek_local_cli_returns_hits(self, monkeypatch, tmp_path):
         from app.core.config import settings
@@ -406,6 +565,23 @@ END
 
 
 class TestSiteStructureFunctionFeatures:
+    async def test_real_mmcif_residue_mapping_and_site_features(self):
+        from app.tools.residue_mapping_sifts import residue_mapping_sifts
+        from app.tools.site_structure_function_features import build_site_structure_function_features
+
+        cif = (Path(__file__).resolve().parents[2] / "deploy_data/pdb/4HHB.cif").read_text(encoding="utf-8")
+        mapping = await residue_mapping_sifts(pdb_data=cif, pdb_id="4HHB", chain_id="A")
+        assert mapping["status"] == "completed"
+        assert mapping["mapping_count"] == 141
+        assert mapping["source"] == "local_sifts_style_inference"
+
+        features = await build_site_structure_function_features(
+            pdb_data=cif, chain_id="A", residue_mappings=mapping["mappings"]
+        )
+        assert features["status"] == "completed"
+        assert len(features["features"]) == 141
+        assert any(row["has_ca"] for row in features["features"])
+
     async def test_builds_ca_distance_contact_and_mapping_features(self):
         from app.tools.site_structure_function_features import build_site_structure_function_features
 
@@ -445,6 +621,7 @@ class TestSiteStructureFunctionFeatures:
         assert result["capability_status"] == "structure_feature_table"
         assert result["evidence_level"] == "STRUCTURE_GEOMETRY_FEATURES"
         assert "不能单独证明酶身份" in result["report_boundary"]
+        assert "B-factor 仅保留为 PDB 原始字段" in result["report_boundary"]
         assert result["feature_table_contract"]["schema_version"] == "site_structure_function_features_contract_v1"
         assert result["feature_table_contract"]["status"] == "ready"
         assert result["feature_table_contract"]["field_state"]["residue_distance_graph"] == "ready"
@@ -519,7 +696,9 @@ class TestSiteStructureFunctionFeatures:
 
         high_b = next(row for row in result["features"] if row["position"] == 108)
         assert high_b["secondary_structure"] == "sheet"
-        assert "high_ca_b_factor_review_structure_quality" in high_b["risk_flags"]
+        assert high_b["b_factor"] == 70.0
+        assert "high_ca_b_factor_review_structure_quality" not in high_b["risk_flags"]
+        assert result["summary"]["b_factor_interpretation"] == "raw_source_dependent_field_not_a_thermostability_measure"
 
         missing_ca = next(row for row in result["features"] if row["pdb_residue_no"] == 9)
         assert missing_ca["has_ca"] is False

@@ -1914,7 +1914,17 @@ export const api = {
       total_steps?: number | null
       cancel_requested?: boolean
       cancel_requested_at?: string | null
+      rid?: string | null
+      can_resume?: boolean
     }>(`/tools/tasks/${taskId}`),
+
+  resumeBlastTask: (taskId: string) =>
+    request<{ status: string }>(`/tools/tasks/${taskId}/resume`, { method: 'POST' }),
+
+  createBlastReportRevision: (taskId: string, conversationId: number) =>
+    request<{ message_id: number; snapshot_id: string }>(`/tools/tasks/${taskId}/report-revision`, {
+      method: 'POST', body: JSON.stringify({ conversation_id: conversationId }),
+    }),
 
   listToolTaskAudits: (limit = 50) =>
     request<{ count: number; audits: ToolTaskAudit[] }>(`/tools/tasks/audits?limit=${encodeURIComponent(String(limit))}`),

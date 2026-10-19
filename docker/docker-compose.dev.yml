@@ -77,7 +77,7 @@ services:
   # ChromaDB — vector database (embeddings / semantic search)
   # ===========================================================================
   chromadb:
-    image: chromadb/chroma:latest
+    image: chromadb/chroma:0.6.3
     ports:
       - "8001:8000"
     volumes:

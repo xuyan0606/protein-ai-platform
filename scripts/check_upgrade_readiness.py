@@ -4,11 +4,13 @@
 import argparse
 import ast
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
 
 from check_environment import collect_checks, summarize
+from check_model_selection_alignment import check_alignment
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -76,6 +78,16 @@ def _project_version_check():
     version = _project_version()
     status = "critical" if version == "unknown" else "ok"
     return UpgradeCheck("project.version", status, f"version={version}", {"version": version})
+
+
+def _model_selection_check():
+    failures = check_alignment(PROJECT_ROOT)
+    return UpgradeCheck(
+        "model.selection",
+        "critical" if failures else "ok",
+        "mismatches=" + (",".join(failures) if failures else "none"),
+        {"expected_model_id": "gpt6-sol", "expected_native_model": "gpt-6-sol", "failures": failures},
+    )
 
 
 def _frontend_version_check():
@@ -206,16 +218,89 @@ def _production_config_check():
     return UpgradeCheck("production.config", status, detail, {"summary": summary, "secrets_printed": False})
 
 
+def _release_provenance_check():
+    """Expose immutable release provenance without printing environment secrets."""
+    manifest_value = str(os.environ.get("RELEASE_MANIFEST", "")).strip()
+    manifest_path = Path(manifest_value) if manifest_value else PROJECT_ROOT / "RELEASE-MANIFEST.json"
+    if not manifest_path.is_absolute():
+        manifest_path = PROJECT_ROOT / manifest_path
+    if not manifest_path.exists():
+        return UpgradeCheck(
+            "release.provenance",
+            "manual_required",
+            "release manifest missing; production deployment must provide RELEASE-MANIFEST.json",
+            {"manifest": str(manifest_path), "verified": False},
+        )
+    try:
+        from release_provenance import verify_manifest
+
+        result = verify_manifest(root=PROJECT_ROOT, manifest_path=manifest_path)
+    except Exception as exc:
+        return UpgradeCheck(
+            "release.provenance",
+            "critical",
+            f"release manifest verification failed: {type(exc).__name__}",
+            {"manifest": str(manifest_path), "verified": False},
+        )
+    status = "ok" if result.get("status") == "verified" else "critical"
+    return UpgradeCheck(
+        "release.provenance",
+        status,
+        "verified immutable release" if status == "ok" else "release provenance drift detected",
+        {
+            "manifest": str(manifest_path),
+            "verified": status == "ok",
+            "release_id": result.get("release_id"),
+            "failures": result.get("failures", []),
+        },
+    )
+
+
+def _report_version_alignment_check():
+    manifest_value = str(os.environ.get("RELEASE_MANIFEST", "")).strip()
+    manifest_path = Path(manifest_value) if manifest_value else PROJECT_ROOT / "RELEASE-MANIFEST.json"
+    if not manifest_path.is_absolute():
+        manifest_path = PROJECT_ROOT / manifest_path
+    if not manifest_path.exists():
+        return UpgradeCheck(
+            "release.alignment",
+            "manual_required",
+            "release manifest missing; report, wet-lab, model, and frontend alignment not verifiable",
+            {"manifest": str(manifest_path), "verified": False},
+        )
+    try:
+        from check_report_version_alignment import check_alignment as check_report_alignment
+
+        result = check_report_alignment(root=PROJECT_ROOT, manifest_path=manifest_path)
+    except Exception as exc:
+        return UpgradeCheck(
+            "release.alignment",
+            "critical",
+            f"release alignment check failed: {type(exc).__name__}",
+            {"manifest": str(manifest_path), "verified": False},
+        )
+    status = "ok" if result.get("status") == "verified" else "critical"
+    return UpgradeCheck(
+        "release.alignment",
+        status,
+        "report and frontend versions aligned" if status == "ok" else "release alignment drift detected",
+        {"manifest": str(manifest_path), "verified": status == "ok", "failures": result.get("failures", [])},
+    )
+
+
 def collect_upgrade_checks():
     env_summary = summarize(collect_checks())
     checks = [
         _git_check(),
         _project_version_check(),
+        _model_selection_check(),
         _frontend_version_check(),
         _alembic_check(),
         _env_files_check(),
         _package_check(),
         _production_config_check(),
+        _release_provenance_check(),
+        _report_version_alignment_check(),
         UpgradeCheck("environment", "ok" if env_summary.status == "ready" else "warning", env_summary.detail),
     ]
     return checks

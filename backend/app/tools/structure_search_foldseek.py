@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import asyncio
 import csv
+import hashlib
 from pathlib import Path
 import re
 import subprocess
@@ -55,14 +56,31 @@ def _structure_summary(pdb_data: str) -> dict[str, Any]:
     analysis = parse_pdb(pdb_data)
     chains = analysis.get("chains") or []
     return {
+        "method": analysis.get("method"),
+        "resolution": analysis.get("resolution"),
+        "r_factor": analysis.get("r_factor"),
+        "space_group": analysis.get("space_group"),
+        "b_factor_stats": analysis.get("b_factor_stats"),
+        "b_factor_scope": analysis.get("b_factor_scope"),
+        "title": (analysis.get("header") or {}).get("title"),
         "chain_count": len(chains),
         "total_residues": analysis.get("total_residues") or 0,
         "total_atoms": analysis.get("total_atoms") or 0,
+        "seqres_length": len(analysis.get("seqres_sequence") or ""),
+        "seqres_by_chain": {
+            chain_id: len(sequence)
+            for chain_id, sequence in (analysis.get("seqres_by_chain") or {}).items()
+        },
+        "compound_annotation": analysis.get("compound_annotation") or {},
+        "engineered_mutations": analysis.get("engineered_mutations") or [],
         "chains": [
             {
                 "chain_id": chain.get("chain_id"),
                 "residue_count": chain.get("residue_count"),
                 "residue_range": chain.get("residue_range"),
+                "sequence_sha256": hashlib.sha256(
+                    str(chain.get("sequence") or "").upper().encode("utf-8")
+                ).hexdigest() if chain.get("sequence") else None,
             }
             for chain in chains
         ],
@@ -375,7 +393,8 @@ async def structure_search_foldseek(
     local_database_path = _resolve_local_database_path(database)
     normalized_pdb_id = pdb_id.strip().upper()
     cache_params = {
-        "pdb_data": loaded_pdb[:2000],
+        "cache_contract_version": 2,
+        "pdb_sha256": hashlib.sha256(loaded_pdb.encode("utf-8")).hexdigest(),
         "pdb_object_name": pdb_object_name,
         "pdb_id": normalized_pdb_id,
         "database": database,

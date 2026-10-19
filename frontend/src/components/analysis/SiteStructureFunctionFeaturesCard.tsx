@@ -1,4 +1,6 @@
-import { Activity, MapPinned, ShieldAlert, Table2 } from 'lucide-react'
+import { Activity, Download, MapPinned, ShieldAlert, Table2 } from 'lucide-react'
+import { useState } from 'react'
+import { authFetch } from '@/lib/api'
 import {
   ReportBadge,
   ReportBody,
@@ -108,6 +110,8 @@ export interface SiteStructureFunctionFeaturesData {
   feature_table_contract?: FeatureTableContract
   residue_distance_graph?: ResidueDistanceGraph
   features: SiteFeatureRow[]
+  full_features_download_status?: string
+  full_features_download_url?: string
 }
 
 function formatCoord(coord?: SiteFeatureCoord | null): string {
@@ -124,6 +128,7 @@ function formatRisk(row: SiteFeatureRow): string {
 }
 
 export function SiteStructureFunctionFeaturesCard({ data }: { data: SiteStructureFunctionFeaturesData }) {
+  const [downloadError, setDownloadError] = useState('')
   const summary = data.summary || {}
   const contract = data.feature_table_contract
   const fieldState = contract?.field_state || {}
@@ -132,12 +137,49 @@ export function SiteStructureFunctionFeaturesCard({ data }: { data: SiteStructur
   const previewRows = data.features.slice(0, 10)
   const remaining = Math.max(0, data.features.length - previewRows.length)
 
+  const downloadFeatures = async () => {
+    setDownloadError('')
+    try {
+      const downloadUrl = data.full_features_download_url
+      if (downloadUrl && !downloadUrl.startsWith('/api/files/uploads/user_')) {
+        throw new Error('Invalid feature download link')
+      }
+      const blob = downloadUrl
+        ? await authFetch(downloadUrl).then((response) => {
+            if (!response.ok) throw new Error(`Feature download failed (${response.status})`)
+            return response.blob()
+          })
+        : new Blob([JSON.stringify(data.features, null, 2)], { type: 'application/json' })
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = `site-features-${(data.chain_id || 'all').replace(/[^a-zA-Z0-9_-]/g, '_')}.json`
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+      setTimeout(() => URL.revokeObjectURL(url), 1000)
+    } catch {
+      setDownloadError('Feature download failed. Please retry.')
+    }
+  }
+
   return (
     <ReportShell>
       <ReportHeader
         icon={Activity}
         title="Site Structure Features"
         subtitle={`${data.chain_id || 'chain auto'} · ${data.source || 'PDB CA geometry'}`}
+        actions={data.features.length > 0 ? (
+          <button
+            type="button"
+            onClick={downloadFeatures}
+            className="rounded-md p-1.5 text-muted-foreground hover:bg-secondary hover:text-foreground"
+            title={data.full_features_download_url ? 'Download complete residue features (JSON)' : 'Download returned residue features (JSON)'}
+            aria-label={data.full_features_download_url ? 'Download complete residue features (JSON)' : 'Download returned residue features (JSON)'}
+          >
+            <Download className="h-4 w-4" />
+          </button>
+        ) : null}
         badge={
           <ReportBadge tone={data.found ? 'success' : 'warning'}>
             {data.found ? 'Ready' : data.status}
@@ -208,6 +250,10 @@ export function SiteStructureFunctionFeaturesCard({ data }: { data: SiteStructur
           </ReportPanel>
         ) : null}
 
+        {downloadError ? (
+          <ReportPanel tone="warning" className="text-xs">{downloadError}</ReportPanel>
+        ) : null}
+
         {previewRows.length > 0 ? (
           <ReportSection title="Feature Preview" icon={Table2}>
             <ReportDataTable>
@@ -216,7 +262,7 @@ export function SiteStructureFunctionFeaturesCard({ data }: { data: SiteStructur
                   <th className="px-4 py-3 font-medium">Site</th>
                   <th className="px-4 py-3 font-medium">PDB</th>
                   <th className="px-4 py-3 font-medium">CA</th>
-                  <th className="px-4 py-3 font-medium">B-factor</th>
+                  <th className="px-4 py-3 font-medium">B-factor field (raw)</th>
                   <th className="px-4 py-3 font-medium">relSASA</th>
                   <th className="px-4 py-3 font-medium">Cat Dist</th>
                   <th className="px-4 py-3 font-medium">Nearest CA</th>
@@ -267,7 +313,12 @@ export function SiteStructureFunctionFeaturesCard({ data }: { data: SiteStructur
             </ReportDataTable>
             {remaining > 0 ? (
               <div className="text-xs text-muted-foreground">
-                {remaining} more rows omitted from the preview.
+                {remaining} returned rows omitted from the preview.
+              </div>
+            ) : null}
+            {data.feature_count != null && data.feature_count > data.features.length && !data.full_features_download_url ? (
+              <div className="text-xs text-amber-700 dark:text-amber-300">
+                Complete feature data is unavailable in this response.
               </div>
             ) : null}
           </ReportSection>

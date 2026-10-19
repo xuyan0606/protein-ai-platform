@@ -12,6 +12,7 @@ import pytest
 import sys
 import os
 import asyncio
+import hashlib
 import json
 from pathlib import Path
 
@@ -464,7 +465,7 @@ class TestEnzymeReportQualityEvalSet:
         assert tool_names.index("enzyme_identity_profile") < tool_names.index("protein_benchmark")
         assert tool_names.index("enzyme_identity_profile") < tool_names.index("enzyme_function")
         assert tool_names.index("enzyme_function") < tool_names.index("esmfold_folding")
-        assert tool_names.index("esmfold_folding") < tool_names.index("mutation_priority_score")
+        assert "mutation_priority_score" not in tool_names
 
     def test_chinese_uploaded_structure_context_enters_structure_tool_plan(self):
         orch = self._get_orchestrator()
@@ -683,6 +684,8 @@ class TestEnzymeReportQualityEvalSet:
             "protein_benchmark",
             "enzyme_function",
             "build_site_structure_function_features",
+            "ligand_contact_analysis",
+            "structure_pocket_interface_analysis",
             "mutation_priority_score",
             "kcat_predict",
             "mutation_scan",
@@ -695,12 +698,16 @@ class TestEnzymeReportQualityEvalSet:
             "annotation_bundle",
             "enzyme_identity_profile",
             "build_site_structure_function_features",
+            "ligand_contact_analysis",
+            "structure_pocket_interface_analysis",
             "mutation_priority_score",
             "mutation_scan",
             "blast_search",
         ]:
             assert required in tool_names
         assert tool_names.index("build_site_structure_function_features") < tool_names.index("mutation_priority_score")
+        assert tool_names.index("ligand_contact_analysis") > tool_names.index("build_site_structure_function_features")
+        assert tool_names.index("structure_pocket_interface_analysis") > tool_names.index("build_site_structure_function_features")
         blast_step = next(step for step in plan if step.tool_name == "blast_search")
         assert blast_step.params["database"] == "swissprot"
         assert blast_step.params["sequence"] == ""
@@ -773,6 +780,148 @@ class TestEnzymeReportQualityEvalSet:
         } for step in hydrated])
         assert sequence not in json.dumps(display, ensure_ascii=False)
         assert "[pdb-coordinate-derived sequence; 299 aa]" in json.dumps(display, ensure_ascii=False)
+
+    def test_uploaded_pdb_sequence_replaces_stale_planner_sequence(self, monkeypatch):
+        """A current PDB is the sequence authority when planner context is stale."""
+        orch = self._get_orchestrator()
+        from app.core.agent_graph import PlanStep
+
+        coordinate_sequence = "DTTITQNQTGYDNGYFYSFWT"
+        stale_sequence = "APAQIVGRSTFQIDQVASGKVYKNGPMAMMQTYNKYAHVGAV"
+        message = (
+            "深度分析这个 PDB 的比活力和热稳定性\n\n"
+            "[Attached files:\nname: swissmodel.pdb, "
+            "object_name: uploads/user_2/swissmodel.pdb]"
+        )
+
+        async def fake_preflight(_task):
+            return {
+                "status": "readable",
+                "display_name": "swissmodel.pdb",
+                "coordinate_sequence": coordinate_sequence,
+                "sequence_length": len(coordinate_sequence),
+                "sequence_preview": coordinate_sequence[:40],
+            }
+
+        monkeypatch.setattr(orch, "_build_pdb_preflight_summary", fake_preflight)
+        plan = [
+            PlanStep(1, "predict_properties", "properties", {"sequence": stale_sequence}),
+            PlanStep(2, "enzyme_identity_profile", "identity", {"sequence": stale_sequence}),
+            PlanStep(3, "interproscan_sequence_submit", "interpro", {"sequence": stale_sequence}),
+            PlanStep(4, "residue_mapping_sifts", "mapping", {"input_sequence": stale_sequence}),
+        ]
+
+        hydrated = asyncio.run(orch._hydrate_uploaded_pdb_sequence_for_plan(plan, message))
+
+        assert [step.params.get("sequence") for step in hydrated[:3]] == [coordinate_sequence] * 3
+        assert hydrated[3].params["input_sequence"] == coordinate_sequence
+        assert all(step.params.get("sequence_provenance") == "pdb_coordinate_derived" for step in hydrated[:3])
+
+    def test_pdb_preflight_prefers_coordinate_sequence_over_unresolved_seqres(self):
+        from app.core.agent_graph import AgentOrchestrator
+
+        analysis = {
+            "seqres_sequence": "A" * 240,
+            "chains": [{"chain_id": "A", "sequence": "D" * 194}],
+        }
+
+        assert AgentOrchestrator._sequence_preview_from_pdb_analysis(analysis) == "D" * 194
+
+    def test_current_fasta_conflicting_with_uploaded_pdb_is_flagged(self, monkeypatch):
+        orch = self._get_orchestrator()
+        from app.core.agent_graph import PlanStep
+
+        coordinate_sequence = "DTTITQNQTGYDNGYFYSFWT"
+        current_fasta = "APAQIVGRSTFQIDQVASGKV"
+        message = (
+            f">current protein\n{current_fasta}\n\n"
+            "[Attached files:\nname: swissmodel.pdb, object_name: uploads/user_2/swissmodel.pdb]"
+        )
+
+        async def fake_preflight(_task):
+            return {
+                "status": "readable",
+                "display_name": "swissmodel.pdb",
+                "coordinate_sequence": coordinate_sequence,
+                "sequence_length": len(coordinate_sequence),
+            }
+
+        monkeypatch.setattr(orch, "_build_pdb_preflight_summary", fake_preflight)
+        plan = [PlanStep(1, "predict_properties", "properties", {"sequence": current_fasta})]
+        hydrated = asyncio.run(orch._hydrate_uploaded_pdb_sequence_for_plan(
+            plan, message, current_message=message
+        ))
+
+        assert hydrated[0].params["sequence"] == coordinate_sequence
+        assert hydrated[0].params["sequence_provenance"] == "pdb_coordinate_derived"
+        assert hydrated[0].params["_sequence_input_conflict"] is True
+
+    def test_full_seqres_with_unresolved_prefix_is_not_a_sequence_conflict(self, monkeypatch):
+        orch = self._get_orchestrator()
+        from app.core.agent_graph import PlanStep
+
+        coordinate_sequence = "LNGTLMQYFEWYMPNDGQHWKRLQNDSAYLAEHGITAV"
+        full_sequence = "AN" + coordinate_sequence
+        message = (
+            f">1BLI full construct\n{full_sequence}\n"
+            "[Attached files:\nname: 1BLI.pdb, object_name: uploads/user_2/1BLI.pdb]"
+        )
+
+        async def fake_preflight(_task):
+            return {"status": "readable", "coordinate_sequence": coordinate_sequence,
+                    "seqres_sequence": full_sequence}
+
+        monkeypatch.setattr(orch, "_build_pdb_preflight_summary", fake_preflight)
+        plan = [PlanStep(1, "predict_properties", "properties", {"sequence": full_sequence})]
+        hydrated = asyncio.run(orch._hydrate_uploaded_pdb_sequence_for_plan(
+            plan, message, current_message=message
+        ))
+
+        assert hydrated[0].params["sequence"] == coordinate_sequence
+        assert "_sequence_input_conflict" not in hydrated[0].params
+
+    def test_unreadable_pdb_removes_stale_sequence_from_plan(self, monkeypatch):
+        orch = self._get_orchestrator()
+        from app.core.agent_graph import PlanStep
+
+        stale_sequence = "APAQIVGRSTFQIDQVASGKV"
+        message = (
+            "分析上传 PDB 的蛋白性质\n\n"
+            "[Attached files:\nname: unreadable.pdb, object_name: uploads/user_2/unreadable.pdb]"
+        )
+
+        async def fake_preflight(_task):
+            return {"status": "failed", "display_name": "unreadable.pdb", "coordinate_sequence": ""}
+
+        monkeypatch.setattr(orch, "_build_pdb_preflight_summary", fake_preflight)
+        plan = [PlanStep(1, "predict_properties", "properties", {"sequence": stale_sequence})]
+        hydrated = asyncio.run(orch._hydrate_uploaded_pdb_sequence_for_plan(plan, message))
+
+        assert "sequence" not in hydrated[0].params
+        assert hydrated[0].params["_pdb_sequence_unavailable"] is True
+
+    def test_unreadable_pdb_uses_only_current_turn_fasta(self, monkeypatch):
+        orch = self._get_orchestrator()
+        from app.core.agent_graph import PlanStep
+
+        current_sequence = "DTTITQNQTGYDNGYFYSFWT"
+        message = (
+            f">current\n{current_sequence}\n\n"
+            "[Attached files:\nname: unreadable.pdb, object_name: uploads/user_2/unreadable.pdb]"
+        )
+
+        async def fake_preflight(_task):
+            return {"status": "failed", "display_name": "unreadable.pdb", "coordinate_sequence": ""}
+
+        monkeypatch.setattr(orch, "_build_pdb_preflight_summary", fake_preflight)
+        plan = [PlanStep(1, "predict_properties", "properties", {"sequence": "A" * 40})]
+        hydrated = asyncio.run(orch._hydrate_uploaded_pdb_sequence_for_plan(
+            plan, message, current_message=message
+        ))
+
+        assert hydrated[0].params["sequence"] == current_sequence
+        assert hydrated[0].params["sequence_provenance"] == "user_fasta"
+        assert "_pdb_sequence_unavailable" not in hydrated[0].params
 
     def test_uploaded_pdb_activity_explicit_md_request_still_submits_md(self):
         orch = self._get_orchestrator()
@@ -900,6 +1049,115 @@ class TestEnzymeReportQualityEvalSet:
         )
 
         assert summary == "提高蛋白比活力（续问：还能深度分析吗）"
+
+    def test_new_uploaded_structure_does_not_inherit_previous_protein(self):
+        orch = self._get_orchestrator()
+        history = [{"role": "user", "content": (
+            "提高旧蛋白比活力\n[Attached files:\n"
+            "name: old.pdb, object_name: uploads/user_2/old.pdb]"
+        )}]
+        message = (
+            "继续深度分析这个 PDB 的比活力与热稳定性\n[Attached files:\n"
+            "name: swissmodel.pdb, object_name: uploads/user_2/swissmodel.pdb]"
+        )
+
+        context = orch._build_context_for_message(message, history)
+
+        assert "old.pdb" not in context
+        assert "提高旧蛋白比活力" not in context
+        assert "Context boundary" in context
+
+    def test_attachment_analysis_sequence_is_not_independent_fasta(self):
+        orch = self._get_orchestrator()
+        coordinate_sequence = "LNGTLMQYFEWYMPNDGQHWKRLQNDSAYLAEHGITAV"
+        message = (
+            "深度分析这个 PDB\n[Attached files:\n"
+            "- name: 1BLI.pdb, object_name: uploads/current/1BLI.pdb, "
+            f'analysis: {{"chains": [{{"sequence": "{coordinate_sequence}"}}], '
+            f'"seqres_sequence": "AN{coordinate_sequence}"}}]'
+        )
+
+        assert orch._strategy_input_mode(message) == "PDB-only"
+        assert orch._extract_explicit_sequence(message) is None
+        assert "当前消息未提供独立 FASTA" in "\n".join(orch._build_customization_lines(message))
+        plan = orch._generate_fallback_plan(message, analysis_depth="deep")
+        assert len([step for step in plan if step.tool_name == "predict_properties"]) == 1
+        assert next(step for step in plan if step.tool_name == "predict_properties").params["sequence"] == ""
+
+    def test_legacy_attachment_json_does_not_change_1bli_task_identity(self, monkeypatch):
+        orch = self._get_orchestrator()
+        coordinate_sequence = ("LNGTLMQYFEWYMPNDGQHWKRLQNDSAYLAEHGITAV" * 13)[:481]
+        seqres_sequence = "AN" + coordinate_sequence
+        base = (
+            "深度分析这个pdb,我要你把能分析的内容都给我显示，做深度分析。\n"
+            "[Attached files:\n- name: 1BLI.pdb, object_name: uploads/current/1BLI.pdb"
+        )
+        plain = base + "]"
+        legacy = base + (
+            ', analysis: ' + json.dumps({
+                "chains": [{"sequence": coordinate_sequence}],
+                "seqres_sequence": seqres_sequence,
+            }) + "]"
+        )
+
+        assert len(coordinate_sequence) == 481
+        assert len(seqres_sequence) == 483
+        assert orch._strategy_input_mode(legacy) == "PDB-only"
+        assert orch._extract_explicit_sequence(legacy) is None
+        assert orch._task_fingerprint(legacy) == orch._task_fingerprint(plain)
+        assert orch._has_concrete_protein_input(legacy)
+
+        async def fake_preflight(_task):
+            return {
+                "status": "readable", "coordinate_sequence": coordinate_sequence,
+                "seqres_sequence": seqres_sequence,
+            }
+
+        monkeypatch.setattr(orch, "_build_pdb_preflight_summary", fake_preflight)
+        plan = orch._generate_fallback_plan(legacy, analysis_depth="deep")
+        hydrated = asyncio.run(orch._hydrate_uploaded_pdb_sequence_for_plan(
+            plan, legacy, current_message=legacy,
+        ))
+        properties = next(step for step in hydrated if step.tool_name == "predict_properties")
+        assert properties.params["sequence"] == coordinate_sequence
+        assert properties.params["sequence_provenance"] == "pdb_coordinate_derived"
+        assert "_sequence_input_conflict" not in properties.params
+
+    def test_new_pdb_id_with_deep_word_drops_old_structure_context(self):
+        orch = self._get_orchestrator()
+        history = [{"role": "user", "content": (
+            "提高旧蛋白比活力\n[Attached files:\n"
+            "name: old.pdb, object_name: uploads/previous/old.pdb]"
+        )}]
+
+        context = orch._build_context_for_message("深度分析 1BLI PDB", history)
+
+        assert "old.pdb" not in context
+        assert "提高旧蛋白比活力" not in context
+
+    def test_reuploaded_same_pdb_ignores_older_different_protein_context(self):
+        orch = self._get_orchestrator()
+        history = [
+            {"role": "user", "content": "分析旧蛋白\n[Attached files:\nname: old.pdb, object_name: uploads/old.pdb]"},
+            {"role": "user", "content": "提高当前蛋白比活力\n[Attached files:\nname: 1BLI.pdb, object_name: uploads/1BLI.pdb]"},
+        ]
+        message = "继续分析当前 PDB\n[Attached files:\nname: 1BLI.pdb, object_name: uploads/1BLI.pdb]"
+
+        context = orch._build_context_for_message(message, history)
+
+        assert "提高当前蛋白比活力" in context
+        assert "old.pdb" not in context
+        assert "分析旧蛋白" not in context
+
+    def test_new_upload_checkpoint_does_not_persist_prior_task_summary(self):
+        from app.api.chat import _checkpoint_task_text
+
+        message = "深度分析这个 PDB\n[Attached files:\nname: 1BLI.pdb, object_name: uploads/1BLI.pdb]"
+        history = [{"role": "user", "content": "提高旧蛋白比活力"}]
+
+        assert _checkpoint_task_text(message, history) == message
+        assert _checkpoint_task_text("深度分析 1BLI PDB", history) == "深度分析 1BLI PDB"
+        assert "Prior user request summary" in _checkpoint_task_text("还能深度分析吗", history)
 
     def test_followup_preflight_summary_does_not_become_fake_sequence(self):
         orch = self._get_orchestrator()
@@ -1043,6 +1301,25 @@ class TestEnzymeReportQualityEvalSet:
         assert "gromacs_md" not in [step.tool_name for step in standard_plan]
         assert "gromacs_md" not in [step.tool_name for step in deep_plan]
 
+    def test_geometry_tools_require_deep_pdb_context(self):
+        orch = self._get_orchestrator()
+        sequence = "M" + "A" * 119
+
+        deep_sequence_plan = orch._generate_fallback_plan(
+            f"深度分析这个蛋白的活性和稳定性\n\n>{sequence}",
+            analysis_depth="deep",
+        )
+        assert "ligand_contact_analysis" not in [step.tool_name for step in deep_sequence_plan]
+        assert "structure_pocket_interface_analysis" not in [step.tool_name for step in deep_sequence_plan]
+
+        standard_pdb_plan = orch._generate_fallback_plan(
+            "分析上传结构的口袋和配体接触\n\n"
+            "[Attached files:\nname: example.pdb, object_name: uploads/user_1/example.pdb]",
+            analysis_depth="standard",
+        )
+        assert "ligand_contact_analysis" not in [step.tool_name for step in standard_pdb_plan]
+        assert "structure_pocket_interface_analysis" not in [step.tool_name for step in standard_pdb_plan]
+
     def test_objective_routing_changes_tool_plan_for_same_sequence(self):
         orch = self._get_orchestrator()
         sequence = "MKTVRQERLKSIVRILERSKEPVQGAQLPVKELQLPGCHPNPIRALLDSSEGDLSFDADSTIIRRMEE"
@@ -1104,7 +1381,7 @@ class TestEnzymeReportQualityEvalSet:
         ]
 
         assert "mutation_priority_score" in plan
-        assert "protssn_score" in plan
+        assert "protssn_score" not in plan
         assert "blast_search" in plan
         assert "kcat_predict" not in plan
 
@@ -2368,6 +2645,7 @@ class TestEnzymeReportQualityEvalSet:
                             "chain_id": "A",
                             "residue_aa": "A",
                             "pdb_residue_no": idx,
+                            "uniprot_id": "PTEST1",
                             "uniprot_position": idx + 9,
                         }
                         for idx in range(1, 289)
@@ -2426,18 +2704,269 @@ class TestEnzymeReportQualityEvalSet:
         assert "## 序列级专业库检索（BLAST）" in report
         assert "endo-beta-1,4-Mannanase" in report
         assert "序列级 BLAST 对酶家族/功能判断的权重高于弱结构折叠相似" in report
-        assert "A:A1->UniProt 10" in report
+        assert "A:A1->UniProt PTEST1:10" in report
         assert "## PDB坐标探索性位点预筛" not in report
         assert "不能给出高置信具体突变" in report
         assert "带电门控" not in report and "柔性环/构象熵" not in report
         assert "先不输出突变清单" not in report
-        assert "位点表使用方式" in report
+        assert "位点表使用方式" not in report
         assert "## 工具执行结果与失败原因" in report
         assert "GROMACS runtime unavailable" in report
-        assert "不能给出高置信具体突变" in report
         assert "49405" not in report
         assert "DO NOT MUTATE" not in report
         assert "This fallback report is generated" not in report
+
+    def test_report_quarantines_sequence_results_from_previous_structure(self):
+        orch = self._get_orchestrator()
+        report = orch._build_fallback_report("深度分析这个 PDB 的比活力和热稳定性", [
+            {
+                "tool_name": "structure_search_foldseek", "status": "completed",
+                "result": json.dumps({
+                    "status": "completed", "found": True,
+                    "query_structure": {
+                        "chain_count": 1, "total_residues": 194,
+                        "chains": [{"chain_id": "A", "residue_count": 194}],
+                    },
+                }),
+            },
+            {
+                "tool_name": "predict_properties", "status": "completed",
+                "result": json.dumps({"length": 240, "molecular_weight_kda": 25.09}),
+            },
+            {
+                "tool_name": "enzyme_identity_profile", "status": "completed",
+                "result": json.dumps({
+                    "query": {"sequence_length": 240},
+                    "identity_status": "identified",
+                    "family_candidates": [{"name": "Aspartic peptidase A1"}],
+                }),
+            },
+            {
+                "tool_name": "annotation_bundle", "status": "completed",
+                "result": json.dumps({
+                    "query": {"sequence_length": 240},
+                    "protein": {"protein_name": "Old protein A1"},
+                }),
+            },
+            {
+                "tool_name": "protein_benchmark", "status": "completed",
+                "result": json.dumps({
+                    "query_info": {"length": 240},
+                    "family": {"name": "Old protein A1"},
+                }),
+            },
+        ])
+
+        assert "当前结构坐标链为 194 aa" in report
+        assert "predict_properties, enzyme_identity_profile" in report
+        assert "25.09 kDa" not in report
+        assert "Aspartic peptidase A1" not in report
+        assert "Old protein A1" not in report
+        assert "SEQUENCE_STRUCTURE_LENGTH_MISMATCH" in report or "differs from uploaded coordinate chain" in report
+
+    def test_report_binds_all_sections_to_current_uploaded_structure(self):
+        orch = self._get_orchestrator()
+        current = "uploads/current/1BLI.pdb"
+        previous = "uploads/previous/13.pdb"
+        results = [
+            {"tool_name": "structure_search_foldseek", "status": "completed", "pdb_object_name": current,
+             "input_id": "pdb:0", "result": json.dumps({"query_structure": {
+                 "chain_count": 1, "total_residues": 481,
+                 "chains": [{"chain_id": "A", "residue_count": 481}]}})},
+            {"tool_name": "predict_properties", "status": "completed", "pdb_object_name": current,
+             "input_id": "pdb:0", "result": json.dumps({"length": 481, "molecular_weight_kda": 55.0})},
+            {"tool_name": "structure_search_foldseek", "status": "completed", "pdb_object_name": previous,
+             "input_id": "pdb:1", "result": json.dumps({"query_structure": {
+                 "chain_count": 1, "total_residues": 194,
+                 "chains": [{"chain_id": "A", "residue_count": 194}]}})},
+            {"tool_name": "predict_properties", "status": "completed", "pdb_object_name": previous,
+             "input_id": "pdb:1", "result": json.dumps({"length": 194, "molecular_weight_kda": 21.52})},
+            {"tool_name": "enzyme_identity_profile", "status": "completed", "pdb_object_name": previous,
+             "input_id": "pdb:1", "result": json.dumps({"query": {"sequence_length": 194},
+                 "identity_status": "identified", "family_candidates": [{"name": "Glycoside hydrolase family 11"}]})},
+            {"tool_name": "build_site_structure_function_features", "status": "completed",
+             "pdb_object_name": previous, "input_id": "pdb:1",
+             "result": json.dumps({"status": "completed", "feature_count": 194,
+                 "features": [{"position": 1, "wild_type": "D", "pdb_position": "A:2"}]})},
+        ]
+        task = f"深度分析这个pdb\n[Attached files: {{'name': '1BLI.pdb', 'object_name': '{current}'}}]"
+        report = orch._build_fallback_report(task, results)
+
+        assert "481 aa" in report
+        assert "55.0 kDa" in report
+        assert "194 aa" not in report
+        assert "21.52 kDa" not in report
+        assert "Glycoside hydrolase family 11" not in report
+        assert "## 位点结构-功能特征表" not in report
+        assert "pdb:1" not in report
+
+    def test_report_blocks_unlabelled_multiple_structures(self):
+        orch = self._get_orchestrator()
+        results = [
+            {"tool_name": "structure_search_foldseek", "status": "completed",
+             "result": json.dumps({"query_structure": {"total_residues": size}})}
+            for size in (481, 194)
+        ]
+        report = orch._build_fallback_report("分析这个 PDB", results)
+
+        assert "对象归属未确认" in report
+        assert "194" not in report and "481" not in report
+
+    def test_report_drops_unlabelled_result_when_current_structure_is_labelled(self):
+        orch = self._get_orchestrator()
+        current = "uploads/current/1BLI.pdb"
+        task = f"分析这个 PDB\n[Attached files: name: 1BLI.pdb, object_name: {current}]"
+        report = orch._build_fallback_report(task, [
+            {"tool_name": "structure_search_foldseek", "status": "completed",
+             "pdb_object_name": current,
+             "result": json.dumps({"query_structure": {"total_residues": 481,
+                 "chains": [{"chain_id": "A", "residue_count": 481}]}})},
+            {"tool_name": "predict_properties", "status": "completed",
+             "result": json.dumps({"length": 481, "molecular_weight_kda": 21.52})},
+        ])
+
+        assert "481 aa" in report
+        assert "21.52 kDa" not in report
+
+    def test_report_shows_direct_pdb_identity_construct_and_seqres_boundary(self):
+        orch = self._get_orchestrator()
+        report = orch._build_fallback_report("分析 1BLI PDB", [{
+            "tool_name": "structure_search_foldseek", "status": "completed",
+            "result": json.dumps({"status": "completed", "query_structure": {
+                "method": "X-RAY DIFFRACTION", "total_residues": 481,
+                "seqres_length": 483,
+                "compound_annotation": {"molecule": "ALPHA-AMYLASE", "ec": "3.2.1.1",
+                                         "engineered": "YES"},
+                "engineered_mutations": [{"chain_id": "A", "pdb_residue_no": 190,
+                                          "pdb_residue_aa": "PHE", "reference_residue_aa": "ASN",
+                                          "reference_position": 219}],
+                "nonpolymer_components": [{"component_id": "CA", "chain_id": "A"}],
+                "chains": [{"chain_id": "A", "residue_count": 481}],
+            }})
+        }])
+
+        assert "SEQRES=483 aa" in report
+        assert "坐标=481 aa" in report
+        assert "ALPHA-AMYLASE" in report
+        assert "3.2.1.1" in report
+        assert "工程突变" in report
+        assert "A:PHE190" in report
+        assert "参考 ASN219" in report
+
+    def test_plan_rejects_previous_upload_when_current_pdb_is_attached(self):
+        from app.core.agent_graph import PlanStep
+
+        orch = self._get_orchestrator()
+        task = "深度分析这个 PDB\n[Attached files:\nname: 1BLI.pdb, object_name: uploads/current/1BLI.pdb]"
+        plan = [
+            PlanStep(1, "structure_search_foldseek", "current", {"pdb_object_name": "uploads/current/1BLI.pdb"}),
+            PlanStep(2, "structure_search_foldseek", "previous", {"pdb_object_name": "uploads/previous/13.pdb"}),
+        ]
+
+        assert orch._foreign_uploaded_objects_in_plan(task, plan) == ["uploads/previous/13.pdb"]
+        assert orch._foreign_uploaded_objects_in_plan(task, plan[:1]) == []
+
+    def test_mixed_upload_plan_stops_before_confirmation_or_execution(self, monkeypatch):
+        from app.core.agent_graph import PlanStep
+        from app.tools.registry import ToolRegistry
+
+        orch = self._get_orchestrator()
+        task = "深度分析这个 PDB\n[Attached files:\nname: 1BLI.pdb, object_name: uploads/current/1BLI.pdb]"
+
+        async def fake_route(*args, **kwargs):
+            return "analyze"
+
+        async def fake_research(*args, **kwargs):
+            return ""
+
+        async def fake_plan(*args, **kwargs):
+            return [
+                PlanStep(1, "structure_search_foldseek", "current", {"pdb_object_name": "uploads/current/1BLI.pdb"}),
+                PlanStep(2, "structure_search_foldseek", "previous", {"pdb_object_name": "uploads/previous/13.pdb"}),
+            ]
+
+        async def fail_execute(*args, **kwargs):
+            raise AssertionError("mixed upload plan must not execute")
+
+        monkeypatch.setattr(orch, "_route_intent", fake_route)
+        monkeypatch.setattr(orch, "_research_pi", fake_research)
+        monkeypatch.setattr(orch, "_plan_cb", fake_plan)
+        monkeypatch.setattr(ToolRegistry, "execute", fail_execute)
+
+        async def collect():
+            events = [json.loads(event) async for event in orch.stream_chat(task, [])]
+            return "".join(item.get("content", "") for item in events if item.get("type") == "text"), events
+
+        reply, events = asyncio.run(collect())
+        assert "混入了其他上传结构" in reply
+        assert "分析策略确认" not in reply
+        assert not any(item.get("step_results") for item in events if item.get("type") == "state")
+
+    def test_report_quarantines_compacted_identity_result_from_previous_structure(self):
+        orch = self._get_orchestrator()
+        compacted = orch._compact_result("enzyme_identity_profile", {
+            "query": {"sequence_length": 240},
+            "identity_status": "identified",
+            "family_candidates": [{"name": "Old protein A1"}],
+        })
+        report = orch._build_fallback_report("分析这个 PDB 的热稳定性", [
+            {
+                "tool_name": "structure_search_foldseek", "status": "completed",
+                "result": json.dumps({"query_structure": {
+                    "chains": [{"chain_id": "A", "residue_count": 194}],
+                }}),
+            },
+            {"tool_name": "enzyme_identity_profile", "status": "completed", "result": compacted},
+        ])
+        assert "Old protein A1" not in report
+        assert "已隔离长度或序列指纹不符的结果" in report
+
+    def test_report_quarantines_equal_length_wrong_sequence_fingerprint(self):
+        orch = self._get_orchestrator()
+        coordinate_hash = hashlib.sha256(b"ACDE").hexdigest()
+        stale_hash = hashlib.sha256(b"WXYZ").hexdigest()
+        report = orch._build_fallback_report("分析这个 PDB 的热稳定性", [
+            {
+                "tool_name": "structure_search_foldseek", "status": "completed",
+                "result": json.dumps({"query_structure": {
+                    "chains": [{"chain_id": "A", "residue_count": 4, "sequence_sha256": coordinate_hash}],
+                }}),
+            },
+            {
+                "tool_name": "enzyme_identity_profile", "status": "completed",
+                "input_sequence_sha256": stale_hash,
+                "result": orch._compact_result("enzyme_identity_profile", {
+                    "query": {"sequence_length": 4},
+                    "identity_status": "identified",
+                    "family_candidates": [{"name": "Old protein A1"}],
+                }),
+            },
+        ])
+        assert "Old protein A1" not in report
+        assert "已隔离长度或序列指纹不符的结果" in report
+
+    def test_sequence_input_fingerprint_uses_executed_step_params(self):
+        orch = self._get_orchestrator()
+        assert orch._step_sequence_sha256({"sequence": "a c d e"}) == hashlib.sha256(b"ACDE").hexdigest()
+        assert orch._step_sequence_sha256({"query_sequence": "WXYZ"}) == hashlib.sha256(b"WXYZ").hexdigest()
+
+    def test_report_labels_swiss_model_as_predicted_structure(self):
+        orch = self._get_orchestrator()
+        report = orch._build_fallback_report("分析这个 PDB 的比活力和热稳定性", [{
+            "tool_name": "structure_search_foldseek", "status": "completed",
+            "result": json.dumps({
+                "status": "completed", "found": True,
+                "query_structure": {
+                    "method": "THEORETICAL MODEL (SWISS-MODEL SERVER)",
+                    "chain_count": 1, "total_residues": 194,
+                    "chains": [{"chain_id": "A", "residue_count": 194}],
+                },
+            }),
+        }])
+
+        assert "THEORETICAL MODEL (SWISS-MODEL SERVER)" in report
+        assert "不是该输入的实验测定结构" in report
+        assert "不能证明比活力或热稳定性" in report
 
     def test_fallback_report_excludes_completed_but_blocked_payload_from_structure_evidence(self):
         orch = self._get_orchestrator()
@@ -2532,6 +3061,57 @@ class TestEnzymeReportQualityEvalSet:
             "提高蛋白比活力\n[Attached files:\nname: HM.pdb, object_name: uploads/user_1/hm.pdb]",
             tool_results,
         ) is True
+
+    def test_uploaded_pdb_pending_blast_does_not_hold_report_for_llm(self):
+        from app.core.agent_graph import AgentOrchestrator
+
+        tool_results = [
+            {"tool_name": "predict_properties", "status": "completed", "result": "{}"},
+            {"tool_name": "enzyme_identity_profile", "status": "completed", "result": "{}"},
+            {"tool_name": "blast_search", "status": "waiting", "result": "{}"},
+        ]
+
+        assert AgentOrchestrator._should_use_deterministic_structure_report(
+            "请分析上传的 PDB 并生成完整报告。\n[Attached files:\nname: 7DVJ.pdb, object_name: uploads/user_1/7dvj.pdb]",
+            tool_results,
+        ) is True
+
+    def test_uploaded_pdb_report_is_emitted_with_pending_blast_receipt(self, monkeypatch):
+        orch = self._get_orchestrator()
+        task = (
+            "请分析上传的 PDB 并生成完整报告。\n"
+            "[Attached files:\nname: 7DVJ.pdb, object_name: uploads/user_1/7dvj.pdb]"
+        )
+        tool_results = [
+            {
+                "tool_name": "structure_search_foldseek",
+                "status": "completed",
+                "result": json.dumps({
+                    "status": "completed",
+                    "query_structure": {"total_atoms": 20, "total_residues": 2, "chain_count": 1,
+                                         "chains": [{"chain_id": "A", "residue_count": 2,
+                                                     "residue_range": "1-2"}]},
+                }),
+            },
+            {
+                "tool_name": "blast_search",
+                "status": "submitted",
+                "result": json.dumps({
+                    "status": "submitted", "task_id": "blast-1", "queue": "default",
+                    "status_url": "/api/tools/tasks/blast-1",
+                }),
+            },
+        ]
+
+        async def fail_if_called(*_args, **_kwargs):
+            raise AssertionError("pending NCBI BLAST must not delay deterministic PDB reporting")
+
+        monkeypatch.setattr(orch, "_call_llm", fail_if_called)
+        report = asyncio.run(orch._synthesize_sc(task, tool_results, "", [], "gpt6-sol"))
+
+        assert "## 序列级专业库检索（BLAST）" in report
+        assert "当前报告不把 BLAST 结果写成已完成证据" in report
+        assert "blast-1" in report
 
     def test_uploaded_pdb_weak_foldseek_hit_is_downgraded_in_report(self):
         from app.core.agent_graph import AgentOrchestrator
@@ -2909,9 +3489,9 @@ class TestEnzymeReportQualityEvalSet:
         compact = json.loads(AgentOrchestrator._compact_result("build_site_structure_function_features", payload))
 
         assert compact["summary"]["feature_count"] == 60
-        assert len(compact["features"]) == 50
+        assert len(compact["features"]) == 20
         assert compact["features"][0]["position"] == 0
-        assert compact["features"][-1]["position"] == 49
+        assert compact["features"][-1]["position"] == 19
 
     def test_claim_audit_constraints_are_preserved_in_deterministic_enzyme_report(self, monkeypatch):
         orch = self._get_orchestrator()
@@ -3566,7 +4146,7 @@ class TestBinderSkillsAndReport:
         assert "P1" in report
         assert "没有实验证据、实时运行证据或编号映射确认时，不写入确定结论" in report
         assert "结构特征" in report
-        assert "CA B-factor=18.5" in report
+        assert "PDB B-factor(原始字段,不作稳定性解释)=18.5" in report
         assert "最近催化CA距离=6.2 A" in report
         assert "8A CA接触数=7" in report
         assert "CA接触环境=moderate_ca_neighborhood" in report

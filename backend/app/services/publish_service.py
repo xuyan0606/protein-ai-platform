@@ -178,6 +178,7 @@ async def publish_report(
 
     # 4. Upload to MinIO
     object_name = ""
+    storage_uploaded = False
     file_size = len(content.encode("utf-8"))
     try:
         from app.services.storage import upload_file
@@ -188,6 +189,7 @@ async def publish_report(
             folder=folder,
         )
         object_name = result.get("object_name", "")
+        storage_uploaded = bool(object_name)
         logger.info("Uploaded .md to storage: %s (%d bytes)", object_name, file_size)
     except Exception as e:
         logger.warning("Storage upload failed: %s", e)
@@ -209,11 +211,25 @@ async def publish_report(
                 publish=True,
             )
             outline_doc_id = doc.get("id")
+            if not outline_doc_id:
+                from app.services.outline_client import OutlineUnavailableError
+                raise OutlineUnavailableError("Outline returned no document ID")
             # Outline document URL pattern
             doc_slug = doc.get("urlId", outline_doc_id)
             wiki_url = f"/wiki/doc/{doc_slug}"
             logger.info("Published to Outline: doc_id=%s", outline_doc_id)
         except Exception as e:
+            if source == "manual":
+                if storage_uploaded:
+                    try:
+                        from app.services.storage import delete_file
+                        await delete_file(object_name)
+                    except Exception as cleanup_error:
+                        logger.warning("Storage cleanup after Wiki publish failure failed: %s", cleanup_error)
+                from app.services.outline_client import OutlineAuthenticationError, OutlineUnavailableError
+                if isinstance(e, (OutlineAuthenticationError, OutlineUnavailableError)):
+                    raise
+                raise OutlineUnavailableError("Outline document publish failed") from e
             logger.warning("Outline publish failed (file still saved): %s", e)
 
     # 6. Create ProjectFile record

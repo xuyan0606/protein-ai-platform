@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import asyncio
 import re
+import xml.etree.ElementTree as ET
 from typing import Any
 
 import httpx
@@ -194,6 +195,57 @@ def _build_poll_schedule(rtoe: int) -> list[float]:
 # BLAST runner
 # ---------------------------------------------------------------------------
 
+async def submit_blast(sequence: str, program: str = "blastp", database: str = "nr", max_results: int = 10) -> tuple[str, int]:
+    """Submit once. Callers persist the RID before scheduling retrieval."""
+    if program not in _VALID_PROGRAMS or database not in _VALID_DATABASES:
+        raise ValueError("INVALID_BLAST_PARAMETERS: unsupported program or database")
+    if len(sequence.strip()) < 5 or not 1 <= int(max_results) <= 100:
+        raise ValueError("INVALID_BLAST_PARAMETERS: sequence too short or invalid result limit")
+    async with httpx.AsyncClient(timeout=60) as client:
+        response = await client.post(_BLAST_SUBMIT_URL, data=ncbi_request_params("blast", {
+            "CMD": "Put", "PROGRAM": program, "DATABASE": _DATABASE_MAP.get(database, database),
+            "QUERY": sequence.strip().upper(), "FORMAT_TYPE": "XML", "HITLIST_SIZE": str(max_results),
+        }))
+    error = rate_limit_from_response(response, source="ncbi_blast", message="NCBI BLAST submission rate limited")
+    if error:
+        raise error
+    response.raise_for_status()
+    match = re.search(r"RID\s*=\s*([A-Za-z0-9-]+)", response.text)
+    if not match:
+        raise RuntimeError("BLAST_SUBMISSION_FAILED: NCBI did not return a request ID")
+    estimate = re.search(r"RTOE\s*=\s*(\d+)", response.text)
+    return match.group(1), int(estimate.group(1)) if estimate else 60
+
+
+async def poll_blast(rid: str, max_results: int) -> list[dict[str, Any]] | None:
+    """Retrieve once: None means pending; [] means completed with no hits."""
+    async with httpx.AsyncClient(timeout=60) as client:
+        response = await client.get(_BLAST_SUBMIT_URL, params=ncbi_request_params("blast", {
+            "CMD": "Get", "RID": rid, "FORMAT_TYPE": "XML",
+        }))
+    error = rate_limit_from_response(response, source="ncbi_blast", message="NCBI BLAST retrieval rate limited")
+    if error:
+        raise error
+    response.raise_for_status()
+    text = response.text
+    state = re.search(r"Status\s*=\s*(WAITING|READY|FAILED|UNKNOWN)", text)
+    if state and state.group(1) in {"FAILED", "UNKNOWN"}:
+        raise RuntimeError(f"BLAST_{state.group(1)}: NCBI task is failed or expired")
+    if "<BlastOutput" in text:
+        try:
+            root = ET.fromstring(text)
+        except ET.ParseError as exc:
+            raise httpx.ReadError("NCBI returned incomplete BLAST XML") from exc
+        if root.tag != "BlastOutput":
+            raise RuntimeError("BLAST_INVALID_RESULT: unsupported XML format")
+        if root.find(".//Iteration_hits") is None:
+            raise httpx.ReadError("NCBI XML has no completed iteration")
+        return _parse_blast_xml_full(text, max_results)
+    if state and state.group(1) == "WAITING":
+        return None
+    raise httpx.ReadError("NCBI has not returned a complete BLAST XML result")
+
+
 async def _run_blast(
     sequence: str,
     program: str,
@@ -314,6 +366,13 @@ def _result_payload(
         "query_preview": seq[:80] + ("..." if len(seq) > 80 else ""),
         "results": hits,
         "status": status,
+        # Keep the historical top-level status for API compatibility while
+        # exposing a report-safe terminal state for no-hit vs hit results.
+        "evidence_status": (
+            "completed_no_hit" if status == "completed" and not hits
+            else "completed_with_hits" if status == "completed" and hits
+            else "failed" if status in {"degraded", "failed"} else status
+        ),
         "cache": {"hit": False, "stale": False},
         "evidence_source": evidence_source or evidence_source_status(
             source="NCBI BLAST",

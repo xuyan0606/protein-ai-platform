@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://protein-ai-platform.local/schemas/release-manifest.v1.schema.json",
+  "title": "Protein AI Platform Release Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manifest_version", "release_id", "created_at", "source", "compose", "images", "rollback"],
+  "properties": {
+    "manifest_version": {"const": 1},
+    "release_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["git_commit", "git_tree", "worktree_clean"],
+      "properties": {
+        "git_commit": {"type": "string", "pattern": "^[0-9a-f]{40,64}$"},
+        "git_tree": {"type": "string", "pattern": "^[0-9a-f]{40,64}$"},
+        "worktree_clean": {"type": "boolean", "const": true}
+      }
+    },
+    "compose": {
+      "type": "object", "additionalProperties": false,
+      "required": ["files", "env_non_secret_sha256"],
+      "properties": {
+        "files": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["path", "sha256"],
+            "properties": {
+              "path": {"type": "string", "minLength": 1},
+              "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+            }
+          }
+        },
+        "env_non_secret_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "images": {
+      "type": "object", "additionalProperties": false,
+      "required": ["backend", "frontend", "worker", "md-worker", "ligand-worker"],
+      "properties": {
+        "backend": {"$ref": "#/$defs/image"},
+        "frontend": {"$ref": "#/$defs/image"},
+        "worker": {"$ref": "#/$defs/image"},
+        "md-worker": {"$ref": "#/$defs/image"},
+        "ligand-worker": {"$ref": "#/$defs/image"}
+      }
+    },
+    "rollback": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["target_release_id", "manifest_sha256"],
+          "properties": {
+            "target_release_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$"},
+            "manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          }
+        }
+      ]
+    },
+    "alignment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["report_schema_version", "wet_lab_schema_version", "frontend_bundle_sha256"],
+      "properties": {
+        "report_schema_version": {"const": "1.1"},
+        "wet_lab_schema_version": {"const": "wet_lab_plan_v1"},
+        "frontend_bundle_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  },
+  "$defs": {
+    "image": {
+      "type": "object", "additionalProperties": false,
+      "required": ["immutable_ref", "digest"],
+      "properties": {
+        "immutable_ref": {"type": "string", "pattern": "^.+@sha256:[0-9a-f]{64}$"},
+        "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    }
+  }
+}

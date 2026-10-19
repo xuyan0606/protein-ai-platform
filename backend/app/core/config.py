@@ -116,7 +116,7 @@ class Settings(BaseSettings):
 
     # LLM — primary
     LLM_PROVIDER: str = "kuaPao"
-    LLM_MODEL: str = "gpt-5.5"
+    LLM_MODEL: str = "gpt-6-sol"
     OPENAI_API_KEY: str = ""
     OPENAI_BASE_URL: str = ""
 
@@ -142,6 +142,7 @@ class Settings(BaseSettings):
     KUAPAO_MODEL: str = "gpt-5.5"
     KUAPAO_GPT56_MODEL: str = "gpt-5.6-terra"
     KUAPAO_SOL_MODEL: str = "gpt-5.6-sol"
+    KUAPAO_GPT6_SOL_MODEL: str = "gpt-6-sol"
 
     # MiniMax-M2.7 (OpenAI-compatible relay)
     MINIMAX_API_KEY: str = ""
@@ -200,7 +201,8 @@ class Settings(BaseSettings):
     BLAST_API_URL: str = "https://blast.ncbi.nlm.nih.gov/Blast.cgi"
     BLAST_POLL_INTERVAL: float = 5.0
     BLAST_MAX_POLL_ATTEMPTS: int = 60
-    BLAST_POLL_BUDGET_SECONDS: float = 45.0
+    BLAST_POLL_BUDGET_SECONDS: float = 120.0
+    BLAST_BACKGROUND_WAIT_SECONDS: int = 1800
     UNIPROT_SEARCH_TIMEOUT_SECONDS: float = 12.0
     BLAST_HTTP_READ_TIMEOUT_SECONDS: float = 60.0
 

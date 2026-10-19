@@ -6,6 +6,9 @@ set -euo pipefail
 
 DEPLOY_ROOT="${DEPLOY_ROOT:-/opt/protein-ai-platform}"
 BUNDLE_PATH="${1:-}"
+REQUIRE_RELEASE_MANIFEST="${REQUIRE_RELEASE_MANIFEST:-1}"
+ALLOW_LEGACY_RELEASE="${ALLOW_LEGACY_RELEASE:-0}"
+PYTHON="${PYTHON:-python3}"
 
 log() {
   printf '[install-release] %s\n' "$*"
@@ -41,6 +44,11 @@ root_name="$(tar -tzf "$BUNDLE_PATH" | awk -F/ 'NF {print $1}' | sort -u)"
 [ "$root_count" = "1" ] || fail "Bundle must contain one top-level directory, found: $root_name"
 [ "$root_name" = "protein-ai-platform" ] || fail "Unexpected bundle top-level directory: $root_name"
 
+manifest_member="protein-ai-platform/RELEASE-MANIFEST.json"
+if [ "$REQUIRE_RELEASE_MANIFEST" = "1" ] && [ "$ALLOW_LEGACY_RELEASE" != "1" ]; then
+  tar -tzf "$BUNDLE_PATH" | grep -Fxq "$manifest_member" || fail "Bundle has no RELEASE-MANIFEST.json; set ALLOW_LEGACY_RELEASE=1 only for an explicitly unverified legacy install"
+fi
+
 old_current=""
 if [ -e "$DEPLOY_ROOT/current" ] || [ -L "$DEPLOY_ROOT/current" ]; then
   old_current="$(readlink -f "$DEPLOY_ROOT/current" 2>/dev/null || true)"
@@ -62,6 +70,23 @@ if [ -n "$old_current" ] && [ -d "$old_current" ]; then
     mkdir -p "$project_dir/docker/ssl"
     cp -a "$old_current/docker/ssl/." "$project_dir/docker/ssl/"
   fi
+fi
+
+if [ -f "$project_dir/RELEASE-MANIFEST.json" ]; then
+  [ -f "$project_dir/scripts/check_report_version_alignment.py" ] || fail "report version alignment helper is missing"
+  "$PYTHON" "$project_dir/scripts/release_provenance.py" \
+    --root "$project_dir" verify --offline \
+    --manifest "$project_dir/RELEASE-MANIFEST.json" \
+    --expected-release-id "$release_id" \
+    --env-file docker/.env.aliyun.app \
+    --require-compose-file "$project_dir/docker/docker-compose.aliyun-app.yml"
+  "$PYTHON" "$project_dir/scripts/check_report_version_alignment.py" \
+    --root "$project_dir" --manifest "$project_dir/RELEASE-MANIFEST.json" --offline
+  log "release manifest verified"
+elif [ "$REQUIRE_RELEASE_MANIFEST" = "1" ] && [ "$ALLOW_LEGACY_RELEASE" != "1" ]; then
+  fail "RELEASE-MANIFEST.json is required for this deployment"
+else
+  log "legacy release bundle explicitly allowed; provenance is unverified"
 fi
 
 ln -sfn "$project_dir" "$DEPLOY_ROOT/current"

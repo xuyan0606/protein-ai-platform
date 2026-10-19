@@ -16,6 +16,42 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_OUTPUT = PROJECT_ROOT / "docs" / "manuals" / "release-worktree-manifest-2026-08-17.json"
 
 
+def _alignment_summary() -> dict[str, Any]:
+    """Return a read-only report/release alignment summary without secrets."""
+    manifest = PROJECT_ROOT / "RELEASE-MANIFEST.json"
+    if not manifest.exists():
+        return {
+            "status": "manual_required",
+            "manifest": str(manifest),
+            "detail": "release manifest missing; report and frontend alignment require a release manifest",
+            "failures": [],
+        }
+    try:
+        import sys
+        scripts_dir = str(PROJECT_ROOT / "scripts")
+        if scripts_dir not in sys.path:
+            sys.path.insert(0, scripts_dir)
+        from check_report_version_alignment import check_alignment
+
+        result = check_alignment(root=PROJECT_ROOT, manifest_path=manifest)
+        return {
+            "status": result.get("status", "blocked"),
+            "manifest": str(manifest),
+            "release_id": result.get("release_id"),
+            "report_schema_version": result.get("report_schema_version"),
+            "wet_lab_schema_version": result.get("wet_lab_schema_version"),
+            "failures": list(result.get("failures", [])),
+            "warnings": list(result.get("warnings", [])),
+        }
+    except Exception as exc:
+        return {
+            "status": "blocked",
+            "manifest": str(manifest),
+            "detail": f"alignment check failed: {type(exc).__name__}",
+            "failures": [],
+        }
+
+
 def _run_git(args: list[str]) -> str:
     result = subprocess.run(
         ["git", "-c", "core.quotepath=false", *args],
@@ -49,6 +85,7 @@ def build_manifest() -> dict[str, Any]:
         "dirty": bool(files),
         "dirty_file_count": len(files),
         "counts_by_status": dict(sorted(counts.items())),
+        "release_alignment": _alignment_summary(),
         "files": files,
         "summary": {
             "status": "manual_required" if files else "clean",

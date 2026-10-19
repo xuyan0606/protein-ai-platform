@@ -43,6 +43,14 @@ MODEL_REGISTRY: list[ModelInfo] = [
         configured=bool(settings.KUAPAO_API_KEY),
     ),
     ModelInfo(
+        id="gpt6-sol",
+        name="GPT-6-sol",
+        provider="kuaPao",
+        model=settings.KUAPAO_GPT6_SOL_MODEL,
+        description="OpenAI-compatible model relay — GPT-6-sol",
+        configured=bool(settings.KUAPAO_API_KEY),
+    ),
+    ModelInfo(
         id="deepseek-v4ro",
         name="DeepSeek-v4ro",
         provider="deepseek",
@@ -61,6 +69,7 @@ def get_model_info(model_id: str | None) -> ModelInfo | None:
         "kuaPao": "gpt55",
         "kuaPao-gpt56": "gpt56",
         "kuaPao-gpt56-sol": "gpt56-sol",
+        "gpt-6-sol": "gpt6-sol",
         "DeepSeek-v4ro": "deepseek-v4ro",
     }
     model_id = aliases.get(model_id, model_id)

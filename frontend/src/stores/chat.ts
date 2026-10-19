@@ -247,7 +247,14 @@ export const useChatStore = create<ChatState>((set, get) => ({
   recentStrategyMemoryLoading: false,
   recentStrategyMemoryError: null,
   lastPublishedFile: null,
-  selectedModel: (localStorage.getItem('selectedModel') as string) || 'gpt55',
+  selectedModel: (() => {
+    const saved = localStorage.getItem('selectedModel')
+    if (saved === 'gpt55' && !localStorage.getItem('selectedModelExplicitChoice')) {
+      localStorage.setItem('selectedModel', 'gpt6-sol')
+      return 'gpt6-sol'
+    }
+    return saved || 'gpt6-sol'
+  })(),
   availableModels: [],
 
   newConversation: () => {
@@ -417,6 +424,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
 
   setSelectedModel: (modelId: string) => {
     localStorage.setItem('selectedModel', modelId)
+    localStorage.setItem('selectedModelExplicitChoice', '1')
     set({ selectedModel: modelId })
   },
 
@@ -424,11 +432,10 @@ export const useChatStore = create<ChatState>((set, get) => ({
     try {
       const models = await api.getModels()
       const currentSelected = get().selectedModel
-      const selectedKnown = models.some((m) => m.id === currentSelected)
+      const selectedKnown = models.some((m) => m.id === currentSelected && m.available)
       const preferred =
-        models.find((m) => m.id === 'gpt55')
+        models.find((m) => m.id === 'gpt6-sol' && m.available)
         || models.find((m) => m.available)
-        || models[0]
         || null
 
       if (!selectedKnown && preferred) {

@@ -26,3 +26,23 @@ def test_completed_usable_payload_is_scientific_evidence():
 
     assert result["scientific_evidence"][0]["tool_name"] == "blast_search"
     assert result["task_receipts"] == []
+
+
+def test_completed_blast_with_degraded_payload_is_rejected():
+    result = classify_task_evidence([{
+        "tool_name": "blast_search", "status": "completed",
+        "result": {"status": "degraded", "error_code": "BLAST_TIMEOUT", "results_count": 0,
+                   "evidence_source": {"status": "degraded"}},
+    }])
+    assert result["scientific_evidence"] == []
+    assert len(result["rejected_terminal_results"]) == 1
+
+
+def test_cached_blast_cannot_be_promoted_to_live_scientific_evidence():
+    for payload_status in ("completed", "stale_cache"):
+        result = classify_task_evidence([{
+            "tool_name": "blast_search", "status": "completed",
+            "result": {"status": payload_status, "results_count": 1,
+                       "evidence_source": {"status": "degraded", "mode": "cache_hit"}},
+        }])
+        assert result["scientific_evidence"] == []

@@ -20,6 +20,7 @@ export interface PDBAnalysisData {
   space_group?: string | null
   unit_cell?: Record<string, number> | null
   b_factor_stats?: { mean: number; min: number; max: number } | null
+  b_factor_scope?: string | null
   total_atoms: number
   total_residues: number
   seqres_sequence?: string | null
@@ -207,12 +208,17 @@ export function PDBAnalysisCard({ data, pdbContent, highlightResidues = [], high
             {data.b_factor_stats && (
               <Metric
                 icon={Zap}
-                label="B-factor"
+                label="B-factor field (raw)"
                 value={`${data.b_factor_stats.mean}`}
                 meta={`${data.b_factor_stats.min} - ${data.b_factor_stats.max}`}
               />
             )}
           </ReportMetricGrid>
+          {data.b_factor_stats && (
+            <p className="mt-3 text-xs text-muted-foreground">
+              B-factor is a source-dependent raw PDB field. Without source metadata, it does not measure thermostability, flexibility, or model confidence.
+            </p>
+          )}
         </ReportSection>
 
         {overlaySummary ? (

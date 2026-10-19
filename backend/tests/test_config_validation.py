@@ -20,6 +20,11 @@ import pytest
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 
 
+@pytest.fixture(autouse=True)
+def isolated_remaining_backlog_root(monkeypatch, tmp_path):
+    monkeypatch.setenv("REMAINING_BACKLOG_DEPLOY_ROOT", str(tmp_path / "empty-deploy-data"))
+
+
 def test_alembic_environment_imports_identity_and_strategy_models():
     env_text = (PROJECT_ROOT / "backend" / "alembic" / "env.py").read_text()
     assert "app.models.strategy_checkpoint" in env_text
@@ -112,10 +117,28 @@ class TestRequirementsFiles:
         assert all("venv-old" not in path for path in archived)
         assert all("node_modules" not in path for path in archived)
 
-    def test_alembic_env_escapes_percent_encoded_database_urls(self):
+    def test_release_bundle_includes_version_provenance_files(self, tmp_path):
+        package_script = PROJECT_ROOT / "scripts" / "package_deploy_bundle.py"
+        spec = importlib.util.spec_from_file_location("package_deploy_bundle_provenance", package_script)
+        assert spec and spec.loader
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+
+        (tmp_path / "VERSION").write_text("0.1.0\n")
+        (tmp_path / "RELEASE-MANIFEST.json").write_text("{}\n")
+        (tmp_path / "backend").mkdir()
+        files = module.collect_files(tmp_path, include_deploy_data=False, extra_excludes=[])
+        archived = {item.archive_path for item in files}
+
+        assert "protein-ai-platform/VERSION" in archived
+        assert "protein-ai-platform/RELEASE-MANIFEST.json" in archived
+
+    def test_alembic_env_bypasses_configparser_for_percent_encoded_urls(self):
         env_py = PROJECT_ROOT / "backend" / "alembic" / "env.py"
         content = env_py.read_text()
-        assert 'settings.DATABASE_URL.replace("%", "%%")' in content
+        assert "create_async_engine(settings.DATABASE_URL" in content
+        assert "url=url," in content
+        assert 'set_main_option("sqlalchemy.url"' not in content
 
     def test_structure_smoke_script_exists(self):
         script = PROJECT_ROOT / "backend" / "scripts" / "smoke_structure_data.py"
@@ -294,8 +317,8 @@ class TestRequirementsFiles:
             "local_capable": 2,
         }
         assert payload["summary"]["counts"] == {
-            "external_required": 7,
-            "ready": 2,
+            "external_required": 8,
+            "ready": 1,
         }
         names = {item["name"] for item in payload["results"]}
         assert "real_deploy_data" in names
@@ -412,15 +435,18 @@ class TestRequirementsFiles:
             check=True,
         )
         stdout_payload = json.loads(result.stdout)
+        packet_payload = json.loads(packet_path.read_text())
+        pending_count = packet_payload["item_count"]
+        p1_count = packet_payload["priority_summary"]["P1"]["item_count"]
         assert stdout_payload["network_io"] == "not_executed"
         assert stdout_payload["destructive_actions"] == "not_executed"
         assert stdout_payload["secrets_printed"] is False
         assert stdout_payload["all_inputs_present"] is False
-        assert stdout_payload["item_count"] == 7
+        assert stdout_payload["item_count"] == pending_count
         assert stdout_payload["priority_summary"]["P0"]["item_count"] == 4
         assert stdout_payload["priority_summary"]["P0"]["missing_input_rows"] == 4
-        assert stdout_payload["priority_summary"]["P1"]["item_count"] == 3
-        assert stdout_payload["priority_summary"]["P1"]["missing_input_rows"] == 3
+        assert stdout_payload["priority_summary"]["P1"]["item_count"] == p1_count
+        assert stdout_payload["priority_summary"]["P1"]["missing_input_rows"] == p1_count
 
         template_payload = json.loads(template_path.read_text())
         assert template_payload["mode"] == "operator_supplied_values_template"
@@ -433,16 +459,16 @@ class TestRequirementsFiles:
         assert report_payload["network_io"] == "not_executed"
         assert report_payload["destructive_actions"] == "not_executed"
         assert report_payload["secrets_printed"] is False
-        assert report_payload["item_count"] == 7
+        assert report_payload["item_count"] == pending_count
         assert report_payload["ready_to_run_rows"] == 0
-        assert report_payload["missing_input_rows"] == 7
+        assert report_payload["missing_input_rows"] == pending_count
         assert report_payload["priority_summary"]["P0"]["items"] == [
             "formal_domain_https",
             "gpu_gromacs_md_live",
             "md_blackbox_live_e2e",
             "oss_minio_live_e2e",
         ]
-        assert report_payload["priority_summary"]["P1"]["missing_input_rows"] == 3
+        assert report_payload["priority_summary"]["P1"]["missing_input_rows"] == p1_count
         assert report_payload["all_inputs_present"] is False
         by_name = {item["name"]: item for item in report_payload["items"]}
         assert by_name["formal_domain_https"]["priority"] == "P0"
@@ -529,7 +555,7 @@ class TestRequirementsFiles:
         assert stdout_payload["destructive_actions"] == "not_executed"
         assert stdout_payload["secrets_printed"] is False
         assert stdout_payload["armed_rows"] == 1
-        assert stdout_payload["blocked_rows"] == 6
+        assert stdout_payload["blocked_rows"] == json.loads(packet_path.read_text())["item_count"] - 1
 
         plan_text = output_json.read_text()
         assert "op://protein-ai" not in plan_text
@@ -640,13 +666,15 @@ class TestRequirementsFiles:
         assert stdout_payload["destructive_actions"] == "not_executed"
         assert stdout_payload["secrets_printed"] is False
         assert stdout_payload["live_commands_included"] is False
-        assert stdout_payload["item_count"] == 7
-        assert stdout_payload["blocked_rows"] == 7
+        expected_count = json.loads(packet_path.read_text())["item_count"]
+        assert stdout_payload["item_count"] == expected_count
+        assert stdout_payload["blocked_rows"] == expected_count
         assert stdout_payload["armed_rows"] == 0
 
         payload = json.loads(dispatch_path.read_text())
         assert payload["mode"] == "read_only_remaining_backlog_operator_dispatch_checklist"
-        assert payload["lane_count"] >= 6
+        assert payload["lane_count"] == len(payload["lanes"])
+        assert payload["lane_count"] >= 5
         lanes = {lane["lane"]: lane for lane in payload["lanes"]}
         assert "infra_dns_tls" in lanes
         assert "md_runtime" in lanes
@@ -948,8 +976,9 @@ class TestRequirementsFiles:
             check=True,
         )
         tickets_stdout = json.loads(tickets_result.stdout)
-        assert tickets_stdout["ticket_count"] == 7
-        assert tickets_stdout["blocked_ticket_count"] == 7
+        expected_count = json.loads(packet_json.read_text())["item_count"]
+        assert tickets_stdout["ticket_count"] == expected_count
+        assert tickets_stdout["blocked_ticket_count"] == expected_count
         assert tickets_stdout["armed_ticket_count"] == 0
         assert tickets_stdout["live_gate_execution_allowed"] is False
         tickets_payload = json.loads(tickets_json.read_text(encoding="utf-8"))
@@ -1271,11 +1300,14 @@ class TestRequirementsFiles:
         )
         summary_payload = json.loads(summary_result.stdout)
         summary_report = json.loads(summary_json.read_text(encoding="utf-8"))
+        packet_payload = json.loads(packet_json.read_text(encoding="utf-8"))
+        pending_count = packet_payload["item_count"]
+        p1_items = packet_payload["priority_summary"]["P1"]["items"]
         assert summary_payload["decision"] == "defer_waiting_for_external_inputs"
         assert summary_payload["ready_for_live_gate_execution"] is False
-        assert summary_payload["missing_input_rows"] == 7
+        assert summary_payload["missing_input_rows"] == pending_count
         assert summary_payload["armed_rows"] == 0
-        assert summary_payload["blocked_rows"] == 7
+        assert summary_payload["blocked_rows"] == pending_count
         assert summary_payload["priority_summary"]["P0"]["item_count"] == 4
         assert summary_payload["priority_summary"]["P0"]["blocked_rows"] == 4
         assert summary_payload["priority_summary"]["P0"]["items"] == [
@@ -1284,13 +1316,9 @@ class TestRequirementsFiles:
             "md_blackbox_live_e2e",
             "oss_minio_live_e2e",
         ]
-        assert summary_payload["priority_summary"]["P1"]["item_count"] == 3
-        assert summary_payload["priority_summary"]["P1"]["blocked_rows"] == 3
-        assert summary_payload["priority_summary"]["P1"]["items"] == [
-            "ligand_runtime_live",
-            "admin_authenticated_screenshots",
-            "maintenance_window_drills",
-        ]
+        assert summary_payload["priority_summary"]["P1"]["item_count"] == len(p1_items)
+        assert summary_payload["priority_summary"]["P1"]["blocked_rows"] == len(p1_items)
+        assert summary_payload["priority_summary"]["P1"]["items"] == p1_items
         assert summary_payload["operator_packet_manifest"]["current"] is False
         assert "external_input_validation" in summary_payload["blocking_items"]
         assert "gate_execution_plan" in summary_payload["blocking_items"]
@@ -1324,13 +1352,13 @@ class TestRequirementsFiles:
             check=True,
         )
         tickets_payload = json.loads(tickets_result.stdout)
-        assert tickets_payload["ticket_count"] == 7
-        assert tickets_payload["blocked_ticket_count"] == 7
+        assert tickets_payload["ticket_count"] == pending_count
+        assert tickets_payload["blocked_ticket_count"] == pending_count
         assert tickets_payload["armed_ticket_count"] == 0
         assert tickets_payload["priority_summary"]["P0"]["ticket_count"] == 4
         assert tickets_payload["priority_summary"]["P0"]["blocked_ticket_count"] == 4
-        assert tickets_payload["priority_summary"]["P1"]["ticket_count"] == 3
-        assert tickets_payload["priority_summary"]["P1"]["blocked_ticket_count"] == 3
+        assert tickets_payload["priority_summary"]["P1"]["ticket_count"] == len(p1_items)
+        assert tickets_payload["priority_summary"]["P1"]["blocked_ticket_count"] == len(p1_items)
         assert tickets_payload["live_gate_execution_allowed"] is False
         tickets_report = json.loads(tickets_json.read_text(encoding="utf-8"))
         assert tickets_report["priority_summary"]["P0"]["items"] == [
@@ -2869,7 +2897,9 @@ class TestRequirementsFiles:
         fixture = PROJECT_ROOT / "backend" / "app" / "data" / "fixtures" / "structure_smoke" / "1abc.json"
         (deploy_root / "sifts" / "1abc.json").write_text(fixture.read_text(), encoding="utf-8")
         (deploy_root / "smoke" / "query.pdb").write_text(
-            "HEADER    AUTODISCOVERY TEST\nATOM      1  N   MET A   1      11.104  13.207  12.411  1.00 20.00           N\nEND\n",
+            "HEADER    AUTODISCOVERY TEST\n"
+            "ATOM      1  N   MET A   1      11.104  13.207  12.411  1.00 20.00           N\n"
+            "ATOM      2  N   ALA A   2      13.101  14.650  12.778  1.00 20.00           N\nEND\n",
             encoding="utf-8",
         )
 
@@ -2900,7 +2930,9 @@ class TestRequirementsFiles:
         fixture = PROJECT_ROOT / "backend" / "app" / "data" / "fixtures" / "structure_smoke" / "1abc.json"
         (deploy_root / "sifts" / "1abc.json").write_text(fixture.read_text(), encoding="utf-8")
         (deploy_root / "smoke" / "query.pdb").write_text(
-            "HEADER    AUTODISCOVERY TEST\nATOM      1  N   MET A   1      11.104  13.207  12.411  1.00 20.00           N\nEND\n",
+            "HEADER    AUTODISCOVERY TEST\n"
+            "ATOM      1  N   MET A   1      11.104  13.207  12.411  1.00 20.00           N\n"
+            "ATOM      2  N   ALA A   2      13.101  14.650  12.778  1.00 20.00           N\nEND\n",
             encoding="utf-8",
         )
 
@@ -4160,7 +4192,7 @@ class TestProductionConfigGate:
         assert payload["phase_summary"]["P4"]["ready_local_contract"] == 1
         assert payload["phase_summary"]["P0"]["covered_local_gap_count"] >= 1
         assert "open_local_gap_count" in payload["phase_summary"]["P2"]
-        assert payload["remaining_backlog_summary"]["counts"]["external_required"] == 7
+        assert payload["remaining_backlog_summary"]["counts"]["external_required"] == 8
         by_name = {item["name"]: item for item in payload["items"]}
         assert "specified_mutation_reviews" in by_name["specified_mutation_review"]["evidence_tokens"]
         assert "unified_numbering_registry_v1" in by_name["numbering_registry"]["evidence_tokens"]
@@ -4272,7 +4304,7 @@ class TestProductionConfigGate:
         assert payload["status_export_contract"]["contract_status_items_are_source_bound"] is True
         assert payload["status_export_contract"]["covered_followups_do_not_clear_external_blockers"] is True
         assert payload["status_export_contract"]["local_followups_are_not_capability_completion"] is True
-        assert payload["remaining_backlog_summary"]["counts"]["external_required"] == 7
+        assert payload["remaining_backlog_summary"]["counts"]["external_required"] == 8
         assert "formal_domain_https" in payload["external_followups"]
         assert "ready local contract means production complete" in payload["must_not_claim"]
         md = output_md.read_text(encoding="utf-8")

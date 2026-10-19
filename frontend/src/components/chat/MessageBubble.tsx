@@ -62,7 +62,7 @@ function MessageBubbleBase({ message, conversationId, isStreaming = false }: Pro
           {message.toolCalls && message.toolCalls.length > 0 && (
             <div className={`mb-5 space-y-2 ${isAssistant ? 'mx-auto max-w-[860px]' : ''}`}>
               {message.toolCalls.map((tc) => (
-                <ToolCallCard key={tc.id} toolCall={tc} />
+                <ToolCallCard key={tc.id} toolCall={tc} conversationId={conversationId} />
               ))}
             </div>
           )}

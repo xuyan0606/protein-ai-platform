@@ -6,7 +6,7 @@ import json
 from typing import Any
 
 
-_NON_EVIDENCE_PAYLOAD_STATUSES = {"submitted", "pending", "running", "blocked", "failed", "failure", "canceled", "cancelled", "revoked"}
+_NON_EVIDENCE_PAYLOAD_STATUSES = {"submitted", "pending", "running", "waiting", "submitting", "retry", "retrying", "blocked", "failed", "failure", "canceled", "cancelled", "revoked", "degraded", "stale_cache"}
 
 
 def _payload(value: Any) -> dict[str, Any]:
@@ -37,9 +37,13 @@ def classify_task_evidence(tool_results: list[dict[str, Any]]) -> dict[str, list
         state = str(item.get("status") or "").lower()
         payload = _payload(item.get("result"))
         payload_state = str(payload.get("status") or "").lower()
-        if state in {"submitted", "pending", "running"}:
+        source = payload.get("evidence_source")
+        source_status = str(source.get("status") or "").lower() if isinstance(source, dict) else ""
+        if state in {"submitted", "pending", "running", "waiting", "submitting", "retry", "retrying"}:
             receipts.append(item)
-        elif state == "completed" and payload_state not in _NON_EVIDENCE_PAYLOAD_STATUSES and bool(payload or item.get("result")):
+        elif (state == "completed" and payload_state not in _NON_EVIDENCE_PAYLOAD_STATUSES
+              and source_status not in {"blocked", "degraded"}
+              and bool(payload or item.get("result"))):
             evidence.append(item)
         else:
             rejected.append(item)

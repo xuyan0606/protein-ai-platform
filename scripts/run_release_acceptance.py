@@ -213,6 +213,37 @@ def _acceptance_command(args):
     return command
 
 
+def _report_alignment_result(plan_only=False):
+    manifest_value = _env_value("RELEASE_MANIFEST")
+    manifest = Path(manifest_value).expanduser() if manifest_value else PROJECT_ROOT / "RELEASE-MANIFEST.json"
+    if not manifest.is_absolute():
+        manifest = PROJECT_ROOT / manifest
+    command = [
+        sys.executable,
+        "scripts/check_report_version_alignment.py",
+        "--manifest",
+        str(manifest),
+        "--json",
+    ]
+    if not manifest.exists():
+        if plan_only:
+            return _plan_result(
+                "report_version_alignment",
+                "release",
+                command,
+                "report/release alignment planned; RELEASE-MANIFEST.json is not available locally",
+            )
+        return _manual_required_result(
+            "report_version_alignment",
+            "release",
+            "release manifest missing; report schema, frontend bundle, model and rollback alignment require a manifest",
+            {"manifest": str(manifest), "verified": False},
+        )
+    if plan_only:
+        return _plan_result("report_version_alignment", "release", command)
+    return _run_command("report_version_alignment", "release", command, parser="json")
+
+
 def _build_steps(args):
     rollback_command = [sys.executable, "scripts/rollback_plan.py", "--json"]
     if args.maintenance_window_id:
@@ -267,6 +298,7 @@ def _gate_result(
 def run_release_acceptance(args):
     results = []
     results.append(_production_https_gate(plan_only=args.plan_only))
+    results.append(_report_alignment_result(plan_only=args.plan_only))
     for name, category, command, parser in _build_steps(args):
         if args.plan_only:
             results.append(_plan_result(name, category, command))

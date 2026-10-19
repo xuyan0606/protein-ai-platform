@@ -476,7 +476,7 @@ services:
   # ChromaDB — vector database (embeddings for semantic search / RAG)
   # =========================================================================
   chromadb:
-    image: chromadb/chroma:latest
+    image: chromadb/chroma:0.6.3
     # No public port — only accessible within app_network
     volumes:
       - chroma_data:/chroma/chroma
