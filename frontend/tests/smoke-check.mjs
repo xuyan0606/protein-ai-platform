@@ -68,7 +68,7 @@ try {
     }
   }
   const normalizedHeaders = mutationTableHeaders.join('|')
-  if (normalizedHeaders !== '优先级|位点/编号|推荐突变|机制逻辑|主要风险') {
+  if (normalizedHeaders !== '优先级|位点/编号|推荐突变|机制逻辑|主要风险|P2证据覆盖') {
     throw new Error(`Mutation candidate table should stay compact, got headers: ${normalizedHeaders}`)
   }
 
