@@ -360,7 +360,7 @@ function handleSSEEvent(data: SSEEvent) {
 
       // Link step_results to tool calls for result preview / PDB visualization
       if (stepResults.length > 0) {
-        const msgs = store.messages
+        const msgs = useChatStore.getState().messages
         const last = msgs[msgs.length - 1]
         if (last?.toolCalls) {
           for (const sr of stepResults) {
