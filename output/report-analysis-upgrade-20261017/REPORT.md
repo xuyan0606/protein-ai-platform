@@ -153,6 +153,14 @@
 - 仅作诊断地加 `--skip-domain-https` 后为 `ready`、0 critical、0 warning；这不是生产放行。部署记录确认主入口仍为 `http://120.27.108.138`，4243 仅为自签 TLS 技术验证端口，正式域名和可信证书尚未部署。
 - 因此报告应用 release 的外部配置门需要正式 HTTPS 域名/证书；版本材料还需要 registry 可引用的五个 immutable application image digests 和可验证 rollback manifest。没有以临时占位值生成正式 manifest。
 
+### 发布门复跑（隔离候选）
+
+- 扩大 Python 3.12 定向回归，覆盖 LiteratureStore/Chroma、报告证据与用户场景、BLAST 恢复、结构几何、发布 provenance/deployment 和 release acceptance 脚本：`124 passed`。
+- `package_deploy_bundle.py --dry-run` 解析 660 个候选文件、约 16.7 MB；仅输出清单，没有生成部署包。
+- `check_upgrade_readiness.py --require-ready --json` 仍为 blocked：候选 production env files 缺失，示例配置导致 production config critical 6 项，正式 manifest/provenance/alignment 未完成。
+- `check_report_version_alignment.py --manifest RELEASE-MANIFEST.json --frontend-bundle frontend/dist --offline --json` 因 manifest 不存在而 blocked。线上当前镜像 `RepoDigests` 无 registry digest，不能据本地 image ID 伪造 immutable image ref；完整 7DVJ 报告验收需要候选实际发布后再做。
+- 隔离候选最新提交为 `16ff4e274ac526db8ac5412bdaa505065fde171d`，工作树干净；未推送、未生成 manifest、未部署。
+
 ### LiteratureStore 实链路烟测
 
 - 使用线上 backend 的真实 `LiteratureStore` 完成临时文献写入、统计、语义查询和删除：`before=0`、`indexed=1`、`after=1`、查询返回临时 PMID、删除成功、`final=0`。

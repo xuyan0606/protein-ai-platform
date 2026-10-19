@@ -61,9 +61,14 @@ The tracked patch passes `git apply --check --cached` against the current index.
 
 ## Latest verification
 
-- Read-only production config gate on ECS reports 1 critical: `PUBLIC_BASE_URL_HTTPS`; all other 10 checks pass. With `--skip-domain-https` for diagnosis only, the check is ready, but this is not production approval. The deployed main entry remains HTTP and port 4243 uses a self-signed technical-validation certificate.
-- Isolated candidate code commit: `4321caac4e6efeacd8a0cae8bf7b5eec395d8ab9`; verification record commit: `077f4866129e4ffb4f2fd0080da2733a9aa225d2` (detached worktree; not pushed or deployed).
-- Backend Python 3.12 report/structure/BLAST/Chroma/release suite: `113 passed`.
+- Latest isolated candidate commit: `16ff4e274ac526db8ac5412bdaa505065fde171d` (clean detached worktree; not pushed or deployed).
+- Expanded backend Python 3.12 release/report/structure/BLAST/Chroma suite: `124 passed`.
+- `package_deploy_bundle.py --dry-run`: 660 files, 16,731,806 bytes; no package was created.
+- `check_upgrade_readiness.py --require-ready --json` remains blocked: candidate production env files are missing, sample config has six critical findings, and formal provenance/alignment manifests are missing.
+- Offline report alignment remains blocked because `RELEASE-MANIFEST.json` does not exist. The live application image tags have no registry `RepoDigests`; local image IDs are not immutable registry references.
+- Read-only production config gate on ECS reports one critical: `PUBLIC_BASE_URL_HTTPS`; all other ten checks pass. With `--skip-domain-https` for diagnosis only, the check is ready, but this is not production approval. The deployed main entry remains HTTP and port 4243 uses a self-signed technical-validation certificate.
+- Initial isolated candidate code commit: `4321caac4e6efeacd8a0cae8bf7b5eec395d8ab9` (later commits record additional verification; none pushed or deployed).
+- Initial backend Python 3.12 report/structure/BLAST/Chroma/release suite: `113 passed`.
 - Frontend candidate `npm run build` and `npm run lint`: passed using the existing dependency tree; generated `frontend/dist` is candidate-local output.
 - Chroma compatibility adapter handles both legacy Collection-like objects and 0.6.x string collection names; focused LiteratureStore tests pass.
 - Online switch evidence: `chroma-switch-receipt.json`. It is operational evidence, not a release manifest or application deployment authorization.
