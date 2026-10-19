@@ -63,6 +63,8 @@ The tracked patch was an inventory aid only. The audited candidate is recorded i
 
 - Isolated candidate branch: `report-analysis-release-candidate-20261019` (clean local worktree; not pushed or deployed). Candidate code commit: `fbb1d45e4c99d9c8b20fcf1e7d4359ea98e1e171`; later commits on this branch record release-gate evidence and inventory corrections.
 - Expanded backend Python 3.12 release/report/structure/BLAST/Chroma suite: `124 passed`.
+- Acceptance matrix with the isolated Python 3.12 environment and non-production OIDC test keys: `20/21` checks passed or skipped; the sole failure is `production_config_gate`, because the candidate intentionally has no production env files/secrets.
+- Full non-destructive release acceptance with the same test-only configuration: `3 failed`, `5 manual_required`, `1 skipped`, `2 passed`; failures are the expected production config/readiness, missing-manifest alignment, acceptance-matrix propagation, and package-dependent rollback planning gates. No destructive action or live rollback was executed.
 - `package_deploy_bundle.py --dry-run`: 660 files, 16,731,806 bytes; no package was created.
 - `check_upgrade_readiness.py --require-ready --json` remains blocked: candidate production env files are missing, sample config has six critical findings, and formal provenance/alignment manifests are missing.
 - Offline report alignment remains blocked because `RELEASE-MANIFEST.json` does not exist. The live application image tags have no registry `RepoDigests`; local image IDs are not immutable registry references.
