@@ -42,13 +42,13 @@ The candidate does not include the unrelated model training, external research d
 
 - A consistent production SQLite copy was created during a controlled Chroma stop/restart: `chroma-live-data-stopped-20261019T003540Z.sqlite3`, SHA-256 `5b1ad20275d1ddf0961e0ec35a8671014ec9e2b192efa7e4883a7108feebc630`.
 - The target Chroma container and all existing application containers are healthy; `/api/health` returns `status=ok` and `/chat/agent` returns HTTP 200.
-- Backend-to-Chroma heartbeat and collection listing pass against the new empty 0.6.3 service. The historical SQLite remains incompatible, so data migration/rebuild is an open issue even though the runtime service is now version-pinned.
+- Backend-to-Chroma heartbeat and collection listing pass against the new empty 0.6.3 service. The old SQLite schema is incompatible, but a read-only audit found zero embedding, metadata, and full-text rows, so the retained backup contains no historical literature payload requiring migration.
 - Report release remains blocked by clean candidate/manifest/image-digest/online-acceptance gates; this inventory is not a release manifest.
 
 ### Online Chroma smoke
 
 - The production backend `LiteratureStore` completed a temporary write, stats read, semantic query, and delete against `protein_literature_specter2`: `0 -> 1 -> query hit -> delete -> 0`.
-- The smoke left no test document. The service is operational with an empty rebuilt collection; historical SQLite migration remains separate and unresolved.
+- The smoke left no test document. The service is operational with an empty rebuilt collection; a read-only audit confirmed no historical literature payload exists in the verified backup.
 
 ## Temporary candidate artifacts
 
@@ -61,7 +61,7 @@ The tracked patch passes `git apply --check --cached` against the current index.
 
 ## Latest verification
 
-- Isolated clean candidate commit: `4321caac4e6efeacd8a0cae8bf7b5eec395d8ab9` (detached worktree; not pushed or deployed).
+- Isolated candidate code commit: `4321caac4e6efeacd8a0cae8bf7b5eec395d8ab9`; verification record commit: `077f4866129e4ffb4f2fd0080da2733a9aa225d2` (detached worktree; not pushed or deployed).
 - Backend Python 3.12 report/structure/BLAST/Chroma/release suite: `113 passed`.
 - Frontend candidate `npm run build` and `npm run lint`: passed using the existing dependency tree; generated `frontend/dist` is candidate-local output.
 - Chroma compatibility adapter handles both legacy Collection-like objects and 0.6.x string collection names; focused LiteratureStore tests pass.

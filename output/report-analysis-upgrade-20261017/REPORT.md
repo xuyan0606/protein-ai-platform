@@ -144,8 +144,8 @@
 - 目标容器挂载既有 `docker_chroma_data` 卷并通过 Docker health；容器内 heartbeat、collection 创建和文档 add/get 读写均通过。线上后端容器到 Chroma 的 heartbeat 和 collection listing 也通过，当前新库为空，仅有验证 collection `protein_literature_specter2`，count 为 0。
 - 线上 `/api/health` 返回 `status=ok`、`tools_registered=60`；`/chat/agent` 返回 HTTP 200。其余应用容器保持 healthy，未重建 backend、worker、frontend 或 nginx。
 - 已将当前线上 Compose 的 Chroma 镜像从可变 `chromadb/chroma:latest` 固定为 `chromadb/chroma:0.6.3`，Compose 解析结果与运行容器一致；旧容器保留为回滚证据，旧 SQLite 备份 `chroma-live-data-stopped-20261019T003540Z.sqlite3` 的 SHA-256 仍为 `5b1ad20275d1ddf0961e0ec35a8671014ec9e2b192efa7e4883a7108feebc630`。
-- 旧 `/data/chroma.sqlite3` 在 0.6.3 中仍无法读取，`KeyError('_type')`；因此本次完成的是服务版本固定和空库可用性验证，不是旧数据迁移。历史文献集合需要后续用兼容客户端/服务端导出重建，不能宣称旧数据已恢复。
-- 生产发布门仍保持 blocked：报告候选尚未形成干净 checkout、正式 `RELEASE-MANIFEST.json`、不可变应用镜像 digest 和完整 7DVJ 在线报告验收。当前线上变更仅解决 Chroma 运行时版本漂移，不等同于报告优化版本发布。
+- 旧 `/data/chroma.sqlite3` 在 0.6.3 中仍无法读取，`KeyError('_type')`。后续对备份做只读审计确认其 collection 有 0 条 embedding、0 条 embedding metadata 和 0 条全文索引内容，因此该备份没有历史文献 payload 需要迁移；当前服务已创建同名空 collection。
+- 报告优化应用版本仍未发布。隔离候选已形成 clean 本地提交 `4321caac4e6efeacd8a0cae8bf7b5eec395d8ab9`（后续有版本记录文档提交），但正式 `RELEASE-MANIFEST.json`、生产配置检查、不可变应用镜像 digest 和完整线上 7DVJ 报告验收仍未通过。
 
 ### LiteratureStore 实链路烟测
 
