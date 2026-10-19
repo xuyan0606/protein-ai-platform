@@ -57,11 +57,11 @@ The following files were generated outside the worktree for review only:
 - `/private/tmp/protein-ai-report-candidate-20261019.patch` — tracked report/release changes, SHA-256 `5d2ad42b66c562c8a955dc83328b63b2224e681137856e1ae55cda0a53530127`.
 - `/private/tmp/protein-ai-report-candidate-untracked-20261019.tar.gz` — selected new report/release files, SHA-256 `18c6189772a3fea48be3e5660e4e81c240dc502481960b9a73df3401c2f74471`.
 
-The tracked patch passes `git apply --check --cached` against the current index. It was not applied to the source worktree, and no release commit or manifest was created.
+The tracked patch was an inventory aid only. The audited candidate is recorded in local Git commits on a named branch; it has not been pushed or deployed and has no formal release manifest.
 
 ## Latest verification
 
-- Latest isolated candidate commit: `16ff4e274ac526db8ac5412bdaa505065fde171d` (clean detached worktree; not pushed or deployed).
+- Latest isolated candidate commit: `fbb1d45e4c99d9c8b20fcf1e7d4359ea98e1e171` on `report-analysis-release-candidate-20261019` (clean local worktree; not pushed or deployed).
 - Expanded backend Python 3.12 release/report/structure/BLAST/Chroma suite: `124 passed`.
 - `package_deploy_bundle.py --dry-run`: 660 files, 16,731,806 bytes; no package was created.
 - `check_upgrade_readiness.py --require-ready --json` remains blocked: candidate production env files are missing, sample config has six critical findings, and formal provenance/alignment manifests are missing.
