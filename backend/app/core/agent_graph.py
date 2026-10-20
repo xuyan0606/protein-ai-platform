@@ -2118,7 +2118,7 @@ class AgentOrchestrator:
 
     @classmethod
     def _classify_engineering_objectives(cls, text: str) -> set[str]:
-        lower = text.lower()
+        lower = cls._strip_attachment_metadata(text).lower()
         objectives: set[str] = set()
         if any(kw in lower for kw in ["耐热", "热稳定", "热稳定性", "thermostability", "thermal stability", "temperature stability", "melting temperature", "tm", "heat"]):
             objectives.add("thermostability")
@@ -2693,7 +2693,9 @@ class AgentOrchestrator:
 
     @staticmethod
     def _is_optimization_request(message: str) -> bool:
-        clauses = re.split(r"[；;。！？!\n]", str(message or ""))
+        # An uploaded structure's "engineered" annotation is provenance, not
+        # permission to generate mutation candidates.
+        clauses = re.split(r"[；;。！？!\n]", AgentOrchestrator._strip_attachment_metadata(message))
         positive_text = " ".join(
             clause for clause in clauses
             if not re.search(r"禁止|不要|不允许|别|无需|不得|do not|don't|without|forbid", clause, re.I)
@@ -5018,7 +5020,7 @@ class AgentOrchestrator:
 
         steps = []
         combined_task = f"{task}\n{context}".strip()
-        lower = combined_task.lower()
+        lower = self._strip_attachment_metadata(combined_task).lower()
         analysis_depth = (analysis_depth or "standard").strip().lower()
         if analysis_depth not in {"fast", "standard", "deep"}:
             analysis_depth = "standard"

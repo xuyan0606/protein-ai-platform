@@ -45,10 +45,11 @@ _COMMON_CONTROL_TOOLS = {
     "intake_review", "enzyme_objective_module_plan", "tool_capability_audit", "scientific_claim_gate",
     "report_generator",
 }
-_STABILITY_STRUCTURE_TOOLS = {
-    "build_site_structure_function_features", "disulfide_saltbridge_scan",
+_STRUCTURE_EVIDENCE_TOOLS = {
+    "build_site_structure_function_features",
     "ligand_contact_analysis", "structure_pocket_interface_analysis",
 }
+_STABILITY_STRUCTURE_TOOLS = _STRUCTURE_EVIDENCE_TOOLS | {"disulfide_saltbridge_scan"}
 _STABILITY_ALLOWED = _COMMON_CONTROL_TOOLS | _STABILITY_STRUCTURE_TOOLS | {
     "enzyme_identity_profile", "sequence_search",
     "blast_search", "lookup_protein", "protein_benchmark", "annotation_bundle", "get_stability_data",
@@ -69,24 +70,25 @@ _IDENTITY_AND_EVIDENCE_TOOLS = {
     "literature_live_search", "external_connectivity_check", "external_research_evidence",
     "residue_mapping_sifts", "residue_numbering_gate", "catalytic_site_lookup",
 }
-_ACTIVITY_ALLOWED = _COMMON_CONTROL_TOOLS | _IDENTITY_AND_EVIDENCE_TOOLS | {
+_ACTIVITY_ALLOWED = _COMMON_CONTROL_TOOLS | _IDENTITY_AND_EVIDENCE_TOOLS | _STRUCTURE_EVIDENCE_TOOLS | {
     "search_substrate", "get_kinetic_params", "mutation_priority_score", "mutation_scan", "kcat_predict",
     "protssn_score", "esm1v_predict", "esm2_predict", "mutation_epistasis_check", "ligand_preprocess",
     "diffdock_docking", "boltz1_predict", "esmfold_folding", "alphafold_folding", "rosetta_ddg",
     "gromacs_md", "structure_search_foldseek", "predict_properties",
 }
-_PH_ALLOWED = _COMMON_CONTROL_TOOLS | _IDENTITY_AND_EVIDENCE_TOOLS | {
+_PH_ALLOWED = _COMMON_CONTROL_TOOLS | _IDENTITY_AND_EVIDENCE_TOOLS | _STRUCTURE_EVIDENCE_TOOLS | {
     "get_kinetic_params", "get_stability_data", "structure_search_foldseek", "predict_properties",
     "esmfold_folding", "alphafold_folding", "protssn_score", "mutation_priority_score", "mutation_scan",
     "esm1v_predict", "esm2_predict", "gromacs_md", "rosetta_ddg", "kcat_predict",
     "mutation_epistasis_check", "feedback_iteration_planner", "signal_peptide_predict",
 }
-_SPECIFICITY_ALLOWED = _COMMON_CONTROL_TOOLS | _IDENTITY_AND_EVIDENCE_TOOLS | {
+_SPECIFICITY_ALLOWED = _COMMON_CONTROL_TOOLS | _IDENTITY_AND_EVIDENCE_TOOLS | _STRUCTURE_EVIDENCE_TOOLS | {
     "search_substrate", "get_kinetic_params", "mutation_priority_score", "mutation_scan", "ligandmpnn_design",
     "protssn_score", "esm1v_predict", "esm2_predict", "ligand_preprocess", "diffdock_docking",
     "boltz1_predict", "kcat_predict", "rosetta_ddg", "get_stability_data", "structure_search_foldseek",
+    "predict_properties",
 }
-_EXPRESSION_ALLOWED = _COMMON_CONTROL_TOOLS | _IDENTITY_AND_EVIDENCE_TOOLS | {
+_EXPRESSION_ALLOWED = _COMMON_CONTROL_TOOLS | _IDENTITY_AND_EVIDENCE_TOOLS | _STRUCTURE_EVIDENCE_TOOLS | {
     "predict_properties", "get_stability_data", "soluble_mpnn_design", "proteinmpnn_design", "esm_if1_design",
     "mutation_scan", "mutation_priority_score", "protssn_score", "esm1v_predict", "esm2_predict",
     "signal_peptide_predict", "esmfold_folding", "alphafold_folding", "rosettafold_folding",
@@ -122,7 +124,9 @@ class PropertyWorkflowRouter:
 
     @staticmethod
     def route(message: str) -> dict[str, Any]:
-        text = str(message or "")
+        # The frontend appends machine-generated PDB metadata after the request.
+        # Crystal-cell "alpha" is not a pH objective, nor are annotations goals.
+        text = re.split(r"(?:^|\n)\s*\[Attached files:", str(message or ""), maxsplit=1, flags=re.I)[0]
         if re.search(r"是什么意思|什么是|请解释|有何区别|有什么区别|为什么|为何", text, re.I) and not re.search(
             r"提高|提升|优化|改造|设计|分析|预测|评估|拓宽|收窄", text, re.I
         ):
