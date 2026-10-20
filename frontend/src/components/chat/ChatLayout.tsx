@@ -360,7 +360,7 @@ export function ChatLayout() {
             </button>
             <div className="hidden shrink-0 items-center gap-2 sm:flex">
               <button
-                onClick={() => navigate('/home')}
+                onClick={() => navigate('/platform/home')}
                 className="rounded-2xl border border-border/80 bg-background/80 p-2 text-muted-foreground transition-colors hover:bg-secondary"
                 aria-label="Go home"
                 title="Home"

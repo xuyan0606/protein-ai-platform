@@ -155,8 +155,8 @@ export function HomePage() {
       <section className="relative overflow-hidden border-b border-border">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-rose-500/5" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
-          <div className="mb-5">
-            <BrandLogo size="lg" className="mb-4" />
+          <div className="mb-5 flex items-center gap-4">
+            <BrandLogo size="sm" />
             <h1 className="text-xl sm:text-2xl font-bold tracking-tight">
               {t('home.title')}
             </h1>

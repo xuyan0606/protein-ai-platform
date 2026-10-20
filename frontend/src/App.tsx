@@ -19,7 +19,8 @@ function App() {
   return (
     <Routes>
       <Route path="/login" element={<AuthPage />} />
-      <Route path="/home" element={<HomePage />} />
+      <Route path="/platform/home" element={<HomePage />} />
+      <Route path="/home" element={<Navigate to="/platform/home" replace />} />
       <Route
         path="/chat/agent"
         element={
@@ -97,8 +98,8 @@ function App() {
           </ProtectedRoute>
         }
       />
-      <Route path="/" element={<Navigate to="/home" replace />} />
-      <Route path="*" element={<Navigate to="/home" replace />} />
+      <Route path="/" element={<Navigate to="/platform/home" replace />} />
+      <Route path="*" element={<Navigate to="/platform/home" replace />} />
     </Routes>
   )
 }

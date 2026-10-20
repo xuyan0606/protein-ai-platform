@@ -98,12 +98,9 @@ export function ConversationList() {
   return (
     <div className="flex h-full flex-col">
       <div className="border-b border-border/70 px-5 py-5">
-        <div className="flex items-center justify-between">
-          <BrandLogo size="sm" imageClassName="h-auto w-[132px]" />
-        </div>
-        <div className="mt-4 flex items-center justify-between gap-3">
-          <h2 className="text-lg font-semibold leading-none">Conversations</h2>
-          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Workspace</span>
+        <div className="flex min-w-0 items-center gap-2">
+          <BrandLogo size="xs" />
+          <h2 className="min-w-0 flex-1 truncate text-sm font-semibold leading-none">Conversations</h2>
         </div>
       </div>
 

@@ -1,12 +1,13 @@
 type BrandLogoProps = {
   className?: string
   imageClassName?: string
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'xs' | 'sm' | 'md' | 'lg'
   subtitle?: string
   showSubtitle?: boolean
 }
 
 const sizeClass: Record<NonNullable<BrandLogoProps['size']>, string> = {
+  xs: 'h-auto w-[56px]',
   sm: 'h-9 w-auto',
   md: 'h-12 w-auto',
   lg: 'h-16 sm:h-20 w-auto',
