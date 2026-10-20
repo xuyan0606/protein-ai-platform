@@ -300,6 +300,21 @@ class TestLiteratureStore:
 
         assert result == []
 
+    def test_search_uses_protein_name_as_semantic_query_not_unsupported_metadata_contains(self):
+        from app.services.literature_store import LiteratureStore
+
+        collection = MagicMock()
+        collection.query.return_value = {"ids": [[]], "documents": [[]], "metadatas": [[]], "distances": [[]]}
+        store = LiteratureStore.__new__(LiteratureStore)
+        store.collection = collection
+        store.embedding_model = None
+
+        assert store.search("enzyme stability", protein_name="sample enzyme") == []
+
+        query = collection.query.call_args.kwargs
+        assert query["query_texts"] == ["enzyme stability\nsample enzyme"]
+        assert query["where"] is None
+
     @patch("app.services.literature_store._get_collection", return_value=None)
     def test_index_papers_returns_zero_when_unavailable(self, mock_get_collection):
         from app.services.literature_store import LiteratureStore

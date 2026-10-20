@@ -256,9 +256,6 @@ class LiteratureStore:
         conditions = []
         if min_year:
             conditions.append({"year": {"$gte": min_year}})
-        if protein_name:
-            conditions.append({"title": {"$contains": protein_name}})
-
         if len(conditions) == 1:
             where_filter = conditions[0]
         elif len(conditions) > 1:
@@ -266,6 +263,9 @@ class LiteratureStore:
 
         # Compute query embedding explicitly so the same model is used
         # regardless of how the collection was created.
+        semantic_query = query
+        if protein_name and protein_name.casefold() not in query.casefold():
+            semantic_query = f"{query}\n{protein_name}"
         query_kwargs: dict[str, Any] = {
             "n_results": top_k,
             "where": where_filter if where_filter else None,
@@ -274,14 +274,14 @@ class LiteratureStore:
         if self.embedding_model:
             try:
                 embed_fn = get_embedding_function(self.embedding_model)
-                query_kwargs["query_embeddings"] = embed_fn([query])
+                query_kwargs["query_embeddings"] = embed_fn([semantic_query])
             except Exception as e:
                 logger.warning(
                     "Embedding for query failed (%s); falling back to query_texts", e
                 )
-                query_kwargs["query_texts"] = [query]
+                query_kwargs["query_texts"] = [semantic_query]
         else:
-            query_kwargs["query_texts"] = [query]
+            query_kwargs["query_texts"] = [semantic_query]
 
         try:
             results = self.collection.query(**query_kwargs)
