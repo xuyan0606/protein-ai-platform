@@ -222,7 +222,7 @@ async function run() {
   await page.locator('input[type="file"]').setInputFiles({
     name: 'sample.pdb',
     mimeType: 'chemical/x-pdb',
-    buffer: Buffer.from('HEADER    OFFLINE PDB REPORT TEST\nATOM      1  CA  ALA A   1      11.000  12.000  13.000  1.00 20.00           C\nEND\n'),
+    buffer: Buffer.from('SEQRES   1 A    1  ALA\nATOM      1  CA  ALA A   1      11.000  12.000  13.000  1.00 20.00           C\nEND\n'),
   })
   await page.getByText('sample.pdb', { exact: false }).first().waitFor({ timeout: 15000 })
   await page.locator('textarea').last().fill('请深度分析上传的 PDB，并给出有证据边界的实验建议。')

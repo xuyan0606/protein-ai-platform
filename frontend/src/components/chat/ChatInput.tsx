@@ -32,7 +32,7 @@ const MODEL_COLORS: Record<string, string> = {
 }
 
 const STRUCTURE_FILE_EXTENSIONS = new Set(['pdb', 'ent', 'cif'])
-const PDB_TEXT_PREFIXES = ['HEADER', 'ATOM', 'MODEL', 'CRYST1', 'TITLE', 'REMARK', 'data_']
+const PDB_TEXT_PREFIXES = ['HEADER', 'ATOM', 'MODEL', 'CRYST1', 'TITLE', 'REMARK', 'SEQRES', 'data_']
 const ANALYSIS_DEPTH_OPTIONS: Array<{ value: AnalysisDepth; label: string; title: string }> = [
   { value: 'fast', label: '快', title: 'Fast analysis' },
   { value: 'standard', label: '标准', title: 'Standard analysis' },
