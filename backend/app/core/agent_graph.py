@@ -42,6 +42,8 @@ from app.core.agent_roles import (
 )
 from app.core.coordinator_agent import CoordinatorAgent
 
+_LLM_UNAVAILABLE_REPLY = "模型服务暂不可用，未能生成本次回答。请稍后重试或联系管理员检查模型服务配置。"
+
 # Lazy import for experience store (avoids circular import at module load)
 def _get_experience_store():
     from app.memory.experience_store import get_experience_store, ExperienceRecord
@@ -3743,8 +3745,8 @@ class AgentOrchestrator:
                 history,
                 model_id,
             )
-            if reply.startswith("Hello! I'm a protein engineering AI assistant"):
-                reply = self._history_report_reply(history, effective_message)
+            if reply == _LLM_UNAVAILABLE_REPLY:
+                reply += "\n\n" + self._history_report_reply(history, effective_message)
             for chunk in self._iter_text_stream_chunks(reply):
                 yield json.dumps({"type": "text", "content": chunk}, ensure_ascii=False)
             yield json.dumps({"type": "done"})
@@ -3816,8 +3818,8 @@ class AgentOrchestrator:
                 f"{memory_block}"
             )
             reply = await self._chat_reply(followup_prompt, history, model_id)
-            if reply.startswith("Hello! I'm a protein engineering AI assistant"):
-                reply = self._history_report_reply(history, effective_message)
+            if reply == _LLM_UNAVAILABLE_REPLY:
+                reply += "\n\n" + self._history_report_reply(history, effective_message)
             for chunk in self._iter_text_stream_chunks(reply):
                 yield json.dumps({"type": "text", "content": chunk}, ensure_ascii=False)
             yield json.dumps({"type": "done"})
@@ -7541,39 +7543,6 @@ class AgentOrchestrator:
                     )
                     if numbering_data.get("reason"):
                         lines.append(f"- **编号门控原因**：{numbering_data.get('reason')}\n")
-            if not site_feature_data and (ligand_contact_data or pocket_interface_data):
-                if ligand_contact_data:
-                    lines.append("\n## 配体接触几何证据\n\n")
-                    instances = ligand_contact_data.get("ligand_instances") if isinstance(ligand_contact_data.get("ligand_instances"), list) else []
-                    contacts = ligand_contact_data.get("contacts") if isinstance(ligand_contact_data.get("contacts"), list) else []
-                    lines.append(
-                        f"- **状态**：{ligand_contact_data.get('status', 'N/A')}；证据等级={ligand_contact_data.get('evidence_level', 'GEOMETRY_ONLY')}；"
-                        f"配体实例={len(instances)}；接触残基={len(contacts)}；"
-                        f"阈值={ligand_contact_data.get('thresholds', {}).get('contact_distance_angstrom', 'N/A')} Å。\n"
-                    )
-                    if contacts:
-                        lines.append("| 链/残基 | 配体 | 距离 Å | 接触类型 |\n|---|---|---:|---|\n")
-                        for row in contacts[:12]:
-                            if isinstance(row, dict):
-                                lines.append(
-                                    f"| {row.get('chain_id', '?')}:{row.get('residue_name', '?')}{row.get('residue_number', '?')} | "
-                                    f"{row.get('instance_id', row.get('component_id', '?'))} | {row.get('distance_angstrom', 'N/A')} | "
-                                    f"{row.get('contact_type', 'N/A')} |\n"
-                                )
-                    lines.append(f"- **解释边界**：{ligand_contact_data.get('interpretation_boundary', '仅表示坐标几何邻近关系，不能证明结合能、催化机制或实验收益。')}\n\n")
-                if pocket_interface_data:
-                    pocket = pocket_interface_data.get("pocket") if isinstance(pocket_interface_data.get("pocket"), dict) else {}
-                    pocket_residues = pocket.get("residues") if isinstance(pocket.get("residues"), list) else []
-                    interfaces = pocket_interface_data.get("chain_interfaces") if isinstance(pocket_interface_data.get("chain_interfaces"), list) else []
-                    lines.append("## 口袋、通道与链界面几何线索\n\n")
-                    lines.append(
-                        f"- **状态**：{pocket_interface_data.get('status', 'N/A')}；证据等级={pocket_interface_data.get('evidence_level', 'GEOMETRY_ONLY')}；"
-                        f"口袋残基={len(pocket_residues)}；链界面={len(interfaces)}；通道结果仅为几何线索。\n"
-                    )
-                    if pocket_residues:
-                        preview = [f"{row.get('chain_id', '?')}:{row.get('residue_name', '?')}{row.get('residue_number', '?')}" for row in pocket_residues[:12] if isinstance(row, dict)]
-                        lines.append(f"- **口袋残基预览**：{'；'.join(preview)}。\n")
-                    lines.append(f"- **解释边界**：{pocket_interface_data.get('interpretation_boundary', '几何线索不能证明结合能、催化机制或催化功能。')}\n\n")
             if site_feature_data:
                 lines.append("\n## 位点结构-功能特征表\n\n")
                 summary = site_feature_data.get("summary") if isinstance(site_feature_data.get("summary"), dict) else {}
@@ -7668,8 +7637,8 @@ class AgentOrchestrator:
                             f"{row.get('instance_id', row.get('component_id', '?'))} | {row.get('distance_angstrom', 'N/A')} | "
                             f"{row.get('contact_type', 'N/A')} |\n"
                         )
-                if ligand_contact_data.get("interpretation_boundary"):
-                    lines.append(f"- **解释边界**：{ligand_contact_data['interpretation_boundary']}\n")
+                boundary = ligand_contact_data.get("interpretation_boundary") or "仅表示坐标几何邻近关系，不能证明结合能、催化机制或实验收益。"
+                lines.append(f"- **解释边界**：{boundary}\n")
                 lines.append("\n")
             if pocket_interface_data:
                 lines.append("## 口袋、通道与链界面几何线索\n\n")
@@ -7692,8 +7661,8 @@ class AgentOrchestrator:
                         f"{'/'.join(map(str, row.get('chain_ids', [])))}，最小距离={row.get('min_distance_angstrom', 'N/A')} Å"
                         for row in interfaces[:6] if isinstance(row, dict)
                     ) + "。\n")
-                if pocket_interface_data.get("interpretation_boundary"):
-                    lines.append(f"- **解释边界**：{pocket_interface_data['interpretation_boundary']}\n")
+                boundary = pocket_interface_data.get("interpretation_boundary") or "几何线索不能证明结合能、催化机制或催化功能。"
+                lines.append(f"- **解释边界**：{boundary}\n")
                 lines.append("\n")
             # PDB geometry alone is never a candidate-generation authority.  The
             # former fallback emitted residue substitutions even when identity,
@@ -8766,10 +8735,11 @@ class AgentOrchestrator:
                 [{"role": "system", "content": system_prompt}, *history[-4:], {"role": "user", "content": message}],
                 model_id=model_id, max_tokens=2200 if wants_document else 512,
             )
-            return resp.choices[0].message.content or "Hello! How can I help with your protein research today?"
+            content = resp.choices[0].message.content
+            return content if content and content.strip() else _LLM_UNAVAILABLE_REPLY
         except Exception:
             logger.exception("Chat reply LLM call failed")
-            return "Hello! I'm a protein engineering AI assistant. How can I help you today?"
+            return _LLM_UNAVAILABLE_REPLY
 
     @staticmethod
     def _sanitize_messages(messages: list[dict]) -> list[dict]:

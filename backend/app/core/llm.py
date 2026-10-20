@@ -31,7 +31,7 @@ with warnings.catch_warnings():
         category=DeprecationWarning,
         module=r"pydantic\.",
     )
-    from litellm import acompletion, completion
+    from litellm import AuthenticationError, acompletion, completion
 
 from app.core.config import settings
 from app.core.llm_policy import (
@@ -204,6 +204,16 @@ def _sanitize_messages(messages: list[dict]) -> list[dict]:
 # Core async completion with fallback & retry
 # ---------------------------------------------------------------------------
 
+def _is_permanent_error(exc: Exception) -> bool:
+    if isinstance(exc, AuthenticationError) or getattr(exc, "status_code", None) == 401:
+        return True
+    return any(keyword in str(exc).lower() for keyword in (
+        "arrearage", "overdue", "insufficient_balance",
+        "invalid_api_key", "invalid authentication", "invalid token",
+        "access denied", "account", "billing",
+    ))
+
+
 async def chat_completion(
     messages: list[dict],
     tools: list[dict] | None = None,
@@ -276,14 +286,8 @@ async def chat_completion(
                     return await acompletion(**kwargs)
             except Exception as exc:
                 last_error = exc
-                err_str = str(exc).lower()
                 # Permanent errors — skip retries, go straight to fallback
-                is_permanent = any(kw in err_str for kw in (
-                    "arrearage", "overdue", "insufficient_balance",
-                    "invalid_api_key", "invalid authentication",
-                    "access denied", "account", "billing",
-                ))
-                if is_permanent:
+                if _is_permanent_error(exc):
                     mark_model_unavailable(prov, mod)
                     logger.warning(
                         "LLM provider %s/%s permanently unavailable: %s",
@@ -358,13 +362,7 @@ def chat_completion_sync(
                 return completion(**kwargs)
             except Exception as exc:
                 last_error = exc
-                err_str = str(exc).lower()
-                is_permanent = any(kw in err_str for kw in (
-                    "arrearage", "overdue", "insufficient_balance",
-                    "invalid_api_key", "invalid authentication",
-                    "access denied", "account", "billing",
-                ))
-                if is_permanent:
+                if _is_permanent_error(exc):
                     mark_model_unavailable(prov, mod)
                     logger.warning(
                         "LLM sync provider %s/%s permanently unavailable: %s",

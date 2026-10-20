@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import hashlib
 import time
+from datetime import datetime, timezone
 
 import httpx
 from sqlalchemy import select, text
@@ -12,6 +13,8 @@ from sqlalchemy.pool import NullPool
 
 from app.core.config import settings
 from app.models.domain import KVStore
+from app.models.tool_call import ToolTaskAudit
+from app.services.tool_task_audit import update_task_audit_from_status
 from app.services.evidence_source_status import evidence_source_status
 from app.services.ncbi_api import NCBIRateLimitError
 from app.tools.blast_search import submit_blast, poll_blast, _result_payload
@@ -33,8 +36,33 @@ async def read_blast_job(session: AsyncSession, task_id: str, *, lock: bool = Fa
 
 async def save_blast_job(session: AsyncSession, row: KVStore, job: dict) -> dict:
     row.value = json.dumps(job, ensure_ascii=False)
+    await sync_blast_job_audit(session, job)
     await session.commit()  # RID must survive worker exit before Celery retry
     return job
+
+
+async def sync_blast_job_audit(session: AsyncSession, job: dict) -> None:
+    """Keep the owned audit and durable checkpoint in the same transaction."""
+    audit = (await session.execute(
+        select(ToolTaskAudit).where(ToolTaskAudit.task_id == job["task_id"]).with_for_update()
+    )).scalar_one_or_none()
+    if audit is None:
+        # Dispatch can finish before the API commits ownership. Submission
+        # reconciles the checkpoint once its audit row exists.
+        return
+    status = job_status(job)
+    await update_task_audit_from_status(
+        session, task_id=job["task_id"], owner={"user_id": audit.user_id}, status=status,
+    )
+    audit.error = status["error"]
+    if job["status"] in TERMINAL:
+        audit.terminal_recorded_at = audit.terminal_recorded_at or datetime.now(timezone.utc)
+    else:
+        # A resumed RID is active again; don't retain an expired round's error
+        # or result as though the resumed search had already finished.
+        audit.terminal_recorded_at = None
+        audit.result_summary = None
+    await session.flush()
 
 
 async def cancel_blast_job(session: AsyncSession, task_id: str) -> dict:

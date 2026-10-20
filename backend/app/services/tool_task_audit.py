@@ -28,7 +28,7 @@ SENSITIVE_KEYS = {
     "password",
     "secret",
 }
-TERMINAL_STATUSES = {"completed", "success", "failed", "failure", "canceled", "revoked"}
+TERMINAL_STATUSES = {"completed", "success", "failed", "failure", "degraded", "canceled", "revoked"}
 SLOW_TASK_SECONDS = 30 * 60
 FAILURE_ALERT_THRESHOLD = 3
 SLOW_TASK_ALERT_THRESHOLD = 3
@@ -234,6 +234,12 @@ async def record_task_submitted(
     )
     session.add(row)
     await session.flush()
+    if tool_name == "blast_search":
+        from app.services.blast_jobs import read_blast_job, sync_blast_job_audit
+
+        _, job = await read_blast_job(session, task_id, lock=True)
+        if job:
+            await sync_blast_job_audit(session, job)
     return row
 
 
