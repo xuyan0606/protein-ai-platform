@@ -88,6 +88,48 @@ def test_declared_tool_policy_blocks_forbidden_tool_before_confirmation():
     assert result["forbidden_tool_calls"] == ["diffdock_docking"]
 
 
+def test_stability_policy_allows_registered_report_and_structure_evidence_tools():
+    result = WorkflowPolicyValidator.validate_declared_tools(
+        "WF-STABILITY",
+        [
+            "intake_review",
+            "enzyme_objective_module_plan",
+            "tool_capability_audit",
+            "build_site_structure_function_features",
+            "disulfide_saltbridge_scan",
+            "ligand_contact_analysis",
+            "structure_pocket_interface_analysis",
+            "scientific_claim_gate",
+            "report_generator",
+        ],
+    )
+
+    assert result["status"] == "READY"
+    assert result["unknown_tool_calls"] == []
+    assert result["forbidden_tool_calls"] == []
+
+
+def test_generated_pdb_stability_plan_passes_declared_tool_policy():
+    from app.core.agent_graph import AgentOrchestrator
+    from app.tools.registry import ToolRegistry
+
+    ToolRegistry.discover()
+    task = (
+        "请分析上传的 PDB 结构、稳定性改造风险和证据边界，生成完整报告。\n\n"
+        "[Attached files:\n- name: sample.pdb, object_name: uploads/user_361/sample.pdb]"
+    )
+    orchestrator = AgentOrchestrator()
+    plan = orchestrator._generate_fallback_plan(task, context=task, analysis_depth="standard")
+
+    result = WorkflowPolicyValidator.validate_declared_tools(
+        "WF-STABILITY", [step.tool_name for step in plan]
+    )
+
+    assert result["status"] == "READY"
+    assert result["unknown_tool_calls"] == []
+    assert result["forbidden_tool_calls"] == []
+
+
 def test_property_workflow_catalogs_allow_only_their_declared_tools():
     activity = WorkflowPolicyValidator.validate_declared_tools(
         "WF-ACTIVITY", ["mutation_priority_score", "diffdock_docking"]

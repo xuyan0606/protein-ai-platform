@@ -41,23 +41,26 @@ _EXCLUSION_PATTERNS = {
 }
 
 _STABILITY_MUST = ("ST-01", "ST-02", "ST-03", "ST-04", "ST-05", "ST-06", "ST-07", "ST-11", "ST-12")
-_STABILITY_ALLOWED = {
-    "intake_review", "tool_capability_audit", "enzyme_identity_profile", "sequence_search",
+_COMMON_CONTROL_TOOLS = {
+    "intake_review", "enzyme_objective_module_plan", "tool_capability_audit", "scientific_claim_gate",
+    "report_generator",
+}
+_STABILITY_STRUCTURE_TOOLS = {
+    "build_site_structure_function_features", "disulfide_saltbridge_scan",
+    "ligand_contact_analysis", "structure_pocket_interface_analysis",
+}
+_STABILITY_ALLOWED = _COMMON_CONTROL_TOOLS | _STABILITY_STRUCTURE_TOOLS | {
+    "enzyme_identity_profile", "sequence_search",
     "blast_search", "lookup_protein", "protein_benchmark", "annotation_bundle", "get_stability_data",
     "literature_live_search", "external_research_evidence", "predict_properties", "residue_numbering_gate",
     "residue_mapping_sifts", "mutation_scan", "mutation_priority_score", "protssn_score", "esm1v_predict",
     "esm2_predict", "rosetta_ddg", "mutation_epistasis_check", "esmfold_folding", "alphafold_folding",
     "alphafold2_folding", "rosettafold_folding", "rosettafold_allatom", "structure_search_foldseek",
     "gromacs_md", "catalytic_site_lookup", "enzyme_function", "kcat_predict", "get_kinetic_params",
-    "scientific_claim_gate", "report_generator",
 }
 _STABILITY_FORBIDDEN = {
     "signal_peptide_predict", "soluble_mpnn_design", "ligandmpnn_design", "diffdock_docking",
     "rfdiffusion_design", "chroma_design", "progen2_generate", "evodiff_generate", "esm3_generate",
-}
-_COMMON_CONTROL_TOOLS = {
-    "intake_review", "enzyme_objective_module_plan", "tool_capability_audit", "scientific_claim_gate",
-    "report_generator",
 }
 _IDENTITY_AND_EVIDENCE_TOOLS = {
     "enzyme_identity_profile", "sequence_search", "blast_search", "lookup_protein", "list_ec_proteins",
