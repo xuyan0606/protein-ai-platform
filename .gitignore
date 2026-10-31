@@ -68,3 +68,10 @@ bug截图/
 
 # Vector index files (too large for GitHub)
 backend/data/enzyme_vectors.zvec/
+
+# Local virtualenvs and temp outputs (host-only)
+AI大模型/.venv-thermompnn/
+AI大模型/tmp/
+
+# Database dumps (host-only, too large for git)
+backups/*.dump
