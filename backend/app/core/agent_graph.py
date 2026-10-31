@@ -43,6 +43,23 @@ from app.core.agent_roles import (
 from app.core.coordinator_agent import CoordinatorAgent
 
 _LLM_UNAVAILABLE_REPLY = "模型服务暂不可用，未能生成本次回答。请稍后重试或联系管理员检查模型服务配置。"
+_SPACED_RESIDUE_RUN = re.compile(
+    r"(?<![A-Za-z])((?:[ACDEFGHIKLMNPQRSTVWY]+[ \t\r\n]+){2,}[ACDEFGHIKLMNPQRSTVWY]+)(?![A-Za-z])"
+)
+
+
+def _collapse_block_formatted_run(match: re.Match) -> str:
+    """Join uniform residue blocks copied with spaces or newlines (e.g. 10-aa blocks).
+
+    Every block but the last must have the same length (>= 5), so ordinary English
+    words of varying length such as "ACCEPT CHECK DEFACE" are left untouched.
+    """
+    tokens = match.group(1).split()
+    block = len(tokens[0])
+    if block < 5 or any(len(token) != block for token in tokens[:-1]) or len(tokens[-1]) > block:
+        return match.group(1)
+    return "".join(tokens)
+
 
 # Lazy import for experience store (avoids circular import at module load)
 def _get_experience_store():
@@ -1262,15 +1279,29 @@ class AgentOrchestrator:
         return any(token in lower for token in policy_tokens("continuation_tokens"))
 
     @classmethod
-    def _is_same_problem_synthesis_followup(cls, message: str, context: str) -> bool:
-        """Detect explanation/formatting follow-ups that should not restart tools."""
-        if not context or not cls._message_requests_continuation(message):
+    def _is_prior_reference_followup(cls, message: str) -> bool:
+        """Messages that refer back to the prior protein (by pronoun or follow-up wording) without a new target."""
+        if not isinstance(message, str) or not message.strip():
             return False
         if cls._message_starts_new_task(message):
             return False
         lower = message.lower()
         if any(term in lower for term in policy_tokens("execution_tokens")):
             return False
+        return any(term in lower for term in (
+            *policy_tokens("followup_synthesis_tokens"),
+            *policy_tokens("followup_reference_tokens"),
+            "说说", "谈谈",
+        ))
+
+    @classmethod
+    def _is_same_problem_synthesis_followup(cls, message: str, context: str) -> bool:
+        """Detect explanation/formatting follow-ups that should not restart tools."""
+        if not context or "[Context boundary:" in context:
+            return False
+        if not cls._is_prior_reference_followup(message):
+            return False
+        lower = message.lower()
         return any(term in lower for term in (*policy_tokens("followup_synthesis_tokens"), "说说", "谈谈"))
 
     @classmethod
@@ -1803,7 +1834,11 @@ class AgentOrchestrator:
             return "[Context boundary: current message starts a new protein task; prior protein context ignored]"
         context_parts = []
         prior_user_summaries: list[str] = []
-        wants_continuation = cls._message_requests_continuation(message) or sequence_supplement
+        wants_continuation = (
+            cls._message_requests_continuation(message)
+            or sequence_supplement
+            or cls._is_prior_reference_followup(message)
+        )
         if sequence_supplement:
             last_object = prior_uploads[-1]
             last_foreign_index = max(
@@ -1910,6 +1945,7 @@ class AgentOrchestrator:
 
         sanitized = re.sub(r"序列前缀\s*[`=:：-]*\s*[ACDEFGHIKLMNPQRSTVWY]{10,}\s*`?", " ", text)
         sanitized = re.sub(r"sequence preview\s*[`=:：-]*\s*[ACDEFGHIKLMNPQRSTVWY]{10,}\s*`?", " ", sanitized, flags=re.IGNORECASE)
+        sanitized = _SPACED_RESIDUE_RUN.sub(_collapse_block_formatted_run, sanitized)
         matches = re.findall(r'(?<![A-Za-z])[ACDEFGHIKLMNPQRSTVWY]{10,}(?![A-Za-z])', sanitized)
         if matches:
             return max(matches, key=len).upper()

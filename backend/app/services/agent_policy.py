@@ -23,6 +23,7 @@ DEFAULT_AGENT_STRATEGY_POLICY: dict[str, Any] = {
         "换条", "换个", "重新分析", "不要接着", "不是上面", "new task",
         "new conversation", "different sequence", "another sequence", "start over",
     ],
+    "followup_reference_tokens": ["它"],
     "followup_synthesis_tokens": [
         "为什么", "原因", "依据", "解释", "展开", "总结", "整理", "表格",
         "哪个", "排序", "风险", "实验方案", "下一步", "怎么做", "复述",
