@@ -1,10 +1,7 @@
-"""ESM-IF1 — inverse folding model for backbone-to-sequence design.
+"""Secondary-structure heuristic sequence sampler standing in for ESM-IF1.
 
-ESM-IF1 is Meta's inverse folding model within the ESM ecosystem. Given a
-protein backbone structure (Cα coordinates or PDB), it predicts amino acid
-sequences that fold into that structure. While ProteinMPNN has become the
-community standard for inverse folding, ESM-IF1 remains an important
-alternative, especially within ESM-centric design pipelines.
+The ESM-IF1 model is not wired in. This module samples residues from
+per-SS8 amino acid pools and does not use backbone geometry or a language model.
 """
 
 from __future__ import annotations
@@ -49,7 +46,7 @@ def esm_if1_design(
     temperature: float = 0.1,
     num_variants: int = 1,
 ) -> dict[str, Any]:
-    """ESM-IF1 inverse folding — design sequences for a given backbone."""
+    """Heuristic SS-based sequence sampling. Not ESM-IF1 inference."""
     length = 0
 
     if pdb_data:
@@ -91,12 +88,14 @@ def esm_if1_design(
 
     return {
         "variants": variants,
-        "model": "ESM-IF1",
+        "model": "SS8-heuristic-sampler",
+        "is_real_inference": False,
         "input_type": "PDB" if pdb_data else ("coords" if structure_coords else "SS8_annotation"),
         "temperature": temperature,
         "note": (
-            "ESM-IF1 designs sequences given backbone geometry. Production requires "
-            "the ESM-IF1 model checkpoint and PyTorch environment."
+            "Heuristic sampler: residues are drawn from secondary-structure amino acid pools, "
+            "ignoring backbone geometry. ESM-IF1 is not connected; these sequences are not "
+            "inverse-folding predictions and do not indicate stability or activity."
         ),
     }
 
@@ -104,9 +103,10 @@ def esm_if1_design(
 ToolRegistry.register(
     name="esm_if1_design",
     description=(
-        "ESM-IF1 by Meta — inverse folding model for backbone-to-sequence design. "
-        "Accepts PDB structures, Cα coordinate lists, or DSSP 8-state secondary structure "
-        "annotations. Returns designed amino acid sequences with per-position confidence scores."
+        "Heuristic sequence sampler (ESM-IF1 is not connected). Accepts PDB structures, Cα "
+        "coordinate lists, or DSSP 8-state secondary structure annotations. Samples sequences "
+        "from secondary-structure amino acid pools with pseudo-confidence values; "
+        "not a backbone-conditioned inverse-folding prediction."
     ),
     handler=esm_if1_design,
     category="design",
