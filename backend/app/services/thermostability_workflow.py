@@ -386,7 +386,11 @@ def _explore(result: dict, sequence: str, identity: dict, module: dict, mutation
                         risks[pos].add('near_known_functional_site')
                         break
     from app.services.thermal_structure_hypotheses import packing_probes
-    generated = packing_probes(sequence, pdb_data, mapping, risks, protected, structure_features) if pdb_data else []
+    probe_audit = {}
+    generated = packing_probes(sequence, pdb_data, mapping, risks, protected, structure_features,
+                               audit=probe_audit) if pdb_data else []
+    if probe_audit:
+        result['probe_generation_audit'] = probe_audit
     generated_by_code = {r['mutation']: r for r in generated}
     codes = list(mutations)
     for source in sources:

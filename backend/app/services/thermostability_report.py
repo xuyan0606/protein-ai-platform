@@ -164,24 +164,39 @@ def _render_exploration(result: dict) -> str:
         lines.append(f'- 已核对结构链 {_cell(structure.get("chain_id"))}，映射 {_cell(structure.get("mapped_positions"))} 个输入位置。')
     lines.extend(['', '### 当前可继续的改造方向', '', *['- ' + _cell(x) for x in result.get('analysis_directions', [])]])
     preliminary = result.get('preliminary_candidates') or []
+    audit = result.get('selection_audit') or {}
+    if audit.get('substitution_cap_applied'):
+        lines.extend(['', '### 候选覆盖与同类替换限制', '',
+                      f'自动探针中，每种原残基→替换残基组合最多保留 {_cell(audit.get("max_per_substitution_type"))} 个；'
+                      '仍按独立评分顺序选取，每个位置只保留一个替换，数量不足时保留缺口。',
+                      '- 筛查池分布：' + _cell(audit.get('pool_substitution_counts')),
+                      '- 本轮选中分布：' + _cell(audit.get('selected_substitution_counts')),
+                      '此限制用于控制筛选策略偏向，不代表各替换类型效能相同。'])
+        if audit.get('adverse_ddgun_exclusions'):
+            lines.append('- 自动探针的DDGun预测不利，保留在筛查回执中、不用于多样性补位：' + _cell(audit['adverse_ddgun_exclusions']))
+    generation = result.get('probe_generation_audit') or {}
+    if generation.get('geometry_rejections'):
+        lines.append('- A→V 几何排查未通过：' + _cell(generation['geometry_rejections']))
     if preliminary:
         counts = result.get('candidate_counts') or {}
         lines.extend(['', '### 工具支持的初步候选（研究假设，未验证）', '',
                       f'本轮筛查 {_cell(counts.get("screened"), str(len(preliminary)))} 个替换，展示 {len(preliminary)} 个位点。'
                       f'请求数量缺口：{_cell(counts.get("shortfall"), "未记录")}。',
                       '突变代码采用输入序列从1起的编号；作者编号单独列出，不能互换。', '',
-                      '| 输入编号突变 | PDB作者编号 | 实际结构证据 | DDGun ΔΔG (kcal/mol) | ESM偏好 | 待验证风险 |',
-                      '|---|---|---|---|---|---|'])
+                      '| 输入编号突变 | PDB作者编号 | 实际结构证据 | 替换几何排查 | DDGun ΔΔG (kcal/mol) | ESM偏好 | 待验证风险 |',
+                      '|---|---|---|---|---|---|---|'])
         for row in preliminary:
             coordinate = row.get('structure_position') or {}
             author = f'{coordinate.get("chain_id", "?")}:{coordinate.get("residue_number", "?")}{coordinate.get("insertion_code") or ""}'
             sources = row.get('sources') or []
             features = next((s.get('features') for s in sources if s.get('features')), None)
+            geometry = next((s.get('geometry_screen') for s in sources if s.get('geometry_screen')), None)
             scores = row.get('scores') or {}
             ddg, esm = scores.get('ddgun') or {}, scores.get('esm_preference') or {}
-            lines.append('| ' + ' | '.join(_cell(v, '未计算') for v in [row.get('mutation'), author, features,
+            lines.append('| ' + ' | '.join(_cell(v, '未计算') for v in [row.get('mutation'), author, features, geometry,
                 ddg.get('ddg'), esm.get('score'), row.get('risks')]) + ' |')
-        lines.extend(['', '候选生成依据：埋藏疏水位点的保守侧链堆积探针；可及面积和接触数是坐标计算结果，替换方向仍是待检验假设。',
+        lines.extend(['', '自动候选当前覆盖埋藏疏水位点的侧链重排/尺寸探针；可及面积和接触数不是空腔检测，替换方向仍是待检验假设。',
+                      'A→V须经三个理想化侧链构象的固定环境严重重叠排查；其他替换若标记not_evaluated，表示尚未计算突变构象。此排查未做能量优化，也不证明无碰撞或增稳。',
                       'DDGun正值表示预测展开稳定性增加，负值表示预测不利；ESM仅表示进化偏好。均不证明95℃残余酶活改善，侧链碰撞与功能影响仍需复核。'])
     else:
         lines.extend(['', '当前尚无证据支持具体替换；先按以上方向分析，不虚构突变位点或改善幅度。'])

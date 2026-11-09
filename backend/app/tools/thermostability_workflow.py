@@ -205,16 +205,15 @@ async def thermostability_candidate_workflow(
         if row["structure_position"] is None:
             row["missing_evidence"].append("mapped_structure_context")
     if exploring:
+        from app.services.thermal_structure_hypotheses import select_diverse_candidates
         result['screened_candidates'] = rows
-        selected, seen = [], set()
-        for row in rows:
-            if row['position'] not in seen and len(selected) < assay_budget:
-                selected.append(row)
-                seen.add(row['position'])
+        selected, audit = select_diverse_candidates(rows, assay_budget)
+        result['selection_audit'] = audit
         result['preliminary_candidates'] = selected
         result['candidate_counts'] = {'screened': len(rows), 'requested_positions': assay_budget,
                                       'returned_positions': len(selected), 'shortfall': max(0, assay_budget-len(selected))}
-        result['selection_policy'] = 'unique_positions_pareto_then_ddgun_then_deterministic_order; unscored_rows_are_hypotheses'
+        result['selection_policy'] = ('unique_positions_and_auto_probe_substitution_cap_with_pareto_then_ddgun_order; '
+                                      'shortfalls_not_backfilled; unscored_rows_are_hypotheses')
     else:
         result["experimental_plan"].update(
             single_mutants=[r["mutation"] for r in rows[:assay_budget]],
