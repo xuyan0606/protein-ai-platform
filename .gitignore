@@ -76,3 +76,19 @@ backend/data/enzyme_vectors.zvec/
 /.playwright-cli/
 /frontend/frontend/
 /frontend/output/
+
+# Source-only production repository: private/generated material stays outside Git
+/backups/
+/AI大模型/
+*.bundle
+*.dump
+*.sqlite
+*.pem
+*.key
+.env.*
+!.env.example
+!.env.*.example
+/backend/.audit-report.md
+/backend/*.pdb
+/frontend/*-page.png
+/frontend/home-after.png

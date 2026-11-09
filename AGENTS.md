@@ -1,3 +1,12 @@
+## 当前源码与 Git 基线（20261109 修复）
+
+- 当前实际运行源码为 `197bf67c137b4059c88455f81b7e4956e1ef1e8d`，release 为 `20261107-chat-timeout-197bf67c1`。以下旧生产记录按历史理解。
+- 从 `release/production-20261107` 建立后续修复分支，发布标签 `production/20261107-197bf67c1` 固定后禁止移动。该分支是干净平台源码归档，提交号与原运行提交不同；两者的关系见 `docs/baselines/current-production.json` 的 `git_source_management`。
+- 修改前读取 `docs/baselines/platform-source-management-20261109.md`，运行 `python3 scripts/verify_production_source.py --check-refs --require-clean`。源码不匹配或工作区不干净时先核查，不能用旧主目录测试替代线上版本验收。
+- 服务器事实入口为 `/opt/protein-ai-platform/production-version.json`；旧 `current` 指针保留兼容历史配置，禁止据其目录推定当前源码或重建服务。核对实际容器挂载和文件哈希。
+- 原始历史保留在私有归档引用和增量恢复包；不得将其中的数据库备份、模型缓存、虚拟环境、密钥、用户输入整体推送到远端。
+- 本次只修复源码版本管理；未重新部署应用，未宣称外部身份查询或 NCBI BLAST 超时已解决。
+
 ## 20261106 补充条件接续修复已上线（有明确遗留问题）
 
 应用源码9f916ca4abe58fd50589f43c9683cfa336fde3b0，正式状态accepted_with_open_storage_and_tool_issues。补充条件仅更新原任务/失效旧策略，实际继续统一按原热目标规划；否定新任务不清上下文；缺位点和编号追问引用真实回执。最终1961项、25项接续、本地Chrome12项与线上Chrome21项通过；线上首回合和后7轮分次接续，实算479结构/60 DDGun/10候选，回执保留90℃/10min/40%→85%/pH4.5。不能把候选评分当作实测收益。8服务healthy/restart0；818文件、4后端各262源码、11静态HTTP及原配置通过，51表断网备份恢复，生产库未迁移/恢复。原1069/1070/1083消息、原结构和BLAST保持，2账号停用、3临时会话/1上传清理，未新建BLAST。ESM/ColabFold配置、跨会话身份档案、上游模型误拒/背景污染、快速切换会话发送竞态及OSS均未修。失败脚本日志保留；详见`docs/continuations/platform-assay-continuation-20261106.md`和`output/assay-continuation-20261106/TEST-REPORT.md`。以下本地候选与0d生产均为历史记录。
