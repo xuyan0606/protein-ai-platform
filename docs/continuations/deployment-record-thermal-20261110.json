@@ -1,0 +1,12 @@
+{
+  "release_id": "20261110-thermal-candidate-bias-16ac244b1",
+  "source_commit": "16ac244b11d8b321ec72d2db0e856ea34ae724f8",
+  "previous_source_commit": "197bf67c137b4059c88455f81b7e4956e1ef1e8d",
+  "database_migrations": false,
+  "database_restored": false,
+  "preflight_tests": {"related_regression_passed": 292},
+  "backup_drill": {"bytes": 123983410, "sha256": "4bd0e32617745417ea3d69395a079502a7d9178201b9d93a7a1a43d53d609c5a", "isolated_restore_verified": true, "public_table_count": 51, "alembic_revision": "20260917_0004"},
+  "online_validation": {"structure_rows_evaluated": 486, "ddgun_scored": 60, "preliminary_candidates": 12, "substitution_cap": 4, "selected_substitution_counts": {"A>V": 4, "M>L": 4, "I>L": 1, "L>I": 3}, "alanine_valine_geometry_rejections": 11, "adverse_ddgun_exclusions": 2, "shortfall": 0, "candidate_output_allowed": false, "evidence_level": "research_only_exploration"},
+  "cleanup": {"temporary_accounts_disabled": 2, "temporary_conversations_deleted": 1, "temporary_uploads_deleted": 1, "test_tasks_canceled": 1, "original_data_unchanged": true, "old_bearer_revocation_verified": true},
+  "known_validation_note": "One human-readable report assertion differed on unit/HTML formatting; structured online tool receipt passed and was independently checked."
+}
