@@ -1,0 +1,49 @@
+{
+  "schema_version": "thermostability_implementation_validation_v1",
+  "date": "2026-11-03",
+  "branch": "platform/thermostability-evidence-20261103",
+  "source_commit": "27958449d1990f9d568cae6e07af356a3f0545fc",
+  "parent_baseline": "6410c9f13253d08e36c908c921d79798fed87a87",
+  "backend": {
+    "command": "python -m pytest tests -q --tb=short",
+    "passed": 1763,
+    "failed": 0,
+    "warnings": 1,
+    "duration_seconds": 170.54,
+    "warning": "passlib crypt deprecation (Python 3.13 removal)",
+    "log": "output/thermostability-validation-20261103/backend-full.log",
+    "log_sha256": "dfcd80abe4ba8cf7666a2fc96b1e9425acb4833d073ec75720fb8769a3a1352f"
+  },
+  "frontend": {
+    "lint": "passed",
+    "build": "passed",
+    "upload_tests": {
+      "passed": 4,
+      "failed": 0
+    },
+    "bundle": "assets/index-16GrcFU9.js"
+  },
+  "integration": {
+    "restored_runtime": "20261030-identity-evidence-tier-b728d4ca",
+    "common_baseline": "0421817d37b63a4fb69587a69ee926cec9f7d168",
+    "note": "runtime snapshot source merged with candidate features and both regression sets; this is local source validation, not runtime deployment verification"
+  },
+  "retained_baselines": {
+    "snapshot/platform-20261103-local": "7015ffda4023619eaf6a2c82565dc0dfb5a76c9e",
+    "snapshot/platform-20261103-record": "6410c9f13253d08e36c908c921d79798fed87a87"
+  },
+  "real_model_service_calls_performed": false,
+  "experimental_validation_performed": false,
+  "gpu_or_long_md_performed": false,
+  "push_performed": false,
+  "deployment_performed": false,
+  "database_migrations_performed": false,
+  "deployment_allowed": false,
+  "external_requirements": [
+    "version-pinned real DDGun service and databases",
+    "ColabFold service and authorized MSA policy if structure missing",
+    "EVcouplings service and verified sufficient MSA if needed",
+    "target-family retrospective and prospective experimental evaluation",
+    "formal release/HTTPS/rollback compatibility acceptance before production switch"
+  ]
+}

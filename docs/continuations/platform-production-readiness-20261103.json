@@ -1,0 +1,531 @@
+{
+  "packet_version": 1,
+  "created_at": "2026-11-03T01:58:32.916072+00:00",
+  "read_only_preparation": true,
+  "production_actions_performed": [],
+  "candidate": {
+    "head": "f1e39a75b0284859f926f06c4f924875cf0f6de7",
+    "expected_head": "f1e39a75b0284859f926f06c4f924875cf0f6de7",
+    "dirty_paths": [
+      "backend/app/tools/thermostability_adapters.py",
+      "backend/tests/test_thermostability_adapters.py",
+      "docs/continuations/platform-production-readiness-20261103.json",
+      "docs/manuals/ddgun-runtime.md",
+      "docs/manuals/thermostability-experimental-validation.md",
+      "docs/manuals/thermostability-service.md",
+      "model_services/__init__.py",
+      "model_services/tests/test_colabfold_runner.py",
+      "model_services/tests/test_evcouplings_runner.py",
+      "model_services/thermostability/__init__.py",
+      "model_services/thermostability/colabfold_runner.py",
+      "model_services/thermostability/ddgun_runner.py",
+      "model_services/thermostability/evcouplings_runner.py",
+      "model_services/thermostability/protein-thermostability.service",
+      "model_services/thermostability/service.py",
+      "model_services/thermostability/worker.py",
+      "scripts/check_thermostability_service.py",
+      "scripts/install_thermostability_service.py",
+      "scripts/prepare_thermostability_release.py",
+      "scripts/smoke_thermostability_runtime.py",
+      "tests/test_ddgun_runner.py",
+      "tests/test_thermostability_service.py"
+    ]
+  },
+  "database": {
+    "observed_runtime_alembic_revision": "20260917_0004",
+    "candidate_schema_inventory": {
+      "files": [
+        {
+          "path": "backend/alembic/env.py",
+          "sha256": "2056d2aef19291875bb12db724dbc92819ea34d7bf2807892d72adadf7f79eb9"
+        },
+        {
+          "path": "backend/alembic/script.py.mako",
+          "sha256": "304a8bfb6a804e5493f5300e79882c70c9f5bb2e87512f4d16f0e097dddd323f"
+        },
+        {
+          "path": "backend/alembic/versions/0d4a9f1c8b23_add_project_members.py",
+          "sha256": "a2f53b9e59f5150ec018d4fcb30ed68ae4f04e29254d2a6f3f65c5520e7c1620"
+        },
+        {
+          "path": "backend/alembic/versions/1a2b3c4d5e6f_add_workflow_shadow_audits.py",
+          "sha256": "5d5469a016f5af808811eb6596a3e20edffb3ef30c565eda8c31b34fa0f274bc"
+        },
+        {
+          "path": "backend/alembic/versions/2f6c8d9e0a12_add_lipase_curation_records.py",
+          "sha256": "f4ae65d5a2a86b7d4f9d40c32a58341c496130648156d448e4052b7c0f619c07"
+        },
+        {
+          "path": "backend/alembic/versions/7c2a1d4e9b66_add_user_status_controls.py",
+          "sha256": "020b523af18dcb2fb3bd03a1cf9c623afcc6d4d8c7e8b0a93d893001eb066619"
+        },
+        {
+          "path": "backend/alembic/versions/8eb683a67e73_add_literature_tables.py",
+          "sha256": "07ec03b8e295f4ad321318d23d8ff488e29288bc67ebb1f3f6219ecda36816a4"
+        },
+        {
+          "path": "backend/alembic/versions/9c8d7e6f5a41_add_experiment_feedback_records.py",
+          "sha256": "1ad788a33b2ef7366a4e5285f4d0bf8d23b170c37bf5faf2c28010fe79c3b1df"
+        },
+        {
+          "path": "backend/alembic/versions/a3f7c9e2b1d4_add_wiki_knowledgebase_schema.py",
+          "sha256": "60a27092a39ea8cf018e3af1cee27de3144d3cdc512449c6d8ca75b871cd90d8"
+        },
+        {
+          "path": "backend/alembic/versions/a7c4e2f9b601_add_analysis_evidence_snapshots.py",
+          "sha256": "de28321bf2140072b41d7122809e22a7eb9cd01064e93de6c875939c863a039a"
+        },
+        {
+          "path": "backend/alembic/versions/b9a4c2d7e8f1_add_organization_permissions.py",
+          "sha256": "a18a544b48a6840cbbf8783d596fb6ee8993b9c44b33c1a85a0a65c28fea2c61"
+        },
+        {
+          "path": "backend/alembic/versions/c4d9e1b2f7aa_add_annotation_and_signal_tables.py",
+          "sha256": "c4779ad02764ddee6830325fdf110ad79213958610a1ff8cadfa159eac0f66c8"
+        },
+        {
+          "path": "backend/alembic/versions/c7e5a1b2d9f0_add_identity_consistency_records.py",
+          "sha256": "a84fb246db38d80b3a0bad66aa75bdd85701167761a455d805e1cf8acd9c007f"
+        },
+        {
+          "path": "backend/alembic/versions/d6f4b8c2a901_add_enzyme_metadata_curation.py",
+          "sha256": "181c7c0a8e8116b474c97b8d82ef656c50fcc8db0e081364d67ddb292185d283"
+        },
+        {
+          "path": "backend/alembic/versions/e7a2d4c9b601_add_tool_task_audits.py",
+          "sha256": "7e610f8c8b317aa8ab7e6862db11cf0bade007362aff380f097c7cbcab21b760"
+        },
+        {
+          "path": "backend/alembic/versions/f1b9c8d2a704_add_user_roles.py",
+          "sha256": "8d4b20d21dcb24770a08854d0cf5b8aee1d6ef4931c1122c5939c45ddb5ff271"
+        },
+        {
+          "path": "backend/alembic/versions/f8a1c2d3e4b5_add_strategy_checkpoints_and_wet_lab_calibration.py",
+          "sha256": "d7819f611d59d0744aa36199894299ae254a70f4cfecdf22ef83f4714bddac19"
+        },
+        {
+          "path": "backend/app/models/__init__.py",
+          "sha256": "9f9c24e0cda57b548e0c0eb5c0522aae85a55bf0ccb6965d15adb06628dd4356"
+        },
+        {
+          "path": "backend/app/models/base.py",
+          "sha256": "935422b7aaa090b57c6f5c6cb4e562ad2fc143543da5f62ac5464d35b33aaf4d"
+        },
+        {
+          "path": "backend/app/models/conversation.py",
+          "sha256": "b250fe7c30929c329d36b08ba974aaee1352b01e0e72c0ca0adf4a7749a08c60"
+        },
+        {
+          "path": "backend/app/models/domain.py",
+          "sha256": "f54842b660d69f664aeb1b8fc698fed628d09809a2b213a27340712f6e4da39f"
+        },
+        {
+          "path": "backend/app/models/enzyme_metadata_curation.py",
+          "sha256": "9d055c7407c5042a495195f5751617122fc43a95df076be24046955f64b48434"
+        },
+        {
+          "path": "backend/app/models/experiment_feedback.py",
+          "sha256": "0472229fa4066d04845c6ef1df0dc53ba73d7755f05ba56432e8e8932868aaf0"
+        },
+        {
+          "path": "backend/app/models/identity_consistency.py",
+          "sha256": "ceacdb256e923ed2cc01536f8a5b8777bfe2f6f7eb80e67babc5d76f9a0bc47c"
+        },
+        {
+          "path": "backend/app/models/lipase_curation.py",
+          "sha256": "eb00f57d9dd3165fca04051fb92a6047483bc0082b6e29b68dd5a4b5876e1323"
+        },
+        {
+          "path": "backend/app/models/literature.py",
+          "sha256": "3f7873cdb9f9ab069ae9fb3085d770d4a6fea645b26afe52a447a3200baf44d5"
+        },
+        {
+          "path": "backend/app/models/project.py",
+          "sha256": "b609b4f6c60581fd82b03197b3dbff40ee9015305d5d914c31773271c6213111"
+        },
+        {
+          "path": "backend/app/models/strategy_checkpoint.py",
+          "sha256": "480f354fb7040d7deaa8ee59077cb032faac974f5b90847313ee48926affd6a5"
+        },
+        {
+          "path": "backend/app/models/tool_call.py",
+          "sha256": "b8b7a49d0818f1b80b2ae0e89043fef94e5ae36a606a304ed6698395fea83db5"
+        },
+        {
+          "path": "backend/app/models/user.py",
+          "sha256": "f658aa111577093793de80dc7d36d8f6344b73a2b7a5857a8ef1aad3ae09c146"
+        },
+        {
+          "path": "backend/app/models/workflow_audit.py",
+          "sha256": "f164242ec188850c0744cf004cc9a7a7e2608054055b3559d33a27a38eee8f5c"
+        }
+      ],
+      "revisions": [
+        {
+          "revision": "0d4a9f1c8b23",
+          "down_revision": "f1b9c8d2a704",
+          "file": "backend/alembic/versions/0d4a9f1c8b23_add_project_members.py",
+          "sha256": "a2f53b9e59f5150ec018d4fcb30ed68ae4f04e29254d2a6f3f65c5520e7c1620"
+        },
+        {
+          "revision": "1a2b3c4d5e6f",
+          "down_revision": "a7c4e2f9b601",
+          "file": "backend/alembic/versions/1a2b3c4d5e6f_add_workflow_shadow_audits.py",
+          "sha256": "5d5469a016f5af808811eb6596a3e20edffb3ef30c565eda8c31b34fa0f274bc"
+        },
+        {
+          "revision": "2f6c8d9e0a12",
+          "down_revision": "b9a4c2d7e8f1",
+          "file": "backend/alembic/versions/2f6c8d9e0a12_add_lipase_curation_records.py",
+          "sha256": "f4ae65d5a2a86b7d4f9d40c32a58341c496130648156d448e4052b7c0f619c07"
+        },
+        {
+          "revision": "7c2a1d4e9b66",
+          "down_revision": "0d4a9f1c8b23",
+          "file": "backend/alembic/versions/7c2a1d4e9b66_add_user_status_controls.py",
+          "sha256": "020b523af18dcb2fb3bd03a1cf9c623afcc6d4d8c7e8b0a93d893001eb066619"
+        },
+        {
+          "revision": "8eb683a67e73",
+          "down_revision": null,
+          "file": "backend/alembic/versions/8eb683a67e73_add_literature_tables.py",
+          "sha256": "07ec03b8e295f4ad321318d23d8ff488e29288bc67ebb1f3f6219ecda36816a4"
+        },
+        {
+          "revision": "9c8d7e6f5a41",
+          "down_revision": "2f6c8d9e0a12",
+          "file": "backend/alembic/versions/9c8d7e6f5a41_add_experiment_feedback_records.py",
+          "sha256": "1ad788a33b2ef7366a4e5285f4d0bf8d23b170c37bf5faf2c28010fe79c3b1df"
+        },
+        {
+          "revision": "a3f7c9e2b1d4",
+          "down_revision": "8eb683a67e73",
+          "file": "backend/alembic/versions/a3f7c9e2b1d4_add_wiki_knowledgebase_schema.py",
+          "sha256": "60a27092a39ea8cf018e3af1cee27de3144d3cdc512449c6d8ca75b871cd90d8"
+        },
+        {
+          "revision": "a7c4e2f9b601",
+          "down_revision": "f8a1c2d3e4b5",
+          "file": "backend/alembic/versions/a7c4e2f9b601_add_analysis_evidence_snapshots.py",
+          "sha256": "de28321bf2140072b41d7122809e22a7eb9cd01064e93de6c875939c863a039a"
+        },
+        {
+          "revision": "b9a4c2d7e8f1",
+          "down_revision": "7c2a1d4e9b66",
+          "file": "backend/alembic/versions/b9a4c2d7e8f1_add_organization_permissions.py",
+          "sha256": "a18a544b48a6840cbbf8783d596fb6ee8993b9c44b33c1a85a0a65c28fea2c61"
+        },
+        {
+          "revision": "c4d9e1b2f7aa",
+          "down_revision": "a3f7c9e2b1d4",
+          "file": "backend/alembic/versions/c4d9e1b2f7aa_add_annotation_and_signal_tables.py",
+          "sha256": "c4779ad02764ddee6830325fdf110ad79213958610a1ff8cadfa159eac0f66c8"
+        },
+        {
+          "revision": "c7e5a1b2d9f0",
+          "down_revision": "1a2b3c4d5e6f",
+          "file": "backend/alembic/versions/c7e5a1b2d9f0_add_identity_consistency_records.py",
+          "sha256": "a84fb246db38d80b3a0bad66aa75bdd85701167761a455d805e1cf8acd9c007f"
+        },
+        {
+          "revision": "d6f4b8c2a901",
+          "down_revision": "9c8d7e6f5a41",
+          "file": "backend/alembic/versions/d6f4b8c2a901_add_enzyme_metadata_curation.py",
+          "sha256": "181c7c0a8e8116b474c97b8d82ef656c50fcc8db0e081364d67ddb292185d283"
+        },
+        {
+          "revision": "e7a2d4c9b601",
+          "down_revision": "c4d9e1b2f7aa",
+          "file": "backend/alembic/versions/e7a2d4c9b601_add_tool_task_audits.py",
+          "sha256": "7e610f8c8b317aa8ab7e6862db11cf0bade007362aff380f097c7cbcab21b760"
+        },
+        {
+          "revision": "f1b9c8d2a704",
+          "down_revision": "e7a2d4c9b601",
+          "file": "backend/alembic/versions/f1b9c8d2a704_add_user_roles.py",
+          "sha256": "8d4b20d21dcb24770a08854d0cf5b8aee1d6ef4931c1122c5939c45ddb5ff271"
+        },
+        {
+          "revision": "f8a1c2d3e4b5",
+          "down_revision": "d6f4b8c2a901",
+          "file": "backend/alembic/versions/f8a1c2d3e4b5_add_strategy_checkpoints_and_wet_lab_calibration.py",
+          "sha256": "d7819f611d59d0744aa36199894299ae254a70f4cfecdf22ef83f4714bddac19"
+        }
+      ],
+      "missing_parents": []
+    },
+    "candidate_has_schema_delta_from_baseline": false,
+    "code_only_deployment_candidate": true,
+    "decision": "Code-only deployment is compatible: 31 runtime model/migration/database-source files match candidate; all ORM tables and columns exist. Existing drift (2 nullable changes, 1 extra column) is not introduced by candidate. Do not run alembic upgrade or stamp."
+  },
+  "gates": [
+    {
+      "gate": "candidate_commit_matches",
+      "passed": true,
+      "detail": "f1e39a75b0284859f926f06c4f924875cf0f6de7"
+    },
+    {
+      "gate": "candidate_worktree_clean",
+      "passed": false,
+      "detail": [
+        "backend/app/tools/thermostability_adapters.py",
+        "backend/tests/test_thermostability_adapters.py",
+        "docs/continuations/platform-production-readiness-20261103.json",
+        "docs/manuals/ddgun-runtime.md",
+        "docs/manuals/thermostability-experimental-validation.md",
+        "docs/manuals/thermostability-service.md",
+        "model_services/__init__.py",
+        "model_services/tests/test_colabfold_runner.py",
+        "model_services/tests/test_evcouplings_runner.py",
+        "model_services/thermostability/__init__.py",
+        "model_services/thermostability/colabfold_runner.py",
+        "model_services/thermostability/ddgun_runner.py",
+        "model_services/thermostability/evcouplings_runner.py",
+        "model_services/thermostability/protein-thermostability.service",
+        "model_services/thermostability/service.py",
+        "model_services/thermostability/worker.py",
+        "scripts/check_thermostability_service.py",
+        "scripts/install_thermostability_service.py",
+        "scripts/prepare_thermostability_release.py",
+        "scripts/smoke_thermostability_runtime.py",
+        "tests/test_ddgun_runner.py",
+        "tests/test_thermostability_service.py"
+      ]
+    },
+    {
+      "gate": "candidate_model_and_migration_tree_unchanged_from_0421817d",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "gate": "candidate_alembic_graph_closed",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "gate": "runtime_migration_present_in_candidate_graph",
+      "passed": false,
+      "detail": "20260917_0004"
+    },
+    {
+      "gate": "formal_trusted_domain_tls",
+      "passed": false,
+      "detail": "Observed certificate is self-signed for IP 120.27.108.138; no production hostname/public trust chain was found."
+    },
+    {
+      "gate": "official_registry_repo_digest",
+      "passed": false,
+      "detail": "Application images have local image IDs and empty RepoDigests; do not fabricate an immutable registry reference."
+    },
+    {
+      "gate": "fresh_database_backup_and_restore_drill",
+      "passed": false,
+      "detail": "Must be created against the current database immediately before switching, then restored into an isolated temporary database."
+    },
+    {
+      "gate": "runtime_schema_compatibility",
+      "passed": true,
+      "detail": "20261103 read-only check: 31/31 candidate/runtime model+migration+database files match; 51 tables, 505 columns, 123 constraints; missing ORM tables/columns 0. Existing Alembic compare_metadata drift: modify_nullable=2, remove_column=1. Candidate introduces no schema delta. Never upgrade/stamp to repair unrelated existing drift during code-only rollout."
+    }
+  ],
+  "cutover": {
+    "strategy": "in-place replacement under original container names, retaining all existing networks, mounts, host configuration and shared services",
+    "snapshot_to_preserve": "/opt/protein-ai-platform/snapshots/20261103 (immutable)",
+    "current_pointer": "Do not use or change /opt/protein-ai-platform/current; it is stale relative to running app containers.",
+    "release_source": "/opt/protein-ai-platform/releases/<new-release-id>/protein-ai-platform",
+    "sequence": [
+      "Freeze new submissions and allow/record in-flight worker tasks; do not tear down the Compose project.",
+      "Capture fresh custom-format database dump, SHA-256, pg_restore --list; restore it into a uniquely named isolated database and verify schema/table count before cutover.",
+      "Build app images with exact candidate source; record local OCI image IDs and manifest/config digests. Treat those as local provenance, not registry RepoDigests.",
+      "Generate private create payloads by cloning current runtime Config/HostConfig/network attachments; change only app image and source-derived labels. Keep existing volumes, bind mounts, env, secrets and network aliases.",
+      "For each app container, stop and rename old container to a timestamped rollback name, create/start same-name replacement, and verify health plus functional checks before proceeding to next service.",
+      "On any failure, stop/rename replacement and recreate original container from the 20261103 snapshot payload/image, retaining database and all current volumes.",
+      "After all app services pass, record new release facts; leave nginx, chromadb and outline containers, networks and volumes intact."
+    ],
+    "avoid": [
+      "docker compose down",
+      "installer that copies config from stale current",
+      "database upgrade/stamp",
+      "database restore to production",
+      "overwriting snapshot 20261103"
+    ]
+  },
+  "backup_and_drill": {
+    "runtime_source": "Use the active backend container's DATABASE_URL only inside the process; never print or persist its value.",
+    "backup": "On the server, stream pg_dump --format=custom from the active database endpoint into a new timestamped private backup file; calculate SHA-256 and run pg_restore --list.",
+    "restore_drill": "Start an independent temporary PostgreSQL container with --network none and no published ports; restore there, verify table count/revision, then remove the temporary container and its anonymous volume.",
+    "gate": "If pg_dump/pg_restore client is unavailable in the active runtime, use a trusted PostgreSQL client container with the active network and pass connection settings through an ephemeral protected env file; do not echo commands after expansion.",
+    "production_db_mutation": "Only the drill database is created/dropped. Never restore, stamp or migrate the production database in this preparation flow."
+  },
+  "observed_production": {
+    "observed_at": "2026-11-03T01:55:00Z",
+    "eight_containers_healthy": true,
+    "all_restart_counts": 0,
+    "snapshot_container_ids_unchanged": true,
+    "actual_backend_release": "/opt/protein-ai-platform/releases/20261030T034747Z-identity-evidence-tier/protein-ai-platform",
+    "actual_frontend_nginx_release": "/opt/protein-ai-platform/releases/20261021T003826Z-3e8bc016-adaptive-export/protein-ai-platform",
+    "current_is_stale": true,
+    "services": [
+      {
+        "service": "backend",
+        "container_id": "80a27a42ae570591fb86467d5164c31ca293dbc3f7b3b0dd9d7ee1c785d99327",
+        "image": "sha256:540798f81804ecad942461e4fb60466eb126c78c376465c4f7088339a76a7721",
+        "compose_config_sha256": "b025cb7946117d59cb36214d8ad5adb80aa2c8895a1cf3c3a0864662bb5e50c2",
+        "env_sha256": "6078f9f854f13c84c8c9c01197d9bcd2732ffb5f87e7f76d82de677f20c95989"
+      },
+      {
+        "service": "worker",
+        "container_id": "c1d7b942591e1922be92a9564fdd5aae2f38432f2a95e84d1ccfa815f72ddbd7",
+        "image": "sha256:540798f81804ecad942461e4fb60466eb126c78c376465c4f7088339a76a7721",
+        "compose_config_sha256": "db49e3edac91bd78a7a96b66785f82f7a84ff13860ff7153c910396bb97f3128",
+        "env_sha256": "2af424c5889f7216f396e19d5ba539b57463be02c69adc5992230bd1da020ec2"
+      },
+      {
+        "service": "md-worker",
+        "container_id": "b59c6f318667bf3ec0ca83eea58a17992e76dd5a263efed8388c54f0524e7c37",
+        "image": "sha256:540798f81804ecad942461e4fb60466eb126c78c376465c4f7088339a76a7721",
+        "compose_config_sha256": "de1d8b930fa0ae19f97c5456519b5c8ddecc8e37bd103ce6a17f166b48bf3852",
+        "env_sha256": "1029181514cd11a88d26e9e7dd1454b3919fcc5fc43be26c9f47910a4f76ce97"
+      },
+      {
+        "service": "frontend",
+        "container_id": "283aa2e8200acaef82777e0645429db0c3082a588767934f12057479419ebde2",
+        "image": "sha256:847dbefcb1fe0088ace36fb02f8c4030d0be9b5e687712f4a046cceeb51465eb",
+        "compose_config_sha256": "13b9a4c5bf2e06bc5994ef58a8ebfaa2411c0d61ff2f76b5d2f786eba2289eb9",
+        "env_sha256": "ce61a51a4b53aa71968fcd0cb7eab30bc18a2a587c7caced8d624c65572ad945"
+      },
+      {
+        "service": "nginx",
+        "container_id": "e5df965b3b98db9fcd757be008db96fbc3aedf39e8d611446424f75fd07d5d6b",
+        "image": "sha256:f0ba77f796e57c6fa89ae7f4fdad1665d6fcbd8e3f211535120542b337f9959e",
+        "compose_config_sha256": "56fa9fa2509a437a109ab8feb81be6ec8d13304d55831ecc58a9adb43878f924",
+        "env_sha256": "ce61a51a4b53aa71968fcd0cb7eab30bc18a2a587c7caced8d624c65572ad945"
+      },
+      {
+        "service": "ligand-worker",
+        "container_id": "3dd8ff5197b414cbf9d0a982188d250abc0ac59f61fcb221e175ff03fb76b280",
+        "image": "sha256:22d409871abc77d81b8d47334f9928fd1c9271c6404b6a27fda86b9cdc4e9153",
+        "compose_config_sha256": "3d88dc5cca226f241ee8efe38737ddf62c5073a2bb4b077e68b36da58e174c19",
+        "env_sha256": "8275863b91ae05d9ba1a3288dc008e8844c64d8b89a135d8790f85e1aa1465e2"
+      },
+      {
+        "service": "chromadb",
+        "container_id": "cf688e5d39c568c44dcb1c67223339e0b777854f882fb7ce4ad943b80654c939",
+        "image": "sha256:0b5fb8a31a55b51acdbbdc83d6ec4c54309f6c90381f4dc2483601cc76d453d7",
+        "compose_config_sha256": null,
+        "env_sha256": "3f4c998785f8a377ea905ae76699f1efa0d2b5041aed7538a4126eabd8713d5b"
+      },
+      {
+        "service": "outline",
+        "container_id": "4a39cfe53af984e4d23f73f135ec7377d413a985a591ab143449231dfcdfc667",
+        "image": "sha256:93c7d0025bdcfd640bc176dda28284cadaabaea1d24a0075b6da6c3d381a5ee6",
+        "compose_config_sha256": "4321a29d77005c5e2d137fdbd02a406a2c1799a832d6c5929ed5eea089ca806d",
+        "env_sha256": "041c432b94e56d27ddf08bc3618572670df083a6c4589c23f017c54aa1c16348"
+      }
+    ],
+    "published_ports": {
+      "http": [
+        80,
+        4200,
+        4280
+      ],
+      "https": [
+        4243
+      ],
+      "standard_https_443_listening": false
+    },
+    "certificate": {
+      "subject": "CN=120.27.108.138",
+      "issuer": "CN=120.27.108.138",
+      "san": [
+        "IP:120.27.108.138"
+      ],
+      "not_before": "2026-10-10T05:44:43Z",
+      "not_after": "2027-10-10T05:44:43Z",
+      "sha256": "b3f40c1f88038963da45e377a75fe15d8ad35c5e614e56ef8ee7dd876bdabbd7",
+      "public_curl_exit_code": 60,
+      "public_verify_result": 18,
+      "sni": "120.27.108.138",
+      "trusted": false,
+      "formal_domain_inventory_found": false,
+      "searched_certificate_paths": [
+        "/etc/letsencrypt",
+        "/etc/nginx",
+        "/opt/protein-ai-platform/shared/ssl"
+      ]
+    },
+    "postgres_client_image": "sha256:80f4c7a5e91618546dce5b4fe60cf03b14c0f9efa7e40157278d122772ced8d2",
+    "available_disk": "150 GiB",
+    "database": {
+      "alembic_revision": "20260917_0004",
+      "table_count": 51,
+      "column_count": 505,
+      "constraint_count": 123,
+      "columns_sha256": "c4f261e472fd518aa5931cc5887407fead71b583ba81511e5f54533901303243",
+      "constraints_sha256": "d80f0bced4f4f532b892bc9e30f4516ce35c9a60835d6ec8dc19e2de037389ac",
+      "candidate_runtime_source_hash_matches": 31,
+      "missing_orm_tables": [],
+      "missing_orm_columns": [],
+      "existing_schema_diff_operation_counts": {
+        "modify_nullable": 2,
+        "remove_column": 1
+      },
+      "ddl_executed": false
+    },
+    "runtime_source_trees": {
+      "backend": {
+        "/app/app": {
+          "file_count": 201,
+          "tree_sha256": "8a554d12e87f6a8eeb9c8057bc65c953f3b2276384968b165900528e0a779e2d"
+        },
+        "/app/alembic": {
+          "file_count": 16,
+          "tree_sha256": "3e2c628ae0a18e26d439bb7c716cf443c9d4873ec62899972494b16f045415b3"
+        }
+      },
+      "worker": {
+        "/app/app": {
+          "file_count": 201,
+          "tree_sha256": "8a554d12e87f6a8eeb9c8057bc65c953f3b2276384968b165900528e0a779e2d"
+        },
+        "/app/alembic": {
+          "file_count": 16,
+          "tree_sha256": "3e2c628ae0a18e26d439bb7c716cf443c9d4873ec62899972494b16f045415b3"
+        }
+      },
+      "md-worker": {
+        "/app/app": {
+          "file_count": 201,
+          "tree_sha256": "8a554d12e87f6a8eeb9c8057bc65c953f3b2276384968b165900528e0a779e2d"
+        },
+        "/app/alembic": {
+          "file_count": 16,
+          "tree_sha256": "3e2c628ae0a18e26d439bb7c716cf443c9d4873ec62899972494b16f045415b3"
+        }
+      },
+      "ligand-worker": {
+        "/app/app": {
+          "file_count": 197,
+          "tree_sha256": "8f06737a57f07ec57c868529cff3bddddd5f7a3d0492e44cc52b5bafd1514149"
+        },
+        "/app/alembic": {
+          "file_count": 16,
+          "tree_sha256": "3e2c628ae0a18e26d439bb7c716cf443c9d4873ec62899972494b16f045415b3"
+        }
+      },
+      "frontend": {
+        "static_file_count": 28,
+        "sha256sum_sorted_tree_sha256": "abada147eef42b280efd77658d20951a663864613b3cecc43a3cab588d466936"
+      }
+    }
+  },
+  "verification": {
+    "standalone_safety_tests": 5,
+    "passed": 5,
+    "python_compile": "passed",
+    "production_changes_executed": false,
+    "backend_pytest_executed": false
+  },
+  "historical_pre_cutover_packet": true,
+  "superseded_by": "platform-thermostability-deployment-20261103.json"
+}

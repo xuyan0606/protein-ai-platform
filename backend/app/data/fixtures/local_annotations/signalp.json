@@ -1,0 +1,52 @@
+[
+  {
+    "uniprot_id": "DEMO388A",
+    "has_signal_peptide": false,
+    "confidence": 0.18,
+    "predicted_type": "none",
+    "cleavage_site": null,
+    "regions": {
+      "n_region": {
+        "start": 1,
+        "end": 5,
+        "positive_residues": 0
+      },
+      "h_region": {
+        "start": 7,
+        "end": 24,
+        "hydrophobic_ratio": 0.222
+      },
+      "c_region": {
+        "start": 16,
+        "end": null
+      }
+    },
+    "model": "seeded_local_annotation_demo",
+    "note": "Seeded negative-control prediction for esterase engineering workflow."
+  },
+  {
+    "uniprot_id": "SIGDEMO1",
+    "has_signal_peptide": true,
+    "confidence": 0.93,
+    "predicted_type": "Sec/SPI",
+    "cleavage_site": "C17|A",
+    "regions": {
+      "n_region": {
+        "start": 1,
+        "end": 5,
+        "positive_residues": 3
+      },
+      "h_region": {
+        "start": 7,
+        "end": 24,
+        "hydrophobic_ratio": 0.889
+      },
+      "c_region": {
+        "start": 13,
+        "end": 17
+      }
+    },
+    "model": "seeded_local_annotation_demo",
+    "note": "Seeded positive-control prediction for secretion feasibility workflows."
+  }
+]

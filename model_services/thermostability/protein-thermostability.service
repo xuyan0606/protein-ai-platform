@@ -1,0 +1,34 @@
+[Unit]
+Description=Private real thermostability scientific runtimes
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=protein-models
+Group=protein-models
+WorkingDirectory=/opt/protein-ai-platform/model-services/thermostability/runtime
+EnvironmentFile=/opt/protein-ai-platform/model-services/thermostability/service.env
+ExecStart=/usr/bin/python3.11 -m model_services.thermostability.service
+Restart=on-failure
+RestartSec=5
+UMask=0077
+CPUQuota=200%
+MemoryMax=12G
+MemorySwapMax=1G
+TasksMax=128
+TimeoutStopSec=20
+KillMode=control-group
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/protein-ai-platform/model-services/thermostability/runs
+# After provisioning, model inference may not send sequences to external services.
+IPAddressDeny=any
+IPAddressAllow=127.0.0.0/8
+IPAddressAllow=172.18.0.0/16
+RestrictAddressFamilies=AF_INET AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

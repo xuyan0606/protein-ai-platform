@@ -1,0 +1,110 @@
+# =============================================================================
+# Protein AI Platform — Backend Dockerfile (multi-stage)
+# =============================================================================
+# Stage 1: Build — install core Python dependencies (no torch/ML) into a
+#           portable virtualenv so the runtime image stays slim.
+# Stage 2: Runtime — copy virtualenv + app code, expose port, run uvicorn.
+#
+# ML-heavy tools (ESM-2, ProteinMPNN, RDKit) run on the Celery worker,
+# which has its own Dockerfile with torch + model pre-cache.
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# Stage 1 — Builder
+# ---------------------------------------------------------------------------
+FROM python:3.12-slim AS builder
+
+WORKDIR /app
+
+# System packages required to compile Python dependencies (e.g. asyncpg)
+RUN sed -i \
+        -e 's#http://deb.debian.org/debian#https://mirrors.aliyun.com/debian#g' \
+        -e 's#http://security.debian.org/debian-security#https://mirrors.aliyun.com/debian-security#g' \
+        /etc/apt/sources.list.d/debian.sources \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create an isolated virtualenv
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Install core dependencies only (no torch/ML — those go in Dockerfile.worker)
+COPY backend/requirements-prod.txt backend/requirements-core.txt ./
+RUN pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/ \
+    && pip install --no-cache-dir -r requirements-prod.txt
+
+# ---------------------------------------------------------------------------
+# Stage 2 — Runtime
+# ---------------------------------------------------------------------------
+FROM python:3.12-slim AS runtime
+
+WORKDIR /app
+
+ARG TARGETARCH
+ARG FOLDSEEK_URL=
+ARG FOLDSEEK_INSTALL_REQUIRED=false
+
+# Runtime system libraries (libpq for asyncpg, curl for healthchecks, GROMACS for real MD)
+RUN sed -i \
+        -e 's#http://deb.debian.org/debian#https://mirrors.aliyun.com/debian#g' \
+        -e 's#http://security.debian.org/debian-security#https://mirrors.aliyun.com/debian-security#g' \
+        /etc/apt/sources.list.d/debian.sources \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libpq-dev \
+        curl \
+        gromacs \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install a container-native Foldseek CLI for local structure-search backends.
+# The platform tool layer already returns FOLDSEEK_NOT_CONFIGURED/FOLDSEEK_DEGRADED
+# when no CLI/API backend is available, so a transient mirror failure must not
+# block unrelated backend releases by default.
+RUN set -eu; \
+    if [ -z "$FOLDSEEK_URL" ]; then \
+        ARCH="${TARGETARCH:-}"; \
+        if [ -z "$ARCH" ]; then ARCH="$(dpkg --print-architecture)"; fi; \
+        case "$ARCH" in \
+            arm64) FOLDSEEK_URL="https://mmseqs.com/foldseek/foldseek-linux-arm64.tar.gz" ;; \
+            amd64) FOLDSEEK_URL="https://mmseqs.com/foldseek/foldseek-linux-avx2.tar.gz" ;; \
+            *) echo "Unsupported architecture for Foldseek: $ARCH" >&2; exit 1 ;; \
+        esac; \
+    fi; \
+    echo "Installing Foldseek from $FOLDSEEK_URL (TARGETARCH=${TARGETARCH:-unset}, required=${FOLDSEEK_INSTALL_REQUIRED})"; \
+    mkdir -p /opt/foldseek; \
+    if curl --fail --location --retry 3 --retry-delay 2 --retry-all-errors "$FOLDSEEK_URL" -o /tmp/foldseek.tar.gz; then \
+        tar -xzf /tmp/foldseek.tar.gz -C /opt/foldseek --strip-components=1; \
+        ln -sf /opt/foldseek/bin/foldseek /usr/local/bin/foldseek; \
+        rm -f /tmp/foldseek.tar.gz; \
+    elif [ "$FOLDSEEK_INSTALL_REQUIRED" = "true" ]; then \
+        echo "Foldseek install failed and FOLDSEEK_INSTALL_REQUIRED=true" >&2; \
+        exit 1; \
+    else \
+        echo "WARNING: Foldseek CLI download failed; backend image will still build and structure_search_foldseek will fail closed unless FOLDSEEK_API_URL or a mounted CLI is configured." >&2; \
+        rm -f /tmp/foldseek.tar.gz; \
+    fi
+
+# Copy virtualenv from builder
+COPY --from=builder /opt/venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+ENV GROMACS_BIN="gmx"
+ENV GMX_MAXBACKUP="-1"
+
+# Create a non-root user for security
+RUN groupadd -r appuser \
+    && useradd -r -g appuser appuser \
+    && mkdir -p /app/.model_cache \
+    && chown appuser:appuser /app /app/.model_cache
+
+# Copy application code without a recursive chown over the whole workdir.
+COPY --chown=appuser:appuser backend/ .
+
+# Model cache directory — mount as volume in docker-compose for persistence
+USER appuser
+
+EXPOSE 8000
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

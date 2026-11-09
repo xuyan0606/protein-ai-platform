@@ -1,0 +1,20 @@
+[
+  {
+    "uniprot_id": "DEMO388A",
+    "source": "internal_curated_demo",
+    "mechanism_name": "Serine hydrolase motif-centered guardrail",
+    "reaction_text": "Protect the catalytic serine motif before mutational design.",
+    "evidence_json": {
+      "curation_level": "phase1_demo",
+      "note": "Only the motif-centered nucleophile is treated as curated."
+    },
+    "residues": [
+      {
+        "residue_pos": 252,
+        "residue_aa": "S",
+        "role": "nucleophile",
+        "confidence": 0.95
+      }
+    ]
+  }
+]

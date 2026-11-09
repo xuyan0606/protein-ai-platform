@@ -1,0 +1,116 @@
+{
+  "id": "venus-15b",
+  "slug": "venus-15b",
+  "title": "Venus-15B 低 pH 淀粉酶改造基准案例",
+  "program": "Venus-15B淀粉酶项目",
+  "protein_name": "15B alpha-amylase (AAP-noCa)",
+  "keywords": [
+    "venus-15b",
+    "15b-aap",
+    "15b",
+    "aap-noca",
+    "alpha-amylase",
+    "amylase",
+    "淀粉酶"
+  ],
+  "objective": "提高淀粉酶在 pH 4.0-4.8 条件下的酶活，优先筛出 2-3 个真正有效的酸性适应突变位点。",
+  "target_ph_range": {
+    "min": 4.0,
+    "max": 4.8,
+    "focus": 4.5
+  },
+  "sequence_length": 486,
+  "structure_model": {
+    "name": "15B-AAP-noCa.pdb",
+    "type": "local_pdb",
+    "calcium_free": true
+  },
+  "source_summary": "基于 Venus 模型与分子动力学模拟，对 4 个目标单点突变在低 pH 条件下的构象稳定性和催化残基 pKa 偏移进行评估，用来指导后续湿实验筛选。",
+  "analysis_highlights": [
+    "目标场景是把现有淀粉酶扩展到低 pH 应用区间，而不是泛化的稳定性优化。",
+    "核心判断标准是 pH 4.5 条件下的构象稳定性和关键催化残基的质子化环境变化。",
+    "这个案例适合作为平台的真实 benchmark，用来验证结构检索、位点映射、注释聚合和后续 MD 解释链路。"
+  ],
+  "candidate_mutations": [
+    {
+      "mutation": "M204H",
+      "position": 204,
+      "wild_type": "M",
+      "mutant": "H",
+      "hypothesis": "引入可质子化侧链，观察是否能在低 pH 下重塑局部氢键网络和催化微环境。",
+      "evidence_goal": "比较 pH 4.5 条件下构象漂移和邻近催化残基 pKa 偏移。"
+    },
+    {
+      "mutation": "S265D",
+      "position": 265,
+      "wild_type": "S",
+      "mutant": "D",
+      "hypothesis": "引入酸性位点，测试其对局部静电场和酸适应性的影响。",
+      "evidence_goal": "评估低 pH 条件下的局部盐桥形成趋势与活性构象保留程度。"
+    },
+    {
+      "mutation": "E331Q",
+      "position": 331,
+      "wild_type": "E",
+      "mutant": "Q",
+      "hypothesis": "削弱局部负电荷，缓和催化核心在酸性条件下的过度质子化风险。",
+      "evidence_goal": "解释其为何可能提高 pH 4.5/pH 6.0 活性比值。"
+    },
+    {
+      "mutation": "D405N",
+      "position": 405,
+      "wild_type": "D",
+      "mutant": "N",
+      "hypothesis": "通过中和酸性残基测试远端电荷调节对催化核心的传递效应。",
+      "evidence_goal": "分析远端位点是否能通过网络耦合改变关键位点表观 pKa。"
+    }
+  ],
+  "evidence_goals": [
+    "验证 4 个目标单点突变在 pH 4.5 条件下的构象稳定性差异。",
+    "筛出 2-3 个更值得进入湿实验的酸性适应突变位点。",
+    "用结构层面的证据解释低 pH 活性比值提升的原因，而不是只给出黑盒打分。"
+  ],
+  "recommended_actions": [
+    {
+      "title": "进入 PDB 资产页",
+      "description": "用平台现有结构上传和位点映射流程挂接这个案例的结构文件。",
+      "href": "/pdb"
+    },
+    {
+      "title": "进入聊天分析",
+      "description": "围绕 4 个候选位点发起酸适应性突变优先级分析。",
+      "href": "/chat/agent"
+    },
+    {
+      "title": "补真实 annotations/SIFTS",
+      "description": "后续把真实注释和位点映射接到这个案例上，形成可复用评测链路。",
+      "href": "/data"
+    }
+  ],
+  "paths": {
+    "source_bundle_dir": "Venus-15B淀粉酶项目",
+    "incoming_alphafold_dir": "Venus-15B淀粉酶项目/incoming/alphafold",
+    "incoming_sifts_dir": "Venus-15B淀粉酶项目/incoming/sifts",
+    "incoming_annotations_dir": "Venus-15B淀粉酶项目/incoming/annotations",
+    "incoming_reference_docs_dir": "Venus-15B淀粉酶项目/incoming/reference_docs",
+    "incoming_reference_doc_manifest_file": "Venus-15B淀粉酶项目/incoming/reference_docs/selected_manifest.json",
+    "discovery_report_file": "Venus-15B淀粉酶项目/incoming/discovery/asset_inventory.json",
+    "background_file": "Venus-15B淀粉酶项目/淀粉酶背景.txt",
+    "sequence_file": "Venus-15B淀粉酶项目/淀粉酶15B序列.txt",
+    "original_structure_file": "Venus-15B淀粉酶项目/15B-AAP-noCa.pdb",
+    "deploy_structure_file": "deploy_data/pdb/local_cases/15B-AAP-noCa.pdb",
+    "deploy_alphafold_dir": "deploy_data/alphafold/local_cases/venus-15b",
+    "deploy_sifts_dir": "deploy_data/sifts/local_cases/venus-15b",
+    "deploy_annotations_dir": "deploy_data/annotations/local_cases/venus-15b",
+    "deploy_bundle_dir": "deploy_data/benchmarks/venus-15b",
+    "deploy_bundle_manifest_file": "deploy_data/benchmarks/venus-15b/bundle_manifest.json",
+    "deploy_bundle_archive_file": "deploy_data/benchmarks/venus-15b.tar.gz"
+  },
+  "status": {
+    "pdb_staged": true,
+    "alphafold_ready": false,
+    "sifts_ready": false,
+    "annotations_ready": false,
+    "foldseek_indexed": true
+  }
+}

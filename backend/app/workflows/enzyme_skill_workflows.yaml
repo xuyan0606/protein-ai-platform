@@ -1,0 +1,168 @@
+# Runtime-adapted subset of delivery package C6.
+# Tool names here are limited to tools registered by this repository revision.
+# Missing capabilities remain explicit in the workflow metadata and are never
+# silently represented as executed steps.
+schema_version: "1.0"
+source: "交付包_最新完整版_20260906/C6_enzyme_skill_workflows_机器可读.yaml"
+workflows:
+  - skill_id: enzyme_specific_activity_runtime_v1
+    objective: specific_activity
+    triggers: ["比活力", "催化效率", "kcat", "specific activity", "catalytic efficiency"]
+    missing_capabilities: [rosetta_ddg, validated_km_model]
+    stages:
+      - id: 0
+        name: input_gate
+        tools: [enzyme_input_gate]
+        gates:
+          - type: requires_sequence
+            message: "比活力工作流需要氨基酸序列"
+      - id: 1
+        name: identity_and_baseline
+        tools: [annotation_bundle, interproscan_sequence_submit, blast_search, catalytic_site_lookup, enzyme_identity_profile, enzyme_objective_module_plan, protein_benchmark, residue_numbering_gate, esmfold_folding, predict_properties]
+        gates:
+          - type: requires_sequence
+            message: "身份与基线阶段需要氨基酸序列"
+      - id: 2
+        name: catalytic_efficiency_core
+        tools: [mutation_scan, mutation_priority_score, enzyme_assistant_recommend, enzyme_assistant_build]
+        gates:
+          - type: requires_completed_stage
+            stage_id: 1
+            message: "身份与基线阶段未完成，禁止进入催化效率阶段"
+      - id: 3
+        name: delivery_evidence
+        tools: []
+        gates:
+          - type: requires_completed_stage
+            stage_id: 2
+            message: "催化效率阶段未完成，禁止生成交付结论"
+
+  - skill_id: enzyme_thermostability_runtime_v1
+    objective: thermostability
+    triggers: ["热稳定性", "热稳定", "耐热", "thermostability", "melting temperature", "tm", "thermal stability", "heat stability"]
+    missing_capabilities: [validated_target_family_screening_benefit]
+    stages:
+      - id: 0
+        name: input_gate
+        tools: [enzyme_input_gate]
+        gates:
+          - type: requires_sequence
+            message: "热稳定性工作流需要明确的输入序列及测定目标"
+      - id: 1
+        name: identity_and_baseline
+        tools: [annotation_bundle, catalytic_site_lookup, enzyme_identity_profile, enzyme_objective_module_plan]
+        gates:
+          - type: requires_sequence
+            message: "身份核验需要氨基酸序列；结构和注释只能绑定同一输入"
+      - id: 2
+        name: stability_evidence_core
+        tools: [thermostability_candidate_workflow]
+        gates:
+          - type: requires_completed_stage
+            stage_id: 1
+            message: "先完成身份核验；候选工具继续核验目标、编号及功能保护"
+      - id: 3
+        name: activity_guardrail
+        tools: []
+        gates:
+          - type: requires_completed_stage
+            stage_id: 2
+            message: "单突变实验方案需同时约束热稳定性终点和活性保留"
+
+  - skill_id: enzyme_stability_runtime_v1
+    objective: stability
+    triggers: ["稳定性", "稳定", "stability"]
+    missing_capabilities: [get_stability_data, endpoint_specific_stability_model, validated_stability_assay]
+    stages:
+      - id: 0
+        name: input_gate
+        tools: [enzyme_input_gate]
+        gates:
+          - type: requires_sequence
+            message: "稳定性工作流需要氨基酸序列"
+      - id: 1
+        name: identity_and_baseline
+        tools: [annotation_bundle, interproscan_sequence_submit, blast_search, catalytic_site_lookup, enzyme_identity_profile, enzyme_objective_module_plan, protein_benchmark, residue_numbering_gate, esmfold_folding, predict_properties]
+        gates:
+          - type: requires_sequence
+            message: "身份与基线阶段需要氨基酸序列"
+      - id: 2
+        name: stability_evidence_core
+        tools: [disulfide_saltbridge_scan, mutation_scan, mutation_priority_score, gromacs_md]
+        gates:
+          - type: requires_completed_stage
+            stage_id: 1
+            message: "身份与基线阶段未完成，禁止进入稳定性阶段"
+      - id: 3
+        name: activity_guardrail
+        tools: []
+        gates:
+          - type: requires_completed_stage
+            stage_id: 2
+            message: "稳定性阶段未完成，禁止生成交付结论"
+
+  - skill_id: enzyme_expression_secretion_runtime_v1
+    objective: expression_secretion
+    triggers: ["表达", "分泌", "可溶性", "expression", "secretion", "solubility"]
+    missing_capabilities: []
+    stages:
+      - id: 0
+        name: input_gate
+        tools: [enzyme_input_gate]
+        gates:
+          - type: requires_sequence
+            message: "表达/分泌工作流需要氨基酸序列"
+          - type: requires_host
+            message: "表达/分泌工作流需要指定宿主：毕赤酵母 GS115 或地衣芽孢杆菌"
+      - id: 1
+        name: identity_and_baseline
+        tools: [annotation_bundle, interproscan_sequence_submit, blast_search, enzyme_identity_profile, enzyme_objective_module_plan, protein_benchmark, predict_properties]
+        gates:
+          - type: requires_sequence
+            message: "身份与基线阶段需要氨基酸序列"
+      - id: 2
+        name: solubility_design
+        tools: [codon_optimize, secretion_efficiency_predict, host_expression_yield_predict, soluble_mpnn_design, predict_properties]
+        gates:
+          - type: requires_completed_stage
+            stage_id: 1
+            message: "身份与基线阶段未完成，禁止进入表达设计阶段"
+      - id: 3
+        name: delivery_evidence
+        tools: []
+        gates:
+          - type: requires_completed_stage
+            stage_id: 2
+            message: "表达设计阶段未完成，禁止生成交付结论"
+
+  - skill_id: enzyme_substrate_specificity_runtime_v1
+    objective: substrate_specificity
+    triggers: ["底物特异性", "底物谱", "底物偏好", "substrate specificity", "substrate preference"]
+    missing_capabilities: [validated_tunnel_engine]
+    stages:
+      - id: 0
+        name: input_gate
+        tools: [enzyme_input_gate]
+        gates:
+          - type: requires_sequence
+            message: "底物特异性工作流需要氨基酸序列"
+      - id: 1
+        name: identity_and_baseline
+        tools: [annotation_bundle, interproscan_sequence_submit, blast_search, catalytic_site_lookup, enzyme_identity_profile, enzyme_objective_module_plan, substrate_search, protein_benchmark, residue_numbering_gate, esmfold_folding, predict_properties]
+        gates:
+          - type: requires_sequence
+            message: "身份与基线阶段需要氨基酸序列"
+      - id: 2
+        name: docking_and_mutation_context
+        tools: [pocket_residue_lookup, sequence_search, mutation_scan, mutation_priority_score]
+        gates:
+          - type: requires_completed_stage
+            stage_id: 1
+            message: "身份与基线阶段未完成，禁止进入底物特异性阶段"
+      - id: 3
+        name: delivery_evidence
+        tools: [protein_benchmark]
+        gates:
+          - type: requires_completed_stage
+            stage_id: 2
+            message: "底物特异性阶段未完成，禁止生成交付结论"

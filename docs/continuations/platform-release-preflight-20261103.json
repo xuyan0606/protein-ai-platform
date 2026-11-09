@@ -1,0 +1,248 @@
+{
+  "observed_at": "2026-11-03T00:13:03.375389Z",
+  "decision": "no_go",
+  "candidate_source_commit": "08f2f72068fb7d0f1ea22fb0c8b1c95a8f3b129c",
+  "candidate_application_commit": "1e5e8d304dfc1b6fdf85472ba946ea6cddfef20d",
+  "production_observation": {
+    "local_record_release": "20261020T232642Z-0421817d-gpt-recovery",
+    "server_top_record_release": "20261022-quality-report-373e45d7",
+    "current_symlink": "/opt/protein-ai-platform/releases/20261030T005847Z-theoretical-model-identity/protein-ai-platform",
+    "current_record_release": "20261030-theoretical-model-identity-710b4ff7",
+    "actual_backend_release": "/opt/protein-ai-platform/releases/20261030T034747Z-identity-evidence-tier/protein-ai-platform",
+    "actual_backend_release_id": "20261030-identity-evidence-tier-b728d4ca",
+    "running_containers": [
+      {
+        "health": "healthy",
+        "image_id": "sha256:540798f81804ecad942461e4fb60466eb126c78c376465c4f7088339a76a7721",
+        "name": "/docker-backend-1",
+        "restarts": 0,
+        "status": "running"
+      },
+      {
+        "health": "healthy",
+        "image_id": "sha256:540798f81804ecad942461e4fb60466eb126c78c376465c4f7088339a76a7721",
+        "name": "/docker-worker-1",
+        "restarts": 0,
+        "status": "running"
+      },
+      {
+        "health": "healthy",
+        "image_id": "sha256:540798f81804ecad942461e4fb60466eb126c78c376465c4f7088339a76a7721",
+        "name": "/docker-md-worker-1",
+        "restarts": 0,
+        "status": "running"
+      },
+      {
+        "health": "healthy",
+        "image_id": "sha256:847dbefcb1fe0088ace36fb02f8c4030d0be9b5e687712f4a046cceeb51465eb",
+        "name": "/docker-frontend-1",
+        "restarts": 0,
+        "status": "running"
+      },
+      {
+        "health": "healthy",
+        "image_id": "sha256:f0ba77f796e57c6fa89ae7f4fdad1665d6fcbd8e3f211535120542b337f9959e",
+        "name": "/docker-nginx-1",
+        "restarts": 0,
+        "status": "running"
+      },
+      {
+        "health": "healthy",
+        "image_id": "sha256:22d409871abc77d81b8d47334f9928fd1c9271c6404b6a27fda86b9cdc4e9153",
+        "name": "/docker-ligand-worker-1",
+        "restarts": 0,
+        "status": "running"
+      },
+      {
+        "health": "healthy",
+        "image_id": "sha256:0b5fb8a31a55b51acdbbdc83d6ec4c54309f6c90381f4dc2483601cc76d453d7",
+        "name": "/docker-chromadb-1",
+        "restarts": 0,
+        "status": "running"
+      },
+      {
+        "health": "healthy",
+        "image_id": "sha256:93c7d0025bdcfd640bc176dda28284cadaabaea1d24a0075b6da6c3d381a5ee6",
+        "name": "/docker-outline-1",
+        "restarts": 0,
+        "status": "running"
+      }
+    ],
+    "all_running_images_match_actual_backend_release_record": true,
+    "http_health": {
+      "body": {
+        "message": "服务正常",
+        "service": "protein-ai-platform",
+        "status": "ok",
+        "tools_registered": 62,
+        "version": "0.1.0"
+      },
+      "status": 200
+    },
+    "backend_runtime_files_verified": 234,
+    "runtime_release_mismatches": [],
+    "frontend_entry": {
+      "path": "assets/index-DkCwLw5i.js",
+      "sha256": "9a6cdccd7fab0598c2cccbf6a8e619d4a24382110c8b717c81a3cab8cdecce3c"
+    },
+    "frontend_source_equivalence_verified": false
+  },
+  "source_review": {
+    "baseline": "0421817d37b63a4fb69587a69ee926cec9f7d168",
+    "categories": {
+      "online_only_change_missing_from_candidate": [
+        "backend/app/services/tool_orchestration_contract.py",
+        "backend/app/services/strategy_checkpoint.py",
+        "backend/app/services/pdb_parser.py",
+        "backend/app/services/structure_strategy.py",
+        "backend/app/services/structure_intent.py",
+        "backend/app/services/structure_questions.py",
+        "backend/app/services/evidence_scope.py",
+        "backend/app/services/structure_records.py",
+        "backend/app/tools/ligand_contact_analysis.py",
+        "backend/app/tools/enzyme_identity_profile.py",
+        "backend/app/tools/structure_search_foldseek.py",
+        "backend/app/tools/residue_mapping_sifts.py",
+        "backend/app/tools/structure_pocket_interface_analysis.py",
+        "backend/app/tools/mutation_priority_score.py",
+        "backend/app/tools/site_structure_function_features.py",
+        "backend/app/core/config.py",
+        "backend/app/core/llm_registry.py",
+        "backend/app/api/tools.py",
+        "backend/app/api/chat.py",
+        "backend/app/api/pdb.py"
+      ],
+      "candidate_only_change": [
+        "backend/app/services/property_workflow_governance.py",
+        "backend/app/services/report_generator.py",
+        "backend/app/services/report_quality_contract.py",
+        "backend/app/tools/tool_capability_audit.py",
+        "backend/app/tools/registry.py",
+        "backend/app/main.py",
+        "backend/app/api/publish.py"
+      ],
+      "both_changed_requires_review": [
+        "backend/app/services/task_evidence.py",
+        "backend/app/services/enzyme_workflow_runtime.py",
+        "backend/app/core/agent_graph.py"
+      ]
+    },
+    "candidate_only_new_files": [
+      "backend/app/api/capabilities.py",
+      "backend/app/core/execution_context.py",
+      "backend/app/core/tool_outcome.py",
+      "backend/app/core/workflows.py",
+      "backend/app/services/enzyme_task_context.py",
+      "backend/app/services/model_artifact_registry.py",
+      "backend/app/tools/codon_optimize.py",
+      "backend/app/tools/enzyme_assistant_predict.py",
+      "backend/app/tools/enzyme_input_gate.py",
+      "backend/app/tools/expression_screening.py",
+      "backend/app/tools/ph_opt_predict.py",
+      "backend/app/tools/prediction_model_adapters.py",
+      "backend/app/tools/stability_feature_scan.py",
+      "backend/app/tools/substrate_search.py",
+      "backend/app/tools/substrate_tunnel_analysis.py",
+      "backend/app/tools/thermompnn_predict.py",
+      "backend/app/tools/wetlab_result_ingest.py",
+      "backend/app/workflows/enzyme_skill_workflows.yaml"
+    ]
+  },
+  "package": {
+    "status": "audit_only_not_release_ready",
+    "source_commit": "08f2f72068fb7d0f1ea22fb0c8b1c95a8f3b129c",
+    "source_tree": "3798b4bb34fe95531fde0446bbd40d58e84a0176",
+    "file_count": 706,
+    "bundle": "output/release-preflight-20261103/packages/protein-ai-platform-20261103T001128Z-08f2f7206.tar.gz",
+    "sha256": "b4544edcd1174dc62adc2a045ddbdc9dcd3c8fac847d4129c79a42676c86aefa",
+    "all_file_hashes_match_git_archive": true,
+    "release_manifest_present": false,
+    "pushed": false,
+    "deployed": false
+  },
+  "rollback": {
+    "actual_release_assets": {
+      "/opt/protein-ai-platform/increments/20261030-identity-evidence-tier-b728d4ca/rollback/backend/app/services/pdb_parser.py": {
+        "bytes": 16033,
+        "sha256": "2f7ea49b90a7b64d103510555cba861500994235650fc4ef0efdfbedc24e53f0"
+      },
+      "/opt/protein-ai-platform/increments/20261030-identity-evidence-tier-b728d4ca/rollback/backend/app/tools/enzyme_identity_profile.py": {
+        "bytes": 34730,
+        "sha256": "0f786d4bc29daa78207c27c5b93a841e3b9d0639e965d4326f6c9ecd78082181"
+      },
+      "/opt/protein-ai-platform/increments/20261030-identity-evidence-tier-b728d4ca/rollback/before-sha256.txt": {
+        "bytes": 400,
+        "sha256": "be591c83ce4e87f9fc22fd62148a38f8f45e71aece015b2349be8e0dc1216364"
+      },
+      "/opt/protein-ai-platform/releases/20261030T034747Z-identity-evidence-tier/protein-ai-platform/COMPOSE-IMAGES.lock.yml": {
+        "bytes": 769,
+        "sha256": "df773430d50cdab91ee5cfbb8669b61a4d8a721d1c4aa5fe4beab81f9f23f238"
+      },
+      "/opt/protein-ai-platform/releases/20261030T034747Z-identity-evidence-tier/protein-ai-platform/COMPOSE-PROXY.lock.yml": {
+        "bytes": 434,
+        "sha256": "83cf0f7b18d60a3222e7223b4f854076efe206852519629ae775e767995adfc4"
+      },
+      "/opt/protein-ai-platform/releases/20261030T034747Z-identity-evidence-tier/protein-ai-platform/rollback-previous.py": {
+        "bytes": 1681,
+        "sha256": "2bd3fe61e2609570cd1cf96bd70bf6b5ca70e694bb82e877a1618b691607a92d"
+      }
+    },
+    "older_image_archive": {
+      "path": "/opt/protein-ai-platform/candidates/0cc380a4-frontend-20261020/rollback/images.tar.gz",
+      "bytes": 475837740,
+      "sha256": "626c96f18fce142cf0ed8bfa66926b9ace3c7e0dd7de83d1cb8fc8d533a0802b"
+    },
+    "older_archive_expected_sha256": "626c96f18fce142cf0ed8bfa66926b9ace3c7e0dd7de83d1cb8fc8d533a0802b",
+    "database_backup": {
+      "checksum_matches": true,
+      "fresh_for_release": false,
+      "path": "/opt/protein-ai-platform/backups/protein_ai_pre_20261019_7b0ed23b.dump",
+      "sha256": "6f0dbafc7fa5a2a0252b7763c8f184e63e02c104e74f62c18b6db733af8d1fbd"
+    },
+    "actual_running_app_images_present": true,
+    "actual_running_app_image_registry_digests_present": false,
+    "current_release_external_archive_verified": false,
+    "rollback_script_target_compatibility_verified": false,
+    "restore_drill_executed": false
+  },
+  "database": {
+    "alembic_versions": [
+      "20260917_0004"
+    ],
+    "revision_present_in_candidate_graph": false,
+    "public_tables": 51,
+    "public_indexes": 185,
+    "migration_object_audit": {
+      "complete_migrations": 15,
+      "incomplete_migrations": 0,
+      "pending_objects": []
+    },
+    "audit_scope": "Literal create_table/create_index names only; no column/constraint/type or migration execution validation."
+  },
+  "blockers": [
+    "Production pointers and actual runtime disagree; candidate omits 20 online file changes and 3 overlapping files require merge review.",
+    "Formal registry digests and RELEASE-MANIFEST.json absent; no new HTTPS acceptance evidence.",
+    "No fresh pre-release backup or verified external archive for actual running application images; rollback script target needs review.",
+    "Production Alembic revision is absent from candidate graph; schema-name inventory is not complete schema compatibility."
+  ],
+  "actions": {
+    "remote_read_only": true,
+    "pushed": false,
+    "deployed": false,
+    "production_pointer_changed": false,
+    "database_changed": false
+  },
+  "prior_tests": "1211 backend and frontend checks belong to the prior candidate; not rerun and not evidence for an integrated release.",
+  "evidence_sha256": {
+    "active-release.json": "3420a2ede5976478df1da6b9861c105fb42b5caf5b0f74604efc2b90885f4f02",
+    "candidate-package-verification.json": "59a15a546f2ce066828b5f88aeb74c540e343001bccbf9487bbd39f5221f5268",
+    "database-inventory.json": "019f31868261261932b9167ad31fff25bf8534ca290fa9769c14501a6a7ee678",
+    "database-migration-audit.json": "f1905192c0cb72a9f1857704f266efbcc8d849ace5bf1250660e4f2b40023473",
+    "drift-comparison.json": "77083599c7e0ec687e4ae390a569aa66e61b303e625e01b6f9be263272dfa763",
+    "remote-preflight.json": "78ff2ddd1d3473f924255fbd2531d69b6a4c2c3efbfea79f913b2d1484be73c5",
+    "runtime-backend.tar.gz": "fe97e590e6f9bc35c197e5d9f9f9b9c1051e9fa8868f83dd43a608bc398771c8",
+    "runtime-comparison.json": "875167c732619e9ea35f8760824f23922e41be15fa19df267977bed0b8874850",
+    "runtime-details.json": "d9af40bfd7d68494e1d9b171cc27e693676f2bae57ac595e8c5d574a9bf5f78f",
+    "three-way-source-review.json": "945e2d8b7cd3125ed7f3ae422a2dea981ea6b63efe417d7e697e46405de8a0f4"
+  }
+}

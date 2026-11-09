@@ -1,0 +1,63 @@
+[
+  {
+    "taxonomy": {
+      "ncbi_taxid": 1423,
+      "scientific_name": "Bacillus subtilis",
+      "common_name": "subtilis"
+    },
+    "enzyme": {
+      "uniprot_id": "DEMO388A",
+      "entry_name": "EST388_DEMO",
+      "sequence": "APAQIVGRSTFQIDQVASGKVYKNGPMAMMQTYNKYAHVGAVAPAAVVAAAAAAQTGEVSANPEQYDESYLCPVTIGDQTLNLDFDTGSADLWVFSTLTPSSESTGHTLYNPADSGTEKQGYTWNITYGDGSGAAGVVYADKVVVGGVTATSQAVEAATSVSSEFTQDTKNDGLLGLAFSSINTVQPVQQTTFFDTVKDTLAKKLFTADLKKGAAGSYGFGYIDSSKYTGTITYVPVNNENGFWQFTAGGYSIGGGNGTSGSNATTGSIGTSIADTGTTLLLLPSNVVTAYYKQVSGASYNSAQGGYTYPCGATLPDFNVAIGGKTFVVPGTDLNYAPINSAGTTCFGGIQANTGIGFNIFGDIFLKSVYAVFDQTQSSPRLGFAEQS",
+      "protein_name": "388aa esterase engineering demo",
+      "gene_name": "est388",
+      "description": "Local curation demo entry for esterase engineering workflows.",
+      "function_annotation": "Predicted lipase/esterase with alpha/beta hydrolase catalytic motif.",
+      "catalytic_activity": "Putative ester hydrolysis reaction.",
+      "source_db": "local_demo",
+      "is_reviewed": true
+    },
+    "ec_numbers": [
+      {
+        "ec_number": "3.1.1.3",
+        "name": "Triacylglycerol lipase",
+        "category": "Hydrolase",
+        "level1": "3",
+        "level2": "3.1",
+        "level3": "3.1.1",
+        "is_primary": true
+      }
+    ],
+    "pfam_domains": [
+      {
+        "pfam_id": "PF00561",
+        "name": "Abhydrolase_1",
+        "description": "Alpha/beta hydrolase fold",
+        "start_pos": 42,
+        "end_pos": 378,
+        "evalue": 1e-45
+      }
+    ]
+  },
+  {
+    "taxonomy": {
+      "ncbi_taxid": 224308,
+      "scientific_name": "Bacillus licheniformis",
+      "common_name": "licheniformis"
+    },
+    "enzyme": {
+      "uniprot_id": "SIGDEMO1",
+      "entry_name": "SECPROT_DEMO",
+      "sequence": "MKKRLFALALALALAGCAQAASAPVAVDNGTQATVTVEGQTQNNGSATWQITGGTNVGSVSGYTVNANNNQLSLNQAGATYVVTNNGTSVVAASTQGATVKVNAASTGGTIAVVTNNAGQTVVVSGQ",
+      "protein_name": "Secreted enzyme signal peptide demo",
+      "gene_name": "sec_demo",
+      "description": "Local positive-control entry for signal peptide and secretion feasibility display.",
+      "function_annotation": "Secreted enzyme-like demo sequence with strong N-terminal signal peptide.",
+      "catalytic_activity": "Demonstration-only entry for secretion screening.",
+      "source_db": "local_demo",
+      "is_reviewed": true
+    },
+    "ec_numbers": [],
+    "pfam_domains": []
+  }
+]

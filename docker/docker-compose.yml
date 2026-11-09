@@ -1,0 +1,533 @@
+# ---------------------------------------------------------------------------
+# Protein AI Platform — Docker Compose
+# ---------------------------------------------------------------------------
+#   docker compose --env-file .env up -d
+#
+# Services communicate over the internal `app_network` bridge.  Hostnames
+# match service names: postgres, redis, minio, chromadb, backend, etc.
+# ---------------------------------------------------------------------------
+
+services:
+  # =========================================================================
+  # Nginx — reverse proxy (entry point for all HTTP traffic)
+  # =========================================================================
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "4200:8080"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    networks:
+      - app_network
+    depends_on:
+      frontend:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1/nginx-health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  # =========================================================================
+  # Frontend — React SPA served by a lightweight Nginx inside the container
+  # =========================================================================
+  frontend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.frontend
+    networks:
+      - app_network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3000/"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  storage-init:
+    image: docker-backend:latest
+    user: "0:0"
+    command: ["sh", "-lc", "mkdir -p /app/storage /app/ligand_storage && chown -R 999:999 /app/storage /app/ligand_storage"]
+    volumes:
+      - upload_storage:/app/storage
+      - ligand_scratch:/app/ligand_storage
+    networks:
+      - app_network
+    restart: "no"
+
+  # =========================================================================
+  # Backend — FastAPI application server
+  # =========================================================================
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    expose:
+      - "8000"
+    networks:
+      - app_network
+    env_file:
+      - .env
+      - .env.deploy-data
+    environment:
+      # Infrastructure hostnames (override localhost defaults)
+      HOME: /app
+      THERMOMPNN_SERVICE_URL: http://host.docker.internal:8100
+      P2RANK_SERVICE_URL: http://host.docker.internal:8101
+      CAVER_SERVICE_URL: http://host.docker.internal:8102
+      FPOCKET_SERVICE_URL: http://host.docker.internal:8103
+      ROSETTA_SERVICE_URL: http://host.docker.internal:8104
+      ENZYME_ASSISTANT_SERVICE_URL: http://host.docker.internal:8105
+      DEPLOY_DATA_ROOT: /app/deploy_data
+      POSTGRES_HOST: postgres
+      REDIS_HOST: redis
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      CHROMA_HOST: chromadb
+      CHROMA_PORT: 8000
+      ML_MODEL_CACHE_DIR: /app/.model_cache
+      USE_SQLITE: "false"
+      # Allow Docker-host browser origins
+      CORS_ORIGINS: ${CORS_ORIGINS:-["http://localhost:4200","https://8.139.255.194","https://proteinai.kevibotech.com"]}
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-http://localhost:4200}
+      OIDC_ISSUER: ${PUBLIC_BASE_URL:-http://localhost:4200}
+      OIDC_PRIVATE_KEY_PATH: /run/secrets/oidc_private_key.pem
+      OIDC_PUBLIC_KEY_PATH: /run/secrets/oidc_public_key.pem
+      FRONTEND_URL: ${PUBLIC_BASE_URL:-http://localhost:4200}
+      OUTLINE_PUBLIC_URL: ${OUTLINE_PUBLIC_URL:-http://localhost:4200/wiki}
+      # Outline proxy — backend forwards unmatched routes to Outline for iframe embedding
+      OUTLINE_URL: http://outline:3001
+      OUTLINE_WS_URL: ws://outline:3001
+    volumes:
+      - model_cache:/app/.model_cache
+      - upload_storage:/app/storage
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+    secrets:
+      - source: oidc_private_key
+        target: oidc_private_key.pem
+        mode: 0444
+      - source: oidc_public_key
+        target: oidc_public_key.pem
+        mode: 0444
+    depends_on:
+      storage-init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8000/api/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  # =========================================================================
+  # Worker — Celery task runner for default async tools
+  # =========================================================================
+  worker:
+    image: docker-backend:latest
+    command:
+      [
+        "celery",
+        "-A",
+        "app.services.scheduler",
+        "worker",
+        "--loglevel=info",
+        "--queues=default",
+        "--concurrency=${CELERY_DEFAULT_WORKER_CONCURRENCY:-4}"
+      ]
+    networks:
+      - app_network
+    env_file:
+      - .env
+      - .env.deploy-data
+    environment:
+      DEPLOY_DATA_ROOT: /app/deploy_data
+      POSTGRES_HOST: postgres
+      REDIS_HOST: redis
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      OIDC_PRIVATE_KEY_PATH: /run/secrets/oidc_private_key.pem
+      OIDC_PUBLIC_KEY_PATH: /run/secrets/oidc_public_key.pem
+    volumes:
+      - upload_storage:/app/storage
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+    secrets:
+      - source: oidc_private_key
+        target: oidc_private_key.pem
+        mode: 0444
+      - source: oidc_public_key
+        target: oidc_public_key.pem
+        mode: 0444
+    depends_on:
+      storage-init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.services.scheduler", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  # =========================================================================
+  # MD Worker — dedicated queue for real GROMACS long-running jobs
+  # =========================================================================
+  md-worker:
+    image: docker-backend:latest
+    command:
+      [
+        "celery",
+        "-A",
+        "app.services.scheduler",
+        "worker",
+        "--loglevel=info",
+        "--queues=md_cpu",
+        "--concurrency=${CELERY_MD_WORKER_CONCURRENCY:-1}"
+      ]
+    networks:
+      - app_network
+    env_file:
+      - .env
+      - .env.deploy-data
+    environment:
+      DEPLOY_DATA_ROOT: /app/deploy_data
+      POSTGRES_HOST: postgres
+      REDIS_HOST: redis
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    volumes:
+      - upload_storage:/app/storage
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+    depends_on:
+      storage-init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.services.scheduler", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+    # GPU access (uncomment if needed):
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+  # =========================================================================
+  # Ligand Worker — dedicated queue for 2D->3D, docking prep, and ligand topology
+  # =========================================================================
+  ligand-worker:
+    # ACPYPE bundles x86_64 AmberTools; keep this queue on the amd64 worker.
+    platform: linux/amd64
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.ligand-worker
+    command:
+      [
+        "celery",
+        "-A",
+        "app.services.scheduler",
+        "worker",
+        "--loglevel=info",
+        "--queues=ligand_cpu",
+        "--concurrency=${CELERY_LIGAND_WORKER_CONCURRENCY:-1}"
+      ]
+    networks:
+      - app_network
+    env_file:
+      - .env
+      - .env.deploy-data
+    environment:
+      DEPLOY_DATA_ROOT: /app/deploy_data
+      POSTGRES_HOST: postgres
+      REDIS_HOST: redis
+      MINIO_ENDPOINT: minio:9000
+      MINIO_ACCESS_KEY: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      GROMACS_BIN: ${GROMACS_BIN:-gmx}
+      AMBERHOME: ${AMBERHOME:-/opt/ambertools}
+      LIGAND_RUNTIME_BOUNDARY: ligand_worker_only
+      LIGAND_RUNTIME_CHECK: /usr/local/bin/ligand-runtime-check
+    volumes:
+      - ${DEPLOY_DATA_HOST_PATH:-../deploy_data}:/app/deploy_data:ro
+      - ligand_scratch:/app/storage
+    depends_on:
+      storage-init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "celery", "-A", "app.services.scheduler", "inspect", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  # =========================================================================
+  # PostgreSQL 16 with pgvector extension
+  # =========================================================================
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-protein_ai}
+      # Trust auth for Docker network — eliminates pg_hba.conf issues on container recreation
+      POSTGRES_HOST_AUTH_METHOD: trust
+    # No public port — only accessible within app_network
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # Auto-create outline database on first start
+      - ./init-db.sql:/docker-entrypoint-initdb.d/10-create-outline-db.sql:ro
+      # Trusted pg_hba.conf — enforced on every healthcheck (survives restarts)
+      - ./pg_hba.conf:/etc/postgresql/pg_hba.conf:ro
+    networks:
+      - app_network
+    # Healthcheck enforces trust auth on EVERY startup (POSTGRES_HOST_AUTH_METHOD
+    # only works on first init, so we patch pg_hba.conf via healthcheck)
+    healthcheck:
+      test: ["CMD-SHELL", "cp /etc/postgresql/pg_hba.conf /var/lib/postgresql/data/pg_hba.conf && pg_ctl reload -D /var/lib/postgresql/data -s 2>/dev/null; pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-protein_ai}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  # =========================================================================
+  # Redis 7 — message broker (Celery) & cache
+  # =========================================================================
+  redis:
+    image: redis:7-alpine
+    # No public port — only accessible within app_network
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    networks:
+      - app_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+  # =========================================================================
+  # MinIO — S3-compatible object storage (file uploads / artifacts)
+  # =========================================================================
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+    # No public ports — S3 API and console only accessible within app_network
+    volumes:
+      - minio_data:/data
+    networks:
+      - app_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:9000/minio/health/live"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+    stop_grace_period: 10s
+
+  # =========================================================================
+  # Outline — team knowledge base (OIDC auth via our backend)
+  # =========================================================================
+  outline:
+    image: outlinewiki/outline:latest
+    expose:
+      - "3001"
+    environment:
+      # Database (shared PostgreSQL, separate database)
+      DATABASE_URL: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/outline
+      PGSSLMODE: disable
+      DATABASE_URL_TEST: postgres://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/outline_test
+      # Redis (shared, DB 1 for Outline)
+      REDIS_URL: redis://redis:6379/1
+      # S3 storage (shared MinIO)
+      AWS_ACCESS_KEY_ID: ${MINIO_ROOT_USER:-minioadmin}
+      AWS_SECRET_ACCESS_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      AWS_REGION: us-east-1
+      AWS_S3_UPLOAD_BUCKET_NAME: outline-uploads
+      AWS_S3_UPLOAD_BUCKET_URL: http://minio:9000
+      AWS_S3_FORCE_PATH_STYLE: "true"
+      AWS_S3_ACL: private
+      # OIDC authentication (HTTPS in production)
+      OIDC_CLIENT_ID: protein-ai
+      OIDC_CLIENT_SECRET: ${OIDC_CLIENT_SECRET:-72133a323ffc0ae1ff449fcabec9368a44dd6bddc59eaca21c9afefcb7a6aee9}
+      OIDC_AUTH_URI: ${PUBLIC_BASE_URL:-http://localhost:4200}/api/oidc/authorize
+      OIDC_TOKEN_URI: http://backend:8000/api/oidc/token
+      OIDC_USERINFO_URI: http://backend:8000/api/oidc/userinfo
+      OIDC_LOGOUT_URI: ${PUBLIC_BASE_URL:-http://localhost:4200}/api/oidc/logout
+      OIDC_DISPLAY_NAME: Protein AI
+      OIDC_SCOPES: openid profile email
+      # Application
+      SECRET_KEY: ${OUTLINE_SECRET_KEY:-dea6e90a6667d16e5f62183bfebe74b74bd67b548826d64667a83dd16d13e31b}
+      UTILS_SECRET: ${OUTLINE_UTILS_SECRET:-ef9ab5004c76cb85665254b57c0305089638f14816698eac237dcbd401e2091c}
+      URL: ${OUTLINE_PUBLIC_URL:-http://localhost:4200/wiki/}
+      PORT: 3001
+      FORCE_HTTPS: "false"
+      NODE_ENV: production
+      FILE_STORAGE: s3
+      RATE_LIMITER_ENABLED: "false"
+    volumes:
+      - outline_data:/var/lib/outline/data
+      - ./outline-passport-patched.js:/opt/outline/build/server/utils/passport.js
+    networks:
+      - app_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3001/auth/login"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+    # Outline needs a separate 'outline' database — created by init_outline.sh
+    # Run migrations on first start:
+    #   docker compose exec outline yarn db:migrate
+
+  # =========================================================================
+  # ChromaDB — vector database (embeddings for semantic search / RAG)
+  # =========================================================================
+  chromadb:
+    image: chromadb/chroma:0.6.3
+    # No public port — only accessible within app_network
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+    networks:
+      - app_network
+    healthcheck:
+      test: ["CMD-SHELL", "grep -q ':1F40 ' /proc/net/tcp"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: unless-stopped
+
+# ===========================================================================
+# Named volumes (persistent data that survives container recreation)
+# ===========================================================================
+volumes:
+  pgdata:
+    external: true
+    name: backend_pgdata
+  redis_data:
+  minio_data:
+  chroma_data:
+  model_cache:
+  outline_data:
+  ligand_scratch:
+  upload_storage:
+
+secrets:
+  oidc_private_key:
+    file: ${OIDC_PRIVATE_KEY_HOST_PATH:-../backend/oidc_private_key.pem}
+  oidc_public_key:
+    file: ${OIDC_PUBLIC_KEY_HOST_PATH:-../backend/oidc_public_key.pem}
+
+# ===========================================================================
+# Networks
+# ===========================================================================
+networks:
+  app_network:
+    driver: bridge

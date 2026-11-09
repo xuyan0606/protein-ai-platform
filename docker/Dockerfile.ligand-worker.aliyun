@@ -1,0 +1,73 @@
+# syntax=docker/dockerfile:1.6
+# =============================================================================
+# Protein AI Platform — Aliyun Ligand Worker Overlay
+# =============================================================================
+# Builds on the already prepared Aliyun backend image to avoid re-building the
+# full Python application layer on ECS. This image only adds the chemistry
+# runtime required by the ligand_cpu queue.
+# =============================================================================
+
+FROM protein-ai-backend:aliyun
+
+USER root
+ENV DEBIAN_FRONTEND=noninteractive
+ARG TARGETARCH
+ENV GROMACS_BIN="gmx"
+ENV GMX_MAXBACKUP="-1"
+ENV AMBERHOME="/opt/venv/lib/python3.12/site-packages/acpype/amber_linux"
+ENV PATH="${AMBERHOME}/bin:/opt/venv/bin:$PATH"
+ENV LIGAND_RUNTIME_BOUNDARY="ligand_worker_only"
+ENV LIGAND_RUNTIME_CHECK="/usr/local/bin/ligand-runtime-check"
+
+# The base backend image already carries GROMACS and the application venv.
+# Keep this overlay narrow: OpenBabel + Vina from the OS mirror, ACPYPE/RDKit
+# from the configured PyPI mirror. On x86_64 ECS, ACPYPE exposes bundled
+# AmberTools commands such as antechamber and parmchk2 through amber_linux.
+RUN test "${TARGETARCH:-}" = "amd64" \
+    || { echo "Aliyun ligand worker requires TARGETARCH=amd64 for ACPYPE AmberTools binaries (got ${TARGETARCH:-unset})" >&2; exit 1; }
+
+RUN if [ -f /etc/apt/sources.list.d/debian.sources ]; then \
+        sed -i \
+            -e 's#http://deb.debian.org/debian#https://mirrors.aliyun.com/debian#g' \
+            -e 's#http://security.debian.org/debian-security#https://mirrors.aliyun.com/debian-security#g' \
+            /etc/apt/sources.list.d/debian.sources; \
+    fi \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+        ca-certificates \
+        openbabel \
+        autodock-vina \
+        libhdf4-0 \
+        libhdf5-hl-310 \
+        libzip5 \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/ \
+    && pip install --no-cache-dir acpype rdkit
+
+# ACPYPE ships x86_64 AmberTools binaries. On Debian trixie, teLeap needs a few
+# compatibility links and must use the system OpenSSL pair instead of ACPYPE's
+# older bundled libcrypto.so.3, otherwise libssl/libcrypto symbols conflict.
+RUN ARCH="$(dpkg --print-architecture)" \
+    && case "$ARCH" in \
+        amd64) MULTIARCH="x86_64-linux-gnu" ;; \
+        arm64) MULTIARCH="aarch64-linux-gnu" ;; \
+        *) echo "Unsupported Debian architecture for HDF5 compatibility links: $ARCH" >&2; exit 1 ;; \
+    esac \
+    && ln -sf "/usr/lib/${MULTIARCH}/libhdf5_serial_hl.so.310" "/usr/lib/${MULTIARCH}/libhdf5_hl.so.310" \
+    && ln -sf "/usr/lib/${MULTIARCH}/libhdf5_serial.so.310" "/usr/lib/${MULTIARCH}/libhdf5.so.310" \
+    && if [ -f "${AMBERHOME}/lib/libcrypto.so.3" ]; then \
+        mv "${AMBERHOME}/lib/libcrypto.so.3" "${AMBERHOME}/lib/libcrypto.so.3.bundled"; \
+    fi \
+    && ldconfig
+
+COPY docker/ligand-runtime-check.py /usr/local/bin/ligand-runtime-check
+
+RUN chmod +x /usr/local/bin/ligand-runtime-check \
+    && ligand-runtime-check
+
+COPY --chown=appuser:appuser backend/ /app/
+
+USER appuser
+
+CMD ["celery", "-A", "app.services.scheduler", "worker", "--loglevel=info", "--queues=ligand_cpu", "--concurrency=1"]

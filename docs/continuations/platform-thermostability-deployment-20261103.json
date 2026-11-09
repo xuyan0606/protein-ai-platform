@@ -1,0 +1,273 @@
+{
+  "release_id": "20261103-thermostability-7c46ab6c3",
+  "source_commit": "7c46ab6c3a4e7d90603bd5e45424096c98b09228",
+  "release_directory": "/opt/protein-ai-platform/releases/20261103-thermostability-7c46ab6c3/protein-ai-platform",
+  "source_package_sha256": "875b2b53e7a080ee2134a50e34c5b52b9ca7a52bf3c38d8963b2b7f67e48604d",
+  "status": "accepted_with_recorded_exceptions",
+  "accepted_at": "2026-11-03T02:34:29.666797+00:00",
+  "deployed_at": "20261103T022531Z",
+  "type": "code_only_thermostability_application_release",
+  "formal_registry_manifest": false,
+  "exceptions": [
+    "existing self-signed IP TLS on port 4243; trusted TLS gate not passed",
+    "local frozen image IDs; registry RepoDigests unavailable"
+  ],
+  "services": {
+    "backend": {
+      "container_id": "e5e2d7f3693b4b613f16bff205a898fe31af2e25453ed6d0ff484bc2ed048b18",
+      "image_id": "sha256:f093926b0198c3e9468b856a6ae71620d432d1168267d6057ce139c5c7422c8b",
+      "health": "healthy",
+      "restart_count": 0,
+      "rollback_container_id": "80a27a42ae570591fb86467d5164c31ca293dbc3f7b3b0dd9d7ee1c785d99327",
+      "rollback_container_name": "/docker-backend-1-pre-20261103T022531Z",
+      "runtime_source_files_verified": 257,
+      "release_mounts": {
+        "/app/app": "/opt/protein-ai-platform/releases/20261103-thermostability-7c46ab6c3/protein-ai-platform/backend/app",
+        "/app/alembic": "/opt/protein-ai-platform/releases/20261103-thermostability-7c46ab6c3/protein-ai-platform/backend/alembic"
+      }
+    },
+    "worker": {
+      "container_id": "678d9a23043391a397a2c3bd5b2a103d500d85e8e9667f60111d376d02606cdf",
+      "image_id": "sha256:6e01d1d7e0707f9f2f53147c4a95210c28965970dd9ae017fa26e630cda22044",
+      "health": "healthy",
+      "restart_count": 0,
+      "rollback_container_id": "c1d7b942591e1922be92a9564fdd5aae2f38432f2a95e84d1ccfa815f72ddbd7",
+      "rollback_container_name": "/docker-worker-1-pre-20261103T022531Z",
+      "runtime_source_files_verified": 257,
+      "release_mounts": {
+        "/app/app": "/opt/protein-ai-platform/releases/20261103-thermostability-7c46ab6c3/protein-ai-platform/backend/app",
+        "/app/alembic": "/opt/protein-ai-platform/releases/20261103-thermostability-7c46ab6c3/protein-ai-platform/backend/alembic"
+      }
+    },
+    "md-worker": {
+      "container_id": "e3af300c7bcb82a35f71baf44963395875b0727e7b2151cbf38d4ce4b586c319",
+      "image_id": "sha256:e17c16cf28d92d7de7e4fe3b7cc29e650aa25113804936466bc505f5e5e455ba",
+      "health": "healthy",
+      "restart_count": 0,
+      "rollback_container_id": "b59c6f318667bf3ec0ca83eea58a17992e76dd5a263efed8388c54f0524e7c37",
+      "rollback_container_name": "/docker-md-worker-1-pre-20261103T022531Z",
+      "runtime_source_files_verified": 257,
+      "release_mounts": {
+        "/app/alembic": "/opt/protein-ai-platform/releases/20261103-thermostability-7c46ab6c3/protein-ai-platform/backend/alembic",
+        "/app/app": "/opt/protein-ai-platform/releases/20261103-thermostability-7c46ab6c3/protein-ai-platform/backend/app"
+      }
+    },
+    "frontend": {
+      "container_id": "e02eb11bc0b70b8537504276813cd55979c82f769272366c2e21b50525170afc",
+      "image_id": "sha256:6bd9896b91376f478e4916e83bce7de0599a6fce1d0c2ec13f496d2ecffc00cb",
+      "health": "healthy",
+      "restart_count": 0,
+      "rollback_container_id": "283aa2e8200acaef82777e0645429db0c3082a588767934f12057479419ebde2",
+      "rollback_container_name": "/docker-frontend-1-pre-20261103T022531Z",
+      "release_mounts": {
+        "/usr/share/nginx/html": "/opt/protein-ai-platform/releases/20261103-thermostability-7c46ab6c3/protein-ai-platform/frontend/dist"
+      }
+    },
+    "ligand-worker": {
+      "container_id": "089ac8775c4423e8c85293519c413b71aec305bccad8703b63561ffa0e78b093",
+      "image_id": "sha256:479fdd366f33ab6d1be23e0db6a742394121104cfaf6b3351664a71e66d45e4b",
+      "health": "healthy",
+      "restart_count": 0,
+      "rollback_container_id": "3dd8ff5197b414cbf9d0a982188d250abc0ac59f61fcb221e175ff03fb76b280",
+      "rollback_container_name": "/docker-ligand-worker-1-pre-20261103T022531Z",
+      "runtime_source_files_verified": 257,
+      "release_mounts": {
+        "/app/app": "/opt/protein-ai-platform/releases/20261103-thermostability-7c46ab6c3/protein-ai-platform/backend/app",
+        "/app/alembic": "/opt/protein-ai-platform/releases/20261103-thermostability-7c46ab6c3/protein-ai-platform/backend/alembic"
+      }
+    },
+    "nginx": {
+      "container_id": "e5df965b3b98db9fcd757be008db96fbc3aedf39e8d611446424f75fd07d5d6b",
+      "image_id": "sha256:f0ba77f796e57c6fa89ae7f4fdad1665d6fcbd8e3f211535120542b337f9959e",
+      "health": "healthy",
+      "restart_count": 0,
+      "container_retained": true
+    },
+    "chromadb": {
+      "container_id": "cf688e5d39c568c44dcb1c67223339e0b777854f882fb7ce4ad943b80654c939",
+      "image_id": "sha256:0b5fb8a31a55b51acdbbdc83d6ec4c54309f6c90381f4dc2483601cc76d453d7",
+      "health": "healthy",
+      "restart_count": 0,
+      "container_retained": true
+    },
+    "outline": {
+      "container_id": "4a39cfe53af984e4d23f73f135ec7377d413a985a591ab143449231dfcdfc667",
+      "image_id": "sha256:93c7d0025bdcfd640bc176dda28284cadaabaea1d24a0075b6da6c3d381a5ee6",
+      "health": "healthy",
+      "restart_count": 0,
+      "container_retained": true
+    }
+  },
+  "expected_runtime_images": {
+    "/docker-backend-1": "sha256:f093926b0198c3e9468b856a6ae71620d432d1168267d6057ce139c5c7422c8b",
+    "/docker-worker-1": "sha256:6e01d1d7e0707f9f2f53147c4a95210c28965970dd9ae017fa26e630cda22044",
+    "/docker-md-worker-1": "sha256:e17c16cf28d92d7de7e4fe3b7cc29e650aa25113804936466bc505f5e5e455ba",
+    "/docker-frontend-1": "sha256:6bd9896b91376f478e4916e83bce7de0599a6fce1d0c2ec13f496d2ecffc00cb",
+    "/docker-ligand-worker-1": "sha256:479fdd366f33ab6d1be23e0db6a742394121104cfaf6b3351664a71e66d45e4b",
+    "/docker-nginx-1": "sha256:f0ba77f796e57c6fa89ae7f4fdad1665d6fcbd8e3f211535120542b337f9959e",
+    "/docker-chromadb-1": "sha256:0b5fb8a31a55b51acdbbdc83d6ec4c54309f6c90381f4dc2483601cc76d453d7",
+    "/docker-outline-1": "sha256:93c7d0025bdcfd640bc176dda28284cadaabaea1d24a0075b6da6c3d381a5ee6"
+  },
+  "database_migrations": false,
+  "database_restored": false,
+  "database": {
+    "alembic_revision": "20260917_0004",
+    "public_table_count": 51
+  },
+  "backup_and_isolated_restore": {
+    "created_at": "2026-11-03T02:25:08.189403+00:00",
+    "active_backend_container_id": "80a27a42ae570591fb86467d5164c31ca293dbc3f7b3b0dd9d7ee1c785d99327",
+    "backup_sha256": "7e97924a9f7363ac7267fe9272ef904c4ebacabbceb2045e3ca1b91deb5b2f71",
+    "backup_bytes": 122177636,
+    "archive_list_verified": true,
+    "isolated_restore_verified": true,
+    "isolated_network": "none",
+    "restored_public_table_count": 51,
+    "restored_alembic_revision": "20260917_0004",
+    "production_database_restored": false
+  },
+  "acceptance": {
+    "after": {
+      "status": "passed",
+      "static_files_verified": 11,
+      "checks": [
+        "previous_bearer_session",
+        "previous_cookie_session",
+        "previous_refresh_token",
+        "fresh_login",
+        "previous_upload_roundtrip",
+        "previous_conversation",
+        "previous_conversation_report_now_renders",
+        "previous_async_task",
+        "file_conversation_project_task_isolation",
+        "new_tool_async_contract",
+        "frontend_static_hashes"
+      ],
+      "report_fixture_scope": "isolated engineering fixture, no scientific efficacy claim"
+    },
+    "models": {
+      "status": "passed",
+      "task_id": "54cede1c-8d45-4d33-a717-544e7e8b533b",
+      "checks": [
+        "authenticated_api_submit",
+        "celery_dispatch",
+        "real_ddgun_homology_database",
+        "strict_adapter_evidence",
+        "async_result_poll",
+        "task_ownership_isolation"
+      ],
+      "result_sha256": "ce2ec929a1774f2a11c97cc15c428dead1bbdd95389bff9704f5812afda209df"
+    },
+    "workflow-gate": {
+      "status": "passed",
+      "task_id": "abc20f53-87bb-463b-86b9-74f69f02303c",
+      "workflow_status": "needs_input",
+      "checks": [
+        "no_candidates_without_objective_and_identity",
+        "requested_predictor_does_not_bypass_authorization_gate"
+      ]
+    },
+    "browser": {
+      "status": "passed",
+      "public_url": "http://120.27.108.138/platform/home",
+      "title": "Protein AI Platform",
+      "authentication": "previous acceptance session restored via HttpOnly cookie",
+      "home_rendered": true,
+      "console_errors": 0,
+      "console_warnings": 0,
+      "browser_login_form_tested": false,
+      "snapshot_sha256": "40a79542001057c519a2a16fcb8e2ebe753909b736e30f7ce4dfd0b0f4af1c4c"
+    },
+    "cleanup": {
+      "accounts_disabled": [
+        523,
+        524,
+        521,
+        522
+      ],
+      "conversations_deleted": 2,
+      "projects_deleted": 2,
+      "test_uploads_deleted": 2,
+      "wiki_collections_deleted": 2,
+      "task_audits_retained": true,
+      "real_user_data_modified": false
+    }
+  },
+  "model_service_health": {
+    "status": "ok",
+    "busy": false,
+    "models": {
+      "ddgun": {
+        "status": "completed",
+        "verified_at": "2026-11-03T02:21:53.336578+00:00",
+        "result_sha256": "38c1de3f198209c7ef14024a6c14e5e26cbbf433a47e7dcf6e4676623d26b92b"
+      },
+      "colabfold": {
+        "status": "completed",
+        "verified_at": "2026-11-03T02:46:29.127943+00:00",
+        "result_sha256": "ba32b80fdfcc716107bd9eec7447909e9d1e2fbcc446814b2e7bd948add2427f"
+      },
+      "evcouplings": {
+        "status": "completed",
+        "verified_at": "2026-11-03T02:16:12.011859+00:00",
+        "result_sha256": "15904a771127819e2e2cb40d202387d06497cf36e49d7db4caefc4d7935071bd"
+      }
+    }
+  },
+  "model_environment_keys_added": [
+    "DDGUN_SERVICE_URL",
+    "DDGUN_SERVICE_TOKEN",
+    "DDGUN_SERVICE_TIMEOUT_SECONDS",
+    "COLABFOLD_SERVICE_URL",
+    "COLABFOLD_SERVICE_TOKEN",
+    "COLABFOLD_SERVICE_TIMEOUT_SECONDS",
+    "EVCOUPLINGS_SERVICE_URL",
+    "EVCOUPLINGS_SERVICE_TOKEN",
+    "EVCOUPLINGS_SERVICE_TIMEOUT_SECONDS"
+  ],
+  "previous_actual_backend_release": "20261030-identity-evidence-tier-b728d4ca",
+  "current_symlink_changed": false,
+  "current_symlink_stale_do_not_use_for_recreation": "/opt/protein-ai-platform/releases/20261030T005847Z-theoretical-model-identity/protein-ai-platform",
+  "snapshot_retained": "/opt/protein-ai-platform/snapshots/20261103",
+  "rollback_drill_performed": false,
+  "rollback_command": "python3.11 /opt/protein-ai-platform/releases/20261103-thermostability-7c46ab6c3/protein-ai-platform/scripts/prepare_thermostability_release.py --rollback-runtime /opt/protein-ai-platform/candidates/thermostability-7c46ab6c3-private",
+  "rollback_preserves_latest_database_and_uploads": true,
+  "scientific_boundary": "Public-input engineering validation only. ColabFold is single-model, one-recycle CPU with supplied local MSA. No target-enzyme efficacy, wet-lab, GPU or long-MD validation.",
+  "official_source_binding": {
+    "receipt": "/opt/protein-ai-platform/model-services/thermostability/OFFICIAL-SOURCE-BINDING.json",
+    "receipt_sha256": "65cab4c899aa0aa749f8e4add412c2a6248fe60987ae10cba4c10e4316fe5f56",
+    "models": [
+      {
+        "repository": "sokrypton/ColabFold",
+        "immutable_tree_url": "https://api.github.com/repos/sokrypton/ColabFold/git/trees/84c27d9cc500489fd9b97545d2325b9d00f251d5?recursive=1",
+        "algorithm_commit": "84c27d9cc500489fd9b97545d2325b9d00f251d5",
+        "unexpected_python_files": [],
+        "tree_response_sha256": "237ed7f49e71326afd4cc81b255c4d7066ea13d68dc6504da223765fb3018c66",
+        "mismatches": [],
+        "python_files_verified": 19
+      },
+      {
+        "repository": "debbiemarkslab/EVcouplings",
+        "immutable_tree_url": "https://api.github.com/repos/debbiemarkslab/EVcouplings/git/trees/14c83457c6cfca8156aabe0615067447a2169791?recursive=1",
+        "algorithm_commit": "14c83457c6cfca8156aabe0615067447a2169791",
+        "unexpected_python_files": [],
+        "tree_response_sha256": "f385d6b25567b7d3e8853bba892b819c7b3d96b10c326e8496a68eac14cfd70b",
+        "mismatches": [],
+        "python_files_verified": 59
+      },
+      {
+        "repository": "biofold/ddgun",
+        "immutable_tree_url": "https://api.github.com/repos/biofold/ddgun/git/trees/bcf112c616bcd4eb9b18f193ec08cc704eb761b5?recursive=1",
+        "algorithm_commit": "bcf112c616bcd4eb9b18f193ec08cc704eb761b5",
+        "unexpected_python_files": [],
+        "tree_response_sha256": "c7cdbdfe1d0bbca11dd4e1f58da3a17f813fd42e1ab03d962fd479d92779f458",
+        "mismatches": [],
+        "python_files_verified": 7
+      }
+    ],
+    "colabfold_source_corrected_and_real_http_revalidated": true
+  },
+  "last_verified_at": "2026-11-03T02:46:41.372092+00:00",
+  "local_evidence_directory": "output/thermostability-validation-20261103",
+  "acceptance_document": "docs/continuations/platform-thermostability-deployment-20261103.md"
+}

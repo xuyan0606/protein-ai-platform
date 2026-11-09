@@ -1,0 +1,168 @@
+{
+  "version": "20261103",
+  "status": "preserved",
+  "purpose": "User requested retaining the current version before subsequent development.",
+  "local_directory": "/Users/keweibo/output/platform-version-20261103",
+  "server_directory": "/opt/protein-ai-platform/snapshots/20261103",
+  "local_candidate": {
+    "version": "20261103",
+    "type": "local_unpublished_candidate",
+    "git_tag": "snapshot/platform-20261103-local",
+    "git_commit": "7015ffda4023619eaf6a2c82565dc0dfb5a76c9e",
+    "source_archive": "local-source-20261103.tar.gz",
+    "source_file_count": 708,
+    "bundle_requires_base": "0421817d37b63a4fb69587a69ee926cec9f7d168",
+    "deployed": false
+  },
+  "local_working_platform": {
+    "source_directory": "/Users/keweibo/科为博/05自动化程序/04研发工作区/酶蛋白AI平台",
+    "git_head": "d66a901d43d846bbf00da586a5a25c112dd91b82",
+    "files": 597,
+    "archive": "local-working-platform-20261103.tar.gz"
+  },
+  "runtime": {
+    "checkpoint_manifest_sha256": "ef4aac5d115658e21cb06d5e05aa22e83e32a0440fb84ea7f530f35b08a2389e",
+    "created_at": "2026-11-03T00:39:02.900925Z",
+    "completed_at": "2026-11-03T00:42:16.348926Z",
+    "original_current": "/opt/protein-ai-platform/releases/20261030T005847Z-theoretical-model-identity/protein-ai-platform",
+    "services": [
+      {
+        "checkpoint_image_id": "sha256:f093926b0198c3e9468b856a6ae71620d432d1168267d6057ce139c5c7422c8b",
+        "container": "docker-backend-1",
+        "original_image_id": "sha256:540798f81804ecad942461e4fb60466eb126c78c376465c4f7088339a76a7721",
+        "service": "backend"
+      },
+      {
+        "checkpoint_image_id": "sha256:6e01d1d7e0707f9f2f53147c4a95210c28965970dd9ae017fa26e630cda22044",
+        "container": "docker-worker-1",
+        "original_image_id": "sha256:540798f81804ecad942461e4fb60466eb126c78c376465c4f7088339a76a7721",
+        "service": "worker"
+      },
+      {
+        "checkpoint_image_id": "sha256:e17c16cf28d92d7de7e4fe3b7cc29e650aa25113804936466bc505f5e5e455ba",
+        "container": "docker-md-worker-1",
+        "original_image_id": "sha256:540798f81804ecad942461e4fb60466eb126c78c376465c4f7088339a76a7721",
+        "service": "md-worker"
+      },
+      {
+        "checkpoint_image_id": "sha256:6bd9896b91376f478e4916e83bce7de0599a6fce1d0c2ec13f496d2ecffc00cb",
+        "container": "docker-frontend-1",
+        "original_image_id": "sha256:847dbefcb1fe0088ace36fb02f8c4030d0be9b5e687712f4a046cceeb51465eb",
+        "service": "frontend"
+      },
+      {
+        "checkpoint_image_id": "sha256:479fdd366f33ab6d1be23e0db6a742394121104cfaf6b3351664a71e66d45e4b",
+        "container": "docker-ligand-worker-1",
+        "original_image_id": "sha256:22d409871abc77d81b8d47334f9928fd1c9271c6404b6a27fda86b9cdc4e9153",
+        "service": "ligand-worker"
+      },
+      {
+        "checkpoint_image_id": "sha256:f0ba77f796e57c6fa89ae7f4fdad1665d6fcbd8e3f211535120542b337f9959e",
+        "container": "docker-nginx-1",
+        "original_image_id": "sha256:f0ba77f796e57c6fa89ae7f4fdad1665d6fcbd8e3f211535120542b337f9959e",
+        "service": "nginx"
+      },
+      {
+        "checkpoint_image_id": "sha256:0b5fb8a31a55b51acdbbdc83d6ec4c54309f6c90381f4dc2483601cc76d453d7",
+        "container": "docker-chromadb-1",
+        "original_image_id": "sha256:0b5fb8a31a55b51acdbbdc83d6ec4c54309f6c90381f4dc2483601cc76d453d7",
+        "service": "chromadb"
+      },
+      {
+        "checkpoint_image_id": "sha256:93c7d0025bdcfd640bc176dda28284cadaabaea1d24a0075b6da6c3d381a5ee6",
+        "container": "docker-outline-1",
+        "original_image_id": "sha256:93c7d0025bdcfd640bc176dda28284cadaabaea1d24a0075b6da6c3d381a5ee6",
+        "service": "outline"
+      }
+    ],
+    "archive_images": 11,
+    "application_runtime_files_verified": true,
+    "all_eight_healthy_after": true,
+    "running_containers_unchanged": true,
+    "artifacts": {
+      "RESTORE.md": {
+        "bytes": 5473,
+        "sha256": "9763cfa8de92ae3733a682f42838c57b3d7b261bbf0fc194bcf310aff8a4b281"
+      },
+      "RUNTIME-IMAGE-VERIFICATION.json": {
+        "bytes": 619,
+        "sha256": "e6a4994376f47bb8c75624f7f3e56e93e130c77112a7d934d2e42468075e0324"
+      },
+      "backend-runtime.tar.gz": {
+        "bytes": 707669,
+        "sha256": "fe97e590e6f9bc35c197e5d9f9f9b9c1051e9fa8868f83dd43a608bc398771c8"
+      },
+      "frontend-runtime.tar.gz": {
+        "bytes": 3924354,
+        "sha256": "20f9e4108d170fc73f0df664052e612149befe3e5eabe16e5facbf96ae7c8858"
+      },
+      "private/containers.json": {
+        "bytes": 137223,
+        "sha256": "ce2b54b3df3058c37043961628cd9d08b16f2ea05d3e75cb9305707030638ee3"
+      },
+      "private/create-backend.json": {
+        "bytes": 11029,
+        "sha256": "1f31d63380937bc8645dbd02c8c5953845d82fc152890f8b41ebea5f76da0ee5"
+      },
+      "private/create-chromadb.json": {
+        "bytes": 3844,
+        "sha256": "73fd09692c3acf66e1c8468b8ce7f7e1461509bf6571e066022b0119a853a018"
+      },
+      "private/create-frontend.json": {
+        "bytes": 5232,
+        "sha256": "941709102e7e5076475ff405c01ff11437bdf1280f771f049071b240fcf3e11f"
+      },
+      "private/create-ligand-worker.json": {
+        "bytes": 9131,
+        "sha256": "21993e750669af2ac43d539c872fd49897d3dede983c95652e81aa1cd807fd26"
+      },
+      "private/create-md-worker.json": {
+        "bytes": 10436,
+        "sha256": "f9c84876e36a94c4d70a1914efe3b04909240b3dc3e6dff9eb57b34e079b2512"
+      },
+      "private/create-nginx.json": {
+        "bytes": 5759,
+        "sha256": "87e786e45fad8fdd1c038d49fe7f68f66880f60b700e000869887d6f93380703"
+      },
+      "private/create-outline.json": {
+        "bytes": 6905,
+        "sha256": "92af7fe630f31d62fb809712fe24ba436cdf094e5a3d5f0c6d67322f5b3d5681"
+      },
+      "private/create-worker.json": {
+        "bytes": 10677,
+        "sha256": "2f66b433fe34f81d53df9ee62aec6ad5cc72b4128d33818b45991a113b941fb1"
+      },
+      "private/database-20261103.dump": {
+        "bytes": 129156288,
+        "sha256": "ec18a34e957439511e3faeda46a05996470c76ded2d27ddbc2f870f6040d31b8"
+      },
+      "private/images-20261103.tar.gz": {
+        "bytes": 1128307609,
+        "sha256": "e6b019b6a5932b2b2cb74c7cd8a519a5090000f0beff184e49764ebb16594250"
+      },
+      "private/networks.json": {
+        "bytes": 3354,
+        "sha256": "4f0b080507727581167ee87f02ebb33feca45f41df16b50bf191b5db2ebc9d4a"
+      },
+      "private/source-and-configuration.tar.gz": {
+        "bytes": 33892728,
+        "sha256": "5be6a586e1948932723e281bf89216804c06e4c9b0851e784e0999abe28b6db5"
+      },
+      "verify-checkpoint.py": {
+        "bytes": 2170,
+        "sha256": "fc1cef6b299cd76532cc4854d3d301696d578764edfda85a9655a61586a8ba9b"
+      }
+    }
+  },
+  "backup_scope": {
+    "runtime_images_archived_on_server": true,
+    "runtime_image_archive_fully_copied_to_local": false,
+    "database_backup_created": true,
+    "database_archive_list_checked": true,
+    "database_restore_drill_executed": false,
+    "persistent_volumes_not_rolled_back": true,
+    "object_storage_and_vector_data_disaster_recovery_backup": false
+  },
+  "runbook": "/Users/keweibo/output/platform-version-20261103/回退说明_20261103.md",
+  "no_deployment_or_production_rollback_performed": true
+}

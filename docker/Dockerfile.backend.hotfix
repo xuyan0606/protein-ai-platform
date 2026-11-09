@@ -1,0 +1,5 @@
+FROM protein-ai-backend:aliyun
+
+WORKDIR /app
+
+COPY --chown=appuser:appuser backend/ /app/

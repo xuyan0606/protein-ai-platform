@@ -1,0 +1,116 @@
+{
+  "status": "passed",
+  "verified_at": "2026-11-03T03:04:13.605472+00:00",
+  "source_commit": "7c46ab6c3a4e7d90603bd5e45424096c98b09228",
+  "public_origin": "http://120.27.108.138",
+  "checks": {
+    "healthy_containers": 8,
+    "container_restarts": 0,
+    "registered_tools": 79,
+    "public_api_checks_passed": 13,
+    "browser_checks_passed": 11,
+    "browser_login_form": true,
+    "browser_events": {
+      "errors": [],
+      "warnings": [],
+      "http_errors": []
+    },
+    "frontend_static_files_verified": 11,
+    "mobile_viewport": {
+      "width": 390,
+      "height": 844,
+      "document_scroll_width": 390
+    },
+    "ddgun_api_celery_real_model": {
+      "status": "passed",
+      "task_id": "0e787556-0cfa-4670-8654-649bbfe66a50",
+      "checks": [
+        "authenticated_api_submit",
+        "celery_dispatch",
+        "real_ddgun_homology_database",
+        "strict_adapter_evidence",
+        "async_result_poll",
+        "task_ownership_isolation"
+      ],
+      "result_sha256": "b8c309d139a603be9f17f16fe93cdb9d53c255acf5dba1aa680e6bc2b56448dc"
+    },
+    "colabfold": {
+      "model": "colabfold",
+      "status": "completed",
+      "verified_at": "2026-11-03T02:56:21.029448+00:00",
+      "result_sha256": "f8f83897e2f1481e541ea71689177f0931ed57ca7ae3cd3968ac5aa834ab631a",
+      "adapter_sha256": "3c5249cfba6cb16d0085035ff7bce742ed345f66590602ff9aac7db0b7c4b49b",
+      "limits_sha256": "9cd1ae39fdab56bb1d4a650442ebf7c539fc95ed5f73fcc8bce2cab9e0dde78f",
+      "validation_scope": "public_input_engineering_smoke_only; no target-enzyme efficacy claim",
+      "algorithm_commit": "84c27d9cc500489fd9b97545d2325b9d00f251d5",
+      "database_version": "Local supplied MSA SHA256 9007bfc8902b2dc605dc28d2351696e37022c2932ea7e389bf5892b9b72a8410; no search database or templates; AF2 params 2021-07-14"
+    },
+    "evcouplings": {
+      "model": "evcouplings",
+      "status": "completed",
+      "verified_at": "2026-11-03T03:02:23.684621+00:00",
+      "result_sha256": "8742ea215097d5c1305da4fd322cf8eaa0721c76e9475607f74e1c003477c063",
+      "adapter_sha256": "3c5249cfba6cb16d0085035ff7bce742ed345f66590602ff9aac7db0b7c4b49b",
+      "limits_sha256": "9cd1ae39fdab56bb1d4a650442ebf7c539fc95ed5f73fcc8bce2cab9e0dde78f",
+      "validation_scope": "public_input_engineering_smoke_only; no target-enzyme efficacy claim",
+      "algorithm_commit": "14c83457c6cfca8156aabe0615067447a2169791",
+      "database_version": "Supplied local MSA SHA256 c469e64f3cea603ed4a5267be065686500f376c54a4acee45abf620337f45c1a; no sequence search performed"
+    },
+    "candidate_gate": {
+      "status": "passed",
+      "task_id": "17ec6d86-a48d-4ced-9e2f-b647979fe83a",
+      "workflow_status": "needs_input",
+      "checks": [
+        "no_candidates_without_objective_and_identity",
+        "requested_predictor_does_not_bypass_authorization_gate"
+      ]
+    },
+    "report_stability": {
+      "status": "passed",
+      "ignored_fields": [
+        "generation timestamp",
+        "report_revision_id derived from timestamp"
+      ],
+      "stable_content_sha256": "2f93cce71d188ed47c5a56026b18bc43b6d5dd6385088d058d0b6caacc9022e0"
+    },
+    "database_read_only": {
+      "tables": 51,
+      "revision": "20260917_0004"
+    },
+    "cleanup": {
+      "accounts_disabled": 2,
+      "conversations_deleted": 1,
+      "projects_deleted": 1,
+      "uploads_deleted": 1,
+      "wiki_collections_deleted": 1,
+      "status": "passed",
+      "task_audits_retained": true,
+      "real_user_data_modified": false
+    },
+    "disabled_tokens_denied": {
+      "status": "passed",
+      "accounts_checked": 2,
+      "checks": [
+        "disabled_account_existing_bearer_denied",
+        "disabled_account_existing_bearer_denied"
+      ]
+    }
+  },
+  "evidence_directory": "output/online-validation-20261103T0253/",
+  "browser_evidence_directory": "output/playwright/online-validation-20261103T0253/",
+  "server_evidence_directory": "/opt/protein-ai-platform/candidates/online-validation-20261103T0253",
+  "evidence_sha256": {
+    "output/online-validation-20261103T0253/server.json": "635931e019c8c17c60acd23b64c10c31b669c739964c5b95f5b2721cb69e1c9f",
+    "output/online-validation-20261103T0253/public-api.json": "2ace027b194529c655b709c827e0ee022344e21fa90ab13acb9effaa3909d280",
+    "output/playwright/online-validation-20261103T0253/browser.json": "40366008e0add59fd39c48e171b33c15437f8d6f1eb2e7927ff4cadea23925f6",
+    "output/online-validation-20261103T0253/revocation.json": "85d000fc3f7bd5fa6020e1f0f7ec4137c114bb813f97fb1f065548efd0266306"
+  },
+  "limitations": [
+    "public-input scientific engineering validation; no target-enzyme efficacy or wet-lab validation",
+    "existing self-signed HTTPS reachability only; trusted TLS gate remains open",
+    "page navigation/rendering smoke; not exhaustive UI interactions or LLM quality evaluation",
+    "no GPU, long-MD, production rollback drill or load testing"
+  ],
+  "application_redeployed": false,
+  "production_database_restored_or_migrated": false
+}

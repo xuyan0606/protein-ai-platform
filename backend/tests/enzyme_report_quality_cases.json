@@ -1,0 +1,506 @@
+[
+  {
+    "id": "pdb_only_identity_blocked_outputs_no_candidate_table",
+    "task": "提高 HM.pdb 蛋白比活力、热稳定性，深度解析",
+    "tool_results": [
+      {
+        "tool_name": "structure_search_foldseek",
+        "status": "completed",
+        "result": {
+          "status": "completed",
+          "found": true,
+          "database": "pdb",
+          "results_count": 1,
+          "query_structure": {
+            "chain_count": 1,
+            "total_residues": 299,
+            "total_atoms": 2313,
+            "chains": [{"chain_id": "A", "residue_count": 299, "residue_range": "1-299"}]
+          },
+          "results": [{"target": "3BH4_A", "aligned_tm_score": 0.52, "evalue": 0.03}]
+        }
+      },
+      {
+        "tool_name": "residue_mapping_sifts",
+        "status": "completed",
+        "result": {
+          "found": true,
+          "status": "completed",
+          "source": "local_sifts_style_inference",
+          "mapping_count": 299,
+          "limitations": ["External SIFTS residue records were not downloaded in this phase."]
+        }
+      },
+      {
+        "tool_name": "enzyme_objective_module_plan",
+        "status": "completed",
+        "result": {
+          "module": "thermostability",
+          "status": "blocked",
+          "candidate_output_allowed": false,
+          "objective_signals": ["specific_activity", "thermostability"],
+          "missing_evidence": [
+            "identity_status must be identified.",
+            "guardrail.status must be ready.",
+            "Provide baseline Tm, half-life, or thermal residual activity context."
+          ]
+        }
+      },
+      {
+        "tool_name": "mutation_priority_score",
+        "status": "completed",
+        "result": {
+          "candidate_table_status": "blocked_by_identity_gate",
+          "identity_gate": {
+            "status": "blocked",
+            "identity_status": "unresolved",
+            "reason": "enzyme identity or residue numbering is not confirmed enough"
+          },
+          "objective_gate": {
+            "status": "blocked",
+            "missing_evidence": ["WT specific activity baseline", "baseline Tm"]
+          },
+          "experiment_design_table": [],
+          "tier_1_candidates": [],
+          "tier_2_candidates": [],
+          "summary": {"candidate_table_status": "blocked_by_identity_gate"}
+        }
+      },
+      {
+        "tool_name": "kcat_predict",
+        "status": "completed",
+        "result": {
+          "predicted_kcat_s1": 48.9,
+          "predicted_log10_kcat": 1.69,
+          "enzyme_class": "hydrolase",
+          "confidence_interval_kcat_s1": [3.0, 776.0],
+          "method": "heuristic"
+        }
+      }
+    ],
+    "required": [
+      "能否下单**：不能直接下单；身份/编号门控未通过",
+      "主要证据**：上传结构已解析（299 aa）；编号映射=local_sifts_style_inference；kcat 为启发式背景",
+      "主要缺口**：identity_status must be identified.",
+      "下一步**：先补齐 FASTA/同源身份",
+      "支撑结构/编号边界；不能单独确认酶身份",
+      "启发式背景；不能证明比活力或突变增益",
+      "## 输入与结构证据",
+      "## 结构同源与编号映射",
+      "## Objective Module Gate",
+      "## 突变位点探索清单（未放行）",
+      "0 个可排单候选",
+      "## 位点突变逻辑 / 风险 / 实验动作",
+      "本轮未生成位点级突变逻辑",
+      "## 探索性验证建议"
+    ],
+    "forbidden": [
+      "K288E",
+      "E275Q",
+      "## 突变位点探索清单（不可直接排单）",
+      "## 结论卡片 / 状态摘要",
+      "中高催化效率",
+      "典型工业酶"
+    ],
+    "ordered_headings": [
+      "## 任务理解",
+      "## 输入与结构证据",
+      "## 结构同源与编号映射",
+      "## Objective Module Gate",
+      "## 突变位点探索清单（未放行）",
+      "## 位点突变逻辑 / 风险 / 实验动作",
+      "## 探索性验证建议"
+    ]
+  },
+  {
+    "id": "multi_objective_gate_keeps_activity_and_thermostability",
+    "task": "提高蛋白比活力、热稳定性",
+    "tool_results": [
+      {
+        "tool_name": "enzyme_objective_module_plan",
+        "status": "completed",
+        "result": {
+          "module": "thermostability",
+          "status": "blocked",
+          "candidate_output_allowed": false,
+          "objective_signals": ["specific_activity", "thermostability"],
+          "missing_evidence": [
+            "specific activity/kcat/Km or protein-normalized assay context is required.",
+            "Provide baseline Tm, half-life, or thermal residual activity context."
+          ]
+        }
+      }
+    ],
+    "required": [
+      "## Objective Module Gate",
+      "目标拆解",
+      "specific_activity",
+      "thermostability",
+      "specific activity/kcat/Km",
+      "baseline Tm"
+    ],
+    "forbidden": [
+      "## 突变位点主表（实验排单）",
+      "K288E",
+      "## 结论卡片 / 状态摘要"
+    ]
+  },
+  {
+    "id": "ready_candidate_report_keeps_fixed_core_order",
+    "task": "提高这个酶的热稳定性",
+    "tool_results": [
+      {
+        "tool_name": "predict_properties",
+        "status": "completed",
+        "result": {"molecular_weight_kda": 45.2, "isoelectric_point": 6.8, "length": 299}
+      },
+      {
+        "tool_name": "enzyme_identity_profile",
+        "status": "completed",
+        "result": {
+          "identity_status": "identified",
+          "numbering": {"status": "ready", "mapping_basis": "input sequence"},
+          "protected_positions": [10, 55, 120]
+        }
+      },
+      {
+        "tool_name": "enzyme_objective_module_plan",
+        "status": "completed",
+        "result": {
+          "module": "thermostability",
+          "status": "ready",
+          "candidate_output_allowed": true,
+          "objective_signals": ["thermostability"],
+          "missing_evidence": []
+        }
+      },
+      {
+        "tool_name": "mutation_priority_score",
+        "status": "completed",
+        "result": {
+          "candidate_table_status": "ready",
+          "strategy": {
+            "objective": "提高热稳定性",
+            "design_principle": "加固非催化柔性区",
+            "screening_logic": ["排除催化位点", "优先低保守表面环区"]
+          },
+          "summary": {"tier_1_count": 1, "tier_2_count": 0, "never_mutate_positions": [10]},
+          "experiment_design_table": [
+            {
+              "experiment_priority": "P1",
+              "position": 42,
+              "wild_type": "G",
+              "recommended_mutations": ["G42P"],
+              "mutation_logic": "loop rigidification hypothesis",
+              "expected_effect": "需实验确认",
+              "risk_flags": ["可能降低必要柔性"],
+              "experiment_action": "构建单点突变体；测 Tm 和比活。",
+              "candidate_evidence_status": "computational_hypothesis",
+              "calibration_evidence_status": "not_calibrated"
+            }
+          ]
+        }
+      }
+    ],
+    "required": [
+      "## 改造策略及说明",
+      "## Physicochemical Properties",
+      "## Enzyme Foundation Profile",
+      "## 保护位点",
+      "## Objective Module Gate",
+      "## 突变位点主表（实验排单）",
+      "G42P",
+      "## 位点突变逻辑 / 风险 / 实验动作",
+      "## 探索性验证建议"
+    ],
+    "forbidden": [
+      "## 结论卡片 / 状态摘要",
+      "## Go / Watch / No-Go",
+      "Protein Design Results"
+    ],
+    "ordered_headings": [
+      "## 任务理解",
+      "## 改造策略及说明",
+      "## Physicochemical Properties",
+      "## Enzyme Foundation Profile",
+      "## 保护位点",
+      "## Objective Module Gate",
+      "## 突变位点主表（实验排单）",
+      "## 位点突变逻辑 / 风险 / 实验动作",
+      "## 探索性验证建议"
+    ]
+  },
+  {
+    "id": "submitted_blast_stays_pending_evidence",
+    "task": "提高蛋白比活力，上传 PDB 已解析",
+    "tool_results": [
+      {
+        "tool_name": "structure_search_foldseek",
+        "status": "completed",
+        "result": {
+          "status": "completed",
+          "found": true,
+          "query_structure": {
+            "chain_count": 1,
+            "total_residues": 299,
+            "total_atoms": 2313,
+            "chains": [{"chain_id": "A", "residue_count": 299, "residue_range": "1-299"}]
+          },
+          "results": [{"target": "3BH4_A", "aligned_tm_score": 0.52}]
+        }
+      },
+      {
+        "tool_name": "blast_search",
+        "status": "submitted",
+        "result": {
+          "status": "submitted",
+          "task_id": "blast-task-123",
+          "queue": "default",
+          "status_url": "/api/tools/tasks/blast-task-123"
+        }
+      }
+    ],
+    "required": [
+      "序列级专业库检索（BLAST）",
+      "已提交后台专业库检索任务",
+      "submitted 状态只证明任务进入队列",
+      "## 后台任务状态",
+      "blast-task-123"
+    ],
+    "forbidden": [
+      "命中数=",
+      "## 突变位点主表（实验排单）"
+    ]
+  },
+  {
+    "id": "kcat_proxy_report_has_boundary_not_activity_claim",
+    "task": "预测 kcat 并判断能否提高比活力",
+    "tool_results": [
+      {
+        "tool_name": "kcat_predict",
+        "status": "completed",
+        "result": {
+          "predicted_kcat_s1": 48.9779,
+          "predicted_log10_kcat": 1.69,
+          "enzyme_class": "hydrolase",
+          "confidence_interval_kcat_s1": [3.0903, 776.2471],
+          "method": "heuristic/statistical estimate"
+        }
+      }
+    ],
+    "required": [
+      "## kcat 估算的使用边界",
+      "只能作为启发式背景",
+      "不作为比活力、催化效率或突变收益证据"
+    ],
+    "forbidden": [
+      "中高催化效率",
+      "典型工业酶",
+      "## 突变位点主表（实验排单）",
+      "## 结论卡片 / 状态摘要"
+    ]
+  },
+  {
+    "id": "protein_design_section_is_chinese_first",
+    "task": "Design a binder for PD-L1",
+    "tool_results": [
+      {
+        "tool_name": "proteinmpnn_design",
+        "status": "completed",
+        "result": {
+          "target_length": 100,
+          "best_recovery_rate": 0.42,
+          "best_confidence": 0.78,
+          "num_sequences_generated": 3,
+          "designs": [
+            {
+              "rank": 1,
+              "sequence": "MKTVRQERLKSIVRILERSKEPVQGAQLPVKELQLPGCHPNPIRALLD",
+              "recovery_rate": 0.42,
+              "mean_confidence": 0.78,
+              "num_mutations": 58
+            }
+          ]
+        }
+      }
+    ],
+    "required": [
+      "## 蛋白设计结果",
+      "ProteinMPNN",
+      "0.42",
+      "0.78"
+    ],
+    "forbidden": [
+      "## Protein Design Results",
+      "This fallback report is generated"
+    ]
+  },
+
+  {
+    "id": "fasta_only_identity_unresolved_blocks_candidate_table",
+    "task": "只有 FASTA，提高蛋白热稳定性和比活力：MKTAYIAKQRQISFVKSHFSRQLEERLGLIEVQANNSTPAY",
+    "tool_results": [
+      {
+        "tool_name": "predict_properties",
+        "status": "completed",
+        "result": {"molecular_weight_kda": 5.1, "isoelectric_point": 7.2, "length": 42, "stability": "stable"}
+      },
+      {
+        "tool_name": "enzyme_identity_profile",
+        "status": "completed",
+        "result": {
+          "identity_status": "unresolved",
+          "numbering": {"status": "pending_sequence_mapping", "mapping_basis": "input sequence only"},
+          "missing_evidence": ["No direct InterProScan/Pfam/HMMER result was supplied for this sequence."]
+        }
+      },
+      {
+        "tool_name": "enzyme_objective_module_plan",
+        "status": "completed",
+        "result": {
+          "status": "blocked",
+          "module": "thermostability",
+          "objective_signals": ["specific_activity", "thermostability"],
+          "candidate_output_allowed": false,
+          "missing_evidence": ["identity_status must be identified.", "Provide baseline Tm, half-life, or thermal residual activity context."]
+        }
+      },
+      {
+        "tool_name": "mutation_priority_score",
+        "status": "completed",
+        "result": {
+          "candidate_table_status": "blocked_by_identity_gate",
+          "identity_gate": {"status": "blocked", "identity_status": "unresolved", "reason": "enzyme identity or residue numbering is not confirmed enough"},
+          "objective_gate": {"status": "blocked", "missing_evidence": ["WT specific activity baseline", "baseline Tm"]},
+          "experiment_design_table": [],
+          "tier_1_candidates": [],
+          "tier_2_candidates": [],
+          "summary": {"candidate_table_status": "blocked_by_identity_gate"}
+        }
+      }
+    ],
+    "required": [
+      "能否下单**：不能直接下单；身份/编号门控未通过",
+      "主要证据**：理化性质基线（42 aa）",
+      "酶身份=unresolved",
+      "## Physicochemical Properties",
+      "## Enzyme Foundation Profile",
+      "## Objective Module Gate",
+      "## 突变位点探索清单（未放行）",
+      "0 个可排单候选",
+      "本轮未生成位点级突变逻辑"
+    ],
+    "forbidden": [
+      "## 突变位点主表（实验排单）",
+      "## 输入与结构证据",
+      "K288E",
+      "中高催化效率"
+    ]
+  },
+  {
+    "id": "identified_sequence_ready_candidate_table_is_submittable",
+    "task": "已确认身份和目标基线，提高蛋白热稳定性",
+    "tool_results": [
+      {
+        "tool_name": "predict_properties",
+        "status": "completed",
+        "result": {"molecular_weight_kda": 32.8, "isoelectric_point": 6.5, "length": 299, "stability": "stable"}
+      },
+      {
+        "tool_name": "enzyme_identity_profile",
+        "status": "completed",
+        "result": {
+          "identity_status": "identified",
+          "numbering": {"status": "ready", "mapping_basis": "input FASTA + curated accession"},
+          "protected_positions": [86, 191, 275],
+          "key_residues": [{"position": 86, "residue": "D", "role": "catalytic"}]
+        }
+      },
+      {
+        "tool_name": "enzyme_objective_module_plan",
+        "status": "completed",
+        "result": {
+          "status": "ready",
+          "module": "thermostability",
+          "objective_signals": ["thermostability"],
+          "candidate_output_allowed": true,
+          "missing_evidence": []
+        }
+      },
+      {
+        "tool_name": "mutation_priority_score",
+        "status": "completed",
+        "result": {
+          "candidate_table_status": "ready",
+          "identity_gate": {"status": "passed"},
+          "objective_gate": {"status": "ready", "candidate_output_allowed": true},
+          "strategy": {"objective": "提高热稳定性", "design_principle": "加固非催化柔性区", "screening_logic": ["排除催化位点", "先做单点验证"]},
+          "summary": {"tier_1_count": 1, "tier_2_count": 0, "never_mutate_positions": [86, 191, 275]},
+          "experiment_design_table": [
+            {
+              "experiment_priority": "P1",
+              "position": 42,
+              "wild_type": "G",
+              "recommended_mutations": ["G42P"],
+              "mutation_logic": "非催化柔性环 Gly->Pro 降低构象熵假设",
+              "expected_effect": "需 Tm 和热处理残余活性实测确认",
+              "risk_flags": ["可能降低必要柔性"],
+              "experiment_action": "构建单点突变体；与 WT 同批测 Tm、热半衰期和比活。",
+              "candidate_evidence_status": "computational_hypothesis",
+              "calibration_evidence_status": "not_calibrated"
+            }
+          ]
+        }
+      }
+    ],
+    "required": [
+      "能否下单**：可以进入单点验证设计",
+      "本轮候选数=1",
+      "## 改造策略及说明",
+      "## 保护位点",
+      "## Objective Module Gate",
+      "## 突变位点主表（实验排单）",
+      "G42P",
+      "WT 同批测 Tm、热半衰期和比活"
+    ],
+    "forbidden": [
+      "0 个可排单候选",
+      "## 突变位点探索清单（未放行）",
+      "## 结论卡片 / 状态摘要"
+    ]
+  },
+  {
+    "id": "weak_foldseek_hit_is_not_identity_claim",
+    "task": "提高蛋白热稳定性，只有上传 PDB",
+    "tool_results": [
+      {
+        "tool_name": "structure_search_foldseek",
+        "status": "completed",
+        "result": {
+          "status": "completed",
+          "found": true,
+          "results_count": 2,
+          "query_structure": {
+            "chain_count": 1,
+            "total_residues": 388,
+            "total_atoms": 2833,
+            "chains": [{"chain_id": "A", "residue_count": 388, "residue_range": "1-388"}]
+          },
+          "results": [
+            {"target": "1QHO_A", "aligned_tm_score": 0.1367, "evalue": 0.859},
+            {"target": "1QHP_A", "aligned_tm_score": 0.1251, "evalue": 0.7269}
+          ]
+        }
+      }
+    ],
+    "required": [
+      "结构同源证据等级",
+      "不能单独支撑酶家族、催化残基或功能身份结论"
+    ],
+    "forbidden": [
+      "身份状态**：identified",
+      "α-淀粉酶已确认",
+      "## 突变位点主表（实验排单）"
+    ]
+  }
+]

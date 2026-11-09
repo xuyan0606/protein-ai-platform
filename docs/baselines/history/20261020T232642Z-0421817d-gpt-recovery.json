@@ -1,0 +1,91 @@
+{
+  "release_id": "20261020T232642Z-0421817d-gpt-recovery",
+  "source_commit": "0421817d37b63a4fb69587a69ee926cec9f7d168",
+  "source_tree": "743f5f01e8317cb1e001e5f7a969c84029d29340",
+  "source_package_sha256": "5202fa073ae3c7d2a2b0d1254f63427df8d298e276a9b2cbda6daff450abb5d4",
+  "release_directory": "/opt/protein-ai-platform/releases/20261020T232642Z-0421817d-gpt-recovery/protein-ai-platform",
+  "type": "explicitly_approved_legacy_hotfix",
+  "formal_registry_manifest": false,
+  "authorization": "User explicitly requested reuse of their currently configured Codex client API key to restore GPT.",
+  "exceptions": [
+    "Existing public HTTP and self-signed TLS retained",
+    "Local immutable image IDs; no registry RepoDigest"
+  ],
+  "expected_runtime_images": {
+    "/docker-ligand-worker-1": "sha256:22d409871abc77d81b8d47334f9928fd1c9271c6404b6a27fda86b9cdc4e9153",
+    "/docker-backend-1": "sha256:d8fe0b6398d3565151946a77169b3f4391bf8ccc4b43bc6e226c1e371a1f2b77",
+    "/docker-worker-1": "sha256:d8fe0b6398d3565151946a77169b3f4391bf8ccc4b43bc6e226c1e371a1f2b77",
+    "/docker-md-worker-1": "sha256:d8fe0b6398d3565151946a77169b3f4391bf8ccc4b43bc6e226c1e371a1f2b77",
+    "/docker-frontend-1": "sha256:bf4fa2cb7f94bac3b43419033007d75bffb33dd5f2c03c3c7d869cdb09ea1941",
+    "/docker-nginx-1": "sha256:f0ba77f796e57c6fa89ae7f4fdad1665d6fcbd8e3f211535120542b337f9959e",
+    "/docker-chromadb-1": "sha256:0b5fb8a31a55b51acdbbdc83d6ec4c54309f6c90381f4dc2483601cc76d453d7",
+    "/docker-outline-1": "sha256:93c7d0025bdcfd640bc176dda28284cadaabaea1d24a0075b6da6c3d381a5ee6"
+  },
+  "previous_release": "/opt/protein-ai-platform/releases/20261020T091507Z-0421817d-model-recovery/protein-ai-platform",
+  "rollback_images_archive": "/opt/protein-ai-platform/candidates/0cc380a4-frontend-20261020/rollback/images.tar.gz",
+  "configuration_changes": true,
+  "model_configuration_keys_changed": [
+    "KUAPAO_API_KEY",
+    "KUAPAO_BASE_URL",
+    "KUAPAO_MODEL",
+    "LLM_DISABLED_PROVIDERS",
+    "LLM_FALLBACK_MODEL",
+    "LLM_FALLBACK_PROVIDER",
+    "LLM_MODEL",
+    "LLM_PROVIDER"
+  ],
+  "database_migrations": false,
+  "model_channel": "GPT-6-sol restored using user-authorized current client key; DeepSeek/deepseek-flash fallback",
+  "code_changes": false,
+  "status": "accepted_with_recorded_exceptions",
+  "frontend_assets": {
+    "index.html": "cafec0179a37886f3e4be8d32227ce68b30beb085a454dcad9b89389292edde0",
+    "favicon.svg": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66",
+    "sw.js": "43c69a6cc16278cac267261805eacf8cac0d4c23115d56c9fd5eca65c80f2df5",
+    "brand/kwb-logo.png.before-transparent-20260827090011.png": "161f6c185ea3a8acf1a7ac53dc3ddd30cca67bcc7ebbe5ff3626ec4e1924c71d",
+    "brand/kwb-logo.png": "4411974f7cedb7e866d897e0441db8b69847d0620f3cd24f91615255be82d3a9",
+    "assets/rolldown-runtime-QTnfLwEv.js": "5db5ba82eef00d1dee7e86e663098c9427d01183a88d357437daff295aec3e75",
+    "assets/vendor-react-DHPn8cAL.js": "991f9b18034576fc7a0a4ac0dfa5ad452d6256eeac5f538b46b852b406a9aad3",
+    "assets/index-Dotzi4zd.css": "2d887522ce1fdf90094a3a6b277ae85085e0bd3bc97a472e53cbe8df2b9d3a68",
+    "assets/vendor-charts-D05EnRhp.js": "b47ef1fc08d755ce3a416b27f8ac5455aa40a218d6c556453182c7d103f9f08b",
+    "assets/index-ClBLIViq.js": "a18111ee48d3c091c1ebde71644df4459170ef4de023820ddeb38ad6fc923938",
+    "vendor/3Dmol.js": "553ea0ab68182aafd520e598396d3903a354d22d3d02426b09cbc93ea0d28297"
+  },
+  "deployed_at": "2026-10-20T23:27:19.018905+00:00",
+  "runtime_verified": true,
+  "all_eight_containers_healthy": true,
+  "runtime_source_verification": {
+    "runtime_source_files": 212,
+    "release_source_files": 212,
+    "mismatches": []
+  },
+  "accepted_at": "2026-10-20T23:37:33.556575+00:00",
+  "frontend_source_commit": "0cc380a435b13c9a0599937525127c28ce13365d",
+  "git_release_branch": "release/production-20261020",
+  "git_tag": "production/20261020T232642Z-0421817d-gpt-config",
+  "acceptance": {
+    "gpt_available_and_autoselected": true,
+    "real_gpt_chat": true,
+    "real_browser_checks": 12,
+    "real_1tca_report_and_export": true,
+    "browser_errors": 0,
+    "production_asset_hashes_verified": 11,
+    "all_eight_containers_healthy": true,
+    "restarts": 0,
+    "qa_conversations_and_files_deleted": true,
+    "backend_tests_source_release": "20261020T091507Z-0421817d-model-recovery",
+    "backend_full_tests_previously_passed": 1107,
+    "server_isolated_tests_previously_passed": 114,
+    "configuration_only_release": true,
+    "qa_cleanup_verified": {
+      "accounts_disabled": [
+        389,
+        390
+      ],
+      "conversations": 0,
+      "test_blast": "canceled"
+    }
+  },
+  "scientific_tool_status_note": "Report/export acceptance does not imply every scientific tool completed; original blocked/degraded/background statuses retained.",
+  "documentation_record_commit": "0d752310fb22de0aa9eabf675ff461996de5f0f5"
+}

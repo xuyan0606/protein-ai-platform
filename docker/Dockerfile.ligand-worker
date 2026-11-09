@@ -1,0 +1,181 @@
+# syntax=docker/dockerfile:1.6
+# =============================================================================
+# Protein AI Platform — Ligand Worker Dockerfile
+# =============================================================================
+# Dedicated Celery worker runtime for ligand preprocessing / docking / topology.
+# Keeps chemistry packages out of the slim backend image and exposes a
+# deterministic runtime preflight entrypoint for audit/deployment gates.
+# =============================================================================
+
+FROM python:3.12-slim AS runtime
+LABEL org.proteinai.runtime.scope="ligand-worker-only" \
+      org.proteinai.ligand.rdkit.install="placeholder: install from approved wheelhouse or conda layer" \
+      org.proteinai.ligand.ambertools.install="placeholder: layer AmberTools at /opt/ambertools and expose antechamber/parmchk2"
+
+WORKDIR /app
+
+ENV DEBIAN_FRONTEND=noninteractive
+ARG LIGAND_OPTIONAL_PIP_PACKAGES="acpype"
+ARG LIGAND_INSTALL_OPTIONAL_PIP=true
+
+# Runtime boundary:
+# - This image is the only app image intended to carry ligand chemistry tooling.
+# - Backend and default workers should call the ligand_cpu queue instead of
+#   shelling out to OpenBabel/Vina/ACPYPE/AmberTools/GROMACS directly.
+# - AmberTools/RDKit availability is detected, not assumed; install those via
+#   an approved wheelhouse/conda/OS mirror in this image only when available.
+RUN if [ -f /etc/apt/sources.list.d/debian.sources ]; then \
+        sed -i \
+            -e 's#http://deb.debian.org/debian#https://mirrors.aliyun.com/debian#g' \
+            -e 's#http://security.debian.org/debian-security#https://mirrors.aliyun.com/debian-security#g' \
+            /etc/apt/sources.list.d/debian.sources; \
+    fi \
+    && apt-get -o Acquire::Retries=3 update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        ca-certificates \
+        libpq-dev \
+        curl \
+        openbabel \
+        gromacs \
+        autodock-vina \
+        libarpack2 \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN python -m venv /opt/venv
+ENV GROMACS_BIN="gmx"
+ENV GMX_MAXBACKUP="-1"
+ENV AMBERHOME="/opt/venv/lib/python3.12/site-packages/acpype/amber_linux"
+ENV PATH="/opt/venv/bin:${AMBERHOME}/bin:$PATH"
+ENV LIGAND_RUNTIME_BOUNDARY="ligand_worker_only"
+ENV LIGAND_RUNTIME_CHECK="/usr/local/bin/ligand-runtime-check"
+
+COPY backend/requirements-prod.txt backend/requirements-core.txt ./
+RUN pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/ \
+    && pip install --no-cache-dir -r requirements-prod.txt \
+    && if [ "$LIGAND_INSTALL_OPTIONAL_PIP" = "true" ]; then \
+        pip install --no-cache-dir $LIGAND_OPTIONAL_PIP_PACKAGES; \
+    else \
+        echo "Skipping optional ligand pip packages: $LIGAND_OPTIONAL_PIP_PACKAGES"; \
+    fi
+
+RUN cat > /usr/local/bin/ligand-runtime-check <<'PY'
+#!/usr/bin/env python
+"""Report ligand worker runtime readiness without running real docking/MD jobs."""
+
+from __future__ import annotations
+
+import importlib.util
+import json
+import os
+import platform
+import shutil
+import subprocess
+import sys
+from typing import Any
+
+LOADER_ERROR_MARKERS = (
+    "error while loading shared libraries",
+    "failed to open elf",
+    "version `",
+    "not found (required by",
+)
+
+def _command_status(*names: str) -> dict[str, Any]:
+    commands = {name: shutil.which(name) for name in names}
+    available = False
+    checks = {}
+    version = None
+    for name, path in commands.items():
+        if not path:
+            checks[name] = {"path": None, "loadable": False, "returncode": None}
+            continue
+        try:
+            result = subprocess.run(
+                [path, "--version"],
+                capture_output=True,
+                text=True,
+                timeout=8,
+                check=False,
+            )
+            output = result.stdout or result.stderr
+            loadable = result.returncode in {0, 1} and not any(
+                marker in output.lower() for marker in LOADER_ERROR_MARKERS
+            )
+            checks[name] = {"path": path, "loadable": loadable, "returncode": result.returncode}
+            available = available or loadable
+            if version is None:
+                version = output.splitlines()[0:3]
+        except Exception as exc:  # pragma: no cover - deployment diagnostic only
+            checks[name] = {"path": path, "loadable": False, "returncode": None, "error": str(exc)}
+            version = [f"version check failed: {exc}"]
+    return {"available": available, "commands": commands, "command_checks": checks, "version": version}
+
+
+def _module_status(module_name: str) -> dict[str, Any]:
+    spec = importlib.util.find_spec(module_name)
+    return {"available": spec is not None, "module": module_name}
+
+
+def build_payload() -> dict[str, Any]:
+    tools = {
+        "openbabel": _command_status("obabel"),
+        "rdkit": _module_status("rdkit"),
+        "vina": _command_status("vina"),
+        "acpype": _command_status("acpype"),
+        "ambertools": _command_status("antechamber", "parmchk2", "teLeap"),
+        "gromacs": _command_status(os.getenv("GROMACS_BIN", "gmx"), "gmx_mpi"),
+    }
+    requirements = {
+        "conformer_generation": tools["openbabel"]["available"] or tools["rdkit"]["available"],
+        "pdbqt_preparation": tools["openbabel"]["available"],
+        "vina_docking": tools["vina"]["available"],
+        "ligand_topology": tools["acpype"]["available"],
+        "ambertools_topology_backend": tools["ambertools"]["available"],
+        "gromacs_md_assembly": tools["gromacs"]["available"],
+    }
+    missing = [name for name, ready in requirements.items() if not ready]
+    host_architecture = platform.machine().lower()
+    architecture_compatible = host_architecture in {"x86_64", "amd64"}
+    if not architecture_compatible:
+        missing.append("linux_amd64_worker")
+    return {
+        "name": "ligand_worker_runtime_check",
+        "status": "ready" if not missing else "blocked_toolchain_missing",
+        "execution_status": "capability_ready" if not missing else "capability_blocked",
+        "scientific_smoke_status": "not_run",
+        "evidence_level": "runtime_capability_only",
+        "runtime_boundary": os.getenv("LIGAND_RUNTIME_BOUNDARY", "ligand_worker_only"),
+        "host_architecture": host_architecture,
+        "expected_architecture": "x86_64/amd64",
+        "architecture_compatible": architecture_compatible,
+        "amberhome": os.getenv("AMBERHOME"),
+        "tools": tools,
+        "requirements": requirements,
+        "missing_requirements": missing,
+    }
+
+
+def main() -> int:
+    require_live = "--require-live" in sys.argv
+    payload = build_payload()
+    print(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True))
+    return 1 if require_live and payload["status"] != "ready" else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+PY
+RUN chmod +x /usr/local/bin/ligand-runtime-check \
+    && ligand-runtime-check --require-live
+
+RUN groupadd -r appuser \
+    && useradd -r -g appuser appuser \
+    && mkdir -p /app/storage /app/deploy_data \
+    && chown -R appuser:appuser /app
+
+COPY --chown=appuser:appuser backend/ /app/
+
+USER appuser
+
+CMD ["celery", "-A", "app.services.scheduler", "worker", "--loglevel=info", "--queues=ligand_cpu", "--concurrency=1"]

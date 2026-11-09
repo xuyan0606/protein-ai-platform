@@ -1,0 +1,63 @@
+[
+  {
+    "uniprot_id": "DEMO388A",
+    "interpro_id": "IPR000073",
+    "entry_type": "family",
+    "name": "Lipase/Esterase alpha/beta hydrolase",
+    "description": "Serine hydrolase family annotation used for engineering triage.",
+    "source_db": "interpro",
+    "go_terms": [
+      "GO:0016787 hydrolase activity",
+      "GO:0016298 lipase activity"
+    ],
+    "start_pos": 40,
+    "end_pos": 380,
+    "score": 92.4,
+    "evidence": "local_curated_demo"
+  },
+  {
+    "uniprot_id": "DEMO388A",
+    "interpro_id": "IPR029058",
+    "entry_type": "domain",
+    "name": "Alpha/beta hydrolase fold",
+    "description": "Core scaffold annotation for lipase-like esterases.",
+    "source_db": "interpro",
+    "go_terms": [
+      "GO:0003824 catalytic activity"
+    ],
+    "start_pos": 46,
+    "end_pos": 374,
+    "score": 88.1,
+    "evidence": "local_curated_demo"
+  },
+  {
+    "uniprot_id": "DEMO388A",
+    "interpro_id": "IPR000980",
+    "entry_type": "site",
+    "name": "GXSXG catalytic motif",
+    "description": "Catalytic motif-centered protection region.",
+    "source_db": "interpro",
+    "go_terms": [
+      "GO:0016740 transferase activity"
+    ],
+    "start_pos": 250,
+    "end_pos": 254,
+    "score": 95.0,
+    "evidence": "local_curated_demo"
+  },
+  {
+    "uniprot_id": "SIGDEMO1",
+    "interpro_id": "IPR020937",
+    "entry_type": "site",
+    "name": "Signal peptide",
+    "description": "N-terminal export signal annotation for secretion workflows.",
+    "source_db": "interpro",
+    "go_terms": [
+      "GO:0009306 protein secretion"
+    ],
+    "start_pos": 1,
+    "end_pos": 22,
+    "score": 86.0,
+    "evidence": "local_curated_demo"
+  }
+]
