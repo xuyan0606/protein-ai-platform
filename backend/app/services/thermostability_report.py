@@ -31,6 +31,13 @@ def _items(value: Any) -> list:
     return value if isinstance(value, list) else []
 
 
+def _display_number(value: Any) -> str:
+    """Render measured targets without unstable trailing ``.0`` decimals."""
+    if isinstance(value, (int, float)) and not isinstance(value, bool):
+        return f'{value:g}'
+    return _cell(value, '未知（按用户说明保留）')
+
+
 def render_thermostability_report(result: dict) -> str:
     """Render schema v1 candidates, gaps, score provenance and WT handoff."""
     if not isinstance(result, dict) or result.get('schema_version') != SCHEMA:
@@ -146,7 +153,16 @@ def _render_exploration(result: dict) -> str:
         value = objective.get(key)
         if key == 'endpoint':
             value = endpoints.get(value, value)
-        lines.append(f'| {label} | {_cell(value, "未知（按用户说明保留）")} |')
+        lines.append(f'| {label} | {_display_number(value)} |')
+    if objective.get('endpoint') == 'residual_activity':
+        temperature = _display_number(objective.get('temperature_c'))
+        duration = _display_number(objective.get('duration_min'))
+        baseline = _display_number(objective.get('baseline_residual_activity_pct'))
+        target = _display_number(objective.get('target_residual_activity_pct'))
+        comparator = '≥' if objective.get('target_comparator') == '>=' else ''
+        lines.extend(['', '### 目标摘要', '',
+                      f'热处理条件：{temperature}℃，{duration} min；'
+                      f'残余酶活：{baseline}% → 目标：{comparator}{target}%。'])
     foundation = result.get('foundation') or {}
     identity = {'identified': '已有身份依据', 'candidate': '目前为身份线索', 'unresolved': '正在调查，尚未确认'}
     lines.extend(['', '### 身份与结构进展', '',

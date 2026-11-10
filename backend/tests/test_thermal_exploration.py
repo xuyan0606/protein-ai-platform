@@ -25,6 +25,20 @@ def test_unknown_assay_and_identity_produce_useful_exploration_without_claims():
     assert '请补充' not in report and '流程已阻断' not in report
 
 
+def test_exploration_report_has_stable_human_readable_target_summary():
+    objective = {
+        'endpoint': 'residual_activity', 'temperature_c': 95.0,
+        'duration_min': 5.0, 'baseline_residual_activity_pct': 30.0,
+        'target_residual_activity_pct': 60.0, 'target_comparator': '>=',
+    }
+    report = render_thermostability_report(
+        build_screen(SEQ, objective=objective, analysis_mode='exploration')
+    )
+    assert '热处理条件：95℃，5 min；残余酶活：30% → 目标：≥60%。' in report
+    assert '| 热处理温度（℃） | 95 |' in report
+    assert '| 当前残余酶活（%） | 30 |' in report
+
+
 def test_exploratory_substitutions_keep_known_protections_and_wt_checks():
     identity = {'query': {'sequence_sha256': hashlib.sha256(SEQ.encode()).hexdigest()},
                 'identity_status': 'candidate', 'protected_positions': [2]}
