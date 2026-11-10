@@ -10,7 +10,7 @@ import subprocess
 import sys
 
 RECORD = 'docs/baselines/current-production.json'
-MANIFEST = 'docs/baselines/production-source-manifest-20261110.json'
+MANIFEST = 'docs/baselines/production-source-manifest-20261110-report.json'
 
 
 def verify(root: Path) -> dict:

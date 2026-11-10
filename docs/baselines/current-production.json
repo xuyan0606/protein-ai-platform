@@ -1,16 +1,16 @@
 {
-  "release_id": "20261110-thermal-candidate-bias-16ac244b1",
-  "source_commit": "16ac244b11d8b321ec72d2db0e856ea34ae724f8",
+  "release_id": "20261110-thermal-report-81bd6622b",
+  "source_commit": "81bd6622b162b42130efa7a4dda60803c2e61b07",
   "frontend_source_commit": "197bf67c137b4059c88455f81b7e4956e1ef1e8d",
-  "release_directory": "/opt/protein-ai-platform/releases/20261110-thermal-candidate-bias-16ac244b1/protein-ai-platform",
-  "frontend_release_directory": "/opt/protein-ai-platform/releases/20261107-chat-timeout-197bf67c1/protein-ai-platform",
-  "source_package_sha256": "0b1ab46235b8d3a7c14eb68dcc821c9ccbfca27922da9321effe788151e31324",
-  "previous_source_commit": "dbc4902d7f3ee9bd547a13964f57ebbbbaa0f691",
-  "previous_frontend_source_commit": "dbc4902d7f3ee9bd547a13964f57ebbbbaa0f691",
-  "accepted_at": "2026-11-10T08:05:00+08:00",
-  "deployed_at": "2026-11-10T07:36:48+08:00",
+  "release_directory": "/opt/protein-ai-platform/releases/20261110-thermal-report-81bd6622b/protein-ai-platform",
+  "frontend_release_directory": "/opt/protein-ai-platform/releases/20261110-thermal-report-81bd6622b/protein-ai-platform",
+  "source_package_sha256": null,
+  "previous_source_commit": "16ac244b11d8b321ec72d2db0e856ea34ae724f8",
+  "previous_frontend_source_commit": "197bf67c137b4059c88455f81b7e4956e1ef1e8d",
+  "accepted_at": "2026-11-10T11:32:38.868083+08:00",
+  "deployed_at": "2026-11-10T09:17:51+08:00",
   "status": "accepted_with_recorded_exceptions",
-  "type": "code_only_thermal_candidate_diversity_fix",
+  "type": "code_only_thermal_report_format_fix",
   "database_migrations": false,
   "database_restored": false,
   "runtime_verified": true,
@@ -39,20 +39,248 @@
     "ESM mutation scoring restored through650M service; embedding path remains local and unverified"
   ],
   "current_symlink_stale_do_not_use_for_recreation": "/opt/protein-ai-platform/releases/20261030T005847Z-theoretical-model-identity/protein-ai-platform",
-  "local_evidence_directory": "output/remaining-fixes-20261106",
+  "local_evidence_directory": "/Users/keweibo/output/thermal-report-81bd6622b-verification",
   "source_commit_kind": "original_runtime_commit",
   "git_source_management": {
-    "original_runtime_commit": "16ac244b11d8b321ec72d2db0e856ea34ae724f8",
+    "original_runtime_commit": "81bd6622b162b42130efa7a4dda60803c2e61b07",
     "source_snapshot_commit": "e9e9ba0d90241eca345faec9b732068906b79cc6",
-    "production_branch": "release/production-20261110",
-    "production_tag": "production/20261110-16ac244b1",
-    "manifest": "docs/baselines/production-source-manifest-20261110.json",
+    "production_branch": "release/production-20261110-report",
+    "production_tag": "production/20261110-81bd6622b",
+    "manifest": "docs/baselines/production-source-manifest-20261110-report.json",
     "history_policy": "Original history retained privately; clean platform source snapshot has new Git ancestry and is mapped to the original runtime commit by SHA-256.",
     "private_original_branch": "archive/production-20261107-original",
     "private_original_tag": "archive/production-20261107-197bf67c1",
     "original_bundle_prerequisite": "7015ffda4023619eaf6a2c82565dc0dfb5a76c9e",
-    "recorded_at": "2026-11-10T08:05:00+08:00",
+    "recorded_at": "2026-11-10T11:32:38.868083+08:00",
     "application_redeployed": true,
-    "scope": "Thermal automatic candidate diversity and A-to-V geometry screening fix; no database migration; original tags retained"
-  }
+    "scope": "Thermal candidate diversity and exact target summary format; current runtime hashes verified. Historical release refs retained.",
+    "server_record": "/opt/protein-ai-platform/source-management/20261110-report/SOURCE-CONTROL.json"
+  },
+  "source_delivery_mode": "Retained frozen release with report fix; provenance verified by per-file Git manifest and actual container hashes.",
+  "source_manifest_sha256": "f595a0d5ff6164143d88a2ed5ccc082fa2371a502c872082b6a1b9e38c282037",
+  "services": {
+    "backend": {
+      "container_id": "15f4766869ca5b2d9336f92e7144f2bd09f34ee6b3fdcd989cc78659d0574698",
+      "image_id": "sha256:f093926b0198c3e9468b856a6ae71620d432d1168267d6057ce139c5c7422c8b",
+      "health": "healthy",
+      "restart_count": 0,
+      "release_mounts": {
+        "/app/app": "/opt/protein-ai-platform/releases/20261110-thermal-report-81bd6622b/protein-ai-platform/backend/app",
+        "/app/alembic": "/opt/protein-ai-platform/releases/20261110-thermal-report-81bd6622b/protein-ai-platform/backend/alembic"
+      },
+      "rollback_container_id": "e0df335933489bd81d36a52c2bf50362fa3ace72193f2c475d1173a4b79aa98b",
+      "rollback_container_name": "docker-backend-1-pre-20261110T011751Z",
+      "configuration_preserved": true,
+      "runtime_source_files_verified": 264
+    },
+    "worker": {
+      "container_id": "87327ab16cc10646d4bfd91d8f5b522969c4d58361844db4e1aac4e3adfc096a",
+      "image_id": "sha256:6e01d1d7e0707f9f2f53147c4a95210c28965970dd9ae017fa26e630cda22044",
+      "health": "healthy",
+      "restart_count": 0,
+      "release_mounts": {
+        "/app/app": "/opt/protein-ai-platform/releases/20261110-thermal-report-81bd6622b/protein-ai-platform/backend/app",
+        "/app/alembic": "/opt/protein-ai-platform/releases/20261110-thermal-report-81bd6622b/protein-ai-platform/backend/alembic"
+      },
+      "rollback_container_id": "c104755d5c01ca73851858f48b151adf4c0d4103e1bbeb0ce109352b2e1edd64",
+      "rollback_container_name": "docker-worker-1-pre-20261110T011751Z",
+      "configuration_preserved": true,
+      "runtime_source_files_verified": 264
+    },
+    "md-worker": {
+      "container_id": "a39cd12e7450196cce3dbedfc602936c49079edc545189a2d9989b0fa6182001",
+      "image_id": "sha256:e17c16cf28d92d7de7e4fe3b7cc29e650aa25113804936466bc505f5e5e455ba",
+      "health": "healthy",
+      "restart_count": 0,
+      "release_mounts": {
+        "/app/app": "/opt/protein-ai-platform/releases/20261110-thermal-report-81bd6622b/protein-ai-platform/backend/app",
+        "/app/alembic": "/opt/protein-ai-platform/releases/20261110-thermal-report-81bd6622b/protein-ai-platform/backend/alembic"
+      },
+      "rollback_container_id": "1cf9dd13f37a14433c7c23243e0419738a98ecf201af43f98158726d112b6a35",
+      "rollback_container_name": "docker-md-worker-1-pre-20261110T011751Z",
+      "configuration_preserved": true,
+      "runtime_source_files_verified": 264
+    },
+    "frontend": {
+      "container_id": "d3b3ed54a3da661331ebb74380e5be542e8013441cbeac4b15aae475fed9bc30",
+      "image_id": "sha256:6bd9896b91376f478e4916e83bce7de0599a6fce1d0c2ec13f496d2ecffc00cb",
+      "health": "healthy",
+      "restart_count": 0,
+      "release_mounts": {
+        "/usr/share/nginx/html": "/opt/protein-ai-platform/releases/20261110-thermal-report-81bd6622b/protein-ai-platform/frontend/dist"
+      },
+      "rollback_container_id": "bf75d115743467343883a7d50faae5af31231f35b75dd9f57f7eed6cd9b2679b",
+      "rollback_container_name": "docker-frontend-1-pre-20261110T011751Z",
+      "configuration_preserved": true
+    },
+    "ligand-worker": {
+      "container_id": "71b387a613126bfcb266e7b4c5c345085dacbed0759ac7c0a95132ea9eb1dd34",
+      "image_id": "sha256:479fdd366f33ab6d1be23e0db6a742394121104cfaf6b3351664a71e66d45e4b",
+      "health": "healthy",
+      "restart_count": 0,
+      "release_mounts": {
+        "/app/app": "/opt/protein-ai-platform/releases/20261110-thermal-report-81bd6622b/protein-ai-platform/backend/app",
+        "/app/alembic": "/opt/protein-ai-platform/releases/20261110-thermal-report-81bd6622b/protein-ai-platform/backend/alembic"
+      },
+      "rollback_container_id": "b8fae0f9c69a20b6a1e91e7687cfb9306fb3cdeea0f01098cd9b9a3b495e8f28",
+      "rollback_container_name": "docker-ligand-worker-1-pre-20261110T011751Z",
+      "configuration_preserved": true,
+      "runtime_source_files_verified": 264
+    },
+    "nginx": {
+      "container_id": "e5df965b3b98db9fcd757be008db96fbc3aedf39e8d611446424f75fd07d5d6b",
+      "image_id": "sha256:f0ba77f796e57c6fa89ae7f4fdad1665d6fcbd8e3f211535120542b337f9959e",
+      "health": "healthy",
+      "restart_count": 0,
+      "release_mounts": {}
+    },
+    "chromadb": {
+      "container_id": "cf688e5d39c568c44dcb1c67223339e0b777854f882fb7ce4ad943b80654c939",
+      "image_id": "sha256:0b5fb8a31a55b51acdbbdc83d6ec4c54309f6c90381f4dc2483601cc76d453d7",
+      "health": "healthy",
+      "restart_count": 0,
+      "release_mounts": {}
+    },
+    "outline": {
+      "container_id": "4a39cfe53af984e4d23f73f135ec7377d413a985a591ab143449231dfcdfc667",
+      "image_id": "sha256:93c7d0025bdcfd640bc176dda28284cadaabaea1d24a0075b6da6c3d381a5ee6",
+      "health": "healthy",
+      "restart_count": 0,
+      "release_mounts": {}
+    }
+  },
+  "rollback_command": "python3.11 /opt/protein-ai-platform/releases/20261110-thermal-report-81bd6622b/protein-ai-platform/scripts/prepare_thermostability_release.py --rollback-runtime /opt/protein-ai-platform/candidates/thermal-report-81bd6622b-runtime-private-2",
+  "previous_accepted_production_record": "/opt/protein-ai-platform/candidates/thermal-report-81bd6622b-runtime-private-2/PREVIOUS-PRODUCTION.json",
+  "acceptance_document": "docs/continuations/platform-thermal-report-deployment-20261110.md",
+  "backup_and_isolated_restore": {
+    "created_at": "2026-11-10T01:12:20.750328+00:00",
+    "active_backend_container_id": "e0df335933489bd81d36a52c2bf50362fa3ace72193f2c475d1173a4b79aa98b",
+    "backup_sha256": "637193ea25744051edf2de0ddcd7dc8f4106c2c72193be09588a2087031714c9",
+    "backup_bytes": 123984552,
+    "archive_list_verified": true,
+    "isolated_restore_verified": true,
+    "isolated_network": "none",
+    "restored_public_table_count": 51,
+    "restored_alembic_revision": "20260917_0004",
+    "production_database_restored": false
+  },
+  "acceptance": {
+    "status": "passed",
+    "report_summary": "热处理条件：95℃，5 min；残余酶活：30% → 目标：≥60%。",
+    "report_stream_equals_persisted": true,
+    "report_bytes": 19575,
+    "objective": {
+      "endpoint": "residual_activity",
+      "temperature_c": 95.0,
+      "duration_min": 5.0,
+      "baseline_residual_activity_pct": 30.0,
+      "target_residual_activity_pct": 60.0,
+      "target_comparator": ">="
+    },
+    "structure_rows_evaluated": 486,
+    "ddgun_scored": 60,
+    "esm_scored": 60,
+    "preliminary_candidates": 12,
+    "substitution_cap": 4,
+    "selected_substitution_counts": {
+      "A>V": 4,
+      "I>L": 1,
+      "L>I": 3,
+      "M>L": 4
+    },
+    "alanine_valine_geometry_rejections": 11,
+    "adverse_ddgun_exclusions": 2,
+    "shortfall": 0,
+    "candidate_output_allowed": false,
+    "evidence_level": "research_only_exploration",
+    "real_execution": [
+      {
+        "tool": "structure_search_foldseek",
+        "status": "completed"
+      },
+      {
+        "tool": "residue_mapping_sifts",
+        "status": "completed"
+      },
+      {
+        "tool": "disulfide_saltbridge_scan",
+        "status": "completed"
+      },
+      {
+        "tool": "predict_properties",
+        "status": "completed"
+      },
+      {
+        "tool": "enzyme_sequence_identity",
+        "status": "completed"
+      },
+      {
+        "tool": "blast_search",
+        "status": "submitted"
+      },
+      {
+        "tool": "enzyme_identity_profile",
+        "status": "completed"
+      },
+      {
+        "tool": "enzyme_objective_module_plan",
+        "status": "completed"
+      },
+      {
+        "tool": "build_site_structure_function_features",
+        "status": "completed"
+      },
+      {
+        "tool": "thermostability_candidate_workflow",
+        "status": "completed"
+      }
+    ],
+    "final_status": "blocked",
+    "original_assertion_failure": "Obsolete report title; raw evidence-gap field is structured, not displayed in exploration prose. Exact temperature/time/activity summary passed.",
+    "cleanup": {
+      "status": "passed",
+      "accounts_disabled": 2,
+      "conversations_deleted": 1,
+      "uploads_deleted": 1,
+      "test_tasks_canceled": 1,
+      "original_messages_unchanged": true,
+      "original_input_unchanged": true,
+      "original_blast_preserved": true,
+      "old_bearer_revocation_verified": true
+    }
+  },
+  "runtime_audit": {
+    "status": "passed",
+    "verified_at": "2026-11-10T03:28:27.957222+00:00",
+    "release_directory": "/opt/protein-ai-platform/releases/20261110-thermal-report-81bd6622b/protein-ai-platform",
+    "backend_files_per_container": 264,
+    "frontend_static_files_verified": 11,
+    "static_verified_via_http": true,
+    "http": {
+      "/api/health": 200,
+      "/login": 200,
+      "/chat/agent": 200
+    },
+    "snapshot_20261103_preserved": true,
+    "database_restored": false,
+    "current_changed": false,
+    "current_symlink": "/opt/protein-ai-platform/releases/20261030T005847Z-theoretical-model-identity/protein-ai-platform",
+    "rollback_runtime_directory": "/opt/protein-ai-platform/candidates/thermal-report-81bd6622b-runtime-private-2"
+  },
+  "summary_and_session_validation": {
+    "status": "passed",
+    "summary_present": true,
+    "residues": 486,
+    "checks": [
+      "session_bearer",
+      "cookie",
+      "refresh",
+      "real_summary_complete"
+    ]
+  },
+  "snapshot_retained": "/opt/protein-ai-platform/snapshots/20261103",
+  "snapshot_checkpoint_sha256": "ef4aac5d115658e21cb06d5e05aa22e83e32a0440fb84ea7f530f35b08a2389e",
+  "rollback_drill_performed": false,
+  "rollback_preserves_latest_database_and_uploads": true,
+  "current_symlink_changed": false
 }

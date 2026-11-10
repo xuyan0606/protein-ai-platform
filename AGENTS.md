@@ -1,3 +1,9 @@
+## 20261110 热稳定性报告格式与候选分布验收（最新生产事实）
+
+实际生产为 `81bd6622b162b42130efa7a4dda60803c2e61b07`，release `20261110-thermal-report-81bd6622b`。报告稳定显示95℃、5 min、30%→≥60%，流式与保存文本一致；旧验收标题和内部字段正文断言不适用，保留失败证据并逐项复核。486结构位置、60真实DDGun、60真实ESM、12初步候选；A→V4、M→L4、L→I3、I→L1，每类上限4；11个A→V几何排除、2个负DDGun排除。正式候选仍为空、候选输出false，最终blocked是身份/功能证据边界，不宣称湿实验效果。
+
+相关16项回归通过；八服务healthy/restart0，四后端各264源码、11静态文件及HTTP哈希、配置和实际旧容器保留已核验。两账号停用、一会话/一上传删除、一测试任务取消，原数据与旧Bearer校验通过；51表断网备份恢复通过，生产库未恢复/迁移。新清单`production-source-manifest-20261110-report.json`，新固定refs见`current-production.json`；旧refs不移动。回退须使用本轮`thermal-report-81bd6622b-runtime-private-2`，禁止沿用197bf旧入口。详情`docs/continuations/platform-thermal-report-deployment-20261110.md`，证据`/Users/keweibo/output/thermal-report-81bd6622b-verification/`。本轮未重做浏览器验收，OSS/TLS/registry既有问题不变，current仍陈旧。以下按历史理解。
+
 ## 当前源码与 Git 基线（20261109 修复）
 
 - 当前实际运行源码为 `197bf67c137b4059c88455f81b7e4956e1ef1e8d`，release 为 `20261107-chat-timeout-197bf67c1`。以下旧生产记录按历史理解。
