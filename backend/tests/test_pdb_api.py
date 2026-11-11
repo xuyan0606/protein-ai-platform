@@ -58,7 +58,7 @@ class TestPDBResidueMappingAPI:
     def test_parser_reads_real_mmcif(self):
         from app.services.pdb_parser import parse_pdb
 
-        cif = Path(__file__).resolve().parents[2] / "deploy_data/pdb/4HHB.cif"
+        cif = Path(__file__).resolve().parent / "fixtures/4HHB.cif"
         analysis = parse_pdb(cif.read_text(encoding="utf-8"))
 
         assert analysis["total_atoms"] == 4558

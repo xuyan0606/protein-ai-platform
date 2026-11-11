@@ -213,6 +213,16 @@ async def ddgun_predict(sequence: str, mutations: list[str], pdb_data: str = "",
         base = _base("DDGun", sequence, payload)
         response, raw_hash = await _request("DDGUN", "/predict", payload, 180.)
         base["rejected_response_sha256"] = raw_hash
+        returned = response.get('predictions')
+        if isinstance(returned,list):
+            # Diagnostics remain separate from validated predictions, even if
+            # units, provenance or completeness checks below reject the reply.
+            base['raw_predictions'] = [{k:(str(v) if isinstance(v,float) and not math.isfinite(v) else v)
+                for k,v in r.items() if k in {'mutation','ddg_kcal_mol'} and isinstance(v,(str,int,float,bool))}
+                for r in returned[:500] if isinstance(r,dict)]
+            base['raw_predictions_validation_status'] = 'unverified_do_not_rank'
+            base['raw_predictions_truncated'] = len(returned)>500
+            base['candidate_coverage'] = {'requested':len(candidates),'returned':len(returned),'complete':False}
         verified = _envelope(response, "DDGun", payload, raw_hash)
         if response.get("units") != "kcal/mol" or response.get("sign_convention") != _DIRECTION or response.get("mode") != payload["mode"]:
             raise ValueError("DDGun requires raw kcal/mol, requested mode, and positive=increased unfolding stability.")

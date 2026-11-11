@@ -89,6 +89,16 @@ async def test_ddgun_complete_raw_units_and_evidence(monkeypatch):
 
 
 @pytest.mark.asyncio
+async def test_partial_ddgun_response_is_preserved_as_unverified_review_data(monkeypatch):
+    service(monkeypatch, 'DDGun', lambda r: r['predictions'].pop())
+    result=await adapters.ddgun_predict(SEQUENCE,['A1V','C2A'])
+    assert result['status']=='blocked' and result['predictions']==[]
+    assert result['raw_predictions']==[{'mutation':'A1V','ddg_kcal_mol':1.2}]
+    assert result['candidate_coverage']=={'requested':2,'returned':1,'complete':False}
+    assert result['raw_predictions_validation_status']=='unverified_do_not_rank'
+
+
+@pytest.mark.asyncio
 @pytest.mark.parametrize("mutations", [["C1V"], ["A0V"], ["A1A"], ["A1V", "A1V"], [], ["A1V:K2A"]])
 async def test_invalid_candidates_never_call_service(monkeypatch, mutations):
     calls = service(monkeypatch, "DDGun")

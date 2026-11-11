@@ -1,0 +1,98 @@
+{
+  "upstream_commit": "2b04fd370e399911b1fa5848112cc9013f084110",
+  "model_sha256": "af449118ccfb4e34971d802321907ed82a8a035ae80f055bf8fc56009a4a838a",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "038bd3438019e6dfe2c02efaea630ef46e60f07aad542d4a8440c40a67d61aab"
+    },
+    {
+      "path": "README.md",
+      "sha256": "9da9ae1392db63f29a3f0095cf06bb8f6ec2d122794c7e451d4b04808621b06f"
+    },
+    {
+      "path": "analysis/SSM.py",
+      "sha256": "f07a4683fe10e574310702a2e5b5fc268ef4b63d78b3652d3a9e0be58b2280ea"
+    },
+    {
+      "path": "analysis/bootstrap.py",
+      "sha256": "5283689afeb08897e0c0038093a52dcc546951e7f52bbe70580b01935276d874"
+    },
+    {
+      "path": "analysis/custom_inference.py",
+      "sha256": "d3019852021c10787cff9d76e0c7636bd951dd66e11e358b6fb9727e2aab9891"
+    },
+    {
+      "path": "analysis/rosetta_RaSP_metrics.py",
+      "sha256": "fb1003ce71bf14e0d6a1ddecb9b5a6d4fdbd59b97e4f5efb493ff6b02a17b1b1"
+    },
+    {
+      "path": "analysis/thermompnn_benchmarking.py",
+      "sha256": "921b64a000def3ccbfd5ce6171ba5295b9fc41de6000ac56a93f15a0556bdb0c"
+    },
+    {
+      "path": "cache.py",
+      "sha256": "a72cc138ca2afd670d4ebab3e5424362dc5fd93842e007c554edd05f7be605b4"
+    },
+    {
+      "path": "config.yaml",
+      "sha256": "884c53cbd14aa562b5b44f74c93e0234eefd1b2f1da2713c43ab600c758bbe35"
+    },
+    {
+      "path": "datasets.py",
+      "sha256": "425cd8103f936a841048c0c7e7f444a4929b918836135655cfe1154b17d4f825"
+    },
+    {
+      "path": "environment.yaml",
+      "sha256": "9083c1e999aa2b244ecfc26ca420ea6d5bab67943057a848ba66177446ef70c5"
+    },
+    {
+      "path": "local.yaml",
+      "sha256": "36d380e1af6e298288588a8a6933089afb1a8e3106a709f0a5f29996c00fb1b1"
+    },
+    {
+      "path": "model_utils.py",
+      "sha256": "20d941bd3e1b94c150a267609c237ee0c920df5dadaa2ce682c5ddb20482bbbe"
+    },
+    {
+      "path": "models/thermoMPNN_default.pt",
+      "sha256": "af449118ccfb4e34971d802321907ed82a8a035ae80f055bf8fc56009a4a838a"
+    },
+    {
+      "path": "preprocessing/1_clean_fireprot_dataset.py",
+      "sha256": "edacad8f6a60e95891110231a5f6387652a7ab0504d3fddc5edd7b5f2316874e"
+    },
+    {
+      "path": "preprocessing/2_seqalign_fireprot_dataset.py",
+      "sha256": "7f3a9eaad59f8434bbc38572ef8227ebec1f576e9e14933a0d32dad65ac6d216"
+    },
+    {
+      "path": "preprocessing/3_add_metadata_fireprot_dataset.py",
+      "sha256": "ddc6d6e4db6fe242d3195ba3a4d205ff0eef01f49dd5313998308be10906a036"
+    },
+    {
+      "path": "preprocessing/4_consolidate_pH_entries.py",
+      "sha256": "d1e9e853c99d4e13083d923ed3c7d708e7c565589b26fe7544edb17499b84d96"
+    },
+    {
+      "path": "preprocessing/download_pdb.py",
+      "sha256": "cb429909208d8f41b14afafd825834a52b022c28dd785f245d8502dec2092c49"
+    },
+    {
+      "path": "protein_mpnn_utils.py",
+      "sha256": "3bbcb4342482438bb5d4ebe6509d514490dfce804617865fa55ffdcbda2fea12"
+    },
+    {
+      "path": "train_thermompnn.py",
+      "sha256": "8858f279513b1b88822c316cf95b361223f5ba578bdfb7d55520165661b17d2c"
+    },
+    {
+      "path": "transfer_model.py",
+      "sha256": "cddf49a119316785aca7e2653d25ebc37a436fda7655a43b7f634040e6dd92e2"
+    },
+    {
+      "path": "vanilla_model_weights/v_48_020.pt",
+      "sha256": "c9cb4a671d79604111231f8dbfc7c590e06f1197453b7a6854ac6661a642f5bd"
+    }
+  ]
+}

@@ -446,6 +446,7 @@ class AgentOrchestrator:
         step.params["offline"] = offline
         step.params["forbidden_tools"] = sorted(forbidden)
         flags = {"run_ddgun": {"ddgun_predict"}, "run_esm": {"esm2_predict", "esm2"},
+                 'run_thermompnn': {'thermompnn_predict'},
                  "run_colabfold": {"colabfold_predict"},
                  "run_coevolution": {"evcouplings_analyze"}}
         for flag, tools in flags.items():
@@ -2554,11 +2555,7 @@ class AgentOrchestrator:
         )
         if concrete_current_input:
             return True
-        new_tokens = [
-            token for token in policy_tokens("new_task_tokens")
-            if token not in {"重新分析", "重新规划"}
-        ]
-        return any(token in lower for token in new_tokens)
+        return explicit_new_task(message)
 
     @classmethod
     def _message_requests_venus_gap_followup(cls, message: str) -> bool:
@@ -3000,7 +2997,8 @@ class AgentOrchestrator:
                                 for t in reversed(concrete_users)
                                 if cls._extract_pdb_id_reference(user_task_text(t)) or cls._extract_uniprot_reference(user_task_text(t))), "")
         wants = (cls._message_requests_continuation(message) or continuation_request(message)
-                 or mutation_turn_kind(message) == "extension" or bool(route.get("workflow_id")))
+                 or mutation_turn_kind(message) in {"extension", "review"}
+                 or bool(route.get("workflow_id")))
         if prior_route.get('workflow_id') == 'WF-STABILITY' and (
                 re.search(r'补充|条件|辅因子|缓冲液|测定方法|\bpH\b', message, re.I)
                 or evaluate_enzyme_workflow_runtime(message, history).get('task_relation') == 'ASSAY_UPDATE'):
@@ -4838,7 +4836,8 @@ class AgentOrchestrator:
                 "logic": [
                     "沿用已上传结构和逐轮补充的目标；实验条件未知时仍可探索。",
                     "计算全部残基的可及面积与接触环境，核对WT和输入序列/作者编号，避开已知功能及配体、金属和二硫键相关位点。",
-                    "从埋藏疏水位点生成保守侧链堆积探针；标准/深入模式尝试DDGun和ESM独立评分，不合并不同量纲。",
+                    "逐项评估17条策略：T1默认评估，T2按真实特征触发；记录命中、零候选、缺证据、未实现和失败，未实现策略不伪装成跑通。",
+                    "标准/深入模式尝试DDGun与ThermoMPNN独立单点评分，保留各自方向与覆盖率；ESM可作为独立进化偏好分支，不当热稳定性证据。双点设计不拆成单点冒充组合评分。",
                     "实际工具结果决定候选、风险和数量；评分失败明确标注，不用LLM凑数。实验收益需WT对照验证。",
                 ],
                 "output": "输出研究假设的具体替换、双编号、坐标证据、独立评分回执与缺口；不宣称已提高95℃残余酶活，也不放行正式实验集合。",
@@ -6756,7 +6755,8 @@ class AgentOrchestrator:
         params = {'sequence': sequence, 'chain_id': chain, 'objective': assay.get('thermal_objective', {}), 'analysis_mode': 'exploration',
                   'mutations': self._extract_requested_mutations(task), 'candidate_positions': self._extract_requested_positions(task),
                   'msa_policy': 'local', 'offline': offline, 'forbidden_tools': sorted(forbidden),
-                  'run_ddgun': depth != 'fast' and not offline, 'run_esm': depth != 'fast' and not offline,
+                  'run_ddgun': depth != 'fast' and not offline, 'run_esm': False,
+                  'run_thermompnn': depth != 'fast' and not offline,
                   'run_colabfold': not object_name and depth == 'deep' and not offline,
                   'run_coevolution': False, 'run_database_lookup': bool(uid), 'uniprot_id': uid or ''}
         count = requested_candidate_count(task)
@@ -10868,6 +10868,27 @@ class AgentOrchestrator:
 
     @staticmethod
     async def _attach_site_features_artifact(step: PlanStep, current_user: dict | None) -> None:
+        if step.tool_name == 'thermostability_candidate_workflow' and isinstance(step.result, dict):
+            exports=step.result.get('review_exports') or {}
+            try:
+                user_id=int(current_user['id']) if current_user else None
+            except (KeyError,TypeError,ValueError):
+                user_id=None
+            for artifact in exports.values():
+                if user_id is None:
+                    artifact['download_status']='unavailable_without_user_context'
+                    continue
+                try:
+                    from app.services import storage
+                    stored=await storage.upload_file(artifact['content'].encode('utf-8-sig'),
+                        artifact['filename'],content_type='text/csv',folder=f'uploads/user_{user_id}/reports')
+                    artifact.update(download_status='ready',download_url=stored['download_url'])
+                except Exception as exc:
+                    logger.warning('Could not store thermal review CSV: %s',type(exc).__name__)
+                    artifact['download_status']='storage_failed'
+            from app.services.thermostability_report import render_thermostability_report
+            step.result['report_markdown']=render_thermostability_report(step.result)
+            return
         if step.tool_name != "build_site_structure_function_features" or not isinstance(step.result, dict):
             return
         features = step.result.get("features")

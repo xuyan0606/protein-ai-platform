@@ -1,0 +1,33 @@
+{
+  "version": "thermal_strategy_rules_v1",
+  "thresholds": {
+    "surface_rsa": 0.4, "patch_rsa": 0.5, "core_rsa": 0.1,
+    "patch_distance_angstrom": 8.0, "patch_min_residues": 3,
+    "disulfide_cb_min_angstrom": 3.5, "disulfide_cb_max_angstrom": 6.0,
+    "saltbridge_min_angstrom": 4.0, "saltbridge_max_angstrom": 8.0,
+    "bfactor_window": 5, "bfactor_sigma": 1.5,
+    "acidic_ph_threshold": 5.0, "acidic_charge_weight": 0.5,
+    "max_hypotheses_per_strategy": 30,
+    "cavity_minimum_volume_angstrom3": 15.0, "cavity_grid_spacing_angstrom": 1.0,
+    "cavity_max_grid_points": 1200000
+  },
+  "strategies": [
+    {"id":"S01","name":"空腔填充","tier":"T1","feature":"buried_cavity","dependency":"需真实空腔体积检测；RSA与接触数不能替代"},
+    {"id":"S02","name":"核心疏水保守替换","tier":"T1","feature":"hydrophobic_core"},
+    {"id":"S03","name":"二硫键引入","tier":"T2","feature":"cys_pair_candidate"},
+    {"id":"S04","name":"盐桥与离子对","tier":"T1","feature":"charge_pair"},
+    {"id":"S05","name":"氢键网络补强","tier":"T2","feature":"unsatisfied_hbond","dependency":"缺少供受体、角度及未满足氢键检测器"},
+    {"id":"S06","name":"实验B因子热点刚性化","tier":"T1","feature":"flexibility_hotspot"},
+    {"id":"S07","name":"转角与loop引入Pro","tier":"T1","feature":"pro_compatible_loop"},
+    {"id":"S08","name":"螺旋i,i+4离子对","tier":"T2","feature":"helix_pair"},
+    {"id":"S09","name":"表面电荷优化","tier":"T1","feature":"surface_charge"},
+    {"id":"S10","name":"表面疏水斑清除","tier":"T2","feature":"hydrophobic_patch"},
+    {"id":"S11","name":"糖基化位点处理","tier":"T2","feature":"glycosylation_motif"},
+    {"id":"S12","name":"脱酰胺与异构化风险","tier":"T2","feature":"deamidation_site"},
+    {"id":"S13","name":"氧化敏感位点替换","tier":"T2","feature":"oxidation_site"},
+    {"id":"S14","name":"蛋白水解位点处理","tier":"T2","feature":"proteolysis_site"},
+    {"id":"S15","name":"多突变组合与上位性","tier":"T2","feature":"combination_ready","dependency":"需明确Tier-A定义、组合预算与组合评分器，不能把单点分数求和当上位性"},
+    {"id":"S16","name":"寡聚界面稳定","tier":"T2","feature":"oligomer_interface","dependency":"需已确认生物学装配及界面突变构象评估"},
+    {"id":"S17","name":"全策略clash后处理","tier":"postprocess","feature":"mutant_geometry"}
+  ]
+}

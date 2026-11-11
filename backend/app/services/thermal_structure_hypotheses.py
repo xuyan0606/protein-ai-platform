@@ -11,7 +11,8 @@ def _substitution_type(row: dict) -> str:
     return f'{code[0]}>{code[-1]}'
 
 
-def select_diverse_candidates(rows: list[dict], budget: int, *, unique_positions: bool = True) -> tuple[list[dict], dict]:
+def select_diverse_candidates(rows: list[dict], budget: int, *, unique_positions: bool = True,
+                              exclude_adverse_ddgun: bool = True) -> tuple[list[dict], dict]:
     """Constrain automatic probe enrichment without changing independent scores.
 
     One substitution type can occupy at most a third (rounded up) of the
@@ -22,6 +23,7 @@ def select_diverse_candidates(rows: list[dict], budget: int, *, unique_positions
     automatic = any(any(s.get('kind') == 'coordinate_packing_probe' for s in r.get('sources', [])) for r in rows)
     cap = max(1, math.ceil(budget / 3)) if automatic else budget
     selected, seen, counts, adverse = [], set(), Counter(), []
+    decisions = []
     for row in rows:
         kind = _substitution_type(row)
         generated = any(s.get('kind') == 'coordinate_packing_probe' for s in row.get('sources', []))
@@ -29,21 +31,31 @@ def select_diverse_candidates(rows: list[dict], budget: int, *, unique_positions
         ddg = ddgun.get('ddg')
         if generated and type(ddg) in (int, float) and math.isfinite(ddg) and ddg < 0:
             adverse.append({'mutation': row['mutation'], 'predicted_ddg': ddg,
-                            'reason': 'adverse_ddgun_not_used_for_diversity_backfill'})
-            continue
-        if ((unique_positions and row['position'] in seen) or counts[kind] >= cap):
+                            'reason': 'adverse_ddgun_not_used_for_diversity_backfill' if exclude_adverse_ddgun
+                                      else 'adverse_ddgun_retained_for_manual_review'})
+            if exclude_adverse_ddgun:
+                decisions.append({'mutation':row['mutation'],'decision':'not_displayed','reason':'adverse_ddgun_policy'})
+                continue
+        reason = ('display_budget_exhausted' if len(selected)>=budget else
+                  'position_already_selected' if unique_positions and row['position'] in seen else
+                  'substitution_type_cap' if counts[kind]>=cap else None)
+        if reason:
+            decisions.append({'mutation':row['mutation'],'decision':'not_displayed','reason':reason})
             continue
         selected.append(row)
         seen.add(row['position'])
         counts[kind] += 1
-        if len(selected) >= budget:
-            break
+        decisions.append({'mutation':row['mutation'],'decision':'displayed','reason':'within_display_budget'})
     return selected, {
         'rule_version': 'automatic_probe_substitution_cap_v1',
         'substitution_cap_applied': automatic, 'max_per_substitution_type': cap,
         'pool_substitution_counts': dict(Counter(_substitution_type(r) for r in rows)),
         'selected_substitution_counts': dict(counts), 'shortfall': max(0, budget - len(selected)),
-        'adverse_ddgun_exclusions': adverse,
+        'model_hard_filter_applied': exclude_adverse_ddgun,
+        'adverse_ddgun_exclusions': adverse if exclude_adverse_ddgun else [],
+        'adverse_ddgun_review': [] if exclude_adverse_ddgun else adverse,
+        'candidate_decisions': decisions,
+        'decision_counts': dict(Counter(r['decision'] for r in decisions)),
         'meaning': '候选覆盖约束，不是成功率或效能评分；不足时不放宽上限补位。',
     }
 

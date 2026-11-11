@@ -131,6 +131,18 @@ def test_diversity_does_not_backfill_with_ddgun_adverse_automatic_probes():
     assert {r['mutation'] for r in audit['adverse_ddgun_exclusions']} == {'L20I', 'I21V'}
 
 
+def test_every_candidate_has_a_display_decision_including_budget_and_duplicate_positions():
+    rows=[candidate('L1V',1.),candidate('L1I',.9),candidate('I2V',.8),candidate('M3L',.7)]
+    selected,audit=hypotheses.select_diverse_candidates(rows,2,exclude_adverse_ddgun=False)
+    assert [r['mutation'] for r in selected]==['L1V','I2V']
+    decisions={r['mutation']:r for r in audit['candidate_decisions']}
+    assert len(decisions)==len(rows)
+    assert decisions['L1I']['reason']=='position_already_selected'
+    assert decisions['M3L']['reason']=='display_budget_exhausted'
+    assert decisions['L1V']['decision']=='displayed'
+    assert sum(audit['decision_counts'].values())==len(rows)
+
+
 @pytest.mark.parametrize('blocked', [False, True])
 def test_valine_overlap_screen_is_invariant_to_rigid_motion(blocked):
     pdb, mapping, evidence = fixture('A', blocked)

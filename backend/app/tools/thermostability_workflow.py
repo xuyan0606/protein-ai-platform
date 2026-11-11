@@ -13,15 +13,41 @@ from app.tools.registry import ToolRegistry
 
 def _finish(result: dict) -> dict:
     from app.services.thermostability_report import render_thermostability_report
+    def diagnostic_value(value):
+        if isinstance(value,float) and not math.isfinite(value):
+            return str(value)
+        if isinstance(value,dict):
+            return {k:diagnostic_value(v) for k,v in value.items()}
+        if isinstance(value,list):
+            return [diagnostic_value(v) for v in value]
+        return value
+    if 'branches' in result:
+        result['branches'] = diagnostic_value(result['branches'])
+    scored = {r['mutation']:r for r in result.get('screened_candidates', result.get('preliminary_candidates', []))}
+    selected = {r['mutation'] for r in result.get('preliminary_candidates', [])}
+    for run in result.get('strategy_runs', []):
+        codes = {r['mutation'] for r in run['filtered_candidates']}
+        run['scoring_coverage'] = {}
+        for key in ('ddgun','thermompnn','esm_preference'):
+            count = sum(bool(scored.get(code,{}).get('scores',{}).get(key)) for code in codes)
+            run['scoring_coverage'][key] = {'requested':len(codes), 'returned':count,
+                                           'complete':bool(codes) and count==len(codes)}
+        run['selected_mutations'] = sorted(codes & selected)
+        run['candidate_scores'] = {code:scored[code]['scores'] for code in sorted(codes) if code in scored}
+    if result.get('strategy_runs'):
+        from app.services.thermal_review_exports import review_exports
+        result['review_exports'] = review_exports(result)
     result["report_markdown"] = render_thermostability_report(result)
     return result
 
 
 def _pareto_layers(rows: list[dict]) -> None:
     """Only compare complete, like-for-like score vectors; never add scales."""
-    comparable = [r for r in rows if r["scores"]["ddgun"] is not None and r["scores"]["esm_preference"] is not None]
+    keys = [key for key in ('ddgun','thermompnn','esm_preference') if any(r['scores'].get(key) is not None for r in rows)]
+    comparable = [r for r in rows if len(keys)>=2 and all(r['scores'].get(key) is not None for key in keys)]
     def vector(row):
-        return (row["scores"]["ddgun"]["ddg"], row["scores"]["esm_preference"]["score"])
+        values={'ddgun':lambda s:s['ddg'], 'thermompnn':lambda s:-s['ddg_pred'], 'esm_preference':lambda s:s['score']}
+        return tuple(values[key](row['scores'][key]) for key in keys)
     remaining = list(comparable)
     layer = 1
     while remaining:
@@ -50,11 +76,12 @@ async def thermostability_candidate_workflow(
     analysis_mode: str = "strict",
     identity_reference_result: dict | None = None,
     prior_blast_tasks: list[dict] | None = None,
+    run_thermompnn: bool = False,
 ) -> dict[str, Any]:
     """Produce reviewed hypotheses; absence of an optional predictor is explicit."""
     from app.tools import thermostability_adapters as adapters
 
-    requested = {"ddgun": run_ddgun, "esm": run_esm, "colabfold": run_colabfold, "coevolution": run_coevolution}
+    requested = {"ddgun": run_ddgun, "esm": run_esm, "colabfold": run_colabfold, "coevolution": run_coevolution, 'thermompnn':run_thermompnn}
     forbidden = set(forbidden_tools or [])
     database_was_requested = run_database_lookup
     run_database_lookup = run_database_lookup and "get_stability_data" not in forbidden
@@ -62,6 +89,7 @@ async def thermostability_candidate_workflow(
     run_esm = run_esm and not offline and "esm2_predict" not in forbidden
     run_colabfold = run_colabfold and not offline and "colabfold_predict" not in forbidden
     run_coevolution = run_coevolution and not offline and "evcouplings_analyze" not in forbidden
+    run_thermompnn = run_thermompnn and not offline and 'thermompnn_predict' not in forbidden
 
     sequence = "".join(sequence.split()).upper() if isinstance(sequence, str) else ""
     inputs = dict(sequence=sequence, objective=objective, identity_profile=identity_profile,
@@ -72,8 +100,8 @@ async def thermostability_candidate_workflow(
                   assay_budget=assay_budget, full_length_start=full_length_start, analysis_mode=analysis_mode,
                   identity_reference_result=identity_reference_result)
     result = build_screen(**inputs)
-    branches = {key: {"status": "not_requested"} for key in ("database", "colabfold", "ddgun", "esm", "coevolution")}
-    active = {"ddgun": run_ddgun, "esm": run_esm, "colabfold": run_colabfold, "coevolution": run_coevolution}
+    branches = {key: {"status": "not_requested"} for key in ("database", "colabfold", "ddgun", "esm", "coevolution", 'thermompnn')}
+    active = {"ddgun": run_ddgun, "esm": run_esm, "colabfold": run_colabfold, "coevolution": run_coevolution, 'thermompnn':run_thermompnn}
     for key, was_requested in requested.items():
         if was_requested and not active[key]:
             branches[key] = {"status": "skipped", "reason": "user_execution_constraint"}
@@ -88,7 +116,10 @@ async def thermostability_candidate_workflow(
     if exploring and result.get('structure', {}).get('status') == 'mapped':
         from app.tools.site_structure_function_features import build_site_structure_function_features
         # Consume all rows in memory before any UI/checkpoint preview truncation.
-        features = await build_site_structure_function_features(pdb_data=pdb_data, chain_id=chain_id)
+        try:
+            features = await build_site_structure_function_features(pdb_data=pdb_data, chain_id=chain_id)
+        except Exception as exc:
+            features = {'status': 'failed', 'reason': f'structure_features_failed:{type(exc).__name__}'}
         if features.get('status') == 'completed':
             inputs['structure_features'] = {**features, 'structure_sha256': hashlib.sha256(pdb_data.encode()).hexdigest()}
             result = build_screen(**inputs)
@@ -97,6 +128,9 @@ async def thermostability_candidate_workflow(
                 result['prior_blast_tasks'] = prior_blast_tasks
             result['structure_feature_receipt'] = {'status': 'completed', 'rows_evaluated': len(features.get('features', [])),
                 'structure_sha256': hashlib.sha256(pdb_data.encode()).hexdigest(), 'preview_used_for_selection': False}
+        else:
+            result['structure_feature_receipt'] = {'status': features.get('status', 'failed'),
+                'reason': features.get('reason') or 'structure_features_not_completed', 'rows_evaluated': 0}
     if run_database_lookup:
         from app.tools.data_lookup import get_stability_data
         try:
@@ -139,19 +173,64 @@ async def thermostability_candidate_workflow(
                 branches[key] = {'status': 'not_run', 'reason': 'no_eligible_hypotheses'}
         return _finish(result)
     codes = [r["mutation"] for r in rows]
+    if run_thermompnn:
+        from app.services.thermal_model_coordinates import model_pdb
+        from app.tools.thermompnn_predict import thermompnn_predict
+        try:
+            remapped,provenance=model_pdb(sequence, inputs.get('pdb_data') or '', inputs['chain_id'])
+            prediction=await thermompnn_predict(remapped,codes,sequence=sequence,chain_id=inputs['chain_id'])
+            predictions=prediction.get('predictions')
+            valid=(prediction.get('status')=='completed' and prediction.get('model')=='ThermoMPNN'
+                and bool(prediction.get('model_version'))
+                and isinstance(prediction.get('model_sha256'),str) and len(prediction['model_sha256'])==64
+                and prediction.get('input_sha256')==provenance['model_structure_sha256']
+                and prediction.get('chain_id')==inputs['chain_id']
+                and isinstance(predictions,list) and len(predictions)==len(codes)
+                and all(isinstance(r,dict) and r.get('mutation') in codes and type(r.get('ddg_pred')) in (int,float)
+                    and math.isfinite(r['ddg_pred']) for r in predictions)
+                and len({r['mutation'] for r in predictions})==len(codes))
+            if valid:
+                branches['thermompnn']={**prediction,**provenance,
+                    'candidate_coverage':{'requested':len(codes),'returned':len(predictions),'complete':True},
+                    'direction':'lower=predicted_stabilizing', 'sign_convention':'negative=predicted_stabilizing',
+                    'scientific_boundary':'结构单点ΔΔG模型；不推断Tm、95℃酶活或组合效应；原始分数独立展示。'}
+                lookup={r['mutation']:r for r in predictions}
+                for row in rows:
+                    row['scores']['thermompnn']={**lookup[row['mutation']], 'model':'ThermoMPNN',
+                        'model_version':prediction['model_version'],'model_sha256':prediction['model_sha256'],
+                        'unit':'kcal/mol','direction':'lower=predicted_stabilizing',
+                        'sign_convention':'negative=predicted_stabilizing'}
+            else:
+                branches['thermompnn']={**prediction,'status':'blocked',
+                    'blocked_reason':prediction.get('blocked_reason') or 'thermompnn_complete_unique_finite_bound_scores_required',
+                    'candidate_coverage':{'requested':len(codes),'returned':len(predictions) if isinstance(predictions,list) else 0,'complete':False}}
+        except Exception as exc:
+            branches['thermompnn']={'status':'blocked','predictions':[],
+                'blocked_reason':f'thermompnn_structure_or_inference_failed:{type(exc).__name__}'}
     if run_ddgun:
         # Sequence mode avoids treating input positions as PDB author numbers.
         # Direct DDGun3D remains available with its stricter numbering contract.
-        branches["ddgun"] = await adapters.ddgun_predict(sequence, codes)
+        try:
+            branches["ddgun"] = await adapters.ddgun_predict(sequence, codes)
+        except Exception as exc:
+            branches["ddgun"] = {'status':'blocked', 'blocked_reason':f'ddgun_request_failed:{type(exc).__name__}', 'predictions':[]}
         prediction = branches["ddgun"]
         if prediction.get("status") == "completed":
-            lookup = {r["mutation"]: r for r in prediction["predictions"]}
-            for row in rows:
-                raw = lookup[row["mutation"]]
-                row["scores"]["ddgun"] = {**raw, "method": "DDGun_sequence",
-                    "sequence_sha256": result["sequence_sha256"],
-                    "algorithm_commit": prediction.get("algorithm_commit"),
-                    "database_version": prediction.get("database_version")}
+            predictions = prediction.get('predictions')
+            valid = (isinstance(predictions,list) and len(predictions)==len(codes)
+                and all(isinstance(r,dict) and r.get('mutation') in codes
+                    and type(r.get('ddg')) in (int,float) and math.isfinite(r['ddg']) for r in predictions)
+                and len({r['mutation'] for r in predictions})==len(codes))
+            if valid:
+                lookup = {r['mutation']:r for r in predictions}
+                for row in rows:
+                    row['scores']['ddgun'] = {**lookup[row['mutation']], 'method':'DDGun_sequence',
+                        'sequence_sha256':result['sequence_sha256'], 'algorithm_commit':prediction.get('algorithm_commit'),
+                        'database_version':prediction.get('database_version')}
+            else:
+                branches['ddgun'] = {**prediction, 'status':'blocked',
+                    'blocked_reason':'ddgun_complete_unique_finite_scores_required',
+                    'candidate_coverage':{'requested':len(codes), 'returned':len(predictions) if isinstance(predictions,list) else 0, 'complete':False}}
     if run_esm:
         valid = False
         try:
@@ -194,26 +273,29 @@ async def thermostability_candidate_workflow(
     _pareto_layers(rows)
     def order(row):
         score = row['scores']['ddgun']
+        structural = row['scores'].get('thermompnn')
         return (row.get('pareto_layer', 999), -(score['ddg'] if score else float('-inf')),
-                bool(row['risks']), row['position'], row['mutant'])
+                structural['ddg_pred'] if structural else float('inf'), bool(row['risks']), row['position'], row['mutant'])
     rows.sort(key=order)
     for row in rows:
         if row["scores"]["ddgun"] is None:
             row["missing_evidence"].append("ddgun_predicted_ddg")
-        if row["scores"]["esm_preference"] is None:
+        if run_esm and row["scores"]["esm_preference"] is None:
             row["missing_evidence"].append("esm_evolutionary_preference")
+        if run_thermompnn and row['scores'].get('thermompnn') is None:
+            row['missing_evidence'].append('thermompnn_predicted_ddg')
         if row["structure_position"] is None:
             row["missing_evidence"].append("mapped_structure_context")
     if exploring:
         from app.services.thermal_structure_hypotheses import select_diverse_candidates
         result['screened_candidates'] = rows
-        selected, audit = select_diverse_candidates(rows, assay_budget)
+        selected, audit = select_diverse_candidates(rows, assay_budget, exclude_adverse_ddgun=False)
         result['selection_audit'] = audit
         result['preliminary_candidates'] = selected
         result['candidate_counts'] = {'screened': len(rows), 'requested_positions': assay_budget,
                                       'returned_positions': len(selected), 'shortfall': max(0, assay_budget-len(selected))}
         result['selection_policy'] = ('unique_positions_and_auto_probe_substitution_cap_with_pareto_then_ddgun_order; '
-                                      'shortfalls_not_backfilled; unscored_rows_are_hypotheses')
+                                      'shortfalls_not_backfilled; unscored_rows_are_hypotheses; no_model_hard_filter')
     else:
         result["experimental_plan"].update(
             single_mutants=[r["mutation"] for r in rows[:assay_budget]],
@@ -229,7 +311,8 @@ ToolRegistry.register(
     name="thermostability_candidate_workflow",
     description=("Thermal single-mutant experimental hypotheses with explicit assay endpoint/activity retention, "
                  "sequence-bound identity, numbering, functional protection and deterministic source union. "
-                 "Optional DDGun/ESM/ColabFold/coevolution; never claims measured stability improvement."),
+                 "Optional independent DDGun/ThermoMPNN; ESM preference/ColabFold/coevolution remain explicit options; "
+                 "never claims measured stability improvement."),
     parameters={"type": "object", "properties": {
         "analysis_mode": {"type": "string", "enum": ["strict", "exploration"], "default": "strict"},
         "identity_reference_result": {"type": "object"},
@@ -244,7 +327,7 @@ ToolRegistry.register(
         "protected_sites": {"type": "array", "items": {"type": "object"}},
         "assay_budget": {"type": "integer", "minimum": 1, "maximum": 384, "default": 12},
         "full_length_start": {"type": "integer", "minimum": 1, "description": "Verified full-length coordinate of input residue 1; omit if unknown (no full-length positions will be claimed)."},
-        **{key: {"type": "boolean", "default": False} for key in ("run_ddgun", "run_esm", "run_colabfold", "run_coevolution")},
+        **{key: {"type": "boolean", "default": False} for key in ("run_ddgun", "run_esm", "run_colabfold", "run_coevolution", 'run_thermompnn')},
         "msa_policy": {"type": "string", "enum": ["local", "public"], "default": "local"},
         "msa_quality": {"type": "object"}, "alignment": {"type": "string"},
         "run_database_lookup": {"type": "boolean", "default": False}, "uniprot_id": {"type": "string"},

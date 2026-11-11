@@ -569,7 +569,7 @@ class TestSiteStructureFunctionFeatures:
         from app.tools.residue_mapping_sifts import residue_mapping_sifts
         from app.tools.site_structure_function_features import build_site_structure_function_features
 
-        cif = (Path(__file__).resolve().parents[2] / "deploy_data/pdb/4HHB.cif").read_text(encoding="utf-8")
+        cif = (Path(__file__).resolve().parent / "fixtures/4HHB.cif").read_text(encoding="utf-8")
         mapping = await residue_mapping_sifts(pdb_data=cif, pdb_id="4HHB", chain_id="A")
         assert mapping["status"] == "completed"
         assert mapping["mapping_count"] == 141

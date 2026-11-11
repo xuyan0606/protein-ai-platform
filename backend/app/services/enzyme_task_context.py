@@ -109,6 +109,12 @@ def explicit_new_task(text: str) -> bool:
         r"(?:不是|并非|并不是|不算|不要|别|不用|无需)\s*"
         r"(?:(?:再|重新|另外)\s*)?(?:开|开始|启动|建|创建)?\s*(?:一个|个)?\s*"
         r"(?:新的?\s*(?:任务|对话)|重新开(?:任务|对话)?)", "", value)
+    # A method/tool change acts on the current object. Its grammatical object
+    # must not be confused with changing the enzyme or explicitly resetting.
+    value = re.sub(r'(?:另一个|另一条|换一个|换个|换条)\s*(?:新的?)?\s*'
+                   r'(?:策略|流程|方法|工具|模型|算法|评分|参数|路线|报告|表格|建议|方案)', '', value)
+    value = re.sub(r'(?:触发|识别为|判定为|当作|认为是)\s*(?:新的?)?任务', '', value)
+    value = re.sub(r'(?:什么是|何为)\s*新任务|新任务(?:是什么|是什么意思|的关键词)', '', value)
     return bool(re.search(
         r"重新开|新任务|新对话|新的对话|另一条|另一个|换一个|换个|换条|不同序列|不要接着|不是上面|"
         r"another sequence|different sequence|new task|new conversation|start over", value, re.I
@@ -126,6 +132,11 @@ def continuation_request(text: str) -> bool:
     value = user_task_text(text).strip()
     if not value or explicit_new_task(value):
         return False
+    if re.search(r'(?:另一个|另一条|换一个|换个|换条)\s*(?:新的?)?\s*'
+                 r'(?:策略|流程|方法|工具|模型|算法|评分|参数|路线|报告|表格|建议|方案)', value):
+        return True
+    if re.search(r'(?:不要|不用|无需|别)\s*(?:重新)?(?:开|启动|重启)(?:流程|任务|对话)', value):
+        return True
     return reanalyze_current(value) or bool(re.search(r'沿用(?:原|上)|接着(?:原|上)|上一个项目', value)) or bool(re.match(
         r"^(?:继续|接着|进一步)(?:深度)?(?:分析|解决|修复|检查|审计|打磨|优化|处理)?"
         r"|^(?:深度分析|再说人话|再说|这个什么意思|什么意思|展开|详细说说)", value, re.I

@@ -391,6 +391,20 @@ def _explore(result: dict, sequence: str, identity: dict, module: dict, mutation
                                audit=probe_audit) if pdb_data else []
     if probe_audit:
         result['probe_generation_audit'] = probe_audit
+    from app.services.thermal_strategy_router import assess_strategies
+    strategy = assess_strategies(sequence, pdb_data, mapping, risks, protected, structure_features,
+                                 result.get('objective') or {}, structure_source, generated)
+    result['strategy_runs'] = strategy['strategy_runs']
+    result['feature_tags'] = strategy['profile']
+    result['strategy_rule_version'] = strategy['rule_version']
+    result['strategy_rule_config_sha256'] = strategy['rule_config_sha256']
+    result['strategy_effective_thresholds'] = strategy['effective_thresholds']
+    result['cavity_detector_receipt'] = strategy['cavity_receipt']
+    result['strategy_hypotheses_pending_geometry'] = strategy['pending_geometry']
+    # Independent single-mutant scoring is allowed before full geometry review.
+    # Paired designs remain explicit in the strategy receipt, never split into
+    # singles or sent to models that do not support combination inference.
+    generated = [row for row in strategy['generated'] if MUTATION.fullmatch(row['mutation'])]
     generated_by_code = {r['mutation']: r for r in generated}
     codes = list(mutations)
     for source in sources:
@@ -430,10 +444,22 @@ def _explore(result: dict, sequence: str, identity: dict, module: dict, mutation
                                 'sources': generated_by_code.get(code, {}).get('sources') or [
                                     {'kind': 'explicit_unscored_hypothesis', 'reference': 'provided_substitution', 'sequence_sha256': digest}],
                                 'rationale': generated_by_code.get(code, {}).get('rationale', '输入替换；尚需工具独立评分与功能复核。'),
+                                'strategy_context': {k:v for k,v in generated_by_code.get(code, {}).items()
+                                    if k in {'ph_context','route_weight','cavity_evidence','validation_status','author_coordinates'}},
                                 'scores': {'ddgun': None, 'esm_preference': None}, 'missing_evidence': [],
                                 'manual_review_required': True,
                                 'evidence_level': 'unverified_design_hypothesis',
-                                'risks': sorted(risks.get(pos, set()) | {'incomplete_functional_protection', 'unverified_thermal_and_activity_effect'})})
+                                'risks': sorted(risks.get(pos, set()) | set(generated_by_code.get(code, {}).get('risks', []))
+                                                | {'incomplete_functional_protection', 'unverified_thermal_and_activity_effect'}
+                                                | ({'pending_mutant_geometry'} if any(s.get('kind') == 'strategy_hypothesis'
+                                                    for s in generated_by_code.get(code, {}).get('sources', [])) else set()))})
+    accepted = {row['mutation'] for row in preliminary}
+    for run in result['strategy_runs'][:-1]:
+        run['filtered_candidates'] = [row for row in run['raw_candidates'] if row['mutation'] in accepted]
+        run['filtered_count'] = len(run['filtered_candidates'])
+        run['pending_geometry_count'] = sum(not any(s.get('geometry_screen', {}).get('rotamers_without_severe_overlap', 0) > 0
+                                                   for s in row.get('sources', [])) for row in run['raw_candidates'])
+        run['filter_reason'] = '单点进入独立评分，双点等待组合评分；几何校验与评分互不替代，详见S17'
     result.update(status='partial', analysis_mode='exploration', evidence_level='research_only_exploration',
                   candidate_output_allowed=False, structure=structure, preliminary_candidates=preliminary,
                   candidates=[], experimental_plan={},

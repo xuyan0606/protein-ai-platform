@@ -104,6 +104,27 @@ def test_negated_task_boundary_keeps_current_protein():
     assert SEQ in AgentOrchestrator._build_context_for_message("继续", history)
 
 
+@pytest.mark.parametrize('message',[
+    '换一个策略继续分析这个酶',
+    '用另一个模型复核这些突变体',
+    '不要重新开流程，解释报告中的策略',
+    '分析、突变体、策略这些词为什么会触发新任务？',
+])
+def test_discussing_or_changing_method_does_not_reset_the_protein(message):
+    from app.services.enzyme_task_context import explicit_new_task
+    assert not explicit_new_task(message)
+    assert not AgentOrchestrator._message_starts_new_protein_object_for_followup(message)
+    context=AgentOrchestrator._build_context_for_message(message,[user(f'提高热稳定性 {SEQ}')])
+    assert SEQ in context
+
+
+@pytest.mark.parametrize('message',['换一个蛋白做热稳定性改造','开始一个新的任务：分析另一个酶'])
+def test_real_object_switch_still_creates_a_task_boundary(message):
+    from app.services.enzyme_task_context import explicit_new_task
+    assert explicit_new_task(message)
+    assert AgentOrchestrator._message_starts_new_protein_object_for_followup(message)
+
+
 def test_context_labels_in_user_message_cannot_supply_prior_goal_or_input():
     result = evaluate("继续\n[Prior user request summary: 提高比活力]\n[Prior FASTA sequence: " + SEQ + "]")
     assert result["workflow_id"] is None

@@ -179,6 +179,52 @@ def _render_exploration(result: dict) -> str:
     if structure.get('status') == 'mapped':
         lines.append(f'- 已核对结构链 {_cell(structure.get("chain_id"))}，映射 {_cell(structure.get("mapped_positions"))} 个输入位置。')
     lines.extend(['', '### 当前可继续的改造方向', '', *['- ' + _cell(x) for x in result.get('analysis_directions', [])]])
+    runs = result.get('strategy_runs') or []
+    audit_lines = []
+    if runs:
+        states = {'completed_candidates':'已生成假设', 'completed_zero_candidates':'已评估，零候选',
+                  'not_triggered':'条件未命中', 'blocked_missing_evidence':'缺少证据',
+                  'not_implemented':'生成器未实现', 'failed':'执行失败', 'timed_out':'超时',
+                  'partial':'部分完成', 'not_run':'未执行'}
+        triggers = {'hit':'命中','not_hit':'未命中','unknown':'未知'}
+        lines.extend(['', '### 策略运行明细（17项）', '',
+                      'T1每轮默认评估；T2按特征触发。生成假设、可送单点评分和通过突变几何校验分别记录，不表示实验证实增稳。',
+                      '规则版本：' + _cell(result.get('strategy_rule_version')), '',
+                      '| 策略 | 层级 | 条件 | 运行状态 | 原始/可送单点评分 | 实际评分覆盖 | 实现状态 | 原因与证据 |',
+                      '|---|---|---|---|---|---|---|---|'])
+        for run in runs:
+            coverage = run.get('scoring_coverage') or {}
+            score_status = '；'.join(
+                f'{label} {coverage.get(key, {}).get("returned", 0)}/{run["filtered_count"]}'
+                f'（{(result.get("branches") or {}).get(branch, {}).get("status", "not_requested")}）'
+                for key, branch, label in [('ddgun','ddgun','DDGun'), ('thermompnn','thermompnn','ThermoMPNN')])
+            reasons = list(dict.fromkeys(str(v) for v in
+                [run.get('reason'), (run.get('evidence') or {}).get('reason')] if v))
+            lines.append('| ' + ' | '.join(_cell(v) for v in [run['id']+' '+run['name'], run['tier'],
+                triggers.get(run['trigger_status'],run['trigger_status']), states.get(run['status'],run['status']),
+                f'{run["raw_count"]}/{run["filtered_count"]}', score_status,
+                '已接入' if run.get('implementation_status')=='implemented' else '部分预筛' if run['id']=='S17' else '未实现',
+                '；'.join(reasons)]) + ' |')
+        geometry_run = next((r for r in runs if r['id']=='S17'), {})
+        lines.append(f'\n几何覆盖：{geometry_run.get("checked_count",0)}个通过有限A→V预筛；'
+                     f'{geometry_run.get("pending_count",0)}个仍待通用突变构象校验。没有全策略clash通过结论。')
+        for run in runs:
+            excluded=run.get('excluded_candidates') or []
+            if excluded:
+                audit_lines.append('- '+run['id']+' 排除：'+'；'.join(_cell(r['mutation'])+'（'+_cell(r['reason'])+'）' for r in excluded))
+        for run in runs:
+            if not run['raw_candidates']:
+                continue
+            audit_lines.extend(['', '#### '+run['id']+' '+run['name']+'：原始假设清单', '',
+                          '| 突变（输入1起编号） | 作者编号/映射 | 依据 | 当前去向 |', '|---|---|---|---|'])
+            scored = {row['mutation'] for row in run['filtered_candidates']}
+            for row in run['raw_candidates']:
+                coordinates=row.get('author_coordinates') or []
+                author='；'.join(f'{c.get("chain_id")}:{c.get("author_residue_number")}{c.get("insertion_code") or ""}'
+                    if c.get('author_residue_number') is not None else '未映射' for c in coordinates) or '未映射'
+                audit_lines.append('| ' + ' | '.join(_cell(v) for v in [row['mutation'],author,
+                    row.get('rationale'), '送入单点评分池；分数返回见实际评分覆盖；几何未验证或仅预筛，详见S17' if row['mutation'] in scored
+                    else '双点/多点待组合评分及几何复核' if ':' in row['mutation'] else '未进入单点评分池，详见过滤回执']) + ' |')
     preliminary = result.get('preliminary_candidates') or []
     audit = result.get('selection_audit') or {}
     if audit.get('substitution_cap_applied'):
@@ -189,44 +235,74 @@ def _render_exploration(result: dict) -> str:
                       '- 本轮选中分布：' + _cell(audit.get('selected_substitution_counts')),
                       '此限制用于控制筛选策略偏向，不代表各替换类型效能相同。'])
         if audit.get('adverse_ddgun_exclusions'):
-            lines.append('- 自动探针的DDGun预测不利，保留在筛查回执中、不用于多样性补位：' + _cell(audit['adverse_ddgun_exclusions']))
+            audit_lines.append('- 自动探针的DDGun预测不利，保留在筛查回执中、不用于多样性补位：' + _cell(audit['adverse_ddgun_exclusions']))
+        if audit.get('model_hard_filter_applied') is False:
+            lines.append('当前为开发复核模式：独立模型分数用于比较，不单独作硬淘汰阈值；全部已评分单点保留在CSV供人工复核。')
+        if audit.get('adverse_ddgun_review'):
+            audit_lines.append('- DDGun不利的自动探针仍保留为待复核假设：' + _cell(audit['adverse_ddgun_review']))
     generation = result.get('probe_generation_audit') or {}
     if generation.get('geometry_rejections'):
-        lines.append('- A→V 几何排查未通过：' + _cell(generation['geometry_rejections']))
+        lines.append(f'- A→V有限几何预筛排除{len(generation["geometry_rejections"])}项；逐项证据见附录。')
+        audit_lines.append('- A→V 几何排查未通过：' + _cell(generation['geometry_rejections']))
     if preliminary:
         counts = result.get('candidate_counts') or {}
         lines.extend(['', '### 工具支持的初步候选（研究假设，未验证）', '',
                       f'本轮筛查 {_cell(counts.get("screened"), str(len(preliminary)))} 个替换，展示 {len(preliminary)} 个位点。'
                       f'请求数量缺口：{_cell(counts.get("shortfall"), "未记录")}。',
                       '突变代码采用输入序列从1起的编号；作者编号单独列出，不能互换。', '',
-                      '| 输入编号突变 | PDB作者编号 | 实际结构证据 | 替换几何排查 | DDGun ΔΔG (kcal/mol) | ESM偏好 | 待验证风险 |',
-                      '|---|---|---|---|---|---|---|'])
+                      '| 输入编号突变 | PDB作者编号 | 策略来源/依据 | 替换几何排查 | DDGun ΔΔG (kcal/mol) | ThermoMPNN原始ΔΔG (kcal/mol) | ESM偏好 | 待验证风险 |',
+                      '|---|---|---|---|---|---|---|---|'])
         for row in preliminary:
             coordinate = row.get('structure_position') or {}
-            author = f'{coordinate.get("chain_id", "?")}:{coordinate.get("residue_number", "?")}{coordinate.get("insertion_code") or ""}'
+            author = (f'{coordinate.get("chain_id", "?")}:{coordinate.get("residue_number", "?")}{coordinate.get("insertion_code") or ""}'
+                      if coordinate else '未映射（仅序列假设）')
             sources = row.get('sources') or []
             features = next((s.get('features') for s in sources if s.get('features')), None)
             geometry = next((s.get('geometry_screen') for s in sources if s.get('geometry_screen')), None)
             scores = row.get('scores') or {}
             ddg, esm = scores.get('ddgun') or {}, scores.get('esm_preference') or {}
-            lines.append('| ' + ' | '.join(_cell(v, '未计算') for v in [row.get('mutation'), author, features, geometry,
-                ddg.get('ddg'), esm.get('score'), row.get('risks')]) + ' |')
-        lines.extend(['', '自动候选当前覆盖埋藏疏水位点的侧链重排/尺寸探针；可及面积和接触数不是空腔检测，替换方向仍是待检验假设。',
+            thermo=scores.get('thermompnn') or {}
+            basis=', '.join(dict.fromkeys(s.get('strategy_id') or s.get('reference','') for s in sources))
+            basis += '；' + str(row.get('rationale') or '')
+            if features:
+                basis += '；RSA='+str(features.get('rel_sasa'))+'；CA接触数='+str(features.get('contact_count_ca_8a'))
+            lines.append('| ' + ' | '.join(_cell(v, '未计算') for v in [row.get('mutation'), author, basis, geometry,
+                ddg.get('ddg'), thermo.get('ddg_pred'), esm.get('score'), row.get('risks')]) + ' |')
+        lines.extend(['', '自动候选按上述策略证据生成；序列motif、可及面积和接触数不是增稳结论，替换方向仍是待检验假设。',
                       'A→V须经三个理想化侧链构象的固定环境严重重叠排查；其他替换若标记not_evaluated，表示尚未计算突变构象。此排查未做能量优化，也不证明无碰撞或增稳。',
-                      'DDGun正值表示预测展开稳定性增加，负值表示预测不利；ESM仅表示进化偏好。均不证明95℃残余酶活改善，侧链碰撞与功能影响仍需复核。'])
+                      'DDGun正值表示预测展开稳定性增加；ThermoMPNN沿用原模型负值预测增稳的方向，不能把二者原始值直接相加。ESM仅表示进化偏好。均不证明指定热处理条件下的残余酶活改善，侧链碰撞与功能影响仍需复核。'])
     else:
         lines.extend(['', '当前尚无证据支持具体替换；先按以上方向分析，不虚构突变位点或改善幅度。'])
     if result.get('rejected'):
         lines.extend(['', '已排除已知保护位点或与输入野生型不符的突变：' + '、'.join(_cell(x.get('mutation')) for x in result['rejected'])])
     lines.extend(['', '### 实际评分分支', '', '| 分支 | 状态 | 说明 |', '|---|---|---|'])
     for name, branch in (result.get('branches') or {}).items():
-        lines.append(f'| {_cell(name)} | {_cell(branch.get("status"))} | '
+        label='ThermoMPNN' if name=='thermompnn' else name
+        lines.append(f'| {_cell(label)} | {_cell(branch.get("status"))} | '
                      f'{_cell(branch.get("blocked_reason") or branch.get("reason") or branch.get("scientific_boundary"), "见工具回执")} |')
+        coverage=branch.get('candidate_coverage')
+        if coverage:
+            lines.append(f'\n{label}覆盖：请求{coverage.get("requested")}，返回{coverage.get("returned")}；完整={coverage.get("complete")}。')
     for name, branch in (result.get('branches') or {}).items():
         if branch.get('algorithm_commit'):
             lines.append(f'\n{name}：算法版本 `{_cell(branch["algorithm_commit"])}`；数据库 `{_cell(branch.get("database_version"))}`。\n')
     if result.get('prior_blast_tasks'):
         lines.append('\n沿用本任务已有BLAST回执，未重复提交：' + _cell(result['prior_blast_tasks']))
+    exports=result.get('review_exports') or {}
+    if exports:
+        lines.extend(['', '### 人工复核数据', ''])
+        names={'strategy_status':'17策略运行状态','strategy_mutations':'各策略原始突变清单','independent_scores':'全部单点独立评分'}
+        for key,artifact in exports.items():
+            label=names.get(key,key)
+            url=artifact.get('download_url')
+            if artifact.get('download_status')=='ready' and isinstance(url,str) and url.startswith('/api/files/'):
+                lines.append(f'- [{label} CSV]({url})（{artifact.get("row_count",0)}行）')
+            elif artifact.get('download_status')=='storage_failed':
+                lines.append('- '+label+'：存储失败；CSV内容仍保留在工具原始回执，计算结果未丢失。')
+            else:
+                lines.append('- '+label+f'：{artifact.get("row_count",0)}行；已生成CSV数据，下载交付尚未完成。')
+    if audit_lines:
+        lines.extend(['', '### 附录：策略原始假设与过滤明细', '', *audit_lines])
     lines.extend(['', '### 如何继续', '',
                   '可直接说“继续做结构层面的热稳定性分析，实验条件未知”，或分轮补充已知信息；系统保留已有条件。',
                   '建议先做WT对照与热处理梯度，再确定评价指标和目标。BLAST尚在等待时先使用已完成分析，结果回来后补充身份依据。',
