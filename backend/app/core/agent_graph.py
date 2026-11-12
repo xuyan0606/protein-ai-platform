@@ -5967,6 +5967,8 @@ class AgentOrchestrator:
                     limit=None if step.tool_name in {"residue_mapping_sifts", "thermostability_candidate_workflow"} else 120000,
                 )
             )
+            if step.tool_name == "thermostability_candidate_workflow" and isinstance(step.result, dict):
+                raw_result = self._thermal_result_for_display(step.result, current_user)
             self._snapshot.step_results.append({
                 "step": i + 1, "tool": step.tool_name,
                 "status": step.status,
@@ -6021,6 +6023,8 @@ class AgentOrchestrator:
                     self._compact_result(step.tool_name, step.result) if step.result else step.error
                 )
             )
+            if step.tool_name == "thermostability_candidate_workflow" and isinstance(step.result, dict):
+                result_payload = self._thermal_result_for_display(step.result, current_user)
             tool_messages.append({
                 "role": "tool",
                 "tool_name": step.tool_name,
@@ -10844,6 +10848,24 @@ class AgentOrchestrator:
         lines.append("*本报告由酶蛋白 AI 平台生成；结构质量判断限于本轮实际完成的检查。*\n" if quality_only else "*本报告由酶蛋白 AI 平台生成；所有候选需经编号、功能和湿实验复核后才能进入结论。*\n")
 
         return "\n".join(lines)
+
+    @staticmethod
+    def _thermal_result_for_display(result: dict, current_user: dict | None) -> str:
+        """Keep owned report downloads usable after masking input metadata."""
+        payload = json.loads(AgentOrchestrator._sanitize_uploaded_metadata_text(
+            AgentOrchestrator._raw_tool_result(result)))
+        try:
+            user_id = int(current_user['id']) if current_user else 0
+        except (KeyError, TypeError, ValueError):
+            user_id = 0
+        if user_id > 0:
+            allowed = re.compile(rf'/api/files/uploads/user_{user_id}/reports/[a-f0-9]{{32}}\.csv/download')
+            for key in ('strategy_status', 'strategy_mutations', 'independent_scores'):
+                artifact = (result.get('review_exports') or {}).get(key) or {}
+                url = artifact.get('download_url')
+                if artifact.get('download_status') == 'ready' and isinstance(url, str) and allowed.fullmatch(url):
+                    payload['review_exports'][key]['download_url'] = url
+        return json.dumps(payload, ensure_ascii=False)
 
     @staticmethod
     def _raw_tool_result(result: Any) -> str:
